@@ -235,14 +235,14 @@ Besides presentations, Aspose.Slides allows you to merge other files:
 
 ## **FAQ**
 
-**Are there any limitations on the number of slides when merging presentations?**
+### Are there any limitations on the number of slides when merging presentations?
 
 No strict limitations. Aspose.Slides can handle large files, but performance depends on the size and system resources. For very large presentations, it's recommended to use a 64-bit JVM and allocate sufficient heap memory.
 
-**Can I merge presentations with embedded video or audio?**
+### Can I merge presentations with embedded video or audio?
 
 Yes, Aspose.Slides preserves multimedia content embedded in slides, but the final presentation might become significantly larger.
 
-**Will fonts be preserved when merging presentations?**
+### Will fonts be preserved when merging presentations?
 
 Yes. Fonts used in source presentations are preserved in the output file, assuming they are installed on the system or [embedded](/slides/java/embedded-font/).

@@ -101,22 +101,22 @@ To get more information about a presentation and its security attributes, you ma
 
 ## **FAQ**
 
-**How can I check whether fonts are embedded and which ones they are?**
+### How can I check whether fonts are embedded and which ones they are?
 
 Look for [embedded-font information](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) at the presentation level, then compare those entries with the set of [fonts actually used across content](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getfonts/) to identify which fonts are critical for rendering.
 
-**How can I quickly tell if the file has hidden slides and how many?**
+### How can I quickly tell if the file has hidden slides and how many?
 
 Iterate through the [slide collection](https://reference.aspose.com/slides/cpp/aspose.slides/slidecollection/) and inspect each slide's [visibility flag](https://reference.aspose.com/slides/cpp/aspose.slides/slide/get_hidden/).
 
-**Can I detect whether custom slide size and orientation are used, and whether they differ from the defaults?**
+### Can I detect whether custom slide size and orientation are used, and whether they differ from the defaults?
 
 Yes. Compare the current [slide size and orientation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slidesize/) with the standard presets; this helps anticipate behavior for printing and export.
 
-**Is there a quick way to see if charts reference external data sources?**
+### Is there a quick way to see if charts reference external data sources?
 
 Yes. Traverse all [charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/), check their [data source](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/), and note whether the data is internal or link-based, including any broken links.
 
-**How can I assess 'heavy' slides that may slow rendering or PDF export?**
+### How can I assess 'heavy' slides that may slow rendering or PDF export?
 
 For each slide, tally object counts and look for large images, transparency, shadows, animations, and multimedia; assign a rough complexity score to flag potential performance hotspots.

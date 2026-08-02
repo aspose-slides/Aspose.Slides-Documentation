@@ -120,18 +120,18 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Does SmartArt support mirroring or reversing for RTL languages?**
+### Does SmartArt support mirroring or reversing for RTL languages?
 
 Yes. The [SmartArt.is_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/is_reversed/) property switches the diagram direction from left-to-right to right-to-left, or back, when the selected SmartArt layout supports reversal.
 
-**How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
+### How can I copy SmartArt to the same slide or to another presentation while preserving formatting?
 
 You can [clone the SmartArt shape](/slides/python-net/shape-manipulations/) with [ShapeCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_clone/) or [clone the whole slide](/slides/python-net/clone-slides/) that contains the SmartArt. Both approaches preserve size, position, and formatting.
 
-**How do I render SmartArt to a raster image for preview or web export?**
+### How do I render SmartArt to a raster image for preview or web export?
 
 [Render the slide](/slides/python-net/convert-powerpoint-to-png/) or the whole presentation to PNG or JPEG. SmartArt is rendered as part of the slide.
 
-**How can I find a specific SmartArt object on a slide if there are several?**
+### How can I find a specific SmartArt object on a slide if there are several?
 
 Set a distinctive [Shape.alternative_text](https://reference.aspose.com/slides/python-net/aspose.slides/shape/alternative_text/) or [Shape.name](https://reference.aspose.com/slides/python-net/aspose.slides/shape/name/) value on the SmartArt shape, search for that value in [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/), and then check that the matching shape is a [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/).

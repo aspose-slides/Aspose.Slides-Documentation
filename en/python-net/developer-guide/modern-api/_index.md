@@ -264,14 +264,14 @@ Use the Modern API image-rendering methods instead of the API that renders to `a
 
 # **FAQ**
 
-**Why was `aspose.pydrawing.Graphics` dropped?**
+### Why was `aspose.pydrawing.Graphics` dropped?
 
 Support for `aspose.pydrawing.Graphics` is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/). Use `get_image` or `get_images` instead of rendering to `aspose.pydrawing.Graphics`.
 
-**What is the practical benefit of [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) compared to `aspose.pydrawing.Image`/`aspose.pydrawing.Bitmap`?**
+### What is the practical benefit of [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) compared to `aspose.pydrawing.Image`/`aspose.pydrawing.Bitmap`?
 
 [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) unifies working with both raster and vector images, simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), reduces dependence on pydrawing, and makes code more portable across environments.
 
-**Will the Modern API affect the performance of generating thumbnails?**
+### Will the Modern API affect the performance of generating thumbnails?
 
 Switching from `get_thumbnail` to `get_image` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

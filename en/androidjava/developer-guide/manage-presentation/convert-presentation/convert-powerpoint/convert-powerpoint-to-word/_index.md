@@ -84,10 +84,10 @@ pres.dispose();
 
 ## **FAQ**
 
-**What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?**
+### What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?
 
 You only need to add the respective package for [Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/) and [Aspose.Words for Android via Java](https://releases.aspose.com/words/androidjava/) to your project. Both libraries operate as standalone APIs, and there is no requirement for Microsoft Office to be installed.
 
-**Are all PowerPoint and OpenDocument presentation formats supported?**
+### Are all PowerPoint and OpenDocument presentation formats supported?
 
 Aspose.Slides [supports all presentation formats](/slides/androidjava/supported-file-formats/), including PPT, PPTX, ODP, and other common file types. This ensures that you can work with presentations created in various versions of Microsoft PowerPoint.

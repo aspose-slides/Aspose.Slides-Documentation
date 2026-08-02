@@ -134,14 +134,14 @@ The "output.html" document is shown in the image below.
 
 ## **FAQ**
 
-**Can I control whether object animations and slide transitions will play in HTML5?**
+### Can I control whether object animations and slide transitions will play in HTML5?
 
 Yes, HTML5 provides separate options to enable or disable [shape animations](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) and [slide transitions](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/).
 
-**Is the output of comments supported, and where can they be placed relative to the slide?**
+### Is the output of comments supported, and where can they be placed relative to the slide?
 
 Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/notes_comments_layouting/) for notes and comments.
 
-**Can I skip links that invoke JavaScript for security or CSP reasons?**
+### Can I skip links that invoke JavaScript for security or CSP reasons?
 
 Yes, there is a [setting](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/skip_java_script_links/) that allows you to skip hyperlinks with JavaScript calls during saving. This helps comply with strict security policies.

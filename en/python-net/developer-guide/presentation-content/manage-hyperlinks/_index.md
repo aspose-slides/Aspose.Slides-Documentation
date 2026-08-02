@@ -305,14 +305,14 @@ You may want to check out Aspose’s simple, free online [PowerPoint editor](htt
 
 ## **FAQ**
 
-**How can I create internal navigation not just to a slide, but to a "section" or the first slide of a section?**
+### How can I create internal navigation not just to a slide, but to a "section" or the first slide of a section?
 
 Sections in PowerPoint are groupings of slides; navigation technically targets a specific slide. To "navigate to a section", you typically link to its first slide.
 
-**Can I attach a hyperlink to master slide elements so it works on all slides?**
+### Can I attach a hyperlink to master slide elements so it works on all slides?
 
 Yes. Master slide and layout elements support hyperlinks. Such links appear on child slides and are clickable during the slideshow.
 
-**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
+### Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?
 
 In [PDF](/slides/python-net/convert-powerpoint-to-pdf/) and [HTML](/slides/python-net/convert-powerpoint-to-html/), yes—links are generally preserved. When exporting to [images](/slides/python-net/convert-powerpoint-to-png/) and [video](/slides/python-net/convert-powerpoint-to-video/), clickability will not carry over due to the nature of those formats (raster frames/video do not support hyperlinks).

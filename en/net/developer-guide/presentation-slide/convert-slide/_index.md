@@ -179,14 +179,14 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 
 ## **FAQ**
 
-**1. Does Aspose.Slides support rendering slides with animations?**
+### 1. Does Aspose.Slides support rendering slides with animations?
 
 No, the `GetImage` method saves only a static image of the slide, without animations.
 
-**2. Can hidden slides be exported as images?**
+### 2. Can hidden slides be exported as images?
 
 Yes, hidden slides can be processed just like regular ones. Just make sure they are included in the processing loop.
 
-**3. Can images be saved with shadows and effects?**
+### 3. Can images be saved with shadows and effects?
 
 Yes, Aspose.Slides supports rendering shadows, transparency, and other graphic effects when saving slides as images.

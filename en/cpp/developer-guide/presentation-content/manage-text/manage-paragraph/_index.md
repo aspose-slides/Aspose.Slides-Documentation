@@ -876,18 +876,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Can I completely disable line wrapping inside a text frame?**
+### Can I completely disable line wrapping inside a text frame?
 
 Yes. Use the text frame’s wrapping method ([set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_wraptext/)) to turn wrapping off so lines won’t break at the frame’s edges.
 
-**How can I get the exact on-slide bounds of a specific paragraph?**
+### How can I get the exact on-slide bounds of a specific paragraph?
 
 You can retrieve the paragraph’s (and even a single portion’s) bounding rectangle to know its precise position and size on the slide.
 
-**Where is paragraph alignment (left/right/center/justify) controlled?**
+### Where is paragraph alignment (left/right/center/justify) controlled?
 
 [Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_alignment/) is a paragraph-level setting in [ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/); it applies to the whole paragraph regardless of individual portion formatting.
 
-**Can I set a spell-check language for just part of a paragraph (e.g., one word)?**
+### Can I set a spell-check language for just part of a paragraph (e.g., one word)?
 
 Yes. The language is set at the portion level using ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_languageid/)), so multiple languages can coexist within a single paragraph.

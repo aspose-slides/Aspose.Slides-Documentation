@@ -108,18 +108,18 @@ try {
 
 ## **FAQ**
 
-**Can I change the order (sorting) of segments in Sunburst/Treemap?**
+### Can I change the order (sorting) of segments in Sunburst/Treemap?
 
 No. PowerPoint sorts segments automatically (typically by descending values, clockwise). Aspose.Slides mirrors this behavior: you can’t change the order directly; you achieve it by preprocessing the data.
 
-**How does the presentation theme affect the colors of segments and labels?**
+### How does the presentation theme affect the colors of segments and labels?
 
 Chart colors inherit the presentation’s [theme/palette](/slides/java/presentation-theme/) unless you explicitly set fills/fonts. For consistent results, lock in solid fills and text formatting at the required levels.
 
-**Will export to PDF/PNG preserve custom branch colors and label settings?**
+### Will export to PDF/PNG preserve custom branch colors and label settings?
 
 Yes. When exporting the presentation, chart settings (fills, labels) are preserved in the output formats because Aspose.Slides renders with the chart’s formatting applied.
 
-**Can I compute the actual coordinates of a label/element for custom overlay placement on top of the chart?**
+### Can I compute the actual coordinates of a label/element for custom overlay placement on top of the chart?
 
 Yes. After the chart layout is validated, actual *x* and actual *y* are available for elements (for example, a [DataLabel](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/)), which helps with precise positioning of overlays.

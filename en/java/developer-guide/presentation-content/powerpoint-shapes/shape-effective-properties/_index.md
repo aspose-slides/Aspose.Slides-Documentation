@@ -307,34 +307,34 @@ try {
 
 ## **FAQ**
 
-**Does `getEffective` return a snapshot?**
+### Does `getEffective` return a snapshot?
 
 Not always. Effective data represents the calculated formatting after inheritance is applied, but some effective data objects can be cached internally. A subsequent `getEffective` call may recalculate formatting and refresh the cached data, so a previously obtained object should not be treated as a durable snapshot.
 
-**When should I read effective properties again?**
+### When should I read effective properties again?
 
 Call `getEffective` again after changing local formatting, parent styles, layout formatting, master formatting, or presentation-level defaults. The next call re-evaluates the formatting hierarchy and returns the current effective result.
 
-**Does changing or removing a layout/master slide affect effective properties that have already been retrieved?**
+### Does changing or removing a layout/master slide affect effective properties that have already been retrieved?
 
 Yes, but the change is reflected on the next `getEffective` call. If a parent formatting source is changed or removed, previously obtained effective data may be stale. Once `getEffective` is called again, Aspose.Slides re-evaluates the formatting tree and the resulting fonts, colors, sizes, or other values may change.
 
-**Can I modify values through effective data objects?**
+### Can I modify values through effective data objects?
 
 No. Effective data objects expose calculated values. Make changes in the local formatting objects, and then obtain the effective values again.
 
-**What happens if a property is not set at the shape level, nor in the layout/master, nor in global settings?**
+### What happens if a property is not set at the shape level, nor in the layout/master, nor in global settings?
 
 The effective value is determined by the default mechanism, which includes PowerPoint and Aspose.Slides defaults. That resolved value becomes part of the current effective data.
 
-**From an effective font value, can I tell which level provided the size or typeface?**
+### From an effective font value, can I tell which level provided the size or typeface?
 
 Not directly. Effective data returns the final value. To find the source, check local values at the portion, paragraph, text frame, and text styles at the layout, master, and presentation levels to see where the first explicit definition appears.
 
-**Why do effective values sometimes look identical to the local ones?**
+### Why do effective values sometimes look identical to the local ones?
 
 Because the local value ended up being final (no higher-level inheritance was needed). In such cases, the effective value matches the local one.
 
-**When should I use effective properties, and when should I work only with local ones?**
+### When should I use effective properties, and when should I work only with local ones?
 
 Use effective data when you need the "as rendered" result after all inheritance is applied, such as to align colors, indents, or sizes. If you need to preserve those values regardless of later formatting changes, copy the required properties into your own object. If you need to change formatting at a specific level, modify local properties and then, if needed, read the effective data again to verify the outcome.

@@ -88,26 +88,26 @@ HTML and HTML5 export are useful for browser viewing, web publishing, and lightw
 
 ## **FAQ**
 
-**Do I need Microsoft PowerPoint to convert presentations?**
+### Do I need Microsoft PowerPoint to convert presentations?
 
 No. Aspose.Slides for Python via .NET is a standalone library and does not require Microsoft PowerPoint or Office automation.
 
-**Can I batch convert many presentations?**
+### Can I batch convert many presentations?
 
 Yes. Load each presentation, save it to the required format, and dispose of the presentation object after processing. For parallel processing, use separate presentation instances and follow the [multithreading](/slides/python-net/multithreading/) guidance.
 
-**Can I export only selected slides?**
+### Can I export only selected slides?
 
 Yes. Several export methods allow you to pass slide indexes or render individual slides, depending on the output format. See the dedicated article for the target format.
 
-**Can I include hidden slides when exporting to PDF or XPS?**
+### Can I include hidden slides when exporting to PDF or XPS?
 
 Yes. Use the hidden-slide export settings described in the [PDF](/slides/python-net/convert-powerpoint-to-pdf/) and [XPS](/slides/python-net/convert-powerpoint-to-xps/) conversion articles.
 
-**Can I create PDF/A output?**
+### Can I create PDF/A output?
 
 Yes. PDF compliance settings are available for PDF export. See [Convert PowerPoint to PDF](/slides/python-net/convert-powerpoint-to-pdf/) for details.
 
-**How are fonts handled during conversion?**
+### How are fonts handled during conversion?
 
 Aspose.Slides can use embedded fonts, font fallback, and font substitution settings. See [Embedded Font](/slides/python-net/embedded-font/), [Fallback Font](/slides/python-net/fallback-font/), and [Font Substitution](/slides/python-net/font-substitution/).

@@ -78,7 +78,7 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Are tables preserved when importing a PDF, and can their detection be improved?**
+### Are tables preserved when importing a PDF, and can their detection be improved?
 
 Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/python-net/aspose.slides.importing/pdfimportoptions/) includes a [detect_tables](https://reference.aspose.com/slides/python-net/aspose.slides.importing/pdfimportoptions/detect_tables/) parameter that enables table recognition. The effectiveness depends on the PDF’s structure.
 

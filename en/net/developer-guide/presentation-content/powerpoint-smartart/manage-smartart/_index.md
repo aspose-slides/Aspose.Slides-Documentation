@@ -123,18 +123,18 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Does SmartArt support mirroring or reversing for RTL languages?**
+### Does SmartArt support mirroring or reversing for RTL languages?
 
 Yes. The [IsReversed](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/isreversed/) property switches the diagram direction from left-to-right to right-to-left, or back, when the selected SmartArt layout supports reversal.
 
-**How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
+### How can I copy SmartArt to the same slide or to another presentation while preserving formatting?
 
 You can [clone the SmartArt shape](/slides/net/shape-manipulations/) with [ShapeCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addclone/) or [clone the whole slide](/slides/net/clone-slides/) that contains the SmartArt. Both approaches preserve size, position, and formatting.
 
-**How do I render SmartArt to a raster image for preview or web export?**
+### How do I render SmartArt to a raster image for preview or web export?
 
 [Render the slide](/slides/net/convert-powerpoint-to-png/) or the whole presentation to PNG or JPEG. SmartArt is rendered as part of the slide.
 
-**How can I find a specific SmartArt object on a slide if there are several?**
+### How can I find a specific SmartArt object on a slide if there are several?
 
 Set a distinctive [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/shape/alternativetext/) or [Name](https://reference.aspose.com/slides/net/aspose.slides/shape/name/) value on the SmartArt shape, search for that value in [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/), and then check that the matching shape is an [ISmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartart/).

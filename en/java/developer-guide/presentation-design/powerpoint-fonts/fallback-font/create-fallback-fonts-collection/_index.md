@@ -58,18 +58,18 @@ Read more how to [Render Presentation with Fallback Font](/slides/java/render-pr
 
 ## **FAQ**
 
-**Will my fallback rules be embedded into the PPTX file and visible in PowerPoint after saving?**
+### Will my fallback rules be embedded into the PPTX file and visible in PowerPoint after saving?
 
 No. Fallback rules are runtime rendering settings; they are not serialized into PPTX and will not appear in PowerPoint's UI.
 
-**Does fallback apply to text inside SmartArt, WordArt, charts, and tables?**
+### Does fallback apply to text inside SmartArt, WordArt, charts, and tables?
 
 Yes. The same glyph-substitution mechanism is used for any text in these objects.
 
-**Does Aspose distribute any fonts with the library?**
+### Does Aspose distribute any fonts with the library?
 
 No. You add and use fonts on your side and under your own responsibility.
 
-**Can replacement/substitution for missing fonts and fallback for missing glyphs be used together?**
+### Can replacement/substitution for missing fonts and fallback for missing glyphs be used together?
 
 Yes. They are independent stages of the same font-resolution pipeline: first the engine resolves font availability ([replacement](/slides/java/font-replacement/)/[substitution](/slides/java/font-substitution/)), then fallback fills gaps for missing glyphs in available fonts.

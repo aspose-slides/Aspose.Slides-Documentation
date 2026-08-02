@@ -353,14 +353,14 @@ shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPa
 
 ## **FAQ**
 
-**What will happen to the fill and outline after replacing the geometry?**
+### What will happen to the fill and outline after replacing the geometry?
 
 The style remains with the shape; only the contour changes. The fill and outline are automatically applied to the new geometry.
 
-**How do I correctly rotate a custom shape along with its geometry?**
+### How do I correctly rotate a custom shape along with its geometry?
 
 Use the shape’s [rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) property; the geometry rotates with the shape because it’s bound to the shape’s own coordinate system.
 
-**Can I convert a custom shape to an image to "lock in" the result?**
+### Can I convert a custom shape to an image to "lock in" the result?
 
 Yes. Export the required [slide](/slides/cpp/convert-powerpoint-to-png/) area or the [shape](/slides/cpp/create-shape-thumbnails/) itself to a raster format; this simplifies further work with heavy geometries.

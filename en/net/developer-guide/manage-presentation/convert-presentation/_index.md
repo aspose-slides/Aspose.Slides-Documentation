@@ -89,26 +89,26 @@ HTML and HTML5 export are useful for browser viewing, web publishing, and lightw
 
 ## **FAQ**
 
-**Do I need Microsoft PowerPoint to convert presentations?**
+### Do I need Microsoft PowerPoint to convert presentations?
 
 No. Aspose.Slides for .NET is a standalone library and does not require Microsoft PowerPoint or Office automation.
 
-**Can I batch convert many presentations?**
+### Can I batch convert many presentations?
 
 Yes. Load each presentation, save it to the required format, and dispose of the `Presentation` object after processing. For parallel processing, use separate presentation instances and follow the [multithreading](/slides/net/multithreading/) guidance.
 
-**Can I export only selected slides?**
+### Can I export only selected slides?
 
 Yes. Several export methods allow you to pass slide indexes or render individual slides, depending on the output format. See the dedicated article for the target format.
 
-**Can I include hidden slides when exporting to PDF or XPS?**
+### Can I include hidden slides when exporting to PDF or XPS?
 
 Yes. Use the `ShowHiddenSlides` property in [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) or [XpsOptions](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/).
 
-**Can I create PDF/A output?**
+### Can I create PDF/A output?
 
 Yes. PDF compliance settings are available through [PdfOptions.Compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) and [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/).
 
-**How are fonts handled during conversion?**
+### How are fonts handled during conversion?
 
 Aspose.Slides can use embedded fonts, font fallback, and font substitution settings. See [Embedded Font](/slides/net/embedded-font/), [Fallback Font](/slides/net/fallback-font/), and [Font Substitution](/slides/net/font-substitution/).

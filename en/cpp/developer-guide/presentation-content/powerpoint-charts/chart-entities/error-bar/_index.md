@@ -47,14 +47,14 @@ Aspose.Slides for C++ provides a simple API for managing custom error bar values
 
 ## **FAQ**
 
-**What happens to error bars when exporting a presentation to PDF or images?**
+### What happens to error bars when exporting a presentation to PDF or images?
 
 They are rendered as part of the chart and preserved during conversion along with the rest of the chart formatting, assuming a compatible version or renderer.
 
-**Can error bars be combined with markers and data labels?**
+### Can error bars be combined with markers and data labels?
 
 Yes. Error bars are a separate element and are compatible with markers and data labels; if elements overlap, you may need to adjust formatting.
 
-**Where can I find the list of properties and enums for working with error bars in the API?**
+### Where can I find the list of properties and enums for working with error bars in the API?
 
 In the API reference: the [ErrorBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/errorbarsformat/) class and the related enums [ErrorBarType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/errorbartype/) and [ErrorBarValueType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/errorbarvaluetype/).

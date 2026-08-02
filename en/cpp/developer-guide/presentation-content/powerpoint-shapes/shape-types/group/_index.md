@@ -49,14 +49,14 @@ The example below accesses the alternative text of group shape.
 
 ## **FAQ**
 
-**Is nested grouping (a group inside a group) supported?**
+### Is nested grouping (a group inside a group) supported?
 
 Yes. [GroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/groupshape/) has a [get_ParentGroup](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_parentgroup/) method, which directly indicates hierarchy support (a group can be a child of another group).
 
-**How do I control the group’s z-order relative to other objects on the slide?**
+### How do I control the group’s z-order relative to other objects on the slide?
 
 Use the [GroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/groupshape/)’s [Z-Order position](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_zorderposition/) to inspect its position in the display stack.
 
-**Can I prevent moving/editing/ungrouping?**
+### Can I prevent moving/editing/ungrouping?
 
 Yes. The group’s lock section is exposed via [get_GroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/groupshape/get_groupshapelock/), which lets you restrict operations on the object.

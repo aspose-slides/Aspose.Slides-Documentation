@@ -278,14 +278,14 @@ The resulting changes in fill color, fill type, shadow effect, etc:
 
 ## **FAQ**
 
-**Can I apply a theme to a single slide without changing the master?**
+### Can I apply a theme to a single slide without changing the master?
 
 Yes. Aspose.Slides support slide-level theme overrides, so you can apply a local theme to just that slide while keeping the master theme intact (via the [SlideThemeManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidethememanager/)).
 
-**What’s the safest way to carry a theme from one presentation to another?**
+### What’s the safest way to carry a theme from one presentation to another?
 
 [Clone slides](/slides/androidjava/clone-slides/) together with their master into the target presentation. This preserves the original master, layouts, and the associated theme so the appearance remains consistent.
 
-**How can I see the "effective" values after all inheritance and overrides?**
+### How can I see the "effective" values after all inheritance and overrides?
 
 Use the API’s ["effective" views](/slides/androidjava/shape-effective-properties/) for theme/color/font/effect. These return the resolved, final properties after applying the master plus any local overrides.

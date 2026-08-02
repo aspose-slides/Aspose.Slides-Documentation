@@ -195,22 +195,22 @@ In this example, we will learn to change the color style for any SmartArt shape.
 
 ## **FAQ**
 
-**Can I animate SmartArt as a single object?**
+### Can I animate SmartArt as a single object?
 
 Yes. SmartArt is a shape, so you can apply [standard animations](/slides/php-java/powerpoint-animation/) via the animations API (entrance, exit, emphasis, motion paths) just like for other shapes.
 
-**How can I find a specific SmartArt on a slide if I don’t know its internal ID?**
+### How can I find a specific SmartArt on a slide if I don’t know its internal ID?
 
 Set and use the Alternative Text (AltText) and search for the shape by that value—this is a recommended way to locate the target shape.
 
-**Can I group SmartArt with other shapes?**
+### Can I group SmartArt with other shapes?
 
 Yes. You can group SmartArt with other shapes (pictures, tables, etc.) and then [manipulate the group](/slides/php-java/group/).
 
-**How do I get an image of a specific SmartArt (e.g., for a preview or report)?**
+### How do I get an image of a specific SmartArt (e.g., for a preview or report)?
 
 Export a thumbnail/image of the shape; the library can [render individual shapes](/slides/php-java/create-shape-thumbnails/) to raster files (PNG/JPG/TIFF).
 
-**Will the SmartArt appearance be preserved when converting the whole presentation to PDF?**
+### Will the SmartArt appearance be preserved when converting the whole presentation to PDF?
 
 Yes. The rendering engine targets high fidelity for [PDF export](/slides/php-java/convert-powerpoint-to-pdf/), with a range of quality and compatibility options.

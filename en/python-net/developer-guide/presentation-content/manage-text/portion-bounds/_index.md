@@ -60,18 +60,18 @@ with slides.Presentation("Shapes.pptx") as presentation:
 
 ## **FAQ**
 
-**Can I apply a hyperlink to only part of the text within a single paragraph?**
+### Can I apply a hyperlink to only part of the text within a single paragraph?
 
 Yes, you can [assign a hyperlink](/slides/python-net/manage-hyperlinks/) to an individual portion; only that fragment will be clickable, not the entire paragraph.
 
-**How does style inheritance work: what does a portion override, and what is taken from a paragraph or text frame?**
+### How does style inheritance work: what does a portion override, and what is taken from a paragraph or text frame?
 
 Portion-level properties have the highest precedence. If a property is not set on the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/), Aspose.Slides takes it from the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/). If it is not set there either, Aspose.Slides uses the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) or [theme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/theme/) style.
 
-**What happens if the font specified for a portion is missing on the target machine or server?**
+### What happens if the font specified for a portion is missing on the target machine or server?
 
 [Font substitution rules](/slides/python-net/font-selection-sequence/) apply. The text may reflow: metrics, hyphenation, and width can change, which matters for precise positioning.
 
-**Can I set portion-specific text fill transparency or a gradient independently of the rest of the paragraph?**
+### Can I set portion-specific text fill transparency or a gradient independently of the rest of the paragraph?
 
 Yes, text color, fill, and transparency at the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) level can differ from neighboring fragments.

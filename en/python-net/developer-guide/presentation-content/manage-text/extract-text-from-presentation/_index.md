@@ -140,14 +140,14 @@ print(first_slide_text.comments_text)
 
 ## **FAQ**
 
-**How fast does Aspose.Slides process large presentations during text extraction?**
+### How fast does Aspose.Slides process large presentations during text extraction?
 
 Aspose.Slides is optimized for high performance and can process even [large presentations](/slides/python-net/open-presentation/), making it suitable for real-time or bulk processing scenarios.
 
-**Can Aspose.Slides extract text from tables and charts within presentations?**
+### Can Aspose.Slides extract text from tables and charts within presentations?
 
 Yes. Aspose.Slides can extract text from many slide elements, including tables and chart-related objects, so you can access and analyze textual content in common presentation structures.
 
-**Do I need a special Aspose.Slides license to extract text from presentations?**
+### Do I need a special Aspose.Slides license to extract text from presentations?
 
 You can extract text using the free trial version of Aspose.Slides, although it will have [certain limitations](/slides/python-net/licensing/), such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.

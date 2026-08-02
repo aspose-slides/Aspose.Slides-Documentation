@@ -130,18 +130,18 @@ try {
 
 ## **FAQ**
 
-**Does SmartArt support mirroring or reversing for RTL languages?**
+### Does SmartArt support mirroring or reversing for RTL languages?
 
 Yes. The [ISmartArt.setReversed](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/#setReversed-boolean-) method switches the diagram direction from left-to-right to right-to-left, or back, when the selected SmartArt layout supports reversal.
 
-**How can I copy SmartArt to the same slide or to another presentation while preserving formatting?**
+### How can I copy SmartArt to the same slide or to another presentation while preserving formatting?
 
 You can [clone the SmartArt shape](/slides/java/shape-manipulations/) with [ShapeCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/shapecollection/#addClone-com.aspose.slides.IShape-float-float-float-float-) or [clone the whole slide](/slides/java/clone-slides/) that contains the SmartArt. Both approaches preserve size, position, and formatting.
 
-**How do I render SmartArt to a raster image for preview or web export?**
+### How do I render SmartArt to a raster image for preview or web export?
 
 [Render the slide](/slides/java/convert-powerpoint-to-png/) or the whole presentation to PNG or JPEG. SmartArt is rendered as part of the slide.
 
-**How can I find a specific SmartArt object on a slide if there are several?**
+### How can I find a specific SmartArt object on a slide if there are several?
 
 Set a distinctive [Shape.getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getAlternativeText--) or [Shape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getName--) value on the SmartArt shape, search for that value in [BaseSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--), and then check that the matching shape is an [ISmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/).

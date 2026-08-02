@@ -114,22 +114,22 @@ try {
 
 ## **FAQ**
 
-**What image formats can be used when saving shape thumbnails?**
+### What image formats can be used when saving shape thumbnails?
 
 [PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imageformat/), and others. Shapes can also be [exported as vector SVG](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) by saving the shape’s content as SVG.
 
-**What is the difference between Shape and Appearance bounds when rendering a thumbnail?**
+### What is the difference between Shape and Appearance bounds when rendering a thumbnail?
 
 `Shape` uses the shape’s geometry; `Appearance` takes [visual effects](/slides/androidjava/shape-effect/) (shadows, glows, etc.) into account.
 
-**What happens if a shape is marked as hidden? Will it still render as a thumbnail?**
+### What happens if a shape is marked as hidden? Will it still render as a thumbnail?
 
 A hidden shape remains part of the model and can be rendered; the hidden flag affects slideshow display but does not prevent generating the shape’s image.
 
-**Are group shapes, charts, SmartArt, and other complex objects supported?**
+### Are group shapes, charts, SmartArt, and other complex objects supported?
 
 Yes. Any object represented as [Shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/) (including [GroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/), and [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/)) can be saved as a thumbnail or as SVG.
 
-**Do system-installed fonts affect the quality of thumbnails for text shapes?**
+### Do system-installed fonts affect the quality of thumbnails for text shapes?
 
 Yes. You should [provide the required fonts](/slides/androidjava/custom-font/) (or [configure font substitutions](/slides/androidjava/font-substitution/)) to avoid unwanted fallbacks and text reflow.

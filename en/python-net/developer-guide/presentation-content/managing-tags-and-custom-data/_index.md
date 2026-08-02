@@ -98,14 +98,14 @@ Tags added via the `custom_data.tags` collection are stored only within the Powe
 
 ## **FAQ**
 
-**Can I remove all tags from a presentation, slide, or shape in one operation?**
+### Can I remove all tags from a presentation, slide, or shape in one operation?
 
 Yes. The [tag collection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/) supports a [clear](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/clear/) operation that deletes all key–value pairs at once.
 
-**How do I delete a single tag by its name without iterating over the whole collection?**
+### How do I delete a single tag by its name without iterating over the whole collection?
 
 Use the [remove(name)](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/remove/) operation on [TagCollection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/) to delete the tag by its key.
 
-**How can I retrieve the complete list of tag names for analytics or filtering?**
+### How can I retrieve the complete list of tag names for analytics or filtering?
 
 Use [get_names_of_tags](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/get_names_of_tags/) on the [tag collection](https://reference.aspose.com/slides/python-net/aspose.slides/tagcollection/); it returns an array of all tag names.

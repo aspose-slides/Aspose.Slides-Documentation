@@ -306,10 +306,10 @@ Use the Modern API image-rendering methods instead of the API that renders to [G
 
 # **FAQ**
 
-**What is the practical benefit of [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) compared to [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)?**
+### What is the practical benefit of [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) compared to [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)?
 
 [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) unifies working with both raster and vector images and simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/).
 
-**Will the Modern API affect the performance of generating thumbnails?**
+### Will the Modern API affect the performance of generating thumbnails?
 
 Switching from `getThumbnail` to `getImage` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

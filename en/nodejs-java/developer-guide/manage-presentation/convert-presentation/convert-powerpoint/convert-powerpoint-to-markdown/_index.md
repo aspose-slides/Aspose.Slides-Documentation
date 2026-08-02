@@ -131,14 +131,14 @@ try {
 
 ## **FAQ**
 
-**Do hyperlinks survive the export to Markdown?**
+### Do hyperlinks survive the export to Markdown?
 
 Yes. Text [hyperlinks](/slides/nodejs-java/manage-hyperlinks/) are preserved as standard Markdown links. Slide [transitions](/slides/nodejs-java/slide-transition/) and [animations](/slides/nodejs-java/powerpoint-animation/) are not converted.
 
-**Can I speed up conversion by running it in multiple threads?**
+### Can I speed up conversion by running it in multiple threads?
 
 You can parallelize across files, but [don’t share](/slides/nodejs-java/multithreading/) the same [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance across threads. Use separate instances/processes per file to avoid contention.
 
-**What happens to images—where are they saved, and are the paths relative?**
+### What happens to images—where are they saved, and are the paths relative?
 
 [Images](/slides/nodejs-java/image/) are exported to a dedicated folder, and the Markdown file references them with relative paths by default. You can configure the base output path and asset folder name to keep a predictable repository structure.

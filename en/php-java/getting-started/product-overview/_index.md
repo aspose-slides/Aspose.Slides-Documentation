@@ -159,46 +159,46 @@ This table lists important Aspose.Slides for PHP via Java technical resources.
 
 ## **FAQ**
 
-**Does it support PDF conformance levels for archiving and accessibility (PDF/A and PDF/UA)?**
+### Does it support PDF conformance levels for archiving and accessibility (PDF/A and PDF/UA)?
 
 Yes. You can save to PDF with PDF/A-2a/2b/2u, PDF/A-3a/3b, as well as PDF/UA by configuring [PDF export options](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/).
 
-**Is there a font substitution mechanism and support for custom fonts to ensure correct rendering?**
+### Is there a font substitution mechanism and support for custom fonts to ensure correct rendering?
 
 Yes. The library lets you [load custom fonts](/slides/php-java/custom-font/) and [define fallback rules](/slides/php-java/fallback-font/) so missing glyphs are substituted reliably during conversion and rendering.
 
-**Can I detect whether a file is password-protected without fully opening it?**
+### Can I detect whether a file is password-protected without fully opening it?
 
 Yes. You can [inspect a presentation](/slides/php-java/examine-presentation/) to determine if it requires a password before loading the full document.
 
-**Is Microsoft PowerPoint required for processing and conversions?**
+### Is Microsoft PowerPoint required for processing and conversions?
 
 No. Aspose.Slides is a standalone engine; PowerPoint is not needed on the server or workstation.
 
-**Is it safe to process presentations from multiple threads?**
+### Is it safe to process presentations from multiple threads?
 
 Yes, you can process different documents in parallel in separate threads; just avoid using the same presentation instance concurrently [across threads](/slides/php-java/multithreading/).
 
-**Are macros preserved and can I manage VBA in PPTM/PPSM files?**
+### Are macros preserved and can I manage VBA in PPTM/PPSM files?
 
 Yes. Presentations with macros [are supported](/slides/php-java/presentation-via-vba/), and you can [inspect and manage VBA projects](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getvbaproject/) in those files.
 
-**Can I convert PDF or HTML back into PowerPoint slides?**
+### Can I convert PDF or HTML back into PowerPoint slides?
 
 Yes. You can [import PDF pages or HTML content](/slides/php-java/import-presentation/) to create or populate slides in a presentation.
 
-**Is XPS export supported, and can I control the quality and content of the XPS output?**
+### Is XPS export supported, and can I control the quality and content of the XPS output?
 
 Yes. [Export to XPS](/slides/php-java/convert-powerpoint-to-xps/) is available, and [save options](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions/) allow you to tune output quality and included content.
 
-**Can I convert slides to images and control the output quality?**
+### Can I convert slides to images and control the output quality?
 
 Yes. Slides can be [rendered to PNG, JPEG, GIF, BMP, TIFF](/slides/php-java/convert-powerpoint-to-png/) and other formats with fine-grained control over size and quality.
 
-**Are mathematical formulas supported (MathML/MathText) and can they be exported?**
+### Are mathematical formulas supported (MathML/MathText) and can they be exported?
 
 Yes. You can [create and edit mathematical text](/slides/php-java/powerpoint-math-equations/) and [export equations](/slides/php-java/exporting-math-equations/), including to MathML.
 
-**How does the library handle encryption and passwords (open, set, remove)?**
+### How does the library handle encryption and passwords (open, set, remove)?
 
 [It supports](/slides/php-java/password-protected-presentation/) opening encrypted presentations, setting or removing passwords for opening and modifying, and checking a file’s protection status.

@@ -295,10 +295,10 @@ try {
 
 ## **FAQ**
 
-**What’s the difference between a text box and a text placeholder when working with master slides?**
+### What’s the difference between a text box and a text placeholder when working with master slides?
 
 A [placeholder](/slides/nodejs-java/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
 
-**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
+### How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?
 
 Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/)) by traversing their collections separately or skipping those object types.

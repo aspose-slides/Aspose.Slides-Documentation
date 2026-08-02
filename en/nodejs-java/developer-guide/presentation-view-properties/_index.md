@@ -102,14 +102,14 @@ try {
 
 ## **FAQ**
 
-**Can I set different view settings for different sections of a presentation?**
+### Can I set different view settings for different sections of a presentation?
 
 [View settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getviewproperties/) are defined at the presentation level ([Normal View](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), not per section, so a single set of parameters applies to the entire document when it opens.
 
-**Can I predefine different view states for different users?**
+### Can I predefine different view states for different users?
 
 No. The settings are stored in the file and are shared. Viewer applications may honor user preferences, but the file itself contains one set of view properties.
 
-**Can I prepare a template with predefined View Properties so new presentations open the same way?**
+### Can I prepare a template with predefined View Properties so new presentations open the same way?
 
 Yes. Because [view properties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getviewproperties/) are stored at the presentation level, you can embed them in a template and create new documents from it with the same initial view configuration.

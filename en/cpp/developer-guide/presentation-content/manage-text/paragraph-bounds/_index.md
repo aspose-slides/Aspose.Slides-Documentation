@@ -79,18 +79,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**In what units are paragraph coordinates measured?**
+### In what units are paragraph coordinates measured?
 
 They are measured in points, where 1 inch equals 72 points. This applies to all coordinates and dimensions on the slide.
 
-**Does word wrapping affect a paragraph's bounds?**
+### Does word wrapping affect a paragraph's bounds?
 
 Yes. If [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) is enabled for the [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/), the text breaks to fit the area width, which changes the paragraph's actual bounds.
 
-**Can paragraph coordinates be reliably mapped to pixels in the exported image?**
+### Can paragraph coordinates be reliably mapped to pixels in the exported image?
 
 Yes. Convert points to pixels using this formula: pixels = points x (DPI / 72). The result depends on the DPI chosen for rendering or export.
 
-**How do I get the "effective" paragraph formatting parameters, taking style inheritance into account?**
+### How do I get the "effective" paragraph formatting parameters, taking style inheritance into account?
 
 Use the [effective paragraph formatting data structure](/slides/cpp/shape-effective-properties/); it returns the final consolidated values for indents, spacing, wrapping, RTL, and more.

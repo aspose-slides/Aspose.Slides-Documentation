@@ -118,10 +118,10 @@ Try our [**Online PPT to Word Converter**](https://products.aspose.app/slides/co
 
 ## **FAQ**
 
-**What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?**
+### What components need to be installed to convert PowerPoint and OpenDocument presentations to Word documents?
 
 You only need to add the respective packages for [Aspose.Slides for Python via .NET](https://pypi.org/project/Aspose.Slides/) and [Aspose.Words for Python .NET](https://pypi.org/project/aspose-words/) to your Python project. Both packages operate as standalone APIs, and there is no requirement for Microsoft Office to be installed.
 
-**Are all PowerPoint and OpenDocument presentation formats supported?**
+### Are all PowerPoint and OpenDocument presentation formats supported?
 
 Aspose.Slides for Python .NET [supports all presentation formats](/slides/python-net/supported-file-formats/), including PPT, PPTX, ODP, and other common file types. This ensures that you can work with presentations created in various versions of Microsoft PowerPoint.

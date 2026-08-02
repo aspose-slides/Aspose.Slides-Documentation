@@ -62,14 +62,14 @@ pres.save(opt)
 
 ## **FAQ**
 
-**How can I ensure predictable fonts if the original font is not available on the machine?**
+### How can I ensure predictable fonts if the original font is not available on the machine?
 
 Set [default_regular_font](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/default_regular_font/) in [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) — it is used as a fallback font when the original is missing. This helps avoid unexpected substitutions.
 
-**Is the exported XAML intended only for WPF, or can it be used in other XAML stacks as well?**
+### Is the exported XAML intended only for WPF, or can it be used in other XAML stacks as well?
 
 XAML is a general UI markup language used in WPF, UWP, and Xamarin.Forms. The export targets compatibility with Microsoft XAML stacks; the exact behavior and support for specific constructs depend on the target platform. Test the markup in your environment.
 
-**Are hidden slides supported, and how can I prevent them from being exported by default?**
+### Are hidden slides supported, and how can I prevent them from being exported by default?
 
 By default, hidden slides are not included. You can control this behavior via [export_hidden_slides](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/export_hidden_slides/) in [XamlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export.xaml/xamloptions/) — keep it disabled if you do not need to export them.

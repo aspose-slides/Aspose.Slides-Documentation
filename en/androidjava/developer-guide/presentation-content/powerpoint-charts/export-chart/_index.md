@@ -45,22 +45,22 @@ try {
 
 ## **FAQ**
 
-**Can I export a chart as a vector (SVG) instead of a raster image?**
+### Can I export a chart as a vector (SVG) instead of a raster image?
 
 Yes. A chart is a shape, and its contents can be saved to SVG using the [shape-to-SVG saving method](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
 
-**How can I set the exact size of the exported chart in pixels?**
+### How can I set the exact size of the exported chart in pixels?
 
 Use the image-rendering overloads that let you specify size or scale—the library supports rendering objects with given dimensions/scale.
 
-**What should I do if fonts in labels and the legend look wrong after export?**
+### What should I do if fonts in labels and the legend look wrong after export?
 
 [Load the required fonts](/slides/androidjava/custom-font/) via [FontsLoader](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsloader/) so the chart rendering preserves metrics and text appearance.
 
-**Does export honor the PowerPoint theme, styles, and effects?**
+### Does export honor the PowerPoint theme, styles, and effects?
 
 Yes. Aspose.Slides’ renderer follows the presentation’s formatting (themes, styles, fills, effects), so the chart’s appearance is preserved.
 
-**Where can I find available rendering/export capabilities beyond chart images?**
+### Where can I find available rendering/export capabilities beyond chart images?
 
 See the [API](https://reference.aspose.com/slides/androidjava/com.aspose.slides/)/[documentation](/slides/androidjava/convert-powerpoint/) for output targets ([PDF](/slides/androidjava/convert-powerpoint-to-pdf/), [SVG](/slides/androidjava/render-a-slide-as-an-svg-image/), [XPS](/slides/androidjava/convert-powerpoint-to-xps/), [HTML](/slides/androidjava/convert-powerpoint-to-html/), etc.) and related rendering options.

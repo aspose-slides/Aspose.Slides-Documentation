@@ -104,6 +104,6 @@ To install mono-libgdiplus separately on your mac, see [this article](https://do
 
 ## **FAQ**
 
-**Is there a free version or trial limitation?**
+### Is there a free version or trial limitation?
 
 Yes, by default, Aspose.Slides runs in evaluation mode, which places watermarks and may have other limitations. To remove restrictions, you need to apply a valid [license](/slides/net/licensing/).

@@ -104,14 +104,14 @@ This topic helps you to understand how to hide information from chart. Using Asp
 
 ## **FAQ**
 
-**Do external Excel workbooks work as a data source, and how does that affect recalculation?**
+### Do external Excel workbooks work as a data source, and how does that affect recalculation?
 
 Yes. A chart can reference an external workbook: when you connect or refresh the external source, formulas and values are taken from that workbook, and the chart reflects the updates during open/edit operations. The API lets you [specify the external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) path and manage the linked data.
 
-**Can I compute and display trendlines without implementing regression myself?**
+### Can I compute and display trendlines without implementing regression myself?
 
 Yes. [Trendlines](/slides/php-java/trend-line/) (linear, exponential, and others) are added and updated by Aspose.Slides; their parameters are recalculated from the series data automatically, so you don’t need to implement your own calculations.
 
-**If a presentation has multiple charts with external links, can I control which workbook each chart uses for computed values?**
+### If a presentation has multiple charts with external links, can I control which workbook each chart uses for computed values?
 
 Yes. Each chart can point to its own [external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/), or you can create/replace an external workbook per chart independently of the others.

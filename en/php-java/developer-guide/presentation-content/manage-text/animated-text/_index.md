@@ -67,14 +67,14 @@ Aspose.Slides for PHP via Java allows you to get all the animation effects appli
 
 ## **FAQ**
 
-**How do text animations differ from slide transitions, and can they be combined?**
+### How do text animations differ from slide transitions, and can they be combined?
 
 Text animations control object behavior over time on a slide, while [transitions](/slides/php-java/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
 
-**Are text animations preserved when exporting to PDF or images?**
+### Are text animations preserved when exporting to PDF or images?
 
 No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/php-java/convert-powerpoint-to-video/) or [HTML](/slides/php-java/export-to-html5/) export.
 
-**Do text animations work in layouts and the slide master?**
+### Do text animations work in layouts and the slide master?
 
 Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

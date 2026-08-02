@@ -82,18 +82,18 @@ Aspose.Slides for Python supports Windows (32-bit and 64-bit), macOS, and 64-bit
 
 ## **FAQ**
 
-**Do I need Microsoft PowerPoint installed for conversions and rendering?**
+### Do I need Microsoft PowerPoint installed for conversions and rendering?
 
 No, PowerPoint is not required; Aspose.Slides is a standalone engine for [creating](/slides/python-net/create-presentation/), modifying, [converting](/slides/python-net/convert-presentation/), and [rendering](/slides/python-net/convert-powerpoint-to-png/) presentations.
 
-**Is a specific .NET version (Core/5+/6+) required on the machine?**
+### Is a specific .NET version (Core/5+/6+) required on the machine?
 
 Installing the .NET Runtime itself is not required, but its dependencies must be present on Linux/macOS. This means the system should contain the packages that are usually installed as .NET dependencies, without installing the runtime in full.
 
-**Which fonts are needed for correct rendering?**
+### Which fonts are needed for correct rendering?
 
 In practice, the fonts used in the presentation or proper [substitutes](/slides/python-net/font-substitution/) must be available. To ensure consistent rendering on Linux/macOS, it is advisable to install common font packages.
 
-**Why does a custom font render as a fallback or missing text on Linux?**
+### Why does a custom font render as a fallback or missing text on Linux?
 
 If the font file has inconsistent or corrupted name-table entries, the Linux font-matching stack (FreeType/fontconfig) may select an invalid record, causing the font to be unresolved. Using a font version with corrected name-table records or installing a consistent replacement resolves the issue.

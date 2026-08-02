@@ -380,32 +380,32 @@ For batch conversion:
 
 ## **FAQ**
 
-**Are hyperlinks preserved in HTML output?**
+### Are hyperlinks preserved in HTML output?
 
 Yes. Presentation hyperlinks are exported to HTML and remain clickable when the target URL is valid.
 
-**Can I convert presentations to HTML in parallel?**
+### Can I convert presentations to HTML in parallel?
 
 Yes, but do not share one [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance across threads. Process different files with separate presentation instances, separate streams, and separate output directories. See the [multithreading guidance](/slides/net/multithreading/) for details.
 
-**Is a Presentation object thread-safe?**
+### Is a Presentation object thread-safe?
 
 No. A single [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance should be loaded, modified, saved, and disposed on one thread. For parallel work, create an independent instance per thread or process.
 
-**Why is the generated HTML file large?**
+### Why is the generated HTML file large?
 
 The default export can embed resources directly in the HTML. Embedded fonts, high-DPI images, media, SVG content, and retained cropped image areas also increase size. Use external resources, exclude common fonts from embedding, and lower `PicturesCompression` when smaller output is more important than maximum fidelity.
 
-**Why does a PowerPoint font size such as 24 pt appear as 17.999819 pt in HTML?**
+### Why does a PowerPoint font size such as 24 pt appear as 17.999819 pt in HTML?
 
 This can happen because PowerPoint and HTML use different DPI models. PowerPoint stores text sizes in typographic points based on 72 DPI, while HTML layout is based on CSS pixels in a 96 DPI model. When Aspose.Slides exports a presentation to HTML, the font size is translated between these systems, and the conversion may introduce small rounding differences.
 
 These values do not indicate a real visual font-size change. They are only a mathematical side effect of converting text metrics between PowerPoint and HTML.
 
-**How should I choose baseUri for media export?**
+### How should I choose baseUri for media export?
 
 Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with `new Uri(mediaDirectory + Path.DirectorySeparatorChar).AbsoluteUri`. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same resource location.
 
-**Can I include hidden slides?**
+### Can I include hidden slides?
 
 Yes. Set `ShowHiddenSlides = true` on [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/) when hidden slides must be exported.

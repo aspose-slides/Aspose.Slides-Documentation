@@ -476,14 +476,14 @@ This PHP code demonstrates the operation:
 
 ## **FAQ**
 
-**How can I ensure animations are preserved when publishing the presentation to the web?**
+### How can I ensure animations are preserved when publishing the presentation to the web?
 
 [Export to HTML5](/slides/php-java/export-to-html5/) and enable the [options](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) responsible for [shape](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) and [transition](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/) animations. Plain HTML does not play slide animations, whereas HTML5 does.
 
-**How does changing the z-order (layer order) of shapes affect animation?**
+### How does changing the z-order (layer order) of shapes affect animation?
 
 Animation and drawing order are independent: an effect controls the timing and type of appearing/disappearing, while [z-order](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) determines what covers what. The visible result is defined by their combination. (This is the general PowerPoint behavior; the Aspose.Slides effects-and-shapes model follows the same logic.)
 
-**Are there limitations when converting animations to video for certain effects?**
+### Are there limitations when converting animations to video for certain effects?
 
 In general, [animations are supported](/slides/php-java/convert-powerpoint-to-video/), but rare cases or specific effects may be rendered differently. It is recommended to test with the effects you use and with the library version.

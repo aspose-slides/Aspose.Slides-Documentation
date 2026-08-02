@@ -235,26 +235,26 @@ Keep these points in mind:
 
 ## **FAQ**
 
-**Can Aspose.Slides create interactive 3D presentations?**
+### Can Aspose.Slides create interactive 3D presentations?
 
 Aspose.Slides creates and renders PowerPoint 3D effects for shapes and text. It does not make exported images, PDFs, or HTML pages interactive 3D scenes that a viewer can rotate. In PPTX, the 3D formatting remains editable in PowerPoint where the format supports it.
 
-**What is the difference between a 3D model and a 3D effect?**
+### What is the difference between a 3D model and a 3D effect?
 
 A 3D model is a separate 3D object inserted into a presentation. A 3D effect is formatting applied to a regular PowerPoint shape or text, such as rotation, extrusion, bevel, lighting, and material. This article covers 3D effects.
 
-**Which settings are required for a visible 3D shape?**
+### Which settings are required for a visible 3D shape?
 
 At minimum, set a camera rotation and either extrusion or depth. In practice, also set a light rig and material so the rendered faces have clear highlights and shadows.
 
-**Can I apply 3D effects to both shapes and text?**
+### Can I apply 3D effects to both shapes and text?
 
 Yes. Use [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) for the shape body and [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) for text.
 
-**Will 3D effects appear when exporting to images, PDF, HTML, or video frames?**
+### Will 3D effects appear when exporting to images, PDF, HTML, or video frames?
 
 Yes. Aspose.Slides renders 3D effects when producing slide images, PDF output, HTML output, and frames used for video conversion. The exported output contains the rendered appearance, not an editable 3D object.
 
-**Can I read the final 3D values after inheritance and theme settings are applied?**
+### Can I read the final 3D values after inheritance and theme settings are applied?
 
 Yes. Use the effective formatting APIs described in [Shape Effective Properties](/slides/net/shape-effective-properties/) to read final camera, light rig, bevel, and related 3D values.

@@ -246,10 +246,10 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **FAQ**
 
-**Can I reset a custom background and restore the theme/layout background?**
+### Can I reset a custom background and restore the theme/layout background?
 
 Yes. Remove the slide’s custom fill, and the background will be inherited again from the corresponding [layout](/slides/net/slide-layout/)/[master](/slides/net/slide-master/) slide (i.e., the [theme background](/slides/net/presentation-theme/)).
 
-**What happens to the background if I change the presentation’s theme later?**
+### What happens to the background if I change the presentation’s theme later?
 
 If a slide has its own fill, it will remain unchanged. If the background is inherited from the [layout](/slides/net/slide-layout/)/[master](/slides/net/slide-master/), it will update to match the [new theme](/slides/net/presentation-theme/).
