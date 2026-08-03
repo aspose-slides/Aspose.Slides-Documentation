@@ -1,14 +1,16 @@
 ---
-title: PowerPoint Sunum Şekillerinin Küçük Resimlerini .NET'te Oluşturma
+title: .NET'te Sunum Şekillerinin Küçük Resimlerini Oluşturma
 linktitle: Şekil Küçük Resimleri
 type: docs
 weight: 70
 url: /tr/net/create-shape-thumbnails/
 keywords:
 - şekil küçük resmi
-- şekil resmi
-- şekil oluşturma
-- şekil renderleme
+- şekil görüntüsü
+- şekil renderi
+- şekil işleme
+- görsel sınırlar
+- şekil sınırları
 - PowerPoint
 - sunum
 - .NET
@@ -18,22 +20,22 @@ description: "Aspose.Slides for .NET ile PowerPoint slaytlarından yüksek kalit
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET, her sayfanın bir slayt olduğu sunum dosyaları oluşturmak için kullanılır. Bu slaytlar, sunum dosyalarını Microsoft PowerPoint ile açarak görüntülenebilir. Ancak bazen geliştiricilerin şekillerin görüntülerini ayrı bir görüntüleyicide görmek istemesi gerekir. Bu gibi durumlarda Aspose.Slides for .NET, slayt şekillerinin küçük resim (thumbnail) görüntülerini oluşturmanıza yardımcı olur. Bu özelliğin nasıl kullanılacağı bu makalede açıklanmıştır.
-Bu makale, slayt küçük resimlerini farklı şekillerde nasıl oluşturacağınızı açıklar:
+Aspose.Slides for .NET, her sayfanın bir slayt olduğu sunum dosyaları oluşturmak için kullanılır. Bu slaytlar Microsoft PowerPoint ile açılarak görüntülenebilir. Ancak bazı durumlarda geliştiricilerin şekillerin görüntülerini ayrı bir görüntüleyicide görmek istemesi gerekir. Böyle durumlarda Aspose.Slides for .NET, slayt şekillerinin küçük resimlerini oluşturmanıza yardımcı olur. Bu özelliğin nasıl kullanılacağı bu makalede açıklanmıştır.
+Bu makale, slayt küçük resimlerini farklı şekillerde oluşturmayı açıklar:
 
-- Bir slayt içinde şekil küçük resmi oluşturma.
+- Bir slayt içinde bir şekil küçük resmi oluşturma.
 - Kullanıcı tanımlı boyutlarla bir slayt şekli için şekil küçük resmi oluşturma.
-- Bir şeklin görünüm sınırları içinde şekil küçük resmi oluşturma.
+- Bir şeklin görünümünün sınırları içinde şekil küçük resmi oluşturma.
 
-## **Bir Slayttan Şekil Küçük Resmi Oluşturma**
+## **Slayttan Şekil Küçük Resmi Oluşturma**
 Aspose.Slides for .NET kullanarak herhangi bir slayttan şekil küçük resmi oluşturmak için:
 
-1. Create an instance of the [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) class.
-1. ID veya indeksini kullanarak herhangi bir slaytın referansını alın.
-1. Referans alınan slaytın şekil küçük resmi görüntüsünü varsayılan ölçekte alın.
-1. Küçük resim görüntüsünü istediğiniz herhangi bir görüntü formatında kaydedin.
+1. `Presentation` sınıfının bir örneğini oluşturun.
+1. Slaytı ID'si veya diziniyle referans alın.
+1. Referans alınan slaytın şekil küçük resmi görüntüsünü varsayılan ölçekle alın.
+1. Küçük resmi istediğiniz görüntü formatında kaydedin.
 
-Aşağıdaki örnek bir şekil küçük resmi oluşturur.
+Aşağıdaki örnek şekil küçük resmi oluşturur.
 
 ```c#
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
@@ -47,12 +49,12 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 ```
 
 ## **Kullanıcı Tanımlı Ölçekleme Faktörü ile Küçük Resim Oluşturma**
-Aspose.Slides for .NET kullanarak herhangi bir slayt şeklinin şekil küçük resmini oluşturmak için:
+Aspose.Slides for .NET kullanarak herhangi bir slayt şeklinin küçük resmini oluşturmak için:
 
 1. `Presentation` sınıfının bir örneğini oluşturun.
-1. ID veya indeksini kullanarak herhangi bir slaytın referansını alın.
+1. Slaytı ID'si veya diziniyle referans alın.
 1. Referans alınan slaytın şekil sınırlarıyla küçük resim görüntüsünü alın.
-1. Küçük resim görüntüsünü istediğiniz herhangi bir görüntü formatında kaydedin.
+1. Küçük resmi istediğiniz görüntü formatında kaydedin.
 
 Aşağıdaki örnek, kullanıcı tanımlı ölçekleme faktörüyle bir küçük resim oluşturur.
 
@@ -70,15 +72,15 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 }
 ```
 
-## **Sınır Tabanlı Şekil Görünümü Küçük Resmi Oluşturma**
-Bu yöntem, şekillerin küçük resimlerini oluştururken geliştiricilerin şeklin görünüm sınırları içinde bir küçük resim üretmelerine olanak tanır. Tüm şekil efektlerini dikkate alır. Oluşturulan şekil küçük resmi slayt sınırlarıyla kısıtlanır. Herhangi bir slayt şeklinin görünüm sınırları içinde bir küçük resim oluşturmak için aşağıdaki örnek kodu kullanın:
+## **Sınıra Dayalı Şekil Görünümü Küçük Resmi Oluşturma**
+Bu yöntem, geliştiricilerin şeklin görünümünün sınırları içinde bir küçük resim oluşturmasına olanak tanır. Tüm şekil efektlerini dikkate alır. Oluşturulan şekil küçük resmi slayt sınırlarıyla sınırlanır. Görünümünün sınırlı olduğu bir slayt şekli için küçük resim oluşturmak üzere aşağıdaki örnek kodu kullanın:
 
 1. `Presentation` sınıfının bir örneğini oluşturun.
-1. ID veya indeksini kullanarak herhangi bir slaytın referansını alın.
-1. Referans alınan slaytın şekil sınırlarını görünüm olarak kullanarak küçük resim görüntüsünü alın.
-1. Küçük resim görüntüsünü istediğiniz herhangi bir görüntü formatında kaydedin.
+1. Slaytı ID'si veya diziniyle referans alın.
+1. Referans alınan slaytın şekil sınırlarını görünüm olarak alarak küçük resim görüntüsünü alın.
+1. Küçük resmi istediğiniz görüntü formatında kaydedin.
 
-Aşağıdaki örnek, görünüm olarak sınırları kullanarak bir küçük resim oluşturur.
+Aşağıdaki örnek, kullanıcı tanımlı ölçekleme faktörüyle bir küçük resim oluşturur.
 
 ```c#
 ShapeThumbnailBounds bounds = ShapeThumbnailBounds.Appearance;
@@ -94,24 +96,51 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 }
 ```
 
+## **Bir Şeklin Gerçek Görsel Sınırlarını Alın**
+
+[IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) arayüzünün çerçeve özellikleri—`X`, `Y`, `Width` ve `Height`—sunum modelinde saklanan dikdörtgeni açıklar. Gerçekten çizilen içerik bu çerçevenin dışına çıkabilir veya farklı bir eksenle hizalanmış dikdörtgen kaplayabilir. Döndürme, kenarlıklar, ok uçları, metin yerleşimi ve taşması, oluşturulan SmartArt geometrisi ve diğer çizim etkileri, kaplanan alanı değiştirebilir.
+
+Bu kaplanan alanı bir resim oluşturmadan hesaplamak için [GetVisualBounds](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/getvisualbounds/) kullanın. Metot, slayt koordinatlarında bir [RectangleF](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.rectanglef) döndürür. Döndürülen dikdörtgen slayta kırpılmaz; içerik slayt orijininin dışına uzandığında koordinatları negatif olabilir.
+
+[GetVisualBounds](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/getvisualbounds/) şu anda [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) arayüzü tarafından bildirilmemektedir. Bu nedenle, slayttaki şekil koleksiyonundan alınan şekli bir arayüz değeri olarak tutun ve metodu çağırırken yalnızca dönüştürün.
+
+Aşağıdaki örnek, çerçeve ve görsel sınırları alıp karşılaştırır:
+
+```csharp
+using var presentation = new Presentation("example.pptx");
+
+var slide = presentation.Slides[0];
+IShape shape = slide.Shapes[0];
+
+var visualBounds = ((Shape)shape).GetVisualBounds();
+var frameBounds = new RectangleF(shape.X, shape.Y, shape.Width, shape.Height);
+
+Console.WriteLine($"Frame bounds: {frameBounds}");
+Console.WriteLine($"Visual bounds: {visualBounds}");
+```
+
+Aynı [RectangleF](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.rectanglef), yakınlardaki şekilleri `Left`, `Right`, `Top` veya `Bottom` kenarına hizalamak; oluşturulan bir yerleşimde yeterli alan ayırmak; ya da izin verilen bir bölgenin dışındaki içeriği tespit etmek için kullanılabilir. Görsel sınırlar, saklanan çerçeve tam olarak render sonucunu yansıtmayabilecek SmartArt, metin kutuları, oklar, resimler, döndürülmüş şekiller ve grup şekilleri için özellikle yararlıdır.
+
+Düzenleme veya doğrulama için koordinatlara ihtiyacınız olduğunda ve bir bitmap gerekmiyorsa [GetVisualBounds](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/getvisualbounds/) kullanın. Şekli gerçekten çizmek istediğinizde ise [IShape.GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/getimage/) kullanın. [ShapeThumbnailBounds](https://reference.aspose.com/slides/tr/net/aspose.slides/shapethumbnailbounds/) ile `ShapeThumbnailBounds.Shape`, dış hat ayarları dahil şekil sınırlarından resmi boyutlandırırken, `ShapeThumbnailBounds.Appearance` resmi şeklin görünümünden boyutlandırır ve sonucu slayt sınırlarıyla kısıtlar. Buna karşıt olarak, [GetVisualBounds](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/getvisualbounds/) yalnızca hesaplanan dikdörtgeni döndürür ve slayta kırpmaz.
+
 ## **SSS**
 
-**Şekil küçük resimleri kaydederken hangi görüntü formatları kullanılabilir?**
+**Şekil küçük resimleri kaydedilirken hangi görüntü formatları kullanılabilir?**
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/), ve diğerleri. Şekiller, şeklin içeriğini SVG olarak kaydederek ayrıca [vektör SVG olarak dışa aktarılabilir](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/writeassvg/).
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/), ve diğerleri. Şekiller ayrıca içeriği SVG olarak kaydedilerek [vektör SVG olarak dışa aktarılabilir](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/writeassvg/).
 
-**Küçük resim oluştururken Şekil ve Görünüm sınırları arasındaki fark nedir?**
+**Küçük resim oluşturulurken Şekil ve Görünüm sınırları arasındaki fark nedir?**
 
-`Shape`, şeklin geometrisini kullanır; `Appearance` ise [görsel efektleri](/slides/tr/net/shape-effect/) (gölge, parıltı vb.) dikkate alır.
+`Shape`, şeklin geometrisini kullanır; `Appearance` ise [görsel efektleri](/slides/tr/net/shape-effect/) (gölgeler, parıltılar vb.) dikkate alır.
 
-**Bir şekil gizli olarak işaretlenmişse ne olur? Yine de küçük resim olarak oluşturulur mu?**
+**Bir şekil gizli olarak işaretlenirse ne olur? Küçük resim olarak hâlâ oluşturulur mu?**
 
-Gizli bir şekil modelin bir parçası olarak kalır ve oluşturulabilir; gizli bayrağı slayt gösterisi görüntüsünü etkiler ancak şeklin görüntüsünün üretilmesini engellemez.
+Gizli bir şekil modelin bir parçası olarak kalır ve render edilebilir; gizli bayrağı slayt gösterisi görüntüsünü etkiler ancak şeklin görüntüsünün oluşturulmasını engellemez.
 
 **Grup şekilleri, grafikler, SmartArt ve diğer karmaşık nesneler destekleniyor mu?**
 
-Evet. [Shape](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/) olarak temsil edilen herhangi bir nesne ([GroupShape](https://reference.aspose.com/slides/tr/net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chart/), ve [SmartArt](https://reference.aspose.com/slides/tr/net/aspose.slides.smartart/smartart/) dahil) küçük resim veya SVG olarak kaydedilebilir.
+Evet. [Shape](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/) (ör. [GroupShape](https://reference.aspose.com/slides/tr/net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chart/), ve [SmartArt](https://reference.aspose.com/slides/tr/net/aspose.slides.smartart/smartart/)) olarak temsil edilen herhangi bir nesne, küçük resim veya SVG olarak kaydedilebilir.
 
-**Sistem tarafından yüklü fontlar, metin şekilleri için küçük resim kalitesini etkiler mi?**
+**Sistemde yüklü fontlar, metin şekilleri için küçük resim kalitesini etkiler mi?**
 
-Evet. İstenmeyen yedeklemeler ve metin akışını önlemek için [gerekli fontları sağlamalısınız](/slides/tr/net/custom-font/) (veya [font ikamelerini yapılandırmalısınız](/slides/tr/net/font-substitution/)).
+Evet. İstenmeyen yedeklemeler ve metin kaymalarını önlemek için [gerekli fontları sağlamalısınız](/slides/tr/net/custom-font/) (veya [font ikameleri yapılandırmalısınız](/slides/tr/net/font-substitution/)).

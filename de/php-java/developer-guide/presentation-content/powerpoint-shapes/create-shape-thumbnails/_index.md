@@ -8,43 +8,42 @@ keywords:
 - Form-Miniaturbild
 - Formbild
 - Form rendern
-- Form-Rendering
+- Formdarstellung
+- visuelle Begrenzungen
+- Formbegrenzungen
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erstellen Sie hochwertige Form-Miniaturbilder aus PowerPoint-Folien mit Aspose.Slides für PHP via Java – einfach Präsentationsminiaturbilder erzeugen und exportieren."
+description: "Erstellen Sie hochwertige Miniaturbilder von Formen aus PowerPoint‑Folien mit Aspose.Slides für PHP via Java – einfach Präsentations‑Miniaturbilder erzeugen und exportieren."
 ---
+## **Einleitung**
 
-## **Übersicht**
-{{% alert color="primary" %}} 
+Aspose.Slides wird verwendet, um Präsentationsdateien zu erstellen, bei denen jede Seite eine Folie ist. Diese Folien können angezeigt werden, indem die Präsentationsdateien mit Microsoft PowerPoint geöffnet werden. Manchmal müssen Entwickler jedoch die Bilder der Formen separat in einem Bildbetrachter betrachten. In solchen Fällen hilft Aspose.Slides beim Erzeugen von Miniaturbildern der Folienformen. Wie diese Funktion verwendet wird, wird in diesem Artikel beschrieben.
 
-Aspose.Slides for PHP via Java kann verwendet werden, um Präsentationsdateien zu erstellen, bei denen jede Seite einer Folie entspricht. Die Folien können angezeigt werden, indem die Präsentationsdateien mit Microsoft PowerPoint geöffnet werden. Entwickler müssen jedoch manchmal die Bilder der Formen separat in einem Bildbetrachter ansehen. In solchen Fällen hilft Aspose.Slides for PHP via Java, Miniaturbilder der Folienformen zu erzeugen.
+Dieser Artikel erklärt, wie Miniaturbilder von Folien auf verschiedene Arten erzeugt werden können:
 
-{{% /alert %}} 
+- Erzeugen eines Miniaturbildes einer Form innerhalb einer Folie.
+- Erzeugen eines Miniaturbildes einer Form mit benutzerdefinierten Abmessungen.
+- Erzeugen eines Miniaturbildes innerhalb der Begrenzungen des Erscheinungsbildes einer Form.
 
-In diesem Thema zeigen wir, wie Miniaturbilder von Folien in verschiedenen Situationen generiert werden können:
+## **Miniaturbild einer Form aus einer Folie generieren**
+Um ein Miniaturbild einer Form aus einer beliebigen Folie mit Aspose.Slides für PHP via Java zu erzeugen, gehen Sie wie folgt vor:
 
-- Generieren eines Form‑Miniaturbildes innerhalb einer Folie.
-- Generieren eines Form‑Miniaturbildes für eine Folienform mit benutzerdefinierten Abmessungen.
-- Generieren eines Form‑Miniaturbildes innerhalb der Grenzen des Aussehens einer Form.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation)-Klasse.
+2. Holen Sie sich die Referenz einer beliebigen Folie über ihre ID oder ihren Index.
+3. [Abrufen des Form-Miniaturbildes](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/#getImage) der referenzierten Folie in Standardgröße.
+4. Speichern Sie das Miniaturbild im gewünschten Bildformat.
 
-## **Shape‑Thumbnail aus einer Folie generieren**
-Um ein Shape‑Thumbnail aus einer beliebigen Folie mit Aspose.Slides for PHP via Java zu erzeugen, gehen Sie folgendermaßen vor:
+Der folgende Beispielcode zeigt, wie ein Miniaturbild einer Form aus einer Folie erzeugt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)-Klasse.
-1. Holen Sie sich die Referenz einer beliebigen Folie über deren ID oder Index.
-1. [Get the shape thumbnail image](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) der referenzierten Folie in der Standard‑Skalierung.
-1. Speichern Sie das Miniaturbild in Ihrem gewünschten Bildformat.
-
-Dieser Beispielcode zeigt, wie ein Shape‑Thumbnail aus einer Folie generiert wird:
 ```php
-  # Instanziiere eine Presentation-Klasse, die die Präsentationsdatei darstellt
+  # Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    # Erstelle ein Bild in voller Auflösung
+    # Erstellen Sie ein Bild in voller Auflösung
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage();
-    # Speichere das Bild auf der Festplatte im PNG-Format
+    # Speichern Sie das Bild auf der Festplatte im PNG-Format
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -59,23 +58,23 @@ Dieser Beispielcode zeigt, wie ein Shape‑Thumbnail aus einer Folie generiert w
   }
 ```
 
+## **Miniaturbild mit benutzerdefiniertem Skalierungsfaktor generieren**
+Um das Miniaturbild einer Form aus einer Folie mit Aspose.Slides für PHP via Java zu erzeugen, gehen Sie wie folgt vor:
 
-## **Thumbnail mit benutzerdefiniertem Skalierungsfaktor generieren**
-Um das Shape‑Thumbnail einer Folie mit Aspose.Slides for PHP via Java zu erzeugen, gehen Sie folgendermaßen vor:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation)-Klasse.
+2. Holen Sie sich die Referenz einer beliebigen Folie über ihre ID oder ihren Index.
+3. [Abrufen des Form-Miniaturbildes](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/#getImage) der referenzierten Folie mit benutzerdefinierten Abmessungen.
+4. Speichern Sie das Miniaturbild im gewünschten Bildformat.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)-Klasse.
-1. Holen Sie sich die Referenz einer beliebigen Folie über deren ID oder Index.
-1. [Get the shape thumbnail image](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) der referenzierten Folie mit benutzerdefinierten Abmessungen.
-1. Speichern Sie das Miniaturbild in Ihrem gewünschten Bildformat.
+Der folgende Beispielcode zeigt, wie ein Miniaturbild einer Form anhand eines definierten Skalierungsfaktors erzeugt wird:
 
-Dieser Beispielcode zeigt, wie ein Shape‑Thumbnail auf Basis eines definierten Skalierungsfaktors generiert wird:
 ```php
-  # Instanziiere eine Presentation-Klasse, die die Präsentationsdatei repräsentiert
+  # Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    # Erstelle ein Bild in voller Auflösung
+    # Erstellen Sie ein Bild in voller Auflösung
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Shape, 1, 1);
-    # Speichere das Bild auf der Festplatte im PNG-Format
+    # Speichern Sie das Bild auf der Festplatte im PNG-Format
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -90,23 +89,23 @@ Dieser Beispielcode zeigt, wie ein Shape‑Thumbnail auf Basis eines definierten
   }
 ```
 
+## **Miniaturbild basierend auf den Begrenzungen des Erscheinungsbildes einer Form erstellen**
+Diese Methode ermöglicht es Entwicklern, ein Miniaturbild innerhalb der Begrenzungen des Erscheinungsbildes einer Form zu erzeugen. Dabei werden alle Formeffekte berücksichtigt. Das erzeugte Miniaturbild ist durch die Folienbegrenzungen eingeschränkt. So erzeugen Sie ein Miniaturbild einer Folienform im Erscheinungsbildbereich:
 
-## **Thumbnail basierend auf Bounds‑basiertem Form‑Auftritt erstellen**
-Diese Methode zum Erstellen von Miniaturbildern von Formen ermöglicht es Entwicklern, ein Miniaturbild innerhalb der Grenzen des Auftritts einer Form zu erzeugen. Dabei werden alle Form‑Effekte berücksichtigt. Das erzeugte Shape‑Thumbnail ist durch die Folien‑Bounds eingeschränkt. Um ein Miniaturbild einer Folienform im Rahmen ihres Auftritts zu erzeugen, gehen Sie folgendermaßen vor:
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation)-Klasse.
+2. Holen Sie sich die Referenz einer beliebigen Folie über ihre ID oder ihren Index.
+3. Holen Sie das Miniaturbild der referenzierten Folie mit den Formbegrenzungen als Erscheinungsbild.
+4. Speichern Sie das Miniaturbild im gewünschten Bildformat.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)-Klasse.
-1. Holen Sie sich die Referenz einer beliebigen Folie über deren ID oder Index.
-1. Obtaining the thumbnail image of the referenced slide with shape bounds as appearance.
-1. Speichern Sie das Miniaturbild in Ihrem gewünschten Bildformat.
+Der folgende Beispielcode basiert auf den oben genannten Schritten:
 
-Dieser Beispielcode basiert auf den obigen Schritten:
 ```php
-  # Instanziiere eine Presentation-Klasse, die die Präsentationsdatei darstellt
+  # Instanziieren Sie eine Presentation-Klasse, die die Präsentationsdatei darstellt
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    # Erstelle ein Bild in voller Auflösung
+    # Erstellen Sie ein Bild in voller Auflösung
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Appearance, 1, 1);
-    # Speichere das Bild auf der Festplatte im PNG-Format
+    # Speichern Sie das Bild auf der Festplatte im PNG-Format
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -121,25 +120,61 @@ Dieser Beispielcode basiert auf den obigen Schritten:
   }
 ```
 
+## **Tatsächliche visuelle Begrenzungen einer Form ermitteln**
+
+Die Rahmen­eigenschaften von [Shape](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/) — `Shape::getX()`, `Shape::getY()`, `Shape::getWidth()` und `Shape::getHeight()` — beschreiben das Rechteck, das im Präsentationsmodell gespeichert ist. Der tatsächlich gerenderte Inhalt kann über diesen Rahmen hinausgehen oder ein anderes achsen­ausgerichtetes Rechteck einnehmen. Drehungen, Konturen, Pfeilspitzen, Textlayout und -überlauf, generierte SmartArt‑Geometrie und andere Rendering‑Effekte können den belegten Bereich verändern.
+
+Verwenden Sie [Shape::getVisualBounds](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/#getVisualBounds), um diesen belegten Bereich zu berechnen, ohne ein Bild zu erstellen. Die Methode gibt ein [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) in Folienkoordinaten zurück. Das zurückgegebene Rechteck ist nicht auf die Folie zugeschnitten, sodass seine Koordinaten negativ sein können, wenn der Inhalt über den Ursprung der Folie hinausgeht.
+
+Das folgende Beispiel ermittelt und vergleicht den Rahmen und die visuellen Begrenzungen:
+
+```php
+  $presentation = new Presentation("example.pptx");
+  try {
+      $slide = $presentation->getSlides()->get_Item(0);
+      $shape = $slide->getShapes()->get_Item(0);
+
+      $visualBounds = $shape->getVisualBounds();
+
+      $frameX = $shape->getX();
+      $frameY = $shape->getY();
+      $frameWidth = $shape->getWidth();
+      $frameHeight = $shape->getHeight();
+
+      $visualX = $visualBounds->getX();
+      $visualY = $visualBounds->getY();
+      $visualWidth = $visualBounds->getWidth();
+      $visualHeight = $visualBounds->getHeight();
+
+      echo "Frame bounds (x, y, width, height): $frameX, $frameY, $frameWidth, $frameHeight\n";
+      echo "Visual bounds (x, y, width, height): $visualX, $visualY, $visualWidth, $visualHeight\n";
+  } finally {
+      $presentation->dispose();
+  }
+```
+
+Das gleiche [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) kann verwendet werden, um benachbarte Formen links, rechts, oben oder unten auszurichten; genügend Platz in einem erzeugten Layout zu reservieren; oder Inhalte außerhalb eines zulässigen Bereichs zu erkennen. Visuelle Begrenzungen sind besonders nützlich für SmartArt, Textfelder, Pfeile, Bilder, gedrehte Formen und Gruppierungen, bei denen der gespeicherte Rahmen das vollständige gerenderte Ergebnis nicht darstellt.
+
+Verwenden Sie [Shape::getVisualBounds](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/#getVisualBounds), wenn Sie Koordinaten für Layout oder Validierung benötigen und kein Bitmap benötigen. Verwenden Sie [Shape::getImage](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/#getImage), wenn Sie die Form rendern müssen. Mit [ShapeThumbnailBounds](https://reference.aspose.com/slides/de/php-java/aspose.slides/shapethumbnailbounds/) bestimmt `ShapeThumbnailBounds::Shape` die Bildgröße anhand der Formbegrenzungen, einschließlich Kontur‑Einstellungen, während `ShapeThumbnailBounds::Appearance` die Größe anhand des Erscheinungsbildes der Form bestimmt und das Ergebnis auf die Folienbegrenzungen beschränkt. Im Gegensatz dazu gibt `Shape::getVisualBounds` nur das berechnete Rechteck zurück und schneidet es nicht an die Folie zu.
 
 ## **FAQ**
 
-**Welche Bildformate können beim Speichern von Shape‑Thumbnails verwendet werden?**
+**Welche Bildformate können beim Speichern von Form‑Miniaturbildern verwendet werden?**
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/), und weitere. Formen können auch als Vektor‑SVG [exportiert werden](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/), indem der Inhalt der Form als SVG gespeichert wird.
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/de/php-java/aspose.slides/imageformat/), und weitere. Formen können auch als Vektor‑SVG [exportiert werden](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/writeassvg/), indem ihr Inhalt als SVG gespeichert wird.
 
-**Was unterscheidet Shape‑ und Appearance‑Bounds beim Rendern eines Thumbnails?**
+**Was ist der Unterschied zwischen den Begrenzungen „Shape“ und „Appearance“ beim Rendern eines Miniaturbildes?**
 
-`Shape` verwendet die Geometrie der Form; `Appearance` berücksichtigt [visuelle Effekte](/slides/de/php-java/shape-effect/) (Schatten, Leuchten usw.).
+`Shape` verwendet die Geometrie der Form; `Appearance` berücksichtigt die [visuellen Effekte](/slides/de/php-java/shape-effect/) (Schatten, Leuchten usw.).
 
-**Was geschieht, wenn eine Form als versteckt markiert ist? Wird sie trotzdem als Thumbnail gerendert?**
+**Was passiert, wenn eine Form als verborgen markiert ist? Wird sie trotzdem als Miniaturbild gerendert?**
 
-Eine versteckte Form bleibt Teil des Modells und kann gerendert werden; das versteckte Flag beeinflusst die Anzeige in der Präsentation, verhindert jedoch nicht die Generierung des Bildes der Form.
+Eine verborgene Form bleibt Teil des Modells und kann gerendert werden; das Verborgen‑Flag beeinflusst die Anzeige in einer Diashow, verhindert jedoch nicht die Erzeugung des Form‑Bildes.
 
 **Werden Gruppierungsformen, Diagramme, SmartArt und andere komplexe Objekte unterstützt?**
 
-Ja. Jedes Objekt, das als [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) dargestellt wird (einschließlich [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) und [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)), kann als Thumbnail oder als SVG gespeichert werden.
+Ja. Jedes Objekt, das als [Shape](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/) dargestellt wird (einschließlich [GroupShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/) und [SmartArt](https://reference.aspose.com/slides/de/php-java/aspose.slides/smartart/)), kann als Miniaturbild oder als SVG gespeichert werden.
 
-**Beeinflussen systemweit installierte Schriftarten die Qualität von Thumbnails für Textformen?**
+**Beeinflussen systemweit installierte Schriftarten die Qualität von Miniaturbildern für Textformen?**
 
-Ja. Sie sollten die erforderlichen Schriftarten bereitstellen (/slides/de/php-java/custom-font/) (oder [Schriftart‑Substitutionen konfigurieren](/slides/de/php-java/font-substitution/)), um unerwünschte Fallbacks und Textumfluss zu vermeiden.
+Ja. Sie sollten die erforderlichen Schriftarten bereitstellen (/slides/de/php-java/custom-font/) (oder [Schriftarten‑Ersetzungen konfigurieren](/slides/de/php-java/font-substitution/)), um unerwünschte Rückfallschriftarten und Textumbrüche zu vermeiden.
