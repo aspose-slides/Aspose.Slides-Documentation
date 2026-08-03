@@ -69,7 +69,7 @@ System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.
 
 ## **Create a Video Frame with Video from a Web Source**
 
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) support YouTube videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link. 
+Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) support online videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link.
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)class
 1. Get a slide's reference through its index. 
@@ -98,6 +98,66 @@ vf->set_PlayMode(VideoPlayModePreset::Auto);
 
 //Saves the presentation to disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+## **Trim a Video Frame**
+
+Aspose.Slides allows you to control which part of a video is played by setting the trim-from-start and trim-from-end values through [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) and [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/). Both values are specified in milliseconds and define how much time is skipped from the beginning and end of the video, respectively. These settings change the video playback settings in the presentation; they do not cut or otherwise modify the embedded video binary data.
+
+**Set Trim Settings**
+
+To create a video frame and set its trim settings:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Add an [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) object to the presentation.
+1. Add an [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) object to a slide.
+1. Set the trim-from-start and trim-from-end values through [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) and [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/).
+1. Save the modified presentation.
+
+The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto videoData = File::ReadAllBytes(u"video.mp4");
+auto video = presentation->get_Videos()->AddVideo(videoData);
+
+auto slide = presentation->get_Slide(0);
+auto videoFrame = slide->get_Shapes()->AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame->set_TrimFromStart(2500.0f);
+videoFrame->set_TrimFromEnd(1000.0f);
+
+presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+**Read Trim Settings**
+
+To inspect existing trim settings, load a presentation, find an [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) object among the shapes on the first slide, and read the values through [IVideoFrame::get_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_trimfromstart/) and [IVideoFrame::get_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_trimfromend/).
+
+The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
+
+auto slide = presentation->get_Slide(0);
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        auto trimFromStart = videoFrame->get_TrimFromStart();
+        auto trimFromEnd = videoFrame->get_TrimFromEnd();
+
+        Console::WriteLine(u"Trim from start: {0} ms", trimFromStart);
+        Console::WriteLine(u"Trim from end: {0} ms", trimFromEnd);
+
+        break;
+    }
+}
+
+presentation->Dispose();
 ```
 
 ## **Manage Video Captions**
@@ -232,18 +292,18 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **FAQ**
 
-### Which video playback parameters can be changed for a VideoFrame?
+**Which video playback parameters can be changed for a VideoFrame?**
 
 You can control the [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (auto or on click) and [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). These options are available via the [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) object's properties.
 
-### Does adding a video affect the PPTX file size?
+**Does adding a video affect the PPTX file size?**
 
 Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
 
-### Can I replace the video in an existing VideoFrame without changing its position and size?
+**Can I replace the video in an existing VideoFrame without changing its position and size?**
 
 Yes. You can swap the [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 
-### Can the content type (MIME) of an embedded video be determined?
+**Can the content type (MIME) of an embedded video be determined?**
 
 Yes. An embedded video has a [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) that you can read and use, for example when saving it to disk.

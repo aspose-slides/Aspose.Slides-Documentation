@@ -122,6 +122,70 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
+## **Trim a Video Frame**
+
+Aspose.Slides allows you to control which part of a video is played by setting the trim-from-start and trim-from-end values through [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) and [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). Both values are specified in milliseconds and define how much time is skipped from the beginning and end of the video, respectively. These settings change the video playback settings in the presentation; they do not cut or otherwise modify the embedded video binary data.
+
+**Set Trim Settings**
+
+To create a video frame and set its trim settings:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Add an [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) object to the presentation.
+1. Add an [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) object to a slide.
+1. Set the trim-from-start and trim-from-end values through [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) and [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).
+1. Save the modified presentation.
+
+The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
+
+```java
+Presentation presentation = new Presentation();
+try {
+    FileInputStream videoStream = new FileInputStream("video.mp4");
+    try {
+        IVideo video = presentation.getVideos().addVideo(
+                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+        ISlide slide = presentation.getSlides().get_Item(0);
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500f);
+        videoFrame.setTrimFromEnd(1000f);
+
+        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Read Trim Settings**
+
+To inspect existing trim settings, load a presentation, find an [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) object among the shapes on the first slide, and read the values through [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getTrimFromStart--) and [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
+
+The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
+
+```java
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            float trimFromStart = videoFrame.getTrimFromStart();
+            float trimFromEnd = videoFrame.getTrimFromEnd();
+
+            System.out.println("Trim from start: " + trimFromStart + " ms");
+            System.out.println("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Manage Video Captions**
 
 Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) method.
@@ -263,18 +327,18 @@ try {
 
 ## **FAQ**
 
-### Which video playback parameters can be changed for a VideoFrame?
+**Which video playback parameters can be changed for a VideoFrame?**
 
 You can control the [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (auto or on click) and [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). These options are available via the [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) object's properties.
 
-### Does adding a video affect the PPTX file size?
+**Does adding a video affect the PPTX file size?**
 
 Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
 
-### Can I replace the video in an existing VideoFrame without changing its position and size?
+**Can I replace the video in an existing VideoFrame without changing its position and size?**
 
 Yes. You can swap the [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 
-### Can the content type (MIME) of an embedded video be determined?
+**Can the content type (MIME) of an embedded video be determined?**
 
 Yes. An embedded video has a [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) that you can read and use, for example when saving it to disk.

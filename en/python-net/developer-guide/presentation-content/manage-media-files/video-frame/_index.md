@@ -70,7 +70,7 @@ with slides.Presentation() as pres:
 
 ## **Create Video Frame with Video from Web Source**
 
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) support YouTube videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link. 
+Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/office/insert-a-video-from-youtube-or-another-site-8340ec69-4cee-4fe1-ab96-4849154bc6db) support online videos in presentations. If the video you want to use is available online (e.g. on YouTube), you can add it to your presentation through its web link.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
 1. Get a slide's reference through its index. 
@@ -98,6 +98,62 @@ def add_video_from_youyube(pres, videoId):
 with slides.Presentation() as pres:
     add_video_from_youyube(pres, "s5JbfQZ5Cc0")
     pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Trim a Video Frame**
+
+Aspose.Slides allows you to control which part of a video is played by setting the trim-from-start and trim-from-end values through [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) and [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/). Both values are specified in milliseconds and define how much time is skipped from the beginning and end of the video, respectively. These settings change the video playback settings in the presentation; they do not cut or otherwise modify the embedded video binary data.
+
+**Set Trim Settings**
+
+To create a video frame and set its trim settings:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Add a [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) object to the presentation.
+1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object to a slide.
+1. Set the trim-from-start and trim-from-end values through [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) and [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/).
+1. Save the modified presentation.
+
+The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    with open("video.mp4", "rb") as video_stream:
+        video_data = video_stream.read()
+
+    video = presentation.videos.add_video(video_data)
+
+    slide = presentation.slides[0]
+    video_frame = slide.shapes.add_video_frame(50, 50, 640, 360, video)
+
+    video_frame.trim_from_start = 2500.0
+    video_frame.trim_from_end = 1000.0
+
+    presentation.save("video_with_trim.pptx", slides.export.SaveFormat.PPTX)
+```
+
+**Read Trim Settings**
+
+To inspect existing trim settings, load a presentation, find a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object among the shapes on the first slide, and read the values through [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) and [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/).
+
+The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("video_with_trim.pptx") as presentation:
+    slide = presentation.slides[0]
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            video_frame = shape
+            trim_from_start = video_frame.trim_from_start
+            trim_from_end = video_frame.trim_from_end
+
+            print(f"Trim from start: {trim_from_start} ms")
+            print(f"Trim from end: {trim_from_end} ms")
+            break
 ```
 
 ## **Manage Video Captions**
@@ -215,18 +271,18 @@ with slides.Presentation(path + "Video.pptx") as presentation:
 
 ## **FAQ**
 
-### Which video playback parameters can be changed for a VideoFrame?
+**Which video playback parameters can be changed for a VideoFrame?**
 
 You can control the [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (auto or on click) and [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). These options are available via the [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object's properties.
 
-### Does adding a video affect the PPTX file size?
+**Does adding a video affect the PPTX file size?**
 
 Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
 
-### Can I replace the video in an existing VideoFrame without changing its position and size?
+**Can I replace the video in an existing VideoFrame without changing its position and size?**
 
 Yes. You can swap the [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 
-### Can the content type (MIME) of an embedded video be determined?
+**Can the content type (MIME) of an embedded video be determined?**
 
 Yes. An embedded video has a [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) that you can read and use, for example when saving it to disk.
