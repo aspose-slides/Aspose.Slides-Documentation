@@ -1,44 +1,45 @@
 ---
-title: Añadir vídeos a presentaciones en Python
-linktitle: Marco de vídeo
+title: Añadir videos a presentaciones en Python
+linktitle: Marco de video
 type: docs
 weight: 10
 url: /es/python-net/video-frame/
 keywords:
-- añadir vídeo
-- crear vídeo
-- incrustar vídeo
-- extraer vídeo
-- recuperar vídeo
-- marco de vídeo
+- añadir video
+- crear video
+- incrustar video
+- extraer video
+- recuperar video
+- marco de video
 - fuente web
 - PowerPoint
 - OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprende a añadir y extraer marcos de vídeo de forma programática en diapositivas PowerPoint y OpenDocument usando Aspose.Slides para Python a través de .NET. Guía rápida paso a paso."
+description: "Aprende a añadir y extraer programáticamente marcos de video en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para Python mediante .NET. Guía práctica y rápida."
 ---
-Un vídeo bien colocado en una presentación puede hacer que tu mensaje sea más atractivo y aumentar los niveles de compromiso con tu audiencia. 
+## **Introducción**
 
-PowerPoint permite añadir vídeos a una diapositiva de una presentación de dos formas:
+Un video bien colocado en una presentación puede hacer que tu mensaje sea más atractivo y aumentar el nivel de compromiso con tu audiencia.
 
-* Añadir o incrustar un vídeo local (almacenado en tu equipo)
-* Añadir un vídeo en línea (de una fuente web como YouTube). 
+PowerPoint permite añadir videos a una diapositiva en una presentación de dos maneras:
+* Añadir o incrustar un video local (almacenado en tu máquina)
+* Añadir un video en línea (desde una fuente web como YouTube).
 
-Para permitirte añadir vídeos (objetos de vídeo) a una presentación, Aspose.Slides ofrece la clase [Video](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/) , la clase [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) y otros tipos relevantes. 
+Para permitirte añadir videos (objetos de video) a una presentación, Aspose.Slides proporciona la clase [Video](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/) la clase [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) y otros tipos relevantes.
 
-## **Crear marco de vídeo incrustado**
+## **Crear un marco de video incrustado**
 
-Si el archivo de vídeo que deseas añadir a tu diapositiva está almacenado localmente, puedes crear un marco de vídeo para incrustar el vídeo en tu presentación. 
+Si el archivo de video que deseas añadir a tu diapositiva está almacenado localmente, puedes crear un marco de video para incrustar el video en tu presentación.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) .
-1. Obtén la referencia de una diapositiva mediante su índice. 
-1. Añade un objeto [Video](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/) y pasa la ruta del archivo de vídeo para incrustar el vídeo en la presentación. 
-1. Añade un objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) para crear un marco para el vídeo.  
-1. Guarda la presentación modificada. 
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Obtener la referencia de una diapositiva mediante su índice. 
+1. Añadir un objeto [Video](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/) y pasar la ruta del archivo de video para incrustar el video en la presentación. 
+1. Añadir un objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) para crear un marco para el video.  
+1. Guardar la presentación modificada. 
 
-Este código Python muestra cómo añadir un vídeo almacenado localmente a una presentación:
+Este código Python muestra cómo añadir un video almacenado localmente a una presentación:
 
 ```python
 import aspose.slides as slides
@@ -47,14 +48,14 @@ with slides.Presentation(path + "pres.pptx") as pres:
     with open("Wildlife.mp4", "br") as fileStream:
         video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
 
-        # Obtiene la primera diapositiva y añade un marco de vídeo
+        # Obtiene la primera diapositiva y añade un marco de video
         pres.slides[0].shapes.add_video_frame(10, 10, 150, 250, video)
 
         # Guarda la presentación en disco
         pres.save(path + "pres-with-video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Alternativamente, puedes añadir un vídeo pasando directamente su ruta de archivo al método `add_video_frame(x, y, width, height, fname)`:
+Alternativamente, puedes añadir un video pasando su ruta de archivo directamente al método `add_video_frame(x, y, width, height, fname)`:
 
 ``` python
 import aspose.slides as slides
@@ -65,24 +66,24 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Crear marco de vídeo con vídeo de origen web**
+## **Crear un marco de video con video de una fuente web**
 
-Microsoft [PowerPoint 2013 y versiones posteriores](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) admite vídeos de YouTube en presentaciones. Si el vídeo que deseas usar está disponible en línea (p. ej., en YouTube), puedes añadirlo a tu presentación mediante su enlace web. 
+Las versiones más recientes de Microsoft [PowerPoint](https://support.microsoft.com/en-us/office/insert-a-video-from-youtube-or-another-site-8340ec69-4cee-4fe1-ab96-4849154bc6db) admiten videos en línea en las presentaciones. Si el video que deseas usar está disponible en línea (p.ej., en YouTube), puedes añadirlo a tu presentación mediante su enlace web.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) .
-1. Obtén la referencia de una diapositiva mediante su índice. 
-1. Añade un objeto [Video](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/) y pasa el enlace al vídeo.
-1. Establece una miniatura para el marco de vídeo. 
-1. Guarda la presentación. 
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Obtener la referencia de una diapositiva mediante su índice. 
+1. Añadir un objeto [Video](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/) y pasar el enlace al video.
+1. Establecer una miniatura para el marco de video. 
+1. Guardar la presentación. 
 
-Este código Python muestra cómo añadir un vídeo desde la web a una diapositiva en una presentación PowerPoint:
+Este código Python muestra cómo añadir un video desde la web a una diapositiva en una presentación de PowerPoint:
 
 ```python
 import aspose.slides as slides
 from urllib.request import urlopen
 
 def add_video_from_youyube(pres, videoId):
-    # Añade un marco de vídeo
+    # Añade un marco de video
     videoFrame = pres.slides[0].shapes.add_video_frame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId)
     videoFrame.play_mode = slides.VideoPlayModePreset.AUTO
 
@@ -97,21 +98,77 @@ with slides.Presentation() as pres:
     pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gestionar subtítulos de vídeo**
+## **Recortar un marco de video**
 
-Aspose.Slides permite gestionar subtítulos cerrados para marcos de vídeo en presentaciones PowerPoint. Los subtítulos se almacenan en formato WebVTT y están disponibles mediante la propiedad [VideoFrame.caption_tracks](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/caption_tracks/) .
+Aspose.Slides permite controlar qué parte de un video se reproduce estableciendo los valores trim-from-start y trim-from-end mediante [VideoFrame.trim_from_start](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/trim_from_start/) y [VideoFrame.trim_from_end](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/trim_from_end/). Ambos valores se especifican en milisegundos y definen cuánto tiempo se omite al inicio y al final del video, respectivamente. Estos ajustes cambian la configuración de reproducción del video en la presentación; no recortan ni modifican de otra manera los datos binarios del video incrustado.
 
-**Añadir subtítulos a un marco de vídeo**
+**Establecer ajustes de recorte**
 
-Para añadir subtítulos a un marco de vídeo:
+Para crear un marco de video y establecer sus ajustes de recorte:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) .
-1. Añade un vídeo a la presentación.
-1. Añade un objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) a una diapositiva.
-1. Utiliza la [CaptionsCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/) devuelta por [caption_tracks](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/caption_tracks/) para añadir una pista de subtítulos WebVTT.
-1. Guarda la presentación modificada.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Añadir un objeto [Video](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/) a la presentación.
+1. Añadir un objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) a una diapositiva.
+1. Establecer los valores trim-from-start y trim-from-end mediante [VideoFrame.trim_from_start](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/trim_from_start/) y [VideoFrame.trim_from_end](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/trim_from_end/).
+1. Guardar la presentación modificada.
 
-El siguiente código muestra cómo añadir subtítulos a un marco de vídeo:
+El siguiente ejemplo de código omite los primeros 2,5 segundos y el último segundo de un video incrustado durante la reproducción:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    with open("video.mp4", "rb") as video_stream:
+        video_data = video_stream.read()
+
+    video = presentation.videos.add_video(video_data)
+
+    slide = presentation.slides[0]
+    video_frame = slide.shapes.add_video_frame(50, 50, 640, 360, video)
+
+    video_frame.trim_from_start = 2500.0
+    video_frame.trim_from_end = 1000.0
+
+    presentation.save("video_with_trim.pptx", slides.export.SaveFormat.PPTX)
+```
+
+**Leer ajustes de recorte**
+
+Para inspeccionar los ajustes de recorte existentes, carga una presentación, encuentra un objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) entre las formas de la primera diapositiva y lee los valores mediante [VideoFrame.trim_from_start](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/trim_from_start/) y [VideoFrame.trim_from_end](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/trim_from_end/).
+
+El siguiente ejemplo de código encuentra el primer marco de video en la primera diapositiva y muestra sus ajustes de recorte en milisegundos:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("video_with_trim.pptx") as presentation:
+    slide = presentation.slides[0]
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            video_frame = shape
+            trim_from_start = video_frame.trim_from_start
+            trim_from_end = video_frame.trim_from_end
+
+            print(f"Trim from start: {trim_from_start} ms")
+            print(f"Trim from end: {trim_from_end} ms")
+            break
+```
+
+## **Gestionar subtítulos de video**
+
+Aspose.Slides permite gestionar subtítulos cerrados para los marcos de video en presentaciones de PowerPoint. Los subtítulos se almacenan en formato WebVTT y se exponen mediante la propiedad [VideoFrame.caption_tracks](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/caption_tracks/).
+
+**Añadir subtítulos a un marco de video**
+
+Para añadir subtítulos a un marco de video:
+
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Añadir un video a la presentación.
+1. Añadir un objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) a una diapositiva.
+1. Utilizar la [CaptionsCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/) devuelta por [caption_tracks](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/caption_tracks/) para añadir una pista de subtítulos WebVTT.
+1. Guardar la presentación modificada.
+
+El siguiente código muestra cómo añadir subtítulos a un marco de video:
 
 ```py
 import aspose.slides as slides
@@ -126,21 +183,23 @@ with slides.Presentation() as presentation:
     video_frame = slide.shapes.add_video_frame(0, 0, 100, 100, video)
 
     # Añade una nueva pista de subtítulos desde un archivo WebVTT.
+    video_frame.caption_tracks.add("English", "track.vtt")
+
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 La clase [CaptionsCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/) también ofrece una sobrecarga que permite añadir subtítulos desde un flujo.
 
-**Extraer subtítulos de un marco de vídeo**
+**Extraer subtítulos de un marco de video**
 
-Para extraer subtítulos de un marco de vídeo:
+Para extraer subtítulos de un marco de video:
 
-1. Carga la presentación que contiene el vídeo.
-1. Encuentra el objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) objetivo.
-1. Itera a través de la colección [caption_tracks](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/caption_tracks/) .
-1. Guarda cada pista de subtítulos en un archivo `.vtt`.
+1. Cargar la presentación que contiene el video.
+1. Encontrar el objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) objetivo.
+1. Iterar a través de la colección [caption_tracks](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/caption_tracks/).
+1. Guardar cada pista de subtítulos en un archivo `.vtt`.
 
-El siguiente código muestra cómo extraer subtítulos de un marco de vídeo:
+El siguiente código muestra cómo extraer subtítulos de un marco de video:
 
 ```py
 import aspose.slides as slides
@@ -158,16 +217,16 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
 
 Cada objeto [Captions](https://reference.aspose.com/slides/es/python-net/aspose.slides/captions/) expone el identificador del subtítulo, la etiqueta, los datos binarios y el texto del subtítulo como una cadena UTF-8.
 
-**Eliminar subtítulos de un marco de vídeo**
+**Eliminar subtítulos de un marco de video**
 
-Para eliminar subtítulos de un marco de vídeo:
+Para eliminar subtítulos de un marco de video:
 
-1. Carga la presentación que contiene el vídeo.
-1. Obtén el objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) objetivo.
-1. Elimina las pistas de subtítulos de la [CaptionsCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/) .
-1. Guarda la presentación modificada.
+1. Cargar la presentación que contiene el video.
+1. Obtener el objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) objetivo.
+1. Eliminar las pistas de subtítulos de la [CaptionsCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/).
+1. Guardar la presentación modificada.
 
-El siguiente código muestra cómo eliminar todos los subtítulos de un marco de vídeo:
+El siguiente código muestra cómo eliminar todos los subtítulos de un marco de video:
 
 ```py
 import aspose.slides as slides
@@ -176,24 +235,24 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
     video_frame = slide.shapes[0]  # tipo: slides.VideoFrame
 
-    # Elimina todos los subtítulos del marco de vídeo.
+    # Elimina todos los subtítulos del marco de video.
     video_frame.caption_tracks.clear()
 
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Si necesitas eliminar solo una pista de subtítulos, utiliza los métodos [remove](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/remove/) o [remove_at](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/remove_at/) en lugar de [clear](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/clear/) .
+Si necesitas eliminar solo una pista de subtítulos, utiliza los métodos [remove](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/remove/) o [remove_at](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/remove_at/) en lugar de [clear](https://reference.aspose.com/slides/es/python-net/aspose.slides/captionscollection/clear/).
 
-## **Extraer vídeo de una diapositiva**
+## **Extraer video de una diapositiva**
 
-Además de añadir vídeos a diapositivas, Aspose.Slides permite extraer los vídeos incrustados en presentaciones.
+Además de añadir videos a las diapositivas, Aspose.Slides permite extraer videos incrustados en presentaciones.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para cargar la presentación que contiene el vídeo. 
-2. Itera a través de todos los objetos [Slide](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/) .
-3. Itera a través de todos los objetos [Shape](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/) para encontrar un [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) . 
-4. Guarda el vídeo en disco.
+1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para cargar la presentación que contiene el video. 
+2. Iterar a través de todos los objetos [Slide](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/).
+3. Iterar a través de todos los objetos [Shape](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/) para encontrar un [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/). 
+4. Guardar el video en disco.
 
-Este código Python muestra cómo extraer el vídeo de una diapositiva de una presentación:
+Este código Python muestra cómo extraer el video de una diapositiva de una presentación:
 
 ```python
 import aspose.slides as slides
@@ -210,18 +269,18 @@ with slides.Presentation(path + "Video.pptx") as presentation:
 
 ## **Preguntas frecuentes**
 
-**¿Qué parámetros de reproducción de vídeo se pueden cambiar en un VideoFrame?**
+**¿Qué parámetros de reproducción de video se pueden cambiar para un VideoFrame?**
 
-Puedes controlar el [modo de reproducción](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/play_mode/) (automático o al hacer clic) y el [bucle](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/play_loop_mode/). Estas opciones están disponibles mediante las propiedades del objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/) .
+Puedes controlar el [modo de reproducción](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/play_mode/) (automático o al hacer clic) y el [bucle](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/play_loop_mode/). Estas opciones están disponibles a través de las propiedades del objeto [VideoFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/).
 
-**¿Afecta la incorporación de un vídeo al tamaño del archivo PPTX?**
+**¿Afecta la adición de un video al tamaño del archivo PPTX?**
 
-Sí. Cuando incrustas un vídeo local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación crece en proporción al tamaño del archivo. Cuando añades un vídeo en línea, se incrustan un enlace y una miniatura, por lo que el aumento de tamaño es menor.
+Sí. Cuando incrustas un video local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación crece en proporción al tamaño del archivo. Cuando añades un video en línea, se incrustan un enlace y una miniatura, por lo que el aumento de tamaño es menor.
 
-**¿Puedo reemplazar el vídeo en un VideoFrame existente sin cambiar su posición y tamaño?**
+**¿Puedo reemplazar el video en un VideoFrame existente sin cambiar su posición y tamaño?**
 
-Sí. Puedes intercambiar el [contenido del vídeo](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/embedded_video/) dentro del marco mientras preservas la geometría de la forma; este es un escenario habitual para actualizar medios en un diseño existente.
+Sí. Puedes intercambiar el [contenido del video](https://reference.aspose.com/slides/es/python-net/aspose.slides/videoframe/embedded_video/) dentro del marco preservando la geometría de la forma; este es un escenario común para actualizar medios en un diseño existente.
 
-**¿Se puede determinar el tipo de contenido (MIME) de un vídeo incrustado?**
+**¿Se puede determinar el tipo de contenido (MIME) de un video incrustado?**
 
-Sí. Un vídeo incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/content_type/) que puedes leer y utilizar, por ejemplo al guardarlo en disco.
+Sí. Un video incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/es/python-net/aspose.slides/video/content_type/) que puedes leer y usar, por ejemplo al guardarlo en disco.

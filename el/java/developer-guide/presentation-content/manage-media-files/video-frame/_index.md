@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση Πλαισίων Βίντεο σε Παρουσιάσεις Χρησιμοποιώντας Java
+title: Διαχείριση Πλαισίων Βίντεο σε Παρουσιάσεις με Java
 linktitle: Πλαίσιο Βίντεο
 type: docs
 weight: 10
@@ -17,33 +17,31 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας Aspose.Slides για Java. Γρήγορος οδηγός βήμα προς βήμα."
+description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Java. Γρήγορος οδηγός βήμα-βήμα."
 ---
 ## **Εισαγωγή**
 
-Ένα καλά τοποθετημένο βίντεο σε μια παρουσίαση μπορεί να κάνει το μήνυμά σας πιο ελκυστικό και να αυξήσει τα επίπεδα αλληλεπίδρασης με το κοινό σας. 
+Ένα καλά τοποθετημένο βίντεο σε μια παρουσίαση μπορεί να κάνει το μήνυμά σας πιο ελκυστικό και να αυξήσει το επίπεδο αλληλεπίδρασης με το κοινό σας. 
 
-PowerPoint σας επιτρέπει να προσθέσετε βίντεο σε μια διαφάνεια μιας παρουσίασης με δύο τρόπους:
+Το PowerPoint σας επιτρέπει να προσθέτετε βίντεο σε μια διαφάνεια σε μια παρουσίαση με δύο τρόπους:
 
-* Προσθήκη ή ενσωμάτωση τοπικού βίντεο (αποθηκευμένο στον υπολογιστή σας)
-* Προσθήκη διαδικτυακού βίντεο (από πηγή web όπως το YouTube).
+* Προσθήκη ή ενσωμάτωση τοπικού βίντεο (αποθηκευμένου στον υπολογιστή σας)
+* Προσθήκη διαδικτυακού βίντεο (από πηγή στο web όπως το YouTube).
 
-Για να μπορείτε να προσθέσετε βίντεο (αντικείμενα βίντεο) σε μια παρουσίαση, το Aspose.Slides παρέχει τη διεπαφή [IVideo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideo/) , τη διεπαφή [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) και άλλους σχετικούς τύπους. 
+Για να προσθέσετε βίντεο (αντικείμενα video) σε μια παρουσίαση, το Aspose.Slides παρέχει τις διεπαφές [IVideo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideo/) , [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) και άλλους σχετικούς τύπους. 
 
 ## **Δημιουργία Ενσωματωμένων Πλαισίων Βίντεο**
 
-Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας. 
+Αν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας. 
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation ](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation)class.
-1. Λάβετε τη αναφορά μιας διαφάνειας μέσω του δείκτη της. 
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation ](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation)class.
+1. Αποκτήστε αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
 1. Προσθέστε ένα αντικείμενο [IVideo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideo/) και περάστε τη διαδρομή του αρχείου βίντεο για να ενσωματώσετε το βίντεο στην παρουσίαση. 
 1. Προσθέστε ένα αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) για να δημιουργήσετε ένα πλαίσιο για το βίντεο.  
 1. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε ένα βίντεο που είναι αποθηκευμένο τοπικά σε μια παρουσίαση:
-
 ```java
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
+// Δημιουργεί ένα αντικείμενο της κλάσης Presentation
 Presentation pres = new Presentation("pres.pptx");
 try {
     // Φορτώνει το βίντεο
@@ -51,7 +49,7 @@ try {
     
     IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
 
-    // Λαμβάνει την πρώτη διαφάνεια και προσθέτει ένα πλαίσιο βίντεο
+    // Παίρνει την πρώτη διαφάνεια και προσθέτει ένα πλαίσιο βίντεο
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
 
     // Αποθηκεύει την παρουσίαση στο δίσκο
@@ -62,7 +60,7 @@ try {
 }
 ```
 
-Εναλλακτικά, μπορείτε να προσθέσετε ένα βίντεο περνώντας τη διαδρομή του αρχείου του απευθείας στη μέθοδο [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) method:
+Εναλλακτικά, μπορείτε να προσθέσετε ένα βίντεο περάζοντας άμεσα τη διαδρομή του αρχείου στην μέθοδο [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
 
 ``` java
 Presentation pres = new Presentation();
@@ -74,21 +72,18 @@ try {
 }
 ```
 
+## **Δημιουργία Πλαισίων Βίντεο από Πηγές στο Διαδίκτυο**
 
-## **Δημιουργία Πλαισίων Βίντεο με Βίντεο από Πηγές Web**
+Η Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) υποστηρίζει βίντεο YouTube σε παρουσιάσεις. Αν το βίντεο που θέλετε να χρησιμοποιήσετε είναι διαθέσιμο online (π.χ. στο YouTube), μπορείτε να το προσθέσετε στην παρουσίασή σας μέσω του διαδικτυακού του συνδέσμου. 
 
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) υποστηρίζει βίντεο YouTube σε παρουσιάσεις. Εάν το βίντεο που θέλετε να χρησιμοποιήσετε είναι διαθέσιμο online (π.χ. στο YouTube), μπορείτε να το προσθέσετε στην παρουσίασή σας μέσω του συνδέσμου του. 
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation ](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation)class
-1. Λάβετε τη αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-1. Προσθέστε ένα αντικείμενο [IVideo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideo/) και περάστε το σύνδεσμο προς το βίντεο.
-1. Ορίστε μια μικρογραφία για το πλαίσιο βίντεο. 
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation ](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation)class.
+1. Αποκτήστε αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
+1. Προσθέστε ένα αντικείμενο [IVideo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideo/) και περάστε τον σύνδεσμο στο βίντεο.
+1. Ορίστε ένα μικρογραφικό για το πλαίσιο βίντεο. 
 1. Αποθηκεύστε την παρουσίαση. 
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε ένα βίντεο από το web σε μια διαφάνεια μιας παρουσίασης PowerPoint:
-
 ```java
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης 
+// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
 Presentation pres = new Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -121,21 +116,79 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
+## **Περικοπή Πλαισίου Βίντεο**
+
+Το Aspose.Slides σας επιτρέπει να ελέγχετε ποιο τμήμα ενός βίντεο θα παίξει ορίζοντας τις τιμές trim‑from‑start και trim‑from‑end μέσω των μεθόδων [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) και [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). Και οι δύο τιμές δίνεται σε χιλιοστά του δευτερολέπτου και ορίζουν πόσο χρόνο παραλείπεται από την αρχή και το τέλος του βίντεο, αντίστοιχα. Αυτές οι ρυθμίσεις αλλάζουν τις ρυθμίσεις αναπαραγωγής του βίντεο στην παρουσίαση· δεν κόβουν ή τροποποιούν τα ενσωματωμένα δυαδικά δεδομένα του βίντεο.
+
+**Ορισμός Ρυθμίσεων Περικοπής**
+
+Για να δημιουργήσετε ένα πλαίσιο βίντεο και να ορίσετε τις ρυθμίσεις περικοπής:
+
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
+1. Προσθέστε ένα αντικείμενο [IVideo](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideo/) στην παρουσίαση.
+1. Προσθέστε ένα αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) σε μια διαφάνεια.
+1. Ορίστε τις τιμές trim‑from‑start και trim‑from‑end μέσω των μεθόδων [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) και [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    FileInputStream videoStream = new FileInputStream("video.mp4");
+    try {
+        IVideo video = presentation.getVideos().addVideo(
+                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+        ISlide slide = presentation.getSlides().get_Item(0);
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500f);
+        videoFrame.setTrimFromEnd(1000f);
+
+        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Ανάγνωση Ρυθμίσεων Περικοπής**
+
+Για να ελέγξετε τις υπάρχουσες ρυθμίσεις περικοπής, φορτώστε μια παρουσίαση, βρείτε ένα αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) μεταξύ των σχήματων στην πρώτη διαφάνεια και διαβάστε τις τιμές μέσω των μεθόδων [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#getTrimFromStart--) και [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
+
+```java
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            float trimFromStart = videoFrame.getTrimFromStart();
+            float trimFromEnd = videoFrame.getTrimFromEnd();
+
+            System.out.println("Trim from start: " + trimFromStart + " ms");
+            System.out.println("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Διαχείριση Υπότιτλων Βίντεο**
 
-Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστούς υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και είναι προσβάσιμοι μέσω της μεθόδου [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
+Το Aspose.Slides σάς επιτρέπει να διαχειρίζεστε κλειστούς υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και προσβάλλονται μέσω της μεθόδου [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
 **Προσθήκη Υπότιτλων σε Πλαίσιο Βίντεο**
 
 Για να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
 1. Προσθέστε ένα βίντεο στην παρουσίαση.
 1. Προσθέστε ένα αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) σε μια διαφάνεια.
-1. Χρησιμοποιήστε το [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/) που επιστρέφεται από το [getCaptionTracks](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) για να προσθέσετε ένα κομμάτι υποτίτλων WebVTT.
+1. Χρησιμοποιήστε το [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/) που επιστρέφεται από το [getCaptionTracks](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) για να προσθέσετε ένα κομμάτι υποτίτλου WebVTT.
 1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Ο παρακάτω κώδικας δείχνει πώς να προσθέσετε υπότιτλους σε ένα πλαίσιο βίντεο:
 
 ```java
 Presentation presentation = new Presentation();
@@ -146,7 +199,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // Προσθέτει μια νέα διαδρομή υποτίτλων από αρχείο WebVTT.
+    // Προσθέτει ένα νέο κομμάτι υποτίτλων από αρχείο WebVTT.
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -155,18 +208,16 @@ try {
 }
 ```
 
-Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/) παρέχει επίσης μια υπερφόρτωση που σας επιτρέπει να προσθέσετε υπότιτλους από ροή.
+Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/) παρέχει επίσης μια υπερφόρτωση που σας επιτρέπει να προσθέσετε υπότιτλους από ροή δεδομένων.
 
-**Απαίρεση Υπότιτλων από Πλαίσιο Βίντεο**
+**Εξαγωγή Υπότιτλων από Πλαίσιο Βίντεο**
 
 Για να εξάγετε υπότιτλους από ένα πλαίσιο βίντεο:
 
 1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.
-1. Βρείτε το αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) στόχο.
-1. Περάστε τα κομμάτια υποτίτλων στην [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/).
-1. Αποθηκεύστε κάθε κομμάτι υπότιτλου σε αρχείο `.vtt`.
-
-Ο παρακάτω κώδικας δείχνει πώς να εξάγετε υπότιτλους από ένα πλαίσιο βίντεο:
+1. Βρείτε το αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/)‑στόχο.
+1. Επανάληψη στα κομμάτια υποτίτλων του [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/) .
+1. Αποθηκεύστε κάθε κομμάτι υποτίτλου σε αρχείο `.vtt`.
 
 ```java
 Presentation presentation = new Presentation("video_with_captions.pptx");
@@ -176,7 +227,7 @@ try {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame)shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // Αποθηκεύει τη διαδρομή υποτίτλων σε αρχείο WebVTT.
+                // Αποθηκεύει το κομμάτι υποτίτλων σε αρχείο WebVTT.
                 String filePath = captionTrack.getCaptionId().toString() + ".vtt";
                 Files.write(Paths.get(filePath), captionTrack.getBinaryData());
             }
@@ -187,18 +238,16 @@ try {
 }
 ```
 
-Κάθε αντικείμενο [ICaptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptions/) αποκαλύπτει το αναγνωριστικό του υπότιτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υπότιτλου ως συμβολοσειρά UTF-8.
+Κάθε αντικείμενο [ICaptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptions/) εκθέτει το αναγνωριστικό του υπότιτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υπότιτλου ως συμβολοσειρά UTF‑8.
 
-**Κατάργηση Υπότιτλων από Πλαίσιο Βίντεο**
+**Αφαίρεση Υπότιτλων από Πλαίσιο Βίντεο**
 
 Για να αφαιρέσετε υπότιτλους από ένα πλαίσιο βίντεο:
 
 1. Φορτώστε την παρουσίαση που περιέχει το βίντεο.
-1. Λάβετε το αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/) στόχο.
-1. Αφαιρέστε τα κομμάτια υποτίτλων από το [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/).
+1. Λάβετε το αντικείμενο [IVideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ivideoframe/)‑στόχο.
+1. Αφαιρέστε τα κομμάτια υποτίτλων από το [ICaptionsCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/) .
 1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Ο παρακάτω κώδικας δείχνει πώς να αφαιρέσετε όλους τους υπότιτλους από ένα πλαίσιο βίντεο:
 
 ```java
 Presentation presentation = new Presentation("video_with_captions.pptx");
@@ -215,21 +264,19 @@ try {
 }
 ```
 
-Εάν χρειάζεται να αφαιρέσετε μόνο ένα κομμάτι υπότιτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) ή [removeAt](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/#removeAt-int-) αντί για την [clear](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/#clear--).
+Αν χρειάζεται να αφαιρέσετε μόνο ένα κομμάτι υποτίτλου, χρησιμοποιήστε τις μεθόδους [remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) ή [removeAt](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/#removeAt-int-) αντί για την [clear](https://reference.aspose.com/slides/el/java/com.aspose.slides/icaptionscollection/#clear--) .
 
 ## **Εξαγωγή Βίντεο από Διαφάνειες**
 
-Εκτός από την προσθήκη βίντεο σε διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο ενσωματωμένα σε παρουσιάσεις.
+Εκτός από την προσθήκη βίντεο στις διαφάνειες, το Aspose.Slides επιτρέπει την εξαγωγή βίντεο που είναι ενσωματωμένα σε παρουσιάσεις.
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation) για να φορτώσετε την παρουσίαση που περιέχει το βίντεο. 
-2. Περάστε όλα τα αντικείμενα [ISlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/) .
-3. Περάστε όλα τα αντικείμενα [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) για να βρείτε ένα [VideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/). 
-4. Αποθηκεύστε το βίντεο στο δίσκο.
-
-Αυτός ο κώδικας Java δείχνει πώς να εξάγετε το βίντεο από μια διαφάνεια παρουσίασης:
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation) για να φορτώσετε την παρουσίαση που περιέχει το βίντεο. 
+2. Επανάληψη σε όλα τα αντικείμενα [ISlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/) .
+3. Επανάληψη σε όλα τα αντικείμενα [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) για να βρείτε ένα [VideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/) . 
+4. Αποθηκεύστε το βίντεο στον δίσκο.
 
 ```java
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης 
+// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης 
 Presentation pres = new Presentation("VideoSample.pptx");
 try {
     for (ISlide slide : pres.getSlides()) 
@@ -243,7 +290,7 @@ try {
                 int ss = type.lastIndexOf('-');
                 byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
 
-                //Λαμβάνει την επέκταση του αρχείου
+                //Λαμβάνει την επέκταση αρχείου
                 int charIndex = type.indexOf("/");
                 type = type.substring(charIndex + 1);
 
@@ -260,20 +307,20 @@ try {
 }
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
-**Ποια παραμέτρους αναπαραγωγής βίντεο μπορούν να τροποποιηθούν για ένα VideoFrame;**
+**Ποια παραμέτρων αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα VideoFrame;**
 
-Μπορείτε να ελέγξετε τη [playback mode](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/#setPlayMode-int-) (αυτόματη ή με κλικ) και την [looping](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Αυτές οι επιλογές είναι διαθέσιμες μέσω των ιδιοτήτων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/) .
+Μπορείτε να ελέγξετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/#setPlayMode-int-) (αυτόματα ή με κλικ) και την [επανάληψη](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Αυτές οι επιλογές είναι διαθέσιμες μέσω των ιδιοτήτων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/) .
 
-**Επηρεάζει η προσθήκη βίντεο το μέγεθος του αρχείου PPTX;**
+**Αυξάνει το μέγεθος του αρχείου PPTX η προσθήκη βίντεο;**
 
-Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα περιλαμβάνονται στο έγγραφο, έτσι το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν προσθέτετε ένα διαδικτυακό βίντεο, ενσωματώνεται ένας σύνδεσμος και μια μικρογραφία, οπότε η αύξηση μεγέθους είναι μικρότερη.
+Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα συμπεριλαμβάνονται στο έγγραφο, οπότε το μέγεθος της παρουσίασης αυξάνεται αναλογικά με το μέγεθος του αρχείου. Όταν προσθέτετε ένα διαδικτυακό βίντεο, ενσωματώνεται ένας σύνδεσμος και ένα μικρογραφικό, οπότε η αύξηση του μεγέθους είναι μικρότερη.
 
 **Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον VideoFrame χωρίς να αλλάξω τη θέση και το μέγεθός του;**
 
-Ναι. Μπορείτε να ανταλλάξετε το [video content](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι μια συνηθισμένη περίπτωση για την ενημέρωση μέσων σε υπάρχουσα διάταξη.
+Ναι. Μπορείτε να αντικαταστήσετε το [πρόσθετο βίντεο](https://reference.aspose.com/slides/el/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτή είναι μια συχνή περίπτωση για ενημέρωση πολυμέσων σε υπάρχουσα διάταξη.
 
 **Μπορεί να προσδιοριστεί ο τύπος περιεχομένου (MIME) ενός ενσωματωμένου βίντεο;**
 
-Ναι. Ένα ενσωματωμένο βίντεο διαθέτει έναν [content type](https://reference.aspose.com/slides/el/java/com.aspose.slides/video/#getContentType--) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα κατά την αποθήκευσή του στο δίσκο.
+Ναι. Ένα ενσωματωμένο βίντεο έχει έναν [τύπο περιεχομένου](https://reference.aspose.com/slides/el/java/com.aspose.slides/video/#getContentType--) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε στον δίσκο.

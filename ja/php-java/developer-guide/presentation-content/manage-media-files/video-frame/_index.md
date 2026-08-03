@@ -1,5 +1,5 @@
 ---
-title: プレゼンテーションで PHP を使用してビデオフレームを管理する
+title: PHP を使用したプレゼンテーションでのビデオフレームの管理
 linktitle: ビデオフレーム
 type: docs
 weight: 10
@@ -17,28 +17,30 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、PowerPoint と OpenDocument のスライドでビデオフレームをプログラム的に追加および抽出する方法を学びます。高速ハウツーガイド。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument スライドでビデオフレームをプログラムで追加および抽出する方法を学びます。高速ハウツーガイド。"
 ---
-プレゼンテーションに適切に配置された動画は、メッセージをより魅力的にし、観客とのエンゲージメントレベルを向上させます。
+## **紹介**
 
-PowerPoint では、プレゼンテーションのスライドに動画を追加する方法が 2 つあります。
+プレゼンテーションに適切に配置されたビデオは、メッセージをより説得力のあるものにし、聴衆とのエンゲージメントレベルを高めることができます。
 
-* ローカル動画を追加または埋め込む（マシンに保存されているもの）
-* オンライン動画を追加する（YouTube などの Web ソースから）。
+PowerPoint では、プレゼンテーションのスライドにビデオを追加する方法として、次の 2 つがあります：
 
-プレゼンテーションに動画（ビデオオブジェクト）を追加できるように、Aspose.Slides は [Video](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/) クラス、[VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) クラス、およびその他の関連型を提供します。
+* ローカルビデオを追加または埋め込む（マシンに保存されているもの）
+* オンラインビデオを追加する（YouTube などのウェブソースから）
 
-## **埋め込み動画フレームの作成**
+プレゼンテーションにビデオ（ビデオオブジェクト）を追加できるように、Aspose.Slides は [Video](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/) クラス、[VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) クラス、その他の関連タイプを提供します。
 
-スライドに追加したい動画ファイルがローカルに保存されている場合、プレゼンテーションに動画を埋め込むための動画フレームを作成できます。
+## **埋め込みビデオフレームの作成**
+
+スライドに追加したいビデオファイルがローカルに保存されている場合、ビデオフレームを作成してプレゼンテーションにビデオを埋め込むことができます。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. [Video](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/) オブジェクトを追加し、動画ファイルのパスを渡してプレゼンテーションに動画を埋め込みます。
-1. [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを追加して、動画のフレームを作成します。
-1. 変更されたプレゼンテーションを保存します。
+2. インデックスを使用してスライドの参照を取得します。
+3. [Video](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/) オブジェクトを追加し、ビデオファイルのパスを渡してプレゼンテーションにビデオを埋め込みます。
+4. [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを追加してビデオのフレームを作成します。
+5. 変更されたプレゼンテーションを保存します。
 
-この PHP コードは、ローカルに保存された動画をプレゼンテーションに追加する方法を示しています。
+この PHP コードは、ローカルに保存されたビデオをプレゼンテーションに追加する方法を示しています。
 
 ```php
   # Presentation クラスのインスタンスを作成します
@@ -59,7 +61,7 @@ PowerPoint では、プレゼンテーションのスライドに動画を追加
   }
 ```
 
-あるいは、[addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addvideoframe/) メソッドにファイルパスを直接渡して動画を追加することもできます：
+あるいは、ファイルパスを直接 [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addvideoframe/) メソッドに渡すことでビデオを追加できます。
 
 ```php
   $pres = new Presentation();
@@ -73,17 +75,17 @@ PowerPoint では、プレゼンテーションのスライドに動画を追加
   }
 ```
 
-## **Web ソースからの動画を使用した動画フレームの作成**
+## **Web ソースからのビデオでビデオフレームを作成する**
 
-Microsoft の [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) は、プレゼンテーションで YouTube 動画をサポートしています。使用したい動画がオンライン（例: YouTube）で利用可能な場合、そのウェブリンクを介してプレゼンテーションに追加できます。
+Microsoft の [PowerPoint 2013 以降](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) は、プレゼンテーションで YouTube ビデオをサポートしています。使用したいビデオがオンライン（例: YouTube）で利用可能な場合、そのウェブリンクを介してプレゼンテーションに追加できます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します
-1. インデックスを使用してスライドの参照を取得します。
-1. [Video](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/) オブジェクトを追加し、動画へのリンクを渡します。
-1. 動画フレームのサムネイルを設定します。
-1. プレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. [Video](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/) オブジェクトを追加し、ビデオへのリンクを渡します。
+4. ビデオフレームのサムネイルを設定します。
+5. プレゼンテーションを保存します。
 
-この PHP コードは、Web から動画を取得して PowerPoint プレゼンテーションのスライドに追加する方法を示しています：
+この PHP コードは、Web からビデオを取得して PowerPoint のスライドに追加する方法を示しています。
 
 ```php
   # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
@@ -102,21 +104,87 @@ Microsoft の [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/of
 
 ```
 
-## **ビデオキャプションの管理**
+## **ビデオフレームのトリミング**
 
-Aspose.Slides を使用すると、PowerPoint プレゼンテーションの動画フレームに対してクローズドキャプションを管理できます。キャプションは WebVTT 形式で保存され、[VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) メソッドで取得できます。
+Aspose.Slides では、[VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#setTrimFromStart) と [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#setTrimFromEnd) を使用して trim-from-start および trim-from-end の値を設定することで、再生するビデオの部分を制御できます。両方の値はミリ秒で指定され、ビデオの開始部と終了部からそれぞれどれだけの時間をスキップするかを定義します。これらの設定はプレゼンテーション内のビデオ再生設定を変更しますが、埋め込まれたビデオのバイナリデータを切断したり変更したりするものではありません。
 
-**ビデオフレームへキャプションを追加**
+**トリム設定の設定**
 
-動画フレームにキャプションを追加するには：
+ビデオフレームを作成し、トリム設定を行うには：
 
 1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. プレゼンテーションに動画を追加します。
-1. [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトをスライドに追加します。
-1. [getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) が返す [CaptionsCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captionscollection/) コレクションを使用して、WebVTT キャプショントラックを追加します。
-1. 変更されたプレゼンテーションを保存します。
+2. プレゼンテーションに [Video](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/) オブジェクトを追加します。
+3. スライドに [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを追加します。
+4. [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#setTrimFromStart) と [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#setTrimFromEnd) を使用して trim-from-start および trim-from-end の値を設定します。
+5. 変更されたプレゼンテーションを保存します。
 
-次のコードは、動画フレームへキャプションを追加する方法を示しています：
+以下のコード例は、埋め込みビデオの再生時に最初の 2.5 秒と最後の 1 秒をスキップします。
+
+```php
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoStream = new Java("java.io.FileInputStream", "video.mp4");
+    $video = $presentation->getVideos()->addVideo(
+        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
+    }
+    $presentation->dispose();
+}
+```
+
+**トリム設定の取得**
+
+既存のトリム設定を確認するには、プレゼンテーションを読み込み、最初のスライドのシェイプの中から [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを見つけ、[VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getTrimFromStart) と [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getTrimFromEnd) を使用して値を取得します。
+
+以下のコード例は、最初のスライド上の最初のビデオフレームを見つけ、ミリ秒単位でそのトリム設定を報告します。
+
+```php
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $trimFromStart = java_values($videoFrame->getTrimFromStart());
+            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+
+            echo "Trim from start: " . $trimFromStart . " ms\n";
+            echo "Trim from end: " . $trimFromEnd . " ms\n";
+            break;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **ビデオキャプションの管理**
+
+Aspose.Slides では、PowerPoint プレゼンテーションのビデオフレームに対してクローズドキャプションを管理できます。キャプションは WebVTT 形式で保存され、[VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) メソッドで取得できます。
+
+**ビデオフレームへのキャプションの追加**
+
+ビデオフレームにキャプションを追加するには：
+
+1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. プレゼンテーションにビデオを追加します。
+3. スライドに [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを追加します。
+4. [getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) が返す [CaptionsCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captionscollection/) コレクションを使用して、WebVTT キャプショントラックを追加します。
+5. 変更されたプレゼンテーションを保存します。
+
+以下のコードは、ビデオフレームにキャプションを追加する方法を示しています。
 
 ```php
 $presentation = new Presentation();
@@ -138,16 +206,16 @@ try {
 
 [CaptionsCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captionscollection/) クラスは、ストリームからキャプションを追加できるオーバーロードも提供しています。
 
-**動画フレームからキャプションを抽出**
+**ビデオフレームからキャプションを抽出する**
 
-動画フレームからキャプションを抽出するには：
+ビデオフレームからキャプションを抽出するには：
 
-1. 動画を含むプレゼンテーションをロードします。
-1. 対象の [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを見つけます。
-1. [getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) コレクションを列挙します。
-1. 各キャプショントラックを `.vtt` ファイルとして保存します。
+1. ビデオが含まれるプレゼンテーションを読み込みます。
+2. 対象の [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを見つけます。
+3. [getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) コレクションを反復処理します。
+4. 各キャプショントラックを `.vtt` ファイルとして保存します。
 
-次のコードは、動画フレームからキャプションを抽出する方法を示しています：
+以下のコードは、ビデオフレームからキャプションを抽出する方法を示しています。
 
 ```php
 $presentation = new Presentation("video_with_captions.pptx");
@@ -172,18 +240,18 @@ try {
 }
 ```
 
-各 [Captions](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captions/) オブジェクトは、キャプション識別子、ラベル、バイナリデータ、およびキャプションテキスト（UTF-8 文字列）を提供します。
+各 [Captions](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captions/) オブジェクトは、キャプション識別子、ラベル、バイナリデータ、そして UTF-8 文字列としてのキャプションテキストを公開します。
 
-**動画フレームからキャプションを削除**
+**ビデオフレームからキャプションを削除する**
 
-動画フレームからキャプションを削除するには：
+ビデオフレームからキャプションを削除するには：
 
-1. 動画を含むプレゼンテーションをロードします。
-1. 対象の [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを取得します。
-1. [getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) コレクションからキャプショントラックを削除します。
-1. 変更されたプレゼンテーションを保存します。
+1. ビデオが含まれるプレゼンテーションを読み込みます。
+2. 対象の [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトを取得します。
+3. [getCaptionTracks](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/#getCaptionTracks) コレクションからキャプショントラックを削除します。
+4. 変更されたプレゼンテーションを保存します。
 
-次のコードは、動画フレームからすべてのキャプションを削除する方法を示しています：
+以下のコードは、ビデオフレームからすべてのキャプションを削除する方法を示しています。
 
 ```php
 $presentation = new Presentation("video_with_captions.pptx");
@@ -202,16 +270,16 @@ try {
 
 1 つのキャプショントラックだけを削除したい場合は、[clear](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captionscollection/#clear) の代わりに [remove](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captionscollection/#remove) または [removeAt](https://reference.aspose.com/slides/ja/php-java/aspose.slides/captionscollection/#removeAt) メソッドを使用してください。
 
-## **スライドから動画を抽出**
+## **スライドからビデオを抽出する**
 
-スライドに動画を追加するだけでなく、Aspose.Slides はプレゼンテーションに埋め込まれた動画を抽出することも可能です。
+スライドにビデオを追加するだけでなく、Aspose.Slides ではプレゼンテーションに埋め込まれたビデオを抽出することもできます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成し、動画を含むプレゼンテーションをロードします。
-2. すべての [Slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/) オブジェクトを列挙します。
-3. すべての [Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) オブジェクトを列挙し、[VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) を探します。
-4. 動画をディスクに保存します。
+1. ビデオが含まれるプレゼンテーションを読み込むために、[Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. 全ての [Slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/) オブジェクトを走査します。
+3. 全ての [Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) オブジェクトを走査して、[VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) を見つけます。
+4. ビデオをディスクに保存します。
 
-この PHP コードは、プレゼンテーションスライド上の動画を抽出する方法を示しています：
+この PHP コードは、プレゼンテーションのスライド上のビデオを抽出する方法を示しています。
 
 ```php
   # プレゼンテーション ファイルを表す Presentation オブジェクトをインスタンス化します
@@ -244,18 +312,18 @@ try {
 
 ## **よくある質問**
 
-**VideoFrame の再生パラメータで変更できる項目は何ですか？**
+**VideoFrame の再生パラメータで変更できるものは何ですか？**
 
-再生モード（自動またはクリック時）とループ設定（[playback mode](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/setplaymode/) と [looping](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/setplayloopmode/)）を制御できます。これらのオプションは [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトのプロパティで利用可能です。
+再生モード（自動またはクリック時）とループ設定（[playback mode](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/setplaymode/) と [looping](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/setplayloopmode/)）を制御できます。これらのオプションは [VideoFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/) オブジェクトのプロパティで利用できます。
 
-**動画を追加すると PPTX ファイルのサイズに影響しますか？**
+**ビデオを追加すると PPTX ファイルサイズに影響がありますか？**
 
-はい。ローカル動画を埋め込むと、バイナリデータがドキュメントに含まれるため、ファイルサイズに比例してプレゼンテーションのサイズが増加します。オンライン動画を追加する場合は、リンクとサムネイルが埋め込まれるだけなので、サイズの増加は小さくなります。
+はい。ローカルビデオを埋め込むと、バイナリデータがドキュメントに含まれるため、プレゼンテーションのサイズはファイルサイズに比例して増加します。オンラインビデオを追加した場合は、リンクとサムネイルが埋め込まれるだけなので、サイズの増加は小さくなります。
 
-**既存の VideoFrame の動画を、位置やサイズを変更せずに置き換えることはできますか？**
+**既存の VideoFrame のビデオを位置やサイズを変更せずに置き換えることはできますか？**
 
-はい。フレーム内の [video content](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/setembeddedvideo/) を入れ替えることで、シェイプの形状を保持したまま動画を置き換えることができます。これは既存のレイアウトでメディアを更新する一般的なシナリオです。
+はい。フレーム内の [video content](https://reference.aspose.com/slides/ja/php-java/aspose.slides/videoframe/setembeddedvideo/) を入れ替えることで、シェイプの位置やサイズを保持したままビデオを置き換えることができます。これは既存レイアウトのメディアを更新する一般的なシナリオです。
 
-**埋め込まれた動画のコンテンツタイプ（MIME）を判別できますか？**
+**埋め込みビデオのコンテンツタイプ（MIME）を取得できますか？**
 
-はい。埋め込まれた動画には [content type](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/getcontenttype/) があり、これを読み取って使用できます。たとえばディスクに保存する際などに活用できます。
+はい。埋め込みビデオには [content type](https://reference.aspose.com/slides/ja/php-java/aspose.slides/video/getcontenttype/) があり、これを読み取って利用できます。たとえばディスクに保存する際などに使用できます。
