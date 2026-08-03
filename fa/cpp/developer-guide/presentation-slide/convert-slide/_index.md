@@ -4,7 +4,7 @@ linktitle: اسلاید به تصویر
 type: docs
 weight: 41
 url: /fa/cpp/convert-slide/
-keywords:
+keywords: 
 - تبدیل اسلاید
 - صادرات اسلاید
 - اسلاید به تصویر
@@ -18,28 +18,28 @@ keywords:
 - ارائه
 - C++
 - Aspose.Slides
-description: "اسلایدها را از فرمت‌های PPT، PPTX و ODP به تصاویر در C++ با استفاده از Aspose.Slides تبدیل کنید—رندر سریع و با کیفیت بالا همراه با مثال‌های کد واضح."
+description: "اسلایدها را از فرمت‌های PPT، PPTX و ODP به تصاویر در C++ با استفاده از Aspose.Slides تبدیل کنید — رندرینگ سریع و با کیفیت بالا با مثال‌های کد واضح."
 ---
 ## **مقدمه**
 
-Aspose.Slides برای C++ به شما امکان می‌دهد اسلایدهای ارائه PowerPoint و OpenDocument را به راحتی به قالب‌های تصویری مختلف تبدیل کنید، از جمله BMP، PNG، JPG (JPEG)، GIF و سایرین.
+Aspose.Slides for C++ به شما امکان می‌دهد اسلایدهای ارائه PowerPoint و OpenDocument را به‌راحتی به فرمت‌های تصویری مختلف از جمله BMP، PNG، JPG (JPEG)، GIF و ... تبدیل کنید.
 
 برای تبدیل یک اسلاید به تصویر، مراحل زیر را دنبال کنید:
 
-1. تنظیمات تبدیل دلخواه را تعریف کنید و اسلایدهایی که می‌خواهید صادر کنید را با استفاده از موارد زیر انتخاب کنید:
-    - رابط [ITiffOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/itiffoptions/)
-    - رابط [IRenderingOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/irenderingoptions/)
-2. با فراخوانی متد [GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/getimage/) تصویر اسلاید را تولید کنید.
+1. تنظیمات تبدیل مورد نظر را تعریف کنید و اسلایدهایی را که می‌خواهید صادر کنید انتخاب کنید با استفاده از:
+    - رابط [ITiffOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/itiffoptions/) ، یا
+    - رابط [IRenderingOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/irenderingoptions/) .
+2. تصویر اسلاید را با فراخوانی متد [GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/getimage/) تولید کنید.
 
-کلاس [Bitmap](https://reference.aspose.com/slides/fa/cpp/system.drawing/bitmap/) یک شیء است که به شما امکان می‌دهد با تصاویر تعریف‌شده با داده‌های پیکسل کار کنید. می‌توانید از یک نمونه از این کلاس برای ذخیره تصاویر در طیف وسیعی از قالب‌ها (BMP، JPG، PNG و غیره) استفاده کنید.
+یک [Bitmap](https://reference.aspose.com/slides/fa/cpp/system.drawing/bitmap/) شی‌ای است که به شما امکان کار با تصاویری که توسط داده‌های پیکسل تعریف شده‌اند را می‌دهد. می‌توانید از یک نمونه از این کلاس برای ذخیره تصاویر در مجموعه گسترده‌ای از فرمت‌ها (BMP، JPG، PNG و ...) استفاده کنید.
 
-## **تبدیل اسلایدها به بیت‌مپ‌ها و ذخیره تصویرها در قالب PNG**
+## **تبدیل اسلایدها به بیت‌مپ و ذخیره تصاویر در قالب PNG**
 
-می‌توانید یک اسلاید را به شیء بیت‌مپ تبدیل کنید و مستقیماً در برنامه خود استفاده نمایید. همچنین می‌توانید یک اسلاید را به بیت‌مپ تبدیل کنید و سپس تصویر را در قالب JPEG یا هر قالب دلخواه دیگری ذخیره کنید.
+می‌توانید اسلاید را به یک شی بیت‌مپ تبدیل کنید و مستقیماً در برنامه خود استفاده کنید. به‌طور جایگزین، می‌توانید اسلاید را به بیت‌مپ تبدیل کنید و سپس تصویر را در فرمت JPEG یا هر فرمت دلخواه دیگری ذخیره نمایید.
 
-این کد C++ نشان می‌دهد چگونه اسلاید اول یک ارائه را به شیء بیت‌مپ تبدیل کرده و سپس تصویر را در قالب PNG ذخیره کنید:
+این کد C++ نشان می‌دهد که چگونه اولین اسلاید یک ارائه را به شی بیت‌مپ تبدیل کرده و سپس تصویر را در قالب PNG ذخیره کنید:
 
-```cpp
+```cpp 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
 // اسلاید اول ارائه را به بیت‌مپ تبدیل کنید.
@@ -54,16 +54,16 @@ presentation->Dispose();
 
 ## **تبدیل اسلایدها به تصاویر با اندازه‌های سفارشی**
 
-ممکن است نیاز داشته باشید تصویری با اندازه خاص دریافت کنید. با استفاده از یک overload از متد [GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/getimage/)، می‌توانید اسلاید را به تصویری با ابعاد مشخص (عرض و ارتفاع) تبدیل کنید.
+ممکن است نیاز داشته باشید تصویری با اندازه خاص بدست آورید. با استفاده از یک overload از متد [GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/getimage/)، می‌توانید اسلاید را به تصویر با ابعاد مشخص (عرض و ارتفاع) تبدیل کنید.
 
-این کد نمونه نشان می‌دهد چگونه این کار انجام شود:
+این نمونه کد نشان می‌دهد که چگونه این کار را انجام دهید:
 
 ```cpp 
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// اسلاید اول ارائه را به بیت‌مپ با اندازه مشخص شده تبدیل کنید.
+// اسلاید اول ارائه را به بیت‌مپ با اندازه مشخص تبدیل کنید.
 auto image = presentation->get_Slide(0)->GetImage(imageSize);
 
 // تصویر را در قالب JPEG ذخیره کنید.
@@ -73,21 +73,21 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **تبدیل اسلایدهای دارای یادداشت و نظرات به تصاویر**
+## **تبدیل اسلایدها با یادداشت‌ها و نظرات به تصاویر**
 
-برخی اسلایدها ممکن است حاوی یادداشت‌ها و نظرات باشند.
+برخی اسلایدها ممکن است شامل یادداشت‌ها و نظرات باشند.
 
-Aspose.Slides دو اینترفیس—[ITiffOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/itiffoptions/) و [IRenderingOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/irenderingoptions/)—را فراهم می‌کند که به شما امکان می‌دهد رندر اسلایدهای ارائه به تصویر را کنترل کنید. هر دو اینترفیس شامل متد `set_SlidesLayoutOptions` هستند که به شما اجازه می‌دهد رندر یادداشت‌ها و نظرات یک اسلاید را هنگام تبدیل به تصویر تنظیم کنید.
+Aspose.Slides دو رابط—[ITiffOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/itiffoptions/) و [IRenderingOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/irenderingoptions/)—را فراهم می‌کند که به شما اجازه می‌دهد رندر اسلایدهای ارائه به تصویر را کنترل کنید. هر دو رابط شامل متد `set_SlidesLayoutOptions` هستند که امکان پیکربندی رندر یادداشت‌ها و نظرات بر روی اسلاید را هنگام تبدیل به تصویر فراهم می‌کند.
 
-با کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود برای یادداشت‌ها و نظرات در تصویر نهایی مشخص کنید.
+با استفاده از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود برای یادداشت‌ها و نظرات را در تصویر نهایی تعیین کنید.
 
-این کد C++ نشان می‌دهد چگونه یک اسلاید همراه با یادداشت‌ها و نظرات را تبدیل کنید:
+این کد C++ نشان می‌دهد که چگونه اسلایدی با یادداشت‌ها و نظرات را تبدیل کنید:
 
 ```cpp 
 float scaleX = 2;
 float scaleY = scaleX;
 
-// Load a presentation file.
+// فایل ارائه را بارگذاری کنید.
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
 
 auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
@@ -96,31 +96,31 @@ notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // م
 notesCommentsOptions->set_CommentsAreaWidth(500);                          // عرض ناحیه نظرات را تنظیم کنید.
 notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // رنگ ناحیه نظرات را تنظیم کنید.
 
-// Create the rendering options.
+// گزینه‌های رندرینگ را ایجاد کنید.
 auto options = MakeObject<RenderingOptions>();
 options->set_SlidesLayoutOptions(notesCommentsOptions);
 
-// Convert the first slide of the presentation to an image.
+// اولین اسلاید ارائه را به تصویر تبدیل کنید.
 auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
 
-// Save the image in the GIF format.
+// تصویر را در قالب GIF ذخیره کنید.
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="یادداشت" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-در هر فرآیند تبدیل اسلاید به تصویر، متد [set_NotesPosition](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) نمی‌تواند مقدار `BottomFull` را اعمال کند (برای مشخص کردن موقعیت یادداشت‌ها) زیرا متن یک یادداشت ممکن است بسیار بزرگ باشد و نتواند در اندازه تصویر مشخص شده جای بگیرد.
+در هر فرآیند تبدیل اسلاید به تصویر، متد [set_NotesPosition](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) نمی‌تواند `BottomFull` را اعمال کند (برای تعیین موقعیت یادداشت‌ها) زیرا متن یک یادداشت ممکن است بسیار بزرگ باشد و نتواند در اندازه تصویر مشخص شده جا بگیرد.
 
 {{% /alert %}} 
 
 ## **تبدیل اسلایدها به تصاویر با استفاده از گزینه‌های TIFF**
 
-اینترفیس [ITiffOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/itiffoptions/) کنترل بیشتری بر تصویر TIFF خروجی فراهم می‌کند؛ به شما اجازه می‌دهد پارامترهایی مانند اندازه، وضوح، پالت رنگ و موارد دیگر را مشخص کنید.
+رابط [ITiffOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/itiffoptions/) کنترل بیشتری بر روی تصویر TIFF خروجی فراهم می‌کند، با امکان مشخص کردن پارامترهایی همچون اندازه، وضوح، پالت رنگ و غیره.
 
-این کد C++ یک فرآیند تبدیل را نشان می‌دهد که در آن گزینه‌های TIFF برای خروجی یک تصویر سیاه‑سفید با وضوح 300 DPI و اندازه 2160 × 2800 استفاده می‌شود:
+این کد C++ یک فرآیند تبدیل را نشان می‌دهد که در آن گزینه‌های TIFF برای خروجی تصویر سیاه‑سفید با وضوح 300 DPI و اندازه 2160 × 2800 استفاده می‌شود:
 
 ```cpp 
 // یک فایل ارائه را بارگذاری کنید.
@@ -131,12 +131,12 @@ auto slide = presentation->get_Slide(0);
 
 // تنظیمات تصویر خروجی TIFF را پیکربندی کنید.
 auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // تنظیم اندازه تصویر.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // تنظیم فرمت پیکسل (سیاه و سفید).
-tiffOptions->set_DpiX(300);                                         // تنظیم وضوح افقی.
-tiffOptions->set_DpiY(300);                                         // تنظیم وضوح عمودی.
+tiffOptions->set_ImageSize(Size(2160, 2880));                       // اندازه تصویر را تنظیم کنید.
+tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // فرمت پیکسل را تنظیم کنید (سیاه و سفید).
+tiffOptions->set_DpiX(300);                                         // وضوح افقی را تنظیم کنید.
+tiffOptions->set_DpiY(300);                                         // وضوح عمودی را تنظیم کنید.
 
-// اسلاید را با گزینه‌های مشخص به تصویر تبدیل کنید.
+// اسلاید را با گزینه‌های مشخص شده به تصویر تبدیل کنید.
 auto image = slide->GetImage(tiffOptions);
 
 // تصویر را در قالب TIFF ذخیره کنید.
@@ -148,9 +148,9 @@ presentation->Dispose();
 
 ## **تبدیل تمام اسلایدها به تصاویر**
 
-Aspose.Slides به شما امکان می‌دهد تمام اسلایدهای یک ارائه را به تصاویر تبدیل کنید و به‌طور مؤثری کل ارائه را به مجموعه‌ای از تصاویر تبدیل نمایید.
+Aspose.Slides به شما امکان می‌دهد تمام اسلایدهای یک ارائه را به تصاویر تبدیل کنید و به‌طور مؤثر کل ارائه را به مجموعه‌ای از تصاویر تبدیل کنید.
 
-این کد نمونه نشان می‌دهد چگونه تمام اسلایدهای یک ارائه را به تصاویر تبدیل کنید در C++:
+این نمونه کد نشان می‌دهد که چگونه تمام اسلایدهای یک ارائه را در C++ به تصاویر تبدیل کنید:
 
 ```cpp 
 float scaleX = 2;
@@ -158,7 +158,7 @@ float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// ارائه را به صورت اسلاید به اسلاید به تصاویر رندر کنید.
+// ارائه را اسلاید به اسلاید به تصاویر رندر کنید.
 for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 {
     // کنترل اسلایدهای مخفی (اسلایدهای مخفی رندر نشوند).
@@ -179,7 +179,13 @@ for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 presentation->Dispose();
 ```
 
-## **سوالات متداول**
+## **رندر اموجی رنگی**
+
+{{% alert title="Note" color="warning" %}} 
+برای رندر صحیح اموجی‌های رنگی هنگام تبدیل اسلایدهای ارائه به تصاویر، قلم‌های اموجی مورد استفاده در ارائه باید بر روی سیستمی که تبدیل را انجام می‌دهد نصب و در دسترس باشند. به‌عنوان مثال، اگر ارائه از **Segoe UI Emoji** استفاده کند و این قلم موجود نباشد، اموجی‌ها ممکن است به صورت تک‌رنگ در تصاویر خروجی نمایش داده شوند.
+{{% /alert %}}
+
+## **سؤالات متداول**
 
 **آیا Aspose.Slides از رندر اسلایدها با انیمیشن‌ها پشتیبانی می‌کند؟**
 
@@ -187,8 +193,8 @@ presentation->Dispose();
 
 **آیا می‌توان اسلایدهای مخفی را به عنوان تصویر صادر کرد؟**
 
-بله، اسلایدهای مخفی می‌توانند همانند اسلایدهای معمولی پردازش شوند. فقط اطمینان حاصل کنید که در حلقه پردازش گنجانده شده‌اند.
+بله، اسلایدهای مخفی می‌توانند همانند اسلایدهای عادی پردازش شوند. فقط مطمئن شوید که در حلقه پردازش گنجانده شده‌اند.
 
-**آیا می‌توان تصاویر را با سایه‌ها و افکت‌ها ذخیره کرد؟**
+**آیا می‌توان تصاویر را با سایه‌ها و اثرات ذخیره کرد؟**
 
-بله، Aspose.Slides هنگام ذخیره اسلایدها به عنوان تصویر، رندر سایه‌ها، شفافیت و سایر افکت‌های گرافیکی را پشتیبانی می‌کند.
+بله، Aspose.Slides از رندر سایه‌ها، شفافیت و سایر افکت‌های گرافیکی هنگام ذخیره اسلایدها به عنوان تصویر پشتیبانی می‌کند.
