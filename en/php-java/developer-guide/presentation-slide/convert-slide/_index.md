@@ -197,16 +197,22 @@ try {
 }
 ```
 
+## **Color Emoji Rendering**
+
+{{% alert title="Note" color="warning" %}} 
+To render color emojis correctly when converting presentation slides to images, the emoji fonts used in the presentation must be installed and available on the system performing the conversion. For example, if the presentation uses **Segoe UI Emoji** and this font is missing, emojis may appear in monochrome in the output images.
+{{% /alert %}}
+
 ## **FAQ**
 
-### Does Aspose.Slides support rendering slides with animations?
+**Does Aspose.Slides support rendering slides with animations?**
 
 No, the `getImage` method saves only a static image of the slide, without animations.
 
-### Can hidden slides be exported as images?
+**Can hidden slides be exported as images?**
 
 Yes, hidden slides can be processed just like regular ones. Just make sure they are included in the processing loop.
 
-### Can images be saved with shadows and effects?
+**Can images be saved with shadows and effects?**
 
 Yes, Aspose.Slides supports rendering shadows, transparency, and other graphic effects when saving slides as images.
