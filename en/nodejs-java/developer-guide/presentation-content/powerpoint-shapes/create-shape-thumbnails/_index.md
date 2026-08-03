@@ -9,6 +9,8 @@ keywords:
 - shape image
 - render shape
 - shape rendering
+- visual bounds
+- shape bounds
 - PowerPoint
 - presentation
 - Node.js
@@ -119,24 +121,68 @@ try {
 }
 ```
 
+## **Get the Actual Visual Bounds of a Shape**
+
+The frame properties of a [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)—its `getX()`, `getY()`, `getWidth()`, and `getHeight()` methods—describe the rectangle stored in the presentation model. The content that is actually rendered can extend beyond that frame or occupy a different axis-aligned rectangle. Rotation, outlines, arrowheads, text layout and overflow, generated SmartArt geometry, and other rendering effects can all change the occupied area.
+
+Use [Shape.getVisualBounds](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getVisualBounds--) to calculate that occupied area without creating an image. The method returns a [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) object in slide coordinates. The returned rectangle is not clipped to the slide, so its coordinates can be negative when content extends beyond the slide origin.
+
+The following example gets and compares the frame and visual bounds:
+
+```javascript
+const presentation = new aspose.slides.Presentation("example.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
+
+    const visualBounds = shape.getVisualBounds();
+
+    const frameBounds = {
+        x: shape.getX(),
+        y: shape.getY(),
+        width: shape.getWidth(),
+        height: shape.getHeight()
+    };
+    const visualBoundsValues = {
+        x: visualBounds.getX(),
+        y: visualBounds.getY(),
+        width: visualBounds.getWidth(),
+        height: visualBounds.getHeight()
+    };
+
+    console.log(
+        `Frame bounds (x, y, width, height): ${frameBounds.x}, ${frameBounds.y}, ${frameBounds.width}, ${frameBounds.height}`
+    );
+    console.log(
+        `Visual bounds (x, y, width, height): ${visualBoundsValues.x}, ${visualBoundsValues.y}, ${visualBoundsValues.width}, ${visualBoundsValues.height}`
+    );
+} finally {
+    presentation.dispose();
+}
+```
+
+The same rectangle can be used to align nearby shapes to its left, right, top, or bottom edge; reserve enough space in a generated layout; or detect content outside a permitted region. Visual bounds are especially useful for SmartArt, text boxes, arrows, pictures, rotated shapes, and group shapes, where the stored frame may not represent the full rendered result.
+
+Use [Shape.getVisualBounds](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getVisualBounds--) when you need coordinates for layout or validation and do not need a bitmap. Use [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage--) when you need to render the shape. With [ShapeThumbnailBounds](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds.Shape` sizes the image from the shape bounds, including outline settings, while `ShapeThumbnailBounds.Appearance` sizes it from the shape's appearance and restricts the result to the slide bounds. In contrast, [Shape.getVisualBounds](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getVisualBounds--) returns only the calculated rectangle and does not clip it to the slide.
+
 ## **FAQ**
 
-### What image formats can be used when saving shape thumbnails?
+**What image formats can be used when saving shape thumbnails?**
 
 [PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/), and others. Shapes can also be [exported as vector SVG](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) by saving the shape’s content as SVG.
 
-### What is the difference between Shape and Appearance bounds when rendering a thumbnail?
+**What is the difference between Shape and Appearance bounds when rendering a thumbnail?**
 
 `Shape` uses the shape’s geometry; `Appearance` takes [visual effects](/slides/nodejs-java/shape-effect/) (shadows, glows, etc.) into account.
 
-### What happens if a shape is marked as hidden? Will it still render as a thumbnail?
+**What happens if a shape is marked as hidden? Will it still render as a thumbnail?**
 
 A hidden shape remains part of the model and can be rendered; the hidden flag affects slideshow display but does not prevent generating the shape’s image.
 
-### Are group shapes, charts, SmartArt, and other complex objects supported?
+**Are group shapes, charts, SmartArt, and other complex objects supported?**
 
 Yes. Any object represented as [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) (including [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/), and [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/)) can be saved as a thumbnail or as SVG.
 
-### Do system-installed fonts affect the quality of thumbnails for text shapes?
+**Do system-installed fonts affect the quality of thumbnails for text shapes?**
 
 Yes. You should [provide the required fonts](/slides/nodejs-java/custom-font/) (or [configure font substitutions](/slides/nodejs-java/font-substitution/)) to avoid unwanted fallbacks and text reflow.
