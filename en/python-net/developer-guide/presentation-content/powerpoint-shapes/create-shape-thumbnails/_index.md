@@ -9,6 +9,8 @@ keywords:
 - shape image
 - render shape
 - shape rendering
+- visual bounds
+- shape bounds
 - PowerPoint
 - presentation
 - Python
@@ -109,24 +111,53 @@ with slides.Presentation("hello_world.pptx") as presentation:
         thumbnail.save("apperance_bounds.png", slides.ImageFormat.PNG)
 ```
 
+## **Get the Actual Visual Bounds of a Shape**
+
+The frame properties of a [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/)—`Shape.x`, `Shape.y`, `Shape.width`, and `Shape.height`—describe the rectangle stored in the presentation model. The content that is actually rendered can extend beyond that frame or occupy a different axis-aligned rectangle. Rotation, outlines, arrowheads, text layout and overflow, generated SmartArt geometry, and other rendering effects can all change the occupied area.
+
+Use [Shape.get_visual_bounds](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_visual_bounds/) to calculate that occupied area without creating an image. The method returns a floating-point rectangle in slide coordinates. The returned rectangle is not clipped to the slide, so its coordinates can be negative when content extends beyond the slide origin.
+
+The following example gets and compares the frame and visual bounds:
+
+```py
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
+with slides.Presentation("example.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    visual_bounds = shape.get_visual_bounds()
+
+    frame_values = (shape.x, shape.y, shape.width, shape.height)
+    visual_values = (visual_bounds.x, visual_bounds.y, visual_bounds.width, visual_bounds.height)
+
+    print(f"Frame bounds (x, y, width, height): {frame_values}")
+    print(f"Visual bounds (x, y, width, height): {visual_values}")
+```
+
+The same rectangle can be used to align nearby shapes to its `left`, `right`, `top`, or `bottom` edge; reserve enough space in a generated layout; or detect content outside a permitted region. Visual bounds are especially useful for SmartArt, text boxes, arrows, pictures, rotated shapes, and group shapes, where the stored frame may not represent the full rendered result.
+
+Use [Shape.get_visual_bounds](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_visual_bounds/) when you need coordinates for layout or validation and do not need a bitmap. Use [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) when you need to render the shape. With [ShapeThumbnailBounds](https://reference.aspose.com/slides/python-net/aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds.SHAPE` sizes the image from the shape bounds, including outline settings, while `ShapeThumbnailBounds.APPEARANCE` sizes it from the shape's appearance and restricts the result to the slide bounds. In contrast, `Shape.get_visual_bounds` returns only the calculated rectangle and does not clip it to the slide.
+
 ## **FAQ**
 
-### What image formats can be used when saving shape thumbnails?
+**What image formats can be used when saving shape thumbnails?**
 
 [PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/python-net/aspose.slides/imageformat/), and others. Shapes can also be [exported as vector SVG](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/) by saving the shape’s content as SVG.
 
-### What is the difference between SHAPE and APPEARANCE bounds when rendering a thumbnail?
+**What is the difference between SHAPE and APPEARANCE bounds when rendering a thumbnail?**
 
 `SHAPE` uses the shape’s geometry; `APPEARANCE` takes [visual effects](/slides/python-net/shape-effect/) (shadows, glows, etc.) into account.
 
-### What happens if a shape is marked as hidden? Will it still render as a thumbnail?
+**What happens if a shape is marked as hidden? Will it still render as a thumbnail?**
 
 A hidden shape remains part of the model and can be rendered; the hidden flag affects slideshow display but does not prevent generating the shape’s image.
 
-### Are group shapes, charts, SmartArt, and other complex objects supported?
+**Are group shapes, charts, SmartArt, and other complex objects supported?**
 
 Yes. Any object represented as [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) (including [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), and [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)) can be saved as a thumbnail or as SVG.
 
-### Do system-installed fonts affect the quality of thumbnails for text shapes?
+**Do system-installed fonts affect the quality of thumbnails for text shapes?**
 
 Yes. You should [provide the required fonts](/slides/python-net/custom-font/) (or [configure font substitutions](/slides/python-net/font-substitution/)) to avoid unwanted fallbacks and text reflow.

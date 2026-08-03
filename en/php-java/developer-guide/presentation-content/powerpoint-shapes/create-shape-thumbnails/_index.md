@@ -9,6 +9,8 @@ keywords:
 - shape image
 - render shape
 - shape rendering
+- visual bounds
+- shape bounds
 - PowerPoint
 - presentation
 - PHP
@@ -118,24 +120,61 @@ This sample code is based on the steps above:
   }
 ```
 
+## **Get the Actual Visual Bounds of a Shape**
+
+The frame properties of [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)—`Shape::getX()`, `Shape::getY()`, `Shape::getWidth()`, and `Shape::getHeight()`—describe the rectangle stored in the presentation model. The content that is actually rendered can extend beyond that frame or occupy a different axis-aligned rectangle. Rotation, outlines, arrowheads, text layout and overflow, generated SmartArt geometry, and other rendering effects can all change the occupied area.
+
+Use [Shape::getVisualBounds](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getVisualBounds) to calculate that occupied area without creating an image. The method returns a [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) in slide coordinates. The returned rectangle is not clipped to the slide, so its coordinates can be negative when content extends beyond the slide origin.
+
+The following example gets and compares the frame and visual bounds:
+
+```php
+  $presentation = new Presentation("example.pptx");
+  try {
+      $slide = $presentation->getSlides()->get_Item(0);
+      $shape = $slide->getShapes()->get_Item(0);
+
+      $visualBounds = $shape->getVisualBounds();
+
+      $frameX = $shape->getX();
+      $frameY = $shape->getY();
+      $frameWidth = $shape->getWidth();
+      $frameHeight = $shape->getHeight();
+
+      $visualX = $visualBounds->getX();
+      $visualY = $visualBounds->getY();
+      $visualWidth = $visualBounds->getWidth();
+      $visualHeight = $visualBounds->getHeight();
+
+      echo "Frame bounds (x, y, width, height): $frameX, $frameY, $frameWidth, $frameHeight\n";
+      echo "Visual bounds (x, y, width, height): $visualX, $visualY, $visualWidth, $visualHeight\n";
+  } finally {
+      $presentation->dispose();
+  }
+```
+
+The same [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) can be used to align nearby shapes to its left, right, top, or bottom edge; reserve enough space in a generated layout; or detect content outside a permitted region. Visual bounds are especially useful for SmartArt, text boxes, arrows, pictures, rotated shapes, and group shapes, where the stored frame may not represent the full rendered result.
+
+Use [Shape::getVisualBounds](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getVisualBounds) when you need coordinates for layout or validation and do not need a bitmap. Use [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) when you need to render the shape. With [ShapeThumbnailBounds](https://reference.aspose.com/slides/php-java/aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds::Shape` sizes the image from the shape bounds, including outline settings, while `ShapeThumbnailBounds::Appearance` sizes it from the shape's appearance and restricts the result to the slide bounds. In contrast, `Shape::getVisualBounds` returns only the calculated rectangle and does not clip it to the slide.
+
 ## **FAQ**
 
-### What image formats can be used when saving shape thumbnails?
+**What image formats can be used when saving shape thumbnails?**
 
 [PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/), and others. Shapes can also be [exported as vector SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/) by saving the shape’s content as SVG.
 
-### What is the difference between Shape and Appearance bounds when rendering a thumbnail?
+**What is the difference between Shape and Appearance bounds when rendering a thumbnail?**
 
 `Shape` uses the shape’s geometry; `Appearance` takes [visual effects](/slides/php-java/shape-effect/) (shadows, glows, etc.) into account.
 
-### What happens if a shape is marked as hidden? Will it still render as a thumbnail?
+**What happens if a shape is marked as hidden? Will it still render as a thumbnail?**
 
 A hidden shape remains part of the model and can be rendered; the hidden flag affects slideshow display but does not prevent generating the shape’s image.
 
-### Are group shapes, charts, SmartArt, and other complex objects supported?
+**Are group shapes, charts, SmartArt, and other complex objects supported?**
 
 Yes. Any object represented as [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) (including [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/), and [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)) can be saved as a thumbnail or as SVG.
 
-### Do system-installed fonts affect the quality of thumbnails for text shapes?
+**Do system-installed fonts affect the quality of thumbnails for text shapes?**
 
 Yes. You should [provide the required fonts](/slides/php-java/custom-font/) (or [configure font substitutions](/slides/php-java/font-substitution/)) to avoid unwanted fallbacks and text reflow.
