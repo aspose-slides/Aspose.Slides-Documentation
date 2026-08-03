@@ -106,6 +106,72 @@ This PHP code shows you how to add a video from the web to a slide in a PowerPoi
 
 ```
 
+## **Trim a Video Frame**
+
+Aspose.Slides allows you to control which part of a video is played by setting the trim-from-start and trim-from-end values through [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) and [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd). Both values are specified in milliseconds and define how much time is skipped from the beginning and end of the video, respectively. These settings change the video playback settings in the presentation; they do not cut or otherwise modify the embedded video binary data.
+
+**Set Trim Settings**
+
+To create a video frame and set its trim settings:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+1. Add a [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) object to the presentation.
+1. Add a [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) object to a slide.
+1. Set the trim-from-start and trim-from-end values through [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) and [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd).
+1. Save the modified presentation.
+
+The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
+
+```php
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoStream = new Java("java.io.FileInputStream", "video.mp4");
+    $video = $presentation->getVideos()->addVideo(
+        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
+    }
+    $presentation->dispose();
+}
+```
+
+**Read Trim Settings**
+
+To inspect existing trim settings, load a presentation, find a [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) object among the shapes on the first slide, and read the values through [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getTrimFromStart) and [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getTrimFromEnd).
+
+The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
+
+```php
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $trimFromStart = java_values($videoFrame->getTrimFromStart());
+            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+
+            echo "Trim from start: " . $trimFromStart . " ms\n";
+            echo "Trim from end: " . $trimFromEnd . " ms\n";
+            break;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **Manage Video Captions**
 
 Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) method.
@@ -248,18 +314,18 @@ This PHP code shows you how to extract the video on a presentation slide:
 
 ## **FAQ**
 
-### Which video playback parameters can be changed for a VideoFrame?
+**Which video playback parameters can be changed for a VideoFrame?**
 
 You can control the [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplaymode/) (auto or on click) and [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setplayloopmode/). These options are available via the [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) object's properties.
 
-### Does adding a video affect the PPTX file size?
+**Does adding a video affect the PPTX file size?**
 
 Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you add an online video, a link and a thumbnail are embedded, so the size increase is smaller.
 
-### Can I replace the video in an existing VideoFrame without changing its position and size?
+**Can I replace the video in an existing VideoFrame without changing its position and size?**
 
 Yes. You can swap the [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/setembeddedvideo/) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 
-### Can the content type (MIME) of an embedded video be determined?
+**Can the content type (MIME) of an embedded video be determined?**
 
 Yes. An embedded video has a [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/getcontenttype/) that you can read and use, for example when saving it to disk.
