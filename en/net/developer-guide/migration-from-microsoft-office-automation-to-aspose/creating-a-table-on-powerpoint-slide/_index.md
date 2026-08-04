@@ -113,6 +113,6 @@ foreach (IRow row in tbl.Rows)
 }
 
 //Write the presentation to the disk
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```
 

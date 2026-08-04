@@ -106,7 +106,7 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
  //Open the presentation
-Presentation pres = new Presentation("c:\\source.ppt");
+Presentation pres = new Presentation("source.ppt");
 
 //Access the first slide
 ISlide slide = pres.Slides[0];
@@ -138,6 +138,6 @@ shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
 //Write the output to disk
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```
 

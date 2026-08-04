@@ -120,7 +120,7 @@ using Aspose.Slides.Export;
 
 using (Presentation pres = new Presentation("pres.pptx"))
 {
-    const string outPath = "c:\\documents";
+    const string outPath = "output";
     pres.Save(Path.Combine(outPath, "pres.md"), SaveFormat.Md, new MarkdownSaveOptions
     { 
         ExportType = MarkdownExportType.Visual,

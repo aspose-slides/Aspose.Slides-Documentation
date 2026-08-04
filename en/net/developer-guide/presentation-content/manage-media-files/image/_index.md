@@ -137,14 +137,11 @@ This sample code shows you how to implement the steps above to add an SVG image 
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// The path to the documents directory
-string dataDir = @"D:\Documents\";
-
 // Source SVG file name
-string svgFileName = dataDir + "sample.svg";
+string svgFileName = "sample.svg";
 
 // Output presentation file name
-string outPptxPath = dataDir + "presentation.pptx";
+string outPptxPath = "presentation.pptx";
 
 // Create new presentation
 using (var p = new Presentation())
@@ -181,14 +178,11 @@ using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// The path to the documents directory
-string dataDir = @"D:\Documents\";
-
 // Source SVG file name
-string svgFileName = dataDir + "sample.svg";
+string svgFileName = "sample.svg";
 
 // Output presentation file name
-string outPptxPath = dataDir + "presentation.pptx";
+string outPptxPath = "presentation.pptx";
 
 // Create new presentation
 using (IPresentation presentation = new Presentation())
@@ -220,9 +214,8 @@ using Aspose.Slides;
 using Aspose.Cells;
 using Aspose.Cells.Rendering;
 
-string dataDir = @"D:\Documents\";
 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
+using (Workbook book = new Workbook("chart.xlsx"))
 {
     Worksheet sheet = book.Worksheets[0];
     ImageOrPrintOptions options = new ImageOrPrintOptions();
@@ -239,7 +232,7 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
         String EmfSheetName = "";
         for (int j = 0; j < sr.PageCount; j++)
         {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
+            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
             sr.ToImage(j, EmfSheetName);
 
             var bytes = File.ReadAllBytes(EmfSheetName);
@@ -248,7 +241,7 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
             slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
         }
 
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
     }
 }
 ```
