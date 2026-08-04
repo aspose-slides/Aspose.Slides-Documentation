@@ -106,8 +106,16 @@ In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, a
 In Aspose.Slides, set the camera type and rotation through [ThreeDFormat::getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera--):
 
 ```php
-$shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
-$shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
+
+    $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
+    $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
@@ -121,9 +129,17 @@ Extrusion makes a shape look thick by extending it behind the front face. In Pow
 Set [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) for the thickness and [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor--) for the side color:
 
 ```php
-$shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
-$shape->getThreeDFormat()->setExtrusionHeight(100);
-$shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 128, 0, 128));
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 200, 200);
+
+    $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
+    $shape->getThreeDFormat()->setExtrusionHeight(100);
+    $shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 128, 0, 128));
+} finally {
+    $presentation->dispose();
+}
 ```
 
 Use [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth-double-) when you need to work with PowerPoint's depth value directly or combine depth with bevel, material, and text effects. In many shape scenarios, `setExtrusionHeight` is the clearer setting because it directly expresses the visible extrusion.
@@ -174,20 +190,28 @@ The rendered output keeps the gradient on the front face and renders the extrusi
 To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
 
 ```php
-$image = Images::fromFile("image.jpg");
+$presentation = new Presentation();
 try {
-    $picture = $presentation->getImages()->addImage($image);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 150, 250, 250);
+
+    $image = Images::fromFile("image.jpg");
+    try {
+        $picture = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $shape->getFillFormat()->setFillType(FillType::Picture);
+    $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
+    $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+
+    $shape->getThreeDFormat()->getCamera()->setRotation(10, 20, 30);
+    $shape->getThreeDFormat()->setExtrusionHeight(150);
+    $shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 255, 140, 0));
 } finally {
-    $image->dispose();
+    $presentation->dispose();
 }
-
-$shape->getFillFormat()->setFillType(FillType::Picture);
-$shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-$shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
-
-$shape->getThreeDFormat()->getCamera()->setRotation(10, 20, 30);
-$shape->getThreeDFormat()->setExtrusionHeight(150);
-$shape->getThreeDFormat()->getExtrusionColor()->setColor(new Java("java.awt.Color", 255, 140, 0));
 ```
 
 The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:

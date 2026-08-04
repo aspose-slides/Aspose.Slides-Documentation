@@ -90,6 +90,8 @@ $subtitleShape->getTextFrame()->setText("Prepared for Executive Team");
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```php
+$presentation = new Presentation();
+
 $layoutSlide1 = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 $slide1 = $presentation->getSlides()->addEmptySlide($layoutSlide1);
 
@@ -123,6 +125,8 @@ $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheet
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```php
+$presentation = new Presentation();
+
 $layoutSlide2 = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 $slide2 = $presentation->getSlides()->addEmptySlide($layoutSlide2);
 
@@ -160,6 +164,8 @@ function createBulletParagraph($text) {
 }
 ```
 ```php
+$presentation = new Presentation();
+
 $layoutSlide3 = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 $slide3 = $presentation->getSlides()->addEmptySlide($layoutSlide3);
 

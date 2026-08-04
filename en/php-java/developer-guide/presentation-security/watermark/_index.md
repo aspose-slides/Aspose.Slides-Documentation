@@ -90,8 +90,14 @@ $presentation->dispose();
 By default, the rectangle shape is styled with fill and line colors. The following lines of code make the shape transparent.
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+
 $watermarkShape->getFillFormat()->setFillType(FillType::NoFill);
 $watermarkShape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+$presentation->dispose();
 ```
 
 ### **Set the Font for a Text Watermark**
@@ -99,9 +105,16 @@ $watermarkShape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill)
 You can change the font of the text watermark as shown below.
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+$watermarkFrame = $watermarkShape->addTextFrame("CONFIDENTIAL");
+
 $textFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
 $textFormat->setLatinFont(new FontData("Arial"));
 $textFormat->setFontHeight(50);
+
+$presentation->dispose();
 ```
 
 ### **Set the Watermark Text Color**
@@ -109,6 +122,11 @@ $textFormat->setFontHeight(50);
 To set the color of the watermark text, use this code:
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+$watermarkFrame = $watermarkShape->addTextFrame("CONFIDENTIAL");
+
 $alpha = 150;
 $red = 200;
 $green = 200;
@@ -118,6 +136,8 @@ $textColor = new Java("java.awt.Color", $red, $green, $blue, $alpha);
 $fillFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 $fillFormat->setFillType(FillType::Solid);
 $fillFormat->getSolidFillColor()->setColor($textColor);
+
+$presentation->dispose();
 ```
 
 ### **Center a Text Watermark**
@@ -125,6 +145,11 @@ $fillFormat->getSolidFillColor()->setColor($textColor);
 It is possible to center the watermark on a slide, and for that, you can do the following:
 
 ```php
+$watermarkText = "CONFIDENTIAL";
+
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+
 $slideSize = $presentation->getSlideSize()->getSize();
 $slideWidth = java_values($slideSize->getWidth());
 $slideHeight = java_values($slideSize->getHeight());
@@ -138,6 +163,8 @@ $watermarkShape = $slide->getShapes()->addAutoShape(
         ShapeType::Rectangle, $watermarkX, $watermarkY, $watermarkWidth, $watermarkHeight);
 
 $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
+
+$presentation->dispose();
 ```
 
 The image below shows the final result.
@@ -151,6 +178,10 @@ The image below shows the final result.
 To add an image watermark to a presentation slide, you can do the following:
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+
 $image = Images::fromFile("watermark.png");
 $picture = $presentation->getImages()->addImage($image);
 $image->dispose();
@@ -158,6 +189,8 @@ $image->dispose();
 $watermarkShape->getFillFormat()->setFillType(FillType::Picture);
 $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+
+$presentation->dispose();
 ```
 
 ### **Lock a Watermark from Editing**
@@ -165,12 +198,18 @@ $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(Pic
 If it is necessary to prevent a watermark from being edited, use the [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) method on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+
 // Lock the watermark shape from modifying
 $watermarkShape->getAutoShapeLock()->setSelectLocked(true);
 $watermarkShape->getAutoShapeLock()->setSizeLocked(true);
 $watermarkShape->getAutoShapeLock()->setTextLocked(true);
 $watermarkShape->getAutoShapeLock()->setPositionLocked(true);
 $watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
+
+$presentation->dispose();
 ```
 
 ### **Bring a Watermark to Front**
@@ -178,8 +217,14 @@ $watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
 In Aspose.Slides, the Z-order of shapes can be set via the [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+
 $shapeCount = java_values($slide->getShapes()->size());
 $slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
+
+$presentation->dispose();
 ```
 
 ### **Set Watermark Rotation**
@@ -187,9 +232,19 @@ $slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
 Here is a code example of how to adjust the rotation of the watermark so that it is positioned diagonally across the slide:
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+
+$slideSize = $presentation->getSlideSize()->getSize();
+$slideWidth = java_values($slideSize->getWidth());
+$slideHeight = java_values($slideSize->getHeight());
+
 $diagonalAngle = atan($slideWidth / $slideHeight) * 180 / M_PI;
 
 $watermarkShape->setRotation($diagonalAngle);
+
+$presentation->dispose();
 ```
 
 ### **Set a Name for a Watermark**
@@ -197,7 +252,13 @@ $watermarkShape->setRotation($diagonalAngle);
 Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName) method:
 
 ```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+
 $watermarkShape->setName("watermark");
+
+$presentation->dispose();
 ```
 
 ### **Remove a Watermark**
@@ -205,12 +266,18 @@ $watermarkShape->setName("watermark");
 To remove the watermark shape, use the [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) method to find it in the slide shapes. Then, pass the watermark shape into the [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove) method:
 
 ```php
+$presentation = new Presentation("presentation_with_watermark.pptx");
+$slide = $presentation->getSlides()->get_Item(0);
+
 $slideShapes = $slide->getShapes()->toArray();
 foreach ($slideShapes as $shape) {
-    if ($shape->getName() === "watermark") {
+    if (java_values($shape->getName()) === "watermark") {
         $slide->getShapes()->remove($shape);
     }
 }
+
+$presentation->save("presentation_without_watermark.pptx", SaveFormat::Pptx);
+$presentation->dispose();
 ```
 
 ## **FAQ**

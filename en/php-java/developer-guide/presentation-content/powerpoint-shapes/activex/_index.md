@@ -75,6 +75,10 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
   # Accessing the presentation with ActiveX controls
   $pres = new Presentation("ActiveX.pptm");
   try {
+    # java.awt classes are reached through the PHP/Java bridge
+    $bufferedImageClass = new JavaClass("java.awt.image.BufferedImage");
+    $fontClass = new JavaClass("java.awt.Font");
+    $systemColor = new JavaClass("java.awt.SystemColor");
     # Accessing the first slide in presentation
     $slide = $pres->getSlides()->get_Item(0);
     # changing TextBox text
@@ -84,24 +88,24 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $control->getProperties()->set_Item("Value", $newText);
       # Changing substitute image. PowerPoint will replace this image during activeX activation,
       # so sometime it's OK to leave image unchanged.
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
+      $image = new Java("java.awt.image.BufferedImage", $control->getFrame()->getWidth(), $control->getFrame()->getHeight(), $bufferedImageClass->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->window);
+      $graphics->setColor($systemColor->window);
       $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
+      $font = new Java("java.awt.Font", $control->getProperties()->get_Item("FontName"), $fontClass->PLAIN, 16);
+      $graphics->setColor($systemColor->windowText);
       $graphics->setFont($font);
       $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor->controlShadow);
+      $graphics->setColor($systemColor->controlShadow);
       $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
       $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlDkShadow);
+      $graphics->setColor($systemColor->controlDkShadow);
       $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
       $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlHighlight);
+      $graphics->setColor($systemColor->controlHighlight);
       $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
       $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlLtHighlight);
+      $graphics->setColor($systemColor->controlLtHighlight);
       $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();
@@ -115,25 +119,25 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $newCaption = "Show MessageBox";
       $control->getProperties()->set_Item("Caption", $newCaption);
       # Changing substitute
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
+      $image = new Java("java.awt.image.BufferedImage", $control->getFrame()->getWidth(), $control->getFrame()->getHeight(), $bufferedImageClass->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->control);
+      $graphics->setColor($systemColor->control);
       $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
+      $font = new Java("java.awt.Font", $control->getProperties()->get_Item("FontName"), $fontClass->PLAIN, 16);
+      $graphics->setColor($systemColor->windowText);
       $graphics->setFont($font);
       $metrics = $graphics->getFontMetrics($font);
       $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor->controlLtHighlight);
+      $graphics->setColor($systemColor->controlLtHighlight);
       $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
       $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlHighlight);
+      $graphics->setColor($systemColor->controlHighlight);
       $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
       $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlShadow);
+      $graphics->setColor($systemColor->controlShadow);
       $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
       $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlDkShadow);
+      $graphics->setColor($systemColor->controlDkShadow);
       $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();

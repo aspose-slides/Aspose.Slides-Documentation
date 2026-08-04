@@ -89,10 +89,19 @@ The worksheet of the chart is automatically created and can be accessed with 
 Let's write some values in cells with [**ChartDataCell::setValue**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) method of the **Object** type, which means you can set any value:
 
 ```php
-  $workbook->getCell(0, "F2")->setValue(-2.5);
-  $workbook->getCell(0, "G3")->setValue(6.3);
-  $workbook->getCell(0, "H4")->setValue(3);
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
+    $workbook->getCell(0, "F2")->setValue(-2.5);
+    $workbook->getCell(0, "G3")->setValue(6.3);
+    $workbook->getCell(0, "H4")->setValue(3);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 Now to write formula to the cell, you can use the 
@@ -105,41 +114,84 @@ To set a formula in R1C1 style, you can use the [**ChartDataCell::setR1C1Formula
 Then if you try to read the values from the cells B2 and C2, they will be calculated:
 
 ```php
-  $value1 = $cell1->getValue();// 7.8
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
-  $value2 = $cell2->getValue();// 2.1
+    $workbook->getCell(0, "F2")->setValue(-2.5);
+    $workbook->getCell(0, "G3")->setValue(6.3);
+    $workbook->getCell(0, "H4")->setValue(3);
 
+    $cell1 = $workbook->getCell(0, "B2");
+    $cell1->setFormula("C3 + SUM(F2:H5)");
+    $cell2 = $workbook->getCell(0, "C2");
+    $cell2->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
 
+    $value1 = $cell1->getValue();// 7.8
+
+    $value2 = $cell2->getValue();// 2.1
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Logical Constants**
 You can use logical constants such as *FALSE* and *TRUE* in cell formulas:
 
 ```php
-  $workbook->getCell(0, "A2")->setValue(false);
-  $cell = $workbook->getCell(0, "B2");
-  $cell->setFormula("A2 = TRUE");
-  $value = $cell->getValue();// the value contains boolean "false"
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
-
+    $workbook->getCell(0, "A2")->setValue(false);
+    $cell = $workbook->getCell(0, "B2");
+    $cell->setFormula("A2 = TRUE");
+    $value = $cell->getValue();// the value contains boolean "false"
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Numerical Constants**
 Numbers can be used in common or scientific notations to create chart spreadsheet formula:
 
 ```php
-  $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
-  $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
+    $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
+    $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **String Constants**
 String (or literal) constant is a specific value that is used as it is and does not change. String constants may be: dates, texts, numbers, etc.:
 
 ```php
-  $workbook->getCell(0, "A2")->setFormula("\"abc\"");
-  $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
+    $workbook->getCell(0, "A2")->setFormula("\"abc\"");
+    $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Error Constants**
@@ -155,11 +207,19 @@ Sometimes its not possible to calculate the result by the formula. In that case,
 - #VALUE! - unexpected value type. For example, string value set to numeric cell.
 
 ```php
-  $cell = $workbook->getCell(0, "A2");
-  $cell->setFormula("2 / 0");
-  $value = $cell->getValue();// the value contains the string "#DIV/0!"
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
-
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("2 / 0");
+    $value = $cell->getValue();// the value contains the string "#DIV/0!"
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Arithmetic Operators**
@@ -203,8 +263,17 @@ You can compare the values of cells with the comparison operators. When two valu
 Here is an example how to use A1-style cell reference in formula:
 
 ```php
-  $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
+    $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **R1C1-Style Cell References**
@@ -222,8 +291,17 @@ Here is an example how to use A1-style cell reference in formula:
 Here is an example how to use A1-style cell reference in formula:
 
 ```php
-  $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
+  $pres = new Presentation();
+  try {
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
+    $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Predefined Functions**

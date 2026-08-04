@@ -139,6 +139,13 @@ Using the **CategoryAxisType** property, you can specify your preferred category
 Aspose.Slides for PHP via Java allows you to set the date format for a category axis value. The operation is demonstrated in this PHP code:
 
 ```php
+  # Converts a date to an OLE Automation date, the form a chart workbook stores dates in
+  function convertToOADate($year, $month, $day) {
+    $baseDate = gmmktime(0, 0, 0, 12, 30, 1899);
+    $date = gmmktime(0, 0, 0, $month, $day, $year);
+    return strval(($date - $baseDate) / 86400);
+  }
+
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Area, 50, 50, 450, 300);
@@ -146,10 +153,10 @@ Aspose.Slides for PHP via Java allows you to set the date format for a category 
     $wb->clear(0);
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", convertToOADate(new GregorianCalendar(2015, 1, 1))));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", convertToOADate(new GregorianCalendar(2016, 1, 1))));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", convertToOADate(new GregorianCalendar(2017, 1, 1))));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", convertToOADate(new GregorianCalendar(2018, 1, 1))));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", convertToOADate(2015, 2, 1)));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", convertToOADate(2016, 2, 1)));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", convertToOADate(2017, 2, 1)));
+    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", convertToOADate(2018, 2, 1)));
     $series = $chart->getChartData()->getSeries()->add(ChartType::Line);
     $series->getDataPoints()->addDataPointForLineSeries($wb->getCell(0, "B2", 1));
     $series->getDataPoints()->addDataPointForLineSeries($wb->getCell(0, "B3", 2));
@@ -164,6 +171,7 @@ Aspose.Slides for PHP via Java allows you to set the date format for a category 
       $pres->dispose();
     }
   }
+
 ```
 ```php
 

@@ -73,14 +73,14 @@ This PHP code shows you how to convert a presentation (containing a figure and t
     # Adds a smile shape and then animates it
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::TopLeft, EffectTriggerType::AfterPrevious);
-    $effectOut = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::BottomRight, EffectTriggerType::AfterPrevious);
+    $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
+    $effectOut = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubtype::BottomRight, EffectTriggerType::AfterPrevious);
     $effectIn->getTiming()->setDuration(2.0);
     $effectOut->setPresetClassType(EffectPresetClassType::Exit);
     $fps = 33;
 
     class FrameTick {
-      function invoke($sender, $arg) {
+      function invoke($sender, $arguments) {
             try {
                 $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
                 $arguments->getFrame()->save($frame, ImageFormat::Png);
@@ -132,6 +132,8 @@ You may want to see these articles: [PowerPoint Animation](https://docs.aspose.c
 Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 
 ```php
+  $presentation = new Presentation();
+
   # Adds a smile shape and animates it
   # ...
   # Adds a new slide and animated transition
@@ -162,10 +164,10 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
     $paragraphCollection->add($para3);
     $paragraphCollection->add(new Paragraph());
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    $effect1 = $mainSequence->addEffect($para1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    $effect2 = $mainSequence->addEffect($para2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    $effect3 = $mainSequence->addEffect($para3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    $effect4 = $mainSequence->addEffect($para3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
+    $effect1 = $mainSequence->addEffect($para1, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
+    $effect2 = $mainSequence->addEffect($para2, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
+    $effect3 = $mainSequence->addEffect($para3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
+    $effect4 = $mainSequence->addEffect($para3, EffectType::Appear, EffectSubtype::None, EffectTriggerType::AfterPrevious);
     $effect1->getTiming()->setTriggerDelayTime(1.0);
     $effect2->getTiming()->setTriggerDelayTime(1.0);
     $effect3->getTiming()->setTriggerDelayTime(1.0);
@@ -173,7 +175,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
     $fps = 33;
 
     class FrameTick {
-      function invoke($sender, $arg) {
+      function invoke($sender, $arguments) {
             try {
                 $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
                 $arguments->getFrame()->save($frame, ImageFormat::Png);
@@ -280,7 +282,7 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
 ```php
 
 class FrameTick {
-      function invoke($sender, $arg) {
+      function invoke($sender, $arguments) {
             try {
                 $arguments->getFrame()->save("frame_" . $sender->getFrameIndex() . ".png", ImageFormat::Png);
                 } catch (JavaException $e) {

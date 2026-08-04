@@ -227,8 +227,11 @@ try {
     $paragraph->getPortions()->add($firstPortion);
     $paragraph->getPortions()->add($secondPortion);
 
-    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
-    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
+    $firstPortionFormat = $firstPortion->getPortionFormat();
+    $secondPortionFormat = $secondPortion->getPortionFormat();
+
+    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
+    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
 
     $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
     $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();

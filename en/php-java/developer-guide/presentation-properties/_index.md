@@ -266,7 +266,7 @@ Aspose.Slides provides the LanguageId property (exposed by the PortionFormat cla
 This PHP code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
 
 ```php
-  $pres = new Presentation($pptxFileName);
+  $pres = new Presentation("Presentation.pptx");
   try {
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
@@ -274,10 +274,10 @@ This PHP code shows you how to set the proofing language for a PowerPoint: xxx W
     $newPortion = new Portion();
     $font = new FontData("SimSun");
     $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat::setComplexScriptFont($font);
-    $portionFormat::setEastAsianFont($font);
-    $portionFormat::setLatinFont($font);
-    $portionFormat::setLanguageId("zh-CN");// set the Id of a proofing language
+    $portionFormat->setComplexScriptFont($font);
+    $portionFormat->setEastAsianFont($font);
+    $portionFormat->setLatinFont($font);
+    $portionFormat->setLanguageId("zh-CN");// set the Id of a proofing language
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);

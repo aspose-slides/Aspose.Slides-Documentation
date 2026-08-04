@@ -95,8 +95,8 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }

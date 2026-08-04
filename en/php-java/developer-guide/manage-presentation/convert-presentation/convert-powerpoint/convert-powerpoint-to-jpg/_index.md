@@ -51,12 +51,13 @@ Here are the steps to convert PPT/PPTX to JPG:
 ```php
   $pres = new Presentation("PowerPoint-Presentation.pptx");
   try {
-    foreach($pres->getSlides() as $sld) {
+    $slides = $pres->getSlides();
+    foreach($slides as $sld) {
       # Creates a full scale image
       $slideImage = $sld->getImage(1.0, 1.0);
       # Saves the image to disk in JPEG format
       try {
-        $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat::Jpeg);
+        $slideImage->save(sprintf("Slide_%d.jpg", java_values($sld->getSlideNumber())), ImageFormat::Jpeg);
       } finally {
         if (!java_is_null($slideImage)) {
           $slideImage->dispose();
@@ -80,14 +81,15 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
     $desiredX = 1200;
     $desiredY = 800;
     # Gets scaled values of X and Y
-    $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
-    $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    foreach($pres->getSlides() as $sld) {
-      # Creates a full scale image
+    $ScaleX = 1.0 / java_values($pres->getSlideSize()->getSize()->getWidth()) * $desiredX;
+    $ScaleY = 1.0 / java_values($pres->getSlideSize()->getSize()->getHeight()) * $desiredY;
+    $slides = $pres->getSlides();
+    foreach($slides as $sld) {
+      # Creates a scaled image
       $slideImage = $sld->getImage($ScaleX, $ScaleY);
       # Saves the image to disk in JPEG format
       try {
-        $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat::Jpeg);
+        $slideImage->save(sprintf("Slide_%d.jpg", java_values($sld->getSlideNumber())), ImageFormat::Jpeg);
       } finally {
         if (!java_is_null($slideImage)) {
           $slideImage->dispose();
@@ -111,10 +113,11 @@ Aspose.Slides for PHP via Java provides a facility that allows you to render com
     $notesOptions->setNotesPosition(NotesPositions::BottomTruncated);
     $opts = new RenderingOptions();
     $opts->setSlidesLayoutOptions($notesOptions);
-    foreach($pres->getSlides() as $sld) {
+    $slides = $pres->getSlides();
+    foreach($slides as $sld) {
       $slideImage = $sld->getImage($opts, new Java("java.awt.Dimension", 740, 960));
       try {
-        $slideImage->save(String->format("Slide_%d.png", $sld->getSlideNumber()));
+        $slideImage->save(sprintf("Slide_%d.png", java_values($sld->getSlideNumber())));
       } finally {
         if (!java_is_null($slideImage)) {
           $slideImage->dispose();

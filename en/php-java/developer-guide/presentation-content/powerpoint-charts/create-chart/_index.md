@@ -359,9 +359,18 @@ This PHP code shows you how to create a line chart:
 By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
@@ -477,7 +486,8 @@ Sample PHP code used to create a stock chart:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);

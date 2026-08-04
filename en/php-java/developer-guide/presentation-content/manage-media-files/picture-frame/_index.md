@@ -314,8 +314,7 @@ This PHP code shows you how to crop an existing image on a slide:
   $pres = new Presentation();
   # Creates new image object
   try {
-    $picture;
-    $image = Images->fromFile($imagePath);
+    $image = Images::fromFile("image.png");
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
@@ -331,7 +330,7 @@ This PHP code shows you how to crop an existing image on a slide:
     $picFrame->getPictureFormat()->setCropTop(3);
     $picFrame->getPictureFormat()->setCropBottom(31);
     # Saves the result
-    $pres->save($outPptxFile, SaveFormat::Pptx);
+    $pres->save("PictureFrameCrop.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -436,8 +435,7 @@ This PHP code shows you how to lock a shape's aspect ratio:
   try {
     $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
     $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
@@ -445,7 +443,7 @@ This PHP code shows you how to lock a shape's aspect ratio:
         $image->dispose();
       }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
+    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $picture->getWidth(), $picture->getHeight(), $picture);
     # set shape to have to preserve aspect ratio on resizing
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
   } catch (JavaException $e) {

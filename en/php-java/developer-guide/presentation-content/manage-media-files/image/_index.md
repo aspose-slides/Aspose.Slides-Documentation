@@ -88,16 +88,15 @@ This sample code shows you how to add an image from the web to a slide :
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+    $imageUrl = new Java("java.net.URL", "[REPLACE WITH URL]");
     $connection = $imageUrl->openConnection();
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
     $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
     try {
       $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
+      while (($read = java_values($inputStream->read($buffer, 0, $Array->getLength($buffer)))) != -1) {
         $outputStream->write($buffer, 0, $read);
       } 
       $outputStream->flush();
@@ -174,7 +173,7 @@ try {
 } finally {
     if (!java_is_null($dis)) $dis->close();
 }
-    $svgContent = new String($bytes);
+    $svgContent = new Java("java.lang.String", $bytes);
 
     $svgImage = new SvgImage($svgContent);
     $ppImage = $pres->getImages()->addImage($svgImage);

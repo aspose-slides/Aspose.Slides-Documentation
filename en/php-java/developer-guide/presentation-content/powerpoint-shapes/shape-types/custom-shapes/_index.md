@@ -335,10 +335,11 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
     # Create new graphics path with text
-    $graphicsPath;
-    $font = new Font("Arial", Font->PLAIN, 40);
+    $fontClass = new JavaClass("java.awt.Font");
+    $bufferedImageClass = new JavaClass("java.awt.image.BufferedImage");
+    $font = new Java("java.awt.Font", "Arial", $fontClass->PLAIN, 40);
     $text = "Text in shape";
-    $img = new BufferedImage(100, 100, BufferedImage->TYPE_INT_ARGB);
+    $img = new Java("java.awt.image.BufferedImage", 100, 100, $bufferedImageClass->TYPE_INT_ARGB);
     $g2 = $img->createGraphics();
     try {
       $glyphVector = $font->createGlyphVector($g2->getFontRenderContext(), $text);

@@ -271,11 +271,12 @@ This PHP code demonstrates the operation:
   try {
     $sl = $pres->getSlides()->get_Item(0);
     $chart = $sl->getShapes()->get_Item(0);
-    foreach($chart->getChartData()->getSeries()->get_Item(0)->getDataPoints() as $dataPoint) {
+    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
+    foreach ($dataPoints as $dataPoint) {
       $dataPoint->getXValue()->getAsCell()->setValue(null);
       $dataPoint->getYValue()->getAsCell()->setValue(null);
     }
-    $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
+    $dataPoints->clear();
     $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

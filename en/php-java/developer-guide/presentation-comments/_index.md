@@ -87,10 +87,10 @@ This PHP code shows you how to access an existing comment on a slide in a PowerP
   # Instantiates the Presentation class
   $pres = new Presentation("Comments1.pptx");
   try {
-    foreach($pres->getCommentAuthors() as $commentAuthor) {
-      $author = $commentAuthor;
-      foreach($author->getComments() as $comment1) {
-        $comment = $comment1;
+    $commentAuthors = $pres->getCommentAuthors();
+    foreach($commentAuthors as $author) {
+      $comments = $author->getComments();
+      foreach($comments as $comment) {
         echo("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
       }
     }
@@ -134,11 +134,11 @@ This PHP code shows you how to add comments and get replies to them:
     for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
       $comment = $comments[$i];
       while (!java_is_null($comment->getParentComment())) {
-        System->out->print("\t");
+        echo("\t");
         $comment = $comment->getParentComment();
       } 
       echo($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
-      echo();
+      echo(PHP_EOL);
     }
     $pres->save("parent_comment.pptx", SaveFormat::Pptx);
     # Removes comment1 and all replies to it
@@ -189,7 +189,8 @@ This PHP code shows you how to remove all comments and authors in a presentation
   $presentation = new Presentation("example.pptx");
   try {
     # Deletes all comments from the presentation
-    foreach($presentation->getCommentAuthors() as $author) {
+    $commentAuthors = $presentation->getCommentAuthors();
+    foreach($commentAuthors as $author) {
       $author->getComments()->clear();
     }
     # Deletes all authors
@@ -215,7 +216,8 @@ This PHP code shows you how to delete specific comments on a slide:
     $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
     $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
     # remove all comments that contain "comment 1" text
-    foreach($presentation->getCommentAuthors() as $commentAuthor) {
+    $commentAuthors = $presentation->getCommentAuthors();
+    foreach($commentAuthors as $commentAuthor) {
       $toRemove = new Java("java.util.ArrayList");
       foreach($slide->getSlideComments($commentAuthor) as $comment) {
         if ($comment->getText()->equals("comment 1")) {

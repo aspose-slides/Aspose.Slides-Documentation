@@ -46,13 +46,14 @@ try {
     $audioFrame = $sld->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $fstr);
     $fstr->close();
     # Sets the Play Mode and Volume of the Audio
-    $audioFrame->setPlayMode(AudioPlayModePreset->Auto);
-    $audioFrame->setVolume(AudioVolumeMode->Loud);
+    $audioFrame->setPlayMode(AudioPlayModePreset::Auto);
+    $audioFrame->setVolume(AudioVolumeMode::Loud);
     # Writes the PowerPoint file to disk
     $pres->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
-} catch(JavaException e) {
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    if (!java_is_null($pres)) {
+        $pres->dispose();
+    }
 }
 ```
 
@@ -258,7 +259,7 @@ try {
 To remove captions from an audio frame, use the methods provided by [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/), such as [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove), or [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt). The following example removes all caption tracks from an audio frame.
 
 ```php
-$presentation = new Presentation($folderPath . "audio_with_captions.pptx");
+$presentation = new Presentation("audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
     $audioFrame = $slide->getShapes()->get_Item(0); // type: AudioFrame
@@ -266,7 +267,7 @@ try {
     // Remove all caption tracks from the audio frame.
     $audioFrame->getCaptionTracks()->clear();
 
-    $presentation->save($folderPath . "audio_without_captions.pptx", SaveFormat::Pptx);
+    $presentation->save("audio_without_captions.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
