@@ -42,6 +42,9 @@ You can convert a slide to a bitmap object and use it directly in your applicati
 This JavaScript code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // Convert the first slide in the presentation to a bitmap.
@@ -64,6 +67,10 @@ You may need to get an image of a certain size. Using an overload from the [getI
 This sample code demonstrates how to do this:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
@@ -92,6 +99,10 @@ With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nod
 This JavaScript code demonstrates how to convert a slide with notes and comments:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
@@ -134,6 +145,10 @@ The [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/
 This JavaScript code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Load a presentation file.
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
@@ -173,6 +188,9 @@ Aspose.Slides allows you to convert all slides in a presentation to images, effe
 This sample code demonstrates how to convert all slides in a presentation to images in JavaScript:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 

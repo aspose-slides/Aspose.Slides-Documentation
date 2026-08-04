@@ -45,6 +45,10 @@ Aspose.Slides for Node.js via Java provides a simple API for managing different 
 The following code is used to create a chart with Trend Lines.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -100,6 +104,10 @@ Aspose.Slides for Node.js via Java provides a simple API to add custom lines in 
 The following code is used to create a chart with Custom Lines.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

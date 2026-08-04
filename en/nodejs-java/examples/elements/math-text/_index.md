@@ -22,6 +22,9 @@ This article demonstrates working with mathematical text shapes and formatting e
 Create a math shape containing a fraction and the Pythagorean formula.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addMathText() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -60,6 +63,10 @@ function addMathText() {
 Locate a shape that contains a math paragraph on the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessMathText() {
     let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
@@ -111,6 +118,9 @@ function accessMathText() {
 Delete a math shape from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeMathText() {
     let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
@@ -134,6 +144,9 @@ function removeMathText() {
 Set font properties for a math portion.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function formatMathText() {
     let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {

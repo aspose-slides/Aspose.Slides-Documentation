@@ -50,6 +50,10 @@ The implementation of the above steps is given below. It takes an unadorned pres
 |**Figure: The same text with updated formatting**|
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate a Presentation object that represents a PPTX file
 var pres = new aspose.slides.Presentation("FontProperties.pptx");
 try {
@@ -119,6 +123,10 @@ The implementation of the above steps is given below.
 |**Figure: Text with some font properties set by Aspose.Slides for Node.js via Java**|
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate a Presentation object that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {

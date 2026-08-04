@@ -61,6 +61,10 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 This Javascript code is an implementation of the steps for adding paragraphs containing portions:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate a Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -141,6 +145,10 @@ Bullet lists help you to organize and present information quickly and efficientl
 This Javascript code shows you how to add a paragraph bullet:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -218,6 +226,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This Javascript code shows you how to add and manage picture bullets:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation class that represents a PPTX file
 var presentation = new aspose.slides.Presentation();
 try {
@@ -281,6 +292,10 @@ Bullet lists help you to organize and present information quickly and efficientl
 This Javascript code shows you how to add and manage multilevel bullets:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -361,6 +376,9 @@ The [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides
 This Javascript code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
@@ -414,6 +432,10 @@ The example below creates several paragraphs and applies different indent values
 This code shows you how to set a paragraph indent:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -483,6 +505,10 @@ This formatting is useful for bibliographies, references, glossary entries, and 
 This code shows you how to set a hanging indent for a paragraph:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -537,6 +563,9 @@ The result:
 This Javascript code shows you how to set the End properties for paragraphs in PowerPoint:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
@@ -576,6 +605,10 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 This Javascript code is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create Empty presentation instance
 var pres = new aspose.slides.Presentation();
 try {
@@ -616,6 +649,10 @@ Aspose.Slides provides enhanced support for exporting texts (contained in paragr
 This Javascript code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Load the presentation file
 var pres = new aspose.slides.Presentation("ExportingHTMLText.pptx");
 try {

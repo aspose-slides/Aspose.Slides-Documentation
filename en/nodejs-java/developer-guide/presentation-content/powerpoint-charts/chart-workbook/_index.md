@@ -34,6 +34,9 @@ Aspose.Slides provides the [readWorkbookStream](https://reference.aspose.com/sli
 This JavaScript code demonstrates a sample operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -61,6 +64,9 @@ try {
 This JavaScript code shows you to set a workbook cell as a chart data label:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
@@ -89,6 +95,9 @@ try {
 This JavaScript code demonstrates an operation where the [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
@@ -108,6 +117,9 @@ try {
 This JavaScript code shows you how to specify a type for a data source:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -129,6 +141,10 @@ try {
 Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `getEmbeddedWorkbookType` method on [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) enumeration to detect unsupported formats and skip those charts.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -198,6 +214,9 @@ While you cannot edit the data in workbooks stored in remote locations or resour
 This JavaScript code shows you how to set an external workbook:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -225,6 +244,9 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 * When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -250,6 +272,9 @@ try {
 This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -275,6 +300,9 @@ You can edit the data in external workbooks the same way you make changes to the
 This JavaScript code is an implementation of the described process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of tthe Presentation class
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {

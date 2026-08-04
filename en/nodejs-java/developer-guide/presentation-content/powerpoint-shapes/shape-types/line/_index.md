@@ -39,6 +39,9 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate PresentationEx class that represents the PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -70,6 +73,10 @@ Aspose.Slides for Node.js via Java also allows developers to configure some prop
 - Write the modified presentation as a PPTX file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate PresentationEx class that represents the PPTX file
 var pres = new aspose.slides.Presentation();
 try {

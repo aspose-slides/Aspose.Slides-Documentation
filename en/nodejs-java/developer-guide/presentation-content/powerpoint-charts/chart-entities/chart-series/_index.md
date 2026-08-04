@@ -42,6 +42,9 @@ Use the `ParentSeriesGroup.getOverlap` read/write property to set your preferred
 This JavaScript code shows you how to set the overlap for a chart series:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds chart
@@ -73,6 +76,10 @@ Aspose.Slides for Node.js via Java allows you to change a series' color this way
 This JavaScript code shows you how to change a series' color:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("test.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
@@ -101,6 +108,10 @@ Aspose.Slides for Node.js via Java allows you to change a series category's colo
 This code in JavaScript shows you how to change a series category's color:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -129,6 +140,9 @@ Aspose.Slides for Node.js via Java allows you to update or change a series name 
 This JavaScript code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -145,6 +159,9 @@ try {
 This JavaScript code shows you how to change a series name in its legend through `Series`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -171,6 +188,9 @@ Aspose.Slides for Node.js via Java allows you to set the automatic fill color fo
 This JavaScript code shows you how to set the automatic fill color for a chart series:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Creates a clustered column chart
@@ -201,6 +221,10 @@ Aspose.Slides allows you to set the invert fill color for chart series inside a 
 This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
 var pres = new aspose.slides.Presentation();
 try {
@@ -239,6 +263,9 @@ Aspose.Slides allows you to set inverts through the`ChartDataPoint.setInvertIfNe
 This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
@@ -273,6 +300,9 @@ Aspose.Slides for Node.js via Java allows you to clear the `DataPoints` data for
 This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("TestChart.pptx");
 try {
     var sl = pres.getSlides().get_Item(0);
@@ -305,6 +335,9 @@ Aspose.Slides for Node.js via Java allows you to set a series' Gap Width through
 This code in JavaScript shows you how to set a series' Gap Width:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates empty presentation
 var pres = new aspose.slides.Presentation();
 try {

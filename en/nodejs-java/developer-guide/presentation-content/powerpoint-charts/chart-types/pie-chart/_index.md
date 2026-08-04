@@ -36,6 +36,9 @@ Aspose.Slides for Node.js via Java now supports second plot options for Pie of P
 In the example given below, we have set different properties of Pie of Pie chart.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -72,6 +75,9 @@ Aspose.Slides for Node.js via Java provides a simple API for setting automatic p
 Write the modified presentation to a PPTX file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

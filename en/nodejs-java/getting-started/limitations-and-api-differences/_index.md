@@ -48,6 +48,9 @@ Presentation pres = new Presentation();
 **Aspose.Slides for Node.js via Java**
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 ```
 

@@ -38,6 +38,9 @@ Before working on a presentation, you may want to find out what format (PPT, PPT
 You can check a presentation's format without loading the presentation. See this JavaScript code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -51,6 +54,9 @@ console.log(info3.getLoadFormat());// ODP
 his JavaScript code shows you how to get presentation properties (information about the presentation):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
@@ -72,6 +78,10 @@ Let's say we have a PowerPoint presentation with the document properties shown b
 This code example shows you how to edit some presentation properties:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);

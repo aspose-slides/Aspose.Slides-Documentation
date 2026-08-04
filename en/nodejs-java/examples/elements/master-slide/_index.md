@@ -24,6 +24,10 @@ This article demonstrates how to create, modify, and manage master slides using 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addMasterSlide() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -71,6 +75,10 @@ function addMasterSlide() {
 You can access master slides using the presentation master collection. Here’s how to retrieve and work with them:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessMasterSlide() {
     let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {
@@ -90,6 +98,9 @@ function accessMasterSlide() {
 Master slides can be removed either by index or by reference.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeMasterSlide() {
     let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {
@@ -112,6 +123,9 @@ function removeMasterSlide() {
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeUnusedMasterSlides() {
     let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {

@@ -50,6 +50,9 @@ This example creates a math shape and adds the Pythagorean theorem:
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -86,6 +89,9 @@ Use [`divide`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mat
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -108,6 +114,9 @@ try {
 For a stacked fraction, use `MathFractionTypes.Bar`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
@@ -118,6 +127,9 @@ Use [`radical`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ma
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -144,6 +156,9 @@ Use [`asArgumentOfFunction`](https://reference.aspose.com/slides/nodejs-java/asp
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -167,6 +182,9 @@ try {
 For a custom function name, make the function name the current element:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
@@ -177,6 +195,9 @@ Use [`nary`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathe
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -204,6 +225,9 @@ N-ary operators are for large operators with optional limits. Simple operators s
 For an integral, use `integral`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slides.MathematicalText("dx").toBox());
 let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ```
@@ -215,6 +239,9 @@ Use [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/m
 ![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -245,6 +272,9 @@ Use [`toMathArray`](https://reference.aspose.com/slides/nodejs-java/aspose.slide
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -272,6 +302,9 @@ Use [`asArgumentOfFunction`](https://reference.aspose.com/slides/nodejs-java/asp
 ![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -298,6 +331,9 @@ Use the subscript and superscript helpers for indexes and powers. When the index
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -324,6 +360,10 @@ Use [`enclose`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ma
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -353,6 +393,9 @@ Use [`toBorderBox`](https://reference.aspose.com/slides/nodejs-java/aspose.slide
 ![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -384,6 +427,10 @@ Use [`group`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/math
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -411,6 +458,9 @@ Use formatting helpers only where they clarify the formula. For example, [`overb
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);

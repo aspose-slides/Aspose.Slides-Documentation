@@ -52,6 +52,10 @@ You can add a zoom frame on a slide this way:
 This JavaScript code shows you how to create a zoom frame on a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds new slides to the presentation
@@ -96,6 +100,10 @@ With Aspose.Slides for Node.js via Java, you can create a zoom frame with a diff
 This JavaScript code shows you how to create a zoom frame with a different image:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a new slide to the presentation
@@ -148,6 +156,10 @@ You can control a zoom frame's formatting on a slide this way:
 This JavaScript code shows you how to change a zoom frame's formatting on a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds new slides to the presentation
@@ -221,6 +233,10 @@ You can add a section zoom frame to a slide this way:
 This JavaScript code shows you how to create a zoom frame on a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a new slide to the presentation
@@ -256,6 +272,10 @@ Using Aspose.Slides for Node.js via Java, you can create a section zoom frame wi
 This JavaScript code shows you how to create a zoom frame with a different image:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds new slide to the presentation
@@ -310,6 +330,10 @@ You can control a section zoom frame's formatting on a slide this way:
 This JavaScript code shows you how to change a section zoom frame's formatting:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a new slide to the presentation
@@ -373,6 +397,10 @@ You can add a summary zoom frame to a slide this way:
 This JavaScript code shows you how to create a summary zoom frame on a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a new slide to the presentation
@@ -429,6 +457,10 @@ All sections in a summary zoom frame are represented by [SummaryZoomSection](htt
 This JavaScript code shows you how to add and remove sections in a summary zoom frame:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a new slide to the presentation
@@ -487,6 +519,10 @@ You can control the formatting for a summary zoom section object in a summary zo
 This JavaScript code shows you how to change the formatting for a summary zoom section object:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a new slide to the presentation

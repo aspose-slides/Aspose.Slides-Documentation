@@ -30,6 +30,9 @@ Aspose.Slides for Node.js via Java provides a simple API for setting these prope
 1. Write the modified presentation to a PPTX file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Access first slide

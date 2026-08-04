@@ -33,6 +33,9 @@ This article explains how to convert PowerPoint presentations to HTML5 using Asp
 This JavaScript code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.save("pres.html", aspose.slides.SaveFormat.Html5);
@@ -52,6 +55,9 @@ In this case, you get clean HTML.
 You may want to specify settings for shape animations and slide transitions this way:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var html5Options = new aspose.slides.Html5Options();
@@ -70,6 +76,9 @@ try {
 This JavaScript demonstrates the standard PowerPoint to HTML process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.save("pres.html", aspose.slides.SaveFormat.Html);
@@ -105,6 +114,9 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This JavaScript code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var html5Options = new aspose.slides.Html5Options();
@@ -130,6 +142,9 @@ When you convert a PowerPoint presentation to an HTML5 document, you can easily 
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let html5Options = new aspose.slides.Html5Options();
 html5Options.getNotesCommentsLayouting().setCommentsPosition(aspose.slides.CommentsPositions.Right);
 

@@ -45,6 +45,10 @@ If the video file you want to add to your slide is stored locally, you can creat
 This JavaScript code shows you how to add a video stored locally to a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
@@ -66,6 +70,9 @@ try {
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) method:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var sld = pres.getSlides().get_Item(0);
@@ -91,6 +98,9 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 This JavaScript code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation();
 try {
@@ -104,6 +114,10 @@ try {
 ```
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+
 async function addVideoFromYouTube(pres, videoID) {
     let slide = pres.getSlides().get_Item(0);
     let videoUrl = "https://www.youtube.com/embed/" + videoID;
@@ -154,6 +168,10 @@ To create a video frame and set its trim settings:
 The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
     const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
@@ -182,6 +200,10 @@ To inspect existing trim settings, load a presentation, find a [VideoFrame](http
 The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
@@ -220,6 +242,10 @@ To add captions to a video frame:
 The following code shows you how to add captions to a video frame:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
@@ -251,6 +277,11 @@ To extract captions from a video frame:
 The following code shows you how to extract captions from a video frame:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -288,6 +319,9 @@ To remove captions from a video frame:
 The following code shows you how to remove all captions from a video frame:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -317,6 +351,11 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 This JavaScript code shows you how to extract the video on a presentation slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("VideoSample.pptx");
 try {

@@ -29,6 +29,9 @@ Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, w
 Let’s start with adding a new Sunburst chart to the presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
@@ -75,6 +78,10 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 Set "Branch 1" data label to show series name ("Series1") instead of category name. Then set text color to yellow:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
 branch1Label.getDataLabelFormat().setShowSeriesName(true);
@@ -88,6 +95,10 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 Change color of "Steam 4" branch:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);

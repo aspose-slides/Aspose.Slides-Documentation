@@ -46,6 +46,9 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 {{% /alert %}} 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation object that represents a PPT file
 var pres = new aspose.slides.Presentation("PPTtoPPTX.ppt");
 try {

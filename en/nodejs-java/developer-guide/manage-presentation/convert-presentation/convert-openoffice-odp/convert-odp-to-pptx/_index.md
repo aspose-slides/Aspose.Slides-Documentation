@@ -30,6 +30,9 @@ This article explains how to convert an ODP presentation to PPTX format using As
 Aspose.Slides for Node.js via Java offers [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class that represents a presentation file. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class can now also access ODP through [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#Presentation-java.lang.String-) constructor when the object is instantiated. The following example shows how to convert a ODP Presentation into PPTX Presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Open the ODP file
 var pres = new aspose.slides.Presentation("AccessOpenDoc.odp");
 // Saving the ODP presentation to PPTX format

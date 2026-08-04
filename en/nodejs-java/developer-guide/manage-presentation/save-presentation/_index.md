@@ -34,6 +34,9 @@ description: "Discover how to save presentations using Aspose.Slides for Node.js
 Save a presentation to a file by calling the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class’s `save` method. Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -51,6 +54,10 @@ try {
 You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class’s `save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -71,6 +78,9 @@ try {
 Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/) class. Use the [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) method with a value from the [ViewType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/) enumeration.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
@@ -87,6 +97,9 @@ Aspose.Slides lets you save a presentation in the Strict Office Open XML format.
 The example below creates a presentation and saves it in the Strict Office Open XML format.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
@@ -115,6 +128,9 @@ This method can be used with the following modes:
 The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
 
@@ -142,6 +158,9 @@ The [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/nodejs
 In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setRefreshThumbnail(false);
 
@@ -167,6 +186,10 @@ Save-progress reporting is configured via the [setProgressCallback](https://refe
 The following code snippets show how to use `IProgressCallback`.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
     reporting: function(progressValue) {
         // Use the progress percentage value here.

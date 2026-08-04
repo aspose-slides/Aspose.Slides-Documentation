@@ -141,6 +141,9 @@ removeAt(index);
 This JavaScript code shows you how to add custom points to a shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
@@ -166,6 +169,9 @@ try {
 This JavaScript code shows you how to remove points from a shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Heart, 100, 100, 300, 300);
@@ -191,6 +197,10 @@ try {
 This JavaScript shows you how to create a custom shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var points = java.newInstanceSync("java.util.ArrayList");
 var R = 100;
 var r = 50;
@@ -234,6 +244,10 @@ try {
 This JavaScript code shows you to create a composite custom shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
@@ -263,6 +277,10 @@ try {
 This JavaScript code shows you how to create a custom shape with curved corners (inwards);
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var shapeX = 20.0;
 var shapeY = 20.0;
 var shapeWidth = 300.0;
@@ -334,6 +352,10 @@ function isGeometryClosed(geometryShape)
 This JavaScript code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Create new shape

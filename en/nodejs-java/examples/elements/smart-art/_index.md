@@ -22,6 +22,9 @@ This article demonstrates how to add SmartArt graphics, access them, remove them
 Insert a SmartArt graphic using one of the built-in layouts.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addSmartArt() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -41,6 +44,10 @@ function addSmartArt() {
 Retrieve the first SmartArt object on a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessSmartArt() {
     let presentation = new aspose.slides.Presentation("smartart.pptx");
     try {
@@ -65,6 +72,9 @@ function accessSmartArt() {
 Delete a SmartArt shape from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeSmartArt() {
     let presentation = new aspose.slides.Presentation("smartart.pptx");
     try {
@@ -87,6 +97,9 @@ function removeSmartArt() {
 Update the layout type of an existing SmartArt graphic.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function changeSmartArtLayout() {
     let presentation = new aspose.slides.Presentation("smartart.pptx");
     try {

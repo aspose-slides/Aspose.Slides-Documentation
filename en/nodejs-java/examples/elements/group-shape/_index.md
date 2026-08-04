@@ -22,6 +22,9 @@ Examples for creating groups of shapes, accessing them, ungrouping, and removal 
 Create a group containing two basic shapes.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addGroupShape() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -43,6 +46,10 @@ function addGroupShape() {
 Retrieve the first group shape from a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessGroupShape() {
     let presentation = new aspose.slides.Presentation("group_shape.pptx");
     try {
@@ -67,6 +74,9 @@ function accessGroupShape() {
 Delete a group shape from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeGroupShape() {
     let presentation = new aspose.slides.Presentation("group_shape.pptx");
     try {
@@ -87,6 +97,9 @@ function removeGroupShape() {
 Move shapes out of a group container.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function ungroupShapes() {
     let presentation = new aspose.slides.Presentation("group_shape.pptx");
     try {

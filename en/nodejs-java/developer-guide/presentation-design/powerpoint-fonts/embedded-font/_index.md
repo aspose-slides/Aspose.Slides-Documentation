@@ -34,6 +34,10 @@ Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slide
 This JavaScript code shows you how to get and remove embedded fonts from a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("EmbeddedFonts.pptx");
 try {
@@ -85,6 +89,9 @@ try {
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/#addEmbeddedFont-aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This JavaScript code shows you how to embed and add fonts to a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Loads the presentation
 var pres = new aspose.slides.Presentation("Fonts.pptx");
 try {
@@ -119,6 +126,9 @@ To allow you to compress the fonts embedded in a presentation and reduce its fil
 This JavaScript code shows you how to compress embedded PowerPoint fonts:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     aspose.slides.Compress.compressEmbeddedFonts(pres);

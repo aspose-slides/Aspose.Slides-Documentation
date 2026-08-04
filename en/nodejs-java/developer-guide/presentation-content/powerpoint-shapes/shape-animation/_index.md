@@ -63,6 +63,10 @@ Aspose.Slides for Node.js via Java allows you to apply animation to the text in 
 This Javascript code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
 // Instantiates a presentation class that represents a presentation file.
 var pres = new aspose.slides.Presentation();
 try {
@@ -104,6 +108,10 @@ Besides applying animations to text, you can also apply animations to a single [
 This Javascript code shows you how to apply the `Fly` effect to a picture frame:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
 // Instantiates a presentation class that represents a presentation file.
 var pres = new aspose.slides.Presentation();
 try {
@@ -147,6 +155,10 @@ try {
 This Javascript code shows you how to apply the `PathFootball` (path football) effect to a shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate a Presentation class that represents a PPTX file.
 var pres = new aspose.slides.Presentation();
 try {
@@ -187,6 +199,9 @@ The following examples show you how to use the `getEffectsByShape` method from t
 Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
 try {
     var firstSlide = presentation.getSlides().get_Item(0);
@@ -229,6 +244,9 @@ And finally, the **Fly In** effect is applied to the footer placeholder on the *
 The following sample code shows you how to use the `getBasePlaceholder` method from the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) class to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("sample.pptx");
 
 var slide = presentation.getSlides().get_Item(0);
@@ -291,6 +309,9 @@ This is how you change the Effect Timing properties:
 This Javascript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a presentation class that represents a presentation file.
 var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
 try {
@@ -325,6 +346,10 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 This Javascript code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
 try {
     // Adds audio to presentation audio collection
@@ -362,6 +387,9 @@ try {
 This Javascript code shows you how to extract the sound embedded in an animation effect:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a presentation class that represents a presentation file.
 var presentation = new aspose.slides.Presentation("EffectSound.pptx");
 try {
@@ -403,6 +431,10 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
 This Javascript code shows you how to change an after animation effect:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a presentation class that represents a presentation file
 var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
 try {
@@ -442,6 +474,9 @@ This is how you can change the Effect Animate text properties:
 This Javascript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a presentation class that represents a presentation file.
 var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
 try {

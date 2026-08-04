@@ -61,6 +61,10 @@ A shape usually needs four kinds of settings before it looks convincingly 3D:
 The following example creates a rectangle, adds text to its front face, applies 3D formatting, saves the presentation as PPTX, and renders the slide to a PNG image.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();
@@ -108,6 +112,9 @@ In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, a
 In Aspose.Slides, set the camera type and rotation through the 3D format returned by `shape.getThreeDFormat()`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 ```
@@ -123,6 +130,8 @@ Extrusion makes a shape look thick by extending it behind the front face. In Pow
 Set the extrusion height for the thickness and the extrusion color for the side color:
 
 ```javascript
+const java = require("java");
+
 const extrusionColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
 
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
@@ -139,6 +148,10 @@ Use the depth setting when you need to work with PowerPoint's depth value direct
 This example applies a gradient fill to the shape and a darker extrusion color to the sides:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();
@@ -181,6 +194,10 @@ The rendered output keeps the gradient on the front face and renders the extrusi
 To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const sourceImage = aspose.slides.Images.fromFile("image.jpg");
 let presentationImage;
 try {
@@ -210,6 +227,10 @@ Shape 3D formatting affects the shape body. Text 3D formatting affects the text 
 The following example creates text with a pattern fill, applies a WordArt transform, and configures 3D settings on [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();

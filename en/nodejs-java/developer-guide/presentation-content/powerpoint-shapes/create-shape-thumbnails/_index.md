@@ -39,6 +39,9 @@ To generate a shape thumbnail from any slide using Aspose.Slides for Node.js via
 This sample code shows you how to generate a shape thumbnail from a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation class that represents the presentation file
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
@@ -70,6 +73,9 @@ To generate the shape thumbnail of a slide using Aspose.Slides for Node.js via J
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation class that represents the presentation file
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
@@ -101,6 +107,9 @@ This method of creating thumbnails of shapes allows developers to generate a thu
 This sample code is based on the steps above:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation class that represents the presentation file
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
@@ -130,6 +139,9 @@ Use [Shape.getVisualBounds](https://reference.aspose.com/slides/nodejs-java/aspo
 The following example gets and compares the frame and visual bounds:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const presentation = new aspose.slides.Presentation("example.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);

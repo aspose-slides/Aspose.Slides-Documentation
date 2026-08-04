@@ -32,6 +32,9 @@ description: "Aspose.Slides for Node.js lets you convert ODP to PDF, HTML, and i
 For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = null;
 try {
   presentation = new aspose.slides.Presentation("presentation.odp");

@@ -38,6 +38,9 @@ Aspose.Slides for Node.js via Java provides a simple API for . 
 1. Gets actual height of the chart element.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -64,6 +67,9 @@ Aspose.Slides for Node.js via Java provides a simple API to set the layout mode 
 Sample code is given below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

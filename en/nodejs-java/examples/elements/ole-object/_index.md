@@ -22,6 +22,11 @@ This article demonstrates embedding a file as an OLE object and updating its dat
 Embed a PDF file into a presentation.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 function addOleObject() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -44,6 +49,10 @@ function addOleObject() {
 Retrieve the first OLE object frame on a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessOleObject() {
     let presentation = new aspose.slides.Presentation("ole_object.pptx");
     try {
@@ -68,6 +77,9 @@ function accessOleObject() {
 Delete an embedded OLE object from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeOleObject() {
     let presentation = new aspose.slides.Presentation("ole_object.pptx");
     try {
@@ -90,6 +102,11 @@ function removeOleObject() {
 Replace the data embedded in an existing OLE object.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 function updateOleObject() {
     let presentation = new aspose.slides.Presentation("ole_object.pptx");
     try {

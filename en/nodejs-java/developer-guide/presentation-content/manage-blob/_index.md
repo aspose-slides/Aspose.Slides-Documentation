@@ -51,6 +51,10 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 This JavaScript shows you how to add a large video file through the BLOB process to a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pathToVeryLargeVideo = "veryLargeVideo.avi";
 // Creates a new presentation to which the video will be added
 var pres = new aspose.slides.Presentation();
@@ -84,6 +88,10 @@ Aspose.Slides for Node.js via Java allows you to export large files (in this cas
 This code in JavaScript demonstrates the described operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
 var loadOptions = new aspose.slides.LoadOptions();
 // Locks the source file and does NOT load it into memory
@@ -131,6 +139,10 @@ With methods from the [**ImageCollection**](https://reference.aspose.com/slides/
 This JavaScript code shows you how to add a large image through the BLOB process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pathToLargeImage = "large_image.jpg";
 // creates a new presentation to which the image will be added.
 var pres = new aspose.slides.Presentation();
@@ -164,6 +176,9 @@ Typically, to load a large presentation, computers require a lot of temporary me
 Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this JavaScript code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("large.pptx");
 try {
     pres.save("large.pdf", aspose.slides.SaveFormat.Pdf);
@@ -181,6 +196,9 @@ But this method consumes around 1.6 GB of temporary memory.
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This JavaScript code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
@@ -199,6 +217,9 @@ try {
 When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `setTempFilesRootPath`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
@@ -216,6 +237,9 @@ When you use `setTempFilesRootPath`, Aspose.Slides does not automatically create
 When processing large presentations, ensure that the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance is properly disposed so that the memory it occupied is released. Call `dispose()` after you have finished using the presentation to free unmanaged resources.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("large.pptx");
 
 // ...process the presentation...

@@ -36,6 +36,9 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Opening the presentation file
 var pres = new aspose.slides.Presentation();
 try {
@@ -55,6 +58,9 @@ try {
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Open presentation
 var pres = new aspose.slides.Presentation("SomePresentationSigned.pptx");
 try {

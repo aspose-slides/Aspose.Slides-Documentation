@@ -33,6 +33,9 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 The example below adds a group shape to a slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -70,6 +73,10 @@ This topic shows simple steps, complete with code examples, for adding a group s
 The example below accesses alternative text of group shape.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation class that represents PPTX file
 var pres = new aspose.slides.Presentation("AltText.pptx");
 try {

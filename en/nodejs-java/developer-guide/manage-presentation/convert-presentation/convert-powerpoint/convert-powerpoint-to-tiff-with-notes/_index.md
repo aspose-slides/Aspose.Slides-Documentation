@@ -50,6 +50,9 @@ Let's say we have a "speaker_notes.pptx" file with the following slide:
 The code snippet below demonstrates how to convert the presentation to a TIFF image in Notes Slide view using the [setSlidesLayoutOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setSlidesLayoutOptions) method.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation("speaker_notes.pptx");
 try {

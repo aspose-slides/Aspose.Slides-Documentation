@@ -34,6 +34,9 @@ In order to specify the size of the hole in a doughnut chart, please follow the 
 In the example given below, we have set the size of the hole in a doughnut chart.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

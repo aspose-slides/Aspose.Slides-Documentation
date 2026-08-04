@@ -40,6 +40,10 @@ A PowerPoint theme uses a specific set of colors for different elements on a sli
 This JavaScript code shows you how to change the accent color for a theme:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
@@ -55,6 +59,8 @@ try {
 You can determine the resulting color's effective value this way:
 
 ```javascript
+const java = require("java");
+
 var fillEffective = shape.getFillFormat().getEffective();
 var effectiveColor = fillEffective.getSolidFillColor();
 console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
@@ -63,6 +69,10 @@ console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
 otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
@@ -84,6 +94,11 @@ When you apply luminance transformations to the main theme color(1), colors from
 This JavaScript code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const path = require("path");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var slide = presentation.getSlides().get_Item(0);
@@ -160,6 +175,9 @@ To allow you select fonts for themes and other purposes, Aspose.Slides uses thes
 This JavaScript code shows you how to assign the Latin font to a theme element:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
 var paragraph = new aspose.slides.Paragraph();
 var portion = new aspose.slides.Portion("Theme text format");
@@ -171,6 +189,9 @@ portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
 This JavaScript code shows you how to change the presentation theme font:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
 ```
 
@@ -191,6 +212,9 @@ By default, the PowerPoint app provides 12 predefined backgrounds but only 3 fro
 For example, after you save a presentation in the PowerPoint app, you can run this JavaScript code to find out the number of predefined backgrounds in the presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -235,6 +259,10 @@ Using 3 properties ([FillStyles](https://reference.aspose.com/slides/nodejs-java
 This JavaScript code shows you how to change a theme effect by altering parts of elements:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));

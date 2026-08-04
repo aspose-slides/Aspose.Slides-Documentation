@@ -42,6 +42,10 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-ja
 This JavaScript code shows you how to create a table in a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -98,6 +102,10 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 This JavaScript code shows you how to specify the numbering for cells in a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -155,6 +163,10 @@ try {
 This JavaScript code shows you how to access and work with an existing table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
@@ -194,6 +206,10 @@ try {
 This JavaScript code shows you how to align the text in a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -242,6 +258,9 @@ try {
 This JavaScript code shows you how to apply your preferred formatting options to the text in a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation("simpletable.pptx");
 try {
@@ -273,6 +292,10 @@ try {
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This JavaScript code shows you how to get the style properties from a table preset style:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
@@ -292,6 +315,9 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 This JavaScript code shows you how to lock the aspect ratio for a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);

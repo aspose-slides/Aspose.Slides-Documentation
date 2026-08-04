@@ -35,6 +35,9 @@ WordArt effects allow you to add visually appealing, stylized text to your Power
 First, we create a simple text using this JavaScript code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -51,6 +54,9 @@ try {
 Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var fontData = new aspose.slides.FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
 portion.getPortionFormat().setFontHeight(36);
@@ -73,6 +79,10 @@ These are some of the available parameters or options:
 Here, we apply the [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
@@ -100,6 +110,10 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
@@ -136,6 +150,9 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 We add display to the text through this code sample in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
@@ -154,6 +171,9 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 We apply the glow effect to the text to make it shine or stand out using this code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
@@ -174,6 +194,10 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
 ```
 
@@ -200,6 +224,10 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
 autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
@@ -225,6 +253,10 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this JavaScript code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
@@ -281,6 +313,10 @@ Aspose.Slides for Node.js via Java provides the [**OuterShadow**](https://refere
 This sample code in Java—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Get reference of the slide
@@ -324,6 +360,10 @@ Go through these steps:
 This sample code (based on the steps above) shows you how to add a connector between two shapes in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Get reference of the slide

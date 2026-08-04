@@ -34,6 +34,9 @@ In order to set the legend properties. Please follow the steps below:
 In the example given below, we have set the position and size for Chart legend.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -67,6 +70,9 @@ The Aspose.Slides for Node.js via Java lets developers allow to set font size of
 - Write presentation to disk.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -97,6 +103,10 @@ The Aspose.Slides for Node.js via Java lets developers allow to set font size of
 - Write presentation to disk.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

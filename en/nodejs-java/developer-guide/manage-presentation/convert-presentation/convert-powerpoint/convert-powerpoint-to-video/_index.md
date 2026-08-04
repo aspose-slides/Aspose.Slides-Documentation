@@ -117,6 +117,10 @@ You may want to see these articles: [PowerPoint Animation](https://docs.aspose.c
 Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Adds a smile shape and animates it
 // ...
 // Adds a new slide and animated transition

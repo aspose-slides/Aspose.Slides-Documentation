@@ -64,6 +64,10 @@ Aspose.Slides for Node.js via Java provides a simple API for managing different 
 1. Write the modified presentation to a PPTX file
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -209,6 +213,9 @@ Aspose.Slides for Node.js via Java provides support for setting the font related
 Below sample example is given.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -238,6 +245,10 @@ Aspose.Slides for Node.js via Java provides a simple API for managing chart data
 1. Save the presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -319,6 +330,10 @@ Aspose.Slides for Node.js via Java provides support for setting chart area. Met
 Below sample example is given. 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

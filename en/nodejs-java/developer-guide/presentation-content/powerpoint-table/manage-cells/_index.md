@@ -32,6 +32,10 @@ Aspose.Slides allows you to access and modify table cells in PowerPoint presenta
 This JavaScript code shows you how to identify merged table cells in a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
 try {
     var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// assuming that Slide#0.Shape#0 is a table
@@ -62,6 +66,10 @@ try {
 This JavaScript code shows you how to remove the borders from table cells:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -96,6 +104,10 @@ try {
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This JavaScript code demonstrates the process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -140,6 +152,10 @@ try {
 We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -192,6 +208,10 @@ This time, we take a regular table (a table without merged cells) and then try t
 This JavaScript code demonstrates the process we described:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -241,6 +261,10 @@ try {
 This JavaScript code shows you how to change a table cell's background color:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var slide = presentation.getSlides().get_Item(0);
@@ -276,6 +300,10 @@ try {
 This JavaScript code shows you how to place an image inside a table cell when creating a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {

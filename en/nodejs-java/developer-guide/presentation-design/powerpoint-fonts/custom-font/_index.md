@@ -50,6 +50,10 @@ Aspose.Slides allows you to load fonts used in a presentation without installing
 The following code example demonstrates the font loading process:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Define folders that contain custom font files.
 let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
 
@@ -86,6 +90,9 @@ Aspose.Slides provides the [getFontFolders](https://reference.aspose.com/slides/
 This JavaScript code shows you how to use [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // This line outputs folders where font files are searched.
 // Those are folders added through the LoadExternalFonts method and system font folders.
 var fontFolders = aspose.slides.FontsLoader.getFontFolders();
@@ -97,6 +104,10 @@ Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspos
 This JavaScript code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) property:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
 var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
 var loadOptions = new aspose.slides.LoadOptions();
@@ -120,6 +131,10 @@ Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slide
 This JavaScript code demonstrates the byte array font loading process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));

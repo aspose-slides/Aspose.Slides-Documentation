@@ -32,6 +32,9 @@ Aspose.Slides for Node.js via Java provides a simple API for managing error bar 
 1. Write the modified presentation to a PPTX file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -71,6 +74,9 @@ Aspose.Slides for Node.js via Java provides a simple API for managing custom err
 1. Write the modified presentation to a PPTX file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

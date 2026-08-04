@@ -29,6 +29,9 @@ This article shows how to get the bounding rectangle of a portion by using [Port
 Use [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getrect/) to retrieve the bounding rectangle of a text portion:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const presentation = new aspose.slides.Presentation("Shapes.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
@@ -55,6 +58,9 @@ try {
 Use [Portion.getCoordinates](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/getcoordinates/) to retrieve the coordinates of the beginning of a text portion:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const presentation = new aspose.slides.Presentation("Shapes.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);

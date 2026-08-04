@@ -34,6 +34,9 @@ All slides in a presentation are arranged numerically based on the slide positio
 The Presentation class, representing a presentation file, exposes all slides as an [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) collection (collection of [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) objects). This JavaScript code shows you how to access a slide through its index:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -49,6 +52,9 @@ try {
 Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class) to target that ID. This JavaScript code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -73,6 +79,9 @@ Aspose.Slides allow you to change a slide position. For example, you can specify
 This JavaScript code demonstrates an operation in which the slide in position 1 is moved to position 2:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
@@ -102,6 +111,9 @@ Using the [setFirstSlideNumber](https://reference.aspose.com/slides/nodejs-java/
 This JavaScript code demonstrates an operation where the first slide number is set to 10:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("HelloWorld.pptx");
 try {
@@ -119,6 +131,9 @@ try {
 If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var layoutSlide = presentation.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);

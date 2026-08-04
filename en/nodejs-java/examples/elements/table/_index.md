@@ -22,6 +22,10 @@ Examples for adding tables, accessing them, removing them, and merging cells usi
 Create a simple table with two rows and two columns.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addTable() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -43,6 +47,10 @@ function addTable() {
 Retrieve the first table shape from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessTable() {
     let presentation = new aspose.slides.Presentation("table.pptx");
     try {
@@ -68,6 +76,9 @@ function accessTable() {
 Delete a table from a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeTable() {
     let presentation = new aspose.slides.Presentation("table.pptx");
     try {
@@ -90,6 +101,9 @@ function removeTable() {
 Merge adjacent cells of a table into a single cell.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function mergeTableCells() {
     let presentation = new aspose.slides.Presentation("table.pptx");
     try {

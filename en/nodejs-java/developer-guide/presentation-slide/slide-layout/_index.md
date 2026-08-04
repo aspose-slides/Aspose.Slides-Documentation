@@ -68,6 +68,10 @@ To customize the appearance and structure of your slides, you may need to add ne
 The following JavaScript code demonstrates how to add a slide layout to a PowerPoint presentation:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a PowerPoint file.
 let presentation = new aspose.slides.Presentation("Sample.pptx");
 try {
@@ -130,6 +134,9 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
 The following JavaScript code shows how to remove a layout slide from a PowerPoint presentation:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
@@ -161,6 +168,10 @@ This manager contains methods for the following placeholder types:
 The following JavaScript code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     // Get the Blank layout slide.
@@ -202,6 +213,9 @@ In PowerPoint presentations, footer elements like date, slide number, and custom
 The following JavaScript code shows how to set the visibility of a slide footer and perform related tasks:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("Presentation.ppt");
 try {
     let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
@@ -241,6 +255,9 @@ try {
 The following JavaScript code demonstrates this operation:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("Presentation.ppt");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();

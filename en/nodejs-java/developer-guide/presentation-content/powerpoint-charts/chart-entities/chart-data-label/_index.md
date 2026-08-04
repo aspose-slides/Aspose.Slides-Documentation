@@ -27,6 +27,9 @@ Data labels on a chart show details about the chart data series or individual da
 This JavaScript code shows you how to set the data precision in a chart data label:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
@@ -45,6 +48,10 @@ try {
 Aspose.Slides for Node.js via Java allows you to set percentage labels on displayed charts. This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -93,6 +100,10 @@ try {
 This JavaScript code shows you to set the percentage sign for a chart data label:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -153,6 +164,9 @@ try {
 This JavaScript code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -178,6 +192,9 @@ When you create a chart that does not rely on any axis such as a pie chart, the 
 This JavaScript code shows you how to adjust the label location on a pie chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);

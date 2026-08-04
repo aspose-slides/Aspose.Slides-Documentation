@@ -34,6 +34,9 @@ To add a simple ellipse to a selected slide of the presentation, please follow t
 In the example given below, we have added an ellipse to the first slide
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -65,6 +68,10 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {

@@ -33,6 +33,9 @@ This article explains how to set the `LanguageId` for text in a presentation by 
 The implementation of the above steps is demonstrated below in an example.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("test.pptx");
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);

@@ -42,6 +42,9 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 This JavaScript code demonstrates the PDF to PowerPoint operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -70,6 +73,10 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 This JavaScript code demonstrates the HTML to PowerPoint operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var htmlStream = java.newInstanceSync("java.io.FileInputStream", "page.html");

@@ -50,6 +50,9 @@ You can design the watermark in any way; however, there are usually common featu
 To add a text watermark in PPT, PPTX, or ODP, you can first add a shape to the slide, then add a text frame to this shape. The text frame is represented by the [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) type. This type is not inherited from [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape), which has a wide set of properties for positioning the watermark in a flexible way. Therefore, the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) object is wrapped in an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object. To add watermark text to the shape, use the [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) method with watermark text passed into it:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const watermarkText = "CONFIDENTIAL";
 
 let presentation = new aspose.slides.Presentation();
@@ -70,6 +73,9 @@ presentation.dispose();
 If you want to add a text watermark to the entire presentation (i.e., all slides at once), add it to the [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide). The rest of the logic is the same as when adding a watermark to a single slide — create an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object and then add the watermark to it using the [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) method:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const watermarkText = "CONFIDENTIAL";
 
 let presentation = new aspose.slides.Presentation();
@@ -90,6 +96,10 @@ presentation.dispose();
 By default, the rectangle shape is styled with fill and line colors. The following lines of code make the shape transparent.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 watermarkShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 watermarkShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 ```
@@ -99,6 +109,9 @@ watermarkShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.s
 You can change the font of the text watermark as shown below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new aspose.slides.FontData("Arial"));
 textFormat.setFontHeight(50);
@@ -125,6 +138,9 @@ It is possible to center watermark on a slide and for that you can do the follow
 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const watermarkWidth = 400;
 const watermarkHeight = 40;
 const watermarkX = (slideSize.getWidth() - watermarkWidth) / 2;
@@ -147,6 +163,10 @@ The image below shows the final result.
 To add image watermark into all presentation slides, you may do the following:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let watermarkImage = aspose.slides.Images.fromFile("watermark.png");
 let image = presentation.getImages().addImage(watermarkImage);
 

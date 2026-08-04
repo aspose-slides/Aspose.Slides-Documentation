@@ -21,6 +21,9 @@ This article demonstrates how to add, access, remove, and configure ActiveX cont
 Add a new ActiveX control to a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addActiveX() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -41,6 +44,9 @@ function addActiveX() {
 Read information from the first ActiveX control on the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessActiveX() {
     let presentation = new aspose.slides.Presentation("activex.pptm");
     try {
@@ -64,6 +70,9 @@ function accessActiveX() {
 Delete an existing ActiveX control from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeActiveX() {
     let presentation = new aspose.slides.Presentation("activex.pptm");
     try {
@@ -86,6 +95,9 @@ function removeActiveX() {
 Configure several ActiveX properties.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function setActiveXProperties() {
     let presentation = new aspose.slides.Presentation();
     try {

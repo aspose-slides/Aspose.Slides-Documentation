@@ -40,6 +40,9 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 This JavaScript code shows how to change the text in a placeholder:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation class
 var pres = new aspose.slides.Presentation("ReplacingText.pptx");
 try {
@@ -69,6 +72,10 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This JavaScript code shows you how to set the prompt text in a placeholder:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -103,6 +110,10 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This JavaScript code shows you how to set the transparency for a picture background (inside a shape):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation("example.pptx");
 var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 var operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();

@@ -35,6 +35,9 @@ To add an ActiveX Media Player control, do this:
 This sample code, based on the steps above, shows to how to add Media Player ActiveX Control to a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create empty presentation instance
 var pres = new aspose.slides.Presentation();
 try {
@@ -68,6 +71,10 @@ To manage a simple ActiveX control like a text box and simple command button on 
 This sample code, based on the steps above, shows how to manage a simple ActiveX control: 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const imageio = java.import("javax.imageio.ImageIO");
 // Accessing the presentation with ActiveX controls
 var pres = new aspose.slides.Presentation("ActiveX.pptm");

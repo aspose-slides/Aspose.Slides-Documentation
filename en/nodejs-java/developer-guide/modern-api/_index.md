@@ -48,6 +48,10 @@ Use `getImage` to render a single slide or shape. Use `getImages` to render seve
 A typical scenario of using the new API may look as follows:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ppImage;
@@ -83,6 +87,8 @@ In general, you will need to replace calls that use [BufferedImage](https://docs
 
 Legacy/deprecated API:
 ``` javascript
+const java = require("java");
+
 var imageio = java.import("javax.imageio.ImageIO");
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
 var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
@@ -91,6 +97,10 @@ imageio.write(slideImage, "PNG", file);
 ```
 Modern API:
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
 var slideImage = pres.getSlides().get_Item(0).getImage(size);
 slideImage.save("image.png", aspose.slides.ImageFormat.Png);
@@ -102,6 +112,10 @@ slideImage.dispose();
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var slideImage = pres.getSlides().get_Item(0).getThumbnail();
@@ -116,6 +130,9 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var slideImage = pres.getSlides().get_Item(0).getImage();
@@ -131,6 +148,10 @@ try {
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
@@ -145,6 +166,9 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
@@ -160,6 +184,10 @@ try {
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var size = java.newInstanceSync("java.awt.Dimension", 1980, 1028);
@@ -179,6 +207,10 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var size = java.newInstanceSync("java.awt.Dimension", 1980, 1028);
@@ -205,6 +237,10 @@ try {
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var imageio = java.import("javax.imageio.ImageIO");
@@ -221,6 +257,9 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var image = aspose.slides.Images.fromFile("image.png");

@@ -38,6 +38,9 @@ To add a simple rectangle to a selected slide of the presentation, please follow
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Prseetation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -69,6 +72,10 @@ To add a formatted rectangle to a slide, please follow the steps below:
 The above steps are implemented in the example given below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Prseetation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {

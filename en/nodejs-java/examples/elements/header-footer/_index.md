@@ -23,6 +23,9 @@ This article demonstrates how to add footers and update date and time placeholde
 Add text to the footer area of a slide and make it visible.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addHeaderFooter() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -43,6 +46,9 @@ function addHeaderFooter() {
 Modify the date and time placeholder on a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateDateTime() {
     let presentation = new aspose.slides.Presentation("header_footer.pptx");
     try {

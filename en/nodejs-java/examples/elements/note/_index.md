@@ -22,6 +22,9 @@ This article demonstrates how to add, read, remove, and update notes slides usin
 Create a notes slide and assign text to it.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addNote() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -42,6 +45,9 @@ function addNote() {
 Read text from an existing notes slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessNote() {
     let presentation = new aspose.slides.Presentation("note.pptx");
     try {
@@ -61,6 +67,9 @@ function accessNote() {
 Remove the notes slide associated with a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeNote() {
     let presentation = new aspose.slides.Presentation("note.pptx");
     try {
@@ -80,6 +89,9 @@ function removeNote() {
 Change the text of a notes slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateNoteText() {
     let presentation = new aspose.slides.Presentation("note.pptx");
     try {

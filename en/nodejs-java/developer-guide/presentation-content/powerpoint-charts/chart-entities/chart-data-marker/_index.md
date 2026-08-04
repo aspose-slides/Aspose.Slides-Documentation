@@ -36,6 +36,10 @@ The markers can be set on chart data points inside particular series. In order t
 In the example given below, we have set the chart marker options on data points level.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creating empty presentation
 var pres = new aspose.slides.Presentation();
 try {

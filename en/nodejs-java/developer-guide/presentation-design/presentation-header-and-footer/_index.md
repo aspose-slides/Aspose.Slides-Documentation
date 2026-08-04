@@ -32,6 +32,9 @@ You can also manage headers and footers for handout and notes slides. This inclu
 Notes of some specific slide could be removed as shown in example below:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Load Presentation
 var pres = new aspose.slides.Presentation("headerTest.pptx");
 try {
@@ -81,6 +84,9 @@ Aspose.Slides for Node.js via Java supports Header and Footer in Handout and not
 Code Snippet provided in below Example.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("presentation.pptx");
 try {
     // Change Header and Footer settings for notes master and all notes slides

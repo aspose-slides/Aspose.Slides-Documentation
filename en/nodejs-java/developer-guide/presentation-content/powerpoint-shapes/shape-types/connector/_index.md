@@ -59,6 +59,9 @@ Aspose.Slides provides these connectors:
 This JavaScript code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a presentation class that represents the PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -105,6 +108,9 @@ If you want a connector to link two shapes using specific dots on the shapes, yo
 This JavaScript code demonstrates an operation where a preferred connection dot is specified:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -146,6 +152,10 @@ Consider a case where a connector between two shapes (A and B) passes through a 
 ![connector-obstruction](connector-obstruction.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var sld = pres.getSlides().get_Item(0);
@@ -193,6 +203,10 @@ Consider a case where two text frame objects are linked together through a conne
 ![connector-shape-complex](connector-shape-complex.png)
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -244,6 +258,9 @@ The result:
 To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.getAdjustments().get_Item(0) point:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Draw the vertical component of the connector
 var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
 var y = connector.getY();
@@ -262,6 +279,10 @@ In **Case 1**, we demonstrated a simple connector adjustment operation using bas
 First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates a new binding object
 var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
 shapeTo_1.getTextFrame().setText("To 1");
@@ -297,6 +318,10 @@ Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Saves the connector coordinates
 x = connector.getX();
 y = connector.getY();
@@ -335,6 +360,10 @@ We demonstrated calculations involving simple adjustments and complicated adjust
 This JavaScript code demonstrates an operation in which we calculated the angle for a connector line shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);

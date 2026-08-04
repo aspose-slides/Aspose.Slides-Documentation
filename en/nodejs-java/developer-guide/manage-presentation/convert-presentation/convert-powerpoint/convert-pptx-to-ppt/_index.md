@@ -41,6 +41,9 @@ For JavaScript sample code to convert PPTX to PPT, please see the section below 
 To convert a PPTX to PPT simply pass the file name and save format to the **Save** method of [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class. The JavaScript code sample below converts a Presentation from PPTX to PPT using default options.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // instantiate a Presentation object that represents a PPTX file
 var presentation = new aspose.slides.Presentation("template.pptx");
 // save the presentation as PPT

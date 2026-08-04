@@ -70,6 +70,9 @@ The standard PowerPoint-to-PDF conversion process uses default options. In this 
 This code shows you how to convert a presentation (PPT, PPTX, ODP, etc.) to PDF:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 let presentation = new aspose.slides.Presentation("PowerPoint.ppt");
 try {
@@ -97,6 +100,10 @@ Using custom conversion options, you can define your preferred quality setting f
 The code example below demonstrates how to convert a PowerPoint presentation to PDF with several custom options.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the PdfOptions class.
 let pdfOptions = new aspose.slides.PdfOptions();
 
@@ -132,6 +139,9 @@ If a presentation contains hidden slides, you can use the [setShowHiddenSlides](
 This JavaScript code shows how to convert a PowerPoint presentation to PDF with hidden slides included:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
@@ -153,6 +163,9 @@ try {
 This JavaScript code demonstrates how to convert a PowerPoint presentation into a password-protected PDF using the protection parameters from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) class:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
@@ -177,6 +190,9 @@ Aspose.Slides provides the [setWarningCallback](https://reference.aspose.com/sli
 This JavaScript code shows how to detect font substitutions:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Set the warning callback in PDF options.
 let pdfOptions = new aspose.slides.PdfOptions();
 pdfOptions.setWarningCallback(FontSubstitutionHandler);
@@ -189,6 +205,10 @@ presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const FontSubstitutionHandler = java.newProxy("com.aspose.slides.IWarningCallback", {
 	warning: function (warning) {
 		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss) {
@@ -210,6 +230,10 @@ For more information on font substitution, see the [Font Substitution](/slides/n
 This JavaScript code demonstrates how to convert only specific slides from a PowerPoint presentation to PDF:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
@@ -228,6 +252,9 @@ try {
 This JavaScript code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const slideWidth = 612;
 const slideHeight = 792;
 
@@ -258,6 +285,9 @@ try {
 This JavaScript code demonstrates how to convert a PowerPoint presentation to a PDF that includes notes:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
 try {
@@ -281,6 +311,9 @@ Aspose.Slides allows you to use a conversion procedure that complies with [Web C
 This JavaScript code demonstrates a PowerPoint-to-PDF conversion process that produces multiple PDFs based on different compliance standards:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     let pdfOptions = new aspose.slides.PdfOptions();

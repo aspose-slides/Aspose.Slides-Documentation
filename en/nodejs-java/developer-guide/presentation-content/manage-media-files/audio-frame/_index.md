@@ -36,6 +36,10 @@ Aspose.Slides for Node.js via Java allows you to add audio files to slides. The 
 This JavaScript code shows you how to add an embedded audio frame to a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation class that represents a presentation file
 const pres = new aspose.slides.Presentation();
 try {
@@ -66,6 +70,10 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 This JavaScript code shows you how to change an audio frame's thumbnail or preview image:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
@@ -130,6 +138,9 @@ This is how you change the Audio Play options:
 This JavaScript code demonstrates an operation in which an audio's options are adjusted:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
 try {
     // Gets the AudioFrame shape
@@ -158,6 +169,11 @@ try {
 This JavaScript example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 const pres = new aspose.slides.Presentation();
 try {
     const slide = pres.getSlides().get_Item(0);
@@ -185,6 +201,9 @@ try {
 The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
 try {
     const slide = pres.getSlides().get_Item(0);
@@ -211,6 +230,10 @@ Aspose.Slides allows you to add closed captions to an audio frame through the [g
 Use the [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) method to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
@@ -234,6 +257,11 @@ try {
 You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -262,6 +290,9 @@ try {
 To remove captions from an audio frame, use the methods provided by [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/), such as [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove), or [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt). The following example removes all caption tracks from an audio frame.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -288,6 +319,9 @@ Aspose.Slides for Node.js via Java allows you to extract the sound used in slide
 This code in JavaScript shows you how to extract the audio used in a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation class that represents a presentation file
 const pres = new aspose.slides.Presentation("AudioSlide.pptx");
 try {

@@ -22,6 +22,9 @@ This article demonstrates how to create simple animations and manage their seque
 Create a rectangle shape and apply a fade effect triggered on click.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addAnimation() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -45,6 +48,9 @@ function addAnimation() {
 Retrieve the first animation effect from the slide timeline.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessAnimation() {
     let presentation = new aspose.slides.Presentation("animation.pptx");
     try {
@@ -63,6 +69,9 @@ function accessAnimation() {
 Remove an animation effect from the sequence.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeAnimation() {
     let presentation = new aspose.slides.Presentation("animation.pptx");
     try {
@@ -85,6 +94,9 @@ function removeAnimation() {
 Add multiple effects and demonstrate the order in which animations occur.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function sequenceAnimations() {
     let presentation = new aspose.slides.Presentation();
     try {

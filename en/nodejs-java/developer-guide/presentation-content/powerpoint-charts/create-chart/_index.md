@@ -79,6 +79,10 @@ _Code Steps:_
 This JavaScript code shows you how to create a normal chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -172,6 +176,9 @@ You may want to use a scattered chart when
 This JavaScript code shows you how to create a scattered charts with a different series of markers:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -244,6 +251,10 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 This JavaScript code shows you how to create a pie chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -346,6 +357,9 @@ Line charts (also known as a line graphs) are best used in situations where you 
 This JavaScript code shows you how to create a line chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -387,6 +401,9 @@ Tree map charts are best used for sales data when you want to show the relative 
 This JavaScript code shows you how to create a tree map chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -448,6 +465,10 @@ try {
 Sample JavaScript code used to create a stock chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
@@ -508,6 +529,9 @@ try {
 This JavaScript code shows you how to create a box and whisker chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -556,6 +580,9 @@ try {
 The JavaScript code shows you how to create a funnel chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -598,6 +625,9 @@ try {
 This JavaScript code shows you how to create a sunburst chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -656,6 +686,9 @@ try {
 This JavaScript code shows you how to create an histogram chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -686,6 +719,9 @@ chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggrega
 This JavaScript code shows you how to create an radar chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -715,6 +751,9 @@ try {
 This JavaScript code shows you how to create a multicategory chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -765,6 +804,9 @@ A map chart is a visualization of an area containing data. Map charts are best u
 This JavaScript code shows you how to create a map chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -785,6 +827,10 @@ A combination chart (or combo chart) combines two or more chart types in a singl
 The following JavaScript code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -946,6 +992,9 @@ function setAxisTitle(axis, axisTitle) {
 This JavaScript code shows you how to update a chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Access first slideMarker
@@ -1004,6 +1053,9 @@ To set the data range for a chart, do this:
 This JavaScript code shows you how to set the data range for a chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1023,6 +1075,9 @@ When you use a default marker in charts, each chart series get different default
 This JavaScript code shows you how to set a chart series market automatically:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);

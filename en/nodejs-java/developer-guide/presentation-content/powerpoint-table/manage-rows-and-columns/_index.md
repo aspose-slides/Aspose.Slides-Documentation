@@ -41,6 +41,10 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 This JavaScript code shows you how to set a table's first row as its header:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class
 var pres = new aspose.slides.Presentation("table.pptx");
 try {
@@ -81,6 +85,10 @@ try {
 This JavaScript code shows you how to clone a PowerPoint table's row or column:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class
 var pres = new aspose.slides.Presentation("Test.pptx");
 try {
@@ -130,6 +138,10 @@ try {
 This JavaScript code shows you how to remove a row or column from a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -159,6 +171,9 @@ try {
 This JavaScript code demonstrates the operation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -199,6 +214,9 @@ try {
 This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -230,6 +248,10 @@ try {
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This JavaScript code shows you how to get the style properties from a table preset style:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));

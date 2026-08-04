@@ -48,6 +48,10 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for Node
 This JavaScript code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -84,6 +88,9 @@ try {
 This JavaScript code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Comments1.pptx");
 try {
     for (let i = 0; i < pres.getCommentAuthors().size(); i++) {
@@ -107,6 +114,10 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 This JavaScript code shows you how to add comments and get replies to them:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a comment
@@ -165,6 +176,10 @@ Aspose.Slides supports modern comments by the [ModernComment](https://reference.
 This JavaScript code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
@@ -184,6 +199,9 @@ try {
 This JavaScript code shows you how to remove all comments and authors in a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("example.pptx");
 try {
     // Deletes all comments from the presentation
@@ -206,6 +224,10 @@ try {
 This JavaScript code shows you how to delete specific comments on a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var slide = presentation.getSlides().get_Item(0);

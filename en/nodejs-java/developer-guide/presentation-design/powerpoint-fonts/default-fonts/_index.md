@@ -40,6 +40,9 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Use load options to define the default regualr and asian fonts
 var loadOptions = new aspose.slides.LoadOptions(aspose.slides.LoadFormat.Auto);
 loadOptions.setDefaultRegularFont("Wingdings");

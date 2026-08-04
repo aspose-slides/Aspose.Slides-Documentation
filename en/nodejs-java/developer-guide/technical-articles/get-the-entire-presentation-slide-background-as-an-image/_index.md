@@ -42,6 +42,9 @@ Aspose.Slides for Node.js via Java does not provide a simple method to extract t
 
 The following code example extracts the entire presentation slide background as an image.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var slideIndex = 0;
 var imageScale = 1;
 var presentation = new aspose.slides.Presentation("sample.pptx");

@@ -39,6 +39,9 @@ Using the [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/p
 This JavaScript code demonstrates how to convert a PowerPoint presentation to TIFF:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
@@ -60,6 +63,9 @@ Let's say we have a "sample.pptx" file with the following slide:
 This JavaScript code demonstrates how to convert the colored slide to a black-and-white TIFF:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let tiffOptions = new aspose.slides.TiffOptions();
 tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(aspose.slides.BlackWhiteConversionMode.Dithering);
@@ -83,6 +89,10 @@ If you require a TIFF image with specific dimensions, you can set your desired v
 This JavaScript code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
@@ -127,6 +137,9 @@ Using the [setPixelFormat](https://reference.aspose.com/slides/nodejs-java/aspos
 This JavaScript code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {

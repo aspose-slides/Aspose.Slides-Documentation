@@ -48,6 +48,9 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 This JavaScript code shows you how to add a website hyperlink to a text:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -69,6 +72,9 @@ try {
 This sample code in JavaScript shows you how to add a website hyperlink to a shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50);
@@ -89,6 +95,9 @@ Aspose.Slides allows you to add hyperlinks to images, audio, and video files.
 This sample code shows you how to add a hyperlink to an **image**:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds image to presentation
@@ -117,6 +126,10 @@ try {
 This sample code shows you how to add a hyperlink to an **audio file**:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var audio = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.mp3")));
@@ -135,6 +148,10 @@ try {
 This sample code shows you how to add a hyperlink to a **video**:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var video = pres.getVideos().addVideo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "video.avi")));
@@ -163,6 +180,10 @@ Since hyperlinks allow you to add references to objects or places, you can use t
 This sample code shows you how to create a table of contents with hyperlinks:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var firstSlide = pres.getSlides().get_Item(0);
@@ -197,6 +218,10 @@ With the [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -224,6 +249,10 @@ try {
 This JavaScript code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("text.pptx");
 try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
@@ -260,6 +289,9 @@ try {
 This JavaScript code shows you how to remove the hyperlink from a shape in a presentation slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -288,6 +320,9 @@ The [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hy
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);

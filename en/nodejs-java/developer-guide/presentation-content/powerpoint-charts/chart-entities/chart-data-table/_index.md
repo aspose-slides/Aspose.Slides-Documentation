@@ -34,6 +34,9 @@ Aspose.Slides for Node.js via Java provides support for changing color of catego
  Below sample example is given. 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creating empty presentation
 var pres = new aspose.slides.Presentation();
 try {

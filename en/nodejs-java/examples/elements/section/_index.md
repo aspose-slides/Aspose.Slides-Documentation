@@ -22,6 +22,9 @@ Examples for managing presentation sections—add, access, remove, and rename th
 Create a section that starts at a specific slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addSection() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -42,6 +45,9 @@ function addSection() {
 Read section information from a presentation.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessSection() {
     let presentation = new aspose.slides.Presentation("section.pptx");
     try {
@@ -61,6 +67,9 @@ function accessSection() {
 Delete a previously added section.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeSection() {
     let presentation = new aspose.slides.Presentation("section.pptx");
     try {
@@ -82,6 +91,9 @@ function removeSection() {
 Change the name of an existing section.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function renameSection() {
     let presentation = new aspose.slides.Presentation("section.pptx");
     try {

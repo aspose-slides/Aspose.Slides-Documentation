@@ -24,6 +24,10 @@ Each example below includes a brief explanation followed by a code snippet in Ja
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addSlide() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -47,6 +51,9 @@ function addSlide() {
 You can access slides using their index. This is useful for iterating through or modifying specific slides.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessSlide() {
     let presentation = new aspose.slides.Presentation("slide.pptx");
     try {
@@ -63,6 +70,9 @@ function accessSlide() {
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function cloneSlide() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -81,6 +91,9 @@ function cloneSlide() {
 You can change the order of slides by moving one to a new index. In this case, we move a slide to the first position.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function reorderSlide() {
     let presentation = new aspose.slides.Presentation("slide.pptx");
     try {
@@ -100,6 +113,9 @@ function reorderSlide() {
 To remove a slide, simply reference it and call `remove`. This example adds a second slide and then removes the original, leaving only the new one.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeSlide() {
     let presentation = new aspose.slides.Presentation("slide.pptx");
     try {

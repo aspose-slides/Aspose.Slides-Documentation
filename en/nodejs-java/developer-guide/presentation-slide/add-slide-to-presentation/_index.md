@@ -36,6 +36,9 @@ Aspose.Slides for Node.js via Java allows developers to add empty slides to thei
 - Finally, write the presentation file using the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents the presentation file
 var pres = new aspose.slides.Presentation();
 try {

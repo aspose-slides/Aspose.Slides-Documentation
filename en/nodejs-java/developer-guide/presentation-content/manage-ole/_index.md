@@ -58,6 +58,10 @@ In the example below, we added a chart from an Excel file to a slide as an OLE o
 **Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation();
 var slideSize = presentation.getSlideSize().getSize();
 var slide = presentation.getSlides().get_Item(0);
@@ -81,6 +85,8 @@ Aspose.Slides for Node.js via Java allows you to add an [OleObjectFrame](https:/
 This JavaScript code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame) with a linked Excel file to a slide:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
 var presentation = new asposeSlides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
@@ -103,6 +109,9 @@ If an OLE object is already embedded in a slide, you can easily find or access i
 In the example below, an OLE object frame (an Excel chart object embedded in a slide) and its file data are accessed.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -127,6 +136,9 @@ Aspose.Slides allows you to access linked OLE object frame properties.
 This JavaScript code shows you how to check if an OLE object is linked and then obtain the path to the linked file:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.ppt");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -172,6 +184,9 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 In the example below, an OLE object frame (an Excel chart object embedded in a slide) is accessed, and its file data is modified to update the chart data.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var shape = slide.getShapes().get_Item(0);
@@ -214,6 +229,10 @@ Besides Excel charts, Aspose.Slides for Node.js via Java allows you to embed oth
 This JavaScript code shows you how to embed HTML and ZIP into a slide:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
@@ -240,6 +259,9 @@ When working with presentations, you may need to replace old OLE objects with ne
 This JavaScript code shows you how to set the file type for an embedded OLE object to `zip`:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var oleFrame = slide.getShapes().get_Item(0);
@@ -264,6 +286,8 @@ After embedding an OLE object, a preview consisting of an icon image is added au
 This JavaScript code shows you how to set the icon image and title for an embedded object:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 var oleFrame = slide.getShapes().get_Item(0);
@@ -301,6 +325,10 @@ Aspose.Slides for Node.js via Java allows you to extract the files embedded in s
 This JavaScript code shows you how to extract files embedded in a slide as OLE objects:
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 var slide = presentation.getSlides().get_Item(0);
 

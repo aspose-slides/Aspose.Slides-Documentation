@@ -34,6 +34,9 @@ The following example includes these steps:
 1. With [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager), these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create new instance of a rules collection
 var rulesList = new aspose.slides.FontFallBackRulesCollection();
 // create a number of rules

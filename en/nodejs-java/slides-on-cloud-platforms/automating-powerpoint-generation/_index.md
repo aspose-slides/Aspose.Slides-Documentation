@@ -69,6 +69,10 @@ Ok, let’s walk through building a sample presentation using real-world content
 We'll begin by creating a new presentation and adding a title slide with a main heading and subtitle.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 
 let slide0 = presentation.getSlides().get_Item(0);
@@ -90,6 +94,10 @@ subtitleShape.getTextFrame().setText("Prepared for Executive Team");
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let layoutSlide1 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide1 = presentation.getSlides().addEmptySlide(layoutSlide1);
 
@@ -123,6 +131,10 @@ series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex,
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let layoutSlide2 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide2 = presentation.getSlides().addEmptySlide(layoutSlide2);
 
@@ -149,6 +161,10 @@ table.getColumns().get_Item(1).get_Item(4).getTextFrame().setText("87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createBulletParagraph(text) {
     let paragraph = new aspose.slides.Paragraph();
     paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
@@ -160,6 +176,10 @@ function createBulletParagraph(text) {
 }
 ```
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let layoutSlide3 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide3 = presentation.getSlides().addEmptySlide(layoutSlide3);
 
@@ -181,6 +201,9 @@ bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Schedule fo
 Finally, we save the presentation to disk:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 

@@ -72,6 +72,9 @@ Developers can use **DocumentProperties** property exposed by [Presentation](htt
 These properties as exposed by [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents the presentation
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
@@ -104,6 +107,9 @@ try {
 Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for Node.js via Java.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // Create a reference to IDocumentProperties object associated with Presentation
@@ -134,6 +140,9 @@ This example modifies the built-in properties of the presentation that can be vi
 Aspose.Slides for Node.js via Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Getting Document Properties
@@ -164,6 +173,9 @@ try {
 Aspose.Slides for Node.js via Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // Create a reference to DocumentProperties object associated with Presentation
@@ -209,6 +221,9 @@ The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // read the info of presentation
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 // obtain the current properties
@@ -224,6 +239,9 @@ info.writeBindedPresentation("presentation.pptx");
 There is another way to use properties of a particular presentation as a template to update properties in other presentations:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 var template = info.readDocumentProperties();
 template.setAuthor("Template Author");
@@ -240,6 +258,9 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateByTemplate(path, template) 
 {
     var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
@@ -251,6 +272,9 @@ function updateByTemplate(path, template)
 A new template can be created from scratch and then used to update multiple presentations:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var template = new aspose.slides.DocumentProperties();
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -266,6 +290,9 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateByTemplate(path, template) 
 {
     var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
@@ -281,6 +308,9 @@ Aspose.Slides provides the LanguageId property (exposed by the PortionFormat cla
 This JavaScript code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from JavaScript PortionFormat class?
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation(pptxFileName);
 try {
     var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -307,6 +337,9 @@ try {
 This JavaScript code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 var pres = new aspose.slides.Presentation(loadOptions);

@@ -33,6 +33,9 @@ While humans easily write the code for some equation formats like LaTeX, they st
 This sample code shows you how to export a math equation from a presentation to MathML:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);

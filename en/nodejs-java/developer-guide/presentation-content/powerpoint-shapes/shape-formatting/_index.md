@@ -50,6 +50,10 @@ Using Aspose.Slides, you can specify a custom line style for a shape. The follow
 The following code demonstrates how to format a rectangle `AutoShape`:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -97,6 +101,10 @@ By default, when PowerPoint joins two lines at an angle (such as at a shape’s 
 The following JavaScript code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -162,6 +170,10 @@ Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 The following JavaScript code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -213,6 +225,10 @@ Here's how to apply a pattern fill to a shape using Aspose.Slides:
 The following JavaScript code demonstrates how to apply a pattern fill to a rectangle:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -265,6 +281,10 @@ Let's say we have a "lotus.png" file with the following picture:
 The following JavaScript code demonstrates how to fill a shape with the picture:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -314,6 +334,10 @@ If you want to set a tiled picture as a texture and customize the tiling behavio
 The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -371,6 +395,10 @@ To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
 The following JavaScript code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -413,6 +441,10 @@ Aspose.Slides lets you set the transparency level by adjusting the alpha value i
 The following JavaScript code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -453,6 +485,9 @@ To rotate a shape on a slide, follow these steps:
 The following JavaScript code demonstrates how to rotate a shape by 5 degrees:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class that represents a presentation file.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -491,6 +526,10 @@ To add 3D bevel effects to a shape, follow these steps:
 The following JavaScript code shows how to apply 3D bevel effects to a shape:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of the Presentation class.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -539,6 +578,9 @@ To apply 3D rotation to a shape:
 The following JavaScript code demonstrates how to apply 3D rotation effects to a shape:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of the Presentation class.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -568,6 +610,9 @@ The result:
 The following Java code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) to their default settings:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {

@@ -27,6 +27,10 @@ Equals method has been added to [BaseSlide](https://reference.aspose.com/slides/
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation1 = new aspose.slides.Presentation("AccessSlides.pptx");
 try {
     var presentation2 = new aspose.slides.Presentation("HelloWorld.pptx");
