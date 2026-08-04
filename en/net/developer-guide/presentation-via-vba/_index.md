@@ -57,7 +57,7 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.Vba;
 
-    // Creates an instance of the presentation class
+// Creates an instance of the presentation class
 using (Presentation presentation = new Presentation())
 {
     // Creates a new VBA Project
@@ -65,7 +65,7 @@ using (Presentation presentation = new Presentation())
 
     // Adds an empty module to the VBA project
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-  
+
     // Sets the module source code
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
@@ -81,9 +81,8 @@ using (Presentation presentation = new Presentation())
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
-            
     // Saves the Presentation
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
@@ -106,14 +105,14 @@ This C# code shows you how to remove a VBA macro:
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-    // Loads the presentation containing the macro
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
+// Loads the presentation containing the macro
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    // Accesses the Vba module and removes it 
+    // Accesses the Vba module and removes it
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
     // Saves the Presentation
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 

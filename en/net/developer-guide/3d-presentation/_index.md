@@ -106,6 +106,11 @@ In Aspose.Slides, set the camera type and rotation through [IThreeDFormat.Camera
 ```csharp
 using Aspose.Slides;
 
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
 shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 ```
@@ -122,6 +127,12 @@ Set [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspo
 
 ```csharp
 using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
@@ -174,6 +185,11 @@ To use a picture fill instead, add the image to the presentation and assign it t
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
 
 var imageData = File.ReadAllBytes("image.jpg");
 var image = presentation.Images.AddImage(imageData);

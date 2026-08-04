@@ -50,9 +50,10 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
     SwfOptions swfOptions = new SwfOptions();
     swfOptions.ViewerIncluded = false;
 
-
-    INotesCommentsLayoutingOptions notesOptions = swfOptions.NotesCommentsLayouting;
-    notesOptions.NotesPosition = NotesPositions.BottomFull;
+    swfOptions.SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomFull
+    };
 
     // Saving presentation and notes pages
     presentation.Save("SaveAsSwf_out.swf", SaveFormat.Swf, swfOptions);

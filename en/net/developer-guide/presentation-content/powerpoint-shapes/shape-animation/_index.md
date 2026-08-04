@@ -71,7 +71,7 @@ using Aspose.Slides.Export;
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
-    
+
     // Adds new AutoShape with text
     IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
@@ -88,7 +88,7 @@ using (Presentation pres = new Presentation())
     effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
 
     // Save the PPTX file to disk
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
+    pres.Save("AnimTextBox_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -242,6 +242,8 @@ And finally, the **Fly In** effect is applied to the footer placeholder on the *
 The following sample code shows you how to use the `GetBasePlaceholder` method from the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interface to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
 
 ```cs
+using System;
+using System.Collections.Generic;
 using Aspose.Slides;
 using Aspose.Slides.Animation;
 
@@ -265,6 +267,14 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     PrintEffects(masterShapeEffects);
     PrintEffects(layoutShapeEffects);
     PrintEffects(shapeEffects);
+}
+
+static void PrintEffects(IEnumerable<IEffect> effects)
+{
+    foreach (IEffect effect in effects)
+    {
+        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+    }
 }
 ```
 ```cs

@@ -127,6 +127,7 @@ Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the stat
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 
@@ -138,7 +139,7 @@ using Aspose.Slides.SmartArt;
 
   smart.IsReversed = true;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -148,6 +149,7 @@ Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 
@@ -161,7 +163,7 @@ using Aspose.Slides.SmartArt;
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -171,6 +173,7 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 
@@ -192,7 +195,7 @@ using Aspose.Slides.SmartArt;
 
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -202,6 +205,7 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 
@@ -213,7 +217,7 @@ using Aspose.Slides.SmartArt;
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -223,6 +227,7 @@ The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been add
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 
@@ -234,7 +239,7 @@ using Aspose.Slides.SmartArt;
 
   smart.Layout = SmartArtLayoutType.BasicProcess;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 

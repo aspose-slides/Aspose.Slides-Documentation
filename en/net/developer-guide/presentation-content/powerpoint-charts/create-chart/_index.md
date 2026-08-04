@@ -411,9 +411,14 @@ By default, points on a line chart are joined by straight continuous lines. If y
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 

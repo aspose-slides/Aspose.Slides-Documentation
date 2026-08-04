@@ -200,7 +200,7 @@ The following methods add/insert a copy of a specified shape into the collection
 using Aspose.Slides;
 
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -225,7 +225,6 @@ using Aspose.Slides;
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
 #### **Added the ViewType Enum, IViewProperties Interface, ViewProperties Class and IPresentation.ViewProperties Properties**
 The IPresentation.ViewProperty allows developers to change the presentation view type and notes visibility when a presentation is opened in PowerPoint.

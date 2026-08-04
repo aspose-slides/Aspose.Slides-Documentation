@@ -127,15 +127,17 @@ using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.SlideShow;
 
-// Add a smile shape and animate it.
-// ...
+using (Presentation presentation = new Presentation())
+{
+    // Add a smile shape and animate it (see the code above).
 
-// Add a new slide and an animated transition.
-ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
-newSlide.Background.Type = BackgroundType.OwnBackground;
-newSlide.Background.FillFormat.FillType = FillType.Solid;
-newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
-newSlide.SlideShowTransition.Type = TransitionType.Push;
+    // Add a new slide and an animated transition.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
 Aspose.Slides also supports text animations. In this example, we animate paragraphs on objects so that they appear one after the other, with a one-second delay between them:
@@ -217,7 +219,6 @@ When animations are generated, a `NewAnimation` event is triggered for each subs
 To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/), you use the [Duration](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/duration/) property (which gives the full duration of the animation) and the [SetTimePosition](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/) method. Each animation position is set within the *0 to duration* range, and the `GetFrame` method then returns a Bitmap representing the animation state at that point in time.
 
 ```c#
-using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Animation;
 using Aspose.Slides.Export;
@@ -244,12 +245,12 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // The initial animation state.
-            Bitmap bitmap = animationPlayer.GetFrame();  // The initial animation state bitmap.
+            animationPlayer.SetTimePosition(0);        // The initial animation state.
+            IImage image = animationPlayer.GetFrame(); // The initial animation state image.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // The final state of the animation.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // The last frame of the animation.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // The final state of the animation.
+            IImage lastImage = animationPlayer.GetFrame();             // The last frame of the animation.
+            lastImage.Save("last.png");
         };
     }
 }

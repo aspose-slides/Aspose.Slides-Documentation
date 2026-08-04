@@ -250,9 +250,11 @@ Aspose.Slides for .NET allows developers to add empty slides to the presentation
 using Aspose.Slides;
 
 
- string FileName = FilePath + "Adding Slide to Presentation.pptx";
+ string FilePath = @"..\..\..\..\Sample Files\";
 
-//Instantiate PresentationEx class that represents the PPT file
+string FileName = FilePath + "Adding Slide to Presentation.pptx";
+
+//Instantiate the Presentation class that represents the PPTX file
 
 Presentation pres = new Presentation();
 

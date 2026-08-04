@@ -49,34 +49,26 @@ pres.SaveAs("outVSTO.ppt",
 ## **Aspose.Slides**
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-
- private static void CreatePresentation()
-
+private static void CreatePresentation()
 {
-
 	//Create a presentation
+	using Presentation pres = new Presentation();
 
-	Presentation pres = new Presentation();
-
-	//Add the title slide
-
-	Slide slide = pres.AddTitleSlide();
+	//Get the title slide
+	ISlide slide = pres.Slides[0];
+	slide.LayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Title);
 
 	//Set the title text
-
-	((TextHolder)slide.Placeholders[0]).Text = "Slide Title Heading";
+	((IAutoShape)slide.Shapes[0]).TextFrame.Text = "Slide Title Heading";
 
 	//Set the sub title text
-
-	((TextHolder)slide.Placeholders[1]).Text = "Slide Title Sub-Heading";
+	((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
 	//Write output to disk
-
-	pres.Write("outAsposeSlides.ppt");
-
+	pres.Save("outAsposeSlides.ppt", SaveFormat.Ppt);
 }
-
 ``` 
 ## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.a.New.Presentation.Aspose.Slides.zip)

@@ -74,8 +74,9 @@ By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/n
 using System.Net.Http;
 using Aspose.Slides.AI;
 
-// Assume you have an IHttpClientFactory instance (e.g., injected via dependency injection).
-HttpClient httpClient = httpClientFactory.CreateClient();
+// Use an HttpClient you manage yourself - for example, one created by an IHttpClientFactory
+// injected via dependency injection.
+HttpClient httpClient = new HttpClient();
 using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpClient);
 ```
 

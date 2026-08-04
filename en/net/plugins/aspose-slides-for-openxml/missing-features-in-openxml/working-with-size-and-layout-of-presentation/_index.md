@@ -15,7 +15,7 @@ using Aspose.Slides;
 
 string FileName = FilePath + "Working With Size and Layout.pptx";
 
-//Instantiate a Presentation object that represents a presentation file 
+//Instantiate a Presentation object that represents a presentation file
 
 Presentation presentation = new Presentation(FileName);
 
@@ -25,9 +25,7 @@ ISlide slide = presentation.Slides[0];
 
 //Set the slide size of generated presentations to that of source
 
-auxPresentation.SlideSize.Type = presentation.SlideSize.Type;
-
-auxPresentation.SlideSize.Size = presentation.SlideSize.Size;
+auxPresentation.SlideSize.SetSize(presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height, SlideSizeScaleType.DoNotScale);
 
 auxPresentation.Slides.InsertClone(0, slide);
 

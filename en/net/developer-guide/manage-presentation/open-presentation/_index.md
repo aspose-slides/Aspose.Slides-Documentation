@@ -169,10 +169,12 @@ Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.co
 This property is useful for removing potentially malicious binary content. The following C# code demonstrates how to load a presentation without any embedded binary content:
 
 ```cs
+using Aspose.Slides;
+
 LoadOptions loadOptions = new LoadOptions()
 {
-	DeleteEmbeddedBinaryObjects = true
-}
+    DeleteEmbeddedBinaryObjects = true
+};
 
 using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
 {

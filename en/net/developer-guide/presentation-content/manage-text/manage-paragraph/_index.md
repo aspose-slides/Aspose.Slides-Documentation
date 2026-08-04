@@ -60,6 +60,10 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 This C# code is an implementation of the steps for adding paragraphs containing portions:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -118,6 +122,7 @@ using (Presentation pres = new Presentation())
         }
     // Saves the modified presentation
     pres.Save("multiParaPort_out.pptx", SaveFormat.Pptx);
+}
 
 ```
 

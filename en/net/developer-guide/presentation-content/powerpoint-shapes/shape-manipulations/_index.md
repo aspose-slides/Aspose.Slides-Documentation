@@ -365,7 +365,7 @@ using Aspose.Slides.Util;
 
 using (Presentation pres = new Presentation("example.pptx"))
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
+    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0]);
 }
 ```
 

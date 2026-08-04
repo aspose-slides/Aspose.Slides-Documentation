@@ -82,9 +82,6 @@ using Aspose.Slides.Charts;
 // Instantiate Presentation class that represents PPTX file
 using (Presentation presentation = new Presentation())
 {
-	// Instantiate Presentation class that represents PPTX file
-	Presentation presentation = new Presentation();
-
 	// Access first slide
 	ISlide slides = presentation.Slides[0];
 
@@ -124,7 +121,7 @@ using (Presentation presentation = new Presentation())
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
 	series.ParentSeriesGroup.IsColorVaried = true;
-	presentation.Save("C:\\Aspose Data\\Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+	presentation.Save("Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 

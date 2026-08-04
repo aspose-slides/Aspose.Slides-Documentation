@@ -31,7 +31,7 @@ using Aspose.Slides;
 using Aspose.Slides.Animation;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
+using (Presentation presentation = new Presentation("Presentation1.pptx"))
 {
     // select paragraph to add effect
     IAutoShape autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -40,8 +40,7 @@ using (Presentation presentation = new Presentation(dataDir + "Presentation1.ppt
     // add Fly animation effect to selected paragraph
     IEffect effect = presentation.Slides[0].Timeline.MainSequence.AddEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-
-    presentation.Save(dataDir + "AnimationEffectinParagraph.pptx", SaveFormat.Pptx);
+    presentation.Save("AnimationEffectinParagraph.pptx", SaveFormat.Pptx);
 }
 ```
 

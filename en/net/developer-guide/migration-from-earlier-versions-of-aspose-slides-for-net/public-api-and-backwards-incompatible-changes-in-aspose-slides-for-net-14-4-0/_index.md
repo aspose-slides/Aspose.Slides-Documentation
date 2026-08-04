@@ -25,90 +25,116 @@ description: "Review public API updates and breaking changes in Aspose.Slides fo
 The property Aspose.Slides.ILayoutSlide.HasDependingSlides returns true if there exists at least one slide that depends on this layout slide. For example:
 
 ``` csharp
+using Aspose.Slides;
 
- ILayoutSlide layout = ...;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ILayoutSlide layout = presentation.LayoutSlides[0];
 
-if (!layout.HasDependingSlides)
-
-    layout.Remove();
+    if (!layout.HasDependingSlides)
+        layout.Remove();
+}
 
 ``` 
 #### **Aspose.Slides.ILayoutSlide.Remove() Method**
 The method Aspose.Slides.ILayoutSlide.Remove() allows you to remove a layout from a presentation with minimum of code. For example:
 
 ``` csharp
+using Aspose.Slides;
 
- ILayoutSlide layout = ...;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ILayoutSlide layout = presentation.LayoutSlides[0];
 
-if (!layout.HasDependingSlides)
-
-    layout.Remove();
+    if (!layout.HasDependingSlides)
+        layout.Remove();
+}
 
 ``` 
 #### **Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide) Method**
 The method Aspose.Slides.ILayoutSlideCollection.Remove(ILayoutSlide) allows you to remove a layout from the collection. Code examples:
 
 ``` csharp
+using Aspose.Slides;
 
- ILayoutSlide layout = ...;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ILayoutSlide layout = presentation.LayoutSlides[0];
 
-if (!layout.HasDependingSlides)
-
-    presentation.LayoutSlides.Remove(layout);
+    if (!layout.HasDependingSlides)
+        presentation.LayoutSlides.Remove(layout);
+}
 
 ``` 
 
 or
 
 ``` csharp
+using Aspose.Slides;
 
- IMasterSlide masterSlide = ...;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IMasterSlide masterSlide = presentation.Masters[0];
+    ILayoutSlide layout = masterSlide.LayoutSlides[0];
 
-ILayoutSlide layout = ...;
-
-if (!layout.HasDependingSlides)
-
-    masterSlide.LayoutSlides.Remove(layout);
+    if (!layout.HasDependingSlides)
+        masterSlide.LayoutSlides.Remove(layout);
+}
 
 ``` 
 #### **Aspose.Slides.ILayoutSlideCollection.RemoveUnused()**
 The method Aspose.Slides.ILayoutSlideCollection.RemoveUnused() allows you to remove unused layout slides (layout slides whose HasDependingSlides is false). Code examples:
 
 ``` csharp
+using Aspose.Slides;
 
- presentation.LayoutSlides.RemoveUnused();
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    presentation.LayoutSlides.RemoveUnused();
+}
 
 ``` 
 
 or
 
 ``` csharp
+using Aspose.Slides;
 
- IMasterSlide masterSlide = ...;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IMasterSlide masterSlide = presentation.Masters[0];
 
-masterSlide.LayoutSlides.RemoveUnused();
+    masterSlide.LayoutSlides.RemoveUnused();
+}
 
 ``` 
 #### **Aspose.Slides.IMasterSlide.HasDependingSlides Property**
 The property Aspose.Slides.IMasterSlide.HasDependingSlides returns true if there exists at least one slide that depends on this master slide. For example:
 
 ``` csharp
+using Aspose.Slides;
 
- IMasterSlide masterSlide = ...;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IMasterSlide masterSlide = presentation.Masters[0];
 
-if (!masterSlide.HasDependingSlides)
-
-    presentation.Masters.Remove(masterSlide);
+    if (!masterSlide.HasDependingSlides)
+        presentation.Masters.Remove(masterSlide);
+}
 
 ``` 
 #### **Aspose.Slides.ISlide.Remove() Method**
 The method Aspose.Slides.ISlide.Remove() allows you to remove a slide from a presentation with minimum of code. For example:
 
 ``` csharp
+using Aspose.Slides;
 
- ISlide slide = ...;
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[0];
 
-slide.Remove();
+    slide.Remove();
+}
 
 ``` 
 #### **Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat**
@@ -119,40 +145,53 @@ The property Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat returns IFill
 The property Aspose.Slides.SmartArt.ISmartArtNode.Level returns nested level for SmartArt nodes.
 
 ``` csharp
+using Aspose.Slides;
 using Aspose.Slides.SmartArt;
 
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISmartArt diagram = (ISmartArt)presentation.Slides[0].Shapes[0];
 
- ISmartArtNode node = diagram.AllNodes[0];
+    ISmartArtNode node = diagram.AllNodes[0];
 
-if(node.Level == 1)
-
-    node.TextFrame.Text = "First level";
+    if (node.Level == 1)
+        node.TextFrame.Text = "First level";
+}
 
 ``` 
 #### **Aspose.Slides.SmartArt.ISmartArtNode.Position Property**
 The property Aspose.Slides.SmartArt.ISmartArtNode.Position returns the position of a node among its siblings.
 
 ``` csharp
+using Aspose.Slides;
 using Aspose.Slides.SmartArt;
 
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISmartArt diagram = (ISmartArt)presentation.Slides[0].Shapes[0];
 
- ISmartArtNode node = diagram.AllNodes[0];
+    ISmartArtNode node = diagram.AllNodes[0];
 
-if (node.ChildNodes.Count > 3)
-
-    node.ChildNodes[0].Position++;
+    if (node.ChildNodes.Count > 3)
+        node.ChildNodes[0].Position++;
+}
 
 ``` 
 #### **Aspose.Slides.SmartArt.ISmartArtNode.Remove() Method Has Been Added**
 The Aspose.Slides.SmartArt.ISmartArtNode.Remove() method allows the removal of a node from a diagram.
 
 ``` csharp
+using Aspose.Slides;
 using Aspose.Slides.SmartArt;
 
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISmartArt diagram = (ISmartArt)presentation.Slides[0].Shapes[0];
 
- ISmartArt node = diagram.AllNodes[0];
+    ISmartArtNode node = diagram.AllNodes[0];
 
-node.Remove();
+    node.Remove();
+}
 
 ``` 
 #### **IGlobalLayoutSlideCollection Interface and GlobalLayoutSlideCollection Class**
@@ -171,16 +210,20 @@ The IMasterLayoutSlideCollection interface and MasterLayoutSlideCollection class
 The IMasterLayoutSlideCollection interface represents a collections of all layout slides of a defined master slide. It extends the ILayoutSlideCollection interface with methods for adding, inserting, removing or cloning layout slides in the context of the individual collections of a master's layout slides:
 
 ``` csharp
+using Aspose.Slides;
 
- // Method signature:
+// Method signature:
+// ILayoutSlide AddClone(ILayoutSlide sourceLayout);
 
-ILayoutSlide AddClone(ILayoutSlide sourceLayout);
+// Code example that attaches a copy of the sourceLayout to the destMasterSlide:
 
-// Code example that attaches copy of the sourceLayout to the destMasterSlide:
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ILayoutSlide sourceLayout = presentation.LayoutSlides[0];
+    IMasterSlide destMasterSlide = presentation.Masters[0];
 
-IMasterSlide destMasterSlide = ...;
-
-destMasterSlide.LayoutSlides.AddClone(sourceLayout);
+    destMasterSlide.LayoutSlides.AddClone(sourceLayout);
+}
 
 ``` 
 

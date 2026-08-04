@@ -59,9 +59,9 @@ using (Presentation pres = new Presentation())
 
 	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
 	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
-	
+
 	// Saves the presentation
-	presentation.Save("ErrorBars_out.pptx", SaveFormat.Pptx);
+	pres.Save("AxisValues_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -223,7 +223,7 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
+using (Presentation pres = new Presentation("Test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
 	chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;

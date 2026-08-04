@@ -58,49 +58,35 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
+string fileName = "Adding Image in Table Cell.pptx";
+string imageFile = "AsposeLogo.jpg";
 
-   string FileName = "Adding Image in Table Cell.pptx";
+using Presentation presentation = new Presentation(fileName);
 
-  string ImageFile = "AsposeLogo.jpg";
+//Get First Slide
+ISlide sld = presentation.Slides[0];
 
-  Presentation MyPresentation = new Presentation(FileName);
+//Load the image file
+using IImage image = Images.FromFile(imageFile);
 
-  //Get First Slide
+//Create an IPPImage object using the loaded image
+IPPImage imgx1 = presentation.Images.AddImage(image);
 
-  ISlide sld = MyPresentation.Slides[0];
+foreach (IShape shp in sld.Shapes)
+{
+    if (shp is ITable tbl)
+    {
+        //Add image to first table cell
+        tbl[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+        tbl[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+        tbl[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = imgx1;
+    }
+}
 
-  //Creating a Bitmap Image object to hold the image file
-
-  using IImage image = Images.FromFile(ImageFile);
-
-  //Create an IPPImage object using the bitmap object
-
-  IPPImage imgx1 = MyPresentation.Images.AddImage(image);
-
-  foreach (IShape shp in sld.Shapes)
-
-  if (shp is ITable)
-
-  {
-
-     ITable tbl = (ITable)shp;
-
-     //Add image to first table cell
-
-     tbl[0, 0].FillFormat.FillType = FillType.Picture;
-
-     tbl[0, 0].FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-
-     tbl[0, 0].FillFormat.PictureFillFormat.Picture.Image = imgx1;
-
-   }
-
-  //Save PPTX to Disk
-
-  MyPresentation.Save(FileName, Export.SaveFormat.Pptx);
-
-
+//Save PPTX to Disk
+presentation.Save(fileName, SaveFormat.Pptx);
 ``` 
 ## **Download Running Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)

@@ -54,7 +54,7 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 // Define folders that contain custom font files.
-string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
+string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
 
 // Load custom fonts from the specified folders.
 FontsLoader.LoadExternalFonts(fontFolders);

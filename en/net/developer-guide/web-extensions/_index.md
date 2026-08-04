@@ -398,17 +398,24 @@ using (Presentation pres = new Presentation())
 Now, we can set up the animated slide transitions (each slide is the imported PDF page). We used 9 slides in the sample PDF document. Let's add slide transitions into each of them (demonstration while viewing HTML):
 
 ``` csharp
+using Aspose.Slides;
 using Aspose.Slides.SlideShow;
 
-pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
-pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
-pres.Slides[2].SlideShowTransition.Type = TransitionType.Cover;
-pres.Slides[3].SlideShowTransition.Type = TransitionType.Dissolve;
-pres.Slides[4].SlideShowTransition.Type = TransitionType.Switch;
-pres.Slides[5].SlideShowTransition.Type = TransitionType.Pan;
-pres.Slides[6].SlideShowTransition.Type = TransitionType.Ferris;
-pres.Slides[7].SlideShowTransition.Type = TransitionType.Pull;
-pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
+using (Presentation pres = new Presentation())
+{
+    pres.Slides.RemoveAt(0);
+    pres.Slides.AddFromPdf("sample.pdf");
+
+    pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
+    pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
+    pres.Slides[2].SlideShowTransition.Type = TransitionType.Cover;
+    pres.Slides[3].SlideShowTransition.Type = TransitionType.Dissolve;
+    pres.Slides[4].SlideShowTransition.Type = TransitionType.Switch;
+    pres.Slides[5].SlideShowTransition.Type = TransitionType.Pan;
+    pres.Slides[6].SlideShowTransition.Type = TransitionType.Ferris;
+    pres.Slides[7].SlideShowTransition.Type = TransitionType.Pull;
+    pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
+}
 ```
 
 Finally, let's export it to HTML using `WebDocument` with the `AnimateTransitions` property set to `true`:

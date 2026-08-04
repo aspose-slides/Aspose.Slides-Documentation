@@ -81,32 +81,21 @@ public static int CountSlides(PresentationDocument presentationDocument)
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
 
- string FilePath = @"..\..\..\..\Sample Files\";
-
+string FilePath = @"..\..\..\..\Sample Files\";
 string FileName = FilePath + "Count the number of slides.pptx";
 
-Console.WriteLine("Number of slides = {0}",
+Console.WriteLine("Number of slides = {0}", CountSlides(FileName));
 
-CountSlides(FileName));
-
-Console.ReadKey();
-
-public static int CountSlides(string presentationFile)
-
+int CountSlides(string presentationFile)
 {
-
-  //Instantiate a PresentationEx object that represents a PPTX file
-
-  using (Presentation pres = new Presentation(presentationFile))
-
-  {
-
-     return pres.Slides.Count;
-
-  }
-
-}  
+    // Instantiate a Presentation object that represents a PPTX file
+    using (Presentation pres = new Presentation(presentationFile))
+    {
+        return pres.Slides.Count;
+    }
+}
 
 ``` 
 ## **Download Sample Code**

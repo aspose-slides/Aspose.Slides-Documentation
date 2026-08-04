@@ -142,8 +142,8 @@ using (var presentation = new Presentation("sample.pptx"))
 
     if (firstShape is IPictureFrame pictureFrame)
     {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
+        var ppImage = pictureFrame.PictureFormat.Picture.Image;
+        ppImage.Image.Save("slide_1_shape_1.png", ImageFormat.Png);
     }
 }
 ```
@@ -355,7 +355,7 @@ using Aspose.Slides.Export;
 using (Presentation presentation = new Presentation())
 {
     // Creates a new image object
-    IImage image = Images.FromFile(imagePath);
+    IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage newImage = presentation.Images.AddImage(image);
     image.Dispose();
 

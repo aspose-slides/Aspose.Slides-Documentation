@@ -56,36 +56,30 @@ Using Aspose.Slides for .NET, perform the following steps:
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
+// Creating empty presentation
+using (Presentation pres = new Presentation())
+{
+    // Accessing the first slide
+    ISlide slide = pres.Slides[0];
 
- //Creating empty presentation
+    // Adding the image to the image collection of the presentation
+    IImage image = Images.FromFile("pic.jpeg");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
-Presentation pres = new Presentation();
+    // Adding Picture Frame
+    IPictureFrame picFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 150, 100, 400, 300, ppImage);
 
-//Accessing the First slide
+    // Applying animation on picture frame
+    ISequence sequence = slide.Timeline.MainSequence;
+    sequence.AddEffect(picFrame, EffectType.Box, EffectSubtype.In, EffectTriggerType.OnClick);
 
-Slide slide = pres.GetSlideByPosition(1);
-
-//Adding the picture object to pictures collection of the presentation
-
-Picture pic = new Picture(pres, "pic.jpeg");
-
-//After the picture object is added, the picture is given a uniqe picture Id
-
-int picId = pres.Pictures.Add(pic);
-
-//Adding Picture Frame
-
-Shape PicFrame = slide.Shapes.AddPictureFrame(picId, 1450, 1100, 2500, 2200);
-
-//Applying animation on picture frame
-
-PicFrame.AnimationSettings.EntryEffect = ShapeEntryEffect.BoxIn;
-
-//Saving Presentation
-
-pres.Write("AsposeAnim.ppt");
-
+    // Saving Presentation
+    pres.Save("AsposeAnim.ppt", SaveFormat.Ppt);
+}
 ``` 
 ## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Picture.Frame.with.Animation.Aspose.Slides.zip)

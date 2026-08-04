@@ -10,17 +10,15 @@ url: /net/conversion-from-ppt-to-pptx-format-in-aspose-slides/
 **Aspose.Slides** for .NET offers Presentation class that represents a PPTX presentation file. Presentation class can now also access PPT through Presentation when the object is instantiated.
 
 ``` csharp
+using Aspose.Slides;
 using Aspose.Slides.Export;
 
-
- //Instantiate a Presentation object that represents a PPTX file
-
-PresentationEx pres = new PresentationEx("Conversion.ppt");
-
-//Saving the PPTX presentation to PPTX format
-
-pres.Save(MyDir +"Converted.pptx", SaveFormat.Pptx);
-
+//Instantiate a Presentation object that represents a PPT file
+using (Presentation pres = new Presentation("Conversion.ppt"))
+{
+    //Saving the presentation to PPTX format
+    pres.Save("Converted.pptx", SaveFormat.Pptx);
+}
 ``` 
 ## **Download Sample Code**
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-openxml/downloads/Conversion%20PPT%20to%20PPTX%20%28Aspose.Slides%29.zip)

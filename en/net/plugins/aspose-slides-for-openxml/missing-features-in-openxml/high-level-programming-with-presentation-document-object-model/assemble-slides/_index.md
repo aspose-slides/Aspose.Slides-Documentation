@@ -17,27 +17,23 @@ Aspose.Slides for .NET allows developers to add empty slides to their presentati
 - Finally, write the presentation file using the **Presentation** object
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- PresentationEx pres = new PresentationEx();
-
-//Instantiate SlideCollection class
-
-SlideExCollection slds = pres.Slides;
-
-for (int i = 0; i < pres.LayoutSlides.Count; i++)
-
+using (Presentation pres = new Presentation())
 {
+    // Instantiate the slide collection
+    ISlideCollection slds = pres.Slides;
 
-	//Add an empty slide to the Slides collection
+    for (int i = 0; i < pres.LayoutSlides.Count; i++)
+    {
+        // Add an empty slide to the Slides collection
+        slds.AddEmptySlide(pres.LayoutSlides[i]);
+    }
 
-	slds.AddEmptySlide(pres.LayoutSlides[i]);
-
+    // Save the PPTX file to the disk
+    pres.Save("EmptySlide.pptx", SaveFormat.Pptx);
 }
-
-//Save the PPTX file to the Disk
-
-pres.Write("EmptySlide.pptx");
-
 ``` 
 ## **Access Slides of a Presentation**
 Aspose.Slides for .NET provides Presentation class that can be used to find and access any desired slide present in the presentation.
@@ -47,15 +43,14 @@ Aspose.Slides for .NET provides Presentation class that can be used to find and 
 **Presentation** class represents a presentation file and exposes all slides in it as a **SlideCollection** collection (that is a collection of **Slide** objects). All of these slides can be accessed from this **Slides** collection using a slide index.
 
 ``` csharp
+using Aspose.Slides;
 
- //Instantiate a Presentation object that represents a presentation file
-
-PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
-
-//Accessing a slide using its slide index
-
-SlideEx slide = pres.Slides[0];
-
+// Instantiate a Presentation object that represents a presentation file
+using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
+{
+    // Accessing a slide using its slide index
+    ISlide slide = pres.Slides[0];
+}
 ``` 
 ## **Remove Slides**
 We know that Presentation class in **Aspose.Slides for .NET** represents a presentation file. Presentation class encapsulates a **SlideCollection** that acts as a repository of all slides that are the part of the presentation. Developers can remove a slide from this Slides collection in two ways:
@@ -73,23 +68,21 @@ To remove a slide using its reference, please follow the steps below:
 - Write the modified presentation file
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- //Instantiate a Presentation object that represents a presentation file
+// Instantiate a Presentation object that represents a presentation file
+using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
+{
+    // Accessing a slide using its index in the slides collection
+    ISlide slide = pres.Slides[0];
 
-PresentationEx pres = new PresentationEx("Slides Test Presentation.pptx");
+    // Removing a slide using its reference
+    pres.Slides.Remove(slide);
 
-//Accessing a slide using its index in the slides collection
-
-SlideEx slide = pres.Slides[0];
-
-//Removing a slide using its reference
-
-pres.Slides.Remove(slide);
-
-//Writing the presentation file
-
-pres.Write("modified.pptx");
-
+    // Writing the presentation file
+    pres.Save("modified.pptx", SaveFormat.Pptx);
+}
 ``` 
 ## **Change the Position of a Slide**
 It's very simple to change the position of a slide in the presentation. Just follow the steps below:

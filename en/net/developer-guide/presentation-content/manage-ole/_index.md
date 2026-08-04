@@ -320,7 +320,18 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `UpdateAutomatic` property of the [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) interface to `false`:
 
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Keep the OLE object frame size and position when PowerPoint updates the link.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Extract Embedded Files**

@@ -49,6 +49,7 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 
 ``` csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
 
    string FileName = "Removing Row Or Column in Table.pptx";
@@ -71,7 +72,7 @@ using Aspose.Slides;
 
   }
 
-  MyPresentation.Save(FileName,Export.SaveFormat.Pptx);
+  MyPresentation.Save(FileName, SaveFormat.Pptx);
 
 
 ``` 

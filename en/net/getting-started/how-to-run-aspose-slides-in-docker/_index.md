@@ -56,17 +56,17 @@ Here's the docker file contents:
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build
 
-\# install libgdiplus
+# install libgdiplus
 
 RUN apt-get update -y && apt-get install -y apt-utils
 
 RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
 
-\# create mount points
+# create mount points
 
 VOLUME /slides-src
 
-\# build and test Aspose.Slides on start
+# build and test Aspose.Slides on start
 
 WORKDIR /slides-src
 
@@ -162,7 +162,7 @@ To ensure that the new image was added to the local images repository:
 
  $ docker images
 
-\----
+----
 
 REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
 
@@ -243,7 +243,7 @@ Let's review the docker file content:
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build
 
-\# build latest stable libgdiplus
+# build latest stable libgdiplus
 
 RUN apt-get update -y
 
@@ -261,11 +261,11 @@ RUN make install
 
 RUN ln -s /usr/local/lib/libgdiplus.so /usr/lib/libgdiplus.so
 
-\# create mount points
+# create mount points
 
 VOLUME /slides-src
 
-\# build and test Aspose.Slides on start
+# build and test Aspose.Slides on start
 
 WORKDIR /slides-src
 
@@ -281,9 +281,9 @@ The only difference is the *build latest stable libgdiplus* section. This sect
 
 ``` csharp
 
- $ docker build \-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus \-t ubuntu18_04_make_libgdiplus .
+ $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_make_libgdiplus .
 
-$ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_make_libgdiplus:latest
+$ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_make_libgdiplus:latest
 
 ```
 
@@ -306,15 +306,7 @@ FROM microsoft/windowsservercore:1803 AS installer-env
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-\# escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#set powershell default executor
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# Retrieve .NET Core SDK
+# Retrieve .NET Core SDK
 
 ENV DOTNET_SDK_VERSION 2.1.301
 
@@ -340,7 +332,7 @@ RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.ne
 
 SHELL ["cmd", "/S", "/C"]
 
-\# In order to set system PATH, ContainerAdministrator must be used
+# In order to set system PATH, ContainerAdministrator must be used
 
 USER ContainerAdministrator
 
@@ -348,7 +340,7 @@ RUN setx /M PATH "%PATH%;c:/Program Files/dotnet"
 
 USER ContainerUser
 
-\# create mount points
+# create mount points
 
 VOLUME c:/slides-src
 

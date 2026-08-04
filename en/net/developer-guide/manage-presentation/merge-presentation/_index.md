@@ -176,6 +176,18 @@ using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 
     presentation.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+static ISlide GetTitleSlide(IPresentation presentation)
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
+        {
+            return slide;
+        }
+    }
+    return null;
+}
 ```
 ```cs
 using Aspose.Slides;

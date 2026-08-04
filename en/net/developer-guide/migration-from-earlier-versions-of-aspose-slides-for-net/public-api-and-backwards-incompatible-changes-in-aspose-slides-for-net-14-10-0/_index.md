@@ -44,11 +44,8 @@ using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
     chart.ChartData.Categories[0].Remove(); //remove with ChartCategory.Remove()
@@ -56,19 +53,14 @@ using Aspose.Slides.Export;
     chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //remove with ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
         ser.DataPoints[0].Remove();//remove with ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 #### **Obsolete Aspose.Slides.ParagraphFormat Properties Have Been Removed**
 The properties BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle have been removed. They were marked as obsolete long time ago.

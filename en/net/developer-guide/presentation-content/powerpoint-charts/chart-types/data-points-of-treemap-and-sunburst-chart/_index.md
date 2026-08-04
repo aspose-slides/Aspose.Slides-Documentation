@@ -67,10 +67,17 @@ Show value of "Leaf 4" data point:
 
 
 ```c#
+using Aspose.Slides;
 using Aspose.Slides.Charts;
 
-IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
-dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
+
+    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+    dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
+}
+
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
@@ -84,12 +91,19 @@ using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 
-IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
-branch1Label.DataLabelFormat.ShowCategoryName = false;
-branch1Label.DataLabelFormat.ShowSeriesName = true;
+using (Presentation pres = new Presentation())
+{
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
+    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
 
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
+    IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
+    branch1Label.DataLabelFormat.ShowCategoryName = false;
+    branch1Label.DataLabelFormat.ShowSeriesName = true;
+
+    branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+    branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
+}
+
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)

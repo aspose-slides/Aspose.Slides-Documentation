@@ -86,6 +86,6 @@ using Aspose.Slides;
 
             // Arial font will be used instead of SomeRareFont when inaccessible
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ``` 

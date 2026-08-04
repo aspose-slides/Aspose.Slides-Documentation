@@ -164,20 +164,13 @@ using (Presentation pres = new Presentation())
 This method of shape thumbnail creation allows you to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by slide bounds.
 
 ``` csharp
-using System.Drawing;
 using Aspose.Slides;
 
-
-
-
 using (Presentation p = new Presentation("Presentation.pptx"))
-
 {
-
-    Bitmap st = p.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
-
-    st.Save("ShapeThumbnail.png", ImageFormat.Png);
-
+    using (IImage image = p.Slides[0].Shapes[0].GetImage(ShapeThumbnailBounds.Appearance, 1, 1))
+    {
+        image.Save("ShapeThumbnail.png", ImageFormat.Png);
+    }
 }
-
 ``` 

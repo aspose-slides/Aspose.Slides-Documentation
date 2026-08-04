@@ -101,6 +101,8 @@ Next, we’ll create a slide showing regional sales performance as a column char
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 
+using var presentation = new Presentation();
+
 var layoutSlide1 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 var slide1 = presentation.Slides.AddEmptySlide(layoutSlide1);
 
@@ -135,6 +137,8 @@ We’ll now add a slide that presents key performance metrics in table format.
 
 ```cs
 using Aspose.Slides;
+
+using var presentation = new Presentation();
 
 var layoutSlide2 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 var slide2 = presentation.Slides.AddEmptySlide(layoutSlide2);
@@ -177,7 +181,10 @@ IParagraph CreateBulletParagraph(string text)
 }
 ```
 ```cs
+using System.Drawing;
 using Aspose.Slides;
+
+using var presentation = new Presentation();
 
 var layoutSlide3 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 var slide3 = presentation.Slides.AddEmptySlide(layoutSlide3);
@@ -191,6 +198,17 @@ bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Strong performance in
 bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Improve marketing outreach in underperforming regions"));
 bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Prepare new campaign strategy for Q2"));
 bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Schedule follow-up review in early July"));
+
+IParagraph CreateBulletParagraph(string text)
+{
+    var paragraph = new Paragraph();
+    paragraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+    paragraph.ParagraphFormat.Indent = 15;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    paragraph.Text = text;
+    return paragraph;
+}
 ```
 
 ![The slide with the text](slide_3.png)
@@ -200,7 +218,10 @@ bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Schedule follow-up re
 Finally, we save the presentation to disk:
 
 ```cs
+using Aspose.Slides;
 using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
 
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```

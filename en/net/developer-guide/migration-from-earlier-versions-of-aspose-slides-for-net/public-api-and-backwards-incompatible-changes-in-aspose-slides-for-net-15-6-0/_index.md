@@ -69,19 +69,20 @@ This property specifies how a shape will render in black-and-white display mode.
 ISlide.NotesSlide, ISlide.AddNotesSlide() members has been marked as Obsolete. Use new property ISlide.NotesSlideManager instead.
 
 ``` csharp
+using Aspose.Slides;
 
- ISlide slide = ...;
+using (Presentation pres = new Presentation("sample.pptx"))
+{
+    ISlide slide = pres.Slides[0];
 
-INotesSlide notes;
+    INotesSlide notes;
 
-// notes = slide.AddNotesSlide(); - obsolete
+    // notes = slide.AddNotesSlide(); - obsolete
+    // notes = slide.NotesSlide; - obsolete
 
-// notes = slide.NotesSlide; - obsolete
+    notes = slide.NotesSlideManager.NotesSlide;
+    notes = slide.NotesSlideManager.AddNotesSlide();
 
-notes = slide.NotesSlideManager.NotesSlide;
-
-notes = slide.NotesSlideManager.AddNotesSlide();
-
-slide.NotesSlideManager.RemoveNotesSlide();
-
+    slide.NotesSlideManager.RemoveNotesSlide();
+}
 ``` 

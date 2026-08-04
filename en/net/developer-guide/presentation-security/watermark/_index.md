@@ -97,6 +97,10 @@ The following lines of code make the shape transparent by removing both its fill
 ```cs
 using Aspose.Slides;
 
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
@@ -109,6 +113,11 @@ The code snippet below demonstrates how to adjust the watermark's font settings 
 
 ```cs
 using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
 
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
@@ -124,6 +133,11 @@ To set the color of the watermark text, use the following code:
 ```cs
 using System.Drawing;
 using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
 
 int alpha = 150, red = 200, green = 200, blue = 200;
 
@@ -141,6 +155,11 @@ The code snippet below demonstrates how to calculate the center position of a sl
 ```cs
 using System.Drawing;
 using Aspose.Slides;
+
+string watermarkText = "CONFIDENTIAL";
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
 
 SizeF slideSize = presentation.SlideSize.Size;
 
@@ -168,6 +187,10 @@ In many cases, an image watermark can provide a unique branding element or a mor
 ```cs
 using Aspose.Slides;
 
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
 
@@ -181,6 +204,12 @@ watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.St
 If it is necessary to prevent a watermark from being edited, use the [IAutoShape.ShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/shapelock) property on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 // Lock the watermark shape from modifying.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
@@ -194,6 +223,12 @@ watermarkShape.ShapeLock.GroupingLocked = true;
 In Aspose.Slides, the Z-order of shapes can be set via the [IShapeCollection.Reorder](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/reorder/#reorder) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
@@ -203,6 +238,15 @@ slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 Adjusting the rotation of your watermark can significantly enhance the visual impact and subtlety of your presentation. A diagonal watermark, for example, can be less intrusive while still providing robust protection against unauthorized use. The following example calculates the appropriate angle based on the slide's dimensions so that the watermark is positioned diagonally across the slide. This dynamic calculation ensures the watermark remains effective regardless of varying slide sizes.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+SizeF slideSize = presentation.SlideSize.Size;
+
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
@@ -213,6 +257,12 @@ watermarkShape.Rotation = (float)diagonalAngle;
 Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name) property:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.Name = "watermark";
 ```
 
@@ -223,12 +273,15 @@ To remove the watermark shape, use the [IAutoShape.Name](https://reference.aspos
 ```cs
 using Aspose.Slides;
 
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
     if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
-        slide.Shapes.Remove(watermarkShape);
+        slide.Shapes.Remove(shape);
     }
 }
 ```

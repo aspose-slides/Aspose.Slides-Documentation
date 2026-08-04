@@ -217,6 +217,10 @@ This sample code shows you how to perform the described task:
 
 ``` csharp 
 using Aspose.Slides;
+using Aspose.Cells;
+using Aspose.Cells.Rendering;
+
+string dataDir = @"D:\Documents\";
 
 using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 {

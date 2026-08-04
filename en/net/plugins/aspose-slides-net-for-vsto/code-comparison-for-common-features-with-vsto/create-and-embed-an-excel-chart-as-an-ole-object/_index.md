@@ -414,7 +414,8 @@ Using Aspose.Slides for .NET, the following steps are performed:
 ``` csharp
 using System.Drawing;
 using Aspose.Slides;
-using Aspose.Slides.Charts;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
 
 
  static void Main(string[] args)
@@ -439,17 +440,21 @@ using Aspose.Slides.Charts;
 
 	//Create a presentation
 
-	PresentationEx pres = new PresentationEx();
+	using (Presentation pres = new Presentation())
 
-	SlideEx sld = pres.Slides[0];
+	{
 
-	//Add the workbook on slide
+		ISlide sld = pres.Slides[0];
 
-	AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
+		//Add the workbook on slide
 
-	//Write the output presentation on disk
+		AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
 
-	pres.Write("chart.pptx");
+		//Write the output presentation on disk
+
+		pres.Save("chart.pptx", SaveFormat.Pptx);
+
+	}
 
 }
 
@@ -527,7 +532,7 @@ static int AddExcelChartInWorkbook(Workbook wb)
 
 	//Add a chart in ChartSheet with data series from DataSheet
 
-	int chartIdx = chartSheet.Charts.Add(ChartType.Column3DClustered, 0, 5, 0, 5);
+	int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column3DClustered, 0, 5, 0, 5);
 
 	Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
 
@@ -567,7 +572,7 @@ static int AddExcelChartInWorkbook(Workbook wb)
 
 }
 
-private static void AddExcelChartInPresentation(PresentationEx pres, SlideEx sld, Stream wbStream, Bitmap imgChart)
+private static void AddExcelChartInPresentation(IPresentation pres, ISlide sld, Stream wbStream, Bitmap imgChart)
 
 {
 
@@ -583,9 +588,9 @@ private static void AddExcelChartInPresentation(PresentationEx pres, SlideEx sld
 
 	wbStream.Read(chartOleData, 0, chartOleData.Length);
 
-	OleObjectFrameEx oof = null;
+	IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xlsx");
 
-	oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, "Excel.Sheet.8", chartOleData);
+	IOleObjectFrame oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, dataInfo);
 
     using (MemoryStream imageStream = new MemoryStream())
 
@@ -602,7 +607,6 @@ private static void AddExcelChartInPresentation(PresentationEx pres, SlideEx sld
     }
 
 }
-
 ``` 
 ## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Create.and.Embed.an.Excel.Chart.as.an.OLE.Object.Aspose.Slides.zip)

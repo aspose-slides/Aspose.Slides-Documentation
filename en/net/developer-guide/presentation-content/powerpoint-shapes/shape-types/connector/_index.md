@@ -184,8 +184,26 @@ To avoid or bypass the third shape, we can adjust the connector by moving its ve
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
 ```c#
+using System.Drawing;
 using Aspose.Slides;
 
+Presentation pres = new Presentation();
+ISlide sld = pres.Slides[0];
+IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+
+IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+
+connector.StartShapeConnectedTo = shapeFrom;
+connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectionSiteIndex = 2;
+
+// Moves the connector's vertical line to the left
 IAdjustValue adj2 = connector.Adjustments[1];
 adj2.RawValue += 10000;
 ```
@@ -248,6 +266,25 @@ IAdjustValue adjValue_1 = connector.Adjustments[1];
 We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
 
 ```c#
+using Aspose.Slides;
+
+// Instantiates a presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+// Gets the first slide in the presentation
+ISlide sld = pres.Slides[0];
+// Adds shapes that will be joined together through a connector
+IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+// Adds a connector and links the shapes together with it
+IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectionSiteIndex = 2;
+// Gets adjustment points for the connector
+IAdjustValue adjValue_0 = connector.Adjustments[0];
+IAdjustValue adjValue_1 = connector.Adjustments[1];
+
 // Changes the values of the adjustment points
 adjValue_0.RawValue += 20000;
 adjValue_1.RawValue += 200000;
@@ -262,12 +299,29 @@ To define a model that allows us determine the coordinates and the shape of indi
 ```c#
 using Aspose.Slides;
 
+// Instantiates a presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+// Gets the first slide in the presentation
+ISlide sld = pres.Slides[0];
+// Adds shapes that will be joined together through a connector
+IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+// Adds a connector and links the shapes together with it
+IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectionSiteIndex = 2;
+// Gets adjustment points for the connector
+IAdjustValue adjValue_0 = connector.Adjustments[0];
+IAdjustValue adjValue_1 = connector.Adjustments[1];
+
 // Draw the vertical component of the connector
 
 float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
 float y = connector.Y;
 float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+sld.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 0, height);
 ```
 
 The result:
@@ -284,11 +338,19 @@ First, let's add a new text frame object (**To 1**) to the slide (for connection
 using System.Drawing;
 using Aspose.Slides;
 
+// Instantiates a presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+// Gets the first slide in the presentation
+ISlide sld = pres.Slides[0];
+// Adds the object the new connector starts from
+IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+shapeFrom.TextFrame.Text = "From";
+
 // Creates a new binding object
 IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
 shapeTo_1.TextFrame.Text = "To 1";
 // Creates a new connector
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
@@ -299,9 +361,9 @@ connector.StartShapeConnectionSiteIndex = 2;
 connector.EndShapeConnectedTo = shapeTo_1;
 connector.EndShapeConnectionSiteIndex = 3;
 // Gets the connector adjustment points
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Changes the values of the adjustment points 
+IAdjustValue adjValue_0 = connector.Adjustments[0];
+IAdjustValue adjValue_1 = connector.Adjustments[1];
+// Changes the values of the adjustment points
 adjValue_0.RawValue += 20000;
 adjValue_1.RawValue += 200000;
 ```
@@ -322,9 +384,27 @@ In our case, the object's angle of rotation is 90 degrees and the connector is d
 using System.Drawing;
 using Aspose.Slides;
 
+// Instantiates a presentation class that represents a PPTX file
+Presentation pres = new Presentation();
+// Gets the first slide in the presentation
+ISlide sld = pres.Slides[0];
+// Adds the objects the connector is attached to
+IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+// Creates the connector and adjusts it
+IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectionSiteIndex = 3;
+IAdjustValue adjValue_0 = connector.Adjustments[0];
+IAdjustValue adjValue_1 = connector.Adjustments[1];
+adjValue_0.RawValue += 20000;
+adjValue_1.RawValue += 200000;
+
 // Saves the connector coordinates
-x = connector.X;
-y = connector.Y;
+float x = connector.X;
+float y = connector.Y;
 // Corrects the connector coordinates in case it appears
 if (connector.Frame.FlipH == NullableBool.True)
 {

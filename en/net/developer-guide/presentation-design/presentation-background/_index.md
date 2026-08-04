@@ -210,33 +210,43 @@ Read more: [**Tile Picture As Texture**](/slides/net/shape-formatting/#tile-pict
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following C# code shows you how to change the transparency for a slide background image:
 
 ```cs
+using Aspose.Slides;
 using Aspose.Slides.Effects;
+using Aspose.Slides.Export;
 
 var transparencyValue = 30; // For example.
 
-// Get the collection of picture transform operations.
-var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
-
-// Find an existing fixed-percentage transparency effect.
-var transparencyOperation = null as IAlphaModulateFixed;
-foreach (var operation in imageTransform)
+using (Presentation presentation = new Presentation("ImageAsBackground.pptx"))
 {
-    if (operation is IAlphaModulateFixed alphaModulateFixed)
+    ISlide slide = presentation.Slides[0];
+
+    // Get the collection of picture transform operations.
+    var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
+
+    // Find an existing fixed-percentage transparency effect.
+    var transparencyOperation = null as IAlphaModulateFixed;
+    foreach (var operation in imageTransform)
     {
-        transparencyOperation = alphaModulateFixed;
-        break;
+        if (operation is IAlphaModulateFixed alphaModulateFixed)
+        {
+            transparencyOperation = alphaModulateFixed;
+            break;
+        }
     }
+
+    // Set the new transparency value.
+    if (transparencyOperation == null)
+    {
+        imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else
+    {
+        transparencyOperation.Amount = (100 - transparencyValue);
+    }
+
+    presentation.Save("ImageBackgroundTransparency.pptx", SaveFormat.Pptx);
 }
 
-// Set the new transparency value.
-if (transparencyOperation == null)
-{
-    imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.Amount = (100 - transparencyValue);
-}
 ```
 
 ## **Get the Slide Background Value**

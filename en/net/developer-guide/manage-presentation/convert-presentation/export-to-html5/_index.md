@@ -133,7 +133,7 @@ using Aspose.Slides.Export;
 
 var html5Options = new Html5Options
 {
-    NotesCommentsLayouting =
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
     {
         CommentsPosition = CommentsPositions.Right
     }

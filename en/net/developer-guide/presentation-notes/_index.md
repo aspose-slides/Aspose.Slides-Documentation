@@ -34,15 +34,15 @@ Notes of some specific slide could be removed as shown in the example below:
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+// Instantiate a Presentation object that represents a presentation file
+Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Removing notes of first slide
 INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
 mgr.RemoveNotesSlide();
 
 // Save presentation to disk
-presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
+presentation.Save("RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
 ```
 
 

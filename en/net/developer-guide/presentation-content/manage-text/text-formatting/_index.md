@@ -86,7 +86,7 @@ using System.Text.RegularExpressions;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (var presentation = new Presentation(folderPath + "sample.pptx"))
+using (var presentation = new Presentation("sample.pptx"))
 {
     var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
@@ -95,7 +95,7 @@ using (var presentation = new Presentation(folderPath + "sample.pptx"))
     // Highlight all words with seven or more characters.
     shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
 
-    presentation.Save(folderPath + "highlighted_text_using_regex.pptx", SaveFormat.Pptx);
+    presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
 }
 ```
 

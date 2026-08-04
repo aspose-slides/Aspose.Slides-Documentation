@@ -56,9 +56,20 @@ using (Presentation pres = new Presentation())
 You can determine the resulting color's effective value this way:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
+}
 ```
 
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
@@ -67,13 +78,16 @@ To further demonstrate the color change operation, we create another element and
 using System.Drawing;
 using Aspose.Slides;
 
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.FillType = FillType.Solid;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
 The new color is applied automatically on both elements.
@@ -181,17 +195,20 @@ This C# code shows you how to assign the Latin font to a theme element:
 ```c#
 using Aspose.Slides;
 
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Paragraph paragraph = new Paragraph();
+    Paragraph paragraph = new Paragraph();
 
-Portion portion = new Portion("Theme text format");
+    Portion portion = new Portion("Theme text format");
 
-paragraph.Portions.Add(portion);
+    paragraph.Portions.Add(portion);
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+    shape.TextFrame.Paragraphs.Add(paragraph);
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
 This C# code shows you how to change the presentation theme font:
@@ -199,7 +216,10 @@ This C# code shows you how to change the presentation theme font:
 ```c#
 using Aspose.Slides;
 
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
 ```
 
 The font in all text boxes will be updated.
@@ -239,7 +259,12 @@ Using the [BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.
 This C# code shows you how to set the background for a presentation:
 
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
 **Index guide**: 0 is used for no fill. The index starts from 1.

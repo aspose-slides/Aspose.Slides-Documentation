@@ -133,6 +133,11 @@ If you want to animate series elements, write the code according to the steps li
 In the example given below, we have animated series' elements.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Load a presentation
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
@@ -159,8 +164,9 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInSeries, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Write the presentation file to disk 
+    // Write the presentation file to disk
     presentation.Save("AnimatingSeriesElements_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 
