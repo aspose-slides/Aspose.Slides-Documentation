@@ -1,60 +1,63 @@
 ---
-title: JavaScript で PowerPoint の図形をフォーマットする
+title: JavaScriptでPowerPointの図形をフォーマットする
 linktitle: 図形の書式設定
 type: docs
 weight: 20
 url: /ja/nodejs-java/shape-formatting/
 keywords:
-- 図形のフォーマット
-- 線のフォーマット
-- 結合スタイルのフォーマット
+- 図形の書式設定
+- 線の書式設定
+- スケッチ効果
+- 図形線のスケッチ
+- 結合スタイルの書式設定
 - グラデーション塗りつぶし
 - パターン塗りつぶし
 - 画像塗りつぶし
 - テクスチャ塗りつぶし
 - 単色塗りつぶし
-- 図形の透過性
+- 図形の透明度
 - 図形の回転
-- 3D ベベル効果
-- 3D 回転効果
+- 3Dベベル効果
+- 3D回転効果
 - 書式設定のリセット
 - PowerPoint
 - プレゼンテーション
-- Java
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Aspose.Slides を使用して JavaScript で PowerPoint の図形をフォーマットする方法を学びます—PPT、PPTX、ODP ファイルの塗りつぶし、線、効果スタイルを正確かつ完全に制御できます。"
+description: "Aspose.Slides を使用して JavaScript で PowerPoint の図形をフォーマットします—PPT、PPTX、ODP ファイルに対して、塗りつぶし、線、エフェクトのスタイルを正確かつ完全に制御できます。"
 ---
+## **イントロダクション**
 
-## **概要**
+PowerPoint では、スライドに図形を追加できます。図形は線で構成されているため、輪郭を変更したりエフェクトを適用したりして書式設定できます。また、内部の塗りつぶしを制御する設定を指定することで、図形の書式設定も行えます。
 
-PowerPoint では、スライドに図形を追加できます。図形は線で構成されているため、輪郭線に対して効果を変更または適用することで書式設定が可能です。さらに、内部の塗りつぶし設定を指定して図形の書式設定を行うこともできます。
+![PowerPoint の図形書式設定](format-shape-powerpoint.png)
 
-![図形の書式設定 (PowerPoint)](format-shape-powerpoint.png)
-
-Aspose.Slides for Node.js via Java は、PowerPoint で利用できるのと同じオプションを使用して図形をフォーマットできるクラスとメソッドを提供します。
+Aspose.Slides for Node.js via Java は、PowerPoint で利用できる同じオプションを使用して図形をフォーマットするクラスとメソッドを提供します。
 
 ## **線の書式設定**
 
-Aspose.Slides を使用すると、図形にカスタムの線スタイルを指定できます。手順は次のとおりです。
+Aspose.Slides を使用すると、図形にカスタムの線スタイルを指定できます。手順は以下の通りです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. 図形の [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) を設定します。
+1. スライドに AutoShape を追加します。
+1. 図形の線のスタイルを設定します。
 1. 線幅を設定します。
-1. 線の [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) を設定します。
+1. 線の破線スタイルを設定します。
 1. 図形の線の色を設定します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次のコードは、矩形 AutoShape の線をフォーマットする方法を示しています。
+以下のコードは、矩形 AutoShape の線をフォーマットする方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
     // 矩形シェイプの塗りつぶし色を設定します。
@@ -76,32 +79,80 @@ try {
 }
 ```
 
-
 結果:
 
 ![プレゼンテーション内の書式設定された線](formatted-lines.png)
 
-## **結合スタイルの設定**
+## **図形の線にスケッチ効果を適用する**
 
-次の 3 つの結合タイプがあります。
+スケッチ効果は、図形の線を手描き風に見せます。`Shape.getLineFormat` で線の設定にアクセスし、`LineFormat.getSketchFormat` でスケッチ設定にアクセスし、`SketchFormat.setSketchType` で `LineSketchType` 列挙体から値を選択します。
 
-* ラウンド
-* ミーター
-* ベベル
+以下の JavaScript コードは、`LineSketchType.Curved` 効果を適用し、明示的に設定した値を取得し、`LineSketchType.None` で効果を削除する方法を示しています。
 
-デフォルトでは、PowerPoint は角度のある2本の線（図形のコーナーなど）を結合するときに **ラウンド** 設定を使用します。ただし、鋭い角度の図形を描く場合は **ミーター** オプションを選択した方が良いでしょう。
+```js
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // 図形のライン形式とそのスケッチ形式にアクセスします。
+    let sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // スケッチ効果を適用します。
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
+
+    // 図形に直接割り当てられたスケッチ効果を読み取ります。
+    let explicitSketchType = sketchFormat.getSketchType();
+    console.log("Explicit sketch type: " + explicitSketchType);
+
+    // スケッチ効果を削除します。
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+`SketchFormat.getSketchType` が返す値は、図形に直接割り当てられた設定を表します。線の書式設定がテーマ、マスタースライド、レイアウトスライドから継承される可能性がある場合は、`LineFormat.getEffective` を呼び出し、戻り値のオブジェクトで `getSketchFormat` を呼び、その後 `getSketchType` メソッドを呼びます。Effective 値は、継承が解決された後に実際に適用される書式設定を示します。
+
+```js
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    let lineFormat = shape.getLineFormat();
+
+    let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    let effectiveLineFormat = lineFormat.getEffective();
+    let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    console.log("Explicit sketch type: " + explicitSketchType);
+    console.log("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **結合スタイルの書式設定**
+
+結合タイプのオプションは次の 3 つです。
+
+* Round（丸み）
+* Miter（斜め切り）
+* Bevel（面取り）
+
+デフォルトでは、PowerPoint は角度で 2 本の線を結合するときに **Round** 設定を使用します。ただし、鋭角の図形を描く場合は **Miter** オプションを好むことがあります。
 
 ![プレゼンテーション内の結合スタイル](join-style-powerpoint.png)
 
-次の JavaScript コードは、上図のようにミーター、ベベル、ラウンドの結合タイプ設定を使用して 3 つの矩形を作成した例です。
+以下の JavaScript コードは、上図のように Miter、Bevel、Round の結合タイプ設定で 3 つの矩形が作成された様子を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを 3 つ追加します。
+    // 矩形タイプのオートシェイプを 3 つ追加します。
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
@@ -144,39 +195,39 @@ try {
 }
 ```
 
-
 ## **グラデーション塗りつぶし**
 
-PowerPoint のグラデーション塗りつぶしは、図形に連続的な色のブレンドを適用できる書式設定オプションです。たとえば、2 つ以上の色を徐々にフェードさせながら適用できます。
+PowerPoint のグラデーション塗りつぶしは、図形に連続した色のブレンドを適用できる書式設定オプションです。たとえば、2 つ以上の色を徐々に変化させながら適用できます。
 
 Aspose.Slides を使用して図形にグラデーション塗りつぶしを適用する手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) を `Gradient` に設定します。
-1. [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/) クラスが公開するグラデーションストップコレクションの `add` メソッドを使用し、位置を指定した 2 つの色を追加します。
+1. スライドに AutoShape を追加します。
+1. 図形の FillType を `Gradient` に設定します。
+1. GradientFormat クラスが提供するグラデーションストップ コレクションの `add` メソッドを使用して、位置を指定した 2 つの好みの色を追加します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次の JavaScript コードは、楕円にグラデーション塗りつぶし効果を適用する方法を示しています。
+以下の JavaScript コードは、楕円にグラデーション塗りつぶし効果を適用する方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let slide = presentation.getSlides().get_Item(0);
 
-    // Ellipse タイプのオートシェイプを追加します。
+    // 楕円タイプのオートシェイプを追加します。
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // 楕円にグラデーション書式設定を適用します。
+    // 楕円にグラデーションの書式設定を適用します。
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
     // グラデーションの方向を設定します。
     shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
 
-    // 2 つのグラデーションストップを追加します。
+    // 2 つのグラデーション ストップを追加します。
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
 
@@ -187,37 +238,37 @@ try {
 }
 ```
 
-
 結果:
 
-![グラデーション塗りつぶしが適用された楕円](gradient-fill.png)
+![グラデーション塗りつぶしの楕円](gradient-fill.png)
 
 ## **パターン塗りつぶし**
 
-PowerPoint のパターン塗りつぶしは、点、ストライプ、交差ハッチ、チェックなどの 2 色デザインを図形に適用できる書式設定オプションです。パターンの前景色と背景色をカスタムカラーで指定できます。
+PowerPoint のパターン塗りつぶしは、2 色のデザイン（点、ストライプ、クロスハッチ、チェックなど）を図形に適用できる書式設定オプションです。パターンの前景色と背景色を自由に選択できます。
 
-Aspose.Slides には、プレゼンテーションの視覚効果を高めるために図形に適用できる 45 以上の定義済みパターンスタイルが用意されています。定義済みパターンを選択した後でも、使用する正確な色を指定できます。
+Aspose.Slides には、プレゼンテーションの視覚効果を高めるために図形に適用できる 45 以上の事前定義パターン スタイルが用意されています。事前定義パターンを選択した後でも、使用する正確な色を指定できます。
 
 Aspose.Slides を使用して図形にパターン塗りつぶしを適用する手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) を `Pattern` に設定します。
-1. 定義済みオプションからパターンスタイルを選択します。
-1. パターンの [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) を設定します。
-1. パターンの [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) を設定します。
+1. スライドに AutoShape を追加します。
+1. 図形の FillType を `Pattern` に設定します。
+1. 事前定義オプションからパターン スタイルを選択します。
+1. パターンの背景色を設定します。
+1. パターンの前景色を設定します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次の JavaScript コードは、矩形にパターン塗りつぶしを適用する方法を示しています。
+以下の JavaScript コードは、矩形にパターン塗りつぶしを適用する方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // 塗りつぶしタイプを Pattern に設定します。
@@ -237,39 +288,39 @@ try {
 }
 ```
 
-
 結果:
 
-![パターン塗りつぶしが適用された矩形](pattern-fill.png)
+![パターン塗りつぶしの矩形](pattern-fill.png)
 
 ## **画像塗りつぶし**
 
-PowerPoint の画像塗りつぶしは、画像を図形の内部に挿入し、図形の背景として使用できる書式設定オプションです。
+PowerPoint の画像塗りつぶしは、画像を図形の背景として挿入できる書式設定オプションです。
 
 Aspose.Slides を使用して図形に画像塗りつぶしを適用する手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) を `Picture` に設定します。
+1. スライドに AutoShape を追加します。
+1. 図形の FillType を `Picture` に設定します。
 1. 画像塗りつぶしモードを `Tile`（または他の希望モード）に設定します。
-1. 使用する画像から [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) オブジェクトを作成します。
-1. 画像を `ISlidesPicture.setImage` メソッドに渡します。
+1. 使用する画像から PPImage オブジェクトを作成します。
+1. その画像を `ISlidesPicture.setImage` メソッドに渡します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次の画像は「lotus.png」というファイルの例です。
+たとえば、次の画像「lotus.png」を使用するとします。
 
 ![ロータスの画像](lotus.png)
 
-次の JavaScript コードは、図形に画像を塗りつぶす方法を示しています。
+以下の JavaScript コードは、図形に画像塗りつぶしを適用する方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
     // 塗りつぶしタイプを Picture に設定します。
@@ -278,7 +329,7 @@ try {
     // 画像塗りつぶしモードを設定します。
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // 画像をロードし、プレゼンテーションリソースに追加します。
+    // 画像を読み込み、プレゼンテーションのリソースに追加します。
     let image = aspose.slides.Images.fromFile("lotus.png");
     let picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -293,38 +344,38 @@ try {
 }
 ```
 
-
 結果:
 
-![画像塗りつぶしが適用された図形](picture-fill.png)
+![画像塗りつぶしの図形](picture-fill.png)
 
-### **テクスチャとして画像をタイル配置**
+### **テクスチャとしてタイル画像を設定する**
 
-タイル状の画像をテクスチャとして設定し、タイル配置の動作をカスタマイズしたい場合は、[PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) クラスの次のメソッドを使用できます。
+タイル画像をテクスチャとして設定し、タイルの動作をカスタマイズしたい場合は、PictureFillFormat クラスの次のメソッドを使用します。
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): 画像塗りつぶしモード（`Tile` または `Stretch`）を設定します。
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): 図形内でのタイルの配置を指定します。
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): タイルを水平方向、垂直方向、または両方に反転させるかを制御します。
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): 図形の原点からタイルの水平オフセット（ポイント）を設定します。
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): 図形の原点からタイルの垂直オフセット（ポイント）を設定します。
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): タイルの水平スケールをパーセンテージで定義します。
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): タイルの垂直スケールをパーセンテージで定義します。
+- `setPictureFillMode`：画像塗りつぶしモードを `Tile` または `Stretch` に設定します。
+- `setTileAlignment`：図形内のタイル配置を指定します。
+- `setTileFlip`：タイルを水平、垂直、または両方に反転させるかを制御します。
+- `setTileOffsetX`：図形の原点からタイルの水平方向オフセット（ポイント）を設定します。
+- `setTileOffsetY`：図形の原点からタイルの垂直方向オフセット（ポイント）を設定します。
+- `setTileScaleX`：タイルの水平方向スケールをパーセンテージで定義します。
+- `setTileScaleY`：タイルの垂直方向スケールをパーセンテージで定義します。
 
-次のコード例は、矩形図形にタイル画像塗りつぶしを追加し、タイルオプションを構成する方法を示しています。
+以下のコード例は、タイル画像塗りつぶし付きの矩形を追加し、タイルオプションを構成する方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // 矩形のオートシェイプを追加します。
+    // 矩形オートシェイプを追加します。
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
     // 図形の塗りつぶしタイプを Picture に設定します。
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // 画像をロードし、プレゼンテーションのリソースに追加します。
+    // 画像を読み込み、プレゼンテーションのリソースに追加します。
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
     let presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
@@ -349,39 +400,39 @@ try {
 }
 ```
 
-
 結果:
 
-![タイルオプションのプレビュー](tile-options.png)
+![タイルオプション](tile-options.png)
 
 ## **単色塗りつぶし**
 
-PowerPoint の単色塗りつぶしは、図形を単一の均一な色で塗りつぶす書式設定オプションです。このシンプルな背景色は、グラデーション、テクスチャ、パターンなしで適用されます。
+PowerPoint の単色塗りつぶしは、図形を単一の均一な色で塗りつぶす書式設定オプションです。この単純な背景色は、グラデーション、テクスチャ、パターンなどを使用せずに適用されます。
 
 Aspose.Slides を使用して図形に単色塗りつぶしを適用する手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. 図形の [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) を `Solid` に設定します。
+1. スライドに AutoShape を追加します。
+1. 図形の FillType を `Solid` に設定します。
 1. 好みの塗りつぶし色を図形に割り当てます。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次の JavaScript コードは、PowerPoint スライドの矩形に単色塗りつぶしを適用する方法を示しています。
+以下の JavaScript コードは、PowerPoint のスライド上の矩形に単色塗りつぶしを適用する方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // 塗りつぶしタイプを Solid に設定します。
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 
-    // 塗りつぶし色を設定します。
+    // 塗りつぶしの色を設定します。
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
     // PPTX ファイルをディスクに保存します。
@@ -391,27 +442,27 @@ try {
 }
 ```
 
-
 結果:
 
-![単色塗りつぶしが適用された図形](solid-color-fill.png)
+![単色塗りつぶしの図形](solid-color-fill.png)
 
-## **透過性の設定**
+## **透明度の設定**
 
-PowerPoint では、図形に単色、グラデーション、画像、テクスチャ塗りつぶしを適用するときに、透過性レベルを設定して塗りつぶしの不透明度を制御できます。透過性の値が高いほど、図形が透けて見え、背景や下にあるオブジェクトが部分的に表示されます。
+PowerPoint では、図形に単色、グラデーション、画像、テクスチャのいずれかの塗りつぶしを適用する際に、透明度レベルを設定して塗りつぶしの不透明度を制御できます。透明度の数値が高いほど、図形は背景や下にあるオブジェクトが透けて見えるようになります。
 
-Aspose.Slides は、塗りつぶしに使用するカラーのアルファ値を調整することで透過性レベルを設定できます。手順は次のとおりです。
+Aspose.Slides は、塗りつぶしに使用する色のアルファ値を調整することで透明度レベルを設定できます。手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) を `Solid` に設定します。
-1. `Color` を使用して透過性を持つ色（alpha コンポーネントで透過性を制御）を定義します。
+1. スライドに AutoShape を追加します。
+1. FillType を `Solid` に設定します。
+1. `Color` を使用して透明度を持つ色を定義します（アルファ成分が透明度を制御します）。
 1. プレゼンテーションを保存します。
 
-次の JavaScript コードは、矩形に透過塗りつぶしカラーを適用する方法を示しています。
+以下の JavaScript コードは、矩形に透明塗りつぶし色を適用する方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
@@ -420,7 +471,7 @@ try {
     // ソリッド矩形オートシェイプを追加します。
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // ソリッド形状の上に透明な矩形オートシェイプを追加します。
+    // ソリッドシェイプの上に透明な矩形オートシェイプを追加します。
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
@@ -432,32 +483,32 @@ try {
 }
 ```
 
-
 結果:
 
-![透過設定が適用された図形](shape-transparency.png)
+![透明な図形](shape-transparency.png)
 
 ## **図形の回転**
 
-Aspose.Slides は、PowerPoint プレゼンテーション内の図形を回転させることができます。特定の配置やデザイン要件に合わせてビジュアル要素を調整する際に便利です。
+Aspose.Slides を使用すると、PowerPoint プレゼンテーション内の図形を回転させることができます。特定の配置やデザイン要件に合わせて視覚要素を調整する際に便利です。
 
 スライド上の図形を回転させる手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
+1. スライドに AutoShape を追加します。
 1. 図形の回転プロパティに目的の角度を設定します。
 1. プレゼンテーションを保存します。
 
-次の JavaScript コードは、図形を 5 度回転させる例です。
+以下の JavaScript コードは、図形を 5 度回転させる方法を示しています。
+
 ```js
-// プレゼンテーション ファイルを表す Presentation クラスをインスタンス化します。
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
 try {
     // 最初のスライドを取得します。
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle タイプのオートシェイプを追加します。
+    // 矩形タイプのオートシェイプを追加します。
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // 図形を 5 度回転させます。
@@ -470,24 +521,24 @@ try {
 }
 ```
 
-
 結果:
 
-![図形の回転結果](shape-rotation.png)
+![図形の回転](shape-rotation.png)
 
 ## **3D ベベル効果の追加**
 
-Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) プロパティを設定することで、3D ベベル効果を適用できます。
+Aspose.Slides は、ThreeDFormat プロパティを設定することで図形に 3D ベベル効果を適用できます。
 
 図形に 3D ベベル効果を追加する手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. 図形の [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) を構成し、ベベル設定を定義します。
+1. スライドに AutoShape を追加します。
+1. 図形の ThreeDFormat を構成してベベル設定を定義します。
 1. プレゼンテーションを保存します。
 
-次の JavaScript コードは、図形に 3D ベベル効果を適用する例です。
+以下の JavaScript コードは、図形に 3D ベベル効果を適用する方法を示しています。
+
 ```js
 // Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
@@ -518,24 +569,24 @@ try {
 }
 ```
 
-
 結果:
 
-![3D ベベル効果のプレビュー](3D-bevel-effect.png)
+![3D ベベル効果](3D-bevel-effect.png)
 
 ## **3D 回転効果の追加**
 
-Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) プロパティを設定することで、3D 回転効果を適用できます。
+Aspose.Slides は、ThreeDFormat プロパティを設定することで図形に 3D 回転効果を適用できます。
 
 図形に 3D 回転を適用する手順は次のとおりです。
 
-1. Presentation クラスのインスタンスを作成します。[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスです。
+1. Presentation クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) を追加します。
-1. [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) と [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) を使用して 3D 回転を定義します。
+1. スライドに AutoShape を追加します。
+1. `setCameraType` と `setLightType` を使用して 3D 回転を定義します。
 1. プレゼンテーションを保存します。
 
-次の JavaScript コードは、図形に 3D 回転効果を適用する例です。
+以下の JavaScript コードは、図形に 3D 回転効果を適用する方法を示しています。
+
 ```js
 // Presentation クラスのインスタンスを作成します。
 let presentation = new aspose.slides.Presentation();
@@ -557,20 +608,20 @@ try {
 }
 ```
 
-
 結果:
 
-![3D 回転効果のプレビュー](3D-rotation-effect.png)
+![3D 回転効果](3D-rotation-effect.png)
 
 ## **書式設定のリセット**
 
-次の Java コードは、[LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) 上のプレースホルダーを含むすべての図形の位置、サイズ、書式設定をデフォルトに戻す方法を示しています。
+以下の Java コードは、レイアウト スライド上のプレースホルダーを含むすべての図形の位置、サイズ、書式設定をデフォルトに戻す方法を示しています。
+
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // レイアウトにプレースホルダーがあるスライド上の各シェイプをリセットします。
+        // レイアウト上にプレースホルダーがあるスライドの各シェイプをリセットします。
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -579,17 +630,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**形状の書式設定は最終的なプレゼンテーションのファイルサイズに影響しますか？**
+**形状の書式設定は最終的なプレゼンテーション ファイルのサイズに影響しますか？**
 
-影響は最小限です。埋め込み画像やメディアがファイルサイズの大部分を占め、色や効果、グラデーションなどの形状パラメータはメタデータとして保存され、実質的にサイズを増加させません。
+影響は最小限です。埋め込まれた画像やメディアがファイルサイズの大部分を占め、色、エフェクト、グラデーションなどの形状パラメータはメタデータとして保存され、ほとんどサイズを増やしません。
 
 **同じ書式設定を持つスライド上の図形を検出してグループ化するにはどうすればよいですか？**
 
-各図形の主要な書式設定プロパティ（塗りつぶし、線、効果設定）を比較します。すべての対応する値が一致すれば、スタイルが同一とみなし、論理的にグループ化します。これにより、後続のスタイル管理が簡素化されます。
+各図形の主要な書式設定プロパティ（塗りつぶし、線、エフェクト）を比較します。すべての対応する値が一致すれば、スタイルが同一とみなし、論理的にグループ化できます。これにより後続のスタイル管理が簡素化されます。
 
-**カスタムの図形スタイルセットを別ファイルに保存し、他のプレゼンテーションで再利用できますか？**
+**カスタム図形スタイルのセットを別ファイルに保存して、他のプレゼンテーションで再利用できますか？**
 
-はい。希望するスタイルを持つサンプル図形をテンプレートスライドや .POTX テンプレートファイルに保存します。新しいプレゼンテーションを作成する際にテンプレートを開き、必要なスタイル付き図形をクローンして、必要な場所で書式設定を再適用します。
+できます。目的のスタイルを持つサンプル図形をテンプレート スライド デッキまたは .POTX テンプレート ファイルに保存します。新しいプレゼンテーションを作成するときはテンプレートを開き、必要なスタイルの図形をクローンして、必要な場所に書式設定を再適用します。
