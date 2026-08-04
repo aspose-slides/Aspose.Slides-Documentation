@@ -44,31 +44,23 @@ try {
     IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (null != masterNotesSlide)
     {
-        updateHeaderFooterText(masterNotesSlide);
+        // Set Header/Footer text
+        for (IShape shape : masterNotesSlide.getShapes())
+        {
+            if (shape.getPlaceholder() != null)
+            {
+                if (shape.getPlaceholder().getType() == PlaceholderType.Header)
+                {
+                    ((IAutoShape)shape).getTextFrame().setText("HI there new header");
+                }
+            }
+        }
     }
 
     // Save presentation
     pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
-}
-```
-```java
-import com.aspose.slides.*;
-
-// Method to set Header/Footer Text
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
 }
 ```
 

@@ -56,23 +56,6 @@ Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page
 import com.aspose.slides.*;
 import java.io.FileOutputStream;
 
-int slideIndex = 0;
-
-Presentation presentation = new Presentation("sample.pptx");
-ISlide slide = presentation.getSlides().get_Item(slideIndex);
-
-SVGOptions svgOptions = new SVGOptions();
-svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
-
-FileOutputStream svgStream = new FileOutputStream("output.svg");
-slide.writeAsSvg(svgStream, svgOptions);
-svgStream.close();
-
-presentation.dispose();
-```
-```java
-import com.aspose.slides.*;
-
 class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
     private int m_shapeIndex;
 
@@ -88,6 +71,20 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
         svgShape.setId(String.format("shape-%d", m_shapeIndex++));
     }
 }
+
+int slideIndex = 0;
+
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
 
 ## **Create a Slide Thumbnail Image**

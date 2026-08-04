@@ -102,11 +102,16 @@ Modern API:
 import com.aspose.slides.*;
 import java.awt.Dimension;
 
-IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
+Presentation pres = new Presentation("pres.pptx");
 try {
-    slideImage.save("image.png", ImageFormat.Png);
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
+    try {
+        slideImage.save("image.png", ImageFormat.Png);
+    } finally {
+        if (slideImage != null) slideImage.dispose();
+    }
 } finally {
-    if (slideImage != null) slideImage.dispose();
+    if (pres != null) pres.dispose();
 }
 ```
 

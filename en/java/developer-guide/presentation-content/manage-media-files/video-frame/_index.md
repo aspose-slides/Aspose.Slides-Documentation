@@ -96,25 +96,15 @@ This Java code shows you how to add a video from the web to a slide in a PowerPo
 
 ```java
 import com.aspose.slides.*;
-
-// Instantiates a Presentation object that represents a presentation file 
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-import com.aspose.slides.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
+String videoID = "Tj75Arhq5ho";
+
+// Instantiates a Presentation object that represents a presentation file 
+Presentation pres = new Presentation();
+try {
     // Adds a videoFrame
     IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
@@ -122,16 +112,19 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 
     // Loads thumbnail
     String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
 
     try {
-        url = new URL(thumbnailUri);
+        URL url = new URL(thumbnailUri);
         videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
     } catch (MalformedURLException e) {
         e.printStackTrace();
     } catch (IOException e) {
         e.printStackTrace();
     }
+
+    pres.save("out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 

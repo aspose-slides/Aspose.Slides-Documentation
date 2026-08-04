@@ -177,21 +177,8 @@ This option helps reduce the time required to save a presentation in PPTX format
 
 The [IProgressCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iprogresscallback/) interface is used via the `setProgressCallback` method exposed by the [ISaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/isaveoptions/) interface and the abstract [SaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/) class. Assign an [IProgressCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iprogresscallback/) implementation with `setProgressCallback` to receive save-progress updates as a percentage.
 
-The following code snippets show how to use `IProgressCallback`.
+The following code snippet shows how to use `IProgressCallback`.
 
-```java
-import com.aspose.slides.*;
-
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
-
-Presentation presentation = new Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
-} finally {
-    presentation.dispose();
-}
-```
 ```java
 import com.aspose.slides.*;
 
@@ -202,6 +189,16 @@ class ExportProgressHandler implements IProgressCallback {
 
         System.out.println(progress + "% of the file has been converted.");
     }
+}
+
+ISaveOptions saveOptions = new PdfOptions();
+saveOptions.setProgressCallback(new ExportProgressHandler());
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+} finally {
+    presentation.dispose();
 }
 ```
 

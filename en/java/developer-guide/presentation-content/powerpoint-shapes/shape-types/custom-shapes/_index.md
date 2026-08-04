@@ -361,7 +361,7 @@ boolean isGeometryClosed(IGeometryShape geometryShape)
 
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) class.
 2. Create an instance of the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) class.
-3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance using [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil).
+3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) instance by walking its [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) and replaying every segment on the path.
 4. Apply the paths to the shape.
 
 This Java code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
@@ -372,6 +372,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.font.GlyphVector;
+import java.awt.geom.PathIterator;
 import java.awt.image.BufferedImage;
 
 Presentation pres = new Presentation();
@@ -401,7 +402,33 @@ try {
     }
 
     // Convert graphics path to geometry path
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        switch (pathIterator.currentSegment(points))
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
     // Set combination of new geometry path and origin geometry path to the shape
