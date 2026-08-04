@@ -129,7 +129,7 @@ aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
-    const outPath = "c:/documents";
+    const outPath = "output";
     var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
     markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Visual);
     markdownSaveOptions.setImagesSaveFolderName("md-images");
