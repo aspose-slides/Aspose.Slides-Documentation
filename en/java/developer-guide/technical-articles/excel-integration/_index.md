@@ -190,7 +190,9 @@ The following code iterates through all worksheets in the source Excel file, ext
 
 ```java
 import com.aspose.slides.*;
-import java.util.Dictionary;
+import com.aspose.slides.Collections.Generic.Dictionary;
+import com.aspose.slides.Collections.Generic.KeyValuePair;
+import java.util.List;
 
 // Load the Excel workbook containing the employee data.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");

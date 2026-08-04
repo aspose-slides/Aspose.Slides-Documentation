@@ -123,8 +123,7 @@ if(hidden) {
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
 ### **Methods ISmartArt.isReversed(), setReserved() have been added**
 Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.

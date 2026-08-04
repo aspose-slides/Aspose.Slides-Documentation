@@ -62,13 +62,14 @@ When a new first slide number value is specified all slide numbers are recalcula
 ``` java
 import com.aspose.slides.*;
 
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    int firstSlideNumber = pres.getFirstSlideNumber();
 
- Presentation pres = new Presentation(path);
+    pres.setFirstSlideNumber(10);
 
-int firstSlideNumber = pres.getFirstSlideNumber();
-
-pres.setFirstSlideNumber(10);
-
-pres.save(newPath, SaveFormat.Pptx);
-
+    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

@@ -191,8 +191,16 @@ To avoid or bypass the third shape, we can adjust the connector by moving its ve
 ```java
 import com.aspose.slides.*;
 
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+Presentation pres = new Presentation();
+try {
+    IConnector connector = pres.getSlides().get_Item(0).getShapes()
+            .addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
+    adj2.setRawValue(adj2.getRawValue() + 10000);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ### **Complex Cases** 
@@ -256,9 +264,21 @@ try {
 We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
 
 ```java
-// Changes the values of the adjustment points
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    IConnector connector = pres.getSlides().get_Item(0).getShapes()
+            .addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
+    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+
+    // Changes the values of the adjustment points
+    adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
+    adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 The result:
@@ -270,11 +290,21 @@ To define a model that allows us determine the coordinates and the shape of indi
 ```java
 import com.aspose.slides.*;
 
-// Draw the vertical component of the connector
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+Presentation pres = new Presentation();
+try {
+    ISlide sld = pres.getSlides().get_Item(0);
+    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
+    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+
+    // Draw the vertical component of the connector
+    float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
+    float y = connector.getY();
+    float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
+    sld.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 0, height);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 The result:
@@ -291,26 +321,35 @@ First, let's add a new text frame object (**To 1**) to the slide (for connection
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Creates a new binding object
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Creates a new connector
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Connects objects using the newly created connector
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Gets the connector adjustment points
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Changes the values of the adjustment points
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+Presentation pres = new Presentation();
+try {
+    ISlide sld = pres.getSlides().get_Item(0);
+    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    shapeFrom.getTextFrame().setText("From");
+
+    // Creates a new binding object
+    IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    shapeTo_1.getTextFrame().setText("To 1");
+    // Creates a new connector
+    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
+    connector.getLineFormat().setWidth(3);
+    // Connects objects using the newly created connector
+    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(shapeTo_1);
+    connector.setEndShapeConnectionSiteIndex(3);
+    // Gets the connector adjustment points
+    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
+    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+    // Changes the values of the adjustment points
+    adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
+    adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 The result:
@@ -329,28 +368,38 @@ In our case, the object's angle of rotation is 90 degrees and the connector is d
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Saves the connector coordinates
-x = connector.getX();
-y = connector.getY();
-// Corrects the connector coordinates in case it appears
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+Presentation pres = new Presentation();
+try {
+    ISlide sld = pres.getSlides().get_Item(0);
+    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
+    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+
+    // Saves the connector coordinates
+    float x = connector.getX();
+    float y = connector.getY();
+    // Corrects the connector coordinates in case it appears
+    if (connector.getFrame().getFlipH() == NullableBool.True)
+    {
+        x += connector.getWidth();
+    }
+    if (connector.getFrame().getFlipV() == NullableBool.True)
+    {
+        y += connector.getHeight();
+    }
+    // Takes in the adjustment point value as the coordinate
+    x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
+    //  Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
+    float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+    float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+    // Determines the width of the horizontal component using the second adjustment point value
+    float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
+    IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Takes in the adjustment point value as the coordinate
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Determines the width of the horizontal component using the second adjustment point value
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
 The result:
@@ -371,34 +420,50 @@ This Java code demonstrates an operation in which we calculated the angle for a 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+public class ConnectorLineAngleExample {
 
-        System.out.println(dir);
+    public static void main(String[] args) {
+        Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+        try {
+            ISlide slide = pres.getSlides().get_Item(0);
+
+            for (int i = 0; i < slide.getShapes().size(); i++)
+            {
+                double dir = 0.0;
+                IShape shape = slide.getShapes().get_Item(i);
+                if (shape instanceof IAutoShape)
+                {
+                    IAutoShape ashp = (IAutoShape)shape;
+                    if (ashp.getShapeType() == ShapeType.Line)
+                    {
+                        dir = getDirection(ashp.getWidth(), ashp.getHeight(),
+                                ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
+                    }
+                }
+                else if (shape instanceof IConnector)
+                {
+                    IConnector ashp = (IConnector)shape;
+                    dir = getDirection(ashp.getWidth(), ashp.getHeight(),
+                            ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
+                }
+
+                System.out.println(dir);
+            }
+        } finally {
+            if (pres != null) pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
+
+    public static double getDirection(float w, float h, boolean flipH, boolean flipV)
+    {
+        float endLineX = w * (flipH ? -1 : 1);
+        float endLineY = h * (flipV ? -1 : 1);
+        float endYAxisX = 0;
+        float endYAxisY = h;
+        double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
+        if (angle < 0) angle += 2 * Math.PI;
+        return angle * 180.0 / Math.PI;
+    }
 }
 ```
 

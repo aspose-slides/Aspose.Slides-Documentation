@@ -44,10 +44,13 @@ import com.aspose.slides.*;
 
 Presentation pres = new Presentation("Sample.pptx");
 try {
+    NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+    layoutingOptions.setNotesPosition(NotesPositions.BottomFull);
+
     SwfOptions swfOptions = new SwfOptions();
     swfOptions.setViewerIncluded(false);
-    swfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-    
+    swfOptions.setSlidesLayoutOptions(layoutingOptions);
+
     // Saving presentation
     pres.save("Sample.swf", SaveFormat.Swf, swfOptions);
 } finally {

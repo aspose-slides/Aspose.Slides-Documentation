@@ -59,12 +59,22 @@ You can determine the resulting color's effective value this way:
 import com.aspose.slides.*;
 import java.awt.Color;
 
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
@@ -73,13 +83,23 @@ To further demonstrate the color change operation, we create another element and
 import com.aspose.slides.*;
 import java.awt.Color;
 
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    otherShape.getFillFormat().setFillType(FillType.Solid);
+
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 The new color is applied automatically on both elements.
@@ -147,7 +167,7 @@ try {
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
@@ -188,17 +208,22 @@ This Java code shows you how to assign the Latin font to a theme element:
 ```java
 import com.aspose.slides.*;
 
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Paragraph paragraph = new Paragraph();
+    Paragraph paragraph = new Paragraph();
 
-Portion portion = new Portion("Theme text format");
+    Portion portion = new Portion("Theme text format");
 
-paragraph.getPortions().add(portion);
+    paragraph.getPortions().add(portion);
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    shape.getTextFrame().getParagraphs().add(paragraph);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 This Java code shows you how to change the presentation theme font:
@@ -206,7 +231,12 @@ This Java code shows you how to change the presentation theme font:
 ```java
 import com.aspose.slides.*;
 
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 The font in all text boxes will be updated.
@@ -247,7 +277,14 @@ Using the [BackgroundFillStyles](https://reference.aspose.com/slides/java/com.as
 This Java code shows you how to set the background for a presentation:
 
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 **Index guide**: 0 is used for no fill. The index starts from 1.

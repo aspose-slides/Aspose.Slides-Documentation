@@ -422,11 +422,18 @@ By default, points on a line chart are joined by straight continuous lines. If y
 ```java
 import com.aspose.slides.*;
 
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
@@ -767,6 +774,8 @@ try {
 This Java code shows you how to create an histogram chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -784,7 +793,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {

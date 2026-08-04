@@ -247,7 +247,6 @@ This Java code shows you how to add and manage picture bullets:
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 // Instantiates a Presentation class that represents a PPTX file
 Presentation presentation = new Presentation();
@@ -291,7 +290,6 @@ try {
 
     // Writes the presentation as a PPT file
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
 } finally {
     if (presentation != null) presentation.dispose();
 }
@@ -616,7 +614,7 @@ try {
     shape.getTextFrame().getParagraphs().add(para1);
     shape.getTextFrame().getParagraphs().add(para2);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -641,6 +639,10 @@ This Java code is an implementation of the steps for importing HTML texts in par
 
 ```java
 import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 // Create Empty presentation instance
 Presentation pres = new Presentation();
@@ -660,14 +662,15 @@ try {
     // Clearing all paragraphs in added text frame
     ashape.getTextFrame().getParagraphs().clear();
 
-    // Loading the HTML file using stream reader
-    TextReader tr = new StreamReader("file.html");
+    // Loading the HTML file
+    String html = new String(Files.readAllBytes(Paths.get("file.html")), StandardCharsets.UTF_8);
 
-    // Adding text from HTML stream reader in text frame
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
+    // Adding text from the HTML content in text frame
+    ashape.getTextFrame().getParagraphs().addFromHtml(html);
 
     // Saving Presentation
     pres.save("output_out.pptx", SaveFormat.Pptx);
+} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }

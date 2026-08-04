@@ -93,7 +93,6 @@ This sample code shows you how to add a hyperlink to an **image**:
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 Presentation pres = new Presentation();
 try {
@@ -101,9 +100,9 @@ try {
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
 	// Creates picture frame on slide 1 based on previously added image
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
@@ -112,7 +111,6 @@ try {
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }

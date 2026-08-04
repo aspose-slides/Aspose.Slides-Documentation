@@ -49,8 +49,10 @@ To add a series animation to the chart the following code may be used:
 ``` java
 import com.aspose.slides.*;
 
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
 
- Presentation pres = new Presentation(inFileName);
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -103,8 +105,10 @@ Categories animation:
 ``` java
 import com.aspose.slides.*;
 
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
 
- Presentation pres = new Presentation(inFileName);
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -159,8 +163,10 @@ Series elements animation:
 ``` java
 import com.aspose.slides.*;
 
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
 
- Presentation pres = new Presentation(inFileName);
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -263,8 +269,10 @@ Categories elements animation:
 ``` java
 import com.aspose.slides.*;
 
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
 
- Presentation pres = new Presentation(inFileName);
+Presentation pres = new Presentation(inFileName);
 
 try
 

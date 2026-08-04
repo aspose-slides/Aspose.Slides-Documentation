@@ -74,6 +74,11 @@ By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/j
 
 ```java
 import com.aspose.slides.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+// Create and configure the HttpURLConnection yourself.
+HttpURLConnection urlConnection = (HttpURLConnection) new URL("https://api.openai.com/v1/chat/completions").openConnection();
 
 // Pass the HttpURLConnection to the OpenAIWebClient constructor.
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId", urlConnection);

@@ -88,6 +88,7 @@ This example finds and deletes all text boxes on the first slide that contain a 
 ```java
 import com.aspose.slides.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public static void removeTextBox() {
     Presentation presentation = new Presentation();

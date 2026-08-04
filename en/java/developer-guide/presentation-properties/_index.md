@@ -243,9 +243,11 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
+    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 ```
 
 ```java
@@ -262,7 +264,9 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 A new template can be created from scratch and then used to update multiple presentations:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -273,9 +277,11 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
+    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 ```
 
 ```java
@@ -297,6 +303,8 @@ This Java code shows you how to set the proofing language for a PowerPoint: xxx 
 
 ```java
 import com.aspose.slides.*;
+
+String pptxFileName = "presentation.pptx";
 
 Presentation pres = new Presentation(pptxFileName);
 try {

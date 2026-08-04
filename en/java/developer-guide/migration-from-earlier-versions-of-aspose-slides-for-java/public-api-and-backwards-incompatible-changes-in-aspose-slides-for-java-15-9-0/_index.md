@@ -34,21 +34,28 @@ were added to com.aspose.slides.ISlide interface and to com.aspose.slides.Slide 
 
 ``` java
 import com.aspose.slides.*;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-
-
- BufferedImage bufferedImage = new BufferedImage(960, 720, BufferedImage.TYPE_INT_ARGB);
-
-Graphics2D g2d = bufferedImage.createGraphics();
+import java.awt.Dimension;
 
 Presentation pres = new Presentation("SomePresentation.pptx");
 
-pres.getSlides().get_Item(0).renderToGraphics(false, g2d, bufferedImage.getWidth(), bufferedImage.getHeight());
+try {
 
-g2d.dispose();
+	IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
-ImageIO.write(bufferedImage, "png", fileName);
+	try {
+
+		slideImage.save("slide.png", ImageFormat.Png);
+
+	} finally {
+
+		slideImage.dispose();
+
+	}
+
+} finally {
+
+	if (pres != null) pres.dispose();
+
+}
 
 ```

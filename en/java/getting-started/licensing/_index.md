@@ -129,7 +129,7 @@ import com.aspose.slides.*;
 License license = new License();
 license.setLicense("Aspose.Slides.Java.lic");
 
-if (License.isLicensed()) 
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }

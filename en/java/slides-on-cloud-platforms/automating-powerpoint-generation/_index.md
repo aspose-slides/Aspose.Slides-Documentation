@@ -94,6 +94,8 @@ Next, we’ll create a slide showing regional sales performance as a column char
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+
 ILayoutSlide layoutSlide1 = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 ISlide slide1 = presentation.getSlides().addEmptySlide(layoutSlide1);
 
@@ -128,6 +130,8 @@ We’ll now add a slide that presents key performance metrics in table format.
 
 ```java
 import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 
 ILayoutSlide layoutSlide2 = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 ISlide slide2 = presentation.getSlides().addEmptySlide(layoutSlide2);
@@ -171,6 +175,8 @@ static IParagraph createBulletParagraph(String text) {
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+
 ILayoutSlide layoutSlide3 = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 ISlide slide3 = presentation.getSlides().addEmptySlide(layoutSlide3);
 
@@ -193,6 +199,8 @@ Finally, we save the presentation to disk:
 
 ```java
 import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 
 presentation.save("presentation.pptx", SaveFormat.Pptx);
 ```

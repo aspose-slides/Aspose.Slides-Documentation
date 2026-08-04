@@ -32,24 +32,22 @@ New methods added:
 
 ``` java
 import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    // The first way
+    byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+    presentation.getImages().get_Item(0).replaceImage(imageData);
 
- Presentation presentation = new Presentation("presentation.pptx");
+    // The second way
+    presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
 
-//The first way
-
-byte[] imageData = // ...
-
-presentation.getImages().get_Item(0).replaceImage(imageData);
-
-//The second way
-
-presentation.getImages().get_Item(1).replaceImage(
-
-    presentation.getImages().get_Item(0));
-
-presentation.save("presentation_out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 ### **Added Methods for Saving Slides Keeping Page Numbers**
 The following methods have been added:
@@ -62,9 +60,12 @@ The following methods have been added:
 These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTML formats. The 'slides' array allows to specify page numbers, starting from 1.
 
 ``` java
-
- save(string fname, int\[\] slides, SaveFormat format);
-
+// Overloads added to IPresentation (SaveFormat values are int constants in Java):
+//
+// void save(String fname, int[] slides, int format);
+// void save(String fname, int[] slides, int format, ISaveOptions options);
+// void save(OutputStream stream, int[] slides, int format);
+// void save(OutputStream stream, int[] slides, int format, ISaveOptions options);
 ```
 
 
@@ -73,13 +74,14 @@ These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTM
 ``` java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int[] slides = new int[] { 2, 3, 5 }; // Array of slide positions
 
- Presentation presentation = new Presentation(presentationFileName);
-
-int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
-
-presentation.save(outFileName, slides, SaveFormat.Pdf);
-
+    presentation.save("presentation_out.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 ### **Added the SmartArtLayoutType.Custom Enum Value**
 This type of SmartArt layout represents diagram with custom template. Custom diagrams only can be loaded from presentation file and can't be created via method ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)

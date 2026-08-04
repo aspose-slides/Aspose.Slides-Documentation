@@ -233,6 +233,7 @@ Use this approach for pictures inserted as standalone objects. An [IPictureFrame
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -280,6 +281,7 @@ Shapes can use a picture as their fill. Check the shape's fill type first: if it
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -330,6 +332,7 @@ An [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -382,6 +385,7 @@ An [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivid
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -434,6 +438,7 @@ An [IAudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iaud
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -486,6 +491,7 @@ finally
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -551,6 +557,7 @@ An [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slide
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -609,6 +616,7 @@ An [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) 
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -673,6 +681,7 @@ An [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) 
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -726,6 +735,7 @@ An [ISmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/ismart
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -800,6 +810,7 @@ Grouped shapes contain their own shape collections. The shared `enumerateShapes`
 import com.aspose.slides.*;
 import java.io.File;
 import java.util.Set;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");

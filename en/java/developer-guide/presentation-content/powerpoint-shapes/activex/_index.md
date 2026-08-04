@@ -76,6 +76,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
 ```java
 import com.aspose.slides.*;
 import java.awt.FontMetrics;
+import java.awt.SystemColor;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

@@ -120,9 +120,31 @@ try {
 The [PresentationFactory](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ```java
-IPresentationText getPresentationText(String file, int mode);
-IPresentationText getPresentationText(InputStream stream, int mode);
-IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+int mode = TextExtractionArrangingMode.Unarranged;
+ILoadOptions loadOptions = new LoadOptions();
+
+// Extract the text from a file.
+IPresentationText text1 = PresentationFactory.getInstance().getPresentationText("presentation.pptx", mode);
+
+// Extract the text from a stream.
+InputStream stream1 = new FileInputStream("presentation.pptx");
+try {
+    IPresentationText text2 = PresentationFactory.getInstance().getPresentationText(stream1, mode);
+} finally {
+    stream1.close();
+}
+
+// Extract the text from a stream using load options.
+InputStream stream2 = new FileInputStream("presentation.pptx");
+try {
+    IPresentationText text3 = PresentationFactory.getInstance().getPresentationText(stream2, mode, loadOptions);
+} finally {
+    stream2.close();
+}
 ```
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/java/com.aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:

@@ -136,7 +136,6 @@ You can extract raster images from [PictureFrame](https://reference.aspose.com/s
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -146,14 +145,14 @@ try {
 
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
+
+        IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
         try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
+            slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+        } finally {
+            if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (IOException e) {
 } finally {
     presentation.dispose();
 }
@@ -367,7 +366,9 @@ This Java code shows you how to crop an existing image on a slide:
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
+
+String imagePath = "image.png";
+String outPptxFile = "CroppedImage_out.pptx";
 
 Presentation pres = new Presentation();
 // Creates new image object
@@ -392,7 +393,6 @@ try {
 
     // Saves the result
     pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -498,7 +498,6 @@ This Java code shows you how to lock a shape's aspect ratio:
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -512,11 +511,10 @@ try {
         if (image != null) image.dispose();
     }
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+            ShapeType.Rectangle, 50, 150, picture.getWidth(), picture.getHeight(), picture);
 
     // set shape to have to preserve aspect ratio on resizing
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -548,7 +546,6 @@ This Java code demonstrates a process in which a StretchOff property is used:
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 // Instantiates the Prseetation class that represents a PPTX file
 Presentation pres = new Presentation();
@@ -582,10 +579,9 @@ try {
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
+
     //Writes the PPTX file to disk
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }

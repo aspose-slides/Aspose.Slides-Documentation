@@ -43,7 +43,7 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
@@ -53,12 +53,11 @@ This method of creating shape thumbnails allows developers to generate a shape t
 
 ``` java
 import com.aspose.slides.*;
-import java.awt.image.BufferedImage;
 
 
  Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
 ### **Added the VbaProject Class and IVbaProject Interface, Changed the Presentation.getVbaProject() and setVbaProject(VbaProject) Methods**

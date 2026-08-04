@@ -218,24 +218,33 @@ import com.aspose.slides.*;
 
 int transparencyValue = 30; // For example.
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Get the collection of picture transform operations.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Find an existing fixed-percentage transparency effect.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Set the new transparency value.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 

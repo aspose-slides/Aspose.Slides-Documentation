@@ -195,7 +195,9 @@ This Java shows you how to create a custom shape:
 
 ``` java
 import com.aspose.slides.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.List;
 
 List<Point2D.Float> points = new ArrayList<Point2D.Float>();
 
@@ -283,6 +285,7 @@ This Java code shows you how to create a custom shape with curved corners (inwar
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Point2D;
 
 float shapeX = 20f;
 float shapeY = 20f;
@@ -367,6 +370,7 @@ This Java code—an implementation of the steps above—demonstrates the **Geome
 import com.aspose.slides.*;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Shape;
 import java.awt.font.GlyphVector;
 import java.awt.image.BufferedImage;
 

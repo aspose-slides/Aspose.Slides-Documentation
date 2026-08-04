@@ -111,8 +111,16 @@ In Aspose.Slides, set the camera type and rotation through the 3D format returne
 ```java
 import com.aspose.slides.*;
 
-shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
@@ -126,13 +134,22 @@ Extrusion makes a shape look thick by extending it behind the front face. In Pow
 Set the extrusion height for the thickness and the extrusion color for the side color:
 
 ```java
+import com.aspose.slides.*;
 import java.awt.Color;
 
-Color extrusionColor = new Color(128, 0, 128);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+    Color extrusionColor = new Color(128, 0, 128);
+
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Use the depth setting when you need to work with PowerPoint's depth value directly or combine depth with bevel, material, and text effects. In many shape scenarios, extrusion height is the clearer setting because it directly expresses the visible extrusion.
@@ -190,18 +207,26 @@ To use a picture fill instead, add the image to the presentation and assign it t
 import com.aspose.slides.*;
 import java.awt.Color;
 
-java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
-byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
-IPPImage image = presentation.getImages().addImage(imageData);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
 
-shape.getFillFormat().setFillType(FillType.Picture);
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
+    byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageData);
 
-Color extrusionColor = new Color(255, 140, 0);
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+    shape.getFillFormat().setFillType(FillType.Picture);
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+    Color extrusionColor = new Color(255, 140, 0);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
 The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:

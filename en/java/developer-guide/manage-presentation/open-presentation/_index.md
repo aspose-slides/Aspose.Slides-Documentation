@@ -119,6 +119,32 @@ Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.c
 
 ```java
 import com.aspose.slides.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        if (args.getOriginalUri().endsWith(".jpg")) {
+            try {
+                // Load a substitute image.
+                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
+                args.setData(imageData);
+                return ResourceLoadingAction.UserProvided;
+            } catch (RuntimeException ex) {
+                return ResourceLoadingAction.Skip;
+            }  catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } else if (args.getOriginalUri().endsWith(".png")) {
+            // Set a substitute URL.
+            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
+            return ResourceLoadingAction.Default;
+        }
+        // Skip all other images.
+        return ResourceLoadingAction.Skip;
+    }
+}
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());

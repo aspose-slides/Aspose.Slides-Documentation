@@ -130,6 +130,7 @@ The following example gets and compares the frame and visual bounds:
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Rectangle2D;
 
 Presentation presentation = new Presentation("example.pptx");
 try {
