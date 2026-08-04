@@ -1,6 +1,6 @@
 ---
-title: Thêm Phương trình Toán học vào Bản trình chiếu PowerPoint trong Python
-linktitle: Phương trình Toán học PowerPoint
+title: Thêm Các Phương Trình Toán Học vào Bản Trình Chiếu PowerPoint bằng Python
+linktitle: Phương Trình Toán Học PowerPoint
 type: docs
 weight: 80
 url: /vi/python-net/powerpoint-math-equations/
@@ -17,35 +17,35 @@ keywords:
 - bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX với Aspose.Slides cho Python qua .NET, hỗ trợ OMML, điều khiển định dạng, và các mẫu mã Python rõ ràng."
+description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho Python qua .NET, hỗ trợ OMML, các điều khiển định dạng và các mẫu mã Python rõ ràng."
 ---
 ## **Tổng quan**
 
-PowerPoint lưu trữ các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Python qua .NET, bạn có thể tạo các nội dung toán học tương tự một cách lập trình: phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học được định dạng.
+PowerPoint lưu các công thức dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Python qua .NET, bạn có thể tạo các nội dung toán học tương tự một cách lập trình: phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học được định dạng.
 
-Trong PowerPoint, người dùng thường thêm phương trình từ **Insert > Equation**:
+Trong PowerPoint, người dùng thường thêm công thức từ **Insert > Equation**:
 
-![Thanh Insert của PowerPoint với lệnh Equation được chọn](powerpoint-math-equations_1.png)
+![Tab Insert của PowerPoint với lệnh Equation được chọn](powerpoint-math-equations_1.png)
 
 Kết quả là văn bản toán học có thể chỉnh sửa trên slide:
 
-![Slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
+![Một slide PowerPoint chứa công thức toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
 
-Aspose.Slides xây dựng văn bản toán học đó qua ba đối tượng chính:
+Aspose.Slides xây dựng văn bản toán học này thông qua ba đối tượng chính:
 
-- Một hình dạng toán học, được tạo bằng [add_math_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_math_shape/), là hình dạng chứa phương trình.
-- [MathPortion](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathportion/) lưu trữ nội dung toán học trong khung văn bản của hình dạng.
+- Một hình toán học, được tạo bằng [add_math_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_math_shape/), là hình chứa công thức.
+- [MathPortion](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathportion/) lưu trữ nội dung toán học trong khung văn bản của hình.
 - [MathParagraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathblock/).
 
-Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathematicaltext/) và các phương thức thông suốt từ [IMathElement](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/) để giữ mã ngắn gọn và dễ đọc.
+Hầu hết các ví dụ bên dưới sử dụng [MathematicalText](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathematicaltext/) và các phương thức luồng từ [IMathElement](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/) để giữ cho mã ngắn gọn và dễ đọc.
 
 Đối với các kịch bản xuất MathML, xem [Export Math Equations from Presentations in Python via .NET](/slides/vi/python-net/exporting-math-equations/).
 
-## **Tạo một Phương trình**
+## **Tạo công thức**
 
-Ví dụ này tạo một hình dạng toán học và thêm định lý Pythagoras:
+Ví dụ này tạo một hình toán học và thêm định lý Pythagoras:
 
-![Phương trình c bình phương bằng a bình phương cộng b bình phương](powerpoint-math-equations_3.png)
+![Công thức c bình phương bằng a bình phương cộng b bình phương](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
@@ -72,12 +72,14 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="primary" %}}
-`add_math_shape` tạo một hình dạng đã chứa sẵn một đoạn toán học. Truy cập `MathPortion` đầu tiên, lấy `MathParagraph` của nó, và thêm các khối toán hoặc các phần tử toán học vào đó.
+
+`add_math_shape` tạo một hình đã chứa sẵn một đoạn toán. Truy cập `MathPortion` đầu tiên, lấy `MathParagraph` của nó và thêm các khối hoặc phần tử toán học vào đó.
+
 {{% /alert %}}
 
-## **Thêm Phân số**
+## **Thêm phân số**
 
-Sử dụng [`divide`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/divide/) để tạo một phân số. Bạn có thể chọn kiểu phân số bằng [MathFractionTypes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathfractiontypes/).
+Dùng [`divide`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/divide/) để tạo một phân số. Bạn có thể chọn kiểu phân số bằng [MathFractionTypes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
 ![Một phân số nghiêng hiển thị 1 chia cho x](powerpoint-math-equations_4.png)
 
@@ -98,17 +100,17 @@ with slides.Presentation() as presentation:
     presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Đối với phân số dạng gộp, sử dụng `MathFractionTypes.BAR`:
+Đối với phân số chồng, dùng `MathFractionTypes.BAR`:
 
 ```py
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
-## **Thêm Căn bậc**
+## **Thêm căn bậc**
 
-Sử dụng [`radical`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/radical/) để tạo căn bậc hai, căn bậc ba hoặc các căn bậc khác. Phần tử hiện tại trở thành cơ sở, và đối số trở thành bậc.
+Dùng [`radical`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/radical/) để tạo căn bậc hai, căn bậc ba hoặc các căn bậc khác. Phần tử hiện tại trở thành cơ số, và đối số trở thành bậc.
 
-![Một biểu thức căn bậc n với x nằm dưới dấu căn](powerpoint-math-equations_5.png)
+![Biểu thức căn bậc n với x nằm dưới dấu căn](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -127,11 +129,11 @@ with slides.Presentation() as presentation:
     presentation.save("radical.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm Hàm và Giới hạn**
+## **Thêm hàm và giới hạn**
 
-Sử dụng [`as_argument_of_function`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) hoặc [`function`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/function/) cho các hàm như `sin(x)`, `log(x)` hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathlimit/) hoặc sử dụng [`set_lower_limit`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
+Dùng [`as_argument_of_function`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) hoặc [`function`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/function/) cho các hàm như `sin(x)`, `log(x)` hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathlimit/) hoặc dùng [`set_lower_limit`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
 
-![Giới hạn của x khi x tiến tới vô cùng](powerpoint-math-equations_8.png)
+![Giới hạn của x khi x tiến tới vô cực](powerpoint-math-equations_8.png)
 
 ```py
 import aspose.slides as slides
@@ -154,15 +156,15 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Đối với tên hàm tùy chỉnh, đặt tên hàm làm phần tử hiện tại:
+Đối với tên hàm tùy chỉnh, biến tên hàm thành phần tử hiện tại:
 
 ```py
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
-## **Thêm Toán tử N-ary và Tích phân**
+## **Thêm toán tử N-ary và tích phân**
 
-Sử dụng [`nary`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/nary/) cho các tổng, hợp, giao và các toán tử lớn khác. Sử dụng [`integral`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/integral/) cho các tích phân. Cả hai phương thức đều cho phép đặt giới hạn dưới và trên.
+Dùng [`nary`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/nary/) cho tổng, hợp, giao và các toán tử lớn khác. Dùng [`integral`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/integral/) cho tích phân. Cả hai phương thức đều cho phép bạn đặt giới hạn dưới và trên.
 
 ![Một tổng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
 
@@ -189,18 +191,18 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Toán tử N-ary dùng cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn giản như `+`, `-`, và `=` thường được thêm dưới dạng `MathematicalText` và nối vào biểu thức.
+Toán tử N-ary dành cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn giản như `+`, `-` và `=` thường được thêm dưới dạng `MathematicalText` và nối vào biểu thức.
 
-Đối với tích phân, sử dụng `integral`:
+Đối với tích phân, dùng `integral`:
 
 ```py
 integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
 integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
 
-## **Thêm Ma trận**
+## **Thêm ma trận**
 
-Sử dụng [MathMatrix](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathmatrix/) cho các hàng và cột. Ma trận không bao gồm dấu ngoặc theo mặc định, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc tròn, dấu ngoặc vuông hoặc dấu ngoặc nhọn.
+Dùng [MathMatrix](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathmatrix/) cho các hàng và cột. Mặc định ma trận không có dấu ngoặc, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc tròn, vuông hoặc nhọn.
 
 ![Ma trận toán học hai hàng với một ô trống](powerpoint-math-equations_10.png)
 
@@ -226,11 +228,11 @@ with slides.Presentation() as presentation:
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm Mảng Phương trình**
+## **Thêm mảng công thức**
 
-Sử dụng [`to_math_array`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) khi bạn cần các phương trình căn chỉnh hoặc một dải biểu thức dọc.
+Dùng [`to_math_array`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) khi bạn cần các công thức căn chỉnh hoặc một chồng dọc các biểu thức.
 
-![Mảng toán học dọc với x nằm trên y](powerpoint-math-equations_11.png)
+![Mảng toán học dọc với x ở trên y](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -253,9 +255,9 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm Hàm lượng giác**
+## **Thêm hàm lượng giác**
 
-Sử dụng [`as_argument_of_function`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) khi đối số là phần tử hiện tại và tên hàm đã biết.
+Dùng [`as_argument_of_function`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) khi đối số là phần tử hiện tại và tên hàm đã biết.
 
 ![Hàm lượng giác cos áp dụng cho 2x](powerpoint-math-equations_6.png)
 
@@ -278,11 +280,11 @@ with slides.Presentation() as presentation:
     presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm Chỉ số dưới và chỉ số trên**
+## **Thêm chỉ số và chỉ số mũ**
 
-Sử dụng các trợ giúp chỉ số dưới và chỉ số trên cho các chỉ mục và lũy thừa. Khi các chỉ mục phải xuất hiện bên trái của cơ sở, sử dụng [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
+Sử dụng các trợ giúp chỉ số và chỉ số mũ cho các chỉ mục và lũy thừa. Khi các chỉ mục phải xuất hiện phía bên trái của cơ số, dùng [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
 
-![Ký tự Y in hoa với chỉ số dưới 1 và chỉ số trên n ở phía bên trái](powerpoint-math-equations_9.png)
+![Chữ Y in hoa với chỉ số dưới bên trái là 1 và chỉ số mũ n](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -301,11 +303,11 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm Dấu phân cách**
+## **Thêm dấu phân cách**
 
-Sử dụng [`enclose`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/enclose/) để đặt một biểu thức bên trong dấu phân cách. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu phân cách chứa nhiều phần tử.
+Dùng [`enclose`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/enclose/) để đặt một biểu thức trong dấu phân cách. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu phân cách chứa nhiều phần tử.
 
-![Một biểu thức dấu phân cách chứa x, y và z được ngăn cách bằng dấu gạch đứng](powerpoint-math-equations_13.png)
+![Biểu thức dấu phân cách chứa x, y và z tách nhau bằng các thanh dọc](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -330,11 +332,11 @@ with slides.Presentation() as presentation:
     presentation.save("delimiters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm Khung Viền**
+## **Thêm khung viền**
 
-Sử dụng [`to_border_box`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_border_box/) khi phương trình cần được khung.
+Dùng [`to_border_box`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_border_box/) khi công thức cần được đóng khung.
 
-![Một phương trình có khung hiển thị a bình phương bằng b bình phương cộng c bình phương](powerpoint-math-equations_12.png)
+![Công thức trong khung cho thấy a bình phương bằng b bình phương cộng c bình phương](powerpoint-math-equations_12.png)
 
 ```py
 import aspose.slides as slides
@@ -361,11 +363,11 @@ with slides.Presentation() as presentation:
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nhóm Các Thuật Ngữ**
+## **Nhóm các hạng tử**
 
-Sử dụng [`group`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/group/) để đặt ký tự nhóm phía trên hoặc dưới một biểu thức. Thêm giới hạn để gán nhãn cho các thuật ngữ được nhóm.
+Dùng [`group`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/group/) để đặt một ký tự nhóm phía trên hoặc phía dưới một biểu thức. Thêm giới hạn để gán nhãn cho các hạng tử được nhóm.
 
-![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản nào ở phía dưới](powerpoint-math-equations_15.png)
+![Biểu thức x cộng y được nhóm với nhãn bất kỳ bên dưới](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -388,11 +390,11 @@ with slides.Presentation() as presentation:
     presentation.save("grouped-terms.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Định dạng Các Phần Tử Toán học**
+## **Định dạng phần tử toán học**
 
-Sử dụng các trợ giúp định dạng chỉ khi chúng làm rõ công thức. Ví dụ, [`overbar`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/overbar/) đặt một thanh gạch trên một phần tử toán học.
+Chỉ sử dụng các trợ giúp định dạng khi chúng làm rõ công thức. Ví dụ, [`overbar`](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/overbar/) đặt một gạch ngang phía trên phần tử toán học.
 
-![Một biểu thức toán học ABC có thanh gạch trên](powerpoint-math-equations_14.png)
+![Biểu thức toán học ABC với một gạch ngang phía trên](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -411,35 +413,35 @@ with slides.Presentation() as presentation:
     presentation.save("overbar.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tham khảo nhanh**
+## **Tham chiếu nhanh**
 
 | Nhiệm vụ | API chính |
 | --- | --- |
 | Tạo văn bản toán học | [MathematicalText](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathematicaltext/) |
 | Kết hợp các phần tử | [IMathElement.join](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/join/) |
 | Tạo phân số | [IMathElement.divide](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/divide/) |
-| Thêm chỉ số trên hoặc chỉ số dưới | [set_superscript](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
+| Thêm chỉ số mũ hoặc chỉ số | [set_superscript](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
 | Thêm hàm | [function](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
 | Thêm căn bậc | [radical](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/radical/) |
 | Thêm giới hạn | [set_lower_limit](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
-| Thêm các chỉ số bên trái | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
+| Thêm chỉ số bên trái | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
 | Thêm tổng và tích phân | [nary](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/integral/) |
 | Thêm ma trận | [MathMatrix](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathmatrix/) |
-| Thêm mảng phương trình | [to_math_array](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
+| Thêm mảng công thức | [to_math_array](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
 | Thêm dấu phân cách | [enclose](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/enclose/) |
-| Thêm thanh và khung viền | [overbar](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
-| Nhóm các thuật ngữ | [group](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/group/) |
+| Thêm gạch ngang và khung viền | [overbar](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
+| Nhóm các hạng tử | [group](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
+**Tôi có thể chỉnh sửa một công thức PowerPoint hiện có không?**
 
-Có. Mở bản trình bày, tìm hình dạng chứa `MathPortion`, lấy `MathParagraph` của nó, và cập nhật các khối toán trong đoạn đó.
+Có. Mở bản trình chiếu, tìm hình chứa `MathPortion`, lấy `MathParagraph` của nó và cập nhật các khối toán học trong đoạn đó.
 
-**Các phương trình có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
+**Các công thức có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
 
-Có. Khi bạn lưu thành PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung Office math có thể chỉnh sửa.
+Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi công thức dưới dạng nội dung Office Math có thể chỉnh sửa.
 
-**Tôi có thể xuất phương trình sang LaTeX không?**
+**Tôi có thể xuất công thức ra LaTeX không?**
 
-Aspose.Slides xuất các phương trình toán học sang MathML. Nếu bạn cần LaTeX, hãy xuất sang MathML trước, sau đó chuyển đổi MathML bằng công cụ hỗ trợ định dạng LaTeX mà bạn muốn.
+Có. Lấy [MathParagraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathparagraph/) của công thức từ [MathPortion](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathportion/), và gọi [MathParagraph.to_latex](https://reference.aspose.com/slides/vi/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) để xuất trực tiếp. Đối với ví dụ đầy đủ, xem [Export Math Equations from Presentations in Python via .NET](/slides/vi/python-net/exporting-math-equations/#export-math-equations-to-latex).

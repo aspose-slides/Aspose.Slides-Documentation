@@ -1,6 +1,6 @@
 ---
-title: เพิ่มสมการคณิตศาสตร์ในงานนำเสนอ PowerPoint ด้วย C++
-linktitle: สมการคณิตศาสตร์ PowerPoint
+title: "เพิ่มสมการคณิตศาสตร์ไปยังงานนำเสนอ PowerPoint ใน C++"
+linktitle: "สมการคณิตศาสตร์ PowerPoint"
 type: docs
 weight: 80
 url: /th/cpp/powerpoint-math-equations/
@@ -17,35 +17,35 @@ keywords:
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "แทรกและแก้ไขสมการคณิตศาสตร์ในไฟล์ PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ C++ รองรับ OMML, การควบคุมการจัดรูปแบบ, และตัวอย่างโค้ด C++ ที่ชัดเจน"
+description: "แทรกและแก้ไขสมการคณิตศาสตร์ใน PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ C++ รองรับ OMML, การควบคุมการจัดรูปแบบ, และตัวอย่างโค้ด C++ ที่ชัดเจน."
 ---
 ## **ภาพรวม**
 
-PowerPoint จัดเก็บสมการในรูปแบบ Office Math Markup Language (OMML). ด้วย Aspose.Slides สำหรับ C++ คุณสามารถสร้างเนื้อหาคณิตศาสตร์แบบเดียวกันโดยใช้โค้ดได้: ส่วนเศษส่วน, ราก, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการ N-ary, เมทริกซ์, อาเรย์, และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
+PowerPoint เก็บสมการเป็น Office Math Markup Language (OMML) ด้วย Aspose.Slides for C++ คุณสามารถสร้างเนื้อหาคณิตศาสตร์ประเภทเดียวกันโดยอัตโนมัติได้ เช่น เศษส่วน รากฟังก์ชัน ขอบเขต ตัวดำเนินการ N-ary เมทริกซ์ อาเรย์ และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
 
-ใน PowerPoint ผู้ใช้โดยทั่วไปเพิ่มสมการจาก **Insert > Equation**:
+ใน PowerPoint ผู้ใช้มักเพิ่มสมการจาก **Insert > Equation**:
 
-![แท็บ Insert ของ PowerPoint พร้อมคำสั่ง Equation ที่เลือก](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-ผลลัพธ์คือข้อความคณิตศาสตร์ที่สามารถแก้ไขได้บนสไลด์:
+ผลลัพธ์คือข้อความคณิตศาสตร์ที่แก้ไขได้บนสไลด์:
 
-![สไลด์ PowerPoint ที่มีสมการคณิตศาสตร์ที่แก้ไขได้](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
-Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นผ่านสามอ็อบเจ็กต์หลัก:
+Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นผ่านวัตถุหลักสามประเภท:
 
-- รูปร่างคณิตศาสตร์ที่สร้างด้วย [AddMathShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/shapecollection/), เป็นรูปร่างที่บรรจุสมการ
-- [MathPortion](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูปร่าง
+- รูปคณิตศาสตร์ที่สร้างด้วย [AddMathShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/shapecollection/) คือรูปร่างที่บรรจุสมการ
+- [MathPortion](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูป
 - [MathParagraph](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathparagraph/) มีหนึ่งหรือหลายอ็อบเจ็กต์ [MathBlock](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathblock/)
 
-ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathematicaltext/) และเมธอดแบบ fluent จาก [IMathElement](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/) เพื่อทำให้โค้ดสั้นและอ่านง่าย
+ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathematicaltext/) และวิธี fluent จาก [IMathElement](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/) เพื่อทำให้โค้ดสั้นและอ่านง่าย
 
-สำหรับสถานการณ์การส่งออก MathML ดูที่ [Export Math Equations from Presentations in C++](/slides/th/cpp/exporting-math-equations/)
+สำหรับกรณีการส่งออก MathML ดูที่ [Export Math Equations from Presentations in C++](/slides/th/cpp/exporting-math-equations/)
 
 ## **สร้างสมการ**
 
-ตัวอย่างนี้สร้างรูปร่างคณิตศาสตร์และเพิ่มทฤษฎีบทพีทาโกรัส:
+ตัวอย่างนี้สร้างรูปคณิตศาสตร์และเพิ่มทฤษฎีบทพายทาโกรัส:
 
-![สมการ c² = a² + b²](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -69,14 +69,16 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" %}}
-`AddMathShape` สร้างรูปร่างที่มี MathParagraph อยู่แล้ว เข้าถึง `MathPortion` ตัวแรก, ดึง `MathParagraph` ของมัน, แล้วเพิ่ม MathBlock หรือ MathElement ลงไป
+
+`AddMathShape` สร้างรูปร่างที่มี MathParagraph อยู่แล้ว เข้าถึง `MathPortion` ตัวแรก ดึง `MathParagraph` ของมัน แล้วเพิ่ม MathBlock หรือ MathElement ลงไป
+
 {{% /alert %}}
 
-## **เพิ่มส่วนเศษส่วน**
+## **เพิ่มเศษส่วน**
 
-ใช้ `Divide` เพื่อสร้างส่วนเศษส่วน คุณสามารถเลือกสไตล์ส่วนเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathfractiontypes/)
+ใช้ `Divide` เพื่อสร้างเศษส่วน คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathfractiontypes/)
 
-![ส่วนเศษส่วนเอียงที่แสดง 1 ÷ x](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -95,17 +97,17 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-สำหรับส่วนเศษส่วนแบบซ้อนกัน ใช้ `MathFractionTypes::Bar`:
+สำหรับเศษส่วนแบบซ้อนให้ใช้ `MathFractionTypes::Bar`:
 
 ```cpp
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
 ```
 
-## **เพิ่มราก**
+## **เพิ่มรากจำนวน**
 
-ใช้ `Radical` เพื่อสร้างรากที่สอง, รากที่สาม หรือรากอื่น ๆ ส่วนที่เป็นฐานคืออิลิเมนต์ปัจจุบัน, ส่วนอาร์กิวเมนต์คือลำดับของราก
+ใช้ `Radical` เพื่อสร้างรากกำลังสอง รากกำลังสาม หรือรากอื่น ๆ ตอนนี้อิลิเมนต์ที่กำลังทำอยู่จะเป็นฐานและอากิวเมนต์จะเป็นดีกรี
 
-![นิพจน์ราก n‑th ที่มี x อยู่ใต้สัญลักษณ์ราก](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -124,11 +126,11 @@ presentation->Save(u"radical.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มฟังก์ชันและขีดจำกัด**
+## **เพิ่มฟังก์ชันและลิมิต**
 
-ใช้ `AsArgumentOfFunction` หรือ `Function` สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)` หรือชื่อฟังก์ชันที่กำหนดเอง สำหรับขีดจำกัด ให้ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathlimit/) หรือใช้ `SetLowerLimit`
+ใช้ `AsArgumentOfFunction` หรือ `Function` สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)` หรือชื่อฟังก์ชันที่กำหนดเอง สำหรับลิมิตใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathlimit/) หรือใช้ `SetLowerLimit`
 
-![ขีดจำกัดของ x เมื่อ x เข้าใกล้อนันต์](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -154,11 +156,11 @@ presentation->Dispose();
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **เพิ่มตัวดำเนินการ N-ary และการบูรณาการ**
+## **เพิ่มตัวดำเนินการ N-ary และอินทิกรัล**
 
-ใช้ `Nary` สำหรับการบวกแบบรวม, ยูเนียน, อินเทอร์เซคชัน และตัวดำเนินการขนาดใหญ่อื่น ๆ ใช้ `Integral` สำหรับการบูรณาการ ทั้งสองเมธอดให้คุณตั้งค่าขีดจำกัดล่างและบนได้
+ใช้ `Nary` สำหรับการบวกลบรวม, ยูเนียน, อินเทอร์เซคชัน และตัวดำเนินการขนาดใหญ่อื่น ๆ ใช้ `Integral` สำหรับอินทิกรัล ทั้งสองวิธีให้คุณตั้งค่าลิมิตบนและล่าง
 
-![การบวกที่มีขีดจำกัดล่างและบน](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -180,9 +182,9 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการขนาดใหญ่ที่อาจมีขีดจำกัด ตัวดำเนินการง่ายเช่น `+`, `-`, และ `=` มักเพิ่มเป็น `MathematicalText` แล้วต่อเข้ากับนิพจน์
+ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการขนาดใหญ่ที่มีลิมิตเป็นตัวเลือก ส่วนตัวดำเนินการง่ายเช่น `+`, `-`, `=` ปกติจะเพิ่มเป็น `MathematicalText` แล้วต่อเข้ากับนิพจน์
 
-สำหรับการบูรณาการ ใช้ `Integral`:
+สำหรับอินทิกรัล ให้ใช้ `Integral`:
 
 ```cpp
 auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
@@ -191,9 +193,9 @@ auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 
 ## **เพิ่มเมทริกซ์**
 
-ใช้ [MathMatrix](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยปกติไม่รวมวงเล็บ ดังนั้นให้ใส่วงเล็บ, โค้ง, หรือปีกเมื่อจำเป็น
+ใช้ [MathMatrix](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยค่าเริ่มต้นไม่มีวงเล็บ จึงต้องใส่วงเล็บ ปีกกา หรือสี่เหลี่ยมเมื่อจำเป็น
 
-![เมทริกซ์คณิตศาสตร์สองแถวที่มีเซลล์ว่างหนึ่งช่อง](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -218,9 +220,9 @@ presentation->Dispose();
 
 ## **เพิ่มอาเรย์สมการ**
 
-ใช้ `ToMathArray` เมื่อคุณต้องการสมการที่จัดเรียงหรือสแต็กแนวตั้งของนิพจน์
+ใช้ `ToMathArray` เมื่อคุณต้องการจัดสมการให้ตรงแนวหรือสแต็กแนวตั้งของนิพจน์
 
-![อาเรย์คณิตศาสตร์แนวตั้งที่มี x อยู่เหนือ y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -242,9 +244,9 @@ presentation->Dispose();
 
 ## **เพิ่มฟังก์ชันตรีโกณมิติ**
 
-ใช้ `AsArgumentOfFunction` เมื่ออาร์กิวเมนต์คืออิลิเมนต์ปัจจุบันและชื่อฟังก์ชันรู้จักแล้ว
+ใช้ `AsArgumentOfFunction` เมื่ออากิวเมนต์เป็นอิลิเมนต์ปัจจุบันและรู้ชื่อฟังก์ชัน
 
-![ฟังก์ชันตรีโกณมิติ cos ที่ใช้กับ 2x](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -263,11 +265,11 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มตัวห้อยและตัวบน**
+## **เพิ่มตัวห้อยและตัวแสดงระดับ**
 
-ใช้ตัวช่วยสำหรับ subscript และ superscript เพื่อจัดทำดัชนีและพาวเวอร์ เมื่อดัชนีต้องปรากฏทางซ้ายของฐาน ให้ใช้ `SetSubSuperscriptOnTheLeft`
+ใช้ตัวช่วยสำหรับตัวห้อยและตัวแสดงระดับสำหรับดัชนีและกำลัง เมื่อดัชนีต้องปรากฏทางซ้ายของฐาน ให้ใช้ `SetSubSuperscriptOnTheLeft`
 
-![อักษร Y ตัวพิมพ์ใหญ่ที่มี subscript ด้านซ้าย 1 และ superscript n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -286,11 +288,11 @@ presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มตัวจำกัด**
+## **เพิ่มเครื่องหมายขอบเขต**
 
-ใช้ `Enclose` เพื่อใส่นิพจน์ภายในตัวจำกัด คุณยังสามารถตั้งค่าอักขระคั่นสำหรับนิพจน์ที่มีหลายอิลิเมนต์
+ใช้ `Enclose` เพื่อนำนิพจน์ใส่ในเครื่องหมายขอบเขต คุณยังสามารถตั้งอักขระคั่นสำหรับการแสดงหลายอิลิเมนต์ในเครื่องหมายขอบเขตได้
 
-![นิพจน์ที่มีตัวจำกัดประกอบด้วย x, y, และ z ที่คั่นด้วยเส้นตั้ง](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -311,11 +313,11 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มกล่องกรอบ**
+## **เพิ่มกล่องขอบ**
 
-ใช้ `ToBorderBox` เมื่อสมการเองควรอยู่ในกรอบ
+ใช้ `ToBorderBox` เมื่อสมการต้องการกรอบ
 
-![สมการที่อยู่ในกล่องแสดง a² = b² + c²](powerpoint-math-equations_12.png)
+![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -341,9 +343,9 @@ presentation->Dispose();
 
 ## **จัดกลุ่มเทอม**
 
-ใช้ `Group` เพื่อวางอักขระการจัดกลุ่มเหนือหรือใต้สูตร เพิ่มขีดจำกัดเพื่อใส่ป้ายกำกับให้เทอมที่จัดกลุ่ม
+ใช้ `Group` เพื่อวางอักขระจัดกลุ่มเหนือหรือใต้นิพจน์ เพิ่มลิมิตเพื่อระบุเทอมที่จัดกลุ่ม
 
-![นิพจน์ x + y ที่จัดกลุ่มพร้อมป้ายกำกับข้อความใด ๆ ด้านล่าง](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -363,11 +365,11 @@ presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **จัดรูปแบบองค์ประกอบคณิตศาสตร์**
+## **จัดรูปแบบอิลิเมนต์คณิตศาสตร์**
 
-ใช้ตัวช่วยการจัดรูปแบบเฉพาะที่ช่วยให้สูตรชัดเจน เช่น `Overbar` จะวางเส้นขาบนอิลิเมนต์คณิตศาสตร์
+ใช้ตัวช่วยการจัดรูปแบบเฉพาะเมื่อต้องการทำให้สูตรชัดเจน ยกตัวอย่าง `Overbar` จะใส่เส้นขีดเหนืออิลิเมนต์คณิตศาสตร์
 
-![นิพจน์คณิตศาสตร์ ABC ที่มีเส้นขาบน](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -385,35 +387,35 @@ presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **อ้างอิงอย่างรวดเร็ว**
+## **อ้างอิงด่วน**
 
 | งาน | API หลัก |
 | --- | --- |
 | สร้างข้อความคณิตศาสตร์ | [MathematicalText](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathematicaltext/) |
 | รวมอิลิเมนต์ | [IMathElement.Join](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/join/) |
-| สร้างส่วนเศษส่วน | [IMathElement.Divide](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| เพิ่มซัพเปอร์สคริปต์หรือซับสคริปต์ | [SetSuperscript](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| สร้างเศษส่วน | [IMathElement.Divide](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/divide/) |
+| เพิ่มตัวห้อยหรือยกกำลัง | [SetSuperscript](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | เพิ่มฟังก์ชัน | [Function](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | เพิ่มราก | [IMathElement.Radical](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/radical/) |
-| เพิ่มขีดจำกัด | [SetLowerLimit](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| เพิ่มสคริปท์ด้านซ้าย | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| เพิ่มการบวกและการบูรณาการ | [Nary](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| เพิ่มลิมิต | [SetLowerLimit](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| เพิ่มสคริปต์ด้านซ้าย | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| เพิ่มผลบวกลบและอินทิกรัล | [Nary](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | เพิ่มเมทริกซ์ | [MathMatrix](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/mathmatrix/) |
 | เพิ่มอาเรย์สมการ | [ToMathArray](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| เพิ่มตัวจำกัด | [Enclose](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| เพิ่มเส้นขาบนและกรอบ | [Overbar](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| เพิ่มเครื่องหมายขอบเขต | [Enclose](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| เพิ่มเส้นและกรอบ | [Overbar](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
 | จัดกลุ่มเทอม | [Group](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathelement/group/) |
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถแก้ไขสมการ PowerPoint ที่มีอยู่แล้วได้หรือไม่?**
+**ฉันสามารถแก้ไขสมการ PowerPoint ที่มีอยู่ได้หรือไม่?**
 
-ได้ค่ะ เปิดไฟล์งานนำเสนอ, ค้นหารูปร่างที่มี `MathPortion`, ดึง `MathParagraph` ของมัน, แล้วอัปเดต MathBlock ภายในพารากราฟนั้น
+ได้ เปิดงานนำเสนอ ค้นหารูปร่างที่มี `MathPortion` ดึง `MathParagraph` ของมัน แล้วอัปเดต MathBlock ในย่อยนั้น
 
-**สมการถูกบันทึกเป็นคณิตศาสตร์ PowerPoint ที่แก้ไขได้หรือไม่?**
+**สมการถูกบันทึกเป็นคณิตศาสตร์ของ PowerPoint ที่แก้ไขได้หรือไม่?**
 
-ใช่ เมื่อบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่สามารถแก้ไขได้
+ใช่ เมื่อบันทึกเป็น PPTX Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่แก้ไขได้
 
-**ฉันสามารถส่งออกสมการเป็น LaTeX ได้หรือไม่?**
+**ฉันสามารถส่งออกสมการไปเป็น LaTeX ได้หรือไม่?**
 
-Aspose.Slides ส่งออกสมการเป็น MathML หากต้องการ LaTeX ให้ส่งออกเป็น MathML ก่อน แล้วใช้เครื่องมือแปลง MathML ไปเป็น LaTeX ตามรูปแบบที่คุณต้องการ
+ได้ ดึง [IMathParagraph](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathparagraph/) ของสมการจาก [IMathPortion](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathportion/) แล้วเรียก [IMathParagraph::ToLatex](https://reference.aspose.com/slides/th/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) เพื่อส่งออกโดยตรง ตัวอย่างเต็มดูที่ [Export Math Equations from Presentations in C++](/slides/th/cpp/exporting-math-equations/#export-math-equations-to-latex)

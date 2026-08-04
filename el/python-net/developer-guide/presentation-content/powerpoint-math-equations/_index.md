@@ -9,37 +9,37 @@ keywords:
 - μαθηματικό σύμβολο
 - μαθηματικός τύπος
 - μαθηματικό κείμενο
-- προσθήκη μαθηματικής εξίσωσης
-- προσθήκη μαθηματικού συμβόλου
-- προσθήκη μαθηματικού τύπου
-- προσθήκη μαθηματικού κειμένου
+- πρόσθεση μαθηματικής εξίσωσης
+- πρόσθεση μαθηματικού συμβόλου
+- πρόσθεση μαθηματικού τύπου
+- πρόσθεση μαθηματικού κειμένου
 - PowerPoint
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με Aspose.Slides για Python μέσω .NET, υποστηρίζοντας OMML, εργαλεία μορφοποίησης και σαφή παραδείγματα κώδικα Python."
+description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με Aspose.Slides για Python μέσω .NET, με υποστήριξη OMML, ελέγχων μορφοποίησης και σαφών παραδειγμάτων κώδικα Python."
 ---
 ## **Επισκόπηση**
 
-Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides for Python μέσω .NET, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ριζών, συναρτήσεις, όρια, N-ary τελεστές, πίνακες, ακολουθίες και μορφοποιημένα μαθηματικά μπλοκ.
+Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides for Python via .NET, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματικά: κλάσματα, ριζικά, συναρτήσεις, όρια, N-ary τελεστές, μήτρες, πίνακες και μορφοποιημένα μαθηματικά μπλοκ.
 
-In PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
+Στο PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
 
-![Καρτέλα Εισαγωγή του PowerPoint με την εντολή Εξίσωση επιλεγμένη](powerpoint-math-equations_1.png)
+![Καρτέλα Insert του PowerPoint με την εντολή Equation επιλεγμένη](powerpoint-math-equations_1.png)
 
 Το αποτέλεσμα είναι επεξεργάσιμο μαθηματικό κείμενο στη διαφάνεια:
 
 ![Διαφάνεια PowerPoint που περιέχει επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
 
-Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
+Το Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
 
-- Ένα μαθηματικό σχήμα, δημιουργημένο με [add_math_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_math_shape/), είναι το σχήμα που περιέχει την εξίσωση.
-- [MathPortion](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathportion/) αποθηκεύει μαθηματικό περιεχόμενο εντός του πλαισίου κειμένου του σχήματος.
-- [MathParagraph](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathblock/).
+- Ένα μαθηματικό σχήμα, που δημιουργείται με [add_math_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_math_shape/), είναι το σχήμα που περιέχει την εξίσωση.
+- Το [MathPortion](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathportion/) αποθηκεύει μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
+- Το [MathParagraph](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathblock/).
 
-Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [IMathElement](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
+Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathematicaltext/) και τις αλυσιδωτές μεθόδους του [IMathElement](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
 
-Για σενάρια εξαγωγής MathML, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε Python μέσω .NET](/slides/el/python-net/exporting-math-equations/).
+Για σενάρια εξαγωγής MathML, δείτε το [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε Python μέσω .NET](/slides/el/python-net/exporting-math-equations/).
 
 ## **Δημιουργία εξίσωσης**
 
@@ -72,16 +72,14 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="primary" %}}
-
-`add_math_shape` δημιουργεί ένα σχήμα που περιέχει ήδη μια μαθηματική παράγραφο. Πρόσβαση στο πρώτο `MathPortion`, λήψη του `MathParagraph` του, και προσθήκη μαθηματικών μπλοκ ή μαθηματικών στοιχείων σε αυτό.
-
+`add_math_shape` δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Πρόσβαση στην πρώτη `MathPortion`, λήψη του `MathParagraph` της και προσθήκη μαθηματικών μπλοκ ή μαθηματικών στοιχείων σε αυτήν.
 {{% /alert %}}
 
 ## **Προσθήκη κλασμάτων**
 
-Χρησιμοποιήστε το [`divide`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/divide/) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με [MathFractionTypes](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathfractiontypes/).
+Χρησιμοποιήστε το [`divide`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/divide/) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Ένα κλίσειο μαθηματικό κλάσμα που δείχνει το 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
+![Λοξό μαθηματικό κλάσμα με το 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -106,11 +104,11 @@ with slides.Presentation() as presentation:
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
-## **Προσθήκη ριζών**
+## **Προσθήκη ριζικών**
 
-Χρησιμοποιήστε το [`radical`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/radical/) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο βαθμός.
+Χρησιμοποιήστε το [`radical`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/radical/) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση και το όρισμα γίνεται ο βαθμός.
 
-![Μια ρίζα n-ου βαθμού με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
+![Μια έκφραση n-ης ρίζας με το x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -133,7 +131,7 @@ with slides.Presentation() as presentation:
 
 Χρησιμοποιήστε το [`as_argument_of_function`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) ή το [`function`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/function/) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathlimit/) ή χρησιμοποιήστε το [`set_lower_limit`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
 
-![Το όριο του x καθώς το x τείνει στο άπειρο](powerpoint-math-equations_8.png)
+![Το όριο του x καθώς το x πλησιάζει το άπειρο](powerpoint-math-equations_8.png)
 
 ```py
 import aspose.slides as slides
@@ -191,9 +189,9 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Οι N-ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` συνήθως προστίθενται ως `MathematicalText` και συνδέονται στην έκφραση.
+Οι N-ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` προστίθενται συνήθως ως `MathematicalText` και ενώνται στην έκφραση.
 
-Για ένα ολοκλήρωμα, χρησιμοποιήστε `integral`:
+Για ένα ολοκλήρωμα, χρησιμοποιήστε το `integral`:
 
 ```py
 integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
@@ -202,9 +200,9 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **Προσθήκη πινάκων**
 
-Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες εξ ορισμού, έτσι περικλείστε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
+Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, γι' αυτό τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
 
-![Ένας μαθηματικός πίνακας δύο γραμμών με ένα κενό κελί](powerpoint-math-equations_10.png)
+![Μαθηματικός πίνακας δύο γραμμών με ένα κενό κελί](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -228,11 +226,11 @@ with slides.Presentation() as presentation:
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Προσθήκη ακολουθιών εξισώσεων**
+## **Προσθήκη πινάκων εξισώσεων**
 
-Χρησιμοποιήστε το [`to_math_array`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/to_math_array/) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κατακόρυφο στοίβαγμα εκφράσεων.
+Χρησιμοποιήστε το [`to_math_array`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/to_math_array/) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κατακόρυφο στήσιμο εκφράσεων.
 
-![Μια κάθετη μαθηματική ακολουθία με x πάνω από y](powerpoint-math-equations_11.png)
+![Κατακόρυφος μαθηματικός πίνακας με x πάνω από y](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -259,7 +257,7 @@ with slides.Presentation() as presentation:
 
 Χρησιμοποιήστε το [`as_argument_of_function`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
 
-![Η τριγωνομετρική συνάρτηση cos εφαρμοσμένη στο 2x](powerpoint-math-equations_6.png)
+![Η τριγωνομετρική συνάρτηση cos εφαρμόζεται σε 2x](powerpoint-math-equations_6.png)
 
 ```py
 import aspose.slides as slides
@@ -280,9 +278,9 @@ with slides.Presentation() as presentation:
     presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Προσθήκη κάτω και πάνω δεικτών**
+## **Προσθήκη δεικτών και εκθετών**
 
-Χρησιμοποιήστε τα βοηθήματα υπο- και υπερδείκτη για δείκτες και εκθέτες. Όταν οι δείκτες πρέπει να εμφανιστούν στα αριστερά της βάσης, χρησιμοποιήστε το [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
+Χρησιμοποιήστε τις βοηθητικές συναρτήσεις υπο- και υπερ-δείκτη για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανίζονται στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
 
 ![Ένα κεφαλαίο Y με αριστερό υποδείκτη 1 και υπερδείκτη n](powerpoint-math-equations_9.png)
 
@@ -303,11 +301,11 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Προσθήκη οριοθετών**
+## **Προσθήκη οριοθέτησεων**
 
-Χρησιμοποιήστε το [`enclose`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/enclose/) για να τοποθετήσετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις με οριοθέτες που περιέχουν πολλά στοιχεία.
+Χρησιμοποιήστε το [`enclose`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/enclose/) για να τοποθετήσετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις οριοθέτησης που περιέχουν πολλά στοιχεία.
 
-![Μια έκφραση με οριοθέτες που περιέχει x, y και z χωρισμένα με κατακόρυφες γραμμές](powerpoint-math-equations_13.png)
+![Μία έκφραση οριοθέτησης που περιέχει x, y και z χωρισμένα με κάθετες γραμμές](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -334,9 +332,9 @@ with slides.Presentation() as presentation:
 
 ## **Προσθήκη πλαισίου περιγράμματος**
 
-Χρησιμοποιήστε το [`to_border_box`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/to_border_box/) όταν η ίδια η εξίσωση πρέπει να περικλειστεί σε πλαίσιο.
+Χρησιμοποιήστε το [`to_border_box`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/to_border_box/) όταν η ίδια η εξίσωση πρέπει να περικυκλώνεται.
 
-![Μια εξίσωση εντός πλαισίου που δείχνει a² = b² + c²](powerpoint-math-equations_12.png)
+![Μία εξίσωση σε πλαίσιο που δείχνει a στο τετράγωνο ίσον b στο τετράγωνο συν c στο τετράγωνο](powerpoint-math-equations_12.png)
 
 ```py
 import aspose.slides as slides
@@ -365,9 +363,9 @@ with slides.Presentation() as presentation:
 
 ## **Ομαδοποίηση όρων**
 
-Χρησιμοποιήστε το [`group`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/group/) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε όριο για να ετικετοφορήσετε τους ομαδοποιημένους όρους.
+Χρησιμοποιήστε το [`group`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/group/) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να ετικετοποιήσετε τους ομαδοποιημένους όρους.
 
-![Η έκφραση x + y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτή](powerpoint-math-equations_15.png)
+![Η έκφραση x συν y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτήν](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -392,9 +390,9 @@ with slides.Presentation() as presentation:
 
 ## **Μορφοποίηση μαθηματικών στοιχείων**
 
-Χρησιμοποιήστε βοηθήματα μορφοποίησης μόνο όταν διευκρινίζουν τον τύπο. Για παράδειγμα, το [`overbar`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/overbar/) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
+Χρησιμοποιήστε βοηθητικές συναρτήσεις μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [`overbar`](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/overbar/) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
 
-![Μια μαθηματική έκφραση ABC με μια επάνω γραμμή](powerpoint-math-equations_14.png)
+![Μία μαθηματική έκφραση ABC με μια γραμμή επάνω](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -415,33 +413,33 @@ with slides.Presentation() as presentation:
 
 ## **Σύντομη αναφορά**
 
-| Ενέργεια | Κύριο API |
+| Task | Main API |
 | --- | --- |
 | Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathematicaltext/) |
 | Συνδυασμός στοιχείων | [IMathElement.join](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/join/) |
 | Δημιουργία κλασμάτων | [IMathElement.divide](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/divide/) |
-| Προσθήκη υπερδείκτη ή υποδείκτη | [set_superscript](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
+| Προσθήκη εκθέτη ή υποδείκτη | [set_superscript](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
 | Προσθήκη συναρτήσεων | [function](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
-| Προσθήκη ριζών | [radical](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/radical/) |
+| Προσθήκη ριζικών | [radical](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/radical/) |
 | Προσθήκη ορίων | [set_lower_limit](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
-| Προσθήκη αριστερών δεικτών | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
+| Προσθήκη δεικτών αριστερά | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
 | Προσθήκη αθροίσεων και ολοκληρωμάτων | [nary](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/integral/) |
 | Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/mathmatrix/) |
-| Προσθήκη ακολουθιών εξισώσεων | [to_math_array](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
+| Προσθήκη πινάκων εξισώσεων | [to_math_array](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
 | Προσθήκη οριοθετών | [enclose](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/enclose/) |
 | Προσθήκη γραμμών και περιγραμμάτων | [overbar](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
 | Ομαδοποίηση όρων | [group](https://reference.aspose.com/slides/el/python-net/aspose.slides.mathtext/imathelement/group/) |
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
 **Μπορώ να επεξεργαστώ μια υπάρχουσα εξίσωση PowerPoint;**
 
-Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα `MathPortion`, λάβετε το `MathParagraph` του και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
+Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα `MathPortion`, λάβετε το `MathParagraph` του και ενημερώστε τα μαθηματικά μπλοκ στην παράγραφο.
 
-**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό PowerPoint;**
+**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό περιεχόμενο PowerPoint;**
 
 Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office math.
 
-**Μπορώ να εξάγω εξισώσεις σε LaTeX;**
+**Μπορώ να εξάγω τις εξισώσεις σε LaTeX;**
 
-Το Aspose.Slides εξάγει μαθηματικές εξώσεις σε MathML. Εάν χρειάζεστε LaTeX, εξάγετε πρώτα σε MathML και στη συνέχεια μετατρέψτε το MathML με ένα εργαλείο που υποστηρίζει το επιθυμητό διάλεκτο LaTeX.
+Ναι. Λάβετε το [MathParagraph] της εξίσωσης από το [MathPortion] της, και καλέστε το [MathParagraph.to_latex] για να την εξάγετε απευθείας. Για ένα πλήρες παράδειγμα, δείτε το [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε Python μέσω .NET](/slides/el/python-net/exporting-math-equations/#export-math-equations-to-latex).

@@ -21,31 +21,31 @@ description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PP
 ---
 ## **Översikt**
 
-PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för PHP via Java kan du programatiskt skapa samma typ av matematiskt innehåll: bråk, radikaler, funktioner, gränsvärden, N‑ära operatorer, matriser, arrayer och formaterade matematiska block.
+PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för PHP via Java kan du skapa samma typ av matematiskt innehåll programatiskt: bråk, radikaler, funktioner, gränsvärden, N-ära operatorer, matriser, arrayer och formaterade matematikblock.
 
-I PowerPoint lägger användare normalt till ekvationer från **Insert > Equation**:
+I PowerPoint lägger användare normalt till ekvationer via **Insert > Equation**:
 
-![PowerPoint Infoga-flik med kommandot Equation markerat](powerpoint-math-equations_1.png)
+![PowerPoint-fliken Infoga med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
 
-Resultatet är redigerbar mattetext på bilden:
+Resultatet är redigerbar matematisk text på bilden:
 
-![En PowerPoint-bild som innehåller en redigerbar matematikekvation](powerpoint-math-equations_2.png)
+![En PowerPoint-bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
 
-Aspose.Slides bygger den mattetexten genom tre huvudsakliga objekt:
+Aspose.Slides bygger den matematiska texten genom tre huvudobjekt:
 
-- En matematikform, skapat med [addMathShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/#addMathShape), är formen som innehåller ekvationen.
+- En matematikform, skapad med [addMathShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/#addMathShape), är formen som innehåller ekvationen.
 - [MathPortion](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathportion/) lagrar matematiskt innehåll i formens textruta.
 - [MathParagraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathblock/)-objekt.
 
 De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathematicaltext/) och de flödande metoderna från [MathElementBase](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att hålla koden kort och läsbar.
 
-För MathML‑exportscenarier, se [Export Math Equations from Presentations in PHP via Java](/slides/sv/php-java/exporting-math-equations/).
+För MathML-exportscenarier, se [Exportera matematiska ekvationer från presentationer i PHP via Java](/slides/sv/php-java/exporting-math-equations/).
 
 ## **Skapa en ekvation**
 
-Detta exempel skapar en matematikform och lägger till Pythagoras sats:
+Det här exemplet skapar en matematikform och lägger till Pythagoras sats:
 
-![Ekvationen c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
+![Ekvationen c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` skapar en form som redan innehåller ett matematiskt stycke. Hämta den första `MathPortion`, få dess `MathParagraph` och lägg till matematiska block eller element i den.
+`addMathShape` skapar en form som redan innehåller ett matematikparagraf. Åtkomst den första `MathPortion`, hämta dess `MathParagraph` och lägg till matematikblock eller matematiska element i den.
 {{% /alert %}}
 
-## **Lägg till bråktal**
+## **Lägg till bråk**
 
-Använd [`divide`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att skapa ett bråk. Du kan välja en bråkstil med [MathFractionTypes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathfractiontypes/).
+Använd [`divide`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att skapa ett bråk. Du kan välja en bråksstil med [MathFractionTypes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathfractiontypes/).
 
-![Ett snedvridet matematiskt bråk som visar ett delat med x](powerpoint-math-equations_4.png)
+![Ett snedvridet bråk som visar 1 delat med x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -113,9 +113,9 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 ## **Lägg till radikaler**
 
-Använd [`radical`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att skapa en kvadratrot, kubrot eller annan rot. Det aktuella elementet blir basen och argumentet blir graden.
+Använd [`radical`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att skapa en kvadratrot, kubrot eller annan rot. Det nuvarande elementet blir basen och argumentet blir graden.
 
-![Ett n‑te röttrakn uttryck med x under radikaltecknet](powerpoint-math-equations_5.png)
+![Ett n:te rotuttryck med x under radikaltecknet](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -141,9 +141,9 @@ try {
 
 ## **Lägg till funktioner och gränsvärden**
 
-Använd [`asArgumentOfFunction`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) eller [`function`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för funktioner såsom `sin(x)`, `log(x)` eller anpassade funktionsnamn. För gränsvärden, sätt `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathlimit/) eller använd [`setLowerLimit`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/).
+Använd [`asArgumentOfFunction`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) eller [`function`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för funktioner såsom `sin(x)`, `log(x)` eller egna funktionsnamn. För gränsvärden, placera `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathlimit/) eller använd [`setLowerLimit`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/).
 
-![Gränsvärdet för x när x går mot oändligheten](powerpoint-math-equations_8.png)
+![Gränsvärdet av x när x närmar sig oändligheten](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -174,11 +174,11 @@ För ett anpassat funktionsnamn, gör funktionsnamnet till det aktuella elemente
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **Lägg till N‑ära operatorer och integraler**
+## **Lägg till N-ära operatorer och integraler**
 
-Använd [`nary`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för summor, unioner, snitt och andra stora operatorer. Använd [`integral`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för integraler. Båda metoderna låter dig ange lägre och högre gränser.
+Använd [`nary`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för summor, unioner, snitt och andra stora operatorer. Använd [`integral`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för integraler. Båda metoderna låter dig ange lägre och övre gränser.
 
-![En summa med lägre och högre gränser](powerpoint-math-equations_7.png)
+![En summa med lägre och övre gränser](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,7 +205,7 @@ try {
 }
 ```
 
-N‑ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och förenas i uttrycket.
+N-ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och sammanfogas i uttrycket.
 
 För en integral, använd `integral`:
 
@@ -216,7 +216,7 @@ $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 
 ## **Lägg till matriser**
 
-Använd [MathMatrix](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathmatrix/) för rader och kolumner. Matriser innehåller inte hakparenteser som standard, så omge matrisen när du behöver parenteser, hakparenteser eller måsvingar.
+Använd [MathMatrix](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathmatrix/) för rader och kolumner. Matriser inkluderar inte hakparenteser som standard, så omge matrisen när du behöver parenteser, hakparenteser eller måsvingar.
 
 ![En matris med två rader och en tom cell](powerpoint-math-equations_10.png)
 
@@ -250,7 +250,7 @@ try {
 
 Använd [`toMathArray`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) när du behöver justerade ekvationer eller en vertikal stapel av uttryck.
 
-![En vertikal matematisk matris med x ovanför y](powerpoint-math-equations_11.png)
+![En vertikal matris med x ovanför y](powerpoint-math-equations_11.png)
 
 ```php
 $presentation = new Presentation();
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-## **Lägg till nedsänkta och upphöjda**
+## **Lägg till nedsänkta och upphöjda index**
 
-Använd hjälpmetoderna för nedsänkta och upphöjda index för indeks och potenser. När indexen måste visas på vänster sida av basen, använd [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/).
+Använd hjälparfunktionerna för nedsänkta och upphöjda index för index och potenser. När indexen måste visas på vänster sida av basen, använd [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/).
 
-![En stor bokstav Y med nedsänkt index 1 på vänster sida och upphöjt n](powerpoint-math-equations_9.png)
+![En stor bokstav Y med nedsänkt index 1 på vänster sida och upphöjt index n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -333,7 +333,7 @@ try {
 
 ## **Lägg till avgränsare**
 
-Använd [`enclose`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att placera ett uttryck inom avgränsare. Du kan också ange ett separator‑tecken för avgränsningsuttryck som innehåller flera element.
+Använd [`enclose`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att placera ett uttryck inom avgränsare. Du kan också ange ett separator-tecken för avgränsningsuttryck som innehåller flera element.
 
 ![Ett avgränsningsuttryck som innehåller x, y och z separerade med vertikala streck](powerpoint-math-equations_13.png)
 
@@ -362,11 +362,11 @@ try {
 }
 ```
 
-## **Lägg till en ramruta**
+## **Lägg till en kantlåda**
 
-Använd [`toBorderBox`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) när ekvationen själv ska ramas in.
+Använd [`toBorderBox`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) när själva ekvationen ska ramas in.
 
-![En inramad ekvation som visar a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
+![En inramad ekvation som visar a² = b² + c²](powerpoint-math-equations_12.png)
 
 ```php
 $presentation = new Presentation();
@@ -397,9 +397,9 @@ try {
 
 ## **Gruppera termer**
 
-Använd [`group`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att placera ett grupperingstecken ovanför eller nedanför ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
+Använd [`group`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) för att placera ett grupptecken ovanför eller nedanför ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
 
-![Uttrycket x plus y grupperat med etiketten vilken text som helst nedanför](powerpoint-math-equations_15.png)
+![Uttrycket x plus y grupperat med etiketten någon text under](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -426,7 +426,7 @@ try {
 
 ## **Formatera matematiska element**
 
-Använd formateringshjälpmedel endast där de tydliggör formeln. Till exempel placerar [`overbar`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) en linje ovanför ett matematiskt element.
+Använd formateringshjälpare endast där de förtydligar formeln. Till exempel placerar [`overbar`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) en linje ovanför ett matematiskt element.
 
 ![Ett matematiskt uttryck ABC med en överlinje](powerpoint-math-equations_14.png)
 
@@ -453,17 +453,17 @@ try {
 
 ## **Snabbreferens**
 
-| Uppgift | Huvud‑API |
+| Uppgift | Huvudsakligt API |
 | --- | --- |
-| Skapa mattetext | [MathematicalText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathematicaltext/) |
+| Skapa matematisk text | [MathematicalText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathematicaltext/) |
 | Kombinera element | [join](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
 | Skapa bråk | [divide](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
-| Lägg till upphöjt eller nedsänkt | [setSuperscript](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
+| Lägg till upphöjt eller nedsänkt index | [setSuperscript](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
 | Lägg till funktioner | [function](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
 | Lägg till radikaler | [radical](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
 | Lägg till gränsvärden | [setLowerLimit](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
-| Lägg till skript på vänster sida | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
-| Lägg till summationer och integraler | [nary](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
+| Lägg till vänstersidiga index | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
+| Lägg till summor och integraler | [nary](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
 | Lägg till matriser | [MathMatrix](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathmatrix/) |
 | Lägg till ekvationsarrayer | [toMathArray](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
 | Lägg till avgränsare | [enclose](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathelementbase/) |
@@ -474,7 +474,7 @@ try {
 
 **Kan jag redigera en befintlig PowerPoint‑ekvation?**
 
-Ja. Öppna presentationen, hitta formen som innehåller en `MathPortion`, hämta dess `MathParagraph` och uppdatera de matematiska blocken i det stycket.
+Ja. Öppna presentationen, hitta formen som innehåller en `MathPortion`, hämta dess `MathParagraph` och uppdatera matematikblocken i det avsnittet.
 
 **Sparas ekvationer som redigerbar PowerPoint‑matematik?**
 
@@ -482,4 +482,4 @@ Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Of
 
 **Kan jag exportera ekvationer till LaTeX?**
 
-Aspose.Slides exporterar matematiska ekvationer till MathML. Om du behöver LaTeX, exportera först till MathML och konvertera sedan MathML med ett verktyg som stödjer ditt målspråk för LaTeX.
+Ja. Hämta ekvationens [MathParagraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathparagraph/) från dess [MathPortion](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathportion/), och anropa [MathParagraph::toLatex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/mathparagraph/#toLatex) för att exportera den direkt. För ett komplett exempel, se [Exportera matematiska ekvationer från presentationer i PHP via Java](/slides/sv/php-java/exporting-math-equations/#export-math-equations-to-latex).
