@@ -174,7 +174,7 @@ using namespace Aspose::Slides::Export;
 using namespace System::IO;
 
 // The path to the documents directory
-System::String dataDir = u"D:\\Documents\\";
+System::String dataDir = u"../documents/";
 
 // Source SVG file name
 System::String svgFileName = dataDir + u"sample.svg";
@@ -228,7 +228,7 @@ using namespace Aspose::Slides::Export;
 using namespace System::IO;
 
 // The path to the documents directory
-System::String dataDir = u"D:\\Documents\\";
+System::String dataDir = u"../documents/";
 
 // Source SVG file name
 System::String svgFileName = dataDir + u"sample.svg";
@@ -261,7 +261,7 @@ Aspose.Slides for C++ allows you to generate EMF images from excel sheets and ad
 This sample code shows you how to perform the described task:
 
 ``` cpp 
-System::String dataDir = u"D:\\Documents\\";
+System::String dataDir = u"../documents/";
 
 StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
 cellsXls->Append(L"chart.xls");

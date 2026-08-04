@@ -130,7 +130,7 @@ using namespace Aspose::Slides::Export;
 using namespace System::IO;
 
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-const System::String outPath = u"x:\\documents";
+const System::String outPath = u"output";
 auto opt = System::MakeObject<MarkdownSaveOptions>();
 opt->set_ExportType(MarkdownExportType::Visual);
 opt->set_ImagesSaveFolderName(u"md-images");

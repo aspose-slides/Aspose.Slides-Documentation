@@ -38,7 +38,7 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 
 // The path to the documents directory.
-String dataDir = u"D:\\Documents\\";
+String dataDir = u"../documents/";
 
 // Open the ODP file
 auto pres = System::MakeObject<Presentation>(dataDir + u"AccessOpenDoc.odp");
