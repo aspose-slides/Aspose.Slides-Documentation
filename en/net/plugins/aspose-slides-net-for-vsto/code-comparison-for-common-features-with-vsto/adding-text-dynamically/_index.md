@@ -66,6 +66,8 @@ Both methods follow these steps:
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+
 
  static void AddTextBox()
 

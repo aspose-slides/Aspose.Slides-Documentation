@@ -14,6 +14,9 @@ Both the VSTO and Aspose.Slides methods take the following steps:
 - Save the presentation to disk.
 ## **VSTO**
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+
 
  //Open the presentation
 

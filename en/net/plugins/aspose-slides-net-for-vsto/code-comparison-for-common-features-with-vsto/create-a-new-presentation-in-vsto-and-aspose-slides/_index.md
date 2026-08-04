@@ -48,6 +48,8 @@ pres.SaveAs("outVSTO.ppt",
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+
 
  private static void CreatePresentation()
 

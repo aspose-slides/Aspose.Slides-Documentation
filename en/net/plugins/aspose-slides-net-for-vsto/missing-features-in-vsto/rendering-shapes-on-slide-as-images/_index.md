@@ -156,6 +156,8 @@ for (int i = 0; i < pres.Slides.Count; i++)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extract Shapes as Image Files**
 ```cs
+using Aspose.Slides;
+
 //Instantiate the Presentation object that represents a PPT file
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 

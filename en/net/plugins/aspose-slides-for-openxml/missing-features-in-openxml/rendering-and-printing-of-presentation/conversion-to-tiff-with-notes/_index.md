@@ -10,6 +10,9 @@ TIFF is one of several widely used image formats that Aspose.Slides for .NET sup
 The **Save** method exposed by the **Presentation** Class can be used to convert the whole presentation in Notes Slide view to TIFF. You can also generate a slide thumbnail in Notes Slide view for individual slides.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

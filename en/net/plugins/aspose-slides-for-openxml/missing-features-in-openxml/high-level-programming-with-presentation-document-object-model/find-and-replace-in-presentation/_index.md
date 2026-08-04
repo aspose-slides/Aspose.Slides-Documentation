@@ -13,6 +13,9 @@ Following are the steps to follow:
 1. Write the presentation.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

@@ -55,6 +55,8 @@ Using Aspose.Slides for .NET, perform the following steps:
 1. Write the presentation to disk.
 
 ``` csharp
+using Aspose.Slides;
+
 
  //Creating empty presentation
 

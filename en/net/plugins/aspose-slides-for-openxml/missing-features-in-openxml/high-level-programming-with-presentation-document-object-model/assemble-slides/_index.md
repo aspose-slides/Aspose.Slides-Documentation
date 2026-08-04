@@ -102,6 +102,9 @@ It's very simple to change the position of a slide in the presentation. Just fol
 In the example given below, we have changed the position of a slide (lying at the zero index position 1) of the presentation) to index 1 (Position 2).
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  private static string MyDir = @"..\..\..\Sample Files\";
 

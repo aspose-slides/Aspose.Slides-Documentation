@@ -412,6 +412,10 @@ Using Aspose.Slides for .NET, the following steps are performed:
 1. Write the output presentation to disk in PPTX format.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
  static void Main(string[] args)
 

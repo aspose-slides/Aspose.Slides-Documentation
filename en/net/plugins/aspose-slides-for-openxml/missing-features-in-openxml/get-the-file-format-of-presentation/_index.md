@@ -15,6 +15,8 @@ In order to get the file format. Please follow the steps below:
 In the example given below, we have got the file format.
 ## **Example**
 ``` csharp
+using Aspose.Slides;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

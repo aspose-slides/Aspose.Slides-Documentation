@@ -73,6 +73,8 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+
 
  private static void findReplaceText(string strToFind, string strToReplaceWith)
 

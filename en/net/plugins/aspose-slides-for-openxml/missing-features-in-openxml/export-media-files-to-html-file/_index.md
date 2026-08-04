@@ -15,6 +15,9 @@ In order to export media files to HTML. Please follow the steps below:
 In the example given below, we have exported the media files to HTML.
 ## **Example**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

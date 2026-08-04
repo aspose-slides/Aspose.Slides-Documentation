@@ -8,6 +8,8 @@ url: /net/working-with-size-and-layout-of-presentation/
 **SlideSize.Type** and **SlideSize.Size** are the properties of presentation class which could be set or get as shown below in the example.
 ## **Example**
 ``` csharp
+using Aspose.Slides;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

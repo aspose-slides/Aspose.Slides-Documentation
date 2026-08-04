@@ -247,6 +247,8 @@ Aspose.Slides for .NET allows developers to add empty slides to the presentation
 - Finally, write the PPT file using the Write method exposed by Presentation object
 
 ``` csharp
+using Aspose.Slides;
+
 
  string FileName = FilePath + "Adding Slide to Presentation.pptx";
 

@@ -9,6 +9,8 @@ url: /net/add-picture-frame-to-presentation/
 Below is the code for adding picture in VSTO presentation:
 
 ``` csharp
+using Aspose.Slides;
+
 
   string ImageFilePath="AddPicture.jpg";
 
@@ -33,6 +35,8 @@ To add a simple picture frame to your slide, please follow the steps below:
 The above steps are implemented in the example given below.
 
 ``` csharp
+using Aspose.Slides;
+
 
    string ImageFilePath = "AddPicture.jpg";
 

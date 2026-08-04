@@ -9,6 +9,8 @@ url: /net/add-image-in-table-cell/
 Below is the code for adding image in Table cell:
 
 ``` csharp
+using Aspose.Slides;
+
 
     //Open Prsentation class that contains the table
 
@@ -55,6 +57,8 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Save the modified presentation as a PPTX file
 
 ``` csharp
+using Aspose.Slides;
+
 
    string FileName = "Adding Image in Table Cell.pptx";
 

@@ -87,6 +87,8 @@ The following steps add a table to a Microsoft PowerPoint slide using Aspose.Sli
 - Write the presentation to disk.
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+
 
  //Create a presentation
 

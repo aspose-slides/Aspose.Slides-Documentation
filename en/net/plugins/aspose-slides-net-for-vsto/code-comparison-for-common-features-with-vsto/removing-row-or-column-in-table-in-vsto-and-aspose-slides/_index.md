@@ -9,6 +9,8 @@ url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 Below is code for removing rows or columns from table using VSTO Presentation:
 
 ``` csharp
+using Aspose.Slides;
+
 
     string FileName = "Removing Row Or Column in Table.pptx";
 
@@ -46,6 +48,8 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 - Write the modified presentation as a PPTX file
 
 ``` csharp
+using Aspose.Slides;
+
 
    string FileName = "Removing Row Or Column in Table.pptx";
 

@@ -9,6 +9,8 @@ url: /net/adding-shapes-to-presentation/
 Below is the code snippet for adding line shape:
 
 ``` csharp
+using Aspose.Slides;
+
 
    Slide slide = Application.ActivePresentation.Slides[1];
 
@@ -26,6 +28,8 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ``` csharp
+using Aspose.Slides;
+
 
    //Instantiate Prseetation class that represents the PPTX
 
