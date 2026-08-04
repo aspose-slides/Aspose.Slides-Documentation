@@ -120,7 +120,7 @@ The following PHP code demonstrates the operation:
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $outPath = "c:/documents";
+    $outPath = "output";
 
     $saveOptions = new MarkdownSaveOptions();
     $saveOptions->setExportType(MarkdownExportType::Visual);
