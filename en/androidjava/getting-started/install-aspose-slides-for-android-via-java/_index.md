@@ -39,7 +39,7 @@ Previously, Aspose.Slides for Android via Java was distributed as a single ZIP 
 1. Add maven repository into your build.gradle. 
 1. Add [Aspose.Slides for Android via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) JAR as a dependency.
 
-``` java
+``` groovy
 
  // 1. Add maven repository into your build.gradle 
 
@@ -143,6 +143,8 @@ Now, insert this code in the body of the onCreate method to create a new Present
 ``` java
 import com.aspose.slides.*;
 import java.io.File;
+
+import android.os.Environment;
 
 
  try

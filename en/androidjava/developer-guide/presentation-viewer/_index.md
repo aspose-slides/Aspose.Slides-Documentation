@@ -132,6 +132,7 @@ To create a slide thumbnail image with user defined dimensions, please follow th
 
 ```java
 import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
 
 int slideIndex = 0;
 Size slideSize = new Size(1200, 800);

@@ -65,7 +65,7 @@ try {
     {
         for (IPortion portion : paragraph.getPortions())
         {
-            PointF point = portion.getCoordinates();
+            android.graphics.PointF point = portion.getCoordinates();
             System.out.println("X = " + point.x + "; Y = " + point.y);
         }
     }

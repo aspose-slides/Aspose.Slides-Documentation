@@ -50,6 +50,7 @@ A typical scenario of using the new API may look as follows:
 
 ``` java
 import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
 
 Presentation pres = new Presentation();
 try {
@@ -115,6 +116,7 @@ try {
 Modern API:
 ``` java
 import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
 
 Presentation pres = new Presentation();
 try {
@@ -272,6 +274,7 @@ Modern API:
 
 ``` java
 import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
 
 Presentation pres = new Presentation("pres.pptx");
 try {

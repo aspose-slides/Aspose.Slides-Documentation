@@ -132,6 +132,7 @@ The following example gets and compares the frame and visual bounds:
 
 ```java
 import com.aspose.slides.*;
+import android.graphics.RectF;
 
 Presentation presentation = new Presentation("example.pptx");
 try {

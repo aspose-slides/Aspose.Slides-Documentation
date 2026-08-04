@@ -216,6 +216,8 @@ Finally, we save the presentation to disk:
 import com.aspose.slides.*;
 
 // The presentation created in the previous steps.
+Presentation presentation = new Presentation();
+
 presentation.save("presentation.pptx", SaveFormat.Pptx);
 ```
 

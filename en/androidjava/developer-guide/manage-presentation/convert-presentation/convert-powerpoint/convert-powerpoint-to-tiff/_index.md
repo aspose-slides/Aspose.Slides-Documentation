@@ -88,6 +88,7 @@ This code demonstrates how to convert a PowerPoint presentation to TIFF images w
 
 ```java
 import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
 
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");

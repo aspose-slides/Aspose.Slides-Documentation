@@ -80,6 +80,7 @@ To change the dimensions of the resulting JPG images, you can set the image size
 
 ```java
 import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
 
 Size imageSize = new Size(1200, 800);
 
