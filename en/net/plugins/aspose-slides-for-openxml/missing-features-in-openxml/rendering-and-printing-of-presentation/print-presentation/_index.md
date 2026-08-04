@@ -15,7 +15,11 @@ Printing of the presentation to the default printer is quite simple in Aspose.Sl
 using Aspose.Slides;
 
 
- PrintByDefaultPrinter();
+public static void Main(string[] args)
+
+{
+
+    PrintByDefaultPrinter();
 
     PrintBySpecificPrinter();
 
@@ -51,6 +55,7 @@ public static void PrintBySpecificPrinter()
 
     asposePresentation.Print("LaserJet1100");
 
+}
 
 ``` 
 ## **Print to a Specific Printer**

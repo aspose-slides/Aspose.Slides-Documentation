@@ -60,6 +60,7 @@ The following C# code example demonstrates how to convert the PowerPoint present
 
 ```cs
 using Aspose.Slides;
+using Aspose.Words;
 
 // Load a presentation file.
 using var presentation = new Presentation("sample.pptx");

@@ -146,7 +146,7 @@ To build an image using this docker file, you have to go to slides-netuil docker
 
 The result of the execution should look like this:
 
-``` csharp
+```text
 
  Successfully built 62dd34ddc142
 
@@ -192,7 +192,7 @@ Once the image is ready, we can run it using this command:
 
 The result of the command above will be an output of netcore.linux.tests.sh (since it was defined as a default command for the container):
 
-``` csharp
+```text
 
  Restoring packages for /slides-src/targets/.NETCore/tests/Aspose.Slides.FuncTests.NetCore/Aspose.Slides.FuncTests.NetCore.csproj...
 
@@ -390,7 +390,7 @@ Because container running on Windows just doesn't require external.tool.server.
 
 The result of the command above should look like this:
 
-``` csharp
+```text
 
  NAnt 0.92 (Build 0.92.4543.0; release; 6/9/2012)
 

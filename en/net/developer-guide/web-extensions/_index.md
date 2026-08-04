@@ -156,6 +156,7 @@ WebExtensions provide 2 sets of basic templates for exporting presentations to H
 ``` csharp
 using Aspose.Slides;
 using Aspose.Slides.Export.Web;
+using Aspose.Slides.WebExtensions;
 
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -171,6 +172,7 @@ To export presentation to a multi page, use the ToMultiPageWebDocument method wi
 ``` csharp
 using Aspose.Slides;
 using Aspose.Slides.Export.Web;
+using Aspose.Slides.WebExtensions;
 
 using (Presentation pres = new Presentation("demo.pptx"))
 {
@@ -422,6 +424,7 @@ Finally, let's export it to HTML using `WebDocument` with the `AnimateTransition
 
 ``` csharp
 using Aspose.Slides.Export.Web;
+using Aspose.Slides.WebExtensions;
 
 WebDocumentOptions options = new WebDocumentOptions
 {
@@ -439,6 +442,7 @@ Full source code example:
 using Aspose.Slides;
 using Aspose.Slides.Export.Web;
 using Aspose.Slides.SlideShow;
+using Aspose.Slides.WebExtensions;
 
 using (Presentation pres = new Presentation())
 {

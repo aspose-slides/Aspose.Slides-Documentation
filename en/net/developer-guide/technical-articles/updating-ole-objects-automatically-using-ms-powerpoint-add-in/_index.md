@@ -27,31 +27,34 @@ First, several freeware add-ins are available that add the Auto_Open macro featu
 
 After installing one of these add-ins, simply add the `Auto_Open()` macro (or `OnPresentationOpen()` if you’re using Event Generator) to your template presentation as shown below:
 
-```cs
-public void Auto_Open()
-{
-    // Loop through each slide in the presentation.
-    foreach (var oSlide in ActivePresentation.Slides)
-    {
-        // Loop through all the shapes on the current slide.
-        foreach (var oShape in oSlide.Shapes)
-        {
-            // Check whether the shape is an OLE object.
-            if (oShape.Type == msoEmbeddedOLEObject)
-            {
-                // Found an OLE object. Obtain its object reference and then update it.
-                oObject = oShape.OLEFormat.Object;
-                oObject.Application.Update();
+```vbnet
+Sub Auto_Open()
+    Dim oSlide As Slide
+    Dim oShape As Shape
+    Dim oObject As Object
 
-                // Now, quit out of the OLE server program.
-                // This frees memory, and prevents any problems.
-                // Also, set oObject to Nothing to release the object.
-                oObject.Application.Quit();
-                oObject = null;
-            }
-        }
-    }
-}
+    ' Loop through each slide in the presentation.
+    For Each oSlide In ActivePresentation.Slides
+
+        ' Loop through all the shapes on the current slide.
+        For Each oShape In oSlide.Shapes
+
+            ' Check whether the shape is an OLE object.
+            If oShape.Type = msoEmbeddedOLEObject Then
+
+                ' Found an OLE object. Obtain its object reference and then update it.
+                Set oObject = oShape.OLEFormat.Object
+                oObject.Application.Update
+
+                ' Now, quit out of the OLE server program.
+                ' This frees memory, and prevents any problems.
+                ' Also, set oObject to Nothing to release the object.
+                oObject.Application.Quit
+                Set oObject = Nothing
+            End If
+        Next oShape
+    Next oSlide
+End Sub
 ```
 
 Any changes made to OLE objects with Aspose.Slides for .NET will be automatically updated when PowerPoint opens the presentation. If you have many OLE objects and don’t want to update them all, simply add a custom tag to the shapes you need to process and check for it in the macro.

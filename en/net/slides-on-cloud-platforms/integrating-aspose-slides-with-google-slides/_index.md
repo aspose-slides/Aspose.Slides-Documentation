@@ -60,6 +60,8 @@ In the following example, we will download a Google Slides presentation from Goo
 using System.Net.Http;
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.SaaSIntegrations;
+using Aspose.Slides.SaaSIntegrations.GoogleExtension;
 
 // Create externally managed HttpClient
 HttpClient httpClient = new HttpClient();
@@ -83,8 +85,21 @@ pres.Save(@"GoogleDriveDownload.pdf", SaveFormat.Pdf);
 For convenience, Aspose.Slides SaaS Integration provides a method to list all files available to the user. The returned data includes the file name, MIME type, and file ID.
 
 ```csharp
+using System.Net.Http;
+using Aspose.Slides.SaaSIntegrations;
+using Aspose.Slides.SaaSIntegrations.GoogleExtension;
+
+// Create externally managed HttpClient
+HttpClient httpClient = new HttpClient();
+
+// Create an authorization provider using a service account JSON file
+IGoogleAuthorizationProvider account = new GoogleServiceAccountAuthProvider(@"service_account_json_file.json", httpClient);
+
+// Initialize Google Slides integration service with the authorization provider
+GoogleSlidesIntegration googleSlidesIntegration = new GoogleSlidesIntegration(account, httpClient);
+
 // Get the list of files available to the provided service account
-var availableFiles = await googleSlidesIntegration.GetDriveFileInfosAsync();
+var availableFiles = await googleSlidesIntegration.GetGoogleDriveFileInfosAsync();
 
 foreach (GoogleDriveFileInfo googleDriveFileInfo in availableFiles)
 {
@@ -112,6 +127,8 @@ In the next example, we will create a PowerPoint presentation from scratch and u
 ```csharp
 using System.Net.Http;
 using Aspose.Slides;
+using Aspose.Slides.SaaSIntegrations;
+using Aspose.Slides.SaaSIntegrations.GoogleExtension;
 
 // Create externally managed HttpClient
 HttpClient httpClient = new HttpClient();
@@ -149,6 +166,8 @@ This example demonstrates how to replace a file and update its name on Google Dr
 using System.Net.Http;
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.SaaSIntegrations;
+using Aspose.Slides.SaaSIntegrations.GoogleExtension;
 
 // Create an HTTP client for making requests
 using HttpClient httpClient = new HttpClient();
@@ -206,7 +225,7 @@ Use **OAuth 2.0** if you need to access a specific user's Google Slides or Drive
 Yes. Aspose.Slides allows saving presentations to various formats (e.g., PDF, PPTX, HTML) before uploading them to Google Drive.
 
 ### How can I get the file ID of a Google Slides presentation?
-You can retrieve it using the `GetDriveFileInfosAsync()` method or by copying it from the presentation's URL in Google Slides.
+You can retrieve it using the `GetGoogleDriveFileInfosAsync()` method or by copying it from the presentation's URL in Google Slides.
 
 ### Does the integration support replacing an existing file on Google Drive?
 Yes. Use the `SavePresentationToExistingFileAsync` method to update a file while preserving its file ID.
