@@ -261,40 +261,66 @@ Aspose.Slides for C++ allows you to generate EMF images from excel sheets and ad
 This sample code shows you how to perform the described task:
 
 ``` cpp 
-System::String dataDir = u"../documents/";
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
+// Aspose.Cells for C++ must be started before any of its types are used.
+Aspose::Cells::Startup();
 
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
+Aspose::Cells::Workbook workbook(u"chart.xls");
+Aspose::Cells::Worksheet sheet = workbook.GetWorksheets().Get(0);
 
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
+// Render the worksheet as EMF.
+Aspose::Cells::ImageOrPrintOptions options;
+options.SetHorizontalResolution(200);
+options.SetVerticalResolution(200);
+options.SetImageType(Aspose::Cells::Drawing::ImageType::Emf);
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+Aspose::Cells::SheetRender sheetRender(sheet, options);
 
-pres->get_Slides()->RemoveAt(0);
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+presentation->get_Slides()->RemoveAt(0);
 
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
+for (int32_t pageIndex = 0; pageIndex < sheetRender.GetPageCount(); pageIndex++)
 {
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
+    // Aspose.Cells returns the rendered page as a buffer, which Aspose.Slides adds as an image.
+    Aspose::Cells::Vector<uint8_t> emfData = sheetRender.ToImage(pageIndex);
+    System::ArrayPtr<uint8_t> emfBytes = System::MakeArray<uint8_t>(emfData.GetLength(), emfData.GetData());
+    System::SharedPtr<IPPImage> emfImage = presentation->get_Images()->AddImage(emfBytes);
 
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
+    System::SharedPtr<ISlide> slide = presentation->get_Slides()->AddEmptySlide(
+        presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
+    auto slideSize = presentation->get_SlideSize()->get_Size();
     slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
 }
 
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
+presentation->Save(u"Saved.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+workbook.Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
 ## **Replace Images in the Image Collection**

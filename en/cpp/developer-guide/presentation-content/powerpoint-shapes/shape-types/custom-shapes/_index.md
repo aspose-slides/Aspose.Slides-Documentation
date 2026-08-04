@@ -429,6 +429,7 @@ This C++ code—an implementation of the steps above—demonstrates the **Geomet
 
 ``` cpp
 #include <DOM/GeometryShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IGeometryPath.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>

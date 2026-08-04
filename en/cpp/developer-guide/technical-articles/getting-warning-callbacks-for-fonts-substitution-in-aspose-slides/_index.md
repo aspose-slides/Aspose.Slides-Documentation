@@ -99,6 +99,7 @@ presentation->Dispose();
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
 #include <system/io/memory_stream.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
@@ -127,6 +128,7 @@ presentation->Dispose();
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/HtmlOptions.h>
+#include <Export/SaveFormat.h>
 #include <system/io/memory_stream.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;

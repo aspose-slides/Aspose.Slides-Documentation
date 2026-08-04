@@ -221,11 +221,24 @@ In the example below, an OLE object frame (an Excel chart object embedded in a s
 #include <Ole/OleEmbeddedDataInfo.h>
 #include <system/io/memory_stream.h>
 #include <system/smart_ptr.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/OoxmlSaveOptions.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::DOM::Ole;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
+
+// Aspose.Cells for C++ must be started before any of its types are used.
+Aspose::Cells::Startup();
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
@@ -263,6 +276,8 @@ if (oleFrame != nullptr)
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+
+Aspose::Cells::Cleanup();
 ```
 
 ## **Embed Other File Types in Slides**

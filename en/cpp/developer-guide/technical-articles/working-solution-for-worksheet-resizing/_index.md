@@ -108,8 +108,15 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
+#include <system/array.h>
 #include <system/io/memory_stream.h>
 #include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
 using namespace System;
 using namespace System::IO;
 
@@ -208,6 +215,11 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
 /// <param name="width">The expected width of the cell range in points.</param>
 /// <param name="height">The expected height of the cell range in points.</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
@@ -238,8 +250,15 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 ```
 
 ```cpp
+#include <system/array.h>
 #include <system/io/memory_stream.h>
 #include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
 using namespace System;
 using namespace System::IO;
 

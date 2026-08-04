@@ -275,11 +275,26 @@ You may want to adjust the transparency of a slide's background image to make th
 
 ```cpp
 #include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/object_ext.h>
+using namespace Aspose::Slides;
 using namespace Aspose::Slides::Effects;
+using namespace Aspose::Slides::Export;
 using namespace System;
 
 auto transparencyValue = 30; // For example.
+
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+auto slide = presentation->get_Slide(0);
 
 // Get the collection of picture transform operations.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
@@ -304,6 +319,10 @@ else
 {
     transparencyOperation->set_Amount(100.0f - transparencyValue);
 }
+
+// Save the presentation to disk.
+presentation->Save(u"TransparentBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Get the Slide Background Value**
