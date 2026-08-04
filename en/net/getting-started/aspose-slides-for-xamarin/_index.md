@@ -105,6 +105,9 @@ Here, we reference the "Aspose.Slides.Droid.dll" library that includes a sample 
 **C# - MainActivity.cs - Initialization**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -143,6 +146,9 @@ Let’s add the function to display the Prev and Next slides on the tapping of b
 **C# - MainActivity.cs - Display slides on Prev and Next button click**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {

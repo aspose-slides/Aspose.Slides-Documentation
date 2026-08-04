@@ -37,6 +37,9 @@ Using Aspose.Slides on Azure provides several advantages, including:
   - *Real-World Note & Code Example:* You might chain together a Logic App that triggers an Azure Function any time a PowerPoint file lands in Blob Storage. Below is a sample snippet showing how to handle concurrency by processing each uploaded file in parallel:
 
     ```cs
+    using Aspose.Slides;
+    using Aspose.Slides.Export;
+
     [FunctionName("BulkConvertPptToPdf")]
     public static async Task RunAsync(
         [BlobTrigger("incoming-presentations/{name}", Connection = "AzureWebJobsStorage")] Stream inputFile,
@@ -45,7 +48,7 @@ Using Aspose.Slides on Azure provides several advantages, including:
         ILogger log)
     {
         log.LogInformation($"Converting {name} to PDF in parallel...");
-        
+    
         // Example concurrency handling: 
         // This could be part of a larger batch orchestrator that splits files or processes them in parallel.
         using (var presentation = new Presentation(inputFile))
@@ -87,6 +90,7 @@ Aspose.Slides on Azure enables various real-world applications, including:
 Below is an example of an Azure Function that processes a PowerPoint file stored in Azure Blob Storage and converts it to PDF using Aspose.Slides:
 
 ```cs
+using System.Xml.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using Microsoft.Azure.WebJobs;

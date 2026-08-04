@@ -77,6 +77,8 @@ dotnet add package Aspose.Slides.NET
 We'll begin by creating a new presentation and adding a title slide with a main heading and subtitle.
 
 ```cs
+using Aspose.Slides;
+
 using var presentation = new Presentation();
 
 var slide0 = presentation.Slides[0];
@@ -96,6 +98,9 @@ subtitleShape.TextFrame.Text = "Prepared for Executive Team";
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 var layoutSlide1 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 var slide1 = presentation.Slides.AddEmptySlide(layoutSlide1);
 
@@ -129,6 +134,8 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 5, 1
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```cs
+using Aspose.Slides;
+
 var layoutSlide2 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 var slide2 = presentation.Slides.AddEmptySlide(layoutSlide2);
 
@@ -155,6 +162,9 @@ table[1, 4].TextFrame.Text = "87%";
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
 IParagraph CreateBulletParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -167,6 +177,8 @@ IParagraph CreateBulletParagraph(string text)
 }
 ```
 ```cs
+using Aspose.Slides;
+
 var layoutSlide3 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 var slide3 = presentation.Slides.AddEmptySlide(layoutSlide3);
 
@@ -188,6 +200,8 @@ bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Schedule follow-up re
 Finally, we save the presentation to disk:
 
 ```cs
+using Aspose.Slides.Export;
+
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 

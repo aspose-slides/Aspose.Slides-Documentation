@@ -57,6 +57,10 @@ dotnet add package Aspose.Slides.SaaSIntegrations
 In the following example, we will download a Google Slides presentation from Google Drive and save it to the local disk as a PDF file. We will use a Google Service Account for authorization, assuming the service account JSON file with credentials has already been downloaded.
 
 ```csharp
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create externally managed HttpClient
 HttpClient httpClient = new HttpClient();
 
@@ -106,6 +110,9 @@ The file ID is:
 In the next example, we will create a PowerPoint presentation from scratch and upload it to Google Drive in Google Slides format. For authorization, we will use OAuth 2.0.
 
 ```csharp
+using System.Net.Http;
+using Aspose.Slides;
+
 // Create externally managed HttpClient
 HttpClient httpClient = new HttpClient();
 
@@ -139,6 +146,10 @@ This provider is useful in systems where the access token is obtained externally
 This example demonstrates how to replace a file and update its name on Google Drive while preserving its file ID.
 
 ```csharp
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create an HTTP client for making requests
 using HttpClient httpClient = new HttpClient();
 

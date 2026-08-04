@@ -34,6 +34,8 @@ To extract text from a presentation, the **Aspose.Slides API** offers the static
 Example usage:
 
 ```csharp
+using Aspose.Slides;
+
 string filePath = "presentation.pptx";
 TextExtractionArrangingMode mode = TextExtractionArrangingMode.Unarranged;
 
@@ -60,6 +62,8 @@ The `GetPresentationText` method in `PresentationFactory` lets you fine-tune tex
 Usage example:
 
 ```csharp
+using Aspose.Slides;
+
 TextExtractionArrangingMode mode = TextExtractionArrangingMode.Arranged;
 IPresentationText presentationText = PresentationFactory.Instance.GetPresentationText("presentation.pptx", mode);
 ISlideText[] slideTexts = presentationText.SlidesText;

@@ -43,6 +43,10 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/n
 This example demonstrates how to generate a presentation on the topic Aspose.Slides using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
 // Create an instance of OpenAIWebClient, the built-in implementation of the OpenAI web client.
 using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
@@ -66,6 +70,11 @@ The following example demonstrates the overloads of the [GeneratePresentation](h
 By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) creates and manages its own internal [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) yourself—for example, when using an [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) for improved resource management and performance—you can supply your own [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
 ```csharp
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
 // Create an externally managed HttpClient instance.
 using var httpClient = new HttpClient();
 

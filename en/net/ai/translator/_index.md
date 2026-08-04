@@ -48,6 +48,10 @@ Note that the OpenAI API is a paid service, so you will need to create an accoun
 In this example, we translate a PowerPoint presentation into Japanese using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) with a specified OpenAI [model](https://platform.openai.com/docs/models).
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
 // Load a presentation to translate.
 using var presentation = new Presentation("sample.pptx");
 
@@ -67,6 +71,9 @@ presentation.Save("sample_jp.pdf", SaveFormat.Pdf);
 By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) creates and manages its own internal [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) yourself - such as when using an [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) for better resource management and performance - you can provide your own `HttpClient` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
 ```csharp
+using System.Net.Http;
+using Aspose.Slides.AI;
+
 // Assume you have an IHttpClientFactory instance (e.g., injected via dependency injection).
 HttpClient httpClient = httpClientFactory.CreateClient();
 using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpClient);
