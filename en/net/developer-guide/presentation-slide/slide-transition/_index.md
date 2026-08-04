@@ -33,6 +33,10 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 1. Write the modified presentation file.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
 // Instantiate Presentation class to load the source presentation file
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
@@ -58,6 +62,10 @@ In the above section, we just applied a simple transition effect on the slide. N
 1. Write the modified presentation as a presentation file.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
 // Instantiate Presentation class that represents a presentation file
 using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
 {
@@ -96,6 +104,8 @@ Additionally, using the [AdvanceAfter](https://reference.aspose.com/slides/net/a
 This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation class that represents a presentation file
 using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
 {
@@ -128,6 +138,9 @@ The following code snippet shows you how to add a clone of the slide with some t
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -160,6 +173,10 @@ TransitionMorphType enum has three members:
 The following code snippet shows you how to set morph transition to slide and change morph type:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
@@ -181,6 +198,10 @@ Aspose.Slides for .NET supports setting the transition effects like, from black,
 In the example given below, we have set the transition effects.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
 // Create an instance of Presentation class
 Presentation presentation = new Presentation("AccessSlides.pptx");
 

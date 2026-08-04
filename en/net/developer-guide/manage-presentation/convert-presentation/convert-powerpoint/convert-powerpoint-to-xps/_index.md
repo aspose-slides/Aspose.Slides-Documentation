@@ -75,6 +75,9 @@ When converting a presentation to XPS, you have to save the presentation using e
 This sample code in C# shows you how to convert a presentation to an XPS document using standard settings:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate a Presentation object that represents a presentation file
 using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 {
@@ -88,6 +91,9 @@ using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 This sample code shows you how to convert a presentation to an XPS document using custom settings in C#:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate a Presentation object that represents a presentation file
 using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 {

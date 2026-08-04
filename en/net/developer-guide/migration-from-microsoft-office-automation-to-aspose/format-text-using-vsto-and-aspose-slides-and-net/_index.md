@@ -101,6 +101,10 @@ To format text with Aspose.Slides, add the font before formatting the text.
 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
  //Open the presentation
 Presentation pres = new Presentation("c:\\source.ppt");
 

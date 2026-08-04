@@ -43,6 +43,8 @@ Go through these steps:
 This C# code shows you how to convert a PowerPoint presentation to PNG. Presentation object can load PPT, PPTX, ODP etc, then each slide in presentation object is converted to PNG format or other images format.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
@@ -64,6 +66,8 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in C# demonstrates the described operation:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     float scaleX = 2f;
@@ -87,6 +91,9 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Size size = new Size(960, 720);

@@ -36,6 +36,9 @@ baseUri: The base URI which will be used to generate links
 Usage example:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation("example.pptx"))
 
@@ -66,6 +69,9 @@ Usage example:
 The new 2 methods have been added to Aspose.Slides.Animation.ISequence interface.
 
 ``` csharp
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+
 
  IEffect AddEffect(IChart chart, EffectChartMajorGroupingType type, int index, EffectType effectType, EffectSubtype subtype, EffectTriggerType triggerType);
 
@@ -84,6 +90,11 @@ The two new enums EffectChartMajorGroupingType and EffectChartMinorGroupingType 
 To add a series animation to the chart the following code may be used:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation(inFileName))
 
@@ -132,6 +143,11 @@ To add a series animation to the chart the following code may be used:
 Categories animation:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation(inFileName))
 
@@ -180,6 +196,11 @@ Categories animation:
 Series elements animation:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation(inFileName))
 
@@ -276,6 +297,11 @@ Series elements animation:
 Categories elements animation:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation(inFileName))
 

@@ -47,6 +47,10 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for .NET
 This C# code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class
 using (Presentation presentation = new Presentation())
 {
@@ -91,6 +95,8 @@ using (Presentation presentation = new Presentation())
 This C# code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates the Presentation class
 using (Presentation presentation = new Presentation("Comments1.pptx"))
 {
@@ -113,6 +119,10 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 This C# code shows you how to add comments and get replies to them:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Adds a comment
@@ -179,6 +189,10 @@ In [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/net/aspose-slid
 This C# code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
      ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
@@ -195,6 +209,9 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to remove all comments and authors in a presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("example.pptx"))
 {
     // Deletes all comments from the presentation
@@ -215,6 +232,10 @@ using (var presentation = new Presentation("example.pptx"))
 This C# code shows you how to delete specific comments on a slide:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];

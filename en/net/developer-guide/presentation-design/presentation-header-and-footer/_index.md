@@ -33,6 +33,9 @@ You can also manage headers and footers for handout and notes slides. This inclu
 Notes of some specific slide could be updated as shown in the example below:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load Presentation
 Presentation pres = new Presentation("headerTest.pptx");
 
@@ -54,6 +57,8 @@ pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
 
 
 ```c#
+using Aspose.Slides;
+
 // Method to set Header/Footer Text
 public static void UpdateHeaderFooterText(IBaseSlide master)
 {

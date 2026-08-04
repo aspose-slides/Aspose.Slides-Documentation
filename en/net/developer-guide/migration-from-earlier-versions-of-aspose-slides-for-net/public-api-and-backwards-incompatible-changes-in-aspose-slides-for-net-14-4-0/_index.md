@@ -119,6 +119,8 @@ The property Aspose.Slides.SmartArt.ISmartArtNode.BulletFillFormat returns IFill
 The property Aspose.Slides.SmartArt.ISmartArtNode.Level returns nested level for SmartArt nodes.
 
 ``` csharp
+using Aspose.Slides.SmartArt;
+
 
  ISmartArtNode node = diagram.AllNodes[0];
 
@@ -131,6 +133,8 @@ if(node.Level == 1)
 The property Aspose.Slides.SmartArt.ISmartArtNode.Position returns the position of a node among its siblings.
 
 ``` csharp
+using Aspose.Slides.SmartArt;
+
 
  ISmartArtNode node = diagram.AllNodes[0];
 
@@ -143,6 +147,8 @@ if (node.ChildNodes.Count > 3)
 The Aspose.Slides.SmartArt.ISmartArtNode.Remove() method allows the removal of a node from a diagram.
 
 ``` csharp
+using Aspose.Slides.SmartArt;
+
 
  ISmartArt node = diagram.AllNodes[0];
 

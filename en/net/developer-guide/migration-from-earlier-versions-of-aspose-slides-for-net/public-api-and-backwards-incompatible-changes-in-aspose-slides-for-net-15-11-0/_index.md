@@ -48,6 +48,8 @@ The new property FirstSlideNumber added to Presentation allows to get or to set 
 When a new FirstSlideNumber value is specified all slide numbers are recalculated.
 
 ``` csharp
+using Aspose.Slides.Export;
+
 
  using(var pres = new Presenation(path))
 

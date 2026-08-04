@@ -39,6 +39,10 @@ The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.
 Example of usage:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -73,6 +77,10 @@ The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspo
 **Note**: depending on the SmartArtLayoutType one SmartArtShape can be shared between several nodes.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -111,6 +119,9 @@ These methods allow developers to save specified presentation slides to PDF, XPS
 Save(string fname, int[] slides, SaveFormat format);
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  Presentation presentation = new Presentation(presentationFileName);
 
@@ -127,6 +138,10 @@ New methods added:
 - IPPImage.ReplaceImage(IPPImage newImage)
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  Presentation presentation = new Presentation(presentation.pptx);
 

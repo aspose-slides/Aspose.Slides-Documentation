@@ -61,6 +61,8 @@ Each tab provides options for configuring specific types of information related 
 These properties, as exposed by the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface, include: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (indicates whether the document is shared between different producers), **PresentationFormat**, **Subject**,  **Title**, and more.
 
 ```cs
+using Aspose.Slides;
+
 // Instantiate the Presentation class that represents a presentation file.
 using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 
@@ -89,6 +91,9 @@ Console.WriteLine("Title : " + documentProperties.Title);
 Modifying the built-in properties of presentation files is just as easy as accessing them. You can simply assign a string value to any desired property, and the property's value will be updated. In the example below, we demonstrate how to modify the built-in document properties of a presentation file.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents the a presentation file.
 using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
@@ -111,6 +116,9 @@ presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 Custom presentation properties enable developers to store additional metadata or specific information within a presentation file. Aspose.Slides makes it easy to create and manage these custom properties programmatically. The following examples demonstrate how to add custom properties to your presentations.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class.
 using Presentation presentation = new Presentation();
 
@@ -131,6 +139,9 @@ presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 Aspose.Slides also allows developers to access existing custom properties and modify their values easily. This functionality helps maintain accurate metadata and supports dynamic updates based on user input or business logic. The examples below illustrate how to retrieve and update custom property values within a presentation.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PPTX file.
 using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 

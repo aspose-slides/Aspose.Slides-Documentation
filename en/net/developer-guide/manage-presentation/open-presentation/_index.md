@@ -35,6 +35,8 @@ To open an existing presentation, instantiate the [Presentation](https://referen
 The following C# example shows how to open a presentation and get its slide count:
 
 ```cs
+using Aspose.Slides;
+
 // Instantiate the Presentation class and pass a file path to its constructor.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
@@ -48,6 +50,8 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 When you need to open a password-protected presentation, pass the password through the [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) property of the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class to decrypt and load it. The following C# code demonstrates this operation:
 
 ```cs
+using Aspose.Slides;
+
 LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
 using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
 {
@@ -62,6 +66,9 @@ Aspose.Slides provides options—particularly the [BlobManagementOptions](https:
 The following C# code demonstrates loading a large presentation (for example, 2 GB):
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const string filePath = "LargePresentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions
@@ -107,6 +114,8 @@ When creating a presentation that contains large objects (video, audio, high-res
 Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) interface that lets you manage external resources. The following C# code shows how to use the `IResourceLoadingCallback` interface:
 
 ```cs
+using Aspose.Slides;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
 
@@ -114,6 +123,8 @@ Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
 ```cs
+using Aspose.Slides;
+
 public class ImageLoadingHandler : IResourceLoadingCallback
 {
     public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)

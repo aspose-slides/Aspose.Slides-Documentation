@@ -32,6 +32,10 @@ Property RotationAngle has been added to interfaces Aspose.Slides.Charts.IChartT
 It specifies the custom rotation that is being applied to the text within the bounding box.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 

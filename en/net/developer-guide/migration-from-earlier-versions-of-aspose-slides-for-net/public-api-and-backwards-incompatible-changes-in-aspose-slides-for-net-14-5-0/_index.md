@@ -63,6 +63,8 @@ shape.Frame = new ShapeFrame(float.NaN, float.NaN, float.NaN, float.NaN, Nullabl
 or
 
 ``` csharp
+using Aspose.Slides;
+
 
  slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
 

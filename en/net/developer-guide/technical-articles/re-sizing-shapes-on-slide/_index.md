@@ -24,6 +24,9 @@ One of the most common questions from Aspose.Slides for .NET customers is how to
 To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load the presentation file.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
@@ -69,6 +72,9 @@ If a slide contains a table, the code above will not work correctly. In that cas
 Use the following code on your end to resize slides that contain tables. For tables, setting the width or height is a special case: you must adjust individual row heights and column widths to change the table’s overall size.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // Get the original slide size.

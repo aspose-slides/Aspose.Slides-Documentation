@@ -81,6 +81,10 @@ Using Aspose.Slides for .NET, perform the following steps:
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Create an empty presentation
 using (Presentation pres = new Presentation())
 {

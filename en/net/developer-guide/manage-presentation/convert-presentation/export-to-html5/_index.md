@@ -33,6 +33,9 @@ This article explains how to convert PowerPoint presentations to HTML5 using Asp
 This C# code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html5);
@@ -48,6 +51,9 @@ In this case, you get clean HTML.
 You may want to specify settings for shape animations and slide transitions this way:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres5.html", SaveFormat.Html5, new Html5Options
@@ -63,6 +69,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 This C# demonstrates the standard PowerPoint to HTML process:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html);
@@ -94,6 +103,9 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This C# code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("HTML5-slide-view.html", SaveFormat.Html5, new Html5Options
@@ -116,6 +128,9 @@ When you convert a PowerPoint presentation to an HTML5 document, you can easily 
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var html5Options = new Html5Options
 {
     NotesCommentsLayouting =

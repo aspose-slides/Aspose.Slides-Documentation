@@ -48,6 +48,9 @@ By default, HTML export produces a self-contained HTML document where most resou
 To export a presentation to HTML, load it with [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) and save it with [SaveFormat.Html](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/).
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.Save("presentation.html", SaveFormat.Html);
@@ -74,6 +77,9 @@ The following sections show the most common options separately so you can combin
 The [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) overload that accepts slide numbers uses 1-based slide positions. The loop below saves every slide to a separate HTML file.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var slideCount = presentation.Slides.Count;
@@ -95,6 +101,9 @@ Use this pattern when a website or application needs one HTML page per slide. If
 [ResponsiveHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/responsivehtmlcontroller/) provides responsive HTML output through [HtmlFormatter](https://reference.aspose.com/slides/net/aspose.slides.export/htmlformatter/). Use it when the exported page should adapt better to browser width.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var controller = new ResponsiveHtmlController();
@@ -111,6 +120,9 @@ presentation.Save("presentation-responsive.html", SaveFormat.Html, htmlOptions);
 For SVG-based responsive layout, set `SvgResponsiveLayout` on [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/). This is useful when the slide content is exported as scalable SVG markup.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var htmlOptions = new HtmlOptions
@@ -132,6 +144,9 @@ Suppose the source presentation contains speaker notes:
 The following code exports the slide content with speaker notes below the slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var layoutOptions = new NotesCommentsLayoutingOptions
@@ -158,6 +173,9 @@ To export comments, set `CommentsPosition`, for example to `CommentsPositions.Ri
 HTML export can compress slide images to reduce output size. Set `PicturesCompression` to a value from [PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) when you need higher image quality.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var htmlOptions = new HtmlOptions
@@ -171,6 +189,9 @@ presentation.Save("presentation-dpi-150.html", SaveFormat.Html, htmlOptions);
 By default, cropped areas of images may be removed from the exported output. Keep cropped data only when users must be able to recover or inspect those hidden image parts. Keeping it can increase the HTML size.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var htmlOptions = new HtmlOptions
@@ -186,6 +207,9 @@ presentation.Save("presentation-with-cropped-areas.html", SaveFormat.Html, htmlO
 For simple styling, pass a CSS string to [HtmlFormatter.CreateDocumentFormatter](https://reference.aspose.com/slides/net/aspose.slides.export/htmlformatter/createdocumentformatter/). This changes the surrounding HTML document while Aspose.Slides continues to render the slide content.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
@@ -206,6 +230,9 @@ For a custom document header, a linked CSS file, or custom markup around slides 
 If the target environment may not have the presentation fonts installed, embed fonts in the HTML with [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/). Embedding improves visual fidelity but increases output size.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 string[] fontNamesToExclude = { "Arial", "Calibri" };
@@ -227,6 +254,9 @@ Exclude fonts only when you are confident that the target browsers or systems al
 To reduce the HTML file size, you can write font data to separate WOFF files and add `@font-face` rules to the HTML. The helper below extends [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/net/aspose.slides.export/embedallfontshtmlcontroller/) and overrides `WriteFont`.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var outputDirectory = Path.Combine(Environment.CurrentDirectory, "html-output");
@@ -246,6 +276,9 @@ presentation.Save(htmlFilePath, SaveFormat.Html, htmlOptions);
 ```
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public sealed class LinkedFontsHtmlController : EmbedAllFontsHtmlController
 {
     private readonly string _fontOutputDirectory;
@@ -334,6 +367,9 @@ For a full image-linking implementation, see [Export Presentations to HTML with 
 If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var outputDirectory = Path.Combine(Environment.CurrentDirectory, "html-output");
 var mediaDirectory = Path.Combine(outputDirectory, "media");
 Directory.CreateDirectory(outputDirectory);

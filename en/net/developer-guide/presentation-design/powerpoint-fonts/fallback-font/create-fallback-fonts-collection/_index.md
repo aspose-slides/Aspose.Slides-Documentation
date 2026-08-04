@@ -38,6 +38,8 @@ Each [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/prese
 Here is an examples how to create fallback fonts rules collection and assign in into the FontsManager of a certain presentation:  
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
 	IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();

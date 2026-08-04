@@ -292,6 +292,9 @@ Using Aspose.Slides for .NET, the following steps are performed:
 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Step - 1: Create an excel chart using Aspose.Cells
 //--------------------------------------------------
 //Create a workbook
@@ -325,6 +328,10 @@ pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;

@@ -53,6 +53,10 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/net/
 This C# code shows you how to add a VBA macro from scratch to a presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
     // Creates an instance of the presentation class
 using (Presentation presentation = new Presentation())
 {
@@ -99,6 +103,9 @@ Using the [VbaProject](https://reference.aspose.com/slides/net/aspose.slides/pre
 This C# code shows you how to remove a VBA macro:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
     // Loads the presentation containing the macro
 using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
 {
@@ -119,6 +126,9 @@ using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
 This C# code shows you how to extract VBA macros from a presentation containing macros:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
     // Loads the presentation containing the macro
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
@@ -142,6 +152,8 @@ Using the [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/
 3. Check whether the VBA project is password-protected to view its properties.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
     if (presentation.VbaProject != null) // Check whether the presentation contains a VBA project.

@@ -40,6 +40,10 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 The following C# example shows how to set a blue solid color as the background for a normal slide:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -68,6 +72,10 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 The following C# example shows how to set a solid color (forest green) as the background for a master slide:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -96,6 +104,9 @@ A gradient is a graphical effect created by a gradual change in color. When used
 The following C# example shows how to set a gradient color as the background for a slide:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -126,6 +137,9 @@ In addition to solid and gradient fills, Aspose.Slides allows you to use images 
 The following C# example shows how to set an image as the background for a slide:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -152,6 +166,9 @@ using (Presentation presentation = new Presentation())
 The following code sample shows how to set the background fill type to a tiled picture and modify the tiling properties:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -193,6 +210,8 @@ Read more: [**Tile Picture As Texture**](/slides/net/shape-formatting/#tile-pict
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following C# code shows you how to change the transparency for a slide background image:
 
 ```cs
+using Aspose.Slides.Effects;
+
 var transparencyValue = 30; // For example.
 
 // Get the collection of picture transform operations.
@@ -229,6 +248,8 @@ Using the [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/base
 The following C# example shows how to get a slide’s effective background value:
 
 ```cs
+using Aspose.Slides;
+
 // Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {

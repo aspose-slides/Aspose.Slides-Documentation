@@ -81,6 +81,9 @@ The following steps add a table to a Microsoft PowerPoint slide using Aspose.Sli
 1. Write the presentation to disk.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 //Access first slide

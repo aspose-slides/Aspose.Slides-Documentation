@@ -50,6 +50,8 @@ Here are the steps to convert a PPT, PPTX, or ODP file to JPG:
 {{% /alert %}} 
 
 ```c#
+using Aspose.Slides;
+
 int scaleX = 1;
 int scaleY = scaleX;
 
@@ -73,6 +75,9 @@ using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt
 To change the dimensions of the resulting JPG images, you can set the image size by passing it into the [ISlide.GetImage(Size)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_6) method. This allows you to generate images with specific width and height values, ensuring that the output meets your requirements for resolution and aspect ratio. This flexibility is particularly useful when generating images for web applications, reports, or documentation, where precise image dimensions are required.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 Size imageSize = new Size(1200, 800);
 
 using (Presentation presentation = new Presentation("PowerPoint_Presentation.pptx"))
@@ -101,6 +106,10 @@ Let's say we have a presentation file, "sample.pptx," with a slide that contains
 The following C# code converts the slide to a JPG image while preserving the comments:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int scaleX = 2;
 int scaleY = scaleX;
 

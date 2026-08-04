@@ -92,6 +92,10 @@ EmbeddedFileName - Returns the path of embedded OLE object
 Property CategoryAxisType specifies type of category axis.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation(sourcePptxFileName))
 
@@ -116,6 +120,10 @@ Property CategoryAxisType specifies type of category axis.
 Property ShowLabelAsDataCallout determines either specified chart's data label will be displayed as data callout or as data label.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -139,6 +147,9 @@ Boolean property DrawSlidesFrame has been added to interfaces Aspose.Slides.Expo
 The black frame around each slide will be drawn if this property set 'true'.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation("input.pptx"))
 

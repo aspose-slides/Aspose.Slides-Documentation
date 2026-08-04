@@ -34,6 +34,8 @@ To generate an SVG image from a presentation slide using Aspose.Slides, follow t
 1. Save the slide as an SVG image to the file stream.
 
 ```c#
+using Aspose.Slides;
+
 int slideIndex = 0;
 
 using (Presentation presentation = new Presentation("sample.pptx"))
@@ -52,6 +54,9 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape `ID`. To achieve this, use the Id property from the [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape) interface. The `CustomSvgShapeFormattingController` class can be used to set the shape ID.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int slideIndex = 0;
 
 using (Presentation presentation = new Presentation("sample.odp"))
@@ -71,6 +76,9 @@ using (Presentation presentation = new Presentation("sample.odp"))
 ```
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 class CustomSvgShapeFormattingController : ISvgShapeFormattingController
 {
     private int m_shapeIndex;
@@ -97,6 +105,8 @@ Aspose.Slides helps you generate thumbnail images of slides. To generate a thumb
 1. Save the thumbnail image in your preferred image format.
 
 ```c#
+using Aspose.Slides;
+
 int slideIndex = 0;
 float scaleX = 1;
 float scaleY = scaleX;
@@ -122,6 +132,9 @@ To create a slide thumbnail image with user-defined dimensions, follow the steps
 1. Save the thumbnail image in your preferred image format.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 int slideIndex = 0;
 Size slideSize = new Size(1200, 800);
 
@@ -148,6 +161,9 @@ To generate a thumbnail of a slide with speaker notes using Aspose.Slides, follo
 1. Save the thumbnail image in your preferred image format.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int slideIndex = 0;
 
 RenderingOptions renderingOptions = new RenderingOptions

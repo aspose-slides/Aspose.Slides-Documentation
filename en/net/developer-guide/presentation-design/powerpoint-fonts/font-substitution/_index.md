@@ -33,6 +33,8 @@ To allow you find out the presentation fonts that are substituted during a prese
 
 The C# code shows you how to get all the font substitutions that are performed when a presentation is rendered:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation(@"Presentation.pptx"))
 {
     foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
@@ -57,6 +59,8 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 This C# code demonstrates the font substitution process:
 
 ```c#
+using Aspose.Slides;
+
 // Loads a presentation
 Presentation presentation = new Presentation("Fonts.pptx");
 

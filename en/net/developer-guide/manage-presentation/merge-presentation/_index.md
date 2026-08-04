@@ -103,6 +103,9 @@ Aspose.Slides provides the [**AddClone (ISlide)**](https://reference.aspose.com/
 This C# code shows you how to merge presentations:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -122,6 +125,9 @@ Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, Boolean)**](https:
 This code in C# demonstrates the described operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -149,6 +155,9 @@ Merging specific slides from multiple presentations is useful for creating custo
 The following C# code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
 using (Presentation presentation2 = new Presentation("presentation2.pptx"))
@@ -169,6 +178,8 @@ using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 }
 ```
 ```cs
+using Aspose.Slides;
+
 static ISlide GetTitleSlide(IPresentation presentation)
 {
     foreach (ISlide slide in presentation.Slides)
@@ -187,6 +198,9 @@ static ISlide GetTitleSlide(IPresentation presentation)
 This C# code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -212,6 +226,9 @@ To merge 2 presentations with different slide sizes, you have to resize one of t
 This sample code demonstrates the described operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
 {
@@ -231,6 +248,9 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 This C# code shows you how to merge a specific slide to a section in a presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {

@@ -74,6 +74,9 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Create a presentation
 Presentation pres = new Presentation();
 

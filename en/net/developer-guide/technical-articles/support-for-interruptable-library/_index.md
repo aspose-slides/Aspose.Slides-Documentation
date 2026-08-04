@@ -34,6 +34,10 @@ In [Aspose.Slides 18.4](https://releases.aspose.com/slides/net/release-notes/201
 The following code snippet demonstrates interrupting a running task:
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -64,6 +68,10 @@ When you need to use a [CancellationToken](https://docs.microsoft.com/en-us/dotn
 This C# code demonstrates the operation:
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));

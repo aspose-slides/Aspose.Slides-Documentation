@@ -41,6 +41,9 @@ If you want to clone a slide and then use it within the same presentation file a
 In the example given below, we have cloned a slide (lying at the first position – zero index – of the presentation) to the end of the presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Presentation class that represents a presentation file
 using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
 {
@@ -68,6 +71,9 @@ If you want to clone a slide and then use it within the same presentation file b
 In the example given below, we have cloned a slide (lying at the zero index – position 1 – of the presentation) to index 1 – Position 2 – of the presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Presentation class that represents a presentation file
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
@@ -97,6 +103,9 @@ If you need to clone a slide from one presentation and use it in another present
 In the example given below, we have cloned a slide (from the first index of the source presentation) to the end of the destination presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Presentation class to load the source presentation file
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
@@ -127,6 +136,9 @@ If you need to clone a slide from one presentation and use it in another present
 In the example given below, we have cloned a slide (from the zero index of the source presentation) to index 1 (position 2) of the destination presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Presentation class to load the source presentation file
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
@@ -159,6 +171,9 @@ If you need to clone a slide with a master slide from one presentation from and 
 In the example given below, we have cloned a slide with a master (lying at the zero index of the source presentation) to the end of the destination presentation using a master from source slide.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Presentation class to load the source presentation file
 
 using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
@@ -203,6 +218,9 @@ With Aspose.Slides for .NET, you can clone a slide from one section of a present
 This C# code shows you how to clone a slide and insert the cloned slide into a specified section:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);

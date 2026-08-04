@@ -54,6 +54,9 @@ As mentioned earlier, each shape class has an associated shape-lock class for pr
 The code sample that follow apply protection to all shape types in a presentation.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PPTX file.
 using Presentation presentation = new Presentation("Sample.pptx");
 
@@ -100,6 +103,9 @@ presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 To unlock a shape, set the applied lock’s value to `false`. The following code sample shows how to unlock shapes in a locked presentation.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PPTX file.
 using Presentation presentation = new Presentation("ProtectedSample.pptx");
 

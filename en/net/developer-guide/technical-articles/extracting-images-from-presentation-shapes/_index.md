@@ -170,6 +170,8 @@ private static string MakeSafeFileNamePart(string value)
 Use this approach for pictures inserted as standalone objects. An [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) stores its picture in `PictureFormat.Picture.Image`, which returns an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) object.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -201,6 +203,8 @@ using (Presentation presentation = new Presentation(inputPath))
 Shapes can use a picture as their fill. Check the shape's fill type first: if it is not [FillType.Picture](https://reference.aspose.com/slides/net/aspose.slides/filltype/), there is no picture to extract from that fill. The example below handles [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) objects and saves each image as PNG through [IPPImage.Image](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -233,6 +237,8 @@ using (Presentation presentation = new Presentation(inputPath))
 An [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) can have a substitute picture that PowerPoint uses as the object's preview on a slide. This image is available through `SubstitutePictureFormat.Picture.Image`. Extracting this picture gives you the preview image, not the embedded OLE package contents.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -268,6 +274,8 @@ using (Presentation presentation = new Presentation(inputPath))
 An [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) can also store a preview image in `PictureFormat.Picture.Image`. This is the poster or thumbnail shown on the slide, not a frame decoded from the video stream.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -303,6 +311,8 @@ using (Presentation presentation = new Presentation(inputPath))
 An [IAudioFrame](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/) can store a thumbnail in `PictureFormat.Picture.Image`. This is the image shown for the audio object on the slide.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -338,6 +348,8 @@ using (Presentation presentation = new Presentation(inputPath))
 [IZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/izoomframe/) and [ISectionZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isectionzoomframe/) shapes can use custom images. Read `ZoomImage` from the zoom frame.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -378,6 +390,8 @@ using (Presentation presentation = new Presentation(inputPath))
 An [ISummaryZoomFrame](https://reference.aspose.com/slides/net/aspose.slides/isummaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `ZoomImage` property.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -418,6 +432,8 @@ using (Presentation presentation = new Presentation(inputPath))
 An [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) is a shape. Images in a table are usually stored as picture fills in table cells.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -462,6 +478,8 @@ using (Presentation presentation = new Presentation(inputPath))
 An [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) is a shape. The example below extracts an image from the chart area's picture fill.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -498,6 +516,8 @@ using (Presentation presentation = new Presentation(inputPath))
 An [ISmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartart/) object is a shape. Depending on the SmartArt layout, images may be stored in node bullet fills or in the fill formats of node shapes.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -550,6 +570,8 @@ using (Presentation presentation = new Presentation(inputPath))
 Grouped shapes contain their own shape collections. The shared `EnumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);

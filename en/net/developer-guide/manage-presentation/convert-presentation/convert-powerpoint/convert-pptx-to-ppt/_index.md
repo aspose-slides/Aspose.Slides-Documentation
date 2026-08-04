@@ -40,6 +40,9 @@ For C# sample code to convert PPTX to PPT, please see the section below i.e. [Co
 To convert a PPTX to PPT simply pass the file name and save format to the [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) method of [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class. The C# code sample below converts a Presentation from PPTX to PPT using default options.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate a Presentation object that represents a PPTX file
 Presentation pres = new Presentation("presentation.pptx");
 

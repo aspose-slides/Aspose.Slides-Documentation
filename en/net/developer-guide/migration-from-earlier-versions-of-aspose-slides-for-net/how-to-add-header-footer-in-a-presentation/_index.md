@@ -55,6 +55,8 @@ sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Create the presentation
 Presentation pres = new Presentation();
 
@@ -93,6 +95,9 @@ pres.Write("HeadFoot.ppt");
 
 ## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
     //Setting Header Footer visibility properties

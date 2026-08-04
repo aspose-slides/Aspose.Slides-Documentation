@@ -32,6 +32,10 @@ This represents error bars of chart series.
 In case of custom value type, to specify a value, use the ErrorBarCustomValues property of the specific data point in the DataPoints collection of series.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -70,6 +74,10 @@ In case of custom value type, to specify a value, use the ErrorBarCustomValues p
 When the IErrorBarsFormat.ValueType property is equal to Custom, to specify a value, use the ErrorBarCustomValues property of the specific data point in the DataPoints collection.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -124,6 +132,10 @@ When the IErrorBarsFormat.ValueType property is equal to Custom, to specify a va
 Specifies types of values in the ChartDataPoint.ErrorBarsCustomValues properties list.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -185,6 +197,8 @@ The following methods add/insert a copy of a specified shape into the collection
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
+
 
  using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
 
@@ -217,6 +231,8 @@ The following methods add/insert a copy of a specified shape into the collection
 The IPresentation.ViewProperty allows developers to change the presentation view type and notes visibility when a presentation is opened in PowerPoint.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 

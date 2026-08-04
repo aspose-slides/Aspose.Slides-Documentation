@@ -73,6 +73,9 @@ This template is saved on the disk as "shape-template-hello-world.html", which w
 In this template, we are iterating text frames in presentation shapes to display the text. Let's generate the HTML file using WebDocument and then export the Presentation into the file: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export.Web;
+
 using (Presentation pres = new Presentation())
 {
     IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 150);
@@ -112,6 +115,9 @@ For example, we want to add CSS styles to the export result to change the text c
 Now, we add it into the input and output:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export.Web;
+
 using (Presentation pres = new Presentation())
 {
     IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 150);
@@ -148,6 +154,9 @@ WebExtensions provide 2 sets of basic templates for exporting presentations to H
 `PresentationExtensions` class can be used to simplify the presentation export process using templates. `PresentationExtensions` class contains a set of extension methods for Presentation class. To export a presentation into a single page, just include the Aspose.Slides.WebExtensions namespace and call two methods. The first method, `ToSinglePageWebDocument`, creates a `WebDocument` instance. The second method saves the HTML document: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export.Web;
+
 using (Presentation pres = new Presentation("demo.pptx"))
 {
     WebDocument document = pres.ToSinglePageWebDocument("templates\\single-page", @"single-page-output");
@@ -160,6 +169,9 @@ ToSinglePageWebDocument method can take two parameters: templates folder and exp
 To export presentation to a multi page, use the ToMultiPageWebDocument method with the same parameters:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export.Web;
+
 using (Presentation pres = new Presentation("demo.pptx"))
 {
     WebDocument document = pres.ToMultiPageWebDocument("templates\\multi-page", @"mutil-page-output");
@@ -213,6 +225,9 @@ By default, Templates\common\table.html is used, and the table has the same appe
 We can create the same structure of input templates and output files (as it is generated) while calling the `PresentationExtensions.ToSinglePageWebDocument` method. Let's add the `ExportCustomTableStyles_AddCommonStructure` method for that. The difference between this method and `ToSinglePageWebDocument` method—we do not need to add the standard template for the table and the main index page (it will be replaced to include the reference on the custom table styles):
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export.Web;
+
 private static void ExportCustomTableStyles_AddCommonStructure(
     Presentation pres, 
     WebDocument document,
@@ -243,6 +258,9 @@ private static void ExportCustomTableStyles_AddCommonStructure(
 Let's add a custom template instead:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export.Web;
+
 using (Presentation pres = new Presentation("table.pptx"))
 {
     const string templatesPath = "templates\\single-page";
@@ -351,6 +369,8 @@ You can also use index.html to include the reference on custom table CSS styles 
 WebExtensions allows you to export presentations with animated slide transitions—you just need to set the `AnimateTransitions` property in `WebDocumentOptions` to `true`:
 
 ``` csharp
+using Aspose.Slides.Export.Web;
+
 WebDocumentOptions options = new WebDocumentOptions
 {
     // ... other options
@@ -366,6 +386,8 @@ Let's create a PdfToPresentationToHtml project and add the Aspose.Slides.WebExte
 We start by importing the PDF document, which will be animated and exported into an HTML presentation:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     pres.Slides.RemoveAt(0);
@@ -376,6 +398,8 @@ using (Presentation pres = new Presentation())
 Now, we can set up the animated slide transitions (each slide is the imported PDF page). We used 9 slides in the sample PDF document. Let's add slide transitions into each of them (demonstration while viewing HTML):
 
 ``` csharp
+using Aspose.Slides.SlideShow;
+
 pres.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
 pres.Slides[1].SlideShowTransition.Type = TransitionType.RandomBar;
 pres.Slides[2].SlideShowTransition.Type = TransitionType.Cover;
@@ -390,6 +414,8 @@ pres.Slides[8].SlideShowTransition.Type = TransitionType.Plus;
 Finally, let's export it to HTML using `WebDocument` with the `AnimateTransitions` property set to `true`:
 
 ``` csharp
+using Aspose.Slides.Export.Web;
+
 WebDocumentOptions options = new WebDocumentOptions
 {
     TemplateEngine = new RazorTemplateEngine(),
@@ -403,6 +429,10 @@ document.Save();
 
 Full source code example:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export.Web;
+using Aspose.Slides.SlideShow;
+
 using (Presentation pres = new Presentation())
 {
     pres.Slides.RemoveAt(0);

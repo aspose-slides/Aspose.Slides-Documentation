@@ -36,6 +36,9 @@ The following sequence of steps is required to create and embed an Excel chart a
 The C# implementation of the above steps is as follows:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
 // Step - 1: Create an Excel chart using Aspose.Cells.
 // ---------------------------------------------------
 // Create a workbook.
@@ -131,6 +134,10 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows
 ```
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
