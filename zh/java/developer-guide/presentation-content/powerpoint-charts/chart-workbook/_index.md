@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 在演示文稿中管理图表工作簿
+title: 使用 Java 管理演示文稿中的图表工作簿
 linktitle: 图表工作簿
 type: docs
 weight: 70
@@ -13,22 +13,23 @@ keywords:
 - 数据源
 - 外部工作簿
 - 外部数据
+- 图表缓存
+- 工作簿恢复
 - PowerPoint
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "发现 Aspose.Slides for Java：轻松管理 PowerPoint 和 OpenDocument 格式中的图表工作簿，以简化演示文稿数据。"
+description: "探索适用于 Java 的 Aspose.Slides：轻松管理 PowerPoint 和 OpenDocument 格式中的图表工作簿，以简化您的演示文稿数据。"
 ---
-## **概览**
+## **概述**
 
-本文档说明了如何在 Aspose.Slides 中使用图表工作簿。它展示了如何通过工作簿流读取和写入图表数据、将工作簿单元格用作图表数据标签、访问工作表集合，以及为图表值指定数据源类型。
+本文解释如何在 Aspose.Slides 中使用图表工作簿。它展示了如何通过工作簿流读取和写入图表数据，将工作簿单元格用作图表数据标签，访问工作表集合，以及为图表值指定数据源类型。
 
-此外，还介绍了将外部工作簿用作图表数据源的相关操作。示例演示了如何创建并分配外部工作簿、检索链接到图表的外部工作簿路径，以及在工作簿可用时编辑图表数据。
+它还涵盖了将外部工作簿用作图表数据源的操作。示例演示了如何创建并分配外部工作簿、检索链接到图表的外部工作簿路径，以及在工作簿可用时编辑图表数据。
 
 ## **从工作簿读取和写入图表数据**
-Aspose.Slides 提供了 [ReadWorkbookStream](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartData#readWorkbookStream--) 和 [WriteWorkbookStream](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) 方法，帮助您读取和写入图表数据工作簿（该工作簿包含使用 Aspose.Cells 编辑的图表数据）。**注意**，图表数据必须以相同方式组织，或具有与源相似的结构。
 
-以下 Java 代码演示了一个示例操作：
+Aspose.Slides 提供了 [ReadWorkbookStream](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartData#readWorkbookStream--) 和 [WriteWorkbookStream](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) 方法，允许您读取和写入图表数据工作簿（其中包含使用 Aspose.Cells 编辑的图表数据）。**注意** 图表数据必须以相同的方式组织，或具有与源相似的结构。
 
 ```java
 Presentation pres = new Presentation("chart.pptx");
@@ -49,21 +50,19 @@ try {
 
 ## **将工作簿单元格设为图表数据标签**
 
-1. 创建一个 [Presentation](https://apireference.aspose.com/slides/zh/java/com.aspose.slides/presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个带有数据的气泡图。  
-1. 访问图表系列。  
-1. 将工作簿单元格设置为数据标签。  
-1. 保存演示文稿。
-
-以下 Java 代码展示了如何将工作簿单元格设为图表数据标签：
+1. 创建 [Presentation](https://apireference.aspose.com/slides/zh/java/com.aspose.slides/presentation) 类的实例。
+2. 通过索引获取幻灯片的引用。
+3. 添加一个带有数据的气泡图表。
+4. 访问图表系列。
+5. 将工作簿单元格设置为数据标签。
+6. 保存演示文稿。
 
 ```java
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// 实例化一个表示演示文稿文件的 Presentation 类
+// 实例化表示演示文稿文件的 Presentation 类
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -87,7 +86,7 @@ try {
 
 ## **管理工作表**
 
-以下 Java 代码演示了使用 [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) 方法访问工作表集合的操作：
+这段 Java 代码演示了使用 [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) 方法访问工作表集合的操作：
 
 ```java
 Presentation pres = new Presentation();
@@ -103,7 +102,7 @@ try {
 
 ## **指定数据源类型**
 
-以下 Java 代码展示了如何为数据源指定类型：
+这段 Java 代码展示了如何为数据源指定类型：
 
 ```java
 Presentation pres = new Presentation();
@@ -123,9 +122,9 @@ try {
 }
 ```
 
-## **检测不支持的嵌入式工作簿格式**
+## **检测不受支持的嵌入式工作簿格式**
 
-Aspose.Slides 不支持某些图表中可能嵌入的 Excel 二进制工作簿（.xlsb）格式。您可以在 [IChartData](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartData) 上使用 `getEmbeddedWorkbookType` 方法，并结合 [WorkbookType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/WorkbookType) 枚举来检测不受支持的格式并跳过相应图表。
+Aspose.Slides 不支持可嵌入某些图表的 Excel 二进制工作簿（.xlsb）格式。您可以在 [IChartData](https://reference.aspose.com/slides/zh/java/com.aspose.slides/IChartData) 上使用 `getEmbeddedWorkbookType` 方法结合 [WorkbookType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/WorkbookType) 枚举来检测不受支持的格式并跳过这些图表。
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -154,14 +153,12 @@ try {
 ## **外部工作簿**
 
 {{% alert color="primary" %}} 
-在 [Aspose.Slides 19.4](https://docs.aspose.com/slides/zh/java/aspose-slides-for-java-19-4-release-notes/) 中，我们实现了对外部工作簿作为图表数据源的支持。 
+在 [Aspose.Slides 19.4](https://docs.aspose.com/slides/zh/java/aspose-slides-for-java-19-4-release-notes/) 中，我们实现了对外部工作簿作为图表数据源的支持。
 {{% /alert %}} 
 
 ### **创建外部工作簿**
 
 使用 **`readWorkbookStream`** 和 **`setExternalWorkbook`** 方法，您可以从头创建外部工作簿，或将内部工作簿设为外部。
-
-以下 Java 代码演示了外部工作簿的创建过程：
 
 ```java
 Presentation pres = new Presentation();
@@ -188,11 +185,9 @@ try {
 
 ### **设置外部工作簿**
 
-使用 **`setExternalWorkbook`** 方法，您可以将外部工作簿分配给图表作为其数据源。该方法还可用于更新外部工作簿的路径（如果工作簿已移动）。
+使用 **`setExternalWorkbook`** 方法，您可以将外部工作簿分配给图表作为其数据源。该方法也可用于更新外部工作簿的路径（如果后者已被移动）。
 
-虽然无法编辑存放在远程位置或资源中的工作簿数据，但仍可将此类工作簿用作外部数据源。如果提供了外部工作簿的相对路径，系统会自动将其转换为完整路径。
-
-以下 Java 代码展示了如何设置外部工作簿：
+虽然无法编辑存储在远程位置或资源中的工作簿数据，但仍然可以将此类工作簿用作外部数据源。如果提供了相对路径，它会自动转换为完整路径。
 
 ```java
 // 创建 Presentation 类的实例
@@ -220,8 +215,8 @@ try {
 
 `ChartData` 参数（位于 `setExternalWorkbook` 方法下）用于指定是否加载 Excel 工作簿。
 
-* 当 `ChartData` 的值设为 `false` 时，仅更新工作簿路径——图表数据不会从目标工作簿加载或更新。当目标工作簿不存在或不可用时，您可能需要使用此设置。  
-* 当 `ChartData` 的值设为 `true` 时，图表数据将从目标工作簿更新。
+* 当 `ChartData` 值设为 `false` 时，仅更新工作簿路径——不会从目标工作簿加载或更新图表数据。当目标工作簿不存在或不可用时，您可能需要使用此设置。
+* 当 `ChartData` 值设为 `true` 时，图表数据会从目标工作簿更新。
 
 ```java
 // 创建 Presentation 类的实例
@@ -240,13 +235,11 @@ try {
 
 ### **获取图表的外部数据源工作簿路径**
 
-1. 创建一个 [Presentation](https://apireference.aspose.com/slides/zh/java/com.aspose.slides/presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 创建图表形状的对象。  
-1. 创建表示图表数据源的 `ChartDataSourceType` 对象。  
-1. 根据源类型与外部工作簿数据源类型相同的条件，指定相应的条件。
-
-以下 Java 代码演示了该操作：
+1. 创建 [Presentation](https://apireference.aspose.com/slides/zh/java/com.aspose.slides/presentation) 类的实例。
+2. 通过索引获取幻灯片的引用。
+3. 为图表形状创建对象。
+4. 为表示图表数据源的源（`ChartDataSourceType`）类型创建对象。
+5. 根据源类型与外部工作簿数据源类型相同，指定相应的条件。
 
 ```java
 // 创建 Presentation 类的实例
@@ -260,8 +253,8 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
-    
-    // 保存演示文稿
+	
+	// 保存演示文稿
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -270,9 +263,7 @@ try {
 
 ### **编辑图表数据**
 
-您可以像编辑内部工作簿一样编辑外部工作簿中的数据。当外部工作簿无法加载时，会抛出异常。
-
-以下 Java 代码实现了上述过程：
+您可以像编辑内部工作簿内容一样编辑外部工作簿中的数据。当无法加载外部工作簿时，会抛出异常。
 
 ```java
 // 创建 Presentation 类的实例
@@ -289,22 +280,54 @@ try {
 }
 ```
 
+### **从图表缓存恢复工作簿**
+
+如果图表使用的外部工作簿缺失或不可用，Aspose.Slides 可以从演示文稿中缓存的数据重建图表工作簿。创建 [LoadOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/loadoptions/)，使用 [SpreadsheetOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/spreadsheetoptions/) 配置它，并在打开演示文稿前调用 [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) 并传入 `true`。
+
+以下 Java 示例打开一个图表引用不可用外部工作簿的演示文稿，并通过 [IChart.getChartData](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichart/#getChartData--) 和 [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) 访问恢复的数据：
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // 在此读取或修改恢复的工作簿数据。
+} finally {
+    presentation.dispose();
+}
+```
+
+如果外部工作簿不可用且未启用恢复，Aspose.Slides 会抛出异常。仅在使用缓存的图表数据作为可接受的回退时才启用恢复，因为缓存可能不包含在演示文稿上次更新后对外部工作簿所做的更改。
+
 ## **常见问题**
 
-**我能判断特定图表是链接到外部工作簿还是嵌入式工作簿吗？**  
-可以。图表具有 [data source type](https://reference.aspose.com/slides/zh/java/com.aspose.slides/chartdata/#getDataSourceType--) 和 [path to an external workbook](https://reference.aspose.com/slides/zh/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--)；如果数据源是外部工作簿，您可以读取完整路径以确认使用的是外部文件。
+**我能判断特定图表是链接到外部工作簿还是嵌入工作簿吗？**
 
-**是否支持外部工作簿的相对路径，如何存储？**  
-支持。如果指定相对路径，系统会自动转换为绝对路径。这有助于项目的可移植性；但请注意，演示文稿会在 PPTX 文件中存储绝对路径。
+可以。图表具有 [数据源类型](https://reference.aspose.com/slides/zh/java/com.aspose.slides/chartdata/#getDataSourceType--) 和 [外部工作簿路径](https://reference.aspose.com/slides/zh/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--)；如果源是外部工作簿，您可以读取完整路径以确认使用的是外部文件。
 
-**可以使用位于网络资源/共享上的工作簿吗？**  
-可以，这类工作簿可作为外部数据源使用。但 Aspose.Slides 不支持直接编辑远程工作簿——只能用作数据源。
+**是否支持外部工作簿的相对路径，且它们如何存储？**
 
-**保存演示文稿时，Aspose.Slides 会覆盖外部 XLSX 吗？**  
-不会。演示文稿仅存储对外部文件的 [link](https://reference.aspose.com/slides/zh/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) 并在读取数据时使用该链接。保存时不会修改外部文件本身。
+支持。若指定相对路径，系统会自动转换为绝对路径。这便于项目的可移植性；但请注意，演示文稿会在 PPTX 文件中存储绝对路径。
 
-**如果外部文件受密码保护该怎么办？**  
-Aspose.Slides 在链接时不接受密码。常见做法是事先移除保护或准备一个已解密的副本（例如使用 [Aspose.Cells](/cells/java/)），然后链接该副本。
+**我可以使用位于网络资源/共享上的工作簿吗？**
 
-**多个图表可以引用同一个外部工作簿吗？**  
-可以。每个图表都会存储各自的链接。如果它们指向同一文件，更新该文件后，下次加载数据时所有图表都会反映更新。
+可以，这类工作簿可以用作外部数据源。但不支持直接从 Aspose.Slides 编辑远程工作簿——只能作为数据源使用。
+
+**Aspose.Slides 在保存演示文稿时会覆盖外部 XLSX 吗？**
+
+不会。演示文稿仅存储指向外部文件的 [链接](https://reference.aspose.com/slides/zh/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--)，用于读取数据。保存演示文稿时不会修改外部文件本身。
+
+**如果外部文件受密码保护，我该怎么办？**
+
+Aspose.Slides 在建立链接时不接受密码。常见做法是事先移除保护或准备一个已解密的副本（例如使用 [Aspose.Cells](/cells/java/)），然后链接到该副本。
+
+**多个图表可以引用同一个外部工作簿吗？**
+
+可以。每个图表都会存储自己的链接。如果它们指向同一文件，更新该文件后，下次加载数据时所有图表都会体现更改。

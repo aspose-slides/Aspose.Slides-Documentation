@@ -9,25 +9,28 @@ keywords:
 - diagramdata
 - arbetsbokscell
 - datamärkning
-- arbetsblad
+- kalkylblad
 - datakälla
 - extern arbetsbok
 - extern data
+- diagramcache
+- återställning av arbetsbok
 - PowerPoint
 - presentation
 - Java
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Java: hantera enkelt diagramarbok i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
+description: "Upptäck Aspose.Slides för Java: enkelt hantera diagramarböcker i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till arbetsbladssamlingar och anger datakälltypen för diagramvärden. Den behandlar också arbete med externa arbetsböcker som diagramdatakällor. Exempeln demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram, och redigerar diagramdata när arbetsboken är tillgänglig.
+Denna artikel förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboks celler som diagramdatamärkning, får åtkomst till kalkylbladsamlingar och anger datakälltyp för diagramvärden.
+
+Den täcker även arbete med externa arbetsböcker som diagramdatakällor. Exemplen visar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen för en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
+Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartData#readWorkbookStream--) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) som låter dig läsa och skriva diagramdatakarböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs** att diagramdata måste vara organiserad på samma sätt eller ha en liknande struktur som källan.
 
-Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartData#readWorkbookStream--) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) som låter dig läsa och skriva diagramdataböcker (innehållande diagramdata redigerade med Aspose.Cells). **Obs** att diagramdata måste organiseras på samma sätt eller ha en struktur liknande källan.
-
-Den här Java-koden demonstrerar ett exempel på en operation:
+Detta Java‑exempel demonstrerar en provoperation:
 
 ```java
 Presentation pres = new Presentation("chart.pptx");
@@ -46,16 +49,16 @@ try {
 }
 ```
 
-## **Ställ in en WorkBook-cell som diagramdatamärkning**
+## **Ange en arbetsbokscell som diagramdatamärkning**
 
 1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/java/com.aspose.slides/presentation).
 1. Hämta en bilds referens via dess index.
 1. Lägg till ett bubbeldiagram med någon data.
-1. Åtkomst till diagramserierna.
-1. Ställ in arbetsbokscellen som en datamärkning.
+1. Få åtkomst till diagramserierna.
+1. Ange arbetsbokscellen som en datamärkning.
 1. Spara presentationen.
 
-Den här Java-koden visar hur du ställer in en WorkBook-cell som diagramdatamärkning:
+Detta Java‑exempel visar hur du anger en arbetsbokscell som diagramdatamärkning:
 
 ```java
 String lbl0 = "Label 0 cell value";
@@ -84,9 +87,9 @@ try {
 }
 ```
 
-## **Hantera arbetsblad**
+## **Hantera kalkylblad**
 
-Den här Java-koden demonstrerar en operation där metoden [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) används för att komma åt en samling av arbetsblad:
+Detta Java‑exempel demonstrerar en operation där metoden [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) används för att få åtkomst till en kalkylbladsamling:
 
 ```java
 Presentation pres = new Presentation();
@@ -102,7 +105,7 @@ try {
 
 ## **Ange datakälltyp**
 
-Den här Java-koden visar hur du specificerar en typ för en datakälla:
+Detta Java‑exempel visar hur du anger en typ för en datakälla:
 
 ```java
 Presentation pres = new Presentation();
@@ -122,9 +125,9 @@ try {
 }
 ```
 
-## **Detektera ej stödda inbäddade arbetsboksformat**
+## **Upptäcka icke‑stödda inbäddade arbetsbokformat**
 
-Aspose.Slides stöder inte det binära Excel‑arbetsboksformatet (.xlsb) som kan bäddas in i vissa diagram. Du kan använda metoden `getEmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartData) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/WorkbookType) för att upptäcka ej stödda format och hoppa över de diagrammen.
+Aspose.Slides stödjer inte Excel‑binärarbetsboken (.xlsb) som kan vara inbäddad i vissa diagram. Du kan använda metoden `getEmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IChartData) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/WorkbookType) för att upptäcka icke‑stödda format och hoppa över dessa diagram.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -143,7 +146,7 @@ try {
             continue;
         }
 
-        // Läs eller ändra diagramarbokens data här.
+        // Läs eller ändra diagramarbokdata här.
     }
 } finally {
     presentation.dispose();
@@ -153,14 +156,14 @@ try {
 ## **Extern arbetsbok**
 
 {{% alert color="primary" %}} 
-I [Aspose.Slides 19.4](https://docs.aspose.com/slides/sv/java/aspose-slides-for-java-19-4-release-notes/) implementerade vi stöd för externa arbetsböcker som datakälla för diagram.
+I [Aspose.Slides 19.4](https://docs.aspose.com/slides/sv/java/aspose-slides-for-java-19-4-release-notes/), implementerade vi stöd för externa arbetsböcker som en datakälla för diagram.
 {{% /alert %}} 
 
 ### **Skapa en extern arbetsbok**
 
-Genom att använda metoderna **`readWorkbookStream`** och **`setExternalWorkbook`** kan du antingen skapa en extern arbetsbok från början eller göra en intern arbetsbok extern.
+Med metoderna **`readWorkbookStream`** och **`setExternalWorkbook`** kan du antingen skapa en extern arbetsbok från grunden eller göra en intern arbetsbok extern.
 
-Den här Java-koden demonstrerar processen för att skapa en extern arbetsbok:
+Detta Java‑exempel demonstrerar processen för att skapa en extern arbetsbok:
 
 ```java
 Presentation pres = new Presentation();
@@ -187,11 +190,11 @@ try {
 
 ### **Tilldela en extern arbetsbok**
 
-Genom att använda metoden **`setExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
+Med metoden **`setExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du ändå använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
 
-Den här Java-koden visar hur du tilldelar en extern arbetsbok:
+Detta Java‑exempel visar hur du anger en extern arbetsbok:
 
 ```java
 // Skapar en instans av Presentation-klassen
@@ -217,10 +220,10 @@ try {
 }
 ```
 
-`ChartData`‑parametern (under metoden `setExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska laddas eller inte. 
+Parametern `ChartData` (under metoden `setExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska laddas eller inte. 
 
-* När `ChartData`‑värdet är satt till `false` uppdateras endast arbetsbokens sökväg – diagramdata kommer inte att laddas eller uppdateras från målarbetsboken. Du kan vilja använda denna inställning när målarbetsboken är frånvarande eller otillgänglig. 
-* När `ChartData`‑värdet är satt till `true` uppdateras diagramdata från målarbetsboken.
+* När `ChartData`‑värdet är `false` uppdateras endast arbetsbokens sökväg – diagramdata laddas inte och uppdateras inte från målarboken. Detta är användbart när målarboken saknas eller är otillgänglig. 
+* När `ChartData`‑värdet är `true` uppdateras diagramdata från målarboken.
 
 ```java
 // Skapar en instans av Presentation-klassen
@@ -243,9 +246,9 @@ try {
 1. Hämta en bilds referens via dess index.
 1. Skapa ett objekt för diagramformen.
 1. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.
-1. Ange det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
+1. Specificera det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
 
-Den här Java-koden demonstrerar operationen:
+Detta Java‑exempel demonstrerar operationen:
 
 ```java
 // Skapar en instans av Presentation-klassen
@@ -271,7 +274,7 @@ try {
 
 Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Den här Java-koden är en implementation av den beskrivna processen:
+Detta Java‑exempel är en implementation av den beskrivna processen:
 
 ```java
 // Skapar en instans av Presentation-klassen
@@ -288,19 +291,45 @@ try {
 }
 ```
 
-## **Vanliga frågor**
+### **Återskapa en arbetsbok från diagramcachen**
 
-**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller inbäddad arbetsbok?**
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides återskapa diagramarboken från den data som cachas i presentationen. Skapa ett [LoadOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/loadoptions/), konfigurera det med [SpreadsheetOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/spreadsheetoptions/), och anropa [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) med `true` innan presentationen öppnas.
+
+Följande Java‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till de återställta data via [IChart.getChartData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichart/#getChartData--) och [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Läs eller modifiera den återställda arbetsboksdata här.
+} finally {
+    presentation.dispose();
+}
+```
+
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återställning endast när det är acceptabelt att använda den cachade diagramdatan som en fallback, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+
+## **FAQ**
+
+**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
 Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chartdata/#getDataSourceType--) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är praktiskt för projektportabilitet; var dock medveten om att presentationen lagrar den absoluta sökvägen i PPTX‑filen.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta underlättar portabilitet i projekt; dock lagras den absoluta sökvägen i PPTX‑filen.
 
 **Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Redigering av fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan bara användas som källa.
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Direkt redigering av fjärrarbetsböcker från Aspose.Slides stöds dock inte – de kan endast användas som källa.
 
 **Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
@@ -308,7 +337,7 @@ Nej. Presentationen lagrar en [länk till den externa filen](https://reference.a
 
 **Vad ska jag göra om den externa filen är skyddad med lösenord?**
 
-Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (till exempel med [Aspose.Cells](/cells/java/)) och länka till den kopian.
+Aspose.Slides accepterar inte ett lösenord vid länkning. En vanlig metod är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/java/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 

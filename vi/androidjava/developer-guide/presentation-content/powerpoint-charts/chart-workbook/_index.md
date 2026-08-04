@@ -1,6 +1,6 @@
 ---
-title: Quản lý Sổ làm việc Biểu đồ trong Bản trình chiếu trên Android
-linktitle: Sổ làm việc Biểu đồ
+title: Quản lý sổ làm việc biểu đồ trong bản trình chiếu trên Android
+linktitle: Sổ làm việc biểu đồ
 type: docs
 weight: 70
 url: /vi/androidjava/chart-workbook/
@@ -11,25 +11,28 @@ keywords:
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- sổ làm việc ngoại
-- dữ liệu ngoại
+- workbook bên ngoài
+- dữ liệu bên ngoài
+- bộ nhớ đệm biểu đồ
+- phục hồi sổ làm việc
 - PowerPoint
 - bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho Android qua Java: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho Android bằng Java: dễ dàng quản lý sổ làm việc biểu đồ trong định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình chiếu của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua các luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet và chỉ định kiểu nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng đề cập đến việc làm việc với sổ làm việc ngoại như là nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc ngoại, lấy đường dẫn của sổ làm việc ngoại được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
+Cũng đề cập đến việc làm việc với sổ làm việc bên ngoài như nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc khả dụng.
 
 ## **Đọc và Ghi Dữ liệu Biểu đồ từ Sổ làm việc**
-Aspose.Slides cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) cho phép bạn đọc và ghi các sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự như nguồn.
 
-Đoạn mã Java này minh họa một thao tác mẫu:
+Aspose.Slides cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Note** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự như nguồn.
+
+Mã Java này minh họa một thao tác mẫu:
 
 ```java
 Presentation pres = new Presentation("chart.pptx");
@@ -50,21 +53,21 @@ try {
 
 ## **Đặt Ô WorkBook làm Nhãn Dữ liệu Biểu đồ**
 
-1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation).
-1. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ Bubble với một số dữ liệu.
-1. Truy cập series của biểu đồ.
-1. Đặt ô sổ làm việc làm nhãn dữ liệu.
-1. Lưu bản trình chiếu.
+1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation) .
+2. Lấy tham chiếu của slide qua chỉ mục của nó.
+3. Thêm biểu đồ Bubble với một số dữ liệu.
+4. Truy cập series của biểu đồ.
+5. Đặt ô workbook làm nhãn dữ liệu.
+6. Lưu bản trình bày.
 
-Đoạn mã Java này cho bạn cách đặt ô sổ làm việc làm nhãn dữ liệu biểu đồ:
+Mã Java này cho bạn cách đặt ô workbook làm nhãn dữ liệu biểu đồ:
 
 ```java
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Tạo một đối tượng lớp Presentation đại diện cho một tệp bản trình chiếu
+// Khởi tạo một lớp trình chiếu đại diện cho tệp trình chiếu
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -86,9 +89,9 @@ try {
 }
 ```
 
-## **Quản lý Worksheet**
+## **Quản lý Worksheets**
 
-Đoạn mã Java này minh họa một thao tác trong đó phương thức [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) được sử dụng để truy cập bộ sưu tập worksheet:
+Mã Java này minh họa một thao tác trong đó phương thức [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) được sử dụng để truy cập bộ sưu tập worksheet:
 
 ```java
 Presentation pres = new Presentation();
@@ -102,9 +105,9 @@ try {
 }
 ```
 
-## **Xác định Kiểu Nguồn Dữ liệu**
+## **Chỉ định Loại Nguồn Dữ liệu**
 
-Đoạn mã Java này cho bạn cách chỉ định một kiểu cho nguồn dữ liệu:
+Mã Java này cho bạn cách chỉ định loại cho nguồn dữ liệu:
 
 ```java
 Presentation pres = new Presentation();
@@ -124,9 +127,9 @@ try {
 }
 ```
 
-## **Phát hiện Định dạng Sổ làm việc Nhúng Không được Hỗ trợ**
+## **Phát hiện Định dạng Workbook Nhúng không được Hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sổ làm việc nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [IChartData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/WorkbookType) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
+Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [IChartData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData) kết hợp với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/WorkbookType) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -145,22 +148,22 @@ try {
             continue;
         }
 
-        // Đọc hoặc chỉnh sửa dữ liệu sổ làm việc biểu đồ tại đây.
+        // Đọc hoặc chỉnh sửa dữ liệu workbook của biểu đồ tại đây.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Sổ làm việc Ngoại**
+## **Workbook Bên Ngoài**
 
-Aspose.Slides hỗ trợ sổ làm việc ngoại làm nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ workbook bên ngoài như nguồn dữ liệu cho biểu đồ.
 
-### **Tạo Sổ làm việc Ngoại**
+### **Tạo một Workbook Bên Ngoài**
 
-Sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWorkbook`**, bạn có thể tạo một sổ làm việc ngoại từ đầu hoặc biến một sổ làm việc nội bộ thành ngoại.
+Bằng cách sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWorkbook`**, bạn có thể tạo một workbook bên ngoài từ đầu hoặc biến một workbook nội bộ thành bên ngoài.
 
-Đoạn mã Java này minh họa quy trình tạo sổ làm việc ngoại:
+Mã Java này minh họa quy trình tạo workbook bên ngoài:
 
 ```java
 Presentation pres = new Presentation();
@@ -185,13 +188,13 @@ try {
 }
 ```
 
-### **Đặt Sổ làm việc Ngoại**
+### **Đặt một Workbook Bên Ngoài**
 
-Sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một sổ làm việc ngoại cho biểu đồ như là nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc ngoại (nếu sổ làm việc đó đã được di chuyển).
+Bằng cách sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một workbook bên ngoài cho biểu đồ như là nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đó đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu ở vị trí từ xa hoặc trong tài nguyên, bạn vẫn có thể sử dụng những sổ làm việc đó làm nguồn dữ liệu ngoại. Nếu đường dẫn tương đối cho một sổ làm việc ngoại được cung cấp, nó sẽ tự động được chuyển đổi thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu trữ ở vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng các workbook đó như nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho một workbook bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
 
-Đoạn mã Java này cho bạn cách đặt một sổ làm việc ngoại:
+Mã Java này cho bạn cách đặt một workbook bên ngoài:
 
 ```java
 // Tạo một thể hiện của lớp Presentation
@@ -217,10 +220,10 @@ try {
 }
 ```
 
-Tham số `ChartData` (trong phương thức `setExternalWorkbook`) được dùng để chỉ định liệu một sổ làm việc Excel có được tải hay không.
+Tham số `ChartData` (dưới phương thức `setExternalWorkbook`) được dùng để chỉ định liệu một workbook excel có được tải hay không.
 
-* Khi giá trị `ChartData` được đặt thành `false`, chỉ đường dẫn sổ làm việc được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ sổ làm việc đích. Bạn có thể muốn dùng cài đặt này khi sổ làm việc đích không tồn tại hoặc không khả dụng. 
-* Khi giá trị `ChartData` được đặt thành `true` , dữ liệu biểu đồ được cập nhật từ sổ làm việc đích.
+* Khi giá trị `ChartData` được đặt thành `false`, chỉ đường dẫn workbook được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ workbook mục tiêu. Bạn có thể muốn sử dụng cài đặt này khi workbook mục tiêu không tồn tại hoặc không khả dụng. 
+* Khi giá trị `ChartData` được đặt thành `true`, dữ liệu biểu đồ sẽ được cập nhật từ workbook mục tiêu.
 
 ```java
 // Tạo một thể hiện của lớp Presentation
@@ -237,15 +240,15 @@ try {
 }
 ```
 
-### **Lấy Đường dẫn Sổ làm việc Nguồn Dữ liệu Ngoại của Biểu đồ**
+### **Lấy Đường Dẫn Workbook Nguồn Dữ liệu Bên Ngoài của Biểu Đồ**
 
-1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation).
-1. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
-1. Tạo một đối tượng cho shape biểu đồ.
-1. Tạo một đối tượng cho kiểu nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
-1. Chỉ định điều kiện liên quan dựa trên việc kiểu nguồn giống với kiểu nguồn dữ liệu sổ làm việc ngoại.
+1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation) .
+2. Lấy tham chiếu của slide qua chỉ mục của nó.
+3. Tạo một đối tượng cho shape biểu đồ.
+4. Tạo một đối tượng cho loại nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
+5. Xác định điều kiện liên quan dựa trên việc loại nguồn giống với loại nguồn dữ liệu workbook bên ngoài.
 
-Đoạn mã Java này minh họa thao tác:
+Mã Java này minh họa thao tác:
 
 ```java
 // Tạo một thể hiện của lớp Presentation
@@ -259,8 +262,8 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
-	
-	// Lưu bản trình chiếu
+    
+    // Lưu bản trình chiếu
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -269,9 +272,9 @@ try {
 
 ### **Chỉnh sửa Dữ liệu Biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong sổ làm việc ngoại giống như cách bạn thay đổi nội dung của sổ làm việc nội bộ. Khi một sổ làm việc ngoại không thể tải, một ngoại lệ sẽ được ném ra.
+Bạn có thể chỉnh sửa dữ liệu trong các workbook bên ngoài tương tự như khi thay đổi nội dung của workbook nội bộ. Khi một workbook bên ngoài không thể tải được, một ngoại lệ sẽ được ném.
 
-Đoạn mã Java này là triển khai của quá trình đã mô tả:
+Mã Java này là một triển khai của quy trình đã mô tả:
 
 ```java
 // Tạo một thể hiện của lớp Presentation
@@ -288,28 +291,54 @@ try {
 }
 ```
 
+### **Phục hồi Workbook từ Bộ nhớ Đệm Biểu đồ**
+
+Nếu một biểu đồ sử dụng workbook bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái cấu trúc workbook biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/), cấu hình nó với [SpreadsheetOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/spreadsheetoptions/), và gọi [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) với `true` trước khi mở bản trình bày.
+
+Ví dụ Java dưới đây mở một bản trình bày mà biểu đồ tham chiếu một workbook bên ngoài không khả dụng và truy cập dữ liệu đã khôi phục thông qua [IChart.getChartData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/#getChartData--) và [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Đọc hoặc chỉnh sửa dữ liệu workbook đã khôi phục tại đây.
+} finally {
+    presentation.dispose();
+}
+```
+
+Nếu workbook bên ngoài không khả dụng và tính năng khôi phục bị tắt, Aspose.Slides sẽ ném một ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một phương án chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi được thực hiện trên workbook bên ngoài sau khi bản trình bày được cập nhật lần cuối.
+
 ## **CÂU HỎI THƯỜNG GẶP**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có được liên kết với sổ làm việc ngoại hay nhúng không?**
+**Tôi có thể xác định liệu một biểu đồ cụ thể có được liên kết với workbook bên ngoài hay được nhúng không?**
 
-Có. Một biểu đồ có một [data source type](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) và một [path to an external workbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); nếu nguồn là một sổ làm việc ngoại, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại đang được sử dụng.
+Đúng. Một biểu đồ có một [data source type](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) và một [path to an external workbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); nếu nguồn là một workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
-**Có hỗ trợ các đường dẫn tương đối đến sổ làm việc ngoại không, và chúng được lưu như thế nào?**
+**Các đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển đổi thành đường dẫn tuyệt đối. Điều này tiện lợi cho việc di động dự án; tuy nhiên, hãy lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+Đúng. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này thuận tiện cho tính di động của dự án; tuy nhiên, lưu ý rằng bản trình bày sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
 
-**Tôi có thể sử dụng sổ làm việc nằm trên các tài nguyên/chia sẻ mạng không?**
+**Tôi có thể sử dụng workbook nằm trên tài nguyên/mạng chia sẻ không?**
 
-Có, các sổ làm việc như vậy có thể được sử dụng làm nguồn dữ liệu ngoại. Tuy nhiên, việc chỉnh sửa các sổ làm việc từ xa trực tiếp từ Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Đúng, những workbook đó có thể được sử dụng như nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên file XLSX ngoại khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình bày không?**
 
-Không. Bản trình chiếu lưu một [link to the external file](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) và sử dụng nó để đọc dữ liệu. File ngoại bản thân không bị thay đổi khi bản trình chiếu được lưu.
+Không. Bản trình bày lưu một [link to the external file](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) và sử dụng nó để đọc dữ liệu. Tệp bên ngoài không bị thay đổi khi bản trình bày được lưu.
 
-**Nếu file ngoại được bảo mật bằng mật khẩu thì tôi nên làm gì?**
+**Tôi nên làm gì nếu tệp bên ngoài được bảo vệ bằng mật khẩu?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường gặp là gỡ bỏ bảo mật trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/androidjava/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là gỡ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/androidjava/)) và liên kết tới bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một sổ làm việc ngoại không?**
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.
+Đúng. Mỗi biểu đồ lưu liên kết riêng của nó. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ lần tiếp theo dữ liệu được tải.
