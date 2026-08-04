@@ -54,7 +54,10 @@ workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 
 // Step - 3: Get the image of the chart with Aspose.Cells.
 // -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
+MemoryStream chartImageStream = new MemoryStream();
+workbook.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap chartImage = new Bitmap(chartImageStream);
 // Save the workbook to a stream.
 MemoryStream workbookStream = workbook.SaveToStream();
 

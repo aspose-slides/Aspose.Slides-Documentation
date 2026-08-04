@@ -221,7 +221,7 @@ using (Workbook book = new Workbook("chart.xlsx"))
     ImageOrPrintOptions options = new ImageOrPrintOptions();
     options.HorizontalResolution = 200;
     options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
 
     //Save the workbook to stream
     SheetRender sr = new SheetRender(sheet, options);

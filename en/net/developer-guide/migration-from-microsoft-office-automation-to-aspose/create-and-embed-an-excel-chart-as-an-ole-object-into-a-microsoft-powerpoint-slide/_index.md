@@ -308,7 +308,10 @@ int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Step - 3: Get the image of the chart with Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
 //Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
 //Step - 4  AND 5

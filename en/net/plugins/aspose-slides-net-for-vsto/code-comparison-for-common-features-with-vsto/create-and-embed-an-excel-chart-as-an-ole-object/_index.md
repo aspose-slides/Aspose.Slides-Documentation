@@ -412,6 +412,7 @@ Using Aspose.Slides for .NET, the following steps are performed:
 1. Write the output presentation to disk in PPTX format.
 
 ``` csharp
+using System.IO;
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.DOM.Ole;
@@ -424,7 +425,7 @@ using Aspose.Slides.Export;
 
 	//Create a workbook
 
-	Workbook wb = new Workbook();
+	Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
 
 	//Add an excel chart
 
@@ -432,7 +433,11 @@ using Aspose.Slides.Export;
 
 	wb.Worksheets.SetOleSize(0, 5, 0, 5);
 
-	Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
+	MemoryStream chartStream = new MemoryStream();
+
+	wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartStream, Aspose.Cells.Drawing.ImageType.Png);
+
+	Bitmap imgChart = new Bitmap(chartStream);
 
 	//Save the workbook to stream
 
@@ -458,7 +463,7 @@ using Aspose.Slides.Export;
 
 }
 
-static int AddExcelChartInWorkbook(Workbook wb)
+static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb)
 
 {
 
@@ -466,7 +471,7 @@ static int AddExcelChartInWorkbook(Workbook wb)
 
 	int dataSheetIdx = wb.Worksheets.Add();
 
-	Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
+	Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
 
 	string sheetName = "DataSheet";
 
@@ -524,9 +529,9 @@ static int AddExcelChartInWorkbook(Workbook wb)
 
 	//Add a chart sheet
 
-	int chartSheetIdx = wb.Worksheets.Add(SheetType.Chart);
+	int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
 
-	Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
+	Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
 
 	chartSheet.Name = "ChartSheet";
 
@@ -588,7 +593,7 @@ private static void AddExcelChartInPresentation(IPresentation pres, ISlide sld, 
 
 	wbStream.Read(chartOleData, 0, chartOleData.Length);
 
-	IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xlsx");
+	IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
 
 	IOleObjectFrame oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, dataInfo);
 
