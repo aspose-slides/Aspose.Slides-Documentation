@@ -1,5 +1,5 @@
 ---
-title: Jelszóval védett prezentációk .NET-ben
+title: Biztonságos prezentációk jelszóval a .NET-ben
 linktitle: Jelszóvédelem
 type: docs
 weight: 20
@@ -19,7 +19,7 @@ keywords:
 - prezentáció visszafejtése
 - írásvédelem
 - PowerPoint biztonság
-- prezentáció biztonsága
+- prezentáció biztonság
 - jelszó eltávolítása
 - védelem eltávolítása
 - titkosítás eltávolítása
@@ -32,33 +32,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet egyszerűen zárolni és feloldani jelszóval védett PowerPoint és OpenDocument prezentációkat az Aspose.Slides for .NET segítségével. Biztonságossá teheti prezentációit."
+description: "Ismerje meg, hogyan zárhatja és oldhatja fel egyszerűen a jelszóval védett PowerPoint és OpenDocument prezentációkat az Aspose.Slides for .NET segítségével. Biztosítsa prezentációi biztonságát."
 ---
 ## **Bevezetés**
 
-Amikor jelszóval véd egy prezentációt, azt jelenti, hogy egy jelszót állít be, amely bizonyos korlátozásokat érvényesít a prezentáción. A korlátozások eltávolításához a jelszót be kell írni. A jelszóval védett prezentációt zárolt prezentációnak tekintik.
+Amikor jelszóval védett prezentációt hoz létre, egy jelszót állít be, amely bizonyos korlátozásokat érvényesít a prezentáción. A korlátozások eltávolításához meg kell adni a jelszót. A jelszóval védett prezentáció zárolt prezentációnak tekinthető.
 
-Általában beállíthat jelszót a prezentáción ezen korlátozások érvényesítéséhez:
+Általában beállíthat egy jelszót, amely ezeket a korlátozásokat érvényesíti a prezentáción:
 
 - **Módosítás**
 
-  Ha csak bizonyos felhasználók számára szeretné engedélyezni a prezentáció módosítását, beállíthat módosítási korlátozást. Ez a korlátozás megakadályozza, hogy az emberek módosítsák, változtassák vagy másolják a prezentáció elemeit, hacsak nem adják meg a jelszót.  
+Ha csak bizonyos felhasználóknak szeretné engedélyezni a prezentáció módosítását, beállíthat egy módosítási korlátozást. Ez a korlátozás megakadályozza, hogy a felhasználók módosítsák, változtassák vagy másolják a prezentáció elemeit, hacsak nem adják meg a jelszót.
 
-  Azonban jelszó nélkül is a felhasználó képes lesz hozzáférni és megnyitni a dokumentumot. Ebben az írásvédett módban a felhasználó megtekintheti a tartalmat – beleértve a hiperhivatkozásokat, animációkat, effektusokat és egyéb elemeket – a prezentációban, de nem másolhat elemeket vagy mentheti a prezentációt.
+Azonban jelszó nélkül a felhasználó továbbra is hozzáférhet a dokumentumhoz és megnyithatja azt. Olvasás‑csak mód esetén a felhasználó megtekintheti a tartalmat – beleértve a hiperhivatkozásokat, animációkat, effektusokat és egyéb elemeket – a prezentációban, de nem másolhat elemeket vagy mentheti a prezentációt.
 
 - **Megnyitás**
 
-  Ha csak bizonyos felhasználók számára szeretné engedélyezni a prezentáció megnyitását, beállíthat megnyitási korlátozást. Ez a korlátozás megakadályozza, hogy az emberek még csak a prezentáció tartalmát is megtekintsék, hacsak nem adják meg a jelszót.  
+Ha csak bizonyos felhasználóknak szeretné engedélyezni a prezentáció megnyitását, beállíthat egy megnyitási korlátozást. Ez a korlátozás megakadályozza, hogy a felhasználók még csak a prezentáció tartalmát sem lássák, hacsak nem adják meg a jelszót.
 
-  Technikailag a megnyitási korlátozás ugyanúgy megakadályozza a felhasználókat a prezentációk módosításában – ha valaki nem nyithat meg egy prezentációt, akkor nem is módosíthatja vagy változtathat rajta.
+Technikailag a megnyitási korlátozás szintén megakadályozza a felhasználókat a prezentációk módosításában – ha valaki nem tudja megnyitni a prezentációt, nem tudja azt módosítani vagy változtatni.
 
-**Megjegyzés:** Amikor jelszóval védi a prezentációt a megnyitás megakadályozására, a prezentációfájl titkosítva lesz.
+**Megjegyzés:** Amikor jelszóval véd egy prezentációt a megnyitás megakadályozására, a prezentációfájl titkosítottá válik.
 
-## **Jelszóvédelem az Aspose.Slides-ban**
+## **Jelszóvédelem az Aspose.Slides‑ban**
 
 **Támogatott formátumok**
 
-Aspose.Slides a következő formátumokban támogatja a jelszóvédelmet, titkosítást és hasonló műveleteket:
+Az Aspose.Slides jelszóvédelem, titkosítás és hasonló műveletek támogatását nyújtja a következő formátumú prezentációk esetén:
 
 - PPTX és PPT – Microsoft PowerPoint prezentációk
 - ODP – OpenDocument prezentációk
@@ -66,30 +66,30 @@ Aspose.Slides a következő formátumokban támogatja a jelszóvédelmet, titkos
 
 **Támogatott műveletek**
 
-Aspose.Slides lehetővé teszi, hogy jelszóvédelemmel lássa el a prezentációkat a módosítások megakadályozása érdekében a következő módon:
+Az Aspose.Slides lehetővé teszi, hogy a prezentációkon jelszóvédelmet alkalmazzon a módosítások megakadályozása érdekében a következő módokon:
 
 - Prezentáció titkosítása
-- Írásvédettség beállítása egy prezentáción
+- Írásvédelem beállítása a prezentáción
 
 **Egyéb műveletek**
 
-Aspose.Slides további feladatok elvégzését teszi lehetővé a jelszóvédelem és titkosítás terén a következő módon:
+Az Aspose.Slides további feladatok végrehajtását is lehetővé teszi a jelszóvédelem és titkosítás tekintetében a következő módokon:
 
-- Prezentáció visszafejtése; titkosított prezentáció megnyitása
+- Prezentáció dekódolása; titkosított prezentáció megnyitása
 - Titkosítás eltávolítása; jelszóvédelem letiltása
 - Írásvédelem eltávolítása egy prezentációról
-- Titkosított prezentáció tulajdonságainak lekérése
-- Annak ellenőrzése, hogy a prezentáció jelszóval védett-e betöltés előtt
-- Annak ellenőrzése, hogy a prezentáció titkosított-e
-- Annak ellenőrzése, hogy a prezentáció jelszóval védett-e
+- Titkosított prezentáció tulajdonságainak lekérdezése
+- Annak ellenőrzése, hogy egy prezentáció jelszóval van‑e védve a betöltés előtt
+- Annak ellenőrzése, hogy egy prezentáció titkosított‑e
+- Annak ellenőrzése, hogy egy prezentáció jelszóval van‑e védve
 
 ## **Prezentáció védelme jelszóval**
 
-Titkosíthat egy prezentációt jelszó beállításával. Ezután a zárolt prezentáció módosításához a felhasználónak meg kell adnia a jelszót.
+Egy prezentációt a jelszó beállításával titkosíthat. Ezután a zárolt prezentáció módosításához a felhasználónak meg kell adnia a jelszót.
 
-A prezentáció titkosításához (vagy jelszóval való védelméhez) használja a `Encrypt` metódust a [ProtectionManager](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager)‑ből. Adja át a jelszót a `Encrypt` metódusnak, majd használja a `Save` metódust a most titkosított prezentáció mentéséhez.
+A prezentáció titkosításához (vagy jelszóval való védelméhez) használja a `Encrypt` metódust a [ProtectionManager](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager)‑ból. Adja át a jelszót az `Encrypt` metódusnak, majd a `Save` metódussal mentse a most titkosított prezentációt.
 
-Ez a példakód megmutatja, hogyan titkosíthat egy prezentációt:
+Ez a mintakód bemutatja, hogyan titkosíthat egy prezentációt:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -99,13 +99,13 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Írásvédelem beállítása egy prezentáción**
+## **Írásvédelem beállítása egy prezentációhoz** 
 
-Hozzáadhat egy „Ne módosítsa” feliratot a prezentációhoz. Ez azt tájékoztatja a felhasználókat, hogy nem kívánja, hogy módosítsák a prezentációt.
+Hozzáadhat egy „Ne módosítsa” feliratot a prezentációhoz. Ez jelzi a felhasználóknak, hogy nem kívánja, hogy módosítsák a prezentációt.
 
-**Megjegyzés:** Az írásvédelmi folyamat nem titkosítja a prezentációt. Ezért a felhasználók – ha úgy akarják – módosíthatják a prezentációt, de a módosítások mentéséhez másik név alatt kell elmenteniük.
+**Megjegyzés:** Az írásvédelem folyamata nem titkosítja a prezentációt. Ezért a felhasználók – ha akarják – módosíthatják a prezentációt, de a változtatások mentéséhez másik néven kell menteniük.
 
-Az írásvédelem beállításához használja a `SetWriteProtection` metódust. Ez a példakód megmutatja, hogyan állíthat be írásvédelmet egy prezentáción:
+Az írásvédelem beállításához használja a `SetWriteProtection` metódust. Ez a mintakód bemutatja, hogyan állíthat be írásvédelmet egy prezentáción:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -117,7 +117,7 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 
 ## **Titkosított prezentáció betöltése**
 
-Az Aspose.Slides lehetővé teszi egy titkosított prezentáció betöltését a helyes jelszó megadásával. Ez a példakód megmutatja, hogyan tölthet be egy titkosított prezentációt:
+Az Aspose.Slides lehetővé teszi egy titkosított prezentáció betöltését a megfelelő jelszó megadásával. Ez a mintakód megmutatja, hogyan tölthet be egy titkosított prezentációt:
 
 ```c#
 LoadOptions loadOptions = new LoadOptions { Password = "123123" };
@@ -127,11 +127,11 @@ using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
 }
 ```
 
-## **Titkosítás eltávolítása egy prezentációról**
+## **Titkosítás eltávolítása egy prezentációból**
 
-Eltávolíthatja a titkosítást vagy a jelszóvédelmet egy prezentációról, így a felhasználók korlátozások nélkül hozzáférhetnek vagy módosíthatják azt.
+Eltávolíthatja a titkosítást vagy a jelszóvédelmet egy prezentációról, így a felhasználók korlátozások nélkül férhetnek hozzá vagy módosíthatják azt.
 
-A titkosítás vagy jelszóvédelem eltávolításához hívja a [RemoveEncryption](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/methods/removeencryption) metódust. Ez a példakód megmutatja, hogyan távolíthatja el a titkosítást egy prezentációról:
+A titkosítás vagy jelszóvédelem eltávolításához hívja meg a [RemoveEncryption](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/methods/removeencryption) metódust. Ez a mintakód bemutatja, hogyan távolíthatja el a titkosítást egy prezentációról:
 
 ```c#
 LoadOptions loadOptions = new LoadOptions { Password = "123123" };
@@ -142,11 +142,11 @@ using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
 }
 ```
 
-## **Írásvédelem eltávolítása egy prezentációról**
+## **Írásvédelem eltávolítása egy prezentációból**
 
-Az Aspose.Slides segítségével eltávolíthatja a írásvédelmet egy prezentációfájlról. Így a felhasználók kedvelésük szerint módosíthatják azt – és nem kapnak figyelmeztetést az ilyen feladatok végrehajtásakor.
+Az Aspose.Slides segítségével eltávolíthatja az írásvédelmet egy prezentációs fájlból. Így a felhasználók szabadon módosíthatják azt, és nem kapnak figyelmeztetést az ilyen műveletek során.
 
-Az írásvédelmet a [RemoveWriteProtection](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/methods/removewriteprotection) metódus használatával távolíthatja el. Ez a példakód megmutatja, hogyan távolíthatja el az írásvédelmet egy prezentációról:
+Az írásvédelmet a [RemoveWriteProtection](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/methods/removewriteprotection) metódus használatával távolíthatja el. Ez a mintakód bemutatja, hogyan távolíthatja el az írásvédelmet egy prezentációról:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -156,38 +156,71 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Titkosított prezentáció tulajdonságainak lekérése**
+## **Titkosított prezentáció tulajdonságainak lekérdezése**
 
-Általában a felhasználók nehezen tudják lekérdezni egy titkosított vagy jelszóval védett prezentáció dokumentumtulajdonságait. Az Aspose.Slides azonban olyan mechanizmust kínál, amely lehetővé teszi a prezentáció jelszóval való védelmét, miközben a felhasználók továbbra is hozzáférhetnek annak tulajdonságaihoz.
+Általában a felhasználók nehezen tudják lekérni egy titkosított vagy jelszóval védett prezentáció dokumentumtulajdonságait. Az Aspose.Slides azonban olyan mechanizmust biztosít, amely lehetővé teszi a prezentáció jelszóval való védelmét, miközben a felhasználók továbbra is hozzáférhetnek a tulajdonságaihoz.
 
-**Megjegyzés:** Alapértelmezés szerint, amikor az Aspose.Slides titkosít egy prezentációt, a prezentáció dokumentumtulajdonságai is jelszóval védettek lesznek. Ha a dokumentumtulajdonságok elérhetősége a titkosítás után is szükséges, az Aspose.Slides lehetővé teszi ezt.
+**Megjegyzés:** Alapértelmezés szerint, amikor az Aspose.Slides titkosít egy prezentációt, a prezentáció dokumentumtulajdonságai is jelszóval védettek. Ha a dokumentumtulajdonságok titkosítás után is elérhetőek legyenek, az Aspose.Slides lehetővé teszi ezt.
 
-Ha azt szeretné, hogy a felhasználók a titkosított prezentáció tulajdonságaihoz is hozzáférhessenek, beállíthatja a [EncryptDocumentProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) tulajdonságot `true`‑ra. Ez a példakód megmutatja, hogyan titkosíthat egy prezentációt, miközben a felhasználók továbbra is hozzáférhetnek a dokumentumtulajdonságaihoz:
+Ha azt szeretné, hogy a felhasználók hozzáférjenek egy titkosított prezentáció tulajdonságaihoz, állítsa a [IProtectionManager](https://reference.aspose.com/slides/hu/net/aspose.slides/iprotectionmanager/) `EncryptDocumentProperties` tulajdonságát `false`‑ra. Ez a mintakód bemutatja, hogyan titkosíthat egy prezentációt, miközben a felhasználók hozzáférnek a dokumentumtulajdonságaihoz:
 
 ```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+using var presentation = new Presentation("pres.pptx");
+
+presentation.ProtectionManager.EncryptDocumentProperties = false;
+presentation.ProtectionManager.Encrypt("123123");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+```
+
+## **Csak a dokumentumtulajdonságok betöltése titkosított prezentációból**
+
+A titkosított prezentáció metaadatainak ellenőrzéséhez, anélkül hogy a diák vagy egyéb tartalom betöltődne, hozza létre a [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/) objektumot, és állítsa az [OnlyLoadDocumentProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) értékét `true`‑ra. Ebben a módban az Aspose.Slides figyelmen kívül hagyja a jelszót, és csak a nyilvánosan elérhető dokumentumtulajdonságokat tölti be.
+
+Az alábbi kódrészlet a beépített és egyéni dokumentumtulajdonságokat olvassa a [IPresentation.DocumentProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentation/documentproperties/) segítségével:
+
+```c#
+var loadOptions = new LoadOptions
 {
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
+    OnlyLoadDocumentProperties = true
+};
+
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+var documentProperties = presentation.DocumentProperties;
+
+// Read built-in document properties.
+Console.WriteLine("Title: " + documentProperties.Title);
+Console.WriteLine("Author: " + documentProperties.Author);
+
+// Read custom document properties.
+var customPropertyCount = documentProperties.CountOfCustomProperties;
+
+for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+{
+    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
+    var propertyValue = documentProperties[propertyName];
+
+    Console.WriteLine(propertyName + ": " + propertyValue);
 }
 ```
 
-## **Ellenőrzés, hogy a prezentáció jelszóval védett-e**
+Ez a munkafolyamat csak akkor működik, ha a dokumentumtulajdonságok a prezentáció titkosításakor nyilvánosak (nem titkosítottak) maradtak. Ha a dokumentumtulajdonságok titkosítottak, az `OnlyLoadDocumentProperties` `true`‑ra állítása kivételt eredményez, mivel ebben a módban a jelszó figyelmen kívül marad. Titkosított dokumentumtulajdonságok eléréséhez vagy a teljes prezentáció betöltéséhez, beleértve a diákat és egyéb tartalmakat, adja meg a megfelelő `Password` értéket a [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/)‑ban.
 
-Mielőtt betöltene egy prezentációt, érdemes ellenőrizni, hogy nem lett-e jelszóval védve. Ez segít elkerülni a hibákat és hasonló problémákat, amelyek akkor fordulnak elő, amikor egy jelszóval védett prezentációt a megfelelő jelszó nélkül próbálják betölteni.
+## **Annak ellenőrzése, hogy egy prezentáció jelszóval védett‑e**
 
-Ez a C# kód megmutatja, hogyan vizsgálhatja meg egy prezentációt, hogy jelszóval védett-e anélkül, hogy ténylegesen betöltené:
+Mielőtt betöltene egy prezentációt, ellenőrizheti, hogy az nincs‑e jelszóval védve. Ez segít elkerülni a hibákat és hasonló problémákat, amelyek akkor fordulnak elő, amikor egy jelszóval védett prezentációt helytelen jelszó nélkül próbálnak betölteni.
+
+Ez a C# kód bemutatja, hogyan vizsgálhat meg egy prezentációt, hogy jelszóval védett‑e anélkül, hogy ténylegesen betöltené azt:
 
 ```c#
 var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
 Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
 ```
 
-## **Ellenőrzés, hogy a prezentáció titkosított-e**
+## **Annak ellenőrzése, hogy egy prezentáció titkosított‑e**
 
-Az Aspose.Slides lehetővé teszi, hogy ellenőrizze, titkosított-e egy prezentáció. Ehhez használhatja az [IsEncrypted](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/properties/isencrypted) tulajdonságot, amely `true`‑t ad vissza, ha a prezentáció titkosított, vagy `false`‑t, ha nem.
+Az Aspose.Slides lehetővé teszi annak ellenőrzését, hogy egy prezentáció titkosított‑e. Ehhez használja az [IsEncrypted](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/properties/isencrypted) tulajdonságot, amely `true`‑t ad vissza, ha a prezentáció titkosított, vagy `false`‑t, ha nem az.
 
-Ez a példakód megmutatja, hogyan ellenőrizheti, hogy egy prezentáció titkosított-e:
+Ez a mintakód szemlélteti, hogyan ellenőrizhető, hogy egy prezentáció titkosított‑e:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -196,11 +229,11 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Ellenőrzés, hogy a prezentáció írásvédett-e**
+## **Annak ellenőrzése, hogy egy prezentáció írásvédett‑e**
 
-Az Aspose.Slides lehetővé teszi, hogy ellenőrizze, írásvédett-e egy prezentáció. Ehhez használhatja az [IsWriteProtected](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/properties/iswriteprotected) tulajdonságot, amely `true`‑t ad vissza, ha a prezentáció írásvédett, vagy `false`‑t, ha nem.
+Az Aspose.Slides lehetővé teszi annak ellenőrzését, hogy egy prezentáció írásvédett‑e. Ehhez használja az [IsWriteProtected](https://reference.aspose.com/slides/hu/net/aspose.slides/protectionmanager/properties/iswriteprotected) tulajdonságot, amely `true`‑t ad vissza, ha a prezentáció írásvédett, vagy `false`‑t, ha nem az.
 
-Ez a példakód megmutatja, hogyan ellenőrizhető, hogy egy prezentáció írásvédett-e:
+Ez a mintakód bemutatja, hogyan ellenőrizhető, hogy egy prezentáció írásvédett‑e:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -209,11 +242,11 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Prezentáció jelszó használatának ellenőrzése**
+## **Prezentációs jelszó használatának ellenőrzése**
 
-Lehet, hogy ellenőrizni és megerősíteni szeretné, hogy egy adott jelszót használtak a prezentáció dokumentum védelmére. Az Aspose.Slides biztosítja a lehetőséget a jelszó érvényesítésére.
+Lehet, hogy ellenőrizni és megerősíteni szeretné, hogy egy adott jelszót használtak-e a prezentáció védelmére. Az Aspose.Slides biztosítja a jelszó ellenőrzésének módját.
 
-Ez a példakód megmutatja, hogyan validálhat egy jelszót:
+Ez a mintakód bemutatja, hogyan validálhat egy jelszót:
 
 ```c#
 using (IPresentation presentation = new Presentation("pres.pptx"))
@@ -226,31 +259,31 @@ using (IPresentation presentation = new Presentation("pres.pptx"))
 `true`‑t ad vissza, ha a prezentációt a megadott jelszóval titkosították; egyébként `false`‑t.
 
 {{% alert color="primary" title="Lásd még" %}} 
-- [Digitális aláírás PowerPointban](/slides/hu/net/digital-signature-in-powerpoint/)
+- [Digital Signature in PowerPoint](/slides/hu/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Prezentáció online jelszóvédelem**
+## **Prezentáció jelszóval való védése online**
 
-1. Nyissa meg a [**Aspose.Slides Lock**](https://products.aspose.app/slides/hu/lock) oldalunkat. 
-2. Kattintson a **Drop or upload your files** gombra.
-3. Válassza ki a jelszóval védeni kívánt fájlt a számítógépén. 
-4. Adja meg a kívánt jelszót a szerkesztési védelemhez és a kívánt jelszót a megtekintési védelemhez.
-5. Ha azt szeretné, hogy a felhasználók a prezentációt végleges példányként lássák, jelölje be a **Mark as final** jelölőnégyzetet.
-6. Kattintson a **PROTECT NOW.** gombra.
-7. Kattintson a **DOWNLOAD NOW.** gombra.
+1. Látogassa meg a **Aspose.Slides Lock** oldalunkat: [**Aspose.Slides Lock**](https://products.aspose.app/slides/hu/lock)  
+1. Kattintson a **Drop or upload your files** gombra.  
+1. Válassza ki a jelszóval védeni kívánt fájlt a számítógépén.  
+1. Adja meg a kívánt jelszót a szerkesztési védelemhez, valamint a megtekintési védelemhez.  
+1. Ha azt szeretné, hogy a felhasználók a prezentációt végleges példányként lássák, jelölje be a **Mark as final** jelölőnégyzetet.  
+1. Kattintson a **PROTECT NOW.** gombra.  
+1. Kattintson a **DOWNLOAD NOW.** gombra.
 
-![Jelszóvédelem PowerPoint prezentációk](slides-lock.png)
+![Password protect PowerPoint presentations](slides-lock.png)
 
 ## **GYIK**
 
 **Milyen titkosítási módszereket támogat az Aspose.Slides?**
 
-Az Aspose.Slides modern titkosítási módszereket támogat, beleértve az AES-alapú algoritmusokat, amelyek magas szintű adatbiztonságot biztosítanak a prezentációk számára.
+Az Aspose.Slides modern titkosítási módszereket támogat, beleértve az AES‑alapú algoritmusokat is, amelyek magas szintű adatbiztonságot biztosítanak a prezentációk számára.
 
 **Mi történik, ha hibás jelszót adnak meg a prezentáció megnyitásakor?**
 
-Kivétel keletkezik, ha hibás jelszót használnak, jelezve, hogy a prezentációhoz való hozzáférés megtagadva. Ez segít elkerülni a jogosulatlan hozzáférést és megvédi a prezentáció tartalmát.
+Hibás jelszó esetén kivétel keletkezik, jelezve, hogy a hozzáférés megtagadva. Ez segít megakadályozni az illetéktelen hozzáférést és védi a prezentáció tartalmát.
 
-**Vannak-e teljesítménybeli hatások a jelszóval védett prezentációk használatakor?**
+**Vannak‑e teljesítménybeli hatások a jelszóval védett prezentációk használatakor?**
 
-A titkosítási és visszafejtési folyamat kisebb terhelést okozhat a megnyitási és mentési műveletek során. A legtöbb esetben ez a teljesítményhatás minimális, és nem befolyásolja jelentősen a prezentációfeladatok teljes végrehajtási idejét.
+A titkosítási és dekódolási folyamat enyhe teljesítményterhelést okozhat a megnyitás és mentés során. A legtöbb esetben ez a hatás minimális, és nem befolyásolja jelentősen a prezentációfeldolgozási feladatok általános időtartamát.

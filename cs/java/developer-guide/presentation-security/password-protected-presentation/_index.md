@@ -1,25 +1,25 @@
 ---
-title: Zabezpečení prezentací hesly v Javě
+title: Zabezpečené prezentace pomocí hesel v Javě
 linktitle: Ochrana heslem
 type: docs
 weight: 20
 url: /cs/java/password-protected-presentation/
 keywords:
-- zamknout PowerPoint
-- zamknout prezentaci
+- uzamknout PowerPoint
+- uzamknout prezentaci
 - odemknout PowerPoint
 - odemknout prezentaci
 - chránit PowerPoint
 - chránit prezentaci
 - nastavit heslo
 - přidat heslo
-- zašifrovat PowerPoint
-- zašifrovat prezentaci
+- šifrovat PowerPoint
+- šifrovat prezentaci
 - dešifrovat PowerPoint
 - dešifrovat prezentaci
 - ochrana proti zápisu
-- zabezpečení PowerPoint
-- zabezpečení prezentace
+- bezpečnost PowerPoint
+- bezpečnost prezentace
 - odstranit heslo
 - odstranit ochranu
 - odstranit šifrování
@@ -31,32 +31,30 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Zjistěte, jak snadno zamknout a odemknout prezentace PowerPoint a OpenDocument chráněné heslem pomocí Aspose.Slides pro Javu. Zabezpečte své prezentace."
+description: "Zjistěte, jak snadno zamknout a odemknout heslem chráněné prezentace PowerPoint a OpenDocument pomocí Aspose.Slides pro Java. Zabezpečte své prezentace."
 ---
 ## **Úvod**
 
-Když prezentaci chráníte heslem, nastavujete heslo, které vynucuje určitá omezení na prezentaci. Pro odebrání těchto omezení je nutné zadat heslo. Prezentace chráněná heslem se považuje za uzamčenou prezentaci.
+Když prezentaci chráníte heslem, nastavujete heslo, které uplatňuje určitá omezení na prezentaci. Pro odstranění těchto omezení je nutné zadat heslo. Prezentace chráněná heslem se považuje za zamčenou prezentaci.
 
-Obvykle můžete nastavit heslo, aby vynutilo tato omezení na prezentaci:
+Obvykle můžete nastavit heslo, které vynutí tato omezení na prezentaci:
 
 - **Úprava**
 
-Pokud chcete, aby pouze určití uživatelé mohli upravovat vaši prezentaci, můžete nastavit omezení úpravy. Toto omezení zabraňuje lidem upravovat, měnit nebo kopírovat prvky ve vaší prezentaci, pokud neposkytnou heslo.
-
-Nicméně i bez hesla bude uživatel stále moci získat přístup k dokumentu a otevřít jej. V tomto režimu jen pro čtení může uživatel zobrazit obsah – včetně hypertextových odkazů, animací, efektů a dalších prvků – v prezentaci, ale nemůže kopírovat položky ani uložit prezentaci.
+Pokud chcete, aby pouze určití uživatelé mohli upravovat vaši prezentaci, můžete nastavit omezení úpravy. Toto omezení zabraňuje lidem upravovat, měnit nebo kopírovat prvky ve vaší prezentaci, pokud neposkytnou heslo.  
+Nicméně i bez hesla bude uživatel stále schopen přistupovat k vašemu dokumentu a otevřít jej. V tomto režimu jen pro čtení může uživatel zobrazit obsah — včetně hypertextových odkazů, animací, efektů a dalších prvků — ve vaší prezentaci, ale nemůže kopírovat položky ani prezentaci uložit.
 
 - **Otevření**
 
-Pokud chcete, aby pouze určití uživatelé mohli otevřít vaši prezentaci, můžete nastavit omezení otevření. Toto omezení zabraňuje lidem vůbec prohlížet obsah vaší prezentace, pokud neposkytnou heslo.
+Pokud chcete, aby pouze určití uživatelé mohli otevřít vaši prezentaci, můžete nastavit omezení otevření. Toto omezení zabraňuje lidem vůbec zobrazit obsah vaší prezentace, pokud neposkytnou heslo.  
+Technicky toto omezení otevření také zabraňuje uživatelům upravovat vaše prezentace — pokud lidé nemohou otevřít prezentaci, nemohou ji upravovat ani provádět změny.
 
-Technicky omezení otevření také zabraňuje uživatelům upravovat vaše prezentace – pokud lidé nemohou prezentaci otevřít, nemohou ji upravovat ani provádět změny.
-
-**Poznámka:** Když prezentaci chráníte heslem tak, aby se zabránilo jejímu otevření, soubor prezentace se zašifruje.
+**Poznámka:** Když chráníte prezentaci heslem, aby se zabránilo jejímu otevření, soubor prezentace se šifruje.
 
 ## **Ochrana heslem v Aspose.Slides**
 **Podporované formáty**
 
-Aspose.Slides podporuje ochranu heslem, šifrování a podobné operace pro prezentace v těchto formátech:
+Aspose.Slides podporuje ochranu heslem, šifrování a podobné operace pro prezentace v následujících formátech:
 
 - PPTX a PPT – Microsoft PowerPoint Presentation
 - ODP – OpenDocument Presentation
@@ -64,27 +62,27 @@ Aspose.Slides podporuje ochranu heslem, šifrování a podobné operace pro prez
 
 **Podporované operace**
 
-Aspose.Slides vám umožňuje použít ochranu heslem na prezentacích k zabránění úprav následujícími způsoby:
+Aspose.Slides vám umožňuje použít ochranu heslem na prezentacích, aby se zabránilo úpravám následujícími způsoby:
 
 - Šifrování prezentace
-- Nastavení ochrany proti zápisu (write protection) pro prezentaci
+- Nastavení ochrany proti zápisu pro prezentaci
 
 **Další operace**
 
 Aspose.Slides vám umožňuje provádět další úkoly související s ochranou heslem a šifrováním následujícími způsoby:
 
-- Dešifrování prezentace; otevření zašifrované prezentace
+- Dešifrování prezentace; otevření šifrované prezentace
 - Odstranění šifrování; deaktivace ochrany heslem
-- Odstranění ochrany proti zápisu z prezentace
-- Získání vlastností zašifrované prezentace
-- Kontrola, zda je prezentace zašifrovaná
-- Kontrola, zda je prezentace chráněná heslem.
+- Odebrání ochrany proti zápisu z prezentace
+- Získání vlastností šifrované prezentace
+- Kontrola, zda je prezentace šifrována
+- Kontrola, zda je prezentace chráněna heslem.
 
-## **Ochrana prezentace heslem**
+## **Chránit prezentaci heslem**
 
-Můžete šifrovat prezentaci nastavením hesla. Pak pro úpravu uzamčené prezentace musí uživatel zadat heslo.
+Můžete šifrovat prezentaci nastavením hesla. Pak, aby uživatel mohl upravit zamčenou prezentaci, musí zadat heslo.  
 
-Pro šifrování nebo ochranu heslem prezentace musíte použít metodu encrypt (z [IProtectionManager](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager)) k nastavení hesla pro prezentaci. Heslo předáte metodě encrypt a použijete metodu save k uložení nyní zašifrované prezentace.
+Pro šifrování nebo ochranu prezentace heslem musíte použít metodu encrypt (z [IProtectionManager](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager)), která nastaví heslo pro prezentaci. Heslo předáte metodě encrypt a použijete metodu save k uložení nyní šifrované prezentace.  
 
 Tento ukázkový kód ukazuje, jak šifrovat prezentaci:
 
@@ -98,11 +96,11 @@ try {
 }
 ```
 
-## **Nastavení ochrany proti zápisu pro prezentaci**
+## **Nastavit ochranu proti zápisu pro prezentaci**
 
-Můžete do prezentace přidat značku „Do not modify“. Tímto způsobem můžete uživatelům sdělit, že nechcete, aby prováděli změny v prezentaci.
+Můžete k prezentaci přidat značku s textem „Neupravit“. Tímto způsobem můžete uživatelům sdělit, že si nepřejete, aby prováděli změny v prezentaci.  
 
-**Poznámka:** Proces ochrany proti zápisu nešifruje prezentaci. Proto uživatelé – pokud chtějí – mohou prezentaci upravovat, ale pro uložení změn budou muset vytvořit prezentaci pod jiným názvem.
+**Poznámka** že proces ochrany proti zápisu nešifruje prezentaci. Proto uživatelé — pokud skutečně chtějí — mohou prezentaci upravit, ale pro uložení změn budou muset vytvořit prezentaci pod jiným názvem.  
 
 Pro nastavení ochrany proti zápisu musíte použít metodu [setWriteProtection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). Tento ukázkový kód ukazuje, jak nastavit ochranu proti zápisu pro prezentaci:
 
@@ -116,11 +114,11 @@ try {
 }
 ```
 
-## **Načtení zašifrované prezentace**
+## **Načíst šifrovanou prezentaci**
 
-Aspose.Slides vám umožňuje načíst zašifrovaný soubor zadáním jeho hesla. Pro dešifrování prezentace musíte zavolat metodu [removeEncryption](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#removeEncryption--) bez parametrů. Pak budete muset zadat správné heslo pro načtení prezentace.
+Aspose.Slides vám umožňuje načíst šifrovaný soubor zadáním jeho hesla. Pro dešifrování prezentace musíte zavolat metodu [removeEncryption](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#removeEncryption--) bez parametrů. Poté budete muset zadat správné heslo pro načtení prezentace.  
 
-Tento ukázkový kód ukazuje, jak dešifrovat prezentaci:
+Tento ukázkový kód ukazuje, jak dešifrovat prezentaci: 
 
 ```java
 LoadOptions loadOptions = new LoadOptions();
@@ -131,12 +129,11 @@ try {
 } finally {
     if (presentation != null) presentation.dispose();
 }
-}
 ```
 
-## **Odstranění šifrování z prezentace**
+## **Odstranit šifrování z prezentace**
 
-Můžete odstranit šifrování nebo ochranu heslem z prezentace. Tímto způsobem budou uživatelé schopni přistupovat nebo upravovat prezentaci bez omezení.
+Můžete odstranit šifrování nebo ochranu heslem z prezentace. Tímto způsobem budou uživatelé moci přistupovat k prezentaci nebo ji upravovat bez omezení.  
 
 Pro odstranění šifrování nebo ochrany heslem musíte zavolat metodu [removeEncryption](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#removeEncryption--). Tento ukázkový kód ukazuje, jak odstranit šifrování z prezentace:
 
@@ -152,9 +149,9 @@ try {
 }
 ```
 
-## **Odstranění ochrany proti zápisu z prezentace**
+## **Odstranit ochranu proti zápisu z prezentace**
 
-Můžete použít Aspose.Slides k odstranění ochrany proti zápisu použité na souboru prezentace. Tímto způsobem uživatelé mohou upravovat dle libosti a nedostanou žádná varování při provádění takových úkolů.
+Můžete pomocí Aspose.Slides odstranit ochranu proti zápisu použité na souboru prezentace. Tímto způsobem mohou uživatelé upravovat dle libosti — a neobdrží žádná varování při provádění takových úkolů.  
 
 Ochranu proti zápisu z prezentace můžete odstranit pomocí metody [removeWriteProtection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#removeWriteProtection--). Tento ukázkový kód ukazuje, jak odstranit ochranu proti zápisu z prezentace:
 
@@ -168,40 +165,75 @@ try {
 }
 ```
 
-## **Získání vlastností zašifrované prezentace**
+## **Získat vlastnosti šifrované prezentace**
 
-Obvykle uživatelé mají potíže získat vlastnosti dokumentu zašifrované nebo chráněné heslem prezentace. Aspose.Slides však nabízí mechanismus, který vám umožní chránit prezentaci heslem a zároveň zachovat možnost, aby uživatelé získali přístup k vlastnostem té prezentace.
+Obvykle uživatelé mají potíže získat vlastnosti dokumentu šifrované nebo heslem chráněné prezentace. Nicméně Aspose.Slides nabízí mechanismus, který umožňuje chránit prezentaci heslem a přitom zachovat možnost uživatelům přistupovat k jejím vlastnostem.  
 
-**Poznámka:** Když Aspose.Slides šifruje prezentaci, vlastnosti dokumentu prezentace jsou také ve výchozím nastavení chráněny heslem. Ale pokud potřebujete, aby byly vlastnosti prezentace přístupné (i po zašifrování), Aspose.Slides vám umožní právě to.
+**Poznámka:** Ve výchozím nastavení, když Aspose.Slides šifruje prezentaci, jsou také vlastnosti dokumentu prezentace chráněny heslem. Pokud potřebujete, aby byly vlastnosti dokumentu přístupné i po šifrování, Aspose.Slides vám to umožní.  
 
-Pokud chcete, aby uživatelé zachovali možnost přístupu k vlastnostem prezentace, kterou jste zašifrovali, můžete nastavit vlastnost [encryptDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) na `true`. Tento ukázkový kód ukazuje, jak šifrovat prezentaci a zároveň umožnit uživatelům přístup k jejím vlastnostem dokumentu:
+Pokud chcete, aby uživatelé zachovali možnost přistupovat k vlastnostem šifrované prezentace, předávejte `false` metodě [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-). Tento ukázkový kód ukazuje, jak šifrovat prezentaci a přitom uživatelům poskytnout přístup k jejím vlastnostem dokumentu:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
     presentation.getProtectionManager().encrypt("123123");
+    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Kontrola, zda je prezentace chráněna heslem**
+## **Načíst pouze vlastnosti dokumentu ze šifrované prezentace**
 
-Před načtením prezentace možná budete chtít zkontrolovat a potvrdit, že prezentace není chráněna heslem. Tímto způsobem se vyhnete chybám a podobným problémům, které se objeví, když je prezentace chráněná heslem načtena bez hesla.
+Pro prohlédnutí metadat šifrované prezentace bez načítání jejích snímků či jiného obsahu vytvořte objekt [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/) a předávejte `true` metodě [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iloadoptions/#setOnlyLoadDocumentProperties-boolean-). V tomto režimu Aspose.Slides ignoruje heslo a načte pouze veřejně přístupné vlastnosti dokumentu.  
 
-Tento Java kód ukazuje, jak prozkoumat prezentaci a zjistit, zda je chráněna heslem (bez načítání samotné prezentace):
+Následující příklad kódu čte vestavěné a vlastní vlastnosti dokumentu pomocí [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
+
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
+
+    // Načíst vestavěné vlastnosti dokumentu.
+    System.out.println("Title: " + documentProperties.getTitle());
+    System.out.println("Author: " + documentProperties.getAuthor());
+
+    // Načíst vlastní vlastnosti dokumentu.
+    int customPropertyCount = documentProperties.getCountOfCustomProperties();
+
+    for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
+        String propertyName = documentProperties.getCustomPropertyName(propertyIndex);
+        Object propertyValue = documentProperties.get_Item(propertyName);
+
+        System.out.println(propertyName + ": " + propertyValue);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tento postup funguje pouze tehdy, když byly vlastnosti dokumentu při šifrování prezentace ponechány nezašifrované (veřejné). Pokud jsou vlastnosti dokumentu zašifrovány, předání `true` metodě `loadOptions.setOnlyLoadDocumentProperties` způsobí výjimku, protože heslo je v tomto režimu ignorováno. Pro přístup k zašifrovaným vlastnostem dokumentu nebo načtení kompletní prezentace, včetně jejích snímků a jiného obsahu, zadejte správné heslo pomocí [ILoadOptions.setPassword](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-).
+
+## **Zkontrolovat, zda je prezentace chráněna heslem**
+
+Před načtením prezentace možná budete chtít zkontrolovat a potvrdit, že prezentace není chráněna heslem. Tímto způsobem se vyhnete chybám a podobným problémům, které se objeví při načtení prezentace chráněné heslem bez zadání hesla.  
+
+Tento Java kód ukazuje, jak zkontrolovat prezentaci, zda je chráněna heslem (bez načtení samotné prezentace):
 
 ```java
 IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
 System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
 ```
 
-## **Kontrola, zda je prezentace zašifrovaná**
+## **Zkontrolovat, zda je prezentace šifrována**
 
-Aspose.Slides vám umožňuje zkontrolovat, zda je prezentace zašifrovaná. K provedení tohoto úkolu můžete použít vlastnost [isEncrypted](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#isEncrypted--), která vrací `true`, pokud je prezentace zašifrovaná, nebo `false`, pokud není.
+Aspose.Slides vám umožňuje zkontrolovat, zda je prezentace šifrována. K provedení tohoto úkolu můžete použít vlastnost [isEncrypted](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#isEncrypted--) , která vrací `true`, pokud je prezentace šifrována, nebo `false`, pokud šifrována není.  
 
-Tento ukázkový kód ukazuje, jak zkontrolovat, zda je prezentace zašifrovaná:
+Tento ukázkový kód ukazuje, jak zkontrolovat, zda je prezentace šifrována:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -212,9 +244,9 @@ try {
 }
 ```
 
-## **Kontrola, zda je prezentace chráněna proti zápisu**
+## **Zkontrolovat, zda je prezentace chráněna proti zápisu**
 
-Aspose.Slides vám umožňuje zkontrolovat, zda je prezentace chráněna proti zápisu. K provedení tohoto úkolu můžete použít vlastnost [isWriteProtected](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#isWriteProtected--), která vrací `true`, pokud je prezentace chráněna proti zápisu, nebo `false`, pokud není.
+Aspose.Slides vám umožňuje zkontrolovat, zda je prezentace chráněna proti zápisu. K provedení tohoto úkolu můžete použít vlastnost [isWriteProtected](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IProtectionManager#isWriteProtected--) , která vrací `true`, pokud je prezentace chráněna proti zápisu, nebo `false`, pokud není.  
 
 Tento ukázkový kód ukazuje, jak zkontrolovat, zda je prezentace chráněna proti zápisu:
 
@@ -227,38 +259,38 @@ try {
 }
 ```
 
-## **Ověření nebo potvrzení, že bylo použito konkrétní heslo**
+## **Ověřit nebo potvrdit, že bylo použito konkrétní heslo**
 
-Možná budete chtít zkontrolovat a potvrdit, že konkrétní heslo bylo použito k ochraně dokumentu prezentace. Aspose.Slides poskytuje prostředky k ověření hesla.
+Možná budete chtít zkontrolovat a potvrdit, že konkrétní heslo bylo použito k ochraně dokumentu prezentace. Aspose.Slides poskytuje prostředky k ověření hesla.  
 
 Tento ukázkový kód ukazuje, jak ověřit heslo:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    // zkontrolujte, zda se "pass" shoduje
+    // zkontrolujte, zda se "pass" shoduje s
     boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-Vrací `true`, pokud byla prezentace zašifrována zadaným heslem. V opačném případě vrací `false`.
+Vrátí `true`, pokud byla prezentace zašifrována zadaným heslem. V opačném případě vrátí `false`.
 
-{{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/cs/java/digital-signature-in-powerpoint/)
+{{% alert color="primary" title="Viz také" %}} 
+- [Digitální podpis v PowerPointu](/slides/cs/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
 **Jaké šifrovací metody Aspose.Slides podporuje?**
 
-Aspose.Slides podporuje moderní šifrovací metody, včetně algoritmů založených na AES, čímž zajišťuje vysokou úroveň bezpečnosti vašich prezentací.
+Aspose.Slides podporuje moderní šifrovací metody, včetně algoritmů založených na AES, což zajišťuje vysokou úroveň bezpečnosti dat vašich prezentací.
 
-**Co se stane, když je při pokusu o otevření prezentace zadáno nesprávné heslo?**
+**Co se stane, pokud je při pokusu o otevření prezentace zadáno nesprávné heslo?**
 
-Při použití nesprávného hesla se vyvolá výjimka, která upozorní, že přístup k prezentaci byl odepřen. To pomáhá zabránit neoprávněnému přístupu a chrání obsah prezentace.
+Je vyvolána výjimka, pokud je použito nesprávné heslo, což vás upozorní, že přístup k prezentaci byl odmítnut. To pomáhá zabránit neoprávněnému přístupu a chrání obsah prezentace.
 
-**Má práce s prezentacemi chráněnými heslem dopad na výkon?**
+**Má práce s prezentacemi chráněnými heslem vliv na výkon?**
 
-Proces šifrování a dešifrování může při otevírání a ukládání mírně zvýšit zatížení. Ve většině případů je tento dopad na výkon minimální a významně neovlivňuje celkovou dobu zpracování úkolů s prezentacemi.
+Proces šifrování a dešifrování může během operací otevírání a ukládání způsobit mírné zatížení. Ve většině případů je tento dopad na výkon minimální a významně neovlivňuje celkovou dobu zpracování vašich úkolů s prezentacemi.
