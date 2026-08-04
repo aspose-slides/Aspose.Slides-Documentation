@@ -117,7 +117,7 @@ import com.aspose.slides.*;
 
 Presentation pres = new Presentation("pres.pptx");
 try {
-    final String outPath = "c:/documents";
+    final String outPath = "output";
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
     markdownSaveOptions.setExportType(MarkdownExportType.Visual);
     markdownSaveOptions.setImagesSaveFolderName("md-images");
