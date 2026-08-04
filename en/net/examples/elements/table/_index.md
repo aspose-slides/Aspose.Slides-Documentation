@@ -26,6 +26,8 @@ Examples for adding tables, accessing them, removing them, and merging cells usi
 Create a simple table with two rows and two columns.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddTable()
 {
     using var presentation = new Presentation();
@@ -42,6 +44,8 @@ static void AddTable()
 Retrieve the first table shape on the slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessTable()
 {
     using var presentation = new Presentation();
@@ -61,6 +65,8 @@ static void AccessTable()
 Delete a table from a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveTable()
 {
     using var presentation = new Presentation();
@@ -79,6 +85,8 @@ static void RemoveTable()
 Merge adjacent cells of a table into a single cell.
 
 ```csharp
+using Aspose.Slides;
+
 static void MergeTableCells()
 {
     using var presentation = new Presentation();

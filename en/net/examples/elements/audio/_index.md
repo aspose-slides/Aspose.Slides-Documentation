@@ -27,6 +27,8 @@ This article demonstrates how to embed audio frames and control playback with **
 Insert an empty audio frame that can later hold embedded sound data.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddAudio()
 {
     using var presentation = new Presentation();
@@ -42,6 +44,8 @@ static void AddAudio()
 This code retrieves the first audio frame on a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessAudio()
 {
     using var presentation = new Presentation();
@@ -59,6 +63,8 @@ static void AccessAudio()
 Delete a previously added audio frame.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveAudio()
 {
     using var presentation = new Presentation();
@@ -76,6 +82,8 @@ static void RemoveAudio()
 Configure the audio frame to play automatically when the slide appears.
 
 ```csharp
+using Aspose.Slides;
+
 static void SetAudioPlayback()
 {
     using var presentation = new Presentation();

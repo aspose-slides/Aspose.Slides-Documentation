@@ -27,6 +27,8 @@ This article demonstrates how to embed video frames and set playback options usi
 Insert an empty video frame onto a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddVideo()
 {
     using var presentation = new Presentation();
@@ -42,6 +44,8 @@ static void AddVideo()
 Retrieve the first video frame added to a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessVideo()
 {
     using var presentation = new Presentation();
@@ -59,6 +63,8 @@ static void AccessVideo()
 Delete a video frame from the slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveVideo()
 {
     using var presentation = new Presentation();
@@ -76,6 +82,8 @@ static void RemoveVideo()
 Configure the video to play automatically when the slide is displayed.
 
 ```csharp
+using Aspose.Slides;
+
 static void SetVideoPlayback()
 {
     using var presentation = new Presentation();

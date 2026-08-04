@@ -25,6 +25,10 @@ This article demonstrates how to insert and access pictures from in-memory image
 This code generates a small bitmap, converts it to a stream, and inserts it as a picture frame on the first slide.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void AddPicture()
 {
     using var presentation = new Presentation();
@@ -57,6 +61,9 @@ public static void AddPicture()
 This example ensures a slide contains a picture frame and then accesses the first one it finds.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
 public static void AccessPicture()
 {
     using var presentation = new Presentation();

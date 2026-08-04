@@ -26,6 +26,9 @@ This article demonstrates applying slide transition effects and timings with **A
 Apply a fade transition effect to the first slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
+
 static void AddSlideTransition()
 {
     using var presentation = new Presentation();
@@ -41,6 +44,9 @@ static void AddSlideTransition()
 Read the transition type currently assigned to a slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
+
 static void AccessSlideTransition()
 {
     using var presentation = new Presentation();
@@ -58,6 +64,9 @@ static void AccessSlideTransition()
 Clear any transition effect by setting the type to `None`.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
+
 static void RemoveSlideTransition()
 {
     using var presentation = new Presentation();
@@ -75,6 +84,8 @@ static void RemoveSlideTransition()
 Specify how long the slide is displayed before advancing automatically.
 
 ```csharp
+using Aspose.Slides;
+
 static void SetTransitionDuration()
 {
     using var presentation = new Presentation();

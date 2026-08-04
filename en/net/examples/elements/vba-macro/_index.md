@@ -25,6 +25,9 @@ This article demonstrates how to add, access, and remove VBA macros using **Aspo
 Create a presentation with a VBA project and a simple macro module.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
 static void AddVbaMacro()
 {
     using var presentation = new Presentation();
@@ -40,6 +43,9 @@ static void AddVbaMacro()
 Retrieve the first module from the VBA project.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
 static void AccessVbaMacro()
 {
     using var presentation = new Presentation();
@@ -57,6 +63,9 @@ static void AccessVbaMacro()
 Delete a module from the VBA project.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
 static void RemoveVbaMacro()
 {
     using var presentation = new Presentation();
