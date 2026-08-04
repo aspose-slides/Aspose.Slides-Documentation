@@ -435,14 +435,14 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-### Can I edit an existing PowerPoint equation?
+**Can I edit an existing PowerPoint equation?**
 
 Yes. Open the presentation, find the shape that contains a `MathPortion`, get its `MathParagraph`, and update the math blocks in that paragraph.
 
-### Are equations saved as editable PowerPoint math?
+**Are equations saved as editable PowerPoint math?**
 
 Yes. When you save to PPTX, Aspose.Slides writes the equation as editable Office math content.
 
-### Can I export equations to LaTeX?
+**Can I export equations to LaTeX?**
 
-Aspose.Slides exports math equations to MathML. If you need LaTeX, export to MathML first and then convert MathML with a tool that supports your target LaTeX dialect.
+Yes. Get the equation's [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) from its [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), and call [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) to export it directly. For a complete example, see [Export Math Equations from Presentations in Python via .NET](/slides/python-net/exporting-math-equations/#export-math-equations-to-latex).
