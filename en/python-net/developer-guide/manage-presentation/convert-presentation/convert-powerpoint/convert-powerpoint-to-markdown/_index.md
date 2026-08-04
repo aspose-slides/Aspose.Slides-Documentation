@@ -111,7 +111,7 @@ import aspose.slides as slides
 save_options = slides.export.MarkdownSaveOptions()
 save_options.export_type = slides.export.MarkdownExportType.VISUAL
 save_options.images_save_folder_name = "md-images"
-save_options.base_path = "c:\\documents"
+save_options.base_path = "output"
 
 with slides.Presentation("presentation.pptx") as presentation:
     file_path = os.path.join(save_options.base_path, "presentation.md")
