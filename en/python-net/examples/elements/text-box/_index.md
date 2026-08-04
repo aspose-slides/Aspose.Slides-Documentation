@@ -55,7 +55,7 @@ def add_text_box():
 
 ## **Access Text Boxes by Content**
 
-To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
+To find all text boxes containing a specific keyword (e.g. "text"), iterate through the shapes and check their text:
 
 ```py
 import aspose.slides as slides
@@ -67,7 +67,7 @@ def access_text_box():
         for shape in slide.shapes:
             # Only AutoShapes can contain editable text.
             if isinstance(shape, slides.AutoShape):
-                if "Slide" in shape.text_frame.text:
+                if "text" in shape.text_frame.text:
                     # Do something with the matching text box.
                     pass
 ```
@@ -83,10 +83,10 @@ def remove_text_boxes():
     with slides.Presentation("text_box.pptx") as presentation:
         slide = presentation.slides[0]
 
-        # Find shapes to remove that are AutoShapes containing the word "Slide".
+        # Find shapes to remove that are AutoShapes containing the word "text".
         shapes_to_remove = [
             shape for shape in slide.shapes
-            if isinstance(shape, slides.AutoShape) and "Slide" in shape.text_frame.text
+            if isinstance(shape, slides.AutoShape) and "text" in shape.text_frame.text
         ]
 
         # Remove each matching shape from the slide.

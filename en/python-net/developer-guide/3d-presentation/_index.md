@@ -109,6 +109,7 @@ with slides.Presentation() as presentation:
 
     shape.three_d_format.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
     shape.three_d_format.camera.set_rotation(20, 30, 40)
+    shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.FLAT
 
     presentation.save("shape_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -131,7 +132,9 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
 
+    shape.three_d_format.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
     shape.three_d_format.camera.set_rotation(20, 30, 40)
+    shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.FLAT
     shape.three_d_format.extrusion_height = 100
     shape.three_d_format.extrusion_color.color = drawing.Color.purple
 
@@ -197,7 +200,9 @@ with slides.Presentation() as presentation:
     shape.fill_format.picture_fill_format.picture.image = image
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 
+    shape.three_d_format.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
     shape.three_d_format.camera.set_rotation(10, 20, 30)
+    shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.FLAT
     shape.three_d_format.extrusion_height = 150
     shape.three_d_format.extrusion_color.color = drawing.Color.dark_orange
 

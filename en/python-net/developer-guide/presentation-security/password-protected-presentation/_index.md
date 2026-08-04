@@ -119,7 +119,7 @@ You can add a mark stating “Do not modify” to a presentation. This way, you 
 
 **Note** that the write protection process does not encrypt the presentation. Therefore, users—if they actually want to—can modify the presentation, but to save the changes, they will have to create a presentation with a different name. 
 
-To set a write protection, you have to use the setWriteProtection method. This sample code shows you how to set a write protection to a presentation:
+To set a write protection, you have to use the [set_write_protection](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) method. This sample code shows you how to set a write protection to a presentation:
 
 ```py
 import aspose.slides as slides
@@ -180,13 +180,13 @@ Typically, users struggle to get the document properties of an encrypted or pass
 
 **Note** that when Aspose.Slides encrypts a presentation, the presentation’s document properties get password protected too by default. But if you need to make the presentation’s properties accessible (even after the presentation gets encrypted), Aspose.Slides allows you to do precisely that. 
 
-If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [EncryptDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) property to `True`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
+If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) property to `False`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
-    pres.protection_manager.encrypt_document_properties = True
+    pres.protection_manager.encrypt_document_properties = False
     pres.protection_manager.encrypt("123123")
 ```
 

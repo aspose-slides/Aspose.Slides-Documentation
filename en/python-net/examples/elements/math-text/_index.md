@@ -114,7 +114,8 @@ def format_math_text():
         # Assuming the first shape is a shape with math text.
         math_shape = slide.shapes[0]
 
-        math_shape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 20
+        # Math runs take their size from the paragraph's default portion format.
+        math_shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 20
 
         presentation.save("math_text_formatted.pptx", slides.export.SaveFormat.PPTX)
 ```

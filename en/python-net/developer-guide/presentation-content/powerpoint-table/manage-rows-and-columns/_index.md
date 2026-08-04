@@ -247,7 +247,11 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
-    table.style_preset = slides.TableStylePreset.DARK_STYLE1
+    table.style_preset = slides.TableStylePreset.DARK_STYLE1  # change the default style preset
+
+    # Get the style preset applied to the table, so it can be reused elsewhere.
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)  # True
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```

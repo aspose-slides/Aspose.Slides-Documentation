@@ -71,7 +71,7 @@ with slides.Presentation() as pres:
             if i == len(chart.chart_data.series) - 1:
                 lbl = dataPoint.label
                 lbl.text_format.text_block_format.autofit_type = slides.TextAutofitType.SHAPE
-                lbl.data_label_format.text_format.portion_format.font_bold = 1
+                lbl.data_label_format.text_format.portion_format.font_bold = slides.NullableBool.TRUE
                 lbl.data_label_format.text_format.portion_format.latin_font = slides.FontData("DINPro-Bold")
                 lbl.data_label_format.text_format.portion_format.font_height = 12
                 lbl.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID

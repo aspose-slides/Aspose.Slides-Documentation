@@ -89,8 +89,9 @@ with slides.Presentation() as pres:
     # Hiding Legend
     chart.has_legend = False
 
-    # Hiding MajorGridLines
+    # Hiding MajorGridLines of both axes
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     #for i in range(len(chart.chart_data.series)):
     #    chart.chart_data.series.remove_at(i)

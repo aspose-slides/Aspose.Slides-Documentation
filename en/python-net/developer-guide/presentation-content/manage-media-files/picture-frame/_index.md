@@ -74,7 +74,7 @@ Picture frames allow you to quickly create presentation slides from images. When
 
 ## **Create Picture Frames with Relative Scale**
 
-This section demonstrates placing an image at a fixed size, then applying percentage-based scaling independently to its width and height. Because the percentages may differ, the aspect ratio can change. Scaling is performed relative to the image’s original dimensions.
+This section demonstrates placing an image at a fixed size, then applying a scale factor independently to its width and height. The factors are fractions of the original size, so `1` keeps the original dimension, `0.8` shrinks it to 80%, and `1.35` enlarges it to 135%. Because the factors may differ, the aspect ratio can change. Scaling is performed relative to the image’s original dimensions, not to the size passed to `add_picture_frame`.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a slide by its index.
@@ -250,7 +250,8 @@ with slides.Presentation("input.pptx") as presentation:
 
     shapes_to_remove = []
 
-    for shape in slide.shapes:
+    # Iterate over a copy because the loop adds shapes to the collection.
+    for shape in list(slide.shapes):
         if shape.placeholder is None:
             continue
 
@@ -264,7 +265,7 @@ with slides.Presentation("input.pptx") as presentation:
             shapes_to_remove.append(shape)
 
         elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
+            video_frame = slide.shapes.add_video_frame(shape.x, shape.y, shape.width, shape.height, "")
 
             video_frame.picture_format.picture.link_path_long = \
                 "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
@@ -397,7 +398,7 @@ The following Python code shows how to lock a shape’s aspect ratio:
 import aspose.slides as slides
 
 with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
     empty_slide = presentation.slides.add_empty_slide(layout)
 
     with slides.Images.from_file("image.png") as source_image:

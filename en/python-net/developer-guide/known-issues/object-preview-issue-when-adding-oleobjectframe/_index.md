@@ -63,13 +63,14 @@ with slides.Presentation("embeddedOLE.pptx") as presentation:
     with slides.Images.from_file("myImage.png") as image:
         ole_image = presentation.images.add_image(image)
 
-    # Set a title and the image for the OLE object preview.
-    ole_frame.substitute_picture_title = "My title"
+    # Set the image for the OLE object preview.
     ole_frame.substitute_picture_format.picture.image = ole_image
     ole_frame.is_object_icon = False
 
     presentation.save("embeddedOLE-newImage.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+`is_object_icon` must be `False` so that the picture is shown as the object preview rather than as an icon caption. `substitute_picture_title` is saved only for objects displayed as icons, so it is not used here.
 
 The slide containing the `OleObjectFrame` then changes to this:
 

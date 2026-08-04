@@ -268,13 +268,12 @@ Aspose.Slides for Python via .NET allows you to extract the sound used in slide 
 3. Access the slideshow transitions for the slide.
 4. Extract the sound in byte data.
 
-This Python code shows you how to extract the audio used in a slide:
+This Python code shows you how to extract the audio used in a slide. Note that `slide_show_transition.sound` is `None` unless the slide's transition actually has a sound attached, so `AudioSlide.pptx` here is a presentation whose first slide carries a transition sound—an audio frame placed on a slide is a different object and is read through [AudioFrame.embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/) instead:
 
 ```python
 import aspose.slides as slides
 
-#with slides.Presentation("AudioSlide.pptx") as pres:
-with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
+with slides.Presentation("AudioSlide.pptx") as pres:
     # Accesses the desired slide
     slide = pres.slides[0]  
 

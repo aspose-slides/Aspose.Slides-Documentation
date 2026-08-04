@@ -38,7 +38,8 @@ import aspose.slides as slides
 rulesList = slides.FontFallBackRulesCollection()
 
 # create a number of rules
-rulesList.add(slides.FontFallBackRule(0x400, 0x4FF, "Times New Roman"))
+rulesList.add(slides.FontFallBackRule(0x0B80, 0x0BFF, "Vijaya"))
+rulesList.add(slides.FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic"))
 
 for fallBackRule in rulesList:
 	#Trying to remove FallBack font "Tahoma" from loaded rules

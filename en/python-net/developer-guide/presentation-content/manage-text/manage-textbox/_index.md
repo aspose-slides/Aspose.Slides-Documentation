@@ -165,7 +165,7 @@ with slides.Presentation("Sample.pptx") as presentation:
                 for paragraph in shape.text_frame.paragraphs:
                     for portion in paragraph.portions:
                         portion.text = portion.text.replace("years", "months")
-                        portion.portion_format.font_bold = 1
+                        portion.portion_format.font_bold = slides.NullableBool.TRUE
   
     # Save the modified presentation.
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)

@@ -154,7 +154,7 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 
 {{% alert title="Note" color="warning" %}}
 
-You cannot directly merge presentations that have different slide sizes.
+Cloning a slide into a presentation with a different slide size does not raise an error, but it does not rescale the slide either: the cloned shapes keep their original coordinates and sizes, so content from a larger source slide overflows the destination slide.
 
 {{% /alert %}}
 

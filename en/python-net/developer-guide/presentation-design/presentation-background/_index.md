@@ -97,6 +97,7 @@ A gradient is a graphical effect created by a gradual change in color. When used
 The following Python example shows how to set a gradient color as the background for a slide:
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Create an instance of the Presentation class.
@@ -106,7 +107,12 @@ with slides.Presentation() as presentation:
     # Apply a gradient effect to the background.
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.GRADIENT
-    slide.background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+
+    # Define the gradient colors.
+    gradient_format = slide.background.fill_format.gradient_format
+    gradient_format.gradient_stops.add(0, draw.Color.blue)
+    gradient_format.gradient_stops.add(1, draw.Color.light_blue)
+    gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
 
     # Save the presentation to disk.
     presentation.save("GradientBackground.pptx", slides.export.SaveFormat.PPTX)

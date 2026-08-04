@@ -180,9 +180,9 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 - When OuterShadow and PresetShadow are used together, only the OuterShadow effect gets applied. 
 - If OuterShadow and InnerShadow get used simultaneously, the resulting or applied effect depends on the PowerPoint version. For instance, in PowerPoint 2013, the effect gets doubled. But in PowerPoint 2007, the OuterShadow effect gets applied. 
 
-### Applying Display to Texts
+### Applying Reflection to Texts
 
-We add display to the text through this code sample in Python:
+We add a reflection to the text through this code sample in Python:
 
 ```py 
 import aspose.slides as slides
@@ -245,7 +245,7 @@ The result of the operation:
 
 {{% alert color="primary" %}} 
 
-You can change the parameters for shadow, display, and glow. The effects’ properties get set on each portion of the text separately. 
+You can change the parameters for shadow, reflection, and glow. The effects’ properties get set on each portion of the text separately. 
 
 {{% /alert %}} 
 
@@ -448,19 +448,19 @@ with slides.Presentation() as pres:
 ```
 
 
-## **Apply Inner Shadow Effect to Shapes**
+## **Apply Inner Shadow Effect to Texts**
 Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a reference of the slide.
-3. Add an AutoShape of the Rectangle type.
-4. Enable InnerShadowEffect.
+3. Add an AutoShape of the Rectangle type and add a TextFrame to it.
+4. Enable InnerShadowEffect on the PortionFormat of the text.
 5. Set all the necessary parameters.
 6. Set the ColorType as Scheme.
 7. Set the Scheme Color.
 8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code (based on the steps above) shows you how to add a connector between two shapes in Python:
+This sample code (based on the steps above) shows you how to apply the inner shadow effect to a text in Python:
 
 ```py
 import aspose.slides as slides

@@ -31,7 +31,7 @@ def add_chart():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
 
-        # Add a simple column chart to the first slide.
+        # Add a simple area chart to the first slide.
         chart = slide.shapes.add_chart(slides.charts.ChartType.AREA, 50, 50, 400, 300)
 
         presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
@@ -90,7 +90,8 @@ def update_chart_data():
         # Assuming the first shape is a chart.
         chart = slide.shapes[0]
 
-        # Change the chart title.
+        # Show the chart title and change its text.
+        chart.has_title = True
         chart.chart_title.add_text_frame_for_overriding("Sales Report")
 
         presentation.save("chart_updated.pptx", slides.export.SaveFormat.PPTX)

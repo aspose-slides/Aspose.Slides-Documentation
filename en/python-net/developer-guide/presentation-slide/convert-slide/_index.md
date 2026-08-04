@@ -47,6 +47,12 @@ with slides.Presentation("Presentation.pptx") as presentation:
         image.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
+{{% alert title="Note" color="warning" %}}
+
+The parameterless `get_image` method returns a thumbnail scaled to 20% of the slide size—a 720 × 540 pt slide yields a 144 × 108 px image. To get an image at the slide's real size or larger, pass a size or scale factors to `get_image`, as shown in the sections below.
+
+{{% /alert %}}
+
 ## **Convert Slides to Images with Custom Sizes**
 
 You may need to get an image of a certain size. Using an overload from the [get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize), you can convert a slide to an image with specific dimensions (width and height). 
@@ -110,7 +116,7 @@ In any slide-to-image conversion process, the [notes_position](https://reference
 
 The [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) class provides greater control over the resulting TIFF image by allowing you to specify parameters such as size, resolution, color palette, and more.
 
-This Python code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
+This Python code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2880:
 
 ```py 
 import aspose.pydrawing as draw

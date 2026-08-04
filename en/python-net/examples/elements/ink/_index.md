@@ -49,7 +49,7 @@ def remove_ink():
     with slides.Presentation("ink.pptx") as presentation:
         slide = presentation.slides[0]
 
-        # Assuming the fist shape is an Ink object.
+        # Assuming the first shape is an Ink object.
         ink = slide.shapes[0]
 
         slide.shapes.remove(ink)

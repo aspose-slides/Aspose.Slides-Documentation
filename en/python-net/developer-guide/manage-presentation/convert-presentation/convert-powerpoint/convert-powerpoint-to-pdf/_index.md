@@ -213,12 +213,13 @@ with slides.Presentation("SelectedSlides.pptx") as presentation:
         # Set the custom slide size.
         resized_presentation.slide_size.set_size(slide_width, slide_height, slides.SlideSizeScaleType.ENSURE_FIT)
 
-        # Clone the first slide from the original presentation.
+        # Clone the first slide from the original presentation and drop the default empty slide.
         slide = presentation.slides[0]
         resized_presentation.slides.insert_clone(0, slide)
+        resized_presentation.slides.remove_at(1)
 
-        # Save the resized presentation to a PDF with notes.
-        resized_presentation.save("PDF_with_notes.pdf", slides.export.SaveFormat.PDF)
+        # Save the resized presentation to a PDF.
+        resized_presentation.save("PDF_with_custom_slide_size.pdf", slides.export.SaveFormat.PDF)
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
@@ -231,11 +232,13 @@ import aspose.slides as slides
 # Instantiates a Presentation class that represents a PowerPoint file
 presentation = slides.Presentation("NotesFile.pptx")
 
+# Configures the PDF options with the notes layout
 pdfOptions = slides.export.PdfOptions()
-pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+pdfOptions.slides_layout_options = slides.export.NotesCommentsLayoutingOptions()
+pdfOptions.slides_layout_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-# Saves the presentation to PDF notes
-presentation.Save("Pdf_Notes_out.tiff", slides.export.SaveFormat.PDF, pdfOptions)
+# Saves the presentation to a PDF with notes
+presentation.save("Pdf_Notes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
 ## **Accessibility and Compliance Standards for PDF**

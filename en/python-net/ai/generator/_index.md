@@ -67,7 +67,7 @@ The following example demonstrates the overloads of the [generate_presentation](
 ```py
 import aspose.slides as slides
 
-# Pass the HttpClient to the OpenAIWebClient constructor.
+# Pass the model, the API key and the organization ID to the OpenAIWebClient constructor.
 with slides.ai.OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId") as ai_web_client:
 
     # Create an instance of SlidesAIAgent.

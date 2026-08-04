@@ -61,7 +61,7 @@ with slides.Presentation() as presentation:
     # Add an auto shape of the Rectangle type.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
 
-    # Set the fill color for the rectangle shape.
+    # Remove the fill from the rectangle shape so only its lines are visible.
     shape.fill_format.fill_type = slides.FillType.NO_FILL
 
     # Apply formatting to the rectangle's lines.

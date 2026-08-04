@@ -52,7 +52,7 @@ with slides.Presentation("sample.pptx") as presentation:
     # Get the first shape from the first slide.
     shape = presentation.slides[0].shapes[0]
 
-    # Highlight the word "try" in the shape.
+    # Highlight every occurrence of the characters "try" in the shape, including inside other words.
     shape.text_frame.highlight_text("try", draw.Color.light_blue)
 
     search_options = slides.TextSearchOptions()

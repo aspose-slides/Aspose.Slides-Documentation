@@ -54,7 +54,7 @@ with slides.Presentation() as pres:
     # Creating a clustered column chart
     chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
 
-    # Adding ponential trend line for chart series 1
+    # Adding exponential trend line for chart series 1
     tredLinep = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.EXPONENTIAL)
     tredLinep.display_equation = False
     tredLinep.display_r_squared_value = False
@@ -84,7 +84,7 @@ with slides.Presentation() as pres:
     tredLinePol.order = 3
 
     # Adding Power trend line for chart series 3
-    tredLinePower = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.POWER)
+    tredLinePower = chart.chart_data.series[2].trend_lines.add(charts.TrendlineType.POWER)
     tredLinePower.trendline_type = charts.TrendlineType.POWER
     tredLinePower.backward = 1
 

@@ -90,8 +90,8 @@ def merge_table_cells():
         # Assuming the first shape is a table.
         table = slide.shapes[0]
 
-        # Merge cells.
-        table.merge_cells(table.rows[0][0], table.rows[1][1], False)
+        # Merge the two cells of the first row into one.
+        table.merge_cells(table.rows[0][0], table.rows[0][1], False)
 
         presentation.save("cells_merged.pptx", slides.export.SaveFormat.PPTX)
 ```

@@ -50,7 +50,7 @@ def add_layout_slide():
 
 ## **Access a Layout Slide**
 
-Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
+Layout slides can be accessed by index or by layout type (e.g., `BLANK`, `TITLE`, `SECTION_HEADER`, etc.).
 
 ```py
 import aspose.slides as slides
@@ -100,7 +100,7 @@ def remove_unused_layout_slides():
 
 ## **Clone a Layout Slide**
 
-You can duplicate a layout slide using the `AddClone` method.
+You can duplicate a layout slide using the `add_clone` method.
 
 ```py
 import aspose.slides as slides

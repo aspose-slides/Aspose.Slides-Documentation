@@ -152,8 +152,8 @@ with slides.Presentation("ActiveX.pptm") as presentation:
     
     # Moving ActiveX frames 100 points down
     for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
+        frame = ctl.frame
+        ctl.frame = slides.ShapeFrame(
             frame.x, 
             frame.y + 100, 
             frame.width, 

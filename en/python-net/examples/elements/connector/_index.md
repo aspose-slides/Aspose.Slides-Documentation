@@ -67,7 +67,7 @@ def remove_connector():
     with slides.Presentation("connector.pptx") as presentation:
         slide = presentation.slides[0]
 
-        # Assuming the fist shape is a connector.
+        # Assuming the first shape is a connector.
         connector = slide.shapes[0]
 
         # Remove the connector.

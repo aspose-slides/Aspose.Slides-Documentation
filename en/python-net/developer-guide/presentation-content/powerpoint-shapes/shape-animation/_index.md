@@ -72,7 +72,7 @@ with slides.Presentation() as pres:
     autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
     textFrame = autoShape.text_frame
-    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+    textFrame.text = "First paragraph \r\nSecond paragraph \r\n Third paragraph"
 
     # Gets the main sequence of the slide.
     sequence = sld.timeline.main_sequence
@@ -106,14 +106,13 @@ This Python code shows you how to apply the `Fly` effect to a picture frame:
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 
 # Instantiates a presentation class that represents a presentation file.
 with slides.Presentation() as pres:
-    # Load Image to be added in presentaiton image collection
-    img = draw.Bitmap("aspose-logo.jpg")
-    image = pres.images.add_image(img)
+    # Load Image to be added in presentation image collection
+    with slides.Images.from_file("aspose-logo.jpg") as img:
+        image = pres.images.add_image(img)
 
     # Adds picture frame to slide
     picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
@@ -452,7 +451,7 @@ This Python code demonstrates the operation:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimTextBox_out.pptx") as pres:
+with slides.Presentation("AnimText_out.pptx") as pres:
     first_slide = pres.slides[0]
 
     # Gets the first effect of the main sequence

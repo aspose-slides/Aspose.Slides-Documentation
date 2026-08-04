@@ -22,12 +22,12 @@ This article explains how to work with chart data tables in Aspose.Slides. It sh
 It also includes brief answers to common questions about showing legend keys in a chart data table, preserving the data table during export, working with charts loaded from existing presentations or templates, and identifying charts where the data table is enabled.
 
 ## **Set Font Properties for Chart Data Table**
-Aspose.Slides for Python via .NET provides support for changing color of categories in a series color. 
+Aspose.Slides for Python via .NET lets you show the data table under a chart and format the text it displays. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class object.
 1. Add chart on the slide.
-1. set chart table.
-1. Set font height.
+1. Show the chart data table.
+1. Set the font style and height for the data table text.
 1. Save modified presentation.
 
  Below sample example is given. 
@@ -41,7 +41,7 @@ with slides.Presentation() as pres:
 
 	chart.has_data_table = True
 
-	chart.chart_data_table.text_format.portion_format.font_bold = 1
+	chart.chart_data_table.text_format.portion_format.font_bold = slides.NullableBool.TRUE
 	chart.chart_data_table.text_format.portion_format.font_height = 20
 
 	pres.save("output.pptx", slides.export.SaveFormat.PPTX)

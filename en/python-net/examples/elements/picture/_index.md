@@ -17,7 +17,7 @@ keywords:
 description: "Work with pictures in Python using Aspose.Slides: insert, replace, crop, compress, adjust transparency and effects, fill shapes, and export for PPT, PPTX and ODP."
 ---
 
-Shows how to insert and access pictures from in-memory images using **Aspose.Slides for Python via .NET**. The examples below create an image in memory, place it on a slide, and then retrieve it.
+Shows how to insert and access pictures using **Aspose.Slides for Python via .NET**. The examples below load an image from a file, place it on a slide, and then retrieve it.
 
 ## **Add a Picture**
 
@@ -43,7 +43,7 @@ def add_picture():
 
 ## **Access a Picture**
 
-This example ensures a slide contains a picture frame and then accesses the first one it finds.
+This example accesses the first picture frame found on the slide.
 
 ```py
 import aspose.slides as slides

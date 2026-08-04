@@ -249,9 +249,11 @@ with slides.Presentation() as presentation:
 
 ## **Clear Data for Specific Data Points**
 
-Sometimes a chart contains test values, outliers, or obsolete entries that you need to remove without rebuilding the entire series. Aspose.Slides for Python lets you target any data point by index, clear its contents, and instantly refresh the plot so the remaining points shift and the axes rescale automatically.
+Sometimes a chart contains test values, outliers, or obsolete entries that you need to remove without rebuilding the entire series. Aspose.Slides for Python lets you empty the workbook cells behind the data points of a series and then drop the points, so the plot and its axes refresh automatically.
 
-The following code exammple demonstrates the operation:
+`x_value` and `y_value` are backed by worksheet cells only in chart types that store an X and a Y value for every point, such as scatter and bubble charts. In a category chart (column, bar, line, pie) each point carries a single value, so use `data_point.value.as_cell` there; `data_point.x_value.as_cell` is `None`.
+
+The following code example demonstrates the operation on a scatter chart:
 
 ```py
 import aspose.slides as slides

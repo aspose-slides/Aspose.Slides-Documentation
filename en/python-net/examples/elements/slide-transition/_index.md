@@ -71,7 +71,7 @@ def remove_slide_transition():
 
 ## **Set Transition Duration**
 
-Specify how long the slide is displayed before advancing automatically.
+Specify how long the slide is displayed before advancing automatically. `advance_after_time` is the display time of the slide, not the length of the transition animation, and setting it also turns on automatic advancing.
 
 ```py
 import aspose.slides as slides

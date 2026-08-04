@@ -66,5 +66,5 @@ def remove_vba_macro():
         # Remove the module from the project.
         presentation.vba_project.modules.remove(module)
 
-        presentation.save("vba_macro_removed.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("vba_macro_removed.pptm", slides.export.SaveFormat.PPTM)
 ```

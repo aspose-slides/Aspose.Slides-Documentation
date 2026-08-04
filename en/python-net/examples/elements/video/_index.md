@@ -23,7 +23,7 @@ Shows how to embed video frames and set playback options using **Aspose.Slides f
 
 ## **Add a Video Frame**
 
-Insert an empty video frame onto a slide.
+Insert a video frame linked to a video file.
 
 ```py
 import aspose.slides as slides

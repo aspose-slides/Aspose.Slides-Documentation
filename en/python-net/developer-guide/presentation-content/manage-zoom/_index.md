@@ -171,7 +171,7 @@ with slides.Presentation() as pres:
     # Create a new image for the zoom object
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
     # Set custom image for zoomFrame1 object
-    zoomFrame1.image = image
+    zoomFrame1.zoom_image = image
 
     # Set a zoom frame format for the zoomFrame2 object
     zoomFrame2.line_format.width = 5
@@ -317,7 +317,7 @@ with slides.Presentation() as pres:
     sectionZoomFrame.height = 75
 
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-    sectionZoomFrame.image = image
+    sectionZoomFrame.zoom_image = image
 
     sectionZoomFrame.return_to_parent = True
     sectionZoomFrame.show_background = False
@@ -356,29 +356,23 @@ This python code shows you how to create a summary zoom frame on a slide:
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
+colors = [draw.Color.brown, draw.Color.aqua, draw.Color.chartreuse, draw.Color.dark_green]
+
 with slides.Presentation() as pres:
-    # Create slides array
-    for slideNumber in range(5):
-        #Add new slides to presentation
+    for index, color in enumerate(colors):
+        #Add a new slide to the presentation
         slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
 
         # Create a background for the slide
         slide.background.type = slides.BackgroundType.OWN_BACKGROUND
         slide.background.fill_format.fill_type = slides.FillType.SOLID
-        slide.background.fill_format.solid_fill_color.color = draw.Color.dark_khaki
+        slide.background.fill_format.solid_fill_color.color = color
 
-        # Create a text box for the slide
-        autoshape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 200, 500, 200)
-        autoshape.text_frame.text = "Slide - {num}".format(num = (slideNumber + 2))
+        # Add a new section for the created slide
+        pres.sections.add_section("Section {num}".format(num = index + 1), slide)
 
-    # Create zoom objects for all slides in the first slide
-    for slideNumber in range(1, len(pres.slides)):
-        x = (slideNumber - 1) * 100
-        y = (slideNumber - 1) * 100
-        zoomFrame = pres.slides[0].shapes.add_zoom_frame(x, y, 150, 120, pres.slides[slideNumber])
-
-        # Set the ReturnToParent property to return to the first slide
-        zoomFrame.return_to_parent = True
+    # Add a SummaryZoomFrame object to the first slide
+    summaryZoomFrame = pres.slides[0].shapes.add_summary_zoom_frame(150, 50, 300, 200)
 
     # Save the presentation
     pres.save("presentation-zoom3.pptx", slides.export.SaveFormat.PPTX)
@@ -494,7 +488,7 @@ with slides.Presentation() as pres:
 
     # Formatting for SummaryZoomSection object
     image = pres.images.add_image(slides.Images.from_file("img.jpeg"))
-    summarySection.image = image
+    summarySection.zoom_image = image
 
     summarySection.return_to_parent = False
 

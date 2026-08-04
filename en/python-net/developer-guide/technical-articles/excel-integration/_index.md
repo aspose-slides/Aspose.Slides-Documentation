@@ -93,7 +93,8 @@ with slides.Presentation("PresentationTemplate.pptx") as template_presentation:
             department_portion = paragraphs[1].portions[0]
             department_portion.text = department_portion.text.replace("{{Department}}", department)
 
-            years_of_service = str(workbook.get_cell(worksheet_index, row_index, 2).value)
+            # Numeric Excel cells are returned as floats, so convert the whole number back to an integer.
+            years_of_service = str(int(workbook.get_cell(worksheet_index, row_index, 2).value))
             years_portion = paragraphs[2].portions[0]
             years_portion.text = years_portion.text.replace("{{YearsOfService}}", years_of_service)
 
@@ -129,7 +130,9 @@ with slides.Presentation() as presentation:
     # Fill the PowerPoint table with data from the Excel workbook.
     for row_index in range(0, 5):
         for column_index in range(0, 3):
-            cell_value = str(workbook.get_cell(worksheet_index, row_index, column_index).value)
+            value = workbook.get_cell(worksheet_index, row_index, column_index).value
+            # Numeric Excel cells are returned as floats, so show whole numbers without a decimal part.
+            cell_value = str(int(value)) if isinstance(value, float) and value.is_integer() else str(value)
             table.columns[column_index][row_index].text_frame.text = cell_value
 
     # Save the resulting presentation to a file.

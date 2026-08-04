@@ -42,7 +42,7 @@ import aspose.pydrawing as draw
 with slides.Presentation("EmbeddedFonts.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Render the slide containing a text frame that uses the embedded 'FunSized' font.
+    # Render the slide containing a text frame that uses the embedded 'Calibri' font.
     with slide.get_image(draw.Size(960, 720)) as image:
         image.save("picture1_out.png", slides.ImageFormat.PNG)
 

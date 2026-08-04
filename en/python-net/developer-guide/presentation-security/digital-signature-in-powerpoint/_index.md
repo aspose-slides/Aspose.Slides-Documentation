@@ -70,8 +70,9 @@ with slides.Presentation("SomePresentationSigned.pptx") as pres:
         print("Signatures used to sign the presentation: ")
         # Check if all digital signatures are valid
         for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
+            status = "VALID" if signature.is_valid else "INVALID"
+            print(signature.comments + ", "
+                    + signature.sign_time.strftime("%Y-%m-%d %H:%M") + " -- " + status)
             allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
         
 

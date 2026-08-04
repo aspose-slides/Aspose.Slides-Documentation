@@ -46,7 +46,7 @@ with slides.Presentation() as presentation:
 
 ## **Save Presentations to Streams**
 
-You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class’s `save` method. A presentation can be written to many stream types. In the example below, we create a new presentation, add text to a shape, and save it to a stream.
+You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class’s `save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
 ```py
 import aspose.slides as slides

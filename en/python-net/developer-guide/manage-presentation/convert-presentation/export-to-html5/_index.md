@@ -117,7 +117,7 @@ Let's say we have the following PowerPoint presentation saved in the "sample.ppt
 
 ![Two comments on the presentation slide](two_comments_pptx.png)
 
-When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `notes_comments_layouting` property of the [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) class.
+When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `slides_layout_options` property of the [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) class.
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```py
@@ -145,7 +145,7 @@ Yes, HTML5 provides separate options to enable or disable [shape animations](htt
 
 ### Is the output of comments supported, and where can they be placed relative to the slide?
 
-Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/notes_comments_layouting/) for notes and comments.
+Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/slides_layout_options/) for notes and comments.
 
 ### Can I skip links that invoke JavaScript for security or CSP reasons?
 

@@ -74,7 +74,7 @@ Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/off
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
 1. Get a slide's reference through its index. 
-1. Add a [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) object and pass the link to the video.
+1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object and pass the link to the video instead of a local file.
 1. Set a thumbnail for the video frame. 
 1. Save the presentation. 
 
@@ -96,7 +96,7 @@ def add_video_from_youyube(pres, videoId):
 
 
 with slides.Presentation() as pres:
-    add_video_from_youyube(pres, "s5JbfQZ5Cc0")
+    add_video_from_youyube(pres, "jNQXAC9IVRw")
     pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

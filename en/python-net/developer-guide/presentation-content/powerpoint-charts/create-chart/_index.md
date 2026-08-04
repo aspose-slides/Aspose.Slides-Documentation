@@ -91,9 +91,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Set the first series to show values.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
     # Set the index of the chart data sheet.
     worksheet_index = 0
 
@@ -279,9 +276,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Set the first series to show values.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
     # Set the index of the chart data sheet.
     worksheet_index = 0
 
@@ -376,10 +370,6 @@ Line charts (also known as line graphs) are best used in situations where you wa
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.LINE` type.
-1. Access the chart's data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Clear the default series and categories.
-1. Add new series and categories.
-1. Add new chart data for the chart series.
 1. Save the modified presentation as a PPTX file.
 
 This Python code shows you how to create a line chart:
@@ -730,7 +720,7 @@ Histogram charts are used to represent the distribution of numerical data by gro
 1. Add a chart with some data and specify the `ChartType.HISTOGRAM` type.
 1. Access the chart data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
 1. Clear the default series and categories.
-1. Add new series and categories.
+1. Add a new series and populate it with data points. A histogram has no categories; the bins are calculated from the values.
 1. Save the modified presentation as a PPTX file.
 
 This Python code shows you how to create a histogram chart:
@@ -781,7 +771,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The result:

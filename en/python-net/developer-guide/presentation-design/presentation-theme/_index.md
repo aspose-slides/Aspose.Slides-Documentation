@@ -268,7 +268,7 @@ A PowerPoint theme typically includes three values in each style array. These ar
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Using the three properties—`FillStyles`, `LineStyles`, and `EffectStyles`—from the [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) class, you can modify theme elements (even more flexibly than in PowerPoint).
+Using the three properties—`fill_styles`, `line_styles`, and `effect_styles`—from the [FormatScheme](https://reference.aspose.com/slides/python-net/aspose.slides.theme/formatscheme/) class, you can modify theme elements (even more flexibly than in PowerPoint).
 
 This Python code shows how to change a theme effect by altering parts of those elements:
 
