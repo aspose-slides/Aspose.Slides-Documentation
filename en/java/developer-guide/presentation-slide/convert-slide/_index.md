@@ -41,6 +41,8 @@ You can convert a slide to a bitmap object and use it directly in your applicati
 This code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
 
 ```java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
     // Convert the first slide in the presentation to a bitmap.
@@ -63,6 +65,9 @@ You may need to get an image of a certain size. Using an overload from the [getI
 This sample code demonstrates how to do this:
 
 ```java 
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
@@ -92,6 +97,9 @@ With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/jav
 This code demonstrates how to convert a slide with notes and comments:
 
 ```java 
+import com.aspose.slides.*;
+import java.awt.Color;
+
 float scaleX = 2;
 float scaleY = scaleX;
 
@@ -135,6 +143,9 @@ The [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/it
 This code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
 
 ```java 
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 // Load a presentation file.
 Presentation presentation = new Presentation("sample.pptx");
 try {
@@ -175,6 +186,8 @@ Aspose.Slides allows you to convert all slides in a presentation to images, effe
 This sample code demonstrates how to convert all slides in a presentation to images in Java:
 
 ```java 
+import com.aspose.slides.*;
+
 float scaleX = 2;
 float scaleY = scaleX;
 

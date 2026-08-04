@@ -39,6 +39,9 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 The following Java example shows how to set a blue solid color as the background for a normal slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -69,6 +72,9 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 The following Java example shows how to set a solid color (green) as the background for a master slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -99,6 +105,8 @@ A gradient is a graphical effect created by a gradual change in color. When used
 The following Java example shows how to set a gradient color as the background for a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -131,6 +139,8 @@ In addition to solid and gradient fills, Aspose.Slides allows you to use images 
 The following Java example shows how to set an image as the background for a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -159,6 +169,8 @@ try {
 The following code sample shows how to set the background fill type to a tiled picture and modify the tiling properties:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -202,6 +214,8 @@ Read more: [**Tile Picture As Texture**](/slides/java/shape-formatting/#tile-pic
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following Java code shows you how to change the transparency for a slide background image:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // For example.
 
 // Get the collection of picture transform operations.
@@ -234,6 +248,8 @@ Using the [BaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides
 The following Java example shows how to get a slide’s effective background value:
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation("Sample.pptx");
 try {

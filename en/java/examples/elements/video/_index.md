@@ -21,6 +21,8 @@ This article demonstrates how to embed video frames and set playback options usi
 Insert an empty video frame onto a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void addVideo() {
     Presentation presentation = new Presentation();
     try {
@@ -39,6 +41,8 @@ static void addVideo() {
 Retrieve the first video frame added to a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessVideo() {
     Presentation presentation = new Presentation();
     try {
@@ -65,6 +69,8 @@ static void accessVideo() {
 Delete a video frame from the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeVideo() {
     Presentation presentation = new Presentation();
     try {
@@ -85,6 +91,8 @@ static void removeVideo() {
 Configure the video to play automatically when the slide is displayed.
 
 ```java
+import com.aspose.slides.*;
+
 static void setVideoPlayback() {
     Presentation presentation = new Presentation();
     try {

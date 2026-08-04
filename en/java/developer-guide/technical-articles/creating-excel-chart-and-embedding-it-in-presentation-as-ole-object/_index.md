@@ -35,6 +35,9 @@ The following sequence of steps is required to create and embed an Excel chart a
 The Java implementation of the above steps is as follows:
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
 // Create a workbook.
 Workbook workbook = new Workbook();
 
@@ -69,6 +72,9 @@ presentation.dispose();
 ```
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
 {
     double oleHeight = presentation.getSlideSize().getSize().getHeight();
@@ -84,6 +90,9 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
 ```
 
 ```java
+import com.aspose.slides.*;
+import java.lang.reflect.Array;
+
 static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
 {
     // An array of cell names.

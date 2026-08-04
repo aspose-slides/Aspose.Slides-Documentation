@@ -56,6 +56,9 @@ The implementation of the above steps is given below. It takes an unadorned pres
 |**Figure: The same text with updated formatting**|
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate a Presentation object that represents a PPTX file
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
@@ -133,6 +136,9 @@ The implementation of the above steps is given below.
 |**Figure: Text with some font properties set by Aspose.Slides for Java**|
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate a Presentation object that represents a PPTX file
 Presentation pres = new Presentation();
 try {

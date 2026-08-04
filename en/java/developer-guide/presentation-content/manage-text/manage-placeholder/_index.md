@@ -38,6 +38,8 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 This Java code shows how to change the text in a placeholder:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation class
 Presentation pres = new Presentation("ReplacingText.pptx");
 try {
@@ -67,6 +69,8 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This Java code shows you how to set the prompt text in a placeholder:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -102,6 +106,8 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This Java code shows you how to set the transparency for a picture background (inside a shape):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("example.pptx");
 
 IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);

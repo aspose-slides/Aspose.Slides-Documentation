@@ -38,6 +38,8 @@ Aspose.Slides allows you to convert PowerPoint presentations to animated GIF fil
 This sample code in Java shows you how to convert a presentation to animated GIF using standard settings:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	pres.save("pres.gif", SaveFormat.Gif);
@@ -59,6 +61,9 @@ If you prefer to customize the parameters for the GIF, you can use the [GifOptio
 This sample code shows you how to convert a presentation to animated GIF using custom settings in Java:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();

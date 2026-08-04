@@ -34,6 +34,8 @@ WordArt effects allow you to add visually appealing, stylized text to your Power
 First, we create a simple text using this Java code: 
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -49,6 +51,8 @@ try {
 Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
 ``` java 
+import com.aspose.slides.*;
+
 FontData fontData = new FontData("Arial Black");
 portion.getPortionFormat().setLatinFont(fontData);
 portion.getPortionFormat().setFontHeight(36);
@@ -71,6 +75,9 @@ These are some of the available parameters or options:
 Here, we apply the [SmallGrid](https://reference.aspose.com/slides/java/com.aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
 
 ``` java 
+import com.aspose.slides.*;
+import java.awt.Color;
+
 portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.ORANGE);
 portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
@@ -99,6 +106,9 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in Java:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(Color.BLACK);
 portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
@@ -135,6 +145,8 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 We add display to the text through this code sample in Java:
 
 ``` java
+import com.aspose.slides.*;
+
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
 portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
@@ -153,6 +165,8 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 We apply the glow effect to the text to make it shine or stand out using this code:
 
 ``` java
+import com.aspose.slides.*;
+
 portion.getPortionFormat().getEffectFormat().enableGlowEffect();
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR((byte)255);
 portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(ColorTransformOperation.SetAlpha, 0.54f);
@@ -173,6 +187,8 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ``` java 
+import com.aspose.slides.*;
+
 textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUpPour);
 ```
 
@@ -199,6 +215,9 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 autoShape.getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
 autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
@@ -231,6 +250,9 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this Java code:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(BevelPresetType.Circle);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
@@ -293,6 +315,8 @@ Aspose.Slides for Java provides the [**IOuterShadow**](https://reference.aspose.
 This sample code in Java—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Get reference of the slide
@@ -338,6 +362,8 @@ Go through these steps:
 This sample code (based on the steps above) shows you how to add a connector between two shapes in Java:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Get reference of the slide

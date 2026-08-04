@@ -60,6 +60,9 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 This Java code is an implementation of the steps for adding paragraphs containing portions:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate a Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -147,6 +150,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This Java code shows you how to add a paragraph bullet:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates a Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -240,6 +246,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This Java code shows you how to add and manage picture bullets:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 // Instantiates a Presentation class that represents a PPTX file
 Presentation presentation = new Presentation();
 try {
@@ -308,6 +317,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This Java code shows you how to add and manage multilevel bullets:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates a Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -395,6 +407,8 @@ The [IBulletFormat](https://reference.aspose.com/slides/java/com.aspose.slides/i
 This Java code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
@@ -453,6 +467,9 @@ The example below creates several paragraphs and applies different indent values
 This code shows you how to set a paragraph indent:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -522,6 +539,9 @@ This formatting is useful for bibliographies, references, glossary entries, and 
 This code shows you how to set a hanging indent for a paragraph:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -576,6 +596,8 @@ The result:
 This Java code shows you how to set the End properties for paragraphs in PowerPoint: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
@@ -618,6 +640,8 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 This Java code is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```java
+import com.aspose.slides.*;
+
 // Create Empty presentation instance
 Presentation pres = new Presentation();
 try {
@@ -664,6 +688,13 @@ Aspose.Slides provides enhanced support for exporting texts (contained in paragr
 This Java code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 // Load the presentation file
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
@@ -703,6 +734,16 @@ Let's assume we have a presentation file called sample.pptx with one slide, wher
 In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -746,6 +787,16 @@ The result:
 In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 float imageScaleX = 2f;
 float imageScaleY = imageScaleX;
 

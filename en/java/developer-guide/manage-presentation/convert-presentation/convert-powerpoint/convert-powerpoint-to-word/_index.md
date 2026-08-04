@@ -47,6 +47,9 @@ Follow the instructions below to convert a PowerPoint or OpenDocument presentati
 3. Use this code snippet to convert the PowerPoint to Word:
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
 Presentation pres = new Presentation("sample.pptx");
 
 Document doc = new Document();

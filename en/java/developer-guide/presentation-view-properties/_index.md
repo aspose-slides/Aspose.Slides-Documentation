@@ -56,6 +56,8 @@ Method [getAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slide
 An example is given below shows how can you access [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) properties for a presentation.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
@@ -88,6 +90,8 @@ In order to set the view properties. Please follow the steps below:
    In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Setting the view properties of the presentation

@@ -36,6 +36,8 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart series.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
@@ -82,6 +84,8 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart category.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
@@ -125,6 +129,8 @@ If you want to animate series elements, write the code according to the steps li
 In the example given below, we have animated series' elements.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
@@ -181,6 +187,8 @@ If you want to animate categories elements, write the code according to the step
 In the example given below, we have animated categories elements.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {

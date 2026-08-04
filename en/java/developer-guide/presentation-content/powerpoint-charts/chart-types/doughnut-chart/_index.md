@@ -38,6 +38,8 @@ In order to specify the size of the hole in a doughnut chart, please follow the 
 In the example given below, we have set the size of the hole in a doughnut chart.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

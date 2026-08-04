@@ -43,6 +43,9 @@ Aspose.Slides for Java provides a simple API for managing different chart Trend 
 The following code is used to create a chart with Trend Lines.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -103,6 +106,8 @@ Aspose.Slides for Java provides a simple API to add custom lines in a chart. To 
 The following code is used to create a chart with Custom Lines.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

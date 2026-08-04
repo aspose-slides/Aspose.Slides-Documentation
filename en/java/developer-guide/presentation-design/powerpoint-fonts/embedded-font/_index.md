@@ -33,6 +33,9 @@ Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slide
 This Java code shows you how to get and remove embedded fonts from a presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 // Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation("EmbeddedFonts.pptx");
 try {
@@ -86,6 +89,8 @@ try {
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This Java code shows you how to embed and add fonts to a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 // Loads the presentation
 Presentation pres = new Presentation("Fonts.pptx");
 try {
@@ -125,6 +130,8 @@ To allow you to compress the fonts embedded in a presentation and reduce its fil
 This Java code shows you how to compress embedded PowerPoint fonts:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Compress.compressEmbeddedFonts(pres);

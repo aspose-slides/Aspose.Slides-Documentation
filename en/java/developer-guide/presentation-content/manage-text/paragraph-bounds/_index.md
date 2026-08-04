@@ -25,6 +25,8 @@ This article explains how to get the bounds, size, and coordinates of paragraphs
 Use [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) to get the bounding rectangle of a paragraph.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Shapes.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -43,6 +45,9 @@ To get the size and coordinates of an [IParagraph](https://reference.aspose.com/
 The following example gets paragraph bounds inside a table cell and draws rectangles on the slide to visualize those bounds:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("source.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);

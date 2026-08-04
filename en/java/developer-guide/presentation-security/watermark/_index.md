@@ -50,6 +50,8 @@ You can design the watermark in any way; however, there are usually common featu
 To add a text watermark in PPT, PPTX, or ODP, you can first add a shape to the slide, then add a text frame to this shape. The text frame is represented by the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) interface. This type is not inherited from [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), which has a wide set of properties for positioning the watermark in a flexible way. Therefore, the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) object is wrapped in an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) object. To add watermark text to the shape, use the [addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) method as shown below.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -70,6 +72,8 @@ presentation.dispose();
 If you want to add a text watermark to the entire presentation (i.e., all slides at once), add it to the [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/). The rest of the logic is the same as when adding a watermark to a single slide — create an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) object and then add the watermark to it using the [addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) method.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -90,6 +94,8 @@ presentation.dispose();
 By default, the rectangle shape is styled with fill and line colors. The following lines of code make the shape transparent.
 
 ```java
+import com.aspose.slides.*;
+
 watermarkShape.getFillFormat().setFillType(FillType.NoFill);
 watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
 ```
@@ -99,6 +105,8 @@ watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
 You can change the font of the text watermark as shown below.
 
 ```java
+import com.aspose.slides.*;
+
 IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new FontData("Arial"));
 textFormat.setFontHeight(50);
@@ -109,6 +117,9 @@ textFormat.setFontHeight(50);
 To set the color of the watermark text, use this code:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
@@ -121,6 +132,9 @@ fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
 It is possible to center the watermark on a slide, and for that, you can do the following:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 
 float watermarkWidth = 400;
@@ -145,6 +159,10 @@ The image below shows the final result.
 To add an image watermark to a presentation slide, you can do the following:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 InputStream imageStream = new FileInputStream("watermark.png");
 IPPImage image = presentation.getImages().addImage(imageStream);
 
@@ -198,6 +216,8 @@ watermarkShape.setName("watermark");
 To remove the watermark shape, use the [IAutoShape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getName--) method to find it in the slide shapes. Then, pass the watermark shape into the [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) method:
 
 ```java
+import com.aspose.slides.*;
+
 IShape[] slideShapes = slide.getShapes().toArray();
 for (IShape shape : slideShapes) {
     if ("watermark".equals(shape.getName()))

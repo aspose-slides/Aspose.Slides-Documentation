@@ -32,6 +32,8 @@ Method com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sets d
 Method com.aspose.slides.IConnector.reroute() reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -56,6 +58,8 @@ input.save("output.pptx", SaveFormat.Pptx);
 Method Aspose.Slides.IPresentation.getSlideById(int) returns a Slide, MasterSlide or LayoutSlide by slide Id.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -68,6 +72,8 @@ IBaseSlide slide = presentation.getSlideById(id);
 Method com.aspose.slides.ISmartArt.getNodes() returns collection of root nodes in SmartArt object.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -84,6 +90,8 @@ pres.save("out.pptx", SaveFormat.Pptx);
 Method for property com.aspose.slides.ISmartArt.setLayout(int) has been added. It allows change layout type of an existing diagram.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -98,6 +106,8 @@ pres.save("out.pptx", SaveFormat.Pptx);
 Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a hidden node in the data model.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -120,6 +130,8 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -134,6 +146,8 @@ presentation.save("out.pptx", SaveFormat.Pptx);
 Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) allow get or sets organization chart type associated with current node.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -148,6 +162,8 @@ pres.save("out.pptx", SaveFormat.Pptx);
 Property com.aspose.slides.getConnectionSiteCount() returns the number of connection sites on the shape.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 

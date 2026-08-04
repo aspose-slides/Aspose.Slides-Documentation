@@ -33,6 +33,11 @@ renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics);
 were added to com.aspose.slides.ISlide interface and to com.aspose.slides.Slide class. These methods allow render a slide to specified Graphics2D object.
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+
 
  BufferedImage bufferedImage = new BufferedImage(960, 720, BufferedImage.TYPE_INT_ARGB);
 

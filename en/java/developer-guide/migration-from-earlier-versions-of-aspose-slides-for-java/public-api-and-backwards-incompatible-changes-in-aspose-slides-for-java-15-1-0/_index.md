@@ -44,6 +44,8 @@ This is the collection of IFontSubstRule instances used to substitute fonts duri
 The following example shows how to replace a font in a presentation:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -60,6 +62,8 @@ pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 Another example, shows font substitution for rendering when it is inaccessible:
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

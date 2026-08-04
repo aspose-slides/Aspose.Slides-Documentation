@@ -26,6 +26,8 @@ Data labels on a chart show details about the chart data series or individual da
 This Java code shows you how to set the data precision in a chart data label:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
@@ -43,6 +45,8 @@ try {
 Aspose.Slides for Java allows you to set percentage labels on displayed charts. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -95,6 +99,9 @@ try {
 This Java code shows you to set the percentage sign for a chart data label:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -162,6 +169,8 @@ try {
 This Java code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -188,6 +197,8 @@ When you create a chart that does not rely on any axis such as a pie chart, the 
 This Java code shows you how to adjust the label location on a pie chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);

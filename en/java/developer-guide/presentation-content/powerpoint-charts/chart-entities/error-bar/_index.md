@@ -30,6 +30,8 @@ Aspose.Slides for Java provides a simple API for managing error bar values. The 
 1. Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -69,6 +71,8 @@ Aspose.Slides for Java provides a simple API for managing custom error bar value
 1. Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

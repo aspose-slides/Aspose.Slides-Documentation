@@ -63,6 +63,8 @@ shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, Nullab
 or
 
 ``` java
+import com.aspose.slides.*;
+
 
  slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
 

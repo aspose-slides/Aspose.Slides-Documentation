@@ -31,6 +31,8 @@ You can also manage headers and footers for handout and notes slides. This inclu
 Notes of some specific slide could be removed as shown in example below:
 
 ```java
+import com.aspose.slides.*;
+
 // Load Presentation
 Presentation pres = new Presentation("headerTest.pptx");
 try {
@@ -52,6 +54,8 @@ try {
 }
 ```
 ```java
+import com.aspose.slides.*;
+
 // Method to set Header/Footer Text
 public static void updateHeaderFooterText(IBaseSlide master)
 {
@@ -84,6 +88,8 @@ Aspose.Slides for Java supports Header and Footer in Handout and notes slides. P
 Code Snippet provided in below Example.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("presentation.pptx");
 try {
     // Change Header and Footer settings for notes master and all notes slides

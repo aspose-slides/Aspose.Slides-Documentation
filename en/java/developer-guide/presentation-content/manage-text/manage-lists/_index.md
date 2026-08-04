@@ -44,6 +44,9 @@ To create a bulleted list, add [IParagraph](https://reference.aspose.com/slides/
 The following Java code demonstrates how to create a bulleted list in a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -91,6 +94,8 @@ Use numbered lists when the order of items matters. Set [IBulletFormat.setType](
 The following Java code shows how to create a numbered list in a slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -145,6 +150,8 @@ Let's say we have an "image.png":
 The following Java code shows how to create picture bullets in a slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -188,6 +195,8 @@ Use [IParagraphFormat.setDepth](https://reference.aspose.com/slides/java/com.asp
 The following Java code shows how to create a multilevel bulleted list:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -233,6 +242,8 @@ To change list formatting in an existing presentation, access the target paragra
 The following Java code changes the first paragraph in a text frame to use a numbered list style:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);

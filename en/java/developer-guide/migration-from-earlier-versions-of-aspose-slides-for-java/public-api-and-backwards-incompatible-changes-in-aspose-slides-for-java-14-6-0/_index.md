@@ -29,6 +29,8 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 The IPresentation.getViewProperty() method provides access to IViewProperties and allows you to change the presentation view type and notes visibility when a presentation is opened in Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
@@ -48,6 +50,8 @@ The methods
 adds/inserts a copy of a specified shape into the collection. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -76,6 +80,8 @@ destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 This interface specifies the types of values in the ChartDataPoint.ErrorBarsCustomValues properties list.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -126,6 +132,8 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 When the IErrorBarsFormat.ValueType property is equal to Custom to specify value use the ErrorBarCustomValues property of the specific data point in the DataPoints collection of the series.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -177,6 +185,8 @@ This interface represents error bars of chart series.
 In case of custom value type to specify value use the ErrorBarCustomValues property of a specific data point in the DataPoins collection of the series.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

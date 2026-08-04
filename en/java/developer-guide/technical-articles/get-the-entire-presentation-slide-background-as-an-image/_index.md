@@ -41,6 +41,8 @@ Aspose.Slides for Java does not provide a simple method to extract the entire pr
 
 The following code example extracts the entire presentation slide background as an image.
 ```java
+import com.aspose.slides.*;
+
 var slideIndex = 0;
 var imageScale = 1;
 

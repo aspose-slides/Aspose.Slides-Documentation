@@ -90,6 +90,8 @@ To encrypt or password protect a presentation, you have to use the encrypt metho
 This sample code shows you how to encrypt a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().encrypt("123123");
@@ -108,6 +110,8 @@ You can add a mark stating “Do not modify” to a presentation. This way, you 
 To set a write protection, you have to use the [setWriteProtection](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) method. This sample code shows you how to set a write protection to a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().setWriteProtection("123123");
@@ -142,6 +146,8 @@ You can remove the encryption or password protection on a presentation. This way
 To remove encryption or password protection, you have to call the [removeEncryption](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeEncryption--) method. This sample code shows you to remove encryption from a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setPassword("123123");
 Presentation presentation = new Presentation("pres.pptx", loadOptions);
@@ -160,6 +166,8 @@ You can use Aspose.Slides to remove the write protection used on a presentation 
 You can remove the write protection from a presentation by using the [removeWriteProtection](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) method. This sample code shows you to remove the write protection from a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().removeWriteProtection();
@@ -178,6 +186,8 @@ Typically, users struggle to get the document properties of an encrypted or pass
 If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [encryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) property to `true`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().setEncryptDocumentProperties(true);
@@ -194,6 +204,8 @@ Before you load a presentation, you might want to check and confirm that the pre
 This Java code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
 System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
 ```
@@ -205,6 +217,8 @@ Aspose.Slides allows you to check whether a presentation is encrypted. To perfor
 This sample code shows you how to check whether a presentation is encrypted:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
@@ -220,6 +234,8 @@ Aspose.Slides allows you to check whether a presentation is write-protected. To 
 This sample code shows you how to check whether a presentation is write-protected:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
@@ -235,6 +251,8 @@ You may want to check and confirm that a specific password has been used to prot
 This sample code shows you how to validate a password:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     // check if "pass" is matched with

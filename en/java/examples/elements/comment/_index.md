@@ -21,6 +21,8 @@ This article demonstrates adding, reading, removing, and replying to modern comm
 Create a comment authored by a user and save the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 static void addModernComment() {
     Presentation presentation = new Presentation();
     try {
@@ -42,6 +44,8 @@ static void addModernComment() {
 Read a modern comment from an existing presentation.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessModernComment() {
     Presentation presentation = new Presentation("modern_comment.pptx");
     try {
@@ -59,6 +63,8 @@ static void accessModernComment() {
 Remove a comment and save the updated file.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeModernComment() {
     Presentation presentation = new Presentation("modern_comment.pptx");
     try {
@@ -79,6 +85,8 @@ static void removeModernComment() {
 Add replies to a parent modern comment.
 
 ```java
+import com.aspose.slides.*;
+
 static void replyToModernComment() {
     Presentation presentation = new Presentation();
     try {

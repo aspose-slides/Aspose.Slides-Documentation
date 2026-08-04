@@ -42,6 +42,8 @@ Aspose.Slides for Java provides the [SlideUtil](https://reference.aspose.com/sli
 The following code snippet extracts all the text from the first slide of the presentation:
 
 ```java
+import com.aspose.slides.*;
+
 int slideIndex = 0;
 
 Presentation presentation = new Presentation("demo.pptx");
@@ -83,6 +85,8 @@ To scan text from the entire presentation, use the [SlideUtil.getAllTextFrames](
 The method returns an array of objects of type [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/), including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     boolean includeMasterSlides = true;
@@ -137,6 +141,8 @@ The unarranged mode can be used when speed is critical; it's faster than the arr
 - `getCommentsText` - The text within comments associated with this slide.
 
 ```java
+import com.aspose.slides.*;
+
 String presentationPath = "presentation.ppt";
 int arrangingMode = TextExtractionArrangingMode.Unarranged;
 IPresentationText presentationText = PresentationFactory.getInstance().getPresentationText(presentationPath, arrangingMode);

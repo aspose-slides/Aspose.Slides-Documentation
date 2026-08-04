@@ -47,6 +47,8 @@ The two new enums EffectChartMajorGroupingType and EffectChartMinorGroupingType 
 To add a series animation to the chart the following code may be used:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation(inFileName);
 
@@ -99,6 +101,8 @@ try {
 Categories animation:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation(inFileName);
 
@@ -153,6 +157,8 @@ try
 Series elements animation:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation(inFileName);
 
@@ -255,6 +261,8 @@ try
 Categories elements animation:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation(inFileName);
 
@@ -365,6 +373,8 @@ baseUri: The base URI which will be used to generate links
 Usage example:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 

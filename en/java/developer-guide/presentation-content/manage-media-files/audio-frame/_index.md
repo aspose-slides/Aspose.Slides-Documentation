@@ -35,6 +35,11 @@ Aspose.Slides for Java allows you to add audio files to slides. The audio files 
 This Java code shows you how to add an embedded audio frame to a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Instantiates a Presentation class that represents a presentation file
 Presentation pres = new Presentation();
 try {
@@ -67,6 +72,10 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 This Java code shows you how to change an audio frame's thumbnail or preview image:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -131,6 +140,8 @@ This is how you change the Audio Play options:
 This Java code demonstrates an operation in which an audio's options are adjusted:
 
 ```java 
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     // Gets the AudioFrame shape
@@ -164,6 +175,10 @@ try {
 This Java example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -191,6 +206,8 @@ try {
 The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -217,6 +234,10 @@ Aspose.Slides allows you to add closed captions to an audio frame through the [g
 Use the [getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#getCaptionTracks--) method to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 try {
     byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
@@ -239,6 +260,11 @@ try {
 You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -262,6 +288,8 @@ try {
 To remove captions from an audio frame, use the methods provided by [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/), such as [clear](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/#clear--), [remove](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-), or [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/#removeAt-int-). The following example removes all caption tracks from an audio frame.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -288,6 +316,8 @@ Aspose.Slides for Java allows you to extract the sound used in slide show transi
 This code in Java shows you how to extract the audio used in a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation class that represents a presentation file
 Presentation pres = new Presentation("AudioSlide.pptx");
 try {

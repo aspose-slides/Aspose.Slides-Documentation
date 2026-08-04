@@ -23,6 +23,8 @@ One of the most common questions from Aspose.Slides for Java customers is how to
 To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
 
 ```java
+import com.aspose.slides.*;
+
 // Load the presentation file.
 Presentation presentation = new Presentation("sample.ppt");
 try {
@@ -70,6 +72,8 @@ If a slide contains a table, the code above will not work correctly. In that cas
 Use the following code on your end to resize slides that contain tables. For tables, setting the width or height is a special case: you must adjust individual row heights and column widths to change the table’s overall size.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Get the original slide size.

@@ -27,6 +27,8 @@ This article explains how to work with animated text in Aspose.Slides by applyin
 We added the [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) and [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
     // select paragraph to add effect
@@ -50,6 +52,8 @@ You may decide to find out the animation effects added to a paragraph—for exam
 Aspose.Slides for Java allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();

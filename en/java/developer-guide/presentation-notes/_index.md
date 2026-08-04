@@ -30,6 +30,8 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic,
 Notes of some specific slide could be removed as shown in example below:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation object that represents a presentation file
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -48,6 +50,8 @@ try {
 Notes of all the slides of a presentation could be removed as shown in example below:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation object that represents a presentation file
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -69,6 +73,8 @@ try {
 [getNotesStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation object that represents a presentation file
 Presentation pres = new Presentation("demo.pptx");
 try {

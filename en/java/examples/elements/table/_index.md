@@ -21,6 +21,8 @@ Examples for adding tables, accessing them, removing them, and merging cells usi
 Create a simple table with two rows and two columns.
 
 ```java
+import com.aspose.slides.*;
+
 static void addTable() {
     Presentation presentation = new Presentation();
     try {
@@ -40,6 +42,8 @@ static void addTable() {
 Retrieve the first table shape on the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessTable() {
     Presentation presentation = new Presentation();
     try {
@@ -68,6 +72,8 @@ static void accessTable() {
 Delete a table from a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeTable() {
     Presentation presentation = new Presentation();
     try {
@@ -89,6 +95,8 @@ static void removeTable() {
 Merge adjacent cells of a table into a single cell.
 
 ```java
+import com.aspose.slides.*;
+
 static void mergeTableCells() {
     Presentation presentation = new Presentation();
     try {

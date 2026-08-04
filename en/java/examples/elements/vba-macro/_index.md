@@ -22,6 +22,8 @@ This article demonstrates how to add, access, and remove VBA macros using **Aspo
 Create a presentation with a VBA project and a simple macro module.
 
 ```java
+import com.aspose.slides.*;
+
 static void addVbaMacro() {
     Presentation presentation = new Presentation();
     try {
@@ -40,6 +42,8 @@ static void addVbaMacro() {
 Retrieve the first module from the VBA project.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessVbaMacro() {
     Presentation presentation = new Presentation();
     try {
@@ -60,6 +64,8 @@ static void accessVbaMacro() {
 Delete a module from the VBA project.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeVbaMacro() {
     Presentation presentation = new Presentation();
     try {

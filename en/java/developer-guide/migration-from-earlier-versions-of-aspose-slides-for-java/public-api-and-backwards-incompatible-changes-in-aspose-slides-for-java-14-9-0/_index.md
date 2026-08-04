@@ -31,6 +31,8 @@ New methods added:
 - IPPImage.replaceImage(IPPImage newImage)
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation("presentation.pptx");
 
@@ -69,6 +71,8 @@ These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTM
 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation(presentationFileName);
 
@@ -91,6 +95,9 @@ SmartArtShape does not supported IShape properties RawFrame, Frame, Rotation, X,
 Example of usage:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 
@@ -123,6 +130,9 @@ Depending of SmartArtLayoutType one SmartArtShape can be shared between several 
 ﻿
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 

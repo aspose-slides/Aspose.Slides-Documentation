@@ -32,6 +32,8 @@ This method is not only for specific series but for all series of the parent ser
 - Use IChartSeriesGroup.getOverlap() and setOverlap(byte) methods to manage the value.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -50,6 +52,9 @@ if (series.get_Item(0).getOverlap() == 0) {
 This method of creating shape thumbnails allows developers to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by the slide bounds.
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.image.BufferedImage;
+
 
  Presentation pres = new Presentation();
 
@@ -60,6 +65,8 @@ BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumb
 A new feature allows developers to create and edit VBA projects in a presentation.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

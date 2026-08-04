@@ -35,6 +35,8 @@ Aspose.Slides for Java allows developers to add empty slides to their presentati
 - Finally, write the presentation file using the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) object.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents the presentation file
 Presentation pres = new Presentation();
 try {

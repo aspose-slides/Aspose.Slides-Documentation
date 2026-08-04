@@ -47,6 +47,9 @@ Use `getImage` to render a single slide or shape. Use `getImages` to render seve
 A typical scenario of using the new API may look as follows:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
@@ -81,6 +84,12 @@ In general, you will need to replace calls that use [BufferedImage](https://docs
 
 Legacy/deprecated API:
 ``` java
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1920, 1080));
 try {
     ImageIO.write(slideImage, "PNG", new File("image.png"));
@@ -90,6 +99,9 @@ try {
 ```
 Modern API:
 ``` java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
 try {
     slideImage.save("image.png", ImageFormat.Png);
@@ -103,6 +115,12 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail();
@@ -119,6 +137,8 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IImage slideImage = pres.getSlides().get_Item(0).getImage();
@@ -137,6 +157,12 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     BufferedImage shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
@@ -153,6 +179,8 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IImage shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
@@ -171,6 +199,13 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     BufferedImage[] bitmaps = pres.getThumbnails(new RenderingOptions(), new Dimension(1980, 1028));
@@ -194,6 +229,9 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IImage[] images = pres.getImages(new RenderingOptions(), new Dimension(1980, 1028));
@@ -222,6 +260,12 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage = null;
@@ -241,6 +285,8 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;

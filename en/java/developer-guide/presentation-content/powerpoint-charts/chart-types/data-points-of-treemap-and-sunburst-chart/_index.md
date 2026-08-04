@@ -28,6 +28,8 @@ Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, w
 Let’s start with adding a new Sunburst chart to the presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
@@ -63,6 +65,8 @@ provide access to corresponding settings.
 Show value of "Leaf 4" data point:
 
 ```java
+import com.aspose.slides.*;
+
 IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
 dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
 ```
@@ -73,6 +77,9 @@ dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelF
 Set "Branch 1" data label to show series name ("Series1") instead of category name. Then set text color to yellow:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
 branch1Label.getDataLabelFormat().setShowSeriesName(true);
@@ -87,6 +94,9 @@ branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillForm
 Change color of "Steam 4" branch:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);

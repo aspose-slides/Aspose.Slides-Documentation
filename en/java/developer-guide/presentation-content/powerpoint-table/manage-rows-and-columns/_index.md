@@ -40,6 +40,8 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 This Java code shows you how to set a table's first row as its header:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation("table.pptx");
 try {
@@ -83,6 +85,8 @@ try {
 This Java code shows you how to clone a PowerPoint table's row or column:
 
 ```java
+import com.aspose.slides.*;
+
  // Instantiates the Presentation class
 Presentation pres = new Presentation("Test.pptx");
 try {
@@ -141,6 +145,8 @@ try {
 This Java code shows you how to remove a row or column from a table:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -171,6 +177,8 @@ try {
 This Java code demonstrates the operation.
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -252,6 +260,8 @@ try {
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });

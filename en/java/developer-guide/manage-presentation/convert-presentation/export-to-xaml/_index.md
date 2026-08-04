@@ -43,6 +43,8 @@ XAML, which is an XML-based language, is Microsoft’s variant for describing a 
 This Java code shows you how to export a presentation to XAML with default settings:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	pres.save(new XamlOptions());
@@ -58,6 +60,8 @@ You get to select options from the [IXamlOptions](https://reference.aspose.com/s
 For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample Java code: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	XamlOptions xamlOptions = new XamlOptions();

@@ -67,6 +67,10 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/java/aspose-slides-for-j
 This Java code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Adds a smile shape and then animates it
@@ -135,6 +139,9 @@ You may want to see these articles: [PowerPoint Animation](https://docs.aspose.c
 Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Adds a smile shape and animates it
 
 // ...
@@ -155,6 +162,10 @@ newSlide.getSlideShowTransition().setType(TransitionType.Push);
 Aspose.Slides also supports animation for texts. So we animate paragraphs on objects, which will appear one after the other (with the delay set to a second):
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Adds text and animations
@@ -239,6 +250,9 @@ When animations are generated, a `NewAnimation` event is generated for each subs
 To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/), the [Duration](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `GetFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     // Adds a smile shape and animates it
@@ -280,6 +294,9 @@ try {
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);

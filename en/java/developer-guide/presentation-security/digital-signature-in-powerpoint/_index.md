@@ -35,6 +35,8 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```java
+import com.aspose.slides.*;
+
 // Opening the presentation file
 Presentation pres = new Presentation();
 try {
@@ -57,6 +59,8 @@ try {
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
 ```java
+import com.aspose.slides.*;
+
 // Open presentation
 Presentation pres = new Presentation("SomePresentationSigned.pptx");
 try {

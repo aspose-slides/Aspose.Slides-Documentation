@@ -21,6 +21,9 @@ This article demonstrates how to embed audio frames and control playback with **
 Insert an empty audio frame that can later hold embedded sound data.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+
 static void addAudio() {
     Presentation presentation = new Presentation();
     try {
@@ -40,6 +43,9 @@ static void addAudio() {
 This code retrieves the first audio frame on a slide.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+
 static void accessAudio() {
     Presentation presentation = new Presentation();
     try {
@@ -67,6 +73,9 @@ static void accessAudio() {
 Delete a previously added audio frame.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+
 static void removeAudio() {
     Presentation presentation = new Presentation();
     try {
@@ -88,6 +97,9 @@ static void removeAudio() {
 Configure the audio frame to play automatically when the slide appears.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+
 static void setAudioPlayback() {
     Presentation presentation = new Presentation();
     try {

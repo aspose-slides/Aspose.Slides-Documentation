@@ -55,6 +55,11 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 This Java code shows you how to create a picture frame:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Instantiates the Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -95,6 +100,11 @@ By altering an image's relative scaling, you can create a more complicated pictu
 This Java code shows you how to create a picture frame with relative scale:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Instantiate Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
@@ -125,6 +135,9 @@ try {
 You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -153,6 +166,10 @@ When a presentation contains SVG graphics placed inside [PictureFrame](https
 The following code example demonstrates how to extract an SVG image from a picture frame:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -179,6 +196,8 @@ try {
 Aspose.Slides allows you to get the transparency effect applied to an image. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Test.pptx");
 
 var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -199,6 +218,8 @@ Aspose.Slides allows you to get the brightness and contrast effect applied to an
 This Java code demonstrates how to get the brightness and contrast settings from a picture frame:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -243,6 +264,12 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 This Java code demonstrates the picture frame formatting process:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Instantiates the Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
@@ -280,6 +307,9 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Java code shows you how to add an image and video into a placeholder:
 
 ```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
@@ -336,6 +366,9 @@ try {
 This Java code shows you how to crop an existing image on a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 // Creates new image object
 try {
@@ -372,6 +405,8 @@ If you want to delete the cropped areas of an image contained in a frame, you ca
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -406,6 +441,8 @@ It adjusts the picture's size and resolution similarly to PowerPoint's **Picture
 The following Java examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -430,6 +467,8 @@ try {
 Or using a custom DPI value directly:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -458,6 +497,9 @@ If you want a shape containing an image to retain its aspect ratio even after yo
 This Java code shows you how to lock a shape's aspect ratio:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
@@ -505,6 +547,9 @@ When stretching is specified for an image, a source rectangle is scaled to fit t
 This Java code demonstrates a process in which a StretchOff property is used:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 // Instantiates the Prseetation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {

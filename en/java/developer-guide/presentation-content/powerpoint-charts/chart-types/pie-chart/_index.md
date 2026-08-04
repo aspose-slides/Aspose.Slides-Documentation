@@ -35,6 +35,8 @@ Aspose.Slides for Java now supports second plot options for Pie of Pie or Bar of
 In the example given below, we have set different properties of Pie of Pie chart.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -71,6 +73,8 @@ Aspose.Slides for Java provides a simple API for setting automatic pie chart sli
 Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

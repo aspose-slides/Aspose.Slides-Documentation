@@ -39,6 +39,8 @@ A PowerPoint theme uses a specific set of colors for different elements on a sli
 This Java code shows you how to change the accent color for a theme:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -54,6 +56,9 @@ try {
 You can determine the resulting color's effective value this way:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
 
 Color effectiveColor = fillEffective.getSolidFillColor();
@@ -65,6 +70,9 @@ System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
 otherShape.getFillFormat().setFillType(FillType.Solid);
@@ -89,6 +97,8 @@ When you apply luminance transformations to the main theme color(1), colors from
 This Java code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -176,6 +186,8 @@ To allow you select fonts for themes and other purposes, Aspose.Slides uses thes
 This Java code shows you how to assign the Latin font to a theme element:
 
 ```java
+import com.aspose.slides.*;
+
 IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
 Paragraph paragraph = new Paragraph();
@@ -192,6 +204,8 @@ portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
 This Java code shows you how to change the presentation theme font:
 
 ```java
+import com.aspose.slides.*;
+
 pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
 ```
 
@@ -212,6 +226,8 @@ By default, the PowerPoint app provides 12 predefined backgrounds but only 3 fro
 For example, after you save a presentation in the PowerPoint app, you can run this Java code to find out the number of predefined backgrounds in the presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -255,6 +271,9 @@ Using 3 properties ([FillStyles](https://reference.aspose.com/slides/java/com.as
 This Java code shows you how to change a theme effect by altering parts of elements:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);

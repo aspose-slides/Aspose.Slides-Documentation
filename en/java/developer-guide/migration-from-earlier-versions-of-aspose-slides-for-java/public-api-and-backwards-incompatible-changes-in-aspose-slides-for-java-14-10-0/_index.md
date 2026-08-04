@@ -39,6 +39,8 @@ IChartDataPoint.remove()
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

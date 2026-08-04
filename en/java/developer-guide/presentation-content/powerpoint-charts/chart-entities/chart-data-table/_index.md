@@ -32,6 +32,8 @@ Aspose.Slides for Java provides support for changing color of categories in a se
  Below sample example is given. 
 
 ```java
+import com.aspose.slides.*;
+
 // Creating empty presentation
 Presentation pres = new Presentation();
 try {
