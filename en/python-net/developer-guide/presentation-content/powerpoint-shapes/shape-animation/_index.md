@@ -241,6 +241,8 @@ def print_effects(effects):
         print(effect.type.name, effect.subtype.name)
 ```
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 

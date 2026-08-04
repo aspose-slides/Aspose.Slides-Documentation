@@ -25,6 +25,8 @@ Shows how to connect shapes with connectors and change their targets using **Asp
 Insert a connector shape between two points on the slide.
 
 ```py
+import aspose.slides as slides
+
 def add_connector():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -40,6 +42,8 @@ def add_connector():
 Retrieve the first connector shape added to a slide.
 
 ```py
+import aspose.slides as slides
+
 def access_connector():
     with slides.Presentation("connector.pptx") as presentation:
         slide = presentation.slides[0]
@@ -57,6 +61,8 @@ def access_connector():
 Delete a connector from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_connector():
     with slides.Presentation("connector.pptx") as presentation:
         slide = presentation.slides[0]
@@ -75,6 +81,8 @@ def remove_connector():
 Attach a connector to two shapes by assigning start and end targets.
 
 ```py
+import aspose.slides as slides
+
 def reconnect_shapes():
     with slides.Presentation("connector.pptx") as presentation:
         slide = presentation.slides[0]

@@ -24,6 +24,8 @@ Shows how to add footers and update date and time placeholders using **Aspose.Sl
 Add text to the footer area of a slide and make it visible.
 
 ```py
+import aspose.slides as slides
+
 def add_footer():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -39,6 +41,8 @@ def add_footer():
 Modify the date and time placeholder on a slide.
 
 ```py
+import aspose.slides as slides
+
 def add_date_time():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]

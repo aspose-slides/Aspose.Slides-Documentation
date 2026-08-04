@@ -63,6 +63,9 @@ print("{0} ({1})".format(fill_effective.solid_fill_color.name, fill_effective.so
 To further demonstrate the color change, we create another element, assign it the accent color from the initial step, and then update the theme color.
 
 ```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 other_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
 other_shape.fill_format.fill_type = slides.FillType.SOLID
 other_shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
@@ -170,6 +173,8 @@ To allow you to select fonts for themes and other purposes, Aspose.Slides uses t
 This Python code shows how to assign the Latin font to a theme element:
 
 ```python
+import aspose.slides as slides
+
 portion = slides.Portion("Theme text format")
 portion.portion_format.latin_font = slides.FontData("+mn-lt")
 
@@ -183,6 +188,8 @@ shape.text_frame.paragraphs.add(paragraph)
 This Python example shows how to change the presentation’s theme font:
 
 ```python
+import aspose.slides as slides
+
 presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
 ```
 
@@ -203,6 +210,8 @@ By default, PowerPoint provides 12 predefined backgrounds, but a typical present
 For example, after you save a presentation in PowerPoint, you can run the following Python code to determine how many predefined backgrounds it contains:
 
 ```python
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     number_of_background_fills = len(presentation.master_theme.format_scheme.background_fill_styles)
     print(f"Number of theme background fill styles: {number_of_background_fills}")
@@ -237,6 +246,9 @@ Using the three properties—`FillStyles`, `LineStyles`, and `EffectStyles`—fr
 This Python code shows how to change a theme effect by altering parts of those elements:
 
 ```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     presentation.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
     presentation.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID

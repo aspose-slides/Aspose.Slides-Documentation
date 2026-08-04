@@ -111,6 +111,8 @@ Merging specific slides from multiple presentations is useful when creating cust
 The following Python example creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```py
+import aspose.slides as slides
+
 def get_title_slide(pres):
     for slide in pres.slides:
         if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:

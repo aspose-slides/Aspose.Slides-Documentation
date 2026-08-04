@@ -182,6 +182,8 @@ Aspose.Slides for Python lets you insert Enhanced Metafile (EMF) images into pre
 The following Python example demonstrates this:
 
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -206,6 +208,8 @@ Follow these steps:
 1. Save the modified presentation as a PPTX file.
 
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()

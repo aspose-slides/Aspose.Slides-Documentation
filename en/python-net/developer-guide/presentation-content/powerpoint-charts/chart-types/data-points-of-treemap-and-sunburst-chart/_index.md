@@ -28,6 +28,9 @@ Here is a Sunburst chart where data in the Series1 column defines the leaf nodes
 Let’s start by adding a new Sunburst chart to the presentation:
 
 ```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
@@ -61,6 +64,9 @@ This section shows how to set custom labels and colors for individual data point
 Set the "Branch 1" data label to show the series name ("Series1") instead of the category name, and then set the text color to yellow:
 
 ```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 branch1_label = data_points[0].data_point_levels[2].label
 branch1_label.data_label_format.show_category_name = False
 branch1_label.data_label_format.show_series_name = True

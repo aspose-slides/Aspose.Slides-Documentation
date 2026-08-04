@@ -103,6 +103,8 @@ This property provides the following modes:
 The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
 ```py
+import aspose.slides as slides
+
 pptx_options = slides.export.PptxOptions()
 pptx_options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
 

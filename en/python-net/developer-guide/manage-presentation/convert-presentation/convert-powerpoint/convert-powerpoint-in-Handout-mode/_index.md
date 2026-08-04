@@ -29,6 +29,8 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```py
+import aspose.slides as slides
+
 # Load a presentation.
 with slides.Presentation("sample.pptx") as presentation:
 

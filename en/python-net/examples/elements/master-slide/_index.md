@@ -27,6 +27,8 @@ This article demonstrates how to create, modify, and manage master slides using 
 This example shows how to create a new master slide by cloning the default one.
 
 ```py
+import aspose.slides as slides
+
 def add_master_slide():
     with slides.Presentation() as presentation:
 
@@ -49,6 +51,8 @@ def add_master_slide():
 You can access master slides using the `Presentation.masters` collection. Here’s how to retrieve and work with them:
 
 ```py
+import aspose.slides as slides
+
 def access_master_slide():
     with slides.Presentation("master_slide.pptx") as presentation:
         # Access the first master slide.
@@ -60,6 +64,8 @@ def access_master_slide():
 Master slides can be removed either by index or by reference.
 
 ```py
+import aspose.slides as slides
+
 def remove_master_slide():
     with slides.Presentation("master_slide.pptx") as presentation:
 
@@ -78,6 +84,8 @@ def remove_master_slide():
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```py
+import aspose.slides as slides
+
 def remove_unused_master_slides():
     with slides.Presentation("master_slide.pptx") as presentation:
 

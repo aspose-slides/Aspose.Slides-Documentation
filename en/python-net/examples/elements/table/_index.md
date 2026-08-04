@@ -25,6 +25,8 @@ Examples for adding tables, accessing them, removing them, and merging cells usi
 Create a simple table with two rows and two columns.
 
 ```py
+import aspose.slides as slides
+
 def add_table():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -44,6 +46,8 @@ def add_table():
 Retrieve the first table shape on the slide.
 
 ```py
+import aspose.slides as slides
+
 def access_table():
     with slides.Presentation("table.pptx") as presentation:
         slide = presentation.slides[0]
@@ -57,6 +61,8 @@ def access_table():
 Delete a table from a slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_table():
     with slides.Presentation("table.pptx") as presentation:
         slide = presentation.slides[0]
@@ -75,6 +81,8 @@ def remove_table():
 Merge adjacent cells of a table into a single cell.
 
 ```py
+import aspose.slides as slides
+
 def merge_table_cells():
     with slides.Presentation("table.pptx") as presentation:
         slide = presentation.slides[0]

@@ -25,6 +25,8 @@ Demonstrates how to add, access, remove, and configure ActiveX controls in a pre
 Insert a new ActiveX control.
 
 ```py
+import aspose.slides as slides
+
 def add_activex():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -40,6 +42,8 @@ def add_activex():
 Read information from the first ActiveX control on the slide.
 
 ```py
+import aspose.slides as slides
+
 def access_activex():
     with slides.Presentation("activex.pptm") as presentation:
         slide = presentation.slides[0]
@@ -56,6 +60,8 @@ def access_activex():
 Delete an existing ActiveX control from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_activex():
     with slides.Presentation("activex.pptm") as presentation:
         slide = presentation.slides[0]
@@ -72,6 +78,8 @@ def remove_activex():
 Configure several ActiveX properties.
 
 ```py
+import aspose.slides as slides
+
 def set_activex_properties():
     with slides.Presentation("activex.pptm") as presentation:
         slide = presentation.slides[0]

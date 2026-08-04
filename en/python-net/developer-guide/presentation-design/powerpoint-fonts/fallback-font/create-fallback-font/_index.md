@@ -33,6 +33,8 @@ Fallback rules are runtime rendering settings. They do not modify the presentati
 Aspose.Slides supports [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:
 
 ```py
+import aspose.slides as slides
+
 startUnicodeIndex = 0x0B80
 endUnicodeIndex = 0x0BFF
 

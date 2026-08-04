@@ -26,6 +26,8 @@ This article demonstrates how to work with **Layout Slides** in Aspose.Slides fo
 You can create a custom layout slide to define reusable formatting.
 
 ```py
+import aspose.slides as slides
+
 def add_layout_slide():
     with slides.Presentation() as presentation:
         master_slide = presentation.masters[0]
@@ -51,6 +53,8 @@ def add_layout_slide():
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```py
+import aspose.slides as slides
+
 def access_layout_slide():
     with slides.Presentation("layout_slide.pptx") as presentation:
 
@@ -66,6 +70,8 @@ def access_layout_slide():
 You can remove a specific layout slide if it's no longer needed.
 
 ```py
+import aspose.slides as slides
+
 def remove_layout_slide():
     with slides.Presentation("layout_slide.pptx") as presentation:
 
@@ -81,6 +87,8 @@ def remove_layout_slide():
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
 ```py
+import aspose.slides as slides
+
 def remove_unused_layout_slides():
     with slides.Presentation("layout_slide.pptx") as presentation:
 
@@ -95,6 +103,8 @@ def remove_unused_layout_slides():
 You can duplicate a layout slide using the `AddClone` method.
 
 ```py
+import aspose.slides as slides
+
 def clone_layout_slides():
     with slides.Presentation("layout_slide.pptx") as presentation:
 

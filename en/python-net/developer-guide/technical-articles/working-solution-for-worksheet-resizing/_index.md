@@ -44,6 +44,8 @@ In this approach, we will learn how to set the OLE frame size of the embedded Ex
 Suppose we have a template Excel sheet and want to add it to a presentation as an OLE frame. In this scenario, the size of the OLE object frame will first be calculated based on the cumulative row heights and column widths of the participating rows and columns in the workbook. Then, we will set the size of the OLE frame to this calculated value. To avoid the red "EMBEDDED OLE OBJECT" message for the OLE frame in PowerPoint, we will also capture an image of the desired portions of the rows and columns in the workbook and set it as the OLE frame image.
 
 ```py
+import io
+
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
     page_setup.print_area = cell_range.address
@@ -70,6 +72,9 @@ def create_ole_image(cell_range, image_resolution):
 ```
 
 ```py
+import io
+import aspose.slides as slides
+
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13
 worksheet_index = 0
@@ -143,6 +148,8 @@ def scale_cell_range(cell_range, width, height):
 ```
 
 ```py
+import io
+
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
     page_setup.print_area = cell_range.address
@@ -169,6 +176,9 @@ def create_ole_image(cell_range, image_resolution):
 ```
 
 ```py
+import io
+import aspose.slides as slides
+
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13
 worksheet_index = 0

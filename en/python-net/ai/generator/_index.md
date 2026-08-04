@@ -42,6 +42,8 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/p
 This example demonstrates how to generate a presentation on the topic Aspose.Slides using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/python-net/aspose.slides.ai/openaiwebclient/).
 
 ```py
+import aspose.slides as slides
+
 # Create an instance of OpenAIWebClient, the built-in implementation of the OpenAI web client.
 with slides.ai.OpenAIWebClient("gpt-4o-mini", "apiKey", "") as ai_web_client:
 
@@ -63,6 +65,8 @@ with slides.ai.OpenAIWebClient("gpt-4o-mini", "apiKey", "") as ai_web_client:
 The following example demonstrates the overloads of the [generate_presentation](https://reference.aspose.com/slides/python-net/aspose.slides.ai/slidesaiagent/generate_presentation/#str-asposeslidesaipresentationcontentamounttype-asposeslidesipresentation) method. In this case, the user’s `master presentation` is used.
 
 ```py
+import aspose.slides as slides
+
 # Pass the HttpClient to the OpenAIWebClient constructor.
 with slides.ai.OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId") as ai_web_client:
 

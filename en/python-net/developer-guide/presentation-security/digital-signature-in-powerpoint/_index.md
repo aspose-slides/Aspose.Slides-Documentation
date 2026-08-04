@@ -60,6 +60,8 @@ Now its possible to check if the presentation was digitally signed and has not 
 
 
 ```py
+import aspose.slides as slides
+
 # Open presentation
 with slides.Presentation("SomePresentationSigned.pptx") as pres:
     if len(pres.digital_signatures) > 0:

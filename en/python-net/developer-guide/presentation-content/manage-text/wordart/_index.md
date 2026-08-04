@@ -181,6 +181,8 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ```py 
+import aspose.slides as slides
+
 textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
 ```
 

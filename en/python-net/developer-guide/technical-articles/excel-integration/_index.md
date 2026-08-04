@@ -110,6 +110,8 @@ In the second example, we simply copy data from an Excel table and display it on
 In this example, we reuse the same Excel workbook from the first example, which contains a simple employee table.
 
 ```py
+import aspose.slides as slides
+
 # Load the Excel workbook containing the employee data.
 workbook = slides.excel.ExcelDataWorkbook("TemplateData.xlsx")
 worksheet_index = 0
@@ -145,6 +147,8 @@ First, we add a Pie chart to the Excel workbook based on the employees table.
 ![Excel Chart example](example3_image0.png)
 
 ```py
+import aspose.slides as slides
+
 # Create a new PowerPoint presentation.
 with slides.Presentation() as presentation:
     # Get the shapes collection of the first slide.
@@ -167,6 +171,8 @@ Let's imagine you have an Excel workbook full of charts and you need to import t
 The following code iterates through all worksheets in the source Excel file, extracts the charts from each worksheet, and adds each chart to a separate slide using a blank slide layout. In the resulting presentation, only the chart data will be embedded, not the entire workbook.
 
 ```py
+import aspose.slides as slides
+
 # Load the Excel workbook containing the employee data.
 workbook = slides.excel.ExcelDataWorkbook("ExcelWithCharts.xlsx")
 

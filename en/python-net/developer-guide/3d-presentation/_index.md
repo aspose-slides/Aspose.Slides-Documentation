@@ -101,6 +101,8 @@ In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, a
 In Aspose.Slides, set the camera type and rotation through [ThreeDFormat.camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/):
 
 ```py
+import aspose.slides as slides
+
 shape.three_d_format.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
 shape.three_d_format.camera.set_rotation(20, 30, 40)
 ```
@@ -116,6 +118,8 @@ Extrusion makes a shape look thick by extending it behind the front face. In Pow
 Set [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) for the thickness and [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/) for the side color:
 
 ```py
+import aspose.pydrawing as drawing
+
 shape.three_d_format.camera.set_rotation(20, 30, 40)
 shape.three_d_format.extrusion_height = 100
 shape.three_d_format.extrusion_color.color = drawing.Color.purple
@@ -164,6 +168,9 @@ The rendered output keeps the gradient on the front face and renders the extrusi
 To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
 
 ```py
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
 with open("image.jpg", "rb") as image_file:
     image_data = image_file.read()
 

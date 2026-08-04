@@ -25,6 +25,8 @@ Provides examples of accessing existing ink shapes and removing them using **Asp
 Get the first ink shape from a slide.
 
 ```py
+import aspose.slides as slides
+
 def access_ink():
     with slides.Presentation("ink.pptx") as presentation:
         slide = presentation.slides[0]
@@ -41,6 +43,8 @@ def access_ink():
 Delete an ink shape from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_ink():
     with slides.Presentation("ink.pptx") as presentation:
         slide = presentation.slides[0]

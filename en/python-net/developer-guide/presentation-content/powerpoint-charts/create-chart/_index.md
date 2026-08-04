@@ -396,6 +396,8 @@ with slides.Presentation() as presentation:
 By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, you can specify your preferred dash type as follows:
 
 ```python
+import aspose.slides as slides
+
 line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
 
 for series in line_chart.chart_data.series:
@@ -878,6 +880,10 @@ A combination chart (or combo chart) combines two or more chart types in a singl
 The following Python code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])

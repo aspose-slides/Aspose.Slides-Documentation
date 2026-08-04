@@ -92,6 +92,9 @@ with slides.Presentation() as presentation:
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
 layout_slide_1 = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 slide_1 = presentation.slides.add_empty_slide(layout_slide_1)
 
@@ -125,6 +128,8 @@ series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_ind
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```py
+import aspose.slides as slides
+
 layout_slide_2 = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 slide_2 = presentation.slides.add_empty_slide(layout_slide_2)
 
@@ -151,6 +156,9 @@ table.columns[1][4].text_frame.text = "87%"
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_bullet_paragraph(text):
     paragraph = slides.Paragraph()
     paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
@@ -161,6 +169,8 @@ def create_bullet_paragraph(text):
     return paragraph
 ```
 ```py
+import aspose.slides as slides
+
 layout_slide_3 = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 slide_3 = presentation.slides.add_empty_slide(layout_slide_3)
 
@@ -182,6 +192,8 @@ bullet_list.text_frame.paragraphs.add(create_bullet_paragraph("Schedule follow-u
 Finally, we save the presentation to disk:
 
 ```py
+import aspose.slides as slides
+
 presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 

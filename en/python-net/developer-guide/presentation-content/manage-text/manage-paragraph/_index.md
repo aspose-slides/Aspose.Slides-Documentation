@@ -504,6 +504,9 @@ This formatting is useful for bibliographies, references, glossary entries, and 
 This code shows you how to set a hanging indent for a paragraph:
 
 ```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 

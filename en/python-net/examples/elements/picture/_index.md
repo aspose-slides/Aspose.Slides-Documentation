@@ -24,6 +24,8 @@ Shows how to insert and access pictures from in-memory images using **Aspose.Sli
 This code loads an image from a file and inserts it as a picture frame on the first slide.
 
 ```py
+import aspose.slides as slides
+
 def add_picture():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -44,6 +46,8 @@ def add_picture():
 This example ensures a slide contains a picture frame and then accesses the first one it finds.
 
 ```py
+import aspose.slides as slides
+
 def access_picture():
     with slides.Presentation("picture.pptx") as presentation:
         slide = presentation.slides[0]

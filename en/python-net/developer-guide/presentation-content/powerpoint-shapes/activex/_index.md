@@ -41,6 +41,7 @@ import aspose.slides as slides
 import aspose.pydrawing as draw
 import io
 
+import aspose.pydrawing as drawing
 # Accessing the presentation with  ActiveX controls
 with slides.Presentation(path + "ActiveX.pptm") as presentation:
     # Accessing the first slide in presentation

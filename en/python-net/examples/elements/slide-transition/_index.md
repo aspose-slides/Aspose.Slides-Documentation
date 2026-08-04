@@ -25,6 +25,8 @@ Demonstrates applying slide transition effects and timings with **Aspose.Slides 
 Apply a fade transition effect to the first slide.
 
 ```py
+import aspose.slides as slides
+
 def add_slide_transition():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -40,6 +42,8 @@ def add_slide_transition():
 Read the transition type currently assigned to a slide.
 
 ```py
+import aspose.slides as slides
+
 def access_slide_transition():
     with slides.Presentation("slide_transition.pptx") as presentation:
         slide = presentation.slides[0]
@@ -53,6 +57,8 @@ def access_slide_transition():
 Clear any transition effect by setting the type to `NONE`.
 
 ```py
+import aspose.slides as slides
+
 def remove_slide_transition():
     with slides.Presentation("slide_transition.pptx") as presentation:
         slide = presentation.slides[0]
@@ -68,6 +74,8 @@ def remove_slide_transition():
 Specify how long the slide is displayed before advancing automatically.
 
 ```py
+import aspose.slides as slides
+
 def set_transition_duration():
     with slides.Presentation("slide_transition.pptx") as presentation:
         slide = presentation.slides[0]

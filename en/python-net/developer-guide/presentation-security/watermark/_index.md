@@ -105,6 +105,8 @@ text_format.font_height = 50
 To set the color of the watermark text, use this code:
 
 ```py
+import aspose.pydrawing as drawing
+
 alpha = 150
 red = 200
 green = 200

@@ -130,6 +130,8 @@ Aspose.Slides lets you hide any shape on a slide. For example, to hide a shape o
 1. Save the presentation to disk in PPTX format.
 
 ```py
+import aspose.slides as slides
+
 # Finds a shape on a slide by its alternative text.
 def find_shape(slide, alt_text):
     for slide_shape in slide.shapes:
@@ -288,6 +290,8 @@ Let’s say we have a sample.pptx file in which the first slide contains a singl
 The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
 

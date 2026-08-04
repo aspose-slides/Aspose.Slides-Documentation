@@ -76,6 +76,8 @@ Let's say we have a PowerPoint presentation with the document properties shown b
 This code example shows you how to edit some presentation properties:
 
 ```py
+import datetime
+
 file_name = "sample.pptx"
 
 info = PresentationFactory.instance.get_presentation_info(file_name)
