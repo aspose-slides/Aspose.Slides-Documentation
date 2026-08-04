@@ -21,6 +21,15 @@ This article demonstrates how to add, read, remove, and update notes slides usin
 Create a notes slide and assign text to it.
 
 ```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddNote()
 {
     auto presentation = MakeObject<Presentation>();
@@ -38,6 +47,15 @@ static void AddNote()
 Read text from an existing notes slide.
 
 ```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessNote()
 {
     auto presentation = MakeObject<Presentation>();
@@ -56,6 +74,15 @@ static void AccessNote()
 Remove the notes slide associated with a slide.
 
 ```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveNote()
 {
     auto presentation = MakeObject<Presentation>();
@@ -74,6 +101,15 @@ static void RemoveNote()
 Change the text of a notes slide.
 
 ```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void UpdateNoteText()
 {
     auto presentation = MakeObject<Presentation>();

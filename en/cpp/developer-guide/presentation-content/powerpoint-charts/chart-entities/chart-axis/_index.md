@@ -192,9 +192,16 @@ presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 Aspose.Slides for C++ allows you to set the date format for a category axis value. The operation is demonstrated in this C++ code:
 
 ``` cpp
+#include <DOM/Chart/CategoryAxisType.h>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/IChart.h>
@@ -202,8 +209,13 @@ Aspose.Slides for C++ allows you to set the date format for a category axis valu
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/date_time.h>
+#include <system/object_ext.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);

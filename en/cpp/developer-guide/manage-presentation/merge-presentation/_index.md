@@ -133,8 +133,11 @@ Merging specific slides from multiple presentations is useful for creating custo
 The following C++ code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
 #include <DOM/IPresentation.h>
 #include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/SlideLayoutType.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
@@ -152,6 +155,8 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 }
 ```
 ```cpp
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
@@ -159,6 +164,9 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
+
+// Declared in the code above.
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
 
 auto presentation = MakeObject<Presentation>();
 auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
@@ -223,6 +231,7 @@ This sample code demonstrates the described operation:
 #include <DOM/Presentation.h>
 #include <DOM/SlideSizeScaleType.h>
 #include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 

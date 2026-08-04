@@ -102,8 +102,8 @@ using namespace System;
 
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
+
+auto webClient = System::MakeObject<System::Net::WebClient>();
 auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
 
 auto image = pres->get_Images()->AddImage(imageData);
@@ -159,11 +159,18 @@ To create an image object based on SVG image, you can do it this way:
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ``` cpp 
 #include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
 #include <DOM/ISvgImage.h>
 #include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
 #include <system/io/file.h>
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace System::IO;
 
 // The path to the documents directory
@@ -187,7 +194,7 @@ System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent)
 // Create PPImage object
 System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
 
-// Creates a new PictureFrame 
+// Creates a new PictureFrame
 p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
 
 // Save presentation in PPTX format
@@ -205,6 +212,21 @@ The functionality is provided by one of the overloads of the [AddGroupShape](htt
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
 ``` cpp 
+#include <DOM/IPresentation.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 // The path to the documents directory
 System::String dataDir = u"D:\\Documents\\";
 

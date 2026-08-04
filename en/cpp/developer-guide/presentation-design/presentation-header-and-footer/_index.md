@@ -32,7 +32,15 @@ You can also manage headers and footers for handout and notes slides. This inclu
 Notes of some specific slide could be updated as shown in the example below:
 
 ``` cpp
+#include <DOM/IAutoShape.h>
 #include <DOM/IBaseSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/PlaceholderType.h>
+#include <system/enumerator_adapter.h>
+#include <system/special_casts.h>
 using namespace Aspose::Slides;
 
 // Function to set Header/Footer Text
@@ -52,12 +60,17 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 ```
 
 ``` cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/IMasterNotesSlide.h>
 #include <DOM/IMasterNotesSlideManager.h>
 #include <DOM/IPresentationHeaderFooterManager.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+
+// Defined in the previous example.
+void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master);
 
 // Load Presentation
 auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");

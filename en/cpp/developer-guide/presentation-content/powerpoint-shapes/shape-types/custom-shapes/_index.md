@@ -145,6 +145,8 @@ void MoveTo(float x, float y);
 **Remove the path segment** at a given index:
 
 ``` cpp
+#include <cstdint>
+
 void RemoveAt(int32_t index);
 ```
 ## **Add Custom Points to a Shape**
@@ -233,15 +235,17 @@ This C++ code shows you how to create a custom shape:
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <drawing/point_f.h>
+#include <system/collections/list.h>
 #include <system/math.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
+using namespace System::Collections::Generic;
 using namespace System::Drawing;
 
 SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
 
-float R = 100.0f, r = 50.0f;
+float outerRadius = 100.0f, innerRadius = 50.0f;
 int32_t step = 72;
 
 for (int32_t angle = -90; angle < 270; angle += step)
@@ -252,8 +256,8 @@ for (int32_t angle = -90; angle < 270; angle += step)
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
     radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
@@ -270,7 +274,7 @@ starPath->CloseFigure();
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
+SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2));
 
 shape->SetGeometryPath(starPath);
 ```
@@ -384,7 +388,11 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```cpp
+#include <DOM/IGeometryPath.h>
 #include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
+#include <system/array.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;

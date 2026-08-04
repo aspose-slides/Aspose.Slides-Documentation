@@ -20,6 +20,17 @@ This article demonstrates how to add, access, remove, and configure ActiveX cont
 Insert a new ActiveX control and optionally set its properties.
 
 ```cpp
+#include <DOM/ControlType.h>
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 static void AddActiveX()
 {
     auto presentation = MakeObject<Presentation>();
@@ -41,6 +52,14 @@ static void AddActiveX()
 Read information from the first ActiveX control on the slide.
 
 ```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessActiveX()
 {
     auto presentation = MakeObject<Presentation>(u"add_activex.pptm");
@@ -64,6 +83,14 @@ static void AccessActiveX()
 Delete an existing ActiveX control from the slide.
 
 ```cpp
+#include <DOM/IControlCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 static void RemoveActiveX()
 {
     auto presentation = MakeObject<Presentation>(u"add_activex.pptm");
@@ -85,6 +112,16 @@ static void RemoveActiveX()
 Add a control and configure several ActiveX properties.
 
 ```cpp
+#include <DOM/ControlType.h>
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 static void SetActiveXProperties()
 {
     auto presentation = MakeObject<Presentation>();

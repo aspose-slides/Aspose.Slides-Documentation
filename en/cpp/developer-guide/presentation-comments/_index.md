@@ -110,8 +110,12 @@ This C++ code shows you how to access an existing comment on a slide in a PowerP
 ```cpp
 #include <DOM/Comment.h>
 #include <DOM/CommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
+#include <system/enumerator_adapter.h>
 #include <system/smart_ptr.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
@@ -291,18 +295,21 @@ This C++ code shows you how to delete specific comments on a slide:
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/enumerator_adapter.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slides()->idx_get(0);
-        
+
 // add comments...
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
 author->get_Comments()->AddComment(u"comment 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
 author->get_Comments()->AddComment(u"comment 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
-        
+
 // remove all comments that contain "comment 1" text
 for (auto commentAuthor : presentation->get_CommentAuthors())
 {
@@ -319,9 +326,8 @@ for (auto commentAuthor : presentation->get_CommentAuthors())
         commentAuthor->get_Comments()->Remove(comment);
     }
 }
-        
-presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
+presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**

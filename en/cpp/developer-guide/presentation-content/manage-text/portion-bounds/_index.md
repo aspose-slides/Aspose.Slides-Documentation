@@ -29,9 +29,14 @@ Use [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/ip
 
 ```cpp
 #include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
+#include <drawing/rectangle_f.h>
 #include <system/console.h>
 using namespace Aspose::Slides;
 using namespace System;
@@ -65,9 +70,14 @@ Use [IPortion::GetCoordinates](https://reference.aspose.com/slides/cpp/aspose.sl
 
 ```cpp
 #include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
+#include <drawing/rectangle_f.h>
 #include <system/console.h>
 using namespace Aspose::Slides;
 using namespace System;

@@ -32,7 +32,10 @@ Aspose.Slides for C++ provides straightforward APIs for receiving warning callba
 
 ```cpp
 #include <Warnings/IWarningCallback.h>
+#include <Warnings/IWarningInfo.h>
 #include <Warnings/ReturnAction.h>
+#include <Warnings/WarningType.h>
+#include <system/console.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides::Warnings;
 using namespace System;
@@ -61,8 +64,11 @@ ReturnAction FontWarningHandler::Warning(SharedPtr<IWarningInfo> warning)
 **Generate a Slide Thumbnail:**
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/RenderingOptions.h>
+#include <IImage.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -74,7 +80,7 @@ options->set_WarningCallback(MakeObject<FontWarningHandler>());
 
 // Load the presentation from the specified file path.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-    
+
 // Generate a thumbnail image for each slide in the presentation.
 for(auto&& slide : presentation->get_Slides())
 {

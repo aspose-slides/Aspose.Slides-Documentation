@@ -133,6 +133,7 @@ Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.c
 
 ```cpp
 #include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
 #include <ResourceLoadingAction.h>
 #include <system/exceptions.h>
 #include <system/io/file.h>
@@ -176,9 +177,19 @@ public:
 ```cpp
 #include <DOM/LoadOptions.h>
 #include <DOM/Presentation.h>
+#include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
+#include <ResourceLoadingAction.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
+
+// The resource loading callback implemented in the example above.
+class ImageLoadingHandler : public IResourceLoadingCallback
+{
+public:
+    ResourceLoadingAction ResourceLoading(SharedPtr<IResourceLoadingArgs> args) override;
+};
 
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());

@@ -184,6 +184,8 @@ System::MakeArray<int32_t>(
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
 ``` cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapesAlignmentType.h>
 #include <Util/SlideUtil.h>
@@ -193,7 +195,7 @@ using namespace Aspose::Slides::Util;
 using namespace System;
 
 SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0));
 ```
 
 ## **Flip Properties**

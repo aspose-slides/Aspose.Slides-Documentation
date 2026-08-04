@@ -321,6 +321,7 @@ The following C++ example shows how to get a slide’s effective background valu
 #include <DOM/IFillFormatEffectiveData.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
+#include <drawing/color.h>
 #include <system/console.h>
 #include <system/object_ext.h>
 using namespace Aspose::Slides;

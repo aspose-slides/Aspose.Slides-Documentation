@@ -80,6 +80,9 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This C++ code shows you how to set the prompt text in a placeholder:
 
 ```c++
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/PlaceholderType.h>

@@ -39,21 +39,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-	// The path to the documents directory
-	const String templatePath = L"../templates/AddSlides.pptx";
-	const String outPath = L"../out/RemoveSlidesByReference.pptx";
+// The path to the documents directory
+const String templatePath = u"../templates/AddSlides.pptx";
+const String outPath = u"../out/RemoveSlidesByReference.pptx";
 
-	// Instantiates a Presentation object that represents a presentation file
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+// Instantiates a Presentation object that represents a presentation file
+SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Accesses a slide through its index in the slides collection
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+// Accesses a slide through its index in the slides collection
+SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Removes a slide through its reference
-	pres->get_Slides()->Remove(slide);
+// Removes a slide through its reference
+pres->get_Slides()->Remove(slide);
 
-	// Saves the modified presentation
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Saves the modified presentation
+pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
@@ -74,18 +74,18 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-	// The path to the documents directory
-	const String templatePath = L"../templates/AddSlides.pptx";
-	const String outPath = L"../out/RemoveSlidesByID.pptx";
+// The path to the documents directory
+const String templatePath = u"../templates/AddSlides.pptx";
+const String outPath = u"../out/RemoveSlidesByID.pptx";
 
-	// Instantiates a Presentation object that represents a presentation file
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+// Instantiates a Presentation object that represents a presentation file
+SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
-	// Removes a slide through its slide index
-	pres->get_Slides()->RemoveAt(0);
+// Removes a slide through its slide index
+pres->get_Slides()->RemoveAt(0);
 
-	// Saves the modified presentation
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Saves the modified presentation
+pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Remove Unused Layout Slides**

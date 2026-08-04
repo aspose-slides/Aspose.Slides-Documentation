@@ -37,11 +37,14 @@ Let's say we want to convert all the slides from a PowerPoint presentation to PN
 #include <DOM/Presentation.h>
 #include <DOM/SlideSizeScaleType.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
+#include <drawing/size_f.h>
+#include <system/exceptions.h>
 #include <system/smart_ptr.h>
+#include <future>
+#include <vector>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto inputFilePath = u"sample.pptx";
 auto outputFilePathTemplate = u"slide_{0}.png";
@@ -68,7 +71,7 @@ for (auto slideIndex = 0; slideIndex < slideCount; slideIndex++) {
         try {
             auto slide = slidePresentation->get_Slide(0);
 
-            auto image = slide->GetImage(imageScale, imageScale);
+            image = slide->GetImage(imageScale, imageScale);
             auto imageFilePath = String::Format(outputFilePathTemplate, slideNumber);
             image->Save(imageFilePath, ImageFormat::Png);
         }

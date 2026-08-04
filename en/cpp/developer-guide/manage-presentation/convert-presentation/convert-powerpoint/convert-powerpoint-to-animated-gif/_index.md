@@ -68,8 +68,8 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto gifOptions = System::MakeObject<GifOptions>();
-// the size of the resulted GIF 
-gifOptions->set_FrameSize(Size(960, 720));
+// the size of the resulted GIF
+gifOptions->set_FrameSize(System::Drawing::Size(960, 720));
 // how long each slide will be showed until it will be changed to the next one
 gifOptions->set_DefaultDelay(2000);
 // increase FPS to better transition animation quality

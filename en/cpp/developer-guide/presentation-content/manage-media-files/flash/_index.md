@@ -23,6 +23,8 @@ This article explains how to extract Flash objects from presentations by using A
 Aspose.Slides for C++ provides a facility for extracting flash objects from a presentation. You can access the flash control by name and extract it from the presentation and including store SWF object data.
 
 ``` cpp
+#include <DOM/Control.h>
+#include <DOM/IControlCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>

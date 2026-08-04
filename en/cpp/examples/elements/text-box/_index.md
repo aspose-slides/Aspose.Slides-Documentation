@@ -23,6 +23,26 @@ This guide explains how to add, access, and remove text boxes programmatically.
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 static void AddTextBox()
 {
     auto presentation = MakeObject<Presentation>();
@@ -55,6 +75,16 @@ static void AddTextBox()
 To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessTextBox()
 {
     auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -83,6 +113,19 @@ static void AccessTextBox()
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
 static void RemoveTextBox()
 {
     auto presentation = MakeObject<Presentation>(u"sample.pptx");

@@ -82,7 +82,15 @@ This C++ code shows you how to remove the borders from table cells:
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
 #include <system/array.h>
+#include <system/enumerator_adapter.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -125,7 +133,12 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
 #include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
 #include <DOM/Table/IRow.h>
 #include <DOM/Table/IRowCollection.h>
 #include <DOM/Table/ITable.h>
@@ -161,21 +174,21 @@ for (int x = 0; x < table->get_Rows()->get_Count(); x++)
     {
         SharedPtr<ICell> cell = row->idx_get(y);
 
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
+        cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderTop()->set_Width(5);
 
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
+        cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderBottom()->set_Width(5);
 
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
+        cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderLeft()->set_Width(5);
 
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
+        cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderRight()->set_Width(5);
 
     }
 
@@ -199,7 +212,12 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
 #include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
 #include <DOM/Table/IRow.h>
 #include <DOM/Table/IRowCollection.h>
 #include <DOM/Table/ITable.h>
@@ -236,21 +254,21 @@ for (int x = 0; x < table->get_Rows()->get_Count(); x++)
     {
         SharedPtr<ICell> cell = row->idx_get(y);
 
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
+        cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderTop()->set_Width(5);
 
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
+        cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderBottom()->set_Width(5);
 
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
+        cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderLeft()->set_Width(5);
 
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
+        cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderRight()->set_Width(5);
 
     }
 
@@ -280,7 +298,12 @@ This C++ code demonstrates the process we described:
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
 #include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
 #include <DOM/Table/IRow.h>
 #include <DOM/Table/IRowCollection.h>
 #include <DOM/Table/ITable.h>
@@ -317,21 +340,21 @@ for (int x = 0; x < table->get_Rows()->get_Count(); x++)
     {
         SharedPtr<ICell> cell = row->idx_get(y);
 
-        cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderTop()->set_Width(5);
+        cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderTop()->set_Width(5);
 
-        cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderBottom()->set_Width(5);
+        cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderBottom()->set_Width(5);
 
-        cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderLeft()->set_Width(5);
+        cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderLeft()->set_Width(5);
 
-        cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-        cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-        cell->get_BorderRight()->set_Width(5);
+        cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
+        cell->get_CellFormat()->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+        cell->get_CellFormat()->get_BorderRight()->set_Width(5);
 
     }
 
@@ -355,12 +378,20 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 This C++ code shows you how to change a table cell's background color:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
 #include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
@@ -380,7 +411,6 @@ cell->get_CellFormat()->get_FillFormat()->set_FillType(Aspose::Slides::FillType:
 cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
         
 presentation->Save(u"cell_background_color.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 ## **Add an Image Inside a Table Cell**
@@ -406,7 +436,11 @@ This C# code shows you how to place an image inside a table cell when creating a
 #include <DOM/ISlideCollection.h>
 #include <DOM/PictureFillMode.h>
 #include <DOM/Presentation.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
 #include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <Util/Images.h>
@@ -441,9 +475,9 @@ SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
 
 
 // Adds the image to the first table cell
-tbl->idx_get(0, 0)->get_FillFormat()->set_FillType(FillType::Picture);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-tbl->idx_get(0, 0)->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
+tbl->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->set_FillType(FillType::Picture);
+tbl->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+tbl->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
 
 // Save the PPTX file to disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);

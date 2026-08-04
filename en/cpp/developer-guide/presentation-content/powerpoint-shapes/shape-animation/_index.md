@@ -62,6 +62,26 @@ Aspose.Slides for C++ allows you to apply animation to the text in a shape.
 This C++ code shows you how to apply the `Fade` effect to AutoShape and set the text animation to the *By 1st Level Paragraphs* value:
 
 ```c++
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Instantiates a presentation class that represents a presentation file.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -85,7 +105,7 @@ System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slide
 effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
 
 // Save the PPTX file to disk
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 {{%  alert color="primary"  %}} 
@@ -106,6 +126,27 @@ Besides applying animations to text, you can also apply animations to a single [
 This C++ code shows you how to apply the `Fly` effect to a picture frame:
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Instantiates a presentation class that represents a presentation file.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -125,7 +166,7 @@ System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides
     Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
 
 // Save the PPTX file to disk
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Apply Animation to a Shape**
@@ -282,17 +323,19 @@ The following sample code shows you how to use the `GetBasePlaceholder` method f
 ```cpp
 #include <DOM/Animation/IEffect.h>
 #include <system/array.h>
+#include <system/console.h>
 #include <system/smart_ptr.h>
+#include <system/string.h>
 using namespace Aspose::Slides::Animation;
 using namespace System;
 
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
 {
     for (SharedPtr<IEffect> effect : effects)
     {
         Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
     }
-}
+};
 ```
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -304,9 +347,18 @@ void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
+#include <system/string.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Animation;
 using namespace System;
+
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
+{
+    for (SharedPtr<IEffect> effect : effects)
+    {
+        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+    }
+};
 
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
 
@@ -363,6 +415,19 @@ This is how you change the Effect Timing properties:
 This C++ code demonstrates the operation:
 
 ```c++
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Instantiates a presentation class that represents a presentation file.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
@@ -497,6 +562,20 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
 This C++ code shows you how to change an after animation effect:
 
 ```c++
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Instantiates a presentation class that represents a presentation file
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
@@ -534,6 +613,20 @@ This is how you can change the Effect Animate text properties:
 This C++ code demonstrates the operation:
 
 ```c++
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Instantiates a presentation class that represents a presentation file.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);

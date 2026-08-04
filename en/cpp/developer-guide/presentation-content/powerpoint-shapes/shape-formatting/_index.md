@@ -747,8 +747,11 @@ The result:
 The following C++ code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) to their default settings:
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -756,7 +759,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-for (auto&& slide : presentation->get_Slides())
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
     // Reset each shape on the slide that has a placeholder on the layout.
     slide->Reset();

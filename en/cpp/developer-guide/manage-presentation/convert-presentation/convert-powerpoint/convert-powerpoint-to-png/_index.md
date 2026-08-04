@@ -46,11 +46,10 @@ This C++ code shows you how to convert a PowerPoint presentation to PNG:
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
@@ -73,11 +72,10 @@ This code in C++ demonstrates the described operation:
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
@@ -101,16 +99,16 @@ This code shows you how to convert a PowerPoint to PNG while specifying the size
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
-#include <drawing/imaging/image_format.h>
+#include <IImage.h>
+#include <ImageFormat.h>
 #include <drawing/size.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
-Size size(960, 720);
+System::Drawing::Size size(960, 720);
 for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 {
     auto slide = pres->get_Slides()->idx_get(index);

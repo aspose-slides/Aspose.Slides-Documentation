@@ -275,6 +275,9 @@ N-ary operators are for large operators with optional limits. Simple operators s
 For an integral, use `Integral`:
 
 ```cpp
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathBox.h>
+#include <DOM/MathText/IMathElement.h>
 #include <DOM/MathText/MathIntegralTypes.h>
 #include <DOM/MathText/MathematicalText.h>
 using namespace Aspose::Slides::MathText;
@@ -295,9 +298,13 @@ Use [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
 #include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
 #include <DOM/MathText/MathMatrix.h>
 #include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 using namespace Aspose::Slides;

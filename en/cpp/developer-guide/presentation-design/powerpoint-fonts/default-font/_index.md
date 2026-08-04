@@ -44,13 +44,12 @@ The implementation of the above is given below.
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <IImage.h>
+#include <ImageFormat.h>
 #include <LoadFormat.h>
-#include <drawing/imaging/image_format.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 // Use the load options to specify default regular and Asian fonts
 auto loadOptions = MakeObject<LoadOptions>(LoadFormat::Auto);

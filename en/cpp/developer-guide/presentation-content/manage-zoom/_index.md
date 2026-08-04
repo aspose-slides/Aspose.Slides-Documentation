@@ -50,6 +50,11 @@ You can add a zoom frame on a slide this way:
 This C++ code shows you how to create a zoom frame on a slide:
 
 ``` cpp 
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
 #include <DOM/ISlide.h>
 #include <drawing/color.h>
 #include <system/smart_ptr.h>
@@ -78,6 +83,9 @@ void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
+
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -134,6 +142,9 @@ This C++ code shows you how to create a zoom frame with a different image:
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
+
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -197,6 +208,9 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+
 auto pres = System::MakeObject<Presentation>();
 auto slide1 = pres->get_Slides()->idx_get(0);
 //Adds new slides to the presentation
@@ -224,7 +238,7 @@ auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200
 // Creates a new image for the zoom object
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 // Sets custom image for zoomFrame1 object
-zoomFrame1->set_Image(image);
+zoomFrame1->set_ZoomImage(image);
 
 // Sets a zoom frame format for the zoomFrame2 object
 zoomFrame2->get_LineFormat()->set_Width(5);
@@ -272,6 +286,9 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -315,6 +332,9 @@ This C++ code shows you how to create a zoom frame with a different image:
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
+
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -378,6 +398,9 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -398,7 +421,7 @@ sectionZoomFrame->set_Width(100.0f);
 sectionZoomFrame->set_Height(75.0f);
 
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-sectionZoomFrame->set_Image(image);
+sectionZoomFrame->set_ZoomImage(image);
 
 sectionZoomFrame->set_ReturnToParent(true);
 sectionZoomFrame->set_ShowBackground(false);
@@ -446,6 +469,9 @@ This C++ code shows you how to create a summary zoom frame on a slide:
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
+
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -512,6 +538,9 @@ This C++ code shows you how to add and remove sections in a summary zoom frame:
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
+
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
 
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
@@ -591,6 +620,9 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
+// This function is defined in the first example of this article.
+void SetSlideBackground(System::SharedPtr<ISlide> slide, Color color);
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -616,7 +648,7 @@ auto summarySection = summaryZoomFrame->get_SummaryZoomCollection()->idx_get(0);
 
 // Formatting for SummaryZoomSection object
 auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-summarySection->set_Image(image);
+summarySection->set_ZoomImage(image);
 
 summarySection->set_ReturnToParent(false);
 

@@ -21,6 +21,19 @@ This article demonstrates embedding a file as an OLE object and updating its dat
 Embed a PDF file into the presentation.
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace System;
+using namespace System::IO;
+
 static void AddOleObject()
 {
     auto presentation = MakeObject<Presentation>();
@@ -39,6 +52,19 @@ static void AddOleObject()
 Retrieve the first OLE object frame on a slide.
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace System;
+using namespace System::IO;
+
 static void AccessOleObject()
 {
     auto presentation = MakeObject<Presentation>();
@@ -67,6 +93,19 @@ static void AccessOleObject()
 Delete an embedded OLE object from the slide.
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace System;
+using namespace System::IO;
+
 static void RemoveOleObject()
 {
     auto presentation = MakeObject<Presentation>();
@@ -87,6 +126,19 @@ static void RemoveOleObject()
 Replace the data embedded in an existing OLE object.
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace System;
+using namespace System::IO;
+
 static void UpdateOleObjectData()
 {
     auto presentation = MakeObject<Presentation>();

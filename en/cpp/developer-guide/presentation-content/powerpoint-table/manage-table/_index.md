@@ -124,10 +124,18 @@ This C++ code shows you how to specify the numbering for cells in a table:
 
 ```c++
 #include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
@@ -195,6 +203,7 @@ pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 This C++ code shows you how to access and work with an existing table:
 
 ```c++
+#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
@@ -202,6 +211,8 @@ This C++ code shows you how to access and work with an existing table:
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
@@ -245,6 +256,7 @@ This C++ code shows you how to align the text in a table:
 
 ```c++
 #include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
@@ -269,7 +281,7 @@ using namespace System::Drawing;
 // Creates an instance of the Presentation class
 auto presentation = System::MakeObject<Presentation>();
 
-// Gets the first slide 
+// Gets the first slide
 auto slide = presentation->get_Slides()->idx_get(0);
 
 // Defines columns with widths and rows with heights

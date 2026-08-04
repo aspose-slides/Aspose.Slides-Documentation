@@ -30,6 +30,7 @@ Use [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
+#include <drawing/rectangle_f.h>
 using namespace Aspose::Slides;
 
 auto presentation = System::MakeObject<Presentation>(u"Shapes.pptx");
@@ -49,6 +50,13 @@ The following example gets paragraph bounds inside a table cell and draws rectan
 
 ```cpp
 #include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
@@ -59,6 +67,7 @@ The following example gets paragraph bounds inside a table cell and draws rectan
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+#include <drawing/rectangle_f.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;

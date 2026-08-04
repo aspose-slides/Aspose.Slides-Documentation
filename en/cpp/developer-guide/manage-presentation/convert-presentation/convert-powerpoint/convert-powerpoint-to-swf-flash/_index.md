@@ -41,28 +41,27 @@ The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presenta
 
 ``` cpp
 #include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
 #include <Export/NotesPositions.h>
 #include <Export/SaveFormat.h>
 #include <Export/SwfOptions.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// The path to the documents directory.
-    System::String dataDir = GetDataPath();
+// Instantiate a Presentation object that represents a presentation file
+auto presentation = System::MakeObject<Presentation>(u"HelloWorld.pptx");
 
-    // Instantiate a Presentation object that represents a presentation file
-    auto presentation = System::MakeObject<Presentation>(dataDir + u"HelloWorld.pptx");
+auto swfOptions = System::MakeObject<SwfOptions>();
+swfOptions->set_ViewerIncluded(false);
 
-    auto swfOptions = System::MakeObject<SwfOptions>();
-    swfOptions->set_ViewerIncluded(false);
+auto notesOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull);
+swfOptions->set_SlidesLayoutOptions(notesOptions);
 
-    auto notesOptions = swfOptions->get_NotesCommentsLayouting();
-    notesOptions->set_NotesPosition(NotesPositions::BottomFull);
-
-    // Saving presentation and notes pages
-    presentation->Save(dataDir + u"SaveAsSwf_out.swf", SaveFormat::Swf, swfOptions);
-    swfOptions->set_ViewerIncluded(true);
-    presentation->Save(dataDir + u"SaveNotes_out.swf", SaveFormat::Swf, swfOptions);
+// Saving presentation and notes pages
+presentation->Save(u"SaveAsSwf_out.swf", SaveFormat::Swf, swfOptions);
+swfOptions->set_ViewerIncluded(true);
+presentation->Save(u"SaveNotes_out.swf", SaveFormat::Swf, swfOptions);
 ```
 
 ## **FAQ**

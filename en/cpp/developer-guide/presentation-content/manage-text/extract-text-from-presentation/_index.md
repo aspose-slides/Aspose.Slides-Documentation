@@ -44,6 +44,12 @@ Aspose.Slides for C++ provides the [Aspose.Slides.Util](https://reference.aspose
 The following code snippet extracts all the text from the first slide of the presentation:
 
 ```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <Util/SlideUtil.h>
@@ -95,6 +101,12 @@ To scan text from the entire presentation, use the [GetAllTextFrames](https://re
 The method returns an array of objects of type [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/), including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
 
 ```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <Util/SlideUtil.h>
@@ -139,6 +151,14 @@ presentation->Dispose();
 The [PresentationFactory](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ```cpp
+#include <DOM/IPresentationText.h>
+#include <DOM/TextExtractionArrangingMode.h>
+#include <ILoadOptions.h>
+#include <system/io/stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<IPresentationText> GetPresentationText(System::String file, TextExtractionArrangingMode mode);
 System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode);
 System::SharedPtr<IPresentationText> GetPresentationText(System::SharedPtr<System::IO::Stream> stream, TextExtractionArrangingMode mode, System::SharedPtr<ILoadOptions> options);

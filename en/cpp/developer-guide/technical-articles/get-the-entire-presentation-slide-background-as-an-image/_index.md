@@ -48,9 +48,9 @@ The following code example extracts the entire presentation slide background as 
 #include <DOM/Presentation.h>
 #include <DOM/SlideSizeScaleType.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
+#include <drawing/size_f.h>
 using namespace Aspose::Slides;
-using namespace System::Drawing::Imaging;
 
 auto slideIndex = 0;
 auto imageScale = 1;

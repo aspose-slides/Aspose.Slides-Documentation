@@ -42,11 +42,10 @@ The example below generating shape thumbnail.
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto presentation = MakeObject<Presentation>(u"HelloWorld.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
@@ -75,11 +74,10 @@ The example below generate a thumbnail with generating a thumbnail with user def
 #include <DOM/Presentation.h>
 #include <DOM/ShapeThumbnailBounds.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto bounds = ShapeThumbnailBounds::Shape;
 auto scale = 1; // Scaling along X and Y axes.
@@ -110,11 +108,10 @@ The example below create a thumbnail with generating a thumbnail with user defin
 #include <DOM/Presentation.h>
 #include <DOM/ShapeThumbnailBounds.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto bounds = ShapeThumbnailBounds::Appearance;
 auto scale = 1; // Scaling along X and Y axes.
@@ -143,6 +140,7 @@ The following example gets and compares the frame and visual bounds:
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Shape.h>
+#include <drawing/rectangle_f.h>
 #include <system/console.h>
 using namespace Aspose::Slides;
 using namespace System;

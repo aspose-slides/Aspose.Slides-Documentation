@@ -83,8 +83,11 @@ The following C++ code shows how to set a license file:
 
 ```c++
 #include <Util/License.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
 using namespace Aspose::Slides;
+using namespace System;
 
 int main()
 {

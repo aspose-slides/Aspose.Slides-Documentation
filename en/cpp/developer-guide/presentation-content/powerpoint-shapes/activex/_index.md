@@ -38,6 +38,7 @@ To manage a simple ActiveX control like a text box and simple command button on 
 The code snippet below updates the ActiveX controls on the presentation slides to the slide as shown below.
 
 ``` cpp
+#include <DOM/Control.h>
 #include <DOM/IControl.h>
 #include <DOM/IControlCollection.h>
 #include <DOM/IControlPropertiesCollection.h>
@@ -58,6 +59,7 @@ The code snippet below updates the ActiveX controls on the presentation slides t
 #include <drawing/pen.h>
 #include <drawing/size_f.h>
 #include <drawing/solid_brush.h>
+#include <system/enumerator_adapter.h>
 #include <system/io/memory_stream.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
@@ -149,8 +151,8 @@ if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nul
 // Moving ActiveX frames 100 points down
 for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
 {
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
+    SharedPtr<IShapeFrame> frame = ctl->get_Frame();
+    ctl->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
 }
 
 // Save the presentation with Edited ActiveX Controls

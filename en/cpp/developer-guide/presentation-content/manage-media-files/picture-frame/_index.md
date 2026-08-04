@@ -181,22 +181,22 @@ You can extract raster images from [PictureFrame](https://reference.aspose.com/s
 #include <DOM/ISlide.h>
 #include <DOM/ISlidesPicture.h>
 #include <DOM/Presentation.h>
-#include <drawing/imaging/image_format.h>
+#include <IImage.h>
+#include <ImageFormat.h>
 #include <system/object_ext.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto firstSlide = presentation->get_Slide(0);
 auto firstShape = firstSlide->get_Shape(0);
-    
+
 if (ObjectExt::Is<IPictureFrame>(firstShape))
 {
     auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
-    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
+    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_Image();
 
-    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
+    image->Save(u"slide_1_shape_1.png", ImageFormat::Png);
 }
 
 presentation->Dispose();
@@ -246,6 +246,7 @@ Aspose.Slides allows you to get the transparency effect applied to an image. Thi
 
 ```c++
 #include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
 #include <DOM/IPictureFillFormat.h>
 #include <DOM/IPictureFrame.h>
 #include <DOM/ISlide.h>
@@ -280,7 +281,9 @@ Aspose.Slides allows you to get the brightness and contrast effect applied to an
 This C++ code demonstrates how to get the brightness and contrast settings from a picture frame:
 
 ```c++
+#include <DOM/Effects/IImageTransformOperationCollection.h>
 #include <DOM/Effects/ILuminance.h>
+#include <DOM/Effects/ILuminanceEffectiveData.h>
 #include <DOM/IPictureFillFormat.h>
 #include <DOM/IPictureFrame.h>
 #include <DOM/ISlide.h>
@@ -402,6 +405,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/collections/list.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
@@ -449,6 +453,8 @@ This C++ code shows you how to crop an existing image on a slide:
 
 ``` CPP
 #include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
@@ -458,11 +464,10 @@ This C++ code shows you how to crop an existing image on a slide:
 #include <Util/Images.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
 
 auto presentation = System::MakeObject<Presentation>();
 // Creates new image object
-auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
+auto newImage = presentation->get_Images()->AddImage(Images::FromFile(u"image.png"));
 
 // Adds a PictureFrame to a Slide
 auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
@@ -474,8 +479,7 @@ picFrame->get_PictureFormat()->set_CropTop(3.0f);
 picFrame->get_PictureFormat()->set_CropBottom(31.0f);
 
 // Saves the result
-presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"cropped.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Delete Cropped Areas of a Picture**
@@ -485,6 +489,17 @@ If you want to delete the cropped areas of an image contained in a frame, you ca
 This C++ code demonstrates the operation: 
 
 ```c++
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
 System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
@@ -584,6 +599,23 @@ If you want a shape containing an image to retain its aspect ratio even after yo
 This C++ code shows you how to lock a shape's aspect ratio:
 
 ```c++
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);

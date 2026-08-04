@@ -40,7 +40,11 @@ This sample code shows you how to export a math equation from a presentation to 
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathParagraph.h>
 #include <DOM/MathText/IMathPortion.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>

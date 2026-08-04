@@ -61,7 +61,13 @@ Use this code snippet to convert the PowerPoint to Word:
 
 ```cpp
 #include <DOM/AutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
+#include <IImage.h>
 #include <system/object_ext.h>
 using namespace Aspose::Slides;
 using namespace System;

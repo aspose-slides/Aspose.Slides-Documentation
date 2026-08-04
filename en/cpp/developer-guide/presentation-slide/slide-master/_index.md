@@ -204,6 +204,8 @@ You can also format placeholder shapes that already exist on a master slide. The
 #include <DOM/IGradientFormat.h>
 #include <DOM/IGradientStopCollection.h>
 #include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
 #include <DOM/PlaceholderType.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>

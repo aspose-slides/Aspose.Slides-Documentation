@@ -23,11 +23,16 @@ One of the most common questions from Aspose.Slides for C++ customers is how to 
 To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
 #include <DOM/ISlideSize.h>
 #include <DOM/Presentation.h>
 #include <DOM/SlideSizeScaleType.h>
 #include <DOM/SlideSizeType.h>
 #include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
@@ -78,12 +83,26 @@ If a slide contains a table, the code above will not work correctly. In that cas
 Use the following code on your end to resize slides that contain tables. For tables, setting the width or height is a special case: you must adjust individual row heights and column widths to change the table’s overall size.
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
 #include <DOM/ISlideSize.h>
 #include <DOM/Presentation.h>
 #include <DOM/SlideSizeScaleType.h>
 #include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
 #include <system/object_ext.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;

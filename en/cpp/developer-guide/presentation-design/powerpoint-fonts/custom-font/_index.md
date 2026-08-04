@@ -59,6 +59,7 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 
 // Define folders that contain custom font files.
+String externalFontFolder = u"assets/fonts";
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
 
 // Load custom fonts from the specified folders.

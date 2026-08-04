@@ -115,6 +115,10 @@ This C++ code shows you how to remove a VBA macro:
 
 ```c++
 #include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <Export/SaveFormat.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
 using namespace System;
@@ -126,13 +130,11 @@ const String templatePath = u"../templates/vba.pptm";
 // Loads the presentation containing the macro
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
 
-// Accesses the Vba module and removes it 
+// Accesses the Vba module and removes it
 presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
 
 // Saves the Presentation
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
-
-
 ```
 
 ## **Extract VBA Macros**

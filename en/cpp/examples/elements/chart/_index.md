@@ -21,6 +21,15 @@ Examples for adding, accessing, removing, and updating different chart types wit
 This method adds a simple area chart to the first slide.
 
 ```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 static void AddChart()
 {
     auto presentation = MakeObject<Presentation>();
@@ -38,6 +47,17 @@ static void AddChart()
 After creating a chart, you can retrieve it through the shape collection.
 
 ```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 static void AccessChart()
 {
     auto presentation = MakeObject<Presentation>();
@@ -65,6 +85,17 @@ static void AccessChart()
 The following code removes a chart from a slide.
 
 ```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 static void RemoveChart()
 {
     auto presentation = MakeObject<Presentation>();
@@ -84,6 +115,17 @@ static void RemoveChart()
 You can change chart properties such as the title.
 
 ```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 static void UpdateChartData()
 {
     auto presentation = MakeObject<Presentation>();

@@ -30,12 +30,11 @@ Aspose.Slides for C++ provides support for extracting image of specific chart. 
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto presentation = MakeObject<Presentation>(u"test.pptx");
 

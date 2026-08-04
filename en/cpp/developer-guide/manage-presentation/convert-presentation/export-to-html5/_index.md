@@ -130,14 +130,18 @@ The following code example converts a presentation to an HTML5 document with com
 #include <DOM/Presentation.h>
 #include <Export/CommentsPositions.h>
 #include <Export/Html5Options.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
+auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutingOptions->set_CommentsPosition(CommentsPositions::Right);
+
 auto html5Options = MakeObject<Html5Options>();
-html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
+html5Options->set_SlidesLayoutOptions(layoutingOptions);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.html", SaveFormat::Html5, html5Options);

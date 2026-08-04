@@ -206,9 +206,17 @@ Aspose.Slides provides the [set_WarningCallback](https://reference.aspose.com/sl
 This C++ code shows how to detect font substitutions:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <Warnings/IWarningCallback.h>
 #include <Warnings/IWarningInfo.h>
 #include <Warnings/ReturnAction.h>
+#include <Warnings/WarningType.h>
+#include <system/console.h>
 #include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::Warnings;
 using namespace System;
 
@@ -221,7 +229,7 @@ public:
 
 ReturnAction FontSubstitutionHandler::Warning(SharedPtr<IWarningInfo> warning)
 {
-    if (warning->get_WarningType() == WarningType::DataLoss && 
+    if (warning->get_WarningType() == WarningType::DataLoss &&
         warning->get_Description().StartsWith(u"Font will be substituted"))
     {
         Console::WriteLine(u"Font substitution warning: {0}", warning->get_Description());
@@ -241,7 +249,7 @@ int main()
 
     // Save the presentation as a PDF.
     presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
-    
+
     presentation->Dispose();
 
     return 0;

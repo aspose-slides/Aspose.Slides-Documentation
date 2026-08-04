@@ -65,8 +65,11 @@ Aspose.Slides for C++ also allows developers to add the custom the values for pr
 ``` cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace System;
 
 // Instantiate the Presentation class
@@ -103,7 +106,19 @@ Aspose.Slides provides the [LanguageId](https://reference.aspose.com/slides/cpp/
 This C++ code shows you how to set the proofing language for a PowerPoint:
 
 ```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
+#include <DOM/AutoShape.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFontData.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"sample.pptx");
 System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
 
 System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
@@ -130,6 +145,19 @@ portions->Add(newPortion);
 This C++ code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 

@@ -46,7 +46,7 @@ using namespace Aspose::Slides::Animation;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-String dataDir = GetDataPath();
+String dataDir = u"../data/";
 auto presentation = System::MakeObject<Presentation>(dataDir + u"Presentation1.pptx");
 
 // select paragraph to add effect
@@ -68,9 +68,12 @@ You may decide to find out the animation effects added to a paragraph for exampl
 Aspose.Slides for C++ allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ``` cpp
+#include <DOM/Animation/IEffect.h>
 #include <DOM/Animation/ISequence.h>
 #include <DOM/IAnimationTimeLine.h>
 #include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
@@ -83,7 +86,7 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Animation;
 using namespace System;
 
-String dataDir = GetDataPath();
+String dataDir = u"../data/";
 auto pres = System::MakeObject<Presentation>(dataDir + u"Test.pptx");
 
 auto sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();

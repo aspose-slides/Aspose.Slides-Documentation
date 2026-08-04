@@ -21,13 +21,34 @@ This article demonstrates how to insert and access pictures from in-memory image
 This code generates a small bitmap, converts it to a stream, and inserts it as a picture frame on the first slide.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/bitmap.h>
+#include <drawing/color.h>
+#include <drawing/graphics.h>
+#include <drawing/imaging/image_format.h>
+#include <drawing/imaging/pixel_format.h>
+#include <drawing/solid_brush.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::IO;
+
 static void AddPicture()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
     // Create a simple in-memory image.
-    auto bitmap = MakeObject<Bitmap>(100, 100, PixelFormat::Format32bppArgb);
+    auto bitmap = MakeObject<Bitmap>(100, 100, System::Drawing::Imaging::PixelFormat::Format32bppArgb);
     auto graphics = Graphics::FromImage(bitmap.get());
     graphics->FillRectangle(MakeObject<SolidBrush>(Color::FromArgb(144, 238, 144)), 0, 0, 100, 100);
     graphics->Dispose();
@@ -54,12 +75,31 @@ static void AddPicture()
 This example ensures a slide contains a picture frame and then accesses the first one it finds.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/bitmap.h>
+#include <drawing/imaging/image_format.h>
+#include <drawing/imaging/pixel_format.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::IO;
+
 static void AccessPicture()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    auto bitmap = MakeObject<Bitmap>(40, 40, PixelFormat::Format32bppArgb);
+    auto bitmap = MakeObject<Bitmap>(40, 40, System::Drawing::Imaging::PixelFormat::Format32bppArgb);
     auto bitmapStream = MakeObject<MemoryStream>();
     bitmap->Save(bitmapStream, System::Drawing::Imaging::ImageFormat::get_Png());
     auto pngBytes = bitmapStream->ToArray();

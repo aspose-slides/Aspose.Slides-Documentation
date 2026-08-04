@@ -291,6 +291,7 @@ To reduce the HTML file size, you can write font data to separate WOFF files and
 ```cpp
 #include <DOM/IFontData.h>
 #include <DOM/Presentation.h>
+#include <Export/EmbedAllFontsHtmlController.h>
 #include <Export/HtmlFormatter.h>
 #include <Export/HtmlOptions.h>
 #include <Export/IHtmlGenerator.h>

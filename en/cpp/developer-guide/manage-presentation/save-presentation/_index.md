@@ -206,13 +206,15 @@ The [IProgressCallback](https://reference.aspose.com/slides/cpp/aspose.slides/ip
 The following code snippets show how to use `IProgressCallback`.
 
 ```cpp
+#include <IProgressCallback.h>
 #include <system/console.h>
+using namespace Aspose::Slides;
 using namespace System;
 
 class ExportProgressHandler : public IProgressCallback
 {
 public:
-    void Reporting(double progressValue)
+    void Reporting(double progressValue) override
     {
         // Use the progress percentage value here.
         int progress = static_cast<int>(progressValue);
@@ -224,10 +226,25 @@ public:
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <IProgressCallback.h>
+#include <system/console.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
+
+// The progress callback class defined above.
+class ExportProgressHandler : public IProgressCallback
+{
+public:
+    void Reporting(double progressValue) override
+    {
+        int progress = static_cast<int>(progressValue);
+
+        Console::WriteLine(u"{0}% of the file has been converted.", progress);
+    }
+};
 
 auto saveOptions = MakeObject<PdfOptions>();
 saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());

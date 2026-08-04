@@ -225,6 +225,7 @@ The following code iterates through all worksheets in the source Excel file, ext
 #include <Excel/ExcelDataWorkbook.h>
 #include <Export/SaveFormat.h>
 #include <Import/ExcelWorkbookImporter.h>
+#include <system/collections/dictionary.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Excel;

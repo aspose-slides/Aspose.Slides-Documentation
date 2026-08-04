@@ -40,6 +40,7 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 This C++ code shows you how to set a table's first row as its header:
 
 ```c++
+#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
@@ -48,7 +49,7 @@ This C++ code shows you how to set a table's first row as its header:
 using namespace Aspose::Slides;
 using namespace System;
 
-// Instantiates the Presentation class 
+// Instantiates the Presentation class
 auto pres = System::MakeObject<Presentation>(u"table.pptx");
 
 // Accesses the first slide
@@ -66,7 +67,7 @@ for (const auto& shp : sld->get_Shapes())
     }
 }
 
-// Sets the first row of a table its header 
+// Sets the first row of a table its header
 tbl->set_FirstRow(true);
 ```
 
@@ -86,12 +87,16 @@ This C++ code shows you how to clone a PowerPoint table's row or column:
 
 ```c++
 #include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
 #include <DOM/Table/IColumnCollection.h>
 #include <DOM/Table/IRow.h>
 #include <DOM/Table/IRowCollection.h>
@@ -128,22 +133,23 @@ for (int x = 0; x < table->get_Rows()->get_Count(); x++)
 	for (int y = 0; y < row->get_Count(); y++)
 	{
 		SharedPtr<ICell> cell = row->idx_get(y);
+		SharedPtr<ICellFormat> cellFormat = cell->get_CellFormat();
 
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
+		cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
+		cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cellFormat->get_BorderTop()->set_Width(5);
 
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
+		cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
+		cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cellFormat->get_BorderBottom()->set_Width(5);
 
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
+		cellFormat->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
+		cellFormat->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cellFormat->get_BorderLeft()->set_Width(5);
 
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
+		cellFormat->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
+		cellFormat->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+		cellFormat->get_BorderRight()->set_Width(5);
 
 	}
 

@@ -37,7 +37,9 @@ Each [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presen
 Here is an examples how to create fallback fonts rules collection and assign in into the FontsManager of a certain presentation:  
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
 #include <DOM/Fonts/FontFallBackRulesCollection.h>
+#include <DOM/IFontFallBackRule.h>
 #include <DOM/IFontsManager.h>
 #include <DOM/Presentation.h>
 #include <system/smart_ptr.h>

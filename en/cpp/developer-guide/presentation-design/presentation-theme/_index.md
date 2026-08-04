@@ -62,11 +62,30 @@ shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Acce
 You can determine the resulting color's effective value this way:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
 #include <system/console.h>
+using namespace Aspose::Slides;
 using namespace System;
 
+auto pres = System::MakeObject<Presentation>();
+auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+
 auto fillEffective = shape->get_FillFormat()->GetEffective();
-    
+
 Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(), fillEffective->get_SolidFillColor());
 // ff8064a2 (Color [A=255, R=128, G=100, B=162])
 ```
@@ -75,14 +94,25 @@ To further demonstrate the color change operation, we create another element and
 
 ```c++
 #include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 #include <DOM/SchemeColor.h>
 #include <DOM/ShapeType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
 #include <drawing/color.h>
 using namespace Aspose::Slides;
 using namespace System::Drawing;
 
+auto pres = System::MakeObject<Presentation>();
+
 auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
-    
+
 otherShape->get_FillFormat()->set_FillType(FillType::Solid);
 otherShape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 
@@ -216,12 +246,21 @@ This C++ code shows you how to assign the Latin font to a theme element:
 
 ```c++
 #include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
 #include <DOM/Paragraph.h>
 #include <DOM/Portion.h>
+#include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
 
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 
@@ -237,6 +276,16 @@ portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"+mn-l
 This C++ code shows you how to change the presentation theme font:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFonts.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
 ```
 
@@ -282,6 +331,15 @@ Using the [BackgroundFillStyles](https://reference.aspose.com/slides/cpp/class/a
 This C++ code shows you how to set the background for a presentation:
 
 ```c++
+#include <DOM/IBackground.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 ```
 
@@ -304,15 +362,28 @@ Using 3 properties ([FillStyles](https://reference.aspose.com/slides/cpp/class/a
 This C++ code shows you how to change a theme effect by altering parts of elements:
 
 ```c++
+#include <DOM/Effects/IOuterShadow.h>
 #include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
 #include <DOM/Presentation.h>
+#include <DOM/Theme/IEffectStyle.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
 
 auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
-        
+
 pres->get_MasterTheme()->get_FormatScheme()->get_LineStyles()->idx_get(0)->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
 pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->set_FillType(FillType::Solid);

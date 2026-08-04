@@ -50,6 +50,11 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 This C++ code shows you how to convert PowerPoint to markdown:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.md", SaveFormat::Md);
 ```
@@ -62,6 +67,7 @@ This C++ code shows you how to convert PowerPoint to CommonMark:
 
 ```c++
 #include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/Flavor.h>
 #include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
 #include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
@@ -69,8 +75,8 @@ using namespace Aspose::Slides::Export;
 
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_Flavor(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Flavor::CommonMark);
-pres->Save(u"pres.md", Aspose::Slides::Export::SaveFormat::Md, opt);
+opt->set_Flavor(Flavor::CommonMark);
+pres->Save(u"pres.md", SaveFormat::Md, opt);
 ```
 
 The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class.
@@ -84,6 +90,16 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/cpp/aspose.slides.
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This C++ code shows you how to convert a presentation containing images to markdown:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/Flavor.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/Markdown/SaveOptions/NewLineType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 System::SharedPtr<MarkdownSaveOptions> markdownSaveOptions = System::MakeObject<MarkdownSaveOptions>();
@@ -105,6 +121,7 @@ This C++ code demonstrates the operation:
 
 ```c++
 #include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
 #include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/io/path.h>
@@ -115,10 +132,10 @@ using namespace System::IO;
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 const System::String outPath = u"x:\\documents";
 auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_ExportType(Aspose::Slides::DOM::Export::Markdown::SaveOptions::MarkdownExportType::Visual);
+opt->set_ExportType(MarkdownExportType::Visual);
 opt->set_ImagesSaveFolderName(u"md-images");
 opt->set_BasePath(outPath);
-pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), Aspose::Slides::Export::SaveFormat::Md, opt);
+pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), SaveFormat::Md, opt);
 ```
 
 ## **FAQ**

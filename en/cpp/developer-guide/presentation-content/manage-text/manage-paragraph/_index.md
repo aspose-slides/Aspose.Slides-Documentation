@@ -308,6 +308,29 @@ Bullet lists help you to organize and present information quickly and efficientl
 This C++ code shows you how to add and manage picture bullets:
 
 ```c++
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Instantiates a Presentation class that represents a PPTX file
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
@@ -369,6 +392,30 @@ Bullet lists help you to organize and present information quickly and efficientl
 This C++ code shows you how to add and manage multilevel bullets:
 
 ```c++
+#include <DOM/BulletType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/convert.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Instantiates a Presentation class that represents a PPTX file
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -790,7 +837,11 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 This C++ code is an implementation of the steps for importing HTML texts in paragraphs: 
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
 #include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -800,18 +851,21 @@ This C++ code is an implementation of the steps for importing HTML texts in para
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
+#include <DOM/TextUnderlineType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/io/stream_reader.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
 using namespace System;
 
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
 // The path to the documents directory.
 const String outPath = u"../out/ImportingHTMLText_out.pptx";
 const String sampleHtml = u"../templates/file.html";
 
-	
 // Load the desired the presentation
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
@@ -820,10 +874,10 @@ SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
 // Add an AutoShape of Rectangle type
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 700, 500);
-	
+
 //Resetting default fill color
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-	
+
 // Add TextFrame to the Rectangle
 ashp->AddTextFrame(u" ");
 
@@ -870,12 +924,10 @@ pf->set_FontHeight(25);
 
 // Set the color of the Font
 pf->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pf->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
 // Save PPTX to Disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-
 ```
 
 
@@ -894,18 +946,20 @@ This C++ code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```c++
 #include <DOM/AutoShape.h>
+#include <DOM/IParagraphCollection.h>
 #include <DOM/IShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
+#include <system/io/stream_writer.h>
 #include <system/string.h>
 #include <system/text/encoding.h>
 using namespace Aspose::Slides;
 using namespace System;
 using namespace System::Text;
 
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
 // The path to the documents directory.
 const String outPath = u"../out/output.html";
 const String tempplatePath = u"../templates/DefaultFonts.pptx";
@@ -917,9 +971,6 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(tempplatePath);
 // Acesss the default first slide of presentation
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-// Desired index
-int index = 0;
-
 // Accessing the added shape
 SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
 
@@ -927,13 +978,11 @@ SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
 
 // Extracting first paragraph as HTML
 SharedPtr<System::IO::StreamWriter> sw = MakeObject<System::IO::StreamWriter>(outPath, false, Encoding::get_UTF8());
-//	System::IO::StreamWriter^ sr = gcnew System::IO::StreamWriter("TestFile.txt", false, Encoding::get_UTF8());
 
 //Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
 sw->Write(ashape->get_TextFrame()->get_Paragraphs()->ExportToHtml(0, ashape->get_TextFrame()->get_Paragraphs()->get_Count(), nullptr));
 
 sw->Close();
-
 ```
 
 ## **Save a Paragraph as an Image**
@@ -955,6 +1004,7 @@ In this example, we obtain the second paragraph as an image. To do this, we extr
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <IImage.h>
+#include <ImageFormat.h>
 #include <drawing/bitmap.h>
 #include <drawing/graphics.h>
 #include <drawing/graphics_unit.h>
@@ -975,7 +1025,7 @@ auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape
 // Save the shape in memory as a bitmap.
 auto shapeImage = firstShape->GetImage();
 auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
+shapeImage->Save(shapeImageStream, Aspose::Slides::ImageFormat::Png);
 shapeImage->Dispose();
 
 // Create a shape bitmap from memory.
@@ -1020,6 +1070,7 @@ In this example, we extend the previous approach by adding scaling factors to th
 #include <DOM/Presentation.h>
 #include <DOM/ShapeThumbnailBounds.h>
 #include <IImage.h>
+#include <ImageFormat.h>
 #include <drawing/bitmap.h>
 #include <drawing/graphics.h>
 #include <drawing/graphics_unit.h>
@@ -1043,7 +1094,7 @@ auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape
 // Save the shape in memory as a bitmap with scaling.
 auto shapeImage = firstShape->GetImage(ShapeThumbnailBounds::Shape, imageScaleX, imageScaleY);
 auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
+shapeImage->Save(shapeImageStream, Aspose::Slides::ImageFormat::Png);
 shapeImage->Dispose();
 
 // Create a shape bitmap from memory.

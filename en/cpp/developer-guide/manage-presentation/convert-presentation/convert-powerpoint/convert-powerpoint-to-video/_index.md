@@ -49,8 +49,28 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cp
 This C++ code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
 #include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
 using namespace Aspose::Slides::Export;
 
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
@@ -81,7 +101,7 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
@@ -100,9 +120,23 @@ You may want to see these articles: [PowerPoint Animation](https://docs.aspose.c
 Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 
 ```c++
-// Adds a smile shape and animates it
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
 
-// ...
+// Adds a smile shape and animates it as shown above
+auto presentation = System::MakeObject<Presentation>();
 
 // Adds a new slide and animated transition
 
@@ -124,8 +158,32 @@ newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 Aspose.Slides also supports animation for texts. So we animate paragraphs on objects, which will appear one after the other (with the delay set to a second):
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
 #include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
 using namespace Aspose::Slides::Export;
 
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
@@ -173,13 +231,13 @@ void Run()
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
@@ -196,7 +254,25 @@ When animations are generated, a `NewAnimation` event is generated for each subs
 To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/), the [get_Duration](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) method are used. Each animation position is set within the *0 to duration* range, and then the `GetFrame` method will return a Bitmap that corresponds to the animation state at that moment.
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
 using namespace Aspose::Slides::Export;
 
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
@@ -205,14 +281,14 @@ void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPla
 
     animationPlayer->SetTimePosition(0);
     // initial animation state
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
     // initial animation state bitmap
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
     // final state of the animation
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
     // last frame of the animation
-    lastBitmap->Save(u"last.png");
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -236,8 +312,14 @@ void Run()
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 #include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
 #include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)

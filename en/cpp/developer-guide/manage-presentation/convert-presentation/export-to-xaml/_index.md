@@ -44,7 +44,9 @@ This C++ code shows you how to export a presentation to XAML with default settin
 
 ``` cpp
 #include <DOM/Presentation.h>
+#include <Export/Xaml/XamlOptions.h>
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export::Xaml;
 
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(System::MakeObject<XamlOptions>());

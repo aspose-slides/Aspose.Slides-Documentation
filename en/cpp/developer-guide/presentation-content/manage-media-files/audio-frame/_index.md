@@ -295,8 +295,12 @@ You can iterate through the caption tracks associated with an audio frame and sa
 
 ```cpp
 #include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
 #include <system/io/file.h>
 #include <system/object_ext.h>
 using namespace Aspose::Slides;
@@ -305,12 +309,12 @@ using namespace System::IO;
 
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IAudioFrame>(shape))
     {
         auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        for (auto&& captionTrack : IterateOver(audioFrame->get_CaptionTracks()))
         {
             // Save each caption track as a .vtt file.
             auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";

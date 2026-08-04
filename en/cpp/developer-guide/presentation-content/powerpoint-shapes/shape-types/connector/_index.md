@@ -194,6 +194,7 @@ Code:
 
 ```c++
 #include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IConnector.h>
 #include <DOM/ILineFillFormat.h>
@@ -233,6 +234,21 @@ To avoid or bypass the third shape, we can adjust the connector by moving its ve
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
 ```c++
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+
 auto adj2 = connector->get_Adjustments()->idx_get(1);
 adj2->set_RawValue(adj2->get_RawValue() + 10000);
 ```
@@ -315,6 +331,26 @@ auto adjValue_1 = adjustments->idx_get(1);
 We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
 
 ```c++
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+
+// Gets adjustment points for the connector
+auto adjustments = connector->get_Adjustments();
+auto adjValue_0 = adjustments->idx_get(0);
+auto adjValue_1 = adjustments->idx_get(1);
+
 // Changes the values of the adjustment points
 adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
 adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
@@ -327,8 +363,23 @@ The result:
 To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point:
 
 ```c++
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+auto adjustments = connector->get_Adjustments();
+auto adjValue_0 = adjustments->idx_get(0);
+auto adjValue_1 = adjustments->idx_get(1);
 
 // Draw the vertical component of the connector
 float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
@@ -349,19 +400,38 @@ First, let's add a new text frame object (**To 1**) to the slide (for connection
 
 ```c++
 #include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
 #include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <drawing/color.h>
 using namespace Aspose::Slides;
 using namespace System::Drawing;
 
+auto pres = System::MakeObject<Presentation>();
+auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
+shapeFrom->get_TextFrame()->set_Text(u"From");
+
 // Creates a new binding object
 auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
 shapeTo_1->get_TextFrame()->set_Text(u"To 1");
 // Creates a new connector
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 lineFormat->set_Width(3);
+auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
 // Connects objects using the newly created connector
@@ -370,8 +440,9 @@ connector->set_StartShapeConnectionSiteIndex(2);
 connector->set_EndShapeConnectedTo(shapeTo_1);
 connector->set_EndShapeConnectionSiteIndex(3);
 // Gets the connector adjustment points
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
+auto adjustments = connector->get_Adjustments();
+auto adjValue_0 = adjustments->idx_get(0);
+auto adjValue_1 = adjustments->idx_get(1);
 // Changes the values of the adjustment points
 adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
 adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
@@ -411,9 +482,45 @@ We demonstrated calculations involving simple adjustments and complicated adjust
 This C++ code demonstrates an operation in which we calculated the angle for a connector line shape:
 
 ```c++
+#include <DOM/AutoShape.h>
+#include <DOM/Connector.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+double getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
+{
+	float endLineX = w;
+
+	if (flipH == NullableBool::True)
+		endLineX= endLineX * -1;
+	else
+		endLineX=endLineX *  1;
+	float endLineY = h;
+	if (flipV == NullableBool::True)
+		endLineY = endLineY * -1;
+	else
+		endLineY = endLineY *  1;
+	float endYAxisX = 0;
+	float endYAxisY = h;
+	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
+	if (angle < 0) angle += 2 * Math::PI;
+	return angle * 180.0 / Math::PI;
+}
+
 void ConnectorLineAngle()
 {
-
 	// The path to the documents directory.
 	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
 	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
@@ -435,46 +542,17 @@ void ConnectorLineAngle()
 			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
 			if (aShape->get_ShapeType() == ShapeType::Line)
 			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
 				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
 			}
 		}
-
 		else if (System::ObjectExt::Is<Connector>(shape))
 		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
+			SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
+			dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
 		}
 
 		Console::WriteLine(dir);
-	
 	}
-
-
-}
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
-
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-//	float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
 }
 ```
 

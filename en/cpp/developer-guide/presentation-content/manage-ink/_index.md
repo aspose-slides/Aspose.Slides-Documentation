@@ -49,6 +49,17 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 This C++ code shows you how to set the color for a brush:
 
 ```c++
+#include <DOM/Ink/IInk.h>
+#include <DOM/Ink/IInkBrush.h>
+#include <DOM/Ink/IInkTrace.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Ink;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 System::SharedPtr<IInk> ink = System::ExplicitCast<IInk>(pres->get_Slide(0)->get_Shape(0));
@@ -63,6 +74,17 @@ brush->set_Color(System::Drawing::Color::get_Red());
 This C++ code shows you how to set the size for a brush:
 
 ```c++
+#include <DOM/Ink/IInk.h>
+#include <DOM/Ink/IInkBrush.h>
+#include <DOM/Ink/IInkTrace.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Ink;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 System::SharedPtr<IInk> ink = System::ExplicitCast<IInk>(pres->get_Slide(0)->get_Shape(0));

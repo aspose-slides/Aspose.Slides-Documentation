@@ -44,11 +44,10 @@ This C++ code demonstrates how to convert the first slide of a presentation to a
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
@@ -71,14 +70,14 @@ This sample code demonstrates how to do this:
 ```cpp 
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
-#include <drawing/imaging/image_format.h>
+#include <IImage.h>
+#include <ImageFormat.h>
 #include <drawing/size.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
-Size imageSize(1820, 1040);
+System::Drawing::Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
@@ -110,14 +109,13 @@ This C++ code demonstrates how to convert a slide with notes and comments:
 #include <Export/NotesPositions.h>
 #include <Export/RenderingOptions.h>
 #include <IImage.h>
+#include <ImageFormat.h>
 #include <drawing/color.h>
-#include <drawing/imaging/image_format.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::Drawing;
-using namespace System::Drawing::Imaging;
 
 float scaleX = 2;
 float scaleY = scaleX;
@@ -163,13 +161,12 @@ This C++ code demonstrates a conversion process where TIFF options are used to o
 #include <Export/ImagePixelFormat.h>
 #include <Export/TiffOptions.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <drawing/size.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 // Load a presentation file.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -179,7 +176,7 @@ auto slide = presentation->get_Slide(0);
 
 // Configure the settings of the output TIFF image.
 auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Set the image size.
+tiffOptions->set_ImageSize(System::Drawing::Size(2160, 2880));       // Set the image size.
 tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Set the pixel format (black and white).
 tiffOptions->set_DpiX(300);                                         // Set the horizontal resolution.
 tiffOptions->set_DpiY(300);                                         // Set the vertical resolution.
@@ -205,11 +202,10 @@ This sample code demonstrates how to convert all slides in a presentation to ima
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <IImage.h>
-#include <drawing/imaging/image_format.h>
+#include <ImageFormat.h>
 #include <system/string.h>
 using namespace Aspose::Slides;
 using namespace System;
-using namespace System::Drawing::Imaging;
 
 float scaleX = 2;
 float scaleY = scaleX;

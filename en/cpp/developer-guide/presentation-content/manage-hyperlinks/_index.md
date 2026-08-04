@@ -53,6 +53,7 @@ This C++ code shows you how to add a website hyperlink to a text:
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
 #include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
@@ -69,7 +70,7 @@ auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto portionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-portionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+portionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 portionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 portionFormat->set_FontHeight(32.0f);
 
@@ -111,6 +112,7 @@ This sample code shows you how to add a hyperlink to an **image**:
 ``` cpp
 #include <DOM/Hyperlink.h>
 #include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
@@ -129,7 +131,7 @@ auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
 // Creates picture frame on slide 1 based on previously added image
 auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
 
-pictureFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+pictureFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 pictureFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -140,6 +142,7 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ``` cpp
 #include <DOM/Hyperlink.h>
 #include <DOM/IAudioCollection.h>
+#include <DOM/IAudioFrame.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
@@ -155,7 +158,7 @@ auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto audio = pres->get_Audios()->AddAudio(File::ReadAllBytes(u"audio.mp3"));
 auto audioFrame = shapes->AddAudioFrameEmbedded(10.0f, 10.0f, 100.0f, 100.0f, audio);
 
-audioFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+audioFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 audioFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -169,6 +172,7 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/io/file.h>
@@ -181,7 +185,7 @@ auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto video = pres->get_Videos()->AddVideo(File::ReadAllBytes(u"video.avi"));
 auto videoFrame = shapes->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
 
-videoFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+videoFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -262,10 +266,13 @@ This sample code demonstrates an operation where hyperlinks with different color
 #include <DOM/Hyperlink.h>
 #include <DOM/HyperlinkColorSource.h>
 #include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
 #include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
@@ -276,13 +283,14 @@ This sample code demonstrates an operation where hyperlinks with different color
 #include <drawing/color.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
 
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 450.0f, 50.0f, false);
 shape1->AddTextFrame(u"This is a sample of colored hyperlink.");
 auto shape1PortionFormat = shape1->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape1PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape1PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shape1PortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
 shape1PortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
@@ -290,7 +298,7 @@ shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::ge
 auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 450.0f, 50.0f, false);
 shape2->AddTextFrame(u"This is a sample of usual hyperlink.");
 auto shape2PortionFormat = shape2->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape2PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape2PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
@@ -304,8 +312,16 @@ This C++ code shows you how to remove the hyperlink from a text in a presentatio
 
 ``` cpp
 #include <DOM/IAutoShape.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
@@ -337,6 +353,9 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 This C++ code shows you how to remove the hyperlink from a shape in a presentation slide: 
 
 ``` cpp
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
@@ -374,6 +393,7 @@ The code snippet shows you how to add a hyperlink to a slide and edit its toolti
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
 #include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
@@ -391,7 +411,7 @@ auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto shapePortionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shapePortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shapePortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shapePortionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 shapePortionFormat->set_FontHeight(32.0f);
 

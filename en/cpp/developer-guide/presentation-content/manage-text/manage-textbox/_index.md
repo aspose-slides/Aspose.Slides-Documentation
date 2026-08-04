@@ -103,15 +103,19 @@ This C++ code shows you how to check whether a shape was created as a text box:
 ```c++
 #include <DOM/IAutoShape.h>
 #include <DOM/Presentation.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
 #include <system/console.h>
+#include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
 using namespace Aspose::Slides;
 using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : presentation->get_Slides())
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : slide->get_Shapes())
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
     {
         if (ObjectExt::Is<IAutoShape>(shape))
         {
@@ -282,22 +286,32 @@ This C++ code demonstrates an operation where all the texts in a presentation ar
 #include <DOM/NullableBool.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
 auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : pres->get_Slides())
+for (const auto& slide : System::IterateOver(pres->get_Slides()))
 {
-    for (const auto& shape : slide->get_Shapes())
+    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
     {
         if (ObjectExt::Is<IAutoShape>(shape))
         {
             auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : autoShape->get_TextFrame()->get_Paragraphs())
+            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
             {
-                for (const auto& portion : paragraph->get_Portions())
+                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
                 {
                     //Changes text
                     portion->set_Text(portion->get_Text().Replace(u"years", u"months"));

@@ -63,6 +63,7 @@ In the example below, we added a chart from an Excel file to a slide as an [OleO
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/size_f.h>
 #include <system/io/file.h>
 #include <system/smart_ptr.h>
 using namespace Aspose::Slides;
@@ -379,6 +380,17 @@ presentation->Dispose();
 After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `set_UpdateAutomatic` method of the [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) interface to `false`:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
 oleFrame->set_UpdateAutomatic(false);
 ```
 
