@@ -66,12 +66,12 @@ Aspose.Slides for .NET provides a simple API for setting automatic pie chart sli
 1. Access first slide.
 1. Add chart with default data.
 1. Set chart Title.
-1. Set first series to Show Values.
 1. Set the index of chart data sheet.
 1. Getting the chart data worksheet.
 1. Delete default generated series and categories.
 1. Add new categories.
 1. Add new series.
+1. Set the new series to Show Values.
 
 Write the modified presentation to a PPTX file.
 
@@ -93,9 +93,6 @@ using (Presentation presentation = new Presentation())
 	chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
-
-	// Set first series to Show Values
-	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 	// Setting the index of chart data sheet
 	int defaultWorksheetIndex = 0;
@@ -119,6 +116,9 @@ using (Presentation presentation = new Presentation())
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.DataPoints.AddDataPointForPieSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+
+	// Set the new series to Show Values
+	series.Labels.DefaultDataLabelFormat.ShowValue = true;
 
 	series.ParentSeriesGroup.IsColorVaried = true;
 	presentation.Save("Pie.pptx", Aspose.Slides.Export.SaveFormat.Pptx);

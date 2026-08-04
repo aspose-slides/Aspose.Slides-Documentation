@@ -68,7 +68,7 @@ Presentation presentation = new Presentation("Fonts.pptx");
 IFontData sourceFont = new FontData("SomeRareFont");
 
 // Loads the new font
-IFontData destFont = new FontData("Arial");
+IFontData destFont = new FontData("Courier New");
 
 // Adds a font rule for font replacement
 IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);

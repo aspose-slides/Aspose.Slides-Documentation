@@ -43,15 +43,13 @@ using Aspose.Slides;
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To add image in a table cell while creating a new table, please follow the steps below:
+Aspose.Slides for .NET has provided the simplest API to work with tables in an easiest way. To add image in a cell of a table that already exists in a presentation, please follow the steps below:
 
-- Create an instance of Presentation class
+- Create an instance of Presentation class from the file that contains the table
 - Obtain the reference of a slide by using its Index
-- Define Array of Columns with Width
-- Define Array of Rows with Height
-- Add a Table to the slide using AddTable method exposed by IShapes object
-- Create a Bitmap object to hold the image file
-- Add the Bitmap image to IPPImage Object
+- Load the image file into an IImage object using the Images.FromFile method
+- Add the loaded image to the presentation's image collection to get an IPPImage object
+- Find the table among the shapes of the slide
 - Set Fill Format of the Table Cell as Picture
 - Add the image to the first cell of the table
 - Save the modified presentation as a PPTX file

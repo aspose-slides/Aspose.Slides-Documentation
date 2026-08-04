@@ -27,7 +27,7 @@ description: "Discover how to use Aspose.Slides for .NET to customize chart axes
 
 ## **Overview**
 
-This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and display a unit label on the value axis.
+This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and set the display unit of the value axis.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for .NET allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
@@ -57,8 +57,11 @@ using (Presentation pres = new Presentation())
 	double maxValue = chart.Axes.VerticalAxis.ActualMaxValue;
 	double minValue = chart.Axes.VerticalAxis.ActualMinValue;
 
-	double majorUnit = chart.Axes.HorizontalAxis.ActualMajorUnit;
-	double minorUnit = chart.Axes.HorizontalAxis.ActualMinorUnit;
+	double majorUnit = chart.Axes.VerticalAxis.ActualMajorUnit;
+	double minorUnit = chart.Axes.VerticalAxis.ActualMinorUnit;
+
+	TimeUnitType majorUnitScale = chart.Axes.VerticalAxis.ActualMajorUnitScale;
+	TimeUnitType minorUnitScale = chart.Axes.VerticalAxis.ActualMinorUnitScale;
 
 	// Saves the presentation
 	pres.Save("AxisValues_out.pptx", SaveFormat.Pptx);
@@ -215,8 +218,8 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Enable the Display Unit Label on Chart Value Axis**
-Aspose.Slides for .NET allows you to configure a chart to show a unit label on its chart value axis. This C# code demonstrates the operation:
+## **Set the Display Unit on a Chart Value Axis**
+Aspose.Slides for .NET allows you to set the display unit of a chart value axis. The axis then scales its tick labels by that unit: with `DisplayUnitType.Millions`, an axis that runs to 60,000,000 is labeled 0 to 60. This C# code demonstrates the operation:
 
 ```c#
 using Aspose.Slides;

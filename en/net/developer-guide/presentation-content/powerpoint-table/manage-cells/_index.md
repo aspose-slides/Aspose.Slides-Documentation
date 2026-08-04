@@ -259,12 +259,6 @@ using (Presentation presentation = new Presentation())
         }
     }
 
-    // Merges cells (1, 1) x (2, 1)
-    table.MergeCells(table[1, 1], table[2, 1], false);
-
-    // Merges cells (1, 2) x (2, 2)
-    table.MergeCells(table[1, 2], table[2, 2], false);
-
     // Splits cell (1, 1). 
     table[1, 1].SplitByWidth(table[2, 1].Width / 2);
 

@@ -261,8 +261,11 @@ resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleTyp
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// Save the resized presentation to a PDF with notes.
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+
+// Save the resized presentation as a PDF.
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**

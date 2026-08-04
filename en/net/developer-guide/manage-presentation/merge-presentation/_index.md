@@ -229,11 +229,11 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 
 {{% alert title="Note" color="warning" %}} 
 
-You cannot merge presentations with different slide sizes. 
+Merging presentations with different slide sizes does not raise an error, but the merged slides take the slide size of the target presentation while their shapes keep their original positions and sizes, so content may end up misplaced or outside the slide boundaries. 
 
 {{% /alert %}}
 
-To merge 2 presentations with different slide sizes, you have to resize one of the presentations to make its size match that of the other presentation. 
+To merge 2 presentations with different slide sizes and keep their content properly laid out, resize one of the presentations to make its size match that of the other presentation. 
 
 This sample code demonstrates the described operation:
 

@@ -26,11 +26,11 @@ description: "Export PowerPoint & OpenDocument presentations to responsive HTML5
 
 ## **Overview**
 
-This article explains how to convert PowerPoint presentations to HTML5 using Aspose.Slides. It covers basic HTML5 export without web extensions or additional dependencies, as well as options for controlling shape animations and slide transitions. The article also shows the standard PowerPoint-to-HTML export process, explains how to generate HTML5 output in slide view mode, and demonstrates how to include comments in the exported document by configuring their layout.
+This article explains how to convert PowerPoint presentations to HTML5 using Aspose.Slides. It covers basic HTML5 export, as well as options for controlling shape animations and slide transitions. The article also shows the standard PowerPoint-to-HTML export process, explains how to generate HTML5 output in slide view mode, and demonstrates how to include comments in the exported document by configuring their layout.
 
 ## **Export PowerPoint to HTML5**
 
-This C# code shows how you to export a presentation to HTML5 without web extensions and dependencies:
+This C# code shows how to export a presentation to HTML5:
 
 ```c#
 using Aspose.Slides;
@@ -44,7 +44,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 {{% alert color="primary" %}} 
 
-In this case, you get clean HTML. 
+Besides the HTML document, the export writes the supporting files it references: `pres.css`, `master.css`, `animation.js`, `effects.js`, and `navigation.js`. The generated page also loads jQuery and Anime.js from public CDNs; without them, slide navigation and animations do not run. 
 
 {{% /alert %}}
 

@@ -82,7 +82,7 @@ for (int row = 0; row < tbl.Rows.Count; row++)
 	}
 }
 // Merges cells 1 & 2 of row 1
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
+tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
 
 // Adds some text to the merged cell
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
@@ -103,7 +103,7 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-This C# code shows you how to specify the numbering for cells in a table:
+This C# code creates the standard 4 × 4 table numbered above and sets the border format for each of its cells:
 
 ```c#
 using System.Drawing;
@@ -304,6 +304,15 @@ using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.StylePreset = TableStylePreset.DarkStyle1; // change the default style preset theme 
+
+    // Get the style preset of the table.
+    TableStylePreset stylePreset = table.StylePreset;
+    Console.WriteLine($"Table style preset: {stylePreset}");
+
+    // Apply the retrieved style preset to another table.
+    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.StylePreset = stylePreset;
+
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```

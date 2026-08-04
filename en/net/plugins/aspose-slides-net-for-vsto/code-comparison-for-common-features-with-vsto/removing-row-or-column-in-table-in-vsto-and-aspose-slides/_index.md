@@ -36,16 +36,15 @@ using Aspose.Slides;
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To create a table in a slide and perform some basic operations on the table, please follow the steps below:
+Aspose.Slides for .NET has provided the simplest API to work with tables in an easiest way. To remove a row from a table that already exists in a presentation, please follow the steps below:
 
-- Create an instance of Presentation class
+- Create an instance of Presentation class from the existing file
 - Obtain the reference of a slide by using its Index
-- Define Array of Columns with Width
-- Define Array of Rows with Height
-- Add a Table to the slide using AddTable method exposed by IShapes object
-- Remove table row
-- Remove table column
+- Find the table shape on the slide
+- Remove table row by calling RemoveAt on the Rows collection
 - Write the modified presentation as a PPTX file
+
+A column is removed the same way, through the `Columns` collection of the same table.
 
 ``` csharp
 using Aspose.Slides;

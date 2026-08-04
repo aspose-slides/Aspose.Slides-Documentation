@@ -25,7 +25,7 @@ description: "Learn chart formatting in Aspose.Slides for .NET and elevate your 
 
 This article explains how to format charts in PowerPoint presentations by using Aspose.Slides. It shows how to customize key chart elements such as axes, grid lines, titles, legends, the plot area, and wall fills to improve the appearance and readability of chart data.
 
-It also demonstrates how to set font properties for chart text, apply preset and custom numeric formats to chart data, and enable rounded corners for the chart area. Together, these examples show how to control both the visual style and data presentation of charts in a presentation.
+It also demonstrates how to set font properties for chart text, apply preset numeric formats to chart data, and enable rounded corners for the chart area. Together, these examples show how to control both the visual style and data presentation of charts in a presentation.
 
 ## **Format Chart Entities**
 Aspose.Slides for .NET lets developers add custom charts to their slides from scratch. This article explains how to format different chart entities including chart category and value axis.
@@ -42,7 +42,6 @@ Aspose.Slides for .NET provides a simple API for managing different chart entiti
    1. Setting **Min, Max, Major and Minor units** for Value Axis
    1. Setting **Text Properties** for Value Axis data
    1. Setting **Title** for Value Axis
-   1. Setting **Line Format** for Value Axis
 1. Access the chart Category Axis and set the following properties:
    1. Setting **Line format** for Category Axis Major Grid lines
    1. Setting **Line format** for Category Axis Minor Grid lines
@@ -52,12 +51,6 @@ Aspose.Slides for .NET provides a simple API for managing different chart entiti
    1. Setting **Rotation Angle** for Category Axis labels
 1. Access the chart Legend and set the **Text Properties** for them
 1. Set show chart Legends without overlapping chart
-1. Access the chart **Secondary Value Axis** and set the following properties:
-   1. Enable the Secondary **Value Axis**
-   1. Setting **Line Format** for Secondary Value Axis
-   1. Setting **Number Format** for Secondary Value Axis
-   1. Setting **Min, Max, Major and Minor units** for Secondary Value Axis
-1. Now plot the first chart series on Secondary Value Axis
 1. Set the chart back wall fill color
 1. Set the chart plot area fill color
 1. Write the modified presentation to a PPTX file
@@ -135,11 +128,6 @@ valtitle.PortionFormat.FontHeight = 20;
 valtitle.PortionFormat.FontBold = NullableBool.True;
 valtitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Setting value axis line format : Now Obselete
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
 // Setting Major grid lines format for Category axis
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
@@ -187,11 +175,8 @@ txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
 // Set show chart legends without overlapping chart
 
-chart.Legend.Overlay = true;
+chart.Legend.Overlay = false;
             
-// Ploting first series on secondary value axis
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
 // Setting chart back wall color
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
@@ -244,9 +229,6 @@ Aspose.Slides for .NET provides a simple API for managing chart data format:
 1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
 1. Set the preset number format from the possible preset values.
 1. Traverse through the chart data cell in every chart series and set the chart data number format.
-1. Save the presentation.
-1. Set the custom number format.
-1. Traverse through chart data cell inside every chart series and setting a different chart data number format.
 1. Save the presentation.
 
 ```c#

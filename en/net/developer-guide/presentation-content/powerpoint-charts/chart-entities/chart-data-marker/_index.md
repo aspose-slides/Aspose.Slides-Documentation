@@ -57,7 +57,7 @@ IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 chart.ChartData.Series.Clear();
 
 // Add new series
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
+chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 
 // Set the picture
 using IImage image1 = Images.FromFile("aspose-logo.jpg");

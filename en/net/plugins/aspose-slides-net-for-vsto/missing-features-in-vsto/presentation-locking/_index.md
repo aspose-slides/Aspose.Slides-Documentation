@@ -95,6 +95,18 @@ using (Presentation pTemplate = new Presentation("Applying Protection.pptx"))
 				PicLock.SelectLocked = true;
 				PicLock.SizeLocked = true;
 			}
+			//if shape is a graphical object: table, chart, OLE object frame
+			else if (shape is IGraphicalObject)
+			{
+				//Type casting to graphical object and getting graphical object lock
+				IGraphicalObject Gobj = (IGraphicalObject)shape;
+				IGraphicalObjectLock GobjLock = Gobj.ShapeLock;
+
+				//Applying shapes locks
+				GobjLock.PositionLocked = true;
+				GobjLock.SelectLocked = true;
+				GobjLock.SizeLocked = true;
+			}
 		}
 	}
 
@@ -167,6 +179,18 @@ using (Presentation pTemplate = new Presentation("ProtectedSample.pptx"))
 				PicLock.PositionLocked = false;
 				PicLock.SelectLocked = false;
 				PicLock.SizeLocked = false;
+			}
+			//if shape is a graphical object: table, chart, OLE object frame
+			else if (shape is IGraphicalObject)
+			{
+				//Type casting to graphical object and getting graphical object lock
+				IGraphicalObject Gobj = (IGraphicalObject)shape;
+				IGraphicalObjectLock GobjLock = Gobj.ShapeLock;
+
+				//Applying shapes locks
+				GobjLock.PositionLocked = false;
+				GobjLock.SelectLocked = false;
+				GobjLock.SizeLocked = false;
 			}
 		}
 	}

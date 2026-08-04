@@ -72,24 +72,28 @@ using Aspose.Slides.Export;
 
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
-    ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Slide.Shapes) // Iterates through the slide
+    ILayoutSlide layout = pres.Slides[0].LayoutSlide;
+    foreach (IShape shape in layout.Shapes) // Iterates through the layout placeholders
     {
         if (shape.Placeholder != null && shape is AutoShape)
         {
-            string text = "";
+            string text;
             if (shape.Placeholder.Type == PlaceholderType.CenteredTitle) // PowerPoint displays "Click to add title"
             {
                 text = "Add Title";
             }
-            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // Adds subtitle
+            else if (shape.Placeholder.Type == PlaceholderType.Subtitle) // PowerPoint displays "Click to add subtitle"
             {
                 text = "Add Subtitle";
+            }
+            else
+            {
+                continue; // Leaves every other placeholder prompt as it is
             }
 
             ((IAutoShape)shape).TextFrame.Text = text;
 
-            Console.WriteLine($"Placeholder with text: {text}");
+            Console.WriteLine($"Placeholder with prompt text: {text}");
         }
     }
 

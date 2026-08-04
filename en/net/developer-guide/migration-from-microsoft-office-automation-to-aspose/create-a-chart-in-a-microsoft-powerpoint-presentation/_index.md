@@ -235,6 +235,7 @@ using (Presentation presentation = new Presentation())
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
     // Modify the chart series values.
+    chartData.Series[0].DataPoints.Clear();
     chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 1000));
     chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2500));
     chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 4000));

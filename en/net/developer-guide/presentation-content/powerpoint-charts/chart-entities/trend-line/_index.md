@@ -85,7 +85,7 @@ tredLinePol.Forward = 1;
 tredLinePol.Order = 3;
 
 // Adding Power trend line for chart series 3
-ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
+ITrendline tredLinePower = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Power);
 tredLinePower.TrendlineType = TrendlineType.Power;
 tredLinePower.Backward = 1;
 

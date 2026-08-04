@@ -94,9 +94,6 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Set the first series to show values.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
     // Set the index of the chart data sheet.
     int worksheetIndex = 0;
 
@@ -910,6 +907,12 @@ using (Presentation presentation = new Presentation())
 The result:
 
 ![The Map chart](map_chart.png)
+
+{{% alert color="primary" %}} 
+
+The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+
+{{% /alert %}} 
 
 ### **Create Combination Charts**
 

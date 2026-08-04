@@ -154,9 +154,6 @@ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBoo
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//Set first series to Show Values
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
 //Setting the index of chart data sheet
 int defaultWorksheetIndex = 0;
 
@@ -172,6 +169,9 @@ s = chart.ChartData.Categories.Count;
 //Adding new series
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+
+//Set first series to Show Values
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 //Adding new categories
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));

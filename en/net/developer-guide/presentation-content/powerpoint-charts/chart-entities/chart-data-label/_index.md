@@ -36,6 +36,7 @@ using (Presentation pres = new Presentation())
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
 	chart.HasDataTable = true;
 	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 }

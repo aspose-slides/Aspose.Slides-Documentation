@@ -92,9 +92,8 @@ while (categoryIndex < 15)
 			lbl.DataLabelFormat.ShowValue = false;
 			lbl.DataLabelFormat.ShowCategoryName = true;
 			lbl.DataLabelFormat.ShowSeriesName = false;
-			//lbl.DataLabelFormat.ShowLabelAsDataCallout = true;
+			lbl.DataLabelFormat.ShowLabelAsDataCallout = true;
 			lbl.DataLabelFormat.ShowLeaderLines = true;
-			lbl.DataLabelFormat.ShowLabelAsDataCallout = false;
 			chart.ValidateChartLayout();
 			lbl.AsILayoutable.X = (float)lbl.AsILayoutable.X + (float)0.5;
 			lbl.AsILayoutable.Y = (float)lbl.AsILayoutable.Y + (float)0.5;

@@ -77,7 +77,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 
 ## **Chart Category Animation**
-If you want to animate a chart series, write the code according to the steps listed below:
+If you want to animate a chart category, write the code according to the steps listed below:
 
 1. Load a presentation.
 1. Get reference of the chart object.
@@ -99,25 +99,28 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     var shapes = slide.Shapes as ShapeCollection;
     var chart = shapes[0] as IChart;
 
-    // Animate categories' elements
-    slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 0, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 0, 1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 0, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 0, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    // Animate the categories
+    slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None,
+    EffectTriggerType.AfterPrevious);
 
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 1, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 1, 1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 1, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 1, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
+    EffectChartMajorGroupingType.ByCategory, 0,
+    EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 0, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart, EffectChartMinorGroupingType.ByElementInCategory, 2, 3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
+    EffectChartMajorGroupingType.ByCategory, 1,
+    EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+
+    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
+    EffectChartMajorGroupingType.ByCategory, 2,
+    EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+
+    ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
+    EffectChartMajorGroupingType.ByCategory, 3,
+    EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     // Write the presentation file to disk
-    presentation.Save("AnimatingCategoriesElements_out.pptx", SaveFormat.Pptx);
+    presentation.Save("AnimatingCategories_out.pptx", SaveFormat.Pptx);
 }
 ```
 

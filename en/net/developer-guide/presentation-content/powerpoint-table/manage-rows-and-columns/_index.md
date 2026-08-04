@@ -253,6 +253,11 @@ using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.StylePreset = TableStylePreset.DarkStyle1; // change the default style preset theme 
+
+    // Gets the style preset applied to the table, so it can be reused elsewhere
+    TableStylePreset stylePreset = table.StylePreset;
+    Console.WriteLine(stylePreset); // DarkStyle1
+
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```

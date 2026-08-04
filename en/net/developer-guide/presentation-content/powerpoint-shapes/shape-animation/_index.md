@@ -75,8 +75,11 @@ using (Presentation pres = new Presentation())
     // Adds new AutoShape with text
     IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
+    // Adds three paragraphs so the by-paragraph build has something to step through.
     ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+    textFrame.Text = "First paragraph";
+    textFrame.Paragraphs.Add(new Paragraph { Text = "Second paragraph" });
+    textFrame.Paragraphs.Add(new Paragraph { Text = "Third paragraph" });
 
     // Gets the main sequence of the slide.
     ISequence sequence = sld.Timeline.MainSequence;

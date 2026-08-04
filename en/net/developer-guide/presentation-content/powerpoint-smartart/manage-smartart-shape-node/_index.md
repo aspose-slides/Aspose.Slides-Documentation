@@ -482,8 +482,8 @@ using (Presentation presentation = new Presentation())
 Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
 
 1. Instantiate `Presentation` class that represents the PPTX file.
-1. Add SmartArt.
-1. Obtain the reference of a node by using its Index
+1. Add SmartArt of a layout that has child nodes, such as StackedList.
+1. Obtain the reference of a child node by using its index.
 1. Get the thumbnail image.
 1. Save the thumbnail image in any desired image format.
 
@@ -497,8 +497,8 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    ISmartArt smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
-    ISmartArtNode node = smartArt.Nodes[1];
+    ISmartArt smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.StackedList);
+    ISmartArtNode node = smartArt.Nodes[0].ChildNodes[0];
 
     using (IImage image = node.Shapes[0].GetImage())
     {

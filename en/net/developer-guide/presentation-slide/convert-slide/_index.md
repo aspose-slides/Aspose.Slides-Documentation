@@ -130,7 +130,7 @@ In any slide-to-image conversion process, the [NotesPosition](https://reference.
 
 The [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) interface provides greater control over the resulting TIFF image by allowing you to specify parameters such as size, resolution, color palette, and more.
 
-This C# code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
+This C# code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2880:
 
 ```cs
 using System.Drawing;

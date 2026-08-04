@@ -74,9 +74,6 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-// Set OverLap value
-series.ParentSeriesGroup.Overlap = 100;         
-
 // Write presentation to disk
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```

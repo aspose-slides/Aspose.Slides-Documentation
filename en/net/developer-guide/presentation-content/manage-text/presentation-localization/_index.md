@@ -37,7 +37,7 @@ using (Presentation pres = new Presentation("test0.pptx"))
 {
     IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
     shape.AddTextFrame("Text to apply spellcheck language");
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId = "en-EN";
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId = "en-US";
 
     pres.Save("test1.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
 }

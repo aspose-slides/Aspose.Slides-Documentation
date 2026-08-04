@@ -197,7 +197,7 @@ using (Presentation pres = new Presentation())
     using (Presentation test = new Presentation(outPptxFileName))
     {
         Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.NaN == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
     }
 
     format.ColumnSpacing = 20;

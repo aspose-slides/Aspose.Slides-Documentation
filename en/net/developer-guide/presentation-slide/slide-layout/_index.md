@@ -232,7 +232,7 @@ using (Presentation presentation = new Presentation("Presentation.ppt"))
     headerFooterManager.SetFooterText("Footer text");
     headerFooterManager.SetDateTimeText("Date and time text");
 
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 

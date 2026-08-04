@@ -113,6 +113,7 @@ Aspose.Slides for .NET allows developers to remove any shape. To remove the shap
 
 1. Create an instance of `Presentation` class.
 1. Access the first slide.
+1. Add the shapes and set the AlternativeText on the one that has to be removed.
 1. Find the shape with specific AlternativeText.
 1. Remove the shape.
 1. Save file to disk.
@@ -130,11 +131,15 @@ ISlide sld = pres.Slides[0];
 // Add autoshape of rectangle type
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
+
+// Mark the shape that has to be removed
 String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+shp2.AlternativeText = alttext;
+
+// Remove every shape carrying that alternative text (iterate backwards, the collection shrinks)
+for (int i = sld.Shapes.Count - 1; i >= 0; i--)
 {
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
+    AutoShape ashp = (AutoShape)sld.Shapes[i];
     if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
     {
         sld.Shapes.Remove(ashp);
@@ -152,6 +157,7 @@ Aspose.Slides for .NET allows developers to hide any shape. To hide the shape fr
 
 1. Create an instance of `Presentation` class.
 1. Access the first slide.
+1. Add the shapes and set the AlternativeText on the one that has to be hidden.
 1. Find the shape with specific AlternativeText.
 1. Hide the shape.
 1. Save file to disk.
@@ -170,6 +176,10 @@ ISlide sld = pres.Slides[0];
 IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
 IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 String alttext = "User Defined";
+
+// Mark the shape to be hidden
+shp2.AlternativeText = alttext;
+
 int iCount = sld.Shapes.Count;
 for (int i = 0; i < iCount; i++)
 {

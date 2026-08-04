@@ -215,15 +215,97 @@ IParagraph CreateBulletParagraph(string text)
 
 ### **Save the Presentation**
 
-Finally, we save the presentation to disk:
+Each snippet above creates its own `Presentation` object so that it can be run on its own. Here we put the four steps together into a single presentation and save it to disk:
 
 ```cs
+using System.Drawing;
 using Aspose.Slides;
+using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 
+// The title slide.
+var slide0 = presentation.Slides[0];
+slide0.LayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Title);
+
+var titleShape = slide0.Shapes[0] as IAutoShape;
+var subtitleShape = slide0.Shapes[1] as IAutoShape;
+
+titleShape.TextFrame.Text = "Quarterly Business Review – Q1 2025";
+subtitleShape.TextFrame.Text = "Prepared for Executive Team";
+
+// The slide with the column chart.
+var layoutSlide1 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var slide1 = presentation.Slides.AddEmptySlide(layoutSlide1);
+
+var chart = slide1.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350, false);
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.HasTitle = true;
+chart.ChartTitle.AddTextFrameForOverriding("Data from January – March 2025");
+chart.ChartTitle.Overlay = false;
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "North America"));
+chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Europe"));
+chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Asia Pacific"));
+chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Latin America"));
+chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 5, 0, "Middle East"));
+
+var series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Sales ($K)"), chart.Type);
+series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 480));
+series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 365));
+series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 290));
+series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 150));
+series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 5, 1, 120));
+
+// The slide with the table.
+var layoutSlide2 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var slide2 = presentation.Slides.AddEmptySlide(layoutSlide2);
+
+var columnWidths = new double[] { 200, 100 };
+var rowHeights = new double[] { 40, 40, 40, 40, 40 };
+
+var table = slide2.Shapes.AddTable(200, 200, columnWidths, rowHeights);
+table[0, 0].TextFrame.Text = "Metric";
+table[1, 0].TextFrame.Text = "Value";
+table[0, 1].TextFrame.Text = "Total Revenue";
+table[1, 1].TextFrame.Text = "$1.4M";
+table[0, 2].TextFrame.Text = "Gross Margin";
+table[1, 2].TextFrame.Text = "54%";
+table[0, 3].TextFrame.Text = "New Customers";
+table[1, 3].TextFrame.Text = "340";
+table[0, 4].TextFrame.Text = "Customer Retention";
+table[1, 4].TextFrame.Text = "87%";
+
+// The summary slide with bullet points.
+var layoutSlide3 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var slide3 = presentation.Slides.AddEmptySlide(layoutSlide3);
+
+var bulletList = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 50, 600, 200);
+bulletList.FillFormat.FillType = FillType.NoFill;
+bulletList.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+bulletList.TextFrame.Paragraphs.Clear();
+bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Strong performance in North America; growth opportunity in Asia Pacific"));
+bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Improve marketing outreach in underperforming regions"));
+bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Prepare new campaign strategy for Q2"));
+bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Schedule follow-up review in early July"));
+
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
+
+IParagraph CreateBulletParagraph(string text)
+{
+    var paragraph = new Paragraph();
+    paragraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+    paragraph.ParagraphFormat.Indent = 15;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    paragraph.Text = text;
+    return paragraph;
+}
 ```
 
 ## **Conclusion**

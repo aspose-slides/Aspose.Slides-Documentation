@@ -82,7 +82,7 @@ using (Presentation presentation = new Presentation())
     chart.PlotArea.AsILayoutable.Height = 0.7f;
     chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 
-    presentation.Save("SetLayoutMode_outer.pptx", SaveFormat.Pptx);
+    presentation.Save("SetLayoutMode_inner.pptx", SaveFormat.Pptx);
 }
 ```
 

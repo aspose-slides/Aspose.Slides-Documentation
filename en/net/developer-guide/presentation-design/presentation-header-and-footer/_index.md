@@ -30,7 +30,7 @@ You can also manage headers and footers for handout and notes slides. This inclu
 
 ## **Manage Header and Footer Text**
 
-Notes of some specific slide could be updated as shown in the example below:
+The footer text of every slide and the header text of the notes master could be updated as shown in the example below:
 
 ```c#
 using Aspose.Slides;
