@@ -42,6 +42,8 @@ Use the `getParentSeriesGroup().setOverlap()` write method to set your preferred
 This Java code shows you how to set the overlap for a chart series:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Adds chart
@@ -72,6 +74,9 @@ Aspose.Slides for Android via Java allows you to change a series' color this way
 This Java code shows you how to change a series' color:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("test.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
@@ -99,6 +104,9 @@ Aspose.Slides for Android via Java allows you to change a series category's colo
 This code in Java shows you how to change a series category's color:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -127,6 +135,8 @@ Aspose.Slides for Android via Java allows you to update or change a series name 
 This Java code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -143,6 +153,8 @@ try {
 This Java code shows you how to change a series name in its legend through`Series`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -168,6 +180,8 @@ Aspose.Slides for Android via Java allows you to set the automatic fill color fo
 This Java code shows you how to set the automatic fill color for a chart series:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Creates a clustered column chart
@@ -198,6 +212,9 @@ Aspose.Slides allows you to set the invert fill color for chart series inside a 
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Color inverColor = Color.RED;
 Presentation pres = new Presentation();
 try {
@@ -237,6 +254,8 @@ Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNega
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
@@ -272,6 +291,8 @@ Aspose.Slides for Android via Java allows you to clear the `DataPoints` data for
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("TestChart.pptx");
 try {
     ISlide sl = pres.getSlides().get_Item(0);
@@ -305,6 +326,8 @@ Aspose.Slides for Android via Java allows you to set a series' Gap Width through
 This code in Java shows you how to set a series' Gap Width:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates empty presentation 
 Presentation pres = new Presentation();
 try {

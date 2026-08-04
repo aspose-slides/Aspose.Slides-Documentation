@@ -34,6 +34,8 @@ To add a simple ellipse to a selected slide of the presentation, please follow t
 In the example given below, we have added an ellipse to the first slide
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
@@ -65,6 +67,9 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 try {

@@ -64,6 +64,8 @@ Aspose.Slides for Android via Java now facilitates the developers to access the 
 Aspose.Slides for Android via Java offers [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class that represents a **PPTX** presentation file. Presentation class can now also access **PPT** through Presentation when the object is instantiated. The following example shows how to convert a PPT presentation into PPTX Presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation object that represents a PPTX file
 Presentation pres = new Presentation("Aspose.ppt");
 try {

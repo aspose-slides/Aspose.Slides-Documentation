@@ -42,6 +42,8 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 This Java code demonstrates the PDF to PowerPoint operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -68,6 +70,10 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 This Java code demonstrates the HTML to PowerPoint operation: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");

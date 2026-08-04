@@ -33,6 +33,8 @@ This article explains how to convert PowerPoint presentations to HTML5 using Asp
 This Java code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -50,6 +52,8 @@ In this case, you get clean HTML.
 You may want to specify settings for shape animations and slide transitions this way:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -67,6 +71,8 @@ try {
 This Java demonstrates the standard PowerPoint to HTML process:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -100,6 +106,8 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This Java code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -124,6 +132,8 @@ When you convert a PowerPoint presentation to an HTML5 document, you can easily 
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```java
+import com.aspose.slides.*;
+
 Html5Options html5Options = new Html5Options();
 html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
 

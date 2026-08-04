@@ -36,6 +36,8 @@ To open an existing presentation, instantiate the [Presentation](https://referen
 The following Java example shows how to open a presentation and get its slide count:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class and pass a file path to its constructor.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
@@ -51,6 +53,8 @@ try {
 When you need to open a password-protected presentation, pass the password through the [setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) method of the [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) class to decrypt and load it. The following Java code demonstrates this operation:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setPassword("YOUR_PASSWORD");
 
@@ -69,6 +73,10 @@ Aspose.Slides provides options—particularly the [getBlobManagementOptions](htt
 The following Java code demonstrates loading a large presentation (for example, 2 GB):
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 final String filePath = "LargePresentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
@@ -111,6 +119,8 @@ When creating a presentation that contains large objects (video, audio, high-res
 Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iresourceloadingcallback/) interface that lets you manage external resources. The following Java code shows how to use the `IResourceLoadingCallback` interface:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
@@ -118,6 +128,9 @@ Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 class ImageLoadingHandler implements IResourceLoadingCallback {
     public int resourceLoading(IResourceLoadingArgs args) {
         if (args.getOriginalUri().endsWith(".jpg")) {
@@ -155,6 +168,8 @@ Using the [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose
 This method is useful for removing potentially malicious binary content. The following Java code demonstrates how to load a presentation without any embedded binary content:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 

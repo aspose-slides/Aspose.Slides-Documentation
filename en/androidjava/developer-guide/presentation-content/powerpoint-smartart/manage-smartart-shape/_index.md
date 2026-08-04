@@ -38,6 +38,8 @@ Aspose.Slides for Android via Java has provided an API to create SmartArt shapes
 1. Save the modified presentation as a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation Class
 Presentation pres = new Presentation();
 try {
@@ -62,6 +64,8 @@ try {
 The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) shape. If shape is of SmartArt type then we will typecast that to [**SmartArt**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) instance.
 
 ```java
+import com.aspose.slides.*;
+
 // Load the desired the presentation
 Presentation pres = new Presentation("AccessSmartArtShape.pptx");
 try {
@@ -91,6 +95,8 @@ The following sample code will help to access the [SmartArt](https://reference.a
 1. Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("AccessSmartArtShape.pptx");
 try {
     // Traverse through every shape inside first slide
@@ -126,6 +132,8 @@ In this example, we will learn to change the quick style for any SmartArt shape.
 1. Save the Presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation Class
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
@@ -171,6 +179,8 @@ In this example, we will learn to change the color style for any SmartArt shape.
 1. Save the Presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation Class
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {

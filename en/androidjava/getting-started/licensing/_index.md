@@ -114,6 +114,8 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 To check whether a license has been set properly, you can validate it. This Java code shows you how to validate a license:
 
 ```java
+import com.aspose.slides.*;
+
 License license = new License();
 license.setLicense("Aspose.Slides.Android.via.Java.lic");
 

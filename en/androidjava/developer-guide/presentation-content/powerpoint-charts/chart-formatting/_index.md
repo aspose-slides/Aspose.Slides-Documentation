@@ -63,6 +63,9 @@ Aspose.Slides for Android via Java provides a simple API for managing different 
 1. Write the modified presentation to a PPTX file
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -231,6 +234,8 @@ Aspose.Slides for Android via Java provides support for setting the font related
 Below sample example is given.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -259,6 +264,8 @@ Aspose.Slides for Android via Java provides a simple API for managing chart data
 1. Save the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -342,6 +349,8 @@ Aspose.Slides for Android via Java provides support for setting chart area. Met
 Below sample example is given. 
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

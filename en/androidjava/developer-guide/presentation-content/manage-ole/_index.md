@@ -58,6 +58,12 @@ In the example below, we added a chart from an Excel file to a slide as an OLE o
 **Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```java 
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 SizeF slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -85,6 +91,8 @@ Aspose.Slides for Android via Java allows you to add an [OleObjectFrame](https:/
 This Java code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) with a linked Excel file to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -108,6 +116,8 @@ If an OLE object is already embedded in a slide, you can easily find or access i
 In the example below, an OLE object frame (an Excel chart object embedded in a slide) and its file data are accessed.
 
 ```java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -132,6 +142,8 @@ Aspose.Slides allows you to access linked OLE object frame properties.
 This Java code shows you how to check if an OLE object is linked and then obtain the path to the linked file:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -178,6 +190,10 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 In the example below, an OLE object frame (an Excel chart object embedded in a slide) is accessed, and its file data is modified to update the chart data.
 
 ```java 
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -217,6 +233,12 @@ Besides Excel charts, Aspose.Slides for Android via Java allows you to embed oth
 This Java code shows you how to embed HTML and ZIP into a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -249,6 +271,8 @@ When working with presentations, you may need to replace old OLE objects with ne
 This Java code shows you how to set the file type for an embedded OLE object to `zip`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -272,6 +296,12 @@ After embedding an OLE object, a preview consisting of an icon image is added au
 This Java code shows you how to set the icon image and title for an embedded object:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -312,6 +342,10 @@ Aspose.Slides for Android via Java allows you to extract the files embedded in s
 This Java code shows you how to extract files embedded in a slide as OLE objects:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 

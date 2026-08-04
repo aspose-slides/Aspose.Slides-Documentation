@@ -34,6 +34,8 @@ description: "Discover how to save presentations in Java using Aspose.Slides for
 Save a presentation to a file by calling the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class’s `save` method. Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -51,6 +53,10 @@ try {
 You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class’s `save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -71,6 +77,8 @@ try {
 Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/) class. Use the [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/#setLastView-int-) method with a value from the [ViewType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/) enumeration.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -87,6 +95,8 @@ Aspose.Slides lets you save a presentation in the Strict Office Open XML format.
 The example below creates a presentation and saves it in the Strict Office Open XML format.
 
 ```java
+import com.aspose.slides.*;
+
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
@@ -115,6 +125,8 @@ This method can be used with the following modes:
 The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
 ```java
+import com.aspose.slides.*;
+
 PptxOptions pptxOptions = new PptxOptions();
 pptxOptions.setZip64Mode(Zip64Mode.Always);
 
@@ -142,6 +154,8 @@ The [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/androi
 In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
 ```java
+import com.aspose.slides.*;
+
 PptxOptions pptxOptions = new PptxOptions();
 pptxOptions.setRefreshThumbnail(false);
 
@@ -167,6 +181,8 @@ The [IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspo
 The following code snippets show how to use `IProgressCallback`.
 
 ```java
+import com.aspose.slides.*;
+
 ISaveOptions saveOptions = new PdfOptions();
 saveOptions.setProgressCallback(new ExportProgressHandler());
 
@@ -178,6 +194,8 @@ try {
 }
 ```
 ```java
+import com.aspose.slides.*;
+
 class ExportProgressHandler implements IProgressCallback {
     public void reporting(double progressValue) {
         // Use the progress percentage value here.

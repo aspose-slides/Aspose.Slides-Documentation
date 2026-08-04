@@ -31,6 +31,8 @@ Aspose.Slides for Android via Java provides support for changing color of catego
  Below sample example is given. 
 
 ```java
+import com.aspose.slides.*;
+
 // Creating empty presentation
 Presentation pres = new Presentation();
 try {

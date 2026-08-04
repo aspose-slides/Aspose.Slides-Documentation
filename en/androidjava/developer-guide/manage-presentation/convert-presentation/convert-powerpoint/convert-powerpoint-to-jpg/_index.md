@@ -50,6 +50,8 @@ Here are the steps to convert a PPT, PPTX, or ODP file to JPG:
 {{% /alert %}} 
 
 ```java
+import com.aspose.slides.*;
+
 int scaleX = 1;
 int scaleY = scaleX;
 
@@ -77,6 +79,8 @@ try {
 To change the dimensions of the resulting JPG images, you can set the image size by passing it into the [ISlide.getImage(Size)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) method. This allows you to generate images with specific width and height values, ensuring that the output meets your requirements for resolution and aspect ratio. This flexibility is particularly useful when generating images for web applications, reports, or documentation, where precise image dimensions are required.
 
 ```java
+import com.aspose.slides.*;
+
 Size imageSize = new Size(1200, 800);
 
 Presentation presentation = new Presentation("PowerPoint_Presentation.pptx");
@@ -109,6 +113,9 @@ Let's say we have a presentation file, "sample.pptx," with a slide that contains
 The following Java code converts the slide to a JPG image while preserving the comments:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int scaleX = 2;
 int scaleY = scaleX;
 

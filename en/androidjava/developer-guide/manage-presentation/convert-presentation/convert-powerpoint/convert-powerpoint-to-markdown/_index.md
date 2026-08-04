@@ -53,6 +53,8 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 This Java code shows you how to convert PowerPoint to markdown:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.md", SaveFormat.Md);
@@ -68,6 +70,8 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This Java code shows you how to convert PowerPoint to CommonMark:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
@@ -89,6 +93,8 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.as
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Java code shows you how to convert a presentation containing images to markdown:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
@@ -110,6 +116,8 @@ If you want the images to appear together in the resulting markdown, you have to
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     final String outPath = "c:/documents";

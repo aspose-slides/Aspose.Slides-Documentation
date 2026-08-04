@@ -68,6 +68,8 @@ Ok, let’s walk through building a sample presentation using real-world content
 We'll begin by creating a new presentation and adding a title slide with a main heading and subtitle.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 
 ISlide slide0 = presentation.getSlides().get_Item(0);
@@ -89,6 +91,8 @@ subtitleShape.getTextFrame().setText("Prepared for Executive Team");
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```java
+import com.aspose.slides.*;
+
 ILayoutSlide layoutSlide1 = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 ISlide slide1 = presentation.getSlides().addEmptySlide(layoutSlide1);
 
@@ -122,6 +126,8 @@ series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex,
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```java
+import com.aspose.slides.*;
+
 ILayoutSlide layoutSlide2 = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 ISlide slide2 = presentation.getSlides().addEmptySlide(layoutSlide2);
 
@@ -148,6 +154,9 @@ table.getColumns().get_Item(1).get_Item(4).getTextFrame().setText("87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static IParagraph createBulletParagraph(String text) {
     Paragraph paragraph = new Paragraph();
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
@@ -159,6 +168,8 @@ static IParagraph createBulletParagraph(String text) {
 }
 ```
 ```java
+import com.aspose.slides.*;
+
 ILayoutSlide layoutSlide3 = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 ISlide slide3 = presentation.getSlides().addEmptySlide(layoutSlide3);
 
@@ -180,6 +191,8 @@ bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Schedule fo
 Finally, we save the presentation to disk:
 
 ```java
+import com.aspose.slides.*;
+
 presentation.save("presentation.pptx", SaveFormat.Pptx);
 ```
 

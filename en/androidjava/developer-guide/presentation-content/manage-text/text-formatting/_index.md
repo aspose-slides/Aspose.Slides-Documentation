@@ -46,6 +46,9 @@ Use the [ITextFrame.highlightText](https://reference.aspose.com/slides/androidja
 The code example below highlights all occurrences of the characters **"try"** and then highlights only the full word **"to"**.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Get the first shape from the first slide.
@@ -78,6 +81,9 @@ The [ITextFrame.highlightRegex](https://reference.aspose.com/slides/androidjava/
 The code example below highlights all words that contain **seven or more characters**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -104,6 +110,9 @@ Use [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slid
 The following code example shows how to set the background color for the **entire paragraph**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -125,6 +134,9 @@ The result:
 The code example below demonstrates how to set the background color for **text portions with a bold font**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -156,6 +168,8 @@ Use [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidj
 The following code example shows how to align the paragraph to the **center**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -181,6 +195,9 @@ Text transparency is controlled through the alpha component of the color assigne
 The code example below shows how to apply transparency to the **entire paragraph**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
@@ -205,6 +222,9 @@ The result:
 The following code example shows how to apply transparency to **text portions with a bold font**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
@@ -239,6 +259,8 @@ Use [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidj
 The following Java code shows how to expand the character spacing in the **entire paragraph**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -260,6 +282,8 @@ The result:
 The code example below shows how to expand the character spacing in **text portions with a bold font**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -291,6 +315,8 @@ In some cases, text rendered by Aspose.Slides may look slightly tighter than the
 To make the rendered output closer to PowerPoint in such cases, you can disable kerning for text portions that use the affected font. Set [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBasePortionFormat#setKerningMinimalSize-float-) to a value significantly larger than the actual font size:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -331,6 +357,8 @@ Font properties can be set at the paragraph level through [IParagraphFormat.getD
 The following code sets the font and text style for the entire paragraph: it applies font size, bold, italic, dotted underline, and the Times New Roman font to all portions in the paragraph.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -356,6 +384,8 @@ The result:
 The code example below applies similar properties to **text portions with a bold font**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -390,6 +420,8 @@ Use [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/a
 The following code example sets the text orientation in the shape to `Vertical270`, which rotates the text **90 degrees counterclockwise**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -413,6 +445,8 @@ Use [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/andr
 The code example below rotates the text frame by 3 degrees clockwise within the shape:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -439,6 +473,8 @@ Aspose.Slides provides [IParagraphFormat.setSpaceAfter](https://reference.aspose
 The following code example shows how to specify the line spacing within the paragraph:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -461,6 +497,8 @@ The result:
 [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) determines how text behaves when it exceeds the boundaries of its container. Use it to control whether the text shrinks, overflows, or resizes the shape automatically.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -478,6 +516,8 @@ try {
 [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) defines how text is positioned vertically inside a shape, for example at the top, middle, or bottom.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -495,6 +535,8 @@ try {
 Use [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraphFormat#setDefaultTabSize-float-) and [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IParagraphFormat#getTabs--) to configure tab stops in a paragraph.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -520,6 +562,8 @@ Aspose.Slides provides [IBasePortionFormat.setLanguageId](https://reference.aspo
 The following code example shows how to set the proofing language for a text portion:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -551,6 +595,8 @@ try {
 Use [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions#setDefaultTextLanguage-java.lang.String-) to define the default language for text created while loading or creating a presentation.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -577,6 +623,8 @@ To apply default text formatting at the presentation level, use [IPresentation.g
 The following code example shows how to set a default bold font with a 14 pt size for all text across slides in a new presentation.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Get the top level paragraph format.
@@ -604,6 +652,8 @@ Let's say we have the following text box on the first slide of the sample2.pptx 
 The code example below shows how to extract the text with the **All Caps** effect applied:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
     IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);

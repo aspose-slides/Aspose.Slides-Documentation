@@ -31,6 +31,8 @@ Aspose.Slides for Android via Java provides a simple API for managing error bar 
 1. Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -70,6 +72,8 @@ Aspose.Slides for Android via Java provides a simple API for managing custom err
 1. Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

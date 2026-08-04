@@ -32,6 +32,8 @@ Aspose.Slides allows you to access and modify table cells in PowerPoint presenta
 This Java code shows you how to identify merged table cells in a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("SomePresentationWithTable.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); // assuming that Slide#0.Shape#0 is a table
@@ -64,6 +66,8 @@ try {
 This Java code shows you how to remove the borders from table cells:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -100,6 +104,9 @@ try {
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This Java code demonstrates the process:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -151,6 +158,9 @@ try {
 We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -211,6 +221,9 @@ This time, we take a regular table (a table without merged cells) and then try t
 This Java code demonstrates the process we described:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates the Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -268,6 +281,9 @@ try {
 This Java code shows you how to change a table cell's background color:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -305,6 +321,9 @@ try {
 This Java code shows you how to place an image inside a table cell when creating a table:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+
 // Instantiates the Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {

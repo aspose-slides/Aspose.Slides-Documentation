@@ -50,6 +50,8 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 You can add one or several images on your computer onto a slide in a presentation. This sample code in Java shows you how to add an image to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
@@ -75,6 +77,13 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in Java:
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
 Presentation pres = new Presentation();
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
@@ -114,6 +123,8 @@ A slide master is the top slide that stores and controls information (theme, lay
 This Java sample code shows you how to add an image to a slide master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
@@ -149,6 +160,11 @@ To create an image object based on SVG image, you can do it this way:
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```java 
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 // Instantiate Presentation class that represents PPTX file
 Presentation pres = new Presentation();
 try {
@@ -174,6 +190,12 @@ The functionality is provided by one of the overloads of the [addGroupShape](htt
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
 ```java 
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 // Create new presentation
 IPresentation presentation = new Presentation();
 try {
@@ -204,6 +226,9 @@ Aspose.Slides for Android via Java allows you to generate EMF images from excel 
 This sample code shows you how to perform the described task:
 
 ```java 
+import com.aspose.slides.*;
+import java.io.IOException;
+
 Workbook book = new Workbook("chart.xlsx");
 Worksheet sheet = book.getWorksheets().get(0);
 ImageOrPrintOptions options = new ImageOrPrintOptions();
@@ -259,6 +284,9 @@ Follow the steps below:
 1. Write the modified presentation as a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation("sample.pptx");
 try {

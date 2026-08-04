@@ -41,6 +41,8 @@ In Microsoft PowerPoint, the **Slide Show** settings are a key tool for preparin
 The code example below creates a new presentation and sets the show type to "Browsed by an individual" without displaying the scrollbar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 
 BrowsedByIndividual showType = new BrowsedByIndividual();
@@ -59,6 +61,8 @@ presentation.dispose();
 The following code example creates a new presentation and loops the slide show.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 
 presentation.getSlideShowSettings().setLoop(true);
@@ -72,6 +76,8 @@ presentation.dispose();
 `SlideShowSettings.setSlides` method allows you to select a range of slides to be shown during the presentation. This is useful when you need to show only part of the presentation rather than all slides. The following code example creates a new presentation and sets the slide range to display from slides `2` to `9`.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 
 SlidesRange slideRange = new SlidesRange();
@@ -89,6 +95,8 @@ presentation.dispose();
 `SlideShowSettings.setUseTimings` method allows you to enable or disable the use of preset timings for each slide. This is useful for automatically showing slides with pre-defined display durations. The code example below creates a new presentation and disables the use of timings.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 
 presentation.getSlideShowSettings().setUseTimings(false);
@@ -104,6 +112,8 @@ presentation.dispose();
 The following code example creates a new presentation and enables media controls to be displayed.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 
 presentation.getSlideShowSettings().setShowMediaControls(true);

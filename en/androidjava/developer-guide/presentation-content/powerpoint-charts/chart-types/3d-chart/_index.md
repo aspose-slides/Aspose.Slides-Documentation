@@ -29,6 +29,8 @@ Aspose.Slides for Android via Java provides a simple API for setting these prope
 1. Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Access first slide

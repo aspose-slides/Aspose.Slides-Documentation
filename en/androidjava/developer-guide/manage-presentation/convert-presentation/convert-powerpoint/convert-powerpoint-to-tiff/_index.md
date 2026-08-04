@@ -39,6 +39,8 @@ Using the [save](https://reference.aspose.com/slides/androidjava/com.aspose.slid
 This code demonstrates how to convert a PowerPoint presentation to TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -60,6 +62,8 @@ Let's say we have a "sample.pptx" file with the following slide:
 This code demonstrates how to convert the colored slide to a black-and-white TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 TiffOptions tiffOptions = new TiffOptions();
 tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
@@ -83,6 +87,8 @@ If you require a TIFF image with specific dimensions, you can set your desired v
 This code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -127,6 +133,8 @@ Using the [setPixelFormat](https://reference.aspose.com/slides/androidjava/com.a
 This code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {

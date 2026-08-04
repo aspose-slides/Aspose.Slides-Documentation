@@ -22,6 +22,14 @@ This article demonstrates how to insert and access pictures from in-memory image
 This code generates a small bitmap, converts it to a stream, and inserts it as a picture frame on the first slide.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Paint;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 public static void addPicture() throws IOException {
 	Presentation presentation = new Presentation();
 	try {
@@ -59,6 +67,11 @@ public static void addPicture() throws IOException {
 This example ensures a slide contains a picture frame and then accesses the first one it finds.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 public static void accessPicture() throws IOException {
 	Presentation presentation = new Presentation();
 	try {

@@ -51,6 +51,9 @@ You can add a zoom frame on a slide this way:
 This Java code shows you how to create a zoom frame on a slide:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     //Adds new slides to the presentation
@@ -97,6 +100,10 @@ With Aspose.Slides for Android via Java, you can create a zoom frame with a diff
 This Java code shows you how to create a zoom frame with a different image:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     //Adds a new slide to the presentation
@@ -147,6 +154,10 @@ You can control a zoom frame's formatting on a slide this way:
 This Java code shows you how to change a zoom frame's formatting on a slide: 
 
 ``` java 
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     //Adds new slides to the presentation
@@ -225,6 +236,9 @@ You can add a section zoom frame to a slide this way:
 This Java code shows you how to create a zoom frame on a slide:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     //Adds a new slide to the presentation
@@ -260,6 +274,10 @@ Using Aspose.Slides for Android via Java, you can create a section zoom frame wi
 This Java code shows you how to create a zoom frame with a different image:
 
 ``` java 
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     //Adds new slide to the presentation
@@ -313,6 +331,10 @@ You can control a section zoom frame's formatting on a slide this way:
 This Java code shows you how to change a section zoom frame's formatting:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     //Adds a new slide to the presentation
@@ -381,6 +403,9 @@ You can add a summary zoom frame to a slide this way:
 This Java code shows you how to create a summary zoom frame on a slide:
 
 ``` java 
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     //Adds a new slide to the presentation
@@ -444,6 +469,9 @@ All sections in a summary zoom frame are represented by [ISummaryZoomSection](ht
 This Java code shows you how to add and remove sections in a summary zoom frame:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     //Adds a new slide to the presentation
@@ -509,6 +537,10 @@ You can control the formatting for a summary zoom section object in a summary zo
 This Java code shows you how to change the formatting for a summary zoom section object:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     //Adds a new slide to the presentation

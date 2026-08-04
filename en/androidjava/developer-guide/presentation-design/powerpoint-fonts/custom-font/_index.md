@@ -50,6 +50,8 @@ Aspose.Slides allows you to load fonts used in a presentation without installing
 The following code example demonstrates the font loading process:
 
 ```java
+import com.aspose.slides.*;
+
 // Define folders that contain custom font files.
 String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
@@ -86,6 +88,8 @@ Aspose.Slides provides the [getFontFolders](https://reference.aspose.com/slides/
 This Java code shows you how to use [getFontFolders](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsloader/#getFontFolders--):
 
 ```java
+import com.aspose.slides.*;
+
 // This line outputs folders where font files are searched.
 // Those are folders added through the LoadExternalFonts method and system font folders.
 String[] fontFolders = FontsLoader.getFontFolders();
@@ -97,6 +101,9 @@ Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspos
 This Java code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+
 byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
 byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
 
@@ -120,6 +127,10 @@ Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slide
 This Java code demonstrates the byte array font loading process:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));

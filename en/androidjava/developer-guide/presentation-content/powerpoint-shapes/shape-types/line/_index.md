@@ -39,6 +39,8 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate PresentationEx class that represents the PPTX file
 Presentation pres = new Presentation();
 try {
@@ -70,6 +72,9 @@ Aspose.Slides for Android via Java also allows developers to configure some prop
 - Write the modified presentation as a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate PresentationEx class that represents the PPTX file
 Presentation pres = new Presentation();
 try {

@@ -149,6 +149,9 @@ import android.os.Environment; 
 Now, insert this code in the body of the onCreate method to create a new Presentation from scratch using Aspose.Slides and save it to the SDCard in PPTX format.
 
 ``` java
+import com.aspose.slides.*;
+import java.io.File;
+
 
  try
 

@@ -45,6 +45,8 @@ This property returns or sets the superscript or subscript text (value from -100
 The implementation of the above steps is given below.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents a PPTX
 Presentation pres = new Presentation();
 try {

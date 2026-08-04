@@ -50,6 +50,9 @@ If you want the text in a box to always fit into that box after changes are made
 This Java code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -80,6 +83,9 @@ If you want a textbox or shape to retain its dimensions no matter the changes ma
 This Java code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -110,6 +116,9 @@ If a text becomes too long for its box, through the **Shrink text on overflow** 
 This Java code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -142,6 +151,9 @@ If you want the text in a shape to get wrapped inside that shape when the text g
 This Java code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);

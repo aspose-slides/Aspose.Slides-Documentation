@@ -41,6 +41,8 @@ To generate a shape thumbnail from any slide using Aspose.Slides for Android via
 This sample code shows you how to generate a shape thumbnail from a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
@@ -69,6 +71,8 @@ To generate the shape thumbnail of a slide using Aspose.Slides for Android via J
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
@@ -97,6 +101,8 @@ This method of creating thumbnails of shapes allows developers to generate a thu
 This sample code is based on the steps above:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
@@ -125,6 +131,8 @@ Use [Shape.getVisualBounds](https://reference.aspose.com/slides/androidjava/com.
 The following example gets and compares the frame and visual bounds:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("example.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);

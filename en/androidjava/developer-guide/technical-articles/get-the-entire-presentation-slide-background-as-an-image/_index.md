@@ -42,6 +42,9 @@ Aspose.Slides for Android via Java does not provide a simple method to extract t
 
 The following code example extracts the entire presentation slide background as an image.
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
 int slideIndex = 0;
 int imageScale = 1;
 

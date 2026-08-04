@@ -75,6 +75,8 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
@@ -118,6 +120,8 @@ Object value2 = cell2.getValue(); // 2.1
 You can use logical constants such as *FALSE* and *TRUE* in cell formulas:
 
 ```java
+import com.aspose.slides.*;
+
 workbook.getCell(0, "A2").setValue(false);
 IChartDataCell cell = workbook.getCell(0, "B2");
 cell.setFormula("A2 = TRUE");
@@ -153,6 +157,8 @@ Sometimes its not possible to calculate the result by the formula. In that case,
 - #VALUE! - unexpected value type. For example, string value set to numeric cell.
 
 ```java
+import com.aspose.slides.*;
+
 IChartDataCell cell = workbook.getCell(0, "A2");
 cell.setFormula("2 / 0");
 Object value = cell.getValue(); // the value contains the string "#DIV/0!"

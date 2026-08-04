@@ -43,6 +43,8 @@ Go through these steps:
 This Java code shows you how to convert a PowerPoint presentation to PNG:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     for (int index = 0; index < pres.getSlides().size(); index++)
@@ -67,6 +69,8 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in Java demonstrates the described operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     float scaleX = 2f;
@@ -93,6 +97,9 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Dimension size = new Dimension(960, 720);

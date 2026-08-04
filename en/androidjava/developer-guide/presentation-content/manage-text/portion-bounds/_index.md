@@ -29,6 +29,8 @@ This article shows how to get the bounding rectangle of a portion by using [IPor
 Use [IPortion.getRect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getRect--) to retrieve the bounding rectangle of a text portion:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Shapes.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -52,6 +54,8 @@ try {
 Use [IPortion.getCoordinates](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPortion#getCoordinates--) to retrieve the coordinates of the beginning of a text portion:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Shapes.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);

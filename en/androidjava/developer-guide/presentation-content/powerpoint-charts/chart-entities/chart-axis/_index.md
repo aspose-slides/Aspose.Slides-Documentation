@@ -45,6 +45,8 @@ Aspose.Slides for Android via Java allows you to obtain the minimum and maximum 
 This sample code—an implementation of the steps above—shows you how to get the required values in Java:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
@@ -69,6 +71,8 @@ Aspose.Slides allows you to quickly swap the data between axes—the data repres
 This Java code shows you how to perform the data swap task between axes on a chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
@@ -88,6 +92,8 @@ try {
 This Java code shows you how to hide the vertical axis for a line chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
@@ -104,6 +110,8 @@ try {
 This code shows you how to hide the horizontal axis for a line chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
@@ -120,6 +128,8 @@ try {
 Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in Java demonstrates the operation: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
 	IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -137,6 +147,9 @@ try {
 Aspose.Slides for Android via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
 
 ```java
+import com.aspose.slides.*;
+import java.util.GregorianCalendar;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 50, 50, 450, 300);
@@ -166,6 +179,12 @@ try {
 }
 ```
 ```java
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
+
 public static String convertToOADate(GregorianCalendar date) throws ParseException
 {
     double oaDate;
@@ -181,6 +200,8 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 Aspose.Slides for Android via Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -199,6 +220,8 @@ try {
 Aspose.Slides for Android via Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -215,6 +238,8 @@ try {
 Aspose.Slides for Android via Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);

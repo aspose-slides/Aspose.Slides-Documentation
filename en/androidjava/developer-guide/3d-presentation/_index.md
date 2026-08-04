@@ -61,6 +61,9 @@ A shape usually needs four kinds of settings before it looks convincingly 3D:
 The following example creates a rectangle, adds text to its front face, applies 3D formatting, saves the presentation as PPTX, and renders the slide to a PNG image.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -107,6 +110,8 @@ In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, a
 In Aspose.Slides, set the camera type and rotation through [IThreeDFormat.getCamera](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getCamera--):
 
 ```java
+import com.aspose.slides.*;
+
 shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 ```
@@ -122,6 +127,8 @@ Extrusion makes a shape look thick by extending it behind the front face. In Pow
 Set [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) for the thickness and [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) for the side color:
 
 ```java
+import java.awt.Color;
+
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 shape.getThreeDFormat().setExtrusionHeight(100);
 shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(128, 0, 128));
@@ -136,6 +143,9 @@ Use [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com
 This example applies a gradient fill to the shape and a darker extrusion color to the sides:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -175,6 +185,10 @@ The rendered output keeps the gradient on the front face and renders the extrusi
 To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.FileInputStream;
+
 IPPImage image;
 try (FileInputStream imageStream = new FileInputStream("image.png")) {
     image = presentation.getImages().addImage(imageStream);
@@ -200,6 +214,9 @@ Shape 3D formatting affects the shape body. Text 3D formatting affects the text 
 The following example creates text with a pattern fill, applies a WordArt transform, and configures 3D settings on [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/):
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();

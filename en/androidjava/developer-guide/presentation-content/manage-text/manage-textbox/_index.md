@@ -50,6 +50,8 @@ To create a textbox on a slide, go through these steps:
 This Java code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates Presentation
 Presentation pres = new Presentation();
 try {
@@ -90,6 +92,8 @@ Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/andro
 This Java code shows you how to check whether a shape was created as a text box: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ForEach.shape(presentation, (shape, slide, index) -> {
@@ -106,6 +110,8 @@ try {
 Note that if you simply add an autoshape using the `addAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) interface, the `isTextBox` method of the autoshape will return `false`. However, after you add text to the autoshape using the `addTextFrame` method or the `setText` method, the `isTextBox` property returns `true`.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -137,6 +143,8 @@ Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/and
 This code in Java demonstrates the described operation: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Gets the first slide in the presentation
@@ -174,6 +182,8 @@ Aspose.Slides for Android via Java provides the [ColumnCount](https://reference.
 This Java code shows you how to add a column inside a text frame:
 
 ```java
+import com.aspose.slides.*;
+
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
 try {
@@ -232,6 +242,8 @@ Aspose.Slides allows you to change or update the text contained in a text box or
 This Java code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("text.pptx");
 try {
     for (ISlide slide : pres.getSlides())
@@ -277,6 +289,8 @@ You can insert a link inside a text box. When the text box is clicked, users are
 This Java code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation class that represents a PPTX
 Presentation pres = new Presentation();
 try {

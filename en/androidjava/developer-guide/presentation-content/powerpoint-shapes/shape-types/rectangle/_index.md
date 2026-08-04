@@ -35,6 +35,8 @@ To add a simple rectangle to a selected slide of the presentation, please follow
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Prseetation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
@@ -66,6 +68,9 @@ To add a formatted rectangle to a slide, please follow the steps below:
 The above steps are implemented in the example given below.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate Prseetation class that represents the PPTX
 Presentation pres = new Presentation();
 try {

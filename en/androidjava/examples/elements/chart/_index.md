@@ -22,6 +22,8 @@ Examples for adding, accessing, removing, and updating different chart types wit
 This method adds a simple area chart to the first slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void addChart() {
     Presentation presentation = new Presentation();
     try {
@@ -40,6 +42,8 @@ static void addChart() {
 After creating a chart, you can retrieve it through the shape collection.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessChart() {
     Presentation presentation = new Presentation();
     try {
@@ -66,6 +70,8 @@ static void accessChart() {
 The following code removes a chart from a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeChart() {
     Presentation presentation = new Presentation();
     try {
@@ -86,6 +92,8 @@ static void removeChart() {
 You can change chart properties such as the title.
 
 ```java
+import com.aspose.slides.*;
+
 static void updateChartData() {
     Presentation presentation = new Presentation();
     try {
