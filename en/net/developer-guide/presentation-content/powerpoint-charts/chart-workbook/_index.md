@@ -33,6 +33,9 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 This C# code demonstrates a sample operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation("chart.pptx"))
 {
     Chart chart = (Chart) pres.Slides[0].Shapes[0];
@@ -60,6 +63,9 @@ using (Presentation pres = new Presentation("chart.pptx"))
 This C# code shows you to set a workbook cell as a chart data label:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
@@ -92,6 +98,9 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 This C# code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) property is used to access a worksheet collection:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
@@ -106,6 +115,10 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to specify a type for a data source:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -126,6 +139,9 @@ using (Presentation pres = new Presentation())
 Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `EmbeddedWorkbookType` property on [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) enumeration to detect unsupported formats and skip those charts.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -160,6 +176,10 @@ Using the **`ReadWorkbookStream`** and **`SetExternalWorkbook`** methods, you ca
 This C# code demonstrates the external workbook creation process:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     const string workbookPath = "externalWorkbook1.xlsx";
@@ -186,6 +206,10 @@ While you cannot edit the data in workbooks stored in remote locations or resour
 This C# code shows you how to set an external workbook:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // The path to the documents directory.
 using (Presentation pres = new Presentation())
 {
@@ -213,6 +237,10 @@ The `ChartData` parameter (under the `SetExternalWorkbook` method) is used to s
 * When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -235,6 +263,10 @@ using (Presentation pres = new Presentation())
 This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[1];
@@ -257,6 +289,10 @@ You can edit the data in external workbooks the same way you make changes to the
 This C# code is an implementation of the described process:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;

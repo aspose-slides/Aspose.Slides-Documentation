@@ -50,6 +50,10 @@ Using Aspose.Slides, you can specify a custom line style for a shape. The follow
 The following C# code demonstrates how to format a rectangle `AutoShape`:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -95,6 +99,10 @@ By default, when PowerPoint joins two lines at an angle (such as at a shape’s 
 The following C# code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -158,6 +166,9 @@ Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 The following C# code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -207,6 +218,10 @@ Here's how to apply a pattern fill to a shape using Aspose.Slides:
 The following C# code demonstrates how to apply a pattern fill to a rectangle:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -257,6 +272,9 @@ Let's say we have a "lotus.png" file with the following picture:
 The following C# code demonstrates how to fill a shape with the picture:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -304,6 +322,9 @@ If you want to set a tiled picture as a texture and customize the tiling behavio
 The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -359,6 +380,10 @@ To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
 The following C# code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -399,6 +424,10 @@ Aspose.Slides lets you set the transparency level by adjusting the alpha value i
 The following C# code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const int alpha = 128;
 
 // Instantiate the Presentation class that represents a presentation file.
@@ -439,6 +468,9 @@ To rotate a shape on a slide, follow these steps:
 The following C# code demonstrates how to rotate a shape by 5 degrees:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -475,6 +507,10 @@ To add 3D bevel effects to a shape, follow these steps:
 The following C# code shows how to apply 3D bevel effects to a shape:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -521,6 +557,9 @@ To apply 3D rotation to a shape:
 The following C# code demonstrates how to apply 3D rotation effects to a shape:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -548,6 +587,9 @@ The result:
 The following C# code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) to their default settings:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)

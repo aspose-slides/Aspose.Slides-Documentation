@@ -45,6 +45,10 @@ Aspose.Slides for .NET allows you to obtain the minimum and maximum values on a 
 This sample code—an implementation of the steps above—shows you how to get the required values in C#:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.Area, 100, 100, 500, 350);
@@ -68,6 +72,10 @@ Aspose.Slides allows you to quickly swap the data between axes—the data repres
 This C# code shows you how to perform the data swap task between axes on a chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Creates empty presentation
 using (Presentation pres = new Presentation())
 {
@@ -86,6 +94,10 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to hide the vertical axis for a line chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
@@ -100,6 +112,10 @@ using (Presentation pres = new Presentation())
 This code shows you how to hide the horizontal axis for a line chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 100, 100, 400, 300);
@@ -114,6 +130,10 @@ using (Presentation pres = new Presentation())
 Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in C# demonstrates the operation: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes[0] as IChart;
@@ -129,6 +149,10 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 Aspose.Slides for .NET allows you to set the date format for a category axis value. The operation is demonstrated in this C# code:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Area, 50, 50, 450, 300);
@@ -160,6 +184,10 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET allows you to set the rotation angle for a chart axis title. This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -174,6 +202,10 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET allows you to set the position axis in a category or value axis. This C# code shows how to perform the task:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -187,6 +219,10 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET allows you to configure a chart to show a unit label on its chart value axis. This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation(dataDir+"Test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 300);

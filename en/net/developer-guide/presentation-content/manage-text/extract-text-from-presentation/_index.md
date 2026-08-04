@@ -46,6 +46,8 @@ Aspose.Slides for .NET provides the [Aspose.Slides.Util](https://reference.aspos
 The following code snippet extracts all the text from the first slide of the presentation:
 
 ```cs
+using Aspose.Slides;
+
 int slideIndex = 0;
 
 using var presentation = new Presentation("demo.pptx");
@@ -88,6 +90,8 @@ To scan text from the entire presentation, use the [GetAllTextFrames](https://re
 The method returns an array of objects of type [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
 
 ```cs
+using Aspose.Slides;
+
 using var presentation = new Presentation("demo.pptx");
 
 var includeMasterSlides = true;
@@ -122,6 +126,8 @@ foreach (var textFrame in textFrames)
 The [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ``` cs
+using Aspose.Slides;
+
 IPresentationText GetPresentationText(string file, TextExtractionArrangingMode mode);
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode);
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode, ILoadOptions options);
@@ -142,6 +148,8 @@ The unarranged mode can be used when speed is critical; it's faster than the arr
 - `CommentsText` - The text within comments associated with this slide.
 
 ```cs
+using Aspose.Slides;
+
 var presentationPath = "presentation.ppt";
 var arrangingMode = TextExtractionArrangingMode.Unarranged;
 var presentationText = PresentationFactory.Instance.GetPresentationText(presentationPath, arrangingMode);

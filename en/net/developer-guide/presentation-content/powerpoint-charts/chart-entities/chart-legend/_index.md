@@ -33,6 +33,10 @@ In order to set the legend properties. Please follow the steps below:
 In the example given below, we have set the position and size for Chart legend.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 
@@ -65,6 +69,10 @@ The Aspose.Slides for .NET lets developers allow to set font size of legend. Pl
 - Write presentation to disk.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -92,6 +100,11 @@ The Aspose.Slides for .NET lets developers allow to set font size of individual 
 - Write presentation to disk.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);

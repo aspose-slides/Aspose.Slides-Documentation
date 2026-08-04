@@ -38,6 +38,8 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 This C# code shows how to change the text in a placeholder:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation class
 using (Presentation pres = new Presentation("ReplacingText.pptx"))
 {
@@ -65,6 +67,9 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This C# code shows you how to set the prompt text in a placeholder:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Presentation2.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -99,6 +104,8 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This C# code shows you how to set the transparency for a picture background (inside a shape):
 
 ```c#
+using Aspose.Slides;
+
 using (var presentation = new Presentation())
 {
     IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);

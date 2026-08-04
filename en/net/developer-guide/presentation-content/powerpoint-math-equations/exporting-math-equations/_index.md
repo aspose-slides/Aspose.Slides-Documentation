@@ -33,6 +33,9 @@ While humans easily write the code for some equation formats like LaTeX, they st
 This sample code shows you how to export a math equation from a presentation to MathML:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+
 using (Presentation pres = new Presentation())
         {
             var autoShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 500, 50);

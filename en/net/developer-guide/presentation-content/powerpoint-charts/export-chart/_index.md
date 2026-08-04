@@ -27,6 +27,9 @@ In addition to the basic image export workflow, the article also addresses commo
 Aspose.Slides for .NET provides support for extracting image of specific chart. Below sample example is given. 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     ISlide slide = presentation.Slides[0];

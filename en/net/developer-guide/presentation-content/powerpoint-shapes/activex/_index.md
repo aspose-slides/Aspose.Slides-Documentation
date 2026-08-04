@@ -38,6 +38,9 @@ To manage a simple ActiveX control like a text box and simple command button on 
 The code snippet below updates the ActiveX controls on the presentation slides to the slide as shown below.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 // Accessing the presentation with  ActiveX controls
 Presentation presentation = new Presentation("ActiveX.pptm");
 
@@ -157,6 +160,8 @@ To add ActiveX Media Player control, please perform following steps:
 1. Save the presentation to a PPTX file.
 
 ```c#
+using Aspose.Slides;
+
 // Instantiate Presentation class that represents PPTX file
 Presentation presentation = new Presentation("template.pptx");
 

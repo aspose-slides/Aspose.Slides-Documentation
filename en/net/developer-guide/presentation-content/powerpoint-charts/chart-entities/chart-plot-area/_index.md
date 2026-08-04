@@ -37,6 +37,10 @@ Aspose.Slides for .NET provides a simple API for . 
 1. Gets actual height of the chart element.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("test.Pptx"))
 {
     Chart chart = (Chart)pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
@@ -64,6 +68,10 @@ Aspose.Slides for .NET provides a simple API to set the layout mode of the chart
 Sample code is given below.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];

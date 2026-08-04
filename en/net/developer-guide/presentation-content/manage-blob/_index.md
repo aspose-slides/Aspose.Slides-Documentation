@@ -45,6 +45,9 @@ Aspose.Slides for .NET allows you to use BLOBs for objects in a way that reduces
 This C# shows you how to add a large video file through the BLOB process to a presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const string pathToVeryLargeVideo = "veryLargeVideo.avi";
 
 // Creates a new presentation to which the video will be added
@@ -71,6 +74,8 @@ Aspose.Slides for .NET allows you to export large files (in this case, an audio 
 This code in C# demonstrates the described operation:
 
 ```c#
+using Aspose.Slides;
+
 const string hugePresentationWithAudiosAndVideosFile = @"Large  Video File Test1.pptx";
 
 LoadOptions loadOptions = new LoadOptions
@@ -122,6 +127,9 @@ With methods from the [**IImageCollection**](https://reference.aspose.com/slides
 This C# code shows you how to add a large image through the BLOB process:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 string pathToLargeImage = "large_image.jpg";
 
 // creates a new presentation to which the image will be added.
@@ -148,6 +156,9 @@ Typically, to load a large presentation, computers require a lot of temporary me
 Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this C# code:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("large.pptx"))
 {
    pres.Save("large.pdf", SaveFormat.Pdf);
@@ -161,6 +172,9 @@ But this method consumes around 1.6 GB of temporary memory.
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This C# code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 LoadOptions loadOptions = new LoadOptions
 {
    BlobManagementOptions = new BlobManagementOptions
@@ -181,6 +195,8 @@ using (Presentation pres = new Presentation("large.pptx", loadOptions))
 When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
 
 ```c#
+using Aspose.Slides;
+
 LoadOptions loadOptions = new LoadOptions
 {
    BlobManagementOptions = new BlobManagementOptions
@@ -205,6 +221,9 @@ When processing large presentations, ensure that the [Presentation](https://refe
 If you create a presentation without a `using` block, explicitly call `Dispose()` after you have finished using it.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation presentation = new Presentation("large.pptx");
 
 // ...process the presentation...

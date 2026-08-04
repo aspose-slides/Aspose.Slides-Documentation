@@ -33,6 +33,8 @@ In this section, we will explore how to create a simple WordArt template and app
 First, we create simple text using the following C# code:
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -48,6 +50,8 @@ using (Presentation presentation = new Presentation())
 Now, we set the text’s font height to a larger value to make the effect more noticeable using the following code:
 
 ```cs
+using Aspose.Slides;
+
     portion.PortionFormat.LatinFont = new FontData("Arial Black");
     portion.PortionFormat.FontHeight = 36;
 ```
@@ -55,6 +59,9 @@ Now, we set the text’s font height to a larger value to make the effect more n
 Here, we apply the SmallGrid pattern fill to the text and add a black text border with a width of 1 using the following code:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
     portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
     portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
     portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
@@ -79,6 +86,9 @@ Outer shadow effects help text stand out by adding a shadow behind its outline, 
 The following C# code snippet applies a shadow effect to the text created above.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
     portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
     portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
     portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
@@ -109,6 +119,8 @@ In this section, we will explore how to apply reflection effects in your slides 
 Add a reflection effect to the text using this C# code example:
 
 ```cs
+using Aspose.Slides;
+
     portion.PortionFormat.EffectFormat.EnableReflectionEffect();
     portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
     portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
@@ -133,6 +145,8 @@ In this section, we will explore how to apply a glow effect to text using Aspose
 Apply a glow effect to the text to make it shine or stand out using the following code:
 
 ```cs
+using Aspose.Slides;
+
     portion.PortionFormat.EffectFormat.EnableGlowEffect();
     portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
     portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
@@ -150,6 +164,8 @@ In this section, we will explore how to use transformations in WordArt with Aspo
 Use the `Transform` property (which applies to the entire block of text) using the following code:
 
 ```cs
+using Aspose.Slides;
+
     textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
 ```
 
@@ -170,6 +186,9 @@ Creating realistic, eye-catching visuals can significantly enhance the impact of
 Use the following sample code to set a 3D effect to the shape:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
     autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
     autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
     autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
@@ -202,6 +221,9 @@ The resulting shape:
 Use the following sample code to set a 3D effect to the text:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
     textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
     textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
     textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;

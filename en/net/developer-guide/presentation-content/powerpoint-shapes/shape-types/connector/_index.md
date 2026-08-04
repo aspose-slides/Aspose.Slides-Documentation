@@ -59,6 +59,9 @@ Aspose.Slides provides these connectors:
 This C# code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a PPTX file
 using (Presentation input = new Presentation())
 {                
@@ -106,6 +109,9 @@ If you want a connector to link two shapes using specific dots on the shapes, yo
 This C# code demonstrates an operation where a preferred connection dot is specified:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -153,6 +159,9 @@ Consider a case where a connector between two shapes (A and B) passes through a 
 Code:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
 IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
@@ -175,6 +184,8 @@ To avoid or bypass the third shape, we can adjust the connector by moving its ve
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
 ```c#
+using Aspose.Slides;
+
 IAdjustValue adj2 = connector.Adjustments[1];
 adj2.RawValue += 10000;
 ```
@@ -199,6 +210,9 @@ Consider a case where two text frame objects are linked together through a conne
 Code:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 // Instantiates a presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 // Gets the first slide in the presentation
@@ -246,6 +260,8 @@ The result:
 To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point:
 
 ```c#
+using Aspose.Slides;
+
 // Draw the vertical component of the connector
 
 float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
@@ -265,6 +281,9 @@ In **Case 1**, we demonstrated a simple connector adjustment operation using bas
 First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 // Creates a new binding object
 IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
 shapeTo_1.TextFrame.Text = "To 1";
@@ -300,6 +319,9 @@ Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 // Saves the connector coordinates
 x = connector.X;
 y = connector.Y;
@@ -340,6 +362,8 @@ We demonstrated calculations involving simple adjustments and complicated adjust
 This C# code demonstrates an operation in which we calculated the angle for a connector line shape:
 
 ```c#
+using Aspose.Slides;
+
 public static void Run()
 {
     Presentation pres = new Presentation("ConnectorLineAngle.pptx");

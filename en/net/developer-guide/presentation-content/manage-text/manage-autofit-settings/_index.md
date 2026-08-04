@@ -49,6 +49,10 @@ If you want the text in a box to always fit into that box after changes are made
 This C# code shows how to specify that text must always fit into its box in a PowerPoint presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -77,6 +81,10 @@ If you want a textbox or shape to retain its dimensions no matter the changes ma
 This C# code shows how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -105,6 +113,10 @@ If the text becomes too long for its box, through the **Shrink text on overflow*
 This C# code shows how to specify that text must be shrunk on overflow in a PowerPoint presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -135,6 +147,10 @@ If you want the text in a shape to be wrapped inside that shape when the text go
 This C# code shows how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];

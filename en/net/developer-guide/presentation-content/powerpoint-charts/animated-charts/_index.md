@@ -37,6 +37,11 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart series.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Instantiate Presentation class that represents a presentation file 
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
@@ -82,6 +87,11 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart category.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Get reference of the chart object
@@ -165,6 +175,11 @@ If you want to animate categories elements, write the code according to the step
 In the example given below, we have animated categories elements.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Get reference of the chart object

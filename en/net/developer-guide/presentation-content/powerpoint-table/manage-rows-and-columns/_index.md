@@ -41,6 +41,9 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 This C# code shows you how to set a table's first row as its header:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation("table.pptx");
 
@@ -81,6 +84,8 @@ pres.Save("First_row_header.pptx", SaveFormat.Pptx);
 This C# code shows you how to clone a PowerPoint table's row or column:
 
 ```c#
+using Aspose.Slides;
+
  // Instantiates the Presentation class
 using (Presentation presentation = new Presentation("Test.pptx"))
 {
@@ -137,6 +142,8 @@ using (Presentation presentation = new Presentation("Test.pptx"))
 This C# code shows you how to remove a row or column from a table:
 
 ```c#
+using Aspose.Slides;
+
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -162,6 +169,8 @@ pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 This C# code demonstrates the operation.
 
 ```c#
+using Aspose.Slides;
+
 // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
            
@@ -202,6 +211,8 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 This C# code demonstrates the operation: 
 
 ```c#
+using Aspose.Slides;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
            
@@ -235,6 +246,9 @@ pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This C# code shows you how to get the style properties from a table preset style: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });

@@ -63,6 +63,10 @@ Aspose.Slides for .NET allows you to apply animation to the text in a shape.
 This C# code shows you how to apply the `Fade` effect to AutoShape and set the text animation to the *By 1st Level Paragraphs* value:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a presentation file.
 using (Presentation pres = new Presentation())
 {
@@ -106,6 +110,10 @@ Besides applying animations to text, you can also apply animations to a single [
 This C# code shows you how to apply the `Fly` effect to a picture frame:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a presentation file.
 using (Presentation pres = new Presentation())
 {
@@ -142,6 +150,11 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to apply the `PathFootball` (path football) effect to a shape:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation class that represents a presentation file.
 using (Presentation pres = new Presentation())
 {
@@ -189,6 +202,9 @@ The following examples show you how to use the `GetEffectsByShape` method from t
 Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -226,6 +242,9 @@ And finally, the **Fly In** effect is applied to the footer placeholder on the *
 The following sample code shows you how to use the `GetBasePlaceholder` method from the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interface to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -249,6 +268,8 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 ```cs
+using Aspose.Slides.Animation;
+
 static void PrintEffects(IEnumerable<IEffect> effects)
 {
     foreach (IEffect effect in effects)
@@ -293,6 +314,10 @@ This is how you change the Effect Timing properties:
 This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a presentation file.
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
@@ -342,6 +367,10 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 This C# code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
 	// Adds audio to presentation audio collection
@@ -383,6 +412,9 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 This C# code shows you how to extract the sound embedded in an animation effect:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 // Instantiates a presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation("EffectSound.pptx"))
 {
@@ -422,6 +454,11 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
 This C# code shows you how to change an after animation effect:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a presentation file
 using (Presentation pres = new Presentation("AnimImage_out.pptx"))
 {
@@ -461,6 +498,10 @@ This is how you can change the Effect Animate text properties:
 This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a presentation file.
 using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
 {

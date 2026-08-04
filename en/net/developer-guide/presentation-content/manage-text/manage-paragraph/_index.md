@@ -143,6 +143,10 @@ Bullet lists help you to organize and present information quickly and efficientl
 This C# code shows you how to add a paragraph bullet:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -237,6 +241,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This C# code shows you how to add and manage picture bullets:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation class that represents a PPTX file
 Presentation presentation = new Presentation();
 
@@ -297,6 +304,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This C# code shows you how to add and manage multilevel bullets:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 // Instantiates a Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -382,6 +392,9 @@ The [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulle
 This C# code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
 	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
@@ -435,6 +448,10 @@ The example below creates several paragraphs and applies different `Indent` valu
 This code shows you how to set a paragraph indent:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -501,6 +518,10 @@ This formatting is useful for bibliographies, references, glossary entries, and 
 This code shows you how to set a hanging indent for a paragraph:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -552,6 +573,9 @@ The result:
 This C# code shows you how to set the End properties for paragraphs in PowerPoint:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Test.pptx"))
 {
 	IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
@@ -590,6 +614,8 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 This C# code is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```c#
+using Aspose.Slides;
+
 // Creates Empty presentation instance
 using (Presentation pres = new Presentation())
 {
@@ -632,6 +658,8 @@ Aspose.Slides provides enhanced support for exporting texts (contained in paragr
 This C# code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```c#
+using Aspose.Slides;
+
 // Loads the presentation file
 using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 {
@@ -667,6 +695,9 @@ Let's assume we have a presentation file called sample.pptx with one slide, wher
 In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
 
@@ -707,6 +738,9 @@ The result:
 In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
 var imageScaleX = 2f;
 var imageScaleY = imageScaleX;
 

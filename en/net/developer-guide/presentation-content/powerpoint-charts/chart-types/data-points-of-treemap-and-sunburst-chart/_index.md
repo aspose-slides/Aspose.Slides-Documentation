@@ -30,6 +30,9 @@ Let’s start with adding a new Sunburst chart to the presentation:
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
@@ -64,6 +67,8 @@ Show value of "Leaf 4" data point:
 
 
 ```c#
+using Aspose.Slides.Charts;
+
 IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
 dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
 ```
@@ -75,6 +80,10 @@ Set "Branch 1" data label to show series name ("Series1") instead of category na
 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
 branch1Label.DataLabelFormat.ShowCategoryName = false;
 branch1Label.DataLabelFormat.ShowSeriesName = true;
@@ -89,6 +98,11 @@ branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.
 Change color of "Stem 4" branch:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);

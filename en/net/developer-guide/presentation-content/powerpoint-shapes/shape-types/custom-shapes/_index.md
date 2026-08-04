@@ -75,36 +75,48 @@ This C# code shows you how to
 **Add a line** to the end of a path
 
 ``` csharp
+using System.Drawing;
+
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
 **Add a line** to a specified position on a path:
 
 ``` csharp    
+using System.Drawing;
+
 void LineTo(PointF point, uint index);
 void LineTo(float x, float y, uint index);
 ```
 **Add a cubic Bezier curve** at the end of a path:
 
 ``` csharp
+using System.Drawing;
+
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
 **Add a cubic Bezier curve** to the specified position on a path:
 
 ``` csharp
+using System.Drawing;
+
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
 ```
 **Add a quadratic Bezier curve** at the end of a path:
 
 ``` csharp
+using System.Drawing;
+
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
 **Add quadratic Bezier curve** to a specified position on a path:
 
 ``` csharp
+using System.Drawing;
+
 void QuadraticBezierTo(PointF point1, PointF point2, uint index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
 ```
@@ -121,6 +133,8 @@ void CloseFigure();
 **Set the position for the next point**:
 
 ``` csharp
+using System.Drawing;
+
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
@@ -141,6 +155,8 @@ void RemoveAt(int index);
 This C# code shows you how to add custom points to a shape:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
@@ -164,6 +180,8 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to remove points from a shape:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
 	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
@@ -186,6 +204,9 @@ using (Presentation pres = new Presentation())
 This C# shows you how to create a custom shape:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+
 List<PointF> points = new List<PointF>();
 
 float R = 100, r = 50;
@@ -233,6 +254,8 @@ using (Presentation pres = new Presentation())
 This C# code shows you to create a composite custom shape:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
@@ -261,6 +284,10 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to create a custom shape with curved corners (inwards);
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -307,6 +334,8 @@ using (var presentation = new Presentation())
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```cs
+using Aspose.Slides;
+
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
     bool? isClosed = null;
@@ -338,6 +367,11 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 This C# code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
 ``` csharp
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
 using (Presentation pres = new Presentation())
 {
     GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;

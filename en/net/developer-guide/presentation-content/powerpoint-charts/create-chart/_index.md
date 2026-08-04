@@ -74,6 +74,11 @@ This section explains how to create clustered column charts using Aspose.Slides 
 This C# code demonstrates how to create a clustered column chart:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -171,6 +176,10 @@ Use a scatter chart when:
 This C# code shows you how to create a scatter chart with a different series of markers:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -257,6 +266,11 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 This C# code shows you how to create a pie chart:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class.
 using (Presentation presentation = new Presentation())
 {
@@ -379,6 +393,10 @@ Line charts (also known as line graphs) are best used in situations where you wa
 This C# code shows you how to create a line chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -390,6 +408,9 @@ using (Presentation presentation = new Presentation())
 By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, you can specify your preferred dash type as follows:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 foreach (IChartSeries series in lineChart.ChartData.Series)
 {
     series.Format.Line.DashStyle = LineDashStyle.Dash;
@@ -416,6 +437,10 @@ Tree map charts are best used for sales data when you want to show the relative 
 This C# code shows you how to create a tree map chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -487,6 +512,10 @@ Stock charts are used to display financial data such as open, high, low, and clo
 This C# code shows you how to create a stock chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -556,6 +585,10 @@ Box and Whisker charts are used to display the distribution of data by summarizi
 This C# code shows you how to create a box and whisker chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -603,6 +636,10 @@ Funnel charts are used to visualize processes that involve sequential stages, wh
 This C# code shows you how to create a funnel chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -648,6 +685,10 @@ Sunburst charts are used to visualize hierarchical data, displaying levels as co
 This C# code shows you how to create a sunburst chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -715,6 +756,10 @@ Histogram charts are used to represent the distribution of numerical data by gro
 This C# code shows you how to create a histogram chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -754,6 +799,10 @@ Radar charts are used to display multivariate data in a two-dimensional format, 
 This C# code shows you how to create a radar chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -781,6 +830,10 @@ Multi Category charts are used to display data that involves more than one categ
 This C# code shows you how to create a multicategory chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -838,6 +891,10 @@ Map charts are used to visualize geographical data by mapping information to spe
 This C# code shows you how to create a map chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -858,6 +915,11 @@ A combination chart (or combo chart) combines two or more chart types in a singl
 The following C# code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -1021,6 +1083,10 @@ Aspose.Slides for .NET enables you to update PowerPoint charts by modifying char
 This C# code shows you how to update a chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
 // Instantiate the Presentation class that represents a PPTX file.
@@ -1091,6 +1157,10 @@ Aspose.Slides for .NET provides the flexibility to define a specific data range 
 This C# code shows you how to set the data range for a chart:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
 // Instantiate the Presentation class that represents a PPTX file.
@@ -1118,6 +1188,10 @@ When you use default markers in charts, each chart series gets a different defau
 This C# code shows you how to set a chart series marker automatically:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];

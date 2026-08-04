@@ -35,6 +35,10 @@ The markers can be set on chart data points inside particular series. In order t
 In the example given below, we have set the chart marker options on data points level.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Create an instance of Presentation class
 using Presentation presentation = new Presentation();
 

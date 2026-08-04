@@ -28,6 +28,9 @@ SmartArt is a PowerPoint diagram made from nodes, node shapes, and a layout. Wit
 A SmartArt node can contain one or more shapes. To read the visible text, iterate through [ISmartArt.AllNodes](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartart/allnodes/), then read the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) returned by [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartshape/textframe/).
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -53,6 +56,10 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 The SmartArt layout controls how nodes are arranged and connected. The following example creates a SmartArt object with the [SmartArtLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartlayouttype/) `BasicBlockList` value, changes it to the `BasicProcess` value, and saves the presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation())
 {
     ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
@@ -71,6 +78,10 @@ using (Presentation presentation = new Presentation())
 The following example adds a node to a SmartArt object that uses the [SmartArtLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartlayouttype/) `RadialCycle` value and checks the node's hidden state.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation())
 {
     ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
@@ -95,6 +106,10 @@ For SmartArt diagrams that use an organization chart layout, [ISmartArtNode.Orga
 The following example creates an organization chart and sets the layout for the first node to the [OrganizationChartLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/organizationchartlayouttype/) `LeftHanging` value.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation())
 {
     ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(
@@ -112,6 +127,10 @@ using (Presentation presentation = new Presentation())
 A picture organization chart is a SmartArt layout designed for hierarchy diagrams that include image placeholders. Use the [SmartArtLayoutType](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartartlayouttype/) `PictureOrganizationChart` value when adding the SmartArt object to a slide.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation())
 {
     ISmartArt smartArt = presentation.Slides[0].Shapes.AddSmartArt(

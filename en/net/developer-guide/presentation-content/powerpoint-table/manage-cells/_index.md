@@ -33,6 +33,8 @@ Aspose.Slides allows you to access and modify table cells in PowerPoint presenta
 This C# code shows you how to identify merged table cells in a presentation:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 {
     ITable table = pres.Slides[0].Shapes[0] as ITable; // assuming that Slide#0.Shape#0 is a table
@@ -65,6 +67,8 @@ using (Presentation pres = new Presentation("SomePresentationWithTable.pptx"))
 This C# code shows you how to remove the borders from table cells:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -98,6 +102,10 @@ using (Presentation pres = new Presentation())
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This C# code demonstrates the process:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -147,6 +155,10 @@ using (Presentation presentation = new Presentation())
 We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -206,6 +218,10 @@ This time, we take a regular table (a table without merged cells) and then try t
 This C# code demonstrates the process we described:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -262,6 +278,10 @@ using (Presentation presentation = new Presentation())
 This C# code shows you how to change a table cell's background color:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -297,6 +317,9 @@ using (Presentation presentation = new Presentation())
 This C# code shows you how to place an image inside a table cell when creating a table:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {

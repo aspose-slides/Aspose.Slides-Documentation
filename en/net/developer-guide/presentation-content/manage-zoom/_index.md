@@ -51,6 +51,10 @@ You can add a zoom frame on a slide this way:
 This C# code shows you how to create a zoom frame on a slide:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds new slides to the presentation
@@ -95,6 +99,10 @@ With Aspose.Slides for .NET, you can create a zoom frame with a different slide 
 This C# code shows you how to create a zoom frame with a different image:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds a new slide to the presentation
@@ -139,6 +147,10 @@ You can control a zoom frame's formatting on a slide this way:
 This C# code shows you how to change a zoom frame's formatting on a slide: 
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds new slides to the presentation
@@ -211,6 +223,10 @@ You can add a section zoom frame to a slide this way:
 This C# code shows you how to create a zoom frame on a slide:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds a new slide to the presentation
@@ -244,6 +260,10 @@ Using Aspose.Slides for .NET, you can create a section zoom frame with a differe
 This C# code shows you how to create a zoom frame with a different image:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds new slide to the presentation
@@ -290,6 +310,10 @@ You can control a section zoom frame's formatting on a slide this way:
 This C# code shows you how to change a section zoom frame's formatting:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds a new slide to the presentation
@@ -352,6 +376,10 @@ You can add a summary zoom frame to a slide this way:
 This C# code shows you how to create a summary zoom frame on a slide:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds a new slide to the presentation
@@ -413,6 +441,10 @@ All sections in a summary zoom frame are represented by [ISummaryZoomFrameSectio
 This C# code shows you how to add and remove sections in a summary zoom frame:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds a new slide to the presentation
@@ -476,6 +508,10 @@ You can control the formatting for a summary zoom section object in a summary zo
 This C# code shows you how to change the formatting for a summary zoom section object:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     //Adds a new slide to the presentation

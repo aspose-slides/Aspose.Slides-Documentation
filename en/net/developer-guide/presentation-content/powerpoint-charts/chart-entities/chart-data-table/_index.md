@@ -33,6 +33,10 @@ Aspose.Slides for .NET provides support for changing color of categories in a se
  Below sample example is given. 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);

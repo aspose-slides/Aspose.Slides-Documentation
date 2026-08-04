@@ -63,6 +63,11 @@ Aspose.Slides for .NET provides a simple API for managing different chart entiti
 1. Write the modified presentation to a PPTX file
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Instantiating presentation// Instantiating presentation
 Presentation pres = new Presentation();
 
@@ -215,6 +220,10 @@ Aspose.Slides for .NET provides support for setting the font related properties 
 Below sample example is given.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {               
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
@@ -241,6 +250,10 @@ Aspose.Slides for .NET provides a simple API for managing chart data format:
 1. Save the presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Instantiate the presentation// Instantiate the presentation
 Presentation pres = new Presentation();
 
@@ -321,6 +334,9 @@ Aspose.Slides for .NET provides support for setting chart area. **IChart.HasRou
  Below sample example is given. 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation presentation = new Presentation())
 {
 	ISlide slide = presentation.Slides[0];

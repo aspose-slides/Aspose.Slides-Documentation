@@ -76,6 +76,9 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
 using (var presentation = new Presentation())
 

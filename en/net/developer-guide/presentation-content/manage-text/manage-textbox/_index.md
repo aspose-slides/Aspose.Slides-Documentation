@@ -46,6 +46,8 @@ Therefore, when dealing with an existing shape to which you want to add text, yo
 This C# code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates PresentationEx
 using (Presentation pres = new Presentation())
 {
@@ -85,6 +87,8 @@ Aspose.Slides provides the [IsTextBox](https://reference.aspose.com/slides/net/a
 This C# code shows you how to check whether a shape was created as a text box: 
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
@@ -100,6 +104,8 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 Note that if you simply add an autoshape using the `AddAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/) interface, the `IsTextBox` property of the autoshape will return `false`. However, after you add text to the autoshape using the `AddTextFrame` method or the `Text` property, the `IsTextBox` property returns `true`.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -133,6 +139,9 @@ Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/net
 This code in C# demonstrates the described operation: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	// Gets the first slide in the presentation
@@ -168,6 +177,10 @@ Aspose.Slides for .NET provides the [ColumnCount](https://reference.aspose.com/s
  This C# code shows you how to add a column inside a text frame:
 
 ```c#
+using System.Diagnostics;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 string outPptxFileName = "ColumnsTest.pptx";
 using (Presentation pres = new Presentation())
 {
@@ -215,6 +228,9 @@ Aspose.Slides allows you to change or update the text contained in a text box or
 This C# code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using(Presentation pres = new Presentation("text.pptx"))
 {
    foreach (ISlide slide in pres.Slides)
@@ -255,6 +271,8 @@ You can insert a link inside a textbox. When the textbox is clicked, users are d
 This C# code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation class that represents a PPTX
 Presentation pptxPresentation = new Presentation();
 

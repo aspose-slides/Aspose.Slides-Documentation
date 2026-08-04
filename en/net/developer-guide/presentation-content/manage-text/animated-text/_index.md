@@ -27,6 +27,10 @@ This article explains how to work with animated text in Aspose.Slides by applyin
 We added the [**AddEffect()**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence/methods/addeffect/index) method to the [**Sequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) and [**ISequence**](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation(dataDir + "Presentation1.pptx"))
 {
     // select paragraph to add effect
@@ -48,6 +52,9 @@ You may decide to find out the animation effects added to a paragraph—for exam
 Aspose.Slides for .NET allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 using (Presentation pres = new Presentation("Test.pptx"))
 {
 	ISequence sequence = pres.Slides[0].Timeline.MainSequence;

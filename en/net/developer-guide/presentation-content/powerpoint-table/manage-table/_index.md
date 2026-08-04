@@ -42,6 +42,10 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/net/aspos
 This C# code shows you how to create a table in a presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 
@@ -102,6 +106,10 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 This C# code shows you how to specify the numbering for cells in a table:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -163,6 +171,8 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to access and work with an existing table:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
@@ -200,6 +210,10 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 This C# code shows you how to align the text in a table:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
 
@@ -250,6 +264,8 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 This C# code shows you how to apply your preferred formatting options to the text in a table:
 
 ```c#
+using Aspose.Slides;
+
 // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
@@ -281,6 +297,9 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This C# code shows you how to get the style properties from a table preset style: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
@@ -296,6 +315,9 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 This C# code shows you how to lock the aspect ratio for a table:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ITable table = (ITable)pres.Slides[0].Shapes[0];

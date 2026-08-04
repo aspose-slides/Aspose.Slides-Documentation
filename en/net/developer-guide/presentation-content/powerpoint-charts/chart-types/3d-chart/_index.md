@@ -29,6 +29,10 @@ Aspose.Slides for .NET provides a simple API for setting these properties. This 
 1. Write the modified presentation to a PPTX file.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
            

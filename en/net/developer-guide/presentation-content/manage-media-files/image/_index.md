@@ -56,6 +56,9 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 You can add one or several images on your computer onto a slide in a presentation. This sample code in C# shows you how to add an image to a slide:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -73,6 +76,10 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in C#:
 
 ```c#
+using System.Net;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -97,6 +104,9 @@ A slide master is the top slide that stores and controls information (theme, lay
 This C# sample code shows you how to add an image to a slide master:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -124,6 +134,9 @@ To create an image object based on SVG image, you can do it this way:
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ``` csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // The path to the documents directory
 string dataDir = @"D:\Documents\";
 
@@ -164,6 +177,10 @@ The functionality is provided by one of the overloads of the [AddGroupShape](htt
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
 ``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // The path to the documents directory
 string dataDir = @"D:\Documents\";
 
@@ -199,6 +216,8 @@ Aspose.Slides for .NET allows you to generate EMF images from excel sheets and a
 This sample code shows you how to perform the described task:
 
 ``` csharp 
+using Aspose.Slides;
+
 using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 {
     Worksheet sheet = book.Worksheets[0];
@@ -244,6 +263,9 @@ Follow the steps below:
 1. Write the modified presentation as a PPTX file.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using Presentation presentation = new Presentation("sample.pptx");
 
