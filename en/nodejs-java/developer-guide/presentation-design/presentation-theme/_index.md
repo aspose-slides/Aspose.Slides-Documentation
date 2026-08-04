@@ -59,11 +59,24 @@ try {
 You can determine the resulting color's effective value this way:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-var fillEffective = shape.getFillFormat().getEffective();
-var effectiveColor = fillEffective.getSolidFillColor();
-console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+var pres = new aspose.slides.Presentation();
+try {
+    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+
+    var fillEffective = shape.getFillFormat().getEffective();
+    var effectiveColor = fillEffective.getSolidFillColor();
+    console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
@@ -73,10 +86,21 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
-otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+var pres = new aspose.slides.Presentation();
+try {
+    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+
+    var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
+    otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 The new color is applied automatically on both elements.
@@ -178,12 +202,19 @@ This JavaScript code shows you how to assign the Latin font to a theme element:
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
-var paragraph = new aspose.slides.Paragraph();
-var portion = new aspose.slides.Portion("Theme text format");
-paragraph.getPortions().add(portion);
-shape.getTextFrame().getParagraphs().add(paragraph);
-portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+var pres = new aspose.slides.Presentation();
+try {
+    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
+    var paragraph = new aspose.slides.Paragraph();
+    var portion = new aspose.slides.Portion("Theme text format");
+    paragraph.getPortions().add(portion);
+    shape.getTextFrame().getParagraphs().add(paragraph);
+    portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 This JavaScript code shows you how to change the presentation theme font:
@@ -192,7 +223,14 @@ This JavaScript code shows you how to change the presentation theme font:
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+var pres = new aspose.slides.Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 The font in all text boxes will be updated.
@@ -235,7 +273,17 @@ Using the [BackgroundFillStyles](https://reference.aspose.com/slides/nodejs-java
 This JavaScript code shows you how to set the background for a presentation:
 
 ```javascript
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 **Index guide**: 0 is used for no fill. The index starts from 1.

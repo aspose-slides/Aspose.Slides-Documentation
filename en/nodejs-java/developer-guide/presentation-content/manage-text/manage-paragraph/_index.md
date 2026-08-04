@@ -579,7 +579,7 @@ try {
     para2.setEndParagraphPortionFormat(portionFormat);
     shape.getTextFrame().getParagraphs().add(para1);
     shape.getTextFrame().getParagraphs().add(para2);
-    pres.save(resourcesOutputPath + "pres.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();

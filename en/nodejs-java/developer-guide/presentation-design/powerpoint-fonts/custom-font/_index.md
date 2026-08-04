@@ -55,6 +55,8 @@ aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
 // Define folders that contain custom font files.
+let externalFontFolder1 = "fonts";
+let externalFontFolder2 = "extra-fonts";
 let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
 
 // Load custom fonts from the specified folders.

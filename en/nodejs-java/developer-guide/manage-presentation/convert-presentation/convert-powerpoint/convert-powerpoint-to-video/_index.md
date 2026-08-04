@@ -58,6 +58,10 @@ Aspose.Slides supports presentation-to-video conversion.
 This JavaScript code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     // Adds a smile shape and then animates it
@@ -67,21 +71,19 @@ try {
     var effectOut = mainSequence.addEffect(smile, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.BottomRight, aspose.slides.EffectTriggerType.AfterPrevious);
     effectIn.getTiming().setDuration(2.0);
     effectOut.setPresetClassType(aspose.slides.EffectPresetClassType.Exit);
-    final var fps = 33;
+    var fps = 33;
     var frames = java.newInstanceSync("java.util.ArrayList");
     var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
     try {
         var player = new aspose.slides.PresentationPlayer(animationsGenerator, fps);
         try {
-            player.setFrameTick((sender, arguments) -> {
-                try {
+            player.setFrameTick(java.newProxy("com.aspose.slides.PresentationPlayer$FrameTick", {
+                invoke: function (sender, args) {
                     var frame = java.callStaticMethodSync("java.lang.String", "format", "frame_%04d.png", sender.getFrameIndex());
-                    arguments.getFrame().save(frame, aspose.slides.ImageFormat.Png);
+                    args.getFrame().save(frame, aspose.slides.ImageFormat.Png);
                     frames.add(frame);
-                } catch (e) {console.log(e);
-                    throw java.newInstanceSync("java.lang.RuntimeException", e);
                 }
-            });
+            }));
             animationsGenerator.run(presentation.getSlides());
         } finally {
             if (player != null) {
@@ -99,7 +101,7 @@ try {
     var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
     var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
     executor.createJob(builder).run();
-} catch (e) {console.log(e);
+} catch (e) {
     console.log(e);
 }
 ```
@@ -121,6 +123,8 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
+var presentation = new aspose.slides.Presentation();
+
 // Adds a smile shape and animates it
 // ...
 // Adds a new slide and animated transition
@@ -134,6 +138,10 @@ newSlide.getSlideShowTransition().setType(aspose.slides.TransitionType.Push);
 Aspose.Slides also supports animation for texts. So we animate paragraphs on objects, which will appear one after the other (with the delay set to a second):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     // Adds text and animations
@@ -158,21 +166,19 @@ try {
     effect2.getTiming().setTriggerDelayTime(1.0);
     effect3.getTiming().setTriggerDelayTime(1.0);
     effect4.getTiming().setTriggerDelayTime(1.0);
-    final var fps = 33;
+    var fps = 33;
     var frames = java.newInstanceSync("java.util.ArrayList");
     var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
     try {
         var player = new aspose.slides.PresentationPlayer(animationsGenerator, fps);
         try {
-            player.setFrameTick((sender, arguments) -> {
-                try {
+            player.setFrameTick(java.newProxy("com.aspose.slides.PresentationPlayer$FrameTick", {
+                invoke: function (sender, args) {
                     var frame = java.callStaticMethodSync("java.lang.String", "format", "frame_%04d.png", sender.getFrameIndex());
-                    arguments.getFrame().save(frame, aspose.slides.ImageFormat.Png);
+                    args.getFrame().save(frame, aspose.slides.ImageFormat.Png);
                     frames.add(frame);
-                } catch (e) {console.log(e);
-                    throw java.newInstanceSync("java.lang.RuntimeException", e);
                 }
-            });
+            }));
             animationsGenerator.run(presentation.getSlides());
         } finally {
             if (player != null) {
@@ -190,7 +196,7 @@ try {
     var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
     var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
     executor.createJob(builder).run();
-} catch (e) {console.log(e);
+} catch (e) {
     console.log(e);
 }
 ```
@@ -206,6 +212,10 @@ When animations are generated, a `NewAnimation` event is generated for each subs
 To work with the presentation animation player, the `getDuration` (the full duration of the animation) method and `setTimePosition` method are used. Each animation position is set within the *0 to duration* range, and then the `getFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     // Adds a smile shape and animates it
@@ -217,23 +227,17 @@ try {
     effectOut.setPresetClassType(aspose.slides.EffectPresetClassType.Exit);
     var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
     try {
-        animationsGenerator.setNewAnimation(animationPlayer -> {
-            console.log(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0);// initial animation state
-            try {
+        animationsGenerator.setNewAnimation(java.newProxy("com.aspose.slides.PresentationAnimationsGenerator$NewAnimation", {
+            invoke: function (animationPlayer) {
+                console.log(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
+                animationPlayer.setTimePosition(0);// initial animation state
                 // initial animation state bitmap
                 animationPlayer.getFrame().save("firstFrame.png", aspose.slides.ImageFormat.Png);
-            } catch (e) {console.log(e);
-                throw java.newInstanceSync("java.lang.RuntimeException", e);
-            }
-            animationPlayer.setTimePosition(animationPlayer.getDuration());// final state of the animation
-            try {
+                animationPlayer.setTimePosition(animationPlayer.getDuration());// final state of the animation
                 // last frame of the animation
                 animationPlayer.getFrame().save("lastFrame.png", aspose.slides.ImageFormat.Png);
-            } catch (e) {console.log(e);
-                throw java.newInstanceSync("java.lang.RuntimeException", e);
             }
-        });
+        }));
     } finally {
         if (animationsGenerator != null) {
             animationsGenerator.dispose();
@@ -249,19 +253,21 @@ try {
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation("animated.pptx");
 try {
     var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
     try {
         var player = new aspose.slides.PresentationPlayer(animationsGenerator, 33);
         try {
-            player.setFrameTick((sender, arguments) -> {
-                try {
-                    arguments.getFrame().save(("frame_" + sender.getFrameIndex()) + ".png", aspose.slides.ImageFormat.Png);
-                } catch (e) {console.log(e);
-                    throw java.newInstanceSync("java.lang.RuntimeException", e);
+            player.setFrameTick(java.newProxy("com.aspose.slides.PresentationPlayer$FrameTick", {
+                invoke: function (sender, args) {
+                    args.getFrame().save(("frame_" + sender.getFrameIndex()) + ".png", aspose.slides.ImageFormat.Png);
                 }
-            });
+            }));
             animationsGenerator.run(presentation.getSlides());
         } finally {
             if (player != null) {

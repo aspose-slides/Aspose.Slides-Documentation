@@ -192,6 +192,16 @@ This JavaScript code shows how to detect font substitutions:
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const FontSubstitutionHandler = java.newProxy("com.aspose.slides.IWarningCallback", {
+	warning: function (warning) {
+		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss) {
+			console.warn("Font substitution warning: " + warning.getDescription());
+		}
+		return aspose.slides.ReturnAction.Continue;
+	}
+});
 
 // Set the warning callback in PDF options.
 let pdfOptions = new aspose.slides.PdfOptions();

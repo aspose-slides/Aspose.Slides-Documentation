@@ -35,6 +35,18 @@ Notes of some specific slide could be removed as shown in example below:
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
+function updateHeaderFooterText(master) {
+    let shapes = master.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        let shape = shapes.get_Item(i);
+        if (shape.getPlaceholder() !== null) {
+            if (shape.getPlaceholder().getType() === aspose.slides.PlaceholderType.Header) {
+                shape.getTextFrame().setText("HI there new header");
+            }
+        }
+    }
+}
+
 // Load Presentation
 var pres = new aspose.slides.Presentation("headerTest.pptx");
 try {
@@ -55,12 +67,15 @@ try {
 }
 ```
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateHeaderFooterText(master) {
     let shapes = master.getShapes();
     for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
+        let shape = shapes.get_Item(i);
         if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
+            if (shape.getPlaceholder().getType() === aspose.slides.PlaceholderType.Header) {
                 shape.getTextFrame().setText("HI there new header");
             }
         }

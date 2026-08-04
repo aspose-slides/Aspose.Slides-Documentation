@@ -160,7 +160,17 @@ Aspose.Slides for Node.js via Java allows you to set the date format for a categ
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+const dayjs = require("dayjs");
+
+function convertToOADate(date) {
+    const baseDate = dayjs("1899-12-30");
+    const days = date.diff(baseDate, "day");
+    const fractionalDay = (date.hour() / 24) +
+                          (date.minute() / (60 * 24)) +
+                          (date.second() / (60 * 24 * 60));
+
+    return String(days + fractionalDay);
+}
 
 var pres = new aspose.slides.Presentation();
 try {
@@ -169,10 +179,10 @@ try {
     wb.clear(0);
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(java.newInstanceSync("GregorianCalendar", 2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(java.newInstanceSync("GregorianCalendar", 2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(java.newInstanceSync("GregorianCalendar", 2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(java.newInstanceSync("GregorianCalendar", 2018, 1, 1))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(dayjs("2015-01-01"))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(dayjs("2016-01-01"))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(dayjs("2017-01-01"))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(dayjs("2018-01-01"))));
     var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
     series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
     series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));

@@ -101,7 +101,8 @@ var pres = new aspose.slides.Presentation(hugePresentationWithAudiosAndVideosFil
 try {
     // Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
     // to transfer the data from the presentation's video stream to a stream for a newly created video file.
-    var buffer = new byte[8 * 1024];
+    var bufferSize = 8 * 1024;
+    var buffer = java.newArray("byte", new Array(bufferSize).fill(0));
     // Iterates through the videos
     for (var index = 0; index < pres.getVideos().size(); index++) {
         var video = pres.getVideos().get_Item(index);
@@ -114,7 +115,7 @@ try {
             var outputFileStream = java.newInstanceSync("java.io.FileOutputStream", ("video" + index) + ".avi");
             try {
                 var bytesRead;
-                while ((bytesRead = presVideoStream.read(buffer, 0, buffer.length)) > 0) {
+                while ((bytesRead = presVideoStream.read(buffer, 0, bufferSize)) > 0) {
                     outputFileStream.write(buffer, 0, bytesRead);
                 }
             } finally {

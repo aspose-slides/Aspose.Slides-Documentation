@@ -182,9 +182,13 @@ Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you ca
 This JavaScript code demonstrates the external workbook creation process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
-    final var workbookPath = "externalWorkbook1.xlsx";
+    var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
     var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
     try {

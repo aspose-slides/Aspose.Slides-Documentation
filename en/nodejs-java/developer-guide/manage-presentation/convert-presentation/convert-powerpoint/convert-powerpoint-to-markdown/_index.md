@@ -124,9 +124,12 @@ If you want the images to appear together in the resulting markdown, you have to
 This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
-    final var outPath = "c:/documents";
+    const outPath = "c:/documents";
     var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
     markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Visual);
     markdownSaveOptions.setImagesSaveFolderName("md-images");

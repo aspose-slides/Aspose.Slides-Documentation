@@ -98,6 +98,8 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
+let presentation = new aspose.slides.Presentation();
+
 let layoutSlide1 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide1 = presentation.getSlides().addEmptySlide(layoutSlide1);
 
@@ -134,6 +136,8 @@ We’ll now add a slide that presents key performance metrics in table format.
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 
 let layoutSlide2 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide2 = presentation.getSlides().addEmptySlide(layoutSlide2);
@@ -180,6 +184,18 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
+function createBulletParagraph(text) {
+    let paragraph = new aspose.slides.Paragraph();
+    paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    paragraph.getParagraphFormat().setIndent(15);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    paragraph.setText(text);
+    return paragraph;
+}
+
+let presentation = new aspose.slides.Presentation();
+
 let layoutSlide3 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide3 = presentation.getSlides().addEmptySlide(layoutSlide3);
 
@@ -203,6 +219,8 @@ Finally, we save the presentation to disk:
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation();
 
 presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 ```

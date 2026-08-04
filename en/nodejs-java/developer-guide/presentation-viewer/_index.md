@@ -59,6 +59,16 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
+class CustomSvgShapeFormattingController {
+    constructor(shapeStartIndex = 0) {
+        this.m_shapeIndex = shapeStartIndex;
+    }
+
+    formatShape(svgShape, shape) {
+        svgShape.setId(`shape-${this.m_shapeIndex++}`);
+    }
+}
+
 var slideIndex = 0;
 
 var presentation = new aspose.slides.Presentation("sample.pptx");

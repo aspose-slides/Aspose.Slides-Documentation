@@ -88,14 +88,22 @@ Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/nodej
 This JavaScript code shows you how to check whether a shape was created as a text box:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    java.callStaticMethodSync("ForEach", "shape", presentation, (shape, slide, index) -> {
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var autoShape = shape;
-            console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        var slide = presentation.getSlides().get_Item(slideIndex);
+        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            var shape = slide.getShapes().get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                var autoShape = shape;
+                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+            }
         }
-    });
+    }
 } finally {
     presentation.dispose();
 }

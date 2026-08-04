@@ -247,6 +247,12 @@ The following sample code shows you how to use the `getBasePlaceholder` method f
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
+function printEffects(effects) {
+    for (const effect of effects) {
+        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+    }
+}
+
 var presentation = new aspose.slides.Presentation("sample.pptx");
 
 var slide = presentation.getSlides().get_Item(0);

@@ -242,6 +242,12 @@ There is another way to use properties of a particular presentation as a templat
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
+function updateByTemplate(path, template) {
+    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 var template = info.readDocumentProperties();
 template.setAuthor("Template Author");
@@ -274,6 +280,12 @@ A new template can be created from scratch and then used to update multiple pres
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+
+function updateByTemplate(path, template) {
+    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 
 var template = new aspose.slides.DocumentProperties();
 template.setAuthor("Template Author");
@@ -311,7 +323,7 @@ This JavaScript code shows you how to set the proofing language for a PowerPoint
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation(pptxFileName);
+var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);

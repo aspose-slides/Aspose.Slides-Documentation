@@ -95,9 +95,22 @@ Let's write some values in cells with 
 of the **Object** type, which means you can set any value to the property:
 
 ```javascript
-workbook.getCell(0, "F2").setValue(-2.5);
-workbook.getCell(0, "G3").setValue(6.3);
-workbook.getCell(0, "H4").setValue(3);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "F2").setValue(-2.5);
+    workbook.getCell(0, "G3").setValue(6.3);
+    workbook.getCell(0, "H4").setValue(3);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 Now to write formula to the cell, you can use the 
@@ -110,34 +123,95 @@ To set the [R1C1Formula](https://reference.aspose.com/slides/nodejs-java/aspose
 Then if you try to read the values from the cells B2 and C2, they will be calculated:
 
 ```javascript
-var value1 = cell1.getValue();// 7.8
-var value2 = cell2.getValue();// 2.1
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "F2").setValue(-2.5);
+    workbook.getCell(0, "G3").setValue(6.3);
+    workbook.getCell(0, "H4").setValue(3);
+
+    var cell1 = workbook.getCell(0, "B2");
+    cell1.setFormula("F2+G3+H4+1");
+    var cell2 = workbook.getCell(0, "C2");
+    cell2.setR1C1Formula("R[1]C[4]/R[2]C[5]");
+
+    var value1 = cell1.getValue();// 7.8
+    var value2 = cell2.getValue();// 2.1
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Logical Constants**
 You can use logical constants such as *FALSE* and *TRUE* in cell formulas:
 
 ```javascript
-workbook.getCell(0, "A2").setValue(false);
-var cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-var value = cell.getValue();// the value contains boolean "false"
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    var cell = workbook.getCell(0, "B2");
+    cell.setFormula("A2 = TRUE");
+    var value = cell.getValue();// the value contains boolean "false"
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Numerical Constants**
 Numbers can be used in common or scientific notations to create chart spreadsheet formula:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setFormula("1 + 0.5");
+    workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **String Constants**
 String (or literal) constant is a specific value that is used as it is and does not change. String constants may be: dates, texts, numbers, etc.:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setFormula("\"abc\"");
+    workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Error Constants**
@@ -153,9 +227,22 @@ Sometimes its not possible to calculate the result by the formula. In that case,
 - #VALUE! - unexpected value type. For example, string value set to numeric cell.
 
 ```javascript
-var cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-var value = cell.getValue();// the value contains the string "#DIV/0!"
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    var cell = workbook.getCell(0, "A2");
+    cell.setFormula("2 / 0");
+    var value = cell.getValue();// the value contains the string "#DIV/0!"
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Arithmetic Operators**
@@ -199,7 +286,20 @@ You can compare the values of cells with the comparison operators. When two valu
 Here is an example how to use A1-style cell reference in formula:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **R1C1-style Cell References**
@@ -217,7 +317,20 @@ workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
 Here is an example how to use A1-style cell reference in formula:
 
 ```javascript
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
+    var workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Predefined Functions**

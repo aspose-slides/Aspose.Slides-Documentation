@@ -351,7 +351,7 @@ var pres = new aspose.slides.Presentation();
 // Creates new image object
 try {
     var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
+    var image = aspose.slides.Images.fromFile("image.png");
     try {
         picture = pres.getImages().addImage(image);
     } finally {
@@ -367,7 +367,7 @@ try {
     picFrame.getPictureFormat().setCropTop(3);
     picFrame.getPictureFormat().setCropBottom(31);
     // Saves the result
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
+    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
     if (pres != null) {
@@ -494,7 +494,7 @@ try {
             image.dispose();
         }
     }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, picture.getWidth(), picture.getHeight(), picture);
     // set shape to have to preserve aspect ratio on resizing
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
 } catch (e) {console.log(e);

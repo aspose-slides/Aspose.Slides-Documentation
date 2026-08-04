@@ -59,7 +59,7 @@ try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
     var series;
-    var total_for_Cat = new double[chart.getChartData().getCategories().size()];
+    var total_for_Cat = new Array(chart.getChartData().getCategories().size()).fill(0);
     for (var k = 0; k < chart.getChartData().getCategories().size(); k++) {
         var cat = chart.getChartData().getCategories().get_Item(k);
         for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {

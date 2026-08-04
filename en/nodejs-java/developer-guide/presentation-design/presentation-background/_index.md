@@ -223,7 +223,12 @@ Read more: [**Tile Picture As Texture**](/slides/nodejs-java/shape-formatting/#t
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following JavaScript code shows you how to change the transparency for a slide background image:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
+
+let presentation = new aspose.slides.Presentation("ImageAsBackground.pptx");
+let slide = presentation.getSlides().get_Item(0);
 
 var transparencyValue = 30; // For example.
 
@@ -246,6 +251,9 @@ if (transparencyOperation == null) {
 } else {
     transparencyOperation.setAmount(100 - transparencyValue);
 }
+
+presentation.save("BackgroundTransparency.pptx", aspose.slides.SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 ## **Get the Slide Background Value**

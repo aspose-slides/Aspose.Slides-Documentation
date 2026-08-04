@@ -104,7 +104,10 @@ aspose.slides = require("aspose.slides.via.java");
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation();
 try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
+    var slide = pres.getSlides().get_Item(0);
+    // Adds a video frame that plays the online video
+    var videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/Tj75Arhq5ho");
+    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
     pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

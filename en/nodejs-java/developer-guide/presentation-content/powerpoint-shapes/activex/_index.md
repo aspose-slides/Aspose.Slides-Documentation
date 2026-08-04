@@ -74,6 +74,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
+const { Readable } = require("stream");
 
 const imageio = java.import("javax.imageio.ImageIO");
 // Accessing the presentation with ActiveX controls

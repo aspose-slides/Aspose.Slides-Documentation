@@ -47,7 +47,7 @@ var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     // Alternative text of the shape to be found
-    var shape = findShape(slide, "Shape1");
+    var shape = aspose.slides.SlideUtil.findShape(slide, "Shape1");
     if (shape != null) {
         console.log("Shape Name: " + shape.getName());
     }
@@ -133,7 +133,7 @@ try {
     var iCount = sld.getShapes().size();
     for (var i = 0; i < iCount; i++) {
         var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
+        if (altText === ashp.getAlternativeText()) {
             sld.getShapes().remove(ashp);
         }
     }

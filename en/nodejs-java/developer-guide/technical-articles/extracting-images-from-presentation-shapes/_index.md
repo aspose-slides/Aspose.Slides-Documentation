@@ -37,6 +37,7 @@ const fileSystem = require("fs");
 const pathModule = require("path");
 const cryptoModule = require("crypto");
 const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
 
 class ShapeReference {
     constructor(shape, namePart) {

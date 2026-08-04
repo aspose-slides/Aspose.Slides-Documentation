@@ -156,6 +156,16 @@ function getTitleSlide(presentation) {
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
+function getTitleSlide(presentation) {
+  for (let i = 0; i < presentation.getSlides().size(); i++) {
+    let slide = presentation.getSlides().get_Item(i);
+    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
+      return slide;
+    }
+  }
+  return null;
+}
+
 let presentation = new aspose.slides.Presentation();
 let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
 let presentation2 = new aspose.slides.Presentation("presentation2.pptx");

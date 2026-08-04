@@ -76,59 +76,172 @@ This JavaScript code shows you how to
 **Add a line** to the end of a path
 
 ```javascript
-lineTo(point);
-lineTo(x, y);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+
+var point = java.newInstanceSync("com.aspose.slides.Point2DFloat", 100, 50);
+var x = 100;
+var y = 50;
+
+geometryPath.lineTo(point);
+geometryPath.lineTo(x, y);
 ```
 **Add a line** to a specified position on a path:
 
 ```javascript
-lineTo(point, index);
-lineTo(x, y, index);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+
+var point = java.newInstanceSync("com.aspose.slides.Point2DFloat", 100, 50);
+var x = 100;
+var y = 50;
+var index = 1;
+
+geometryPath.lineTo(point, index);
+geometryPath.lineTo(x, y, index);
 ```
 **Add a cubic Bezier curve** at the end of a path:
 
 ```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+
+var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 50, 0);
+var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 100, 50);
+var point3 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 150, 100);
+var x1 = 50, y1 = 0;
+var x2 = 100, y2 = 50;
+var x3 = 150, y3 = 100;
+
+geometryPath.cubicBezierTo(point1, point2, point3);
+geometryPath.cubicBezierTo(x1, y1, x2, y2, x3, y3);
 ```
 **Add a cubic Bezier curve** to the specified position on a path:
 
 ```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+
+var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 50, 0);
+var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 100, 50);
+var point3 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 150, 100);
+var x1 = 50, y1 = 0;
+var x2 = 100, y2 = 50;
+var x3 = 150, y3 = 100;
+
+geometryPath.cubicBezierTo(point1, point2, point3);
+geometryPath.cubicBezierTo(x1, y1, x2, y2, x3, y3);
 ```
 **Add a quadratic Bezier curve** at the end of a path:
 
 ```javascript
-quadraticBezierTo(point1, point2);
-quadraticBezierTo(x1, y1, x2, y2);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+
+var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 50, 0);
+var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 100, 50);
+var x1 = 50, y1 = 0;
+var x2 = 100, y2 = 50;
+
+geometryPath.quadraticBezierTo(point1, point2);
+geometryPath.quadraticBezierTo(x1, y1, x2, y2);
 ```
 **Add quadratic Bezier curve** to a specified position on a path:
 
 ```javascript
-quadraticBezierTo(point1, point2, index);
-quadraticBezierTo(x1, y1, x2, y2, index);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+
+var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 50, 0);
+var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 100, 50);
+var x1 = 50, y1 = 0;
+var x2 = 100, y2 = 50;
+var index = 1;
+
+geometryPath.quadraticBezierTo(point1, point2, index);
+geometryPath.quadraticBezierTo(x1, y1, x2, y2, index);
 ```
 **Append a given arc** to a path:
 
 ```javascript
-arcTo(width, heigth, startAngle, sweepAngle);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+
+var width = 100;
+var heigth = 50;
+var startAngle = 180;
+var sweepAngle = -90;
+
+geometryPath.arcTo(width, heigth, startAngle, sweepAngle);
 ```
 **Close the current figure** of a path:
 
 ```javascript
-closeFigure();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+geometryPath.lineTo(100, 0);
+
+geometryPath.closeFigure();
 ```
 **Set the position for the next point**:
 
 ```javascript
-moveTo(point);
-moveTo(x, y);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+
+var point = java.newInstanceSync("com.aspose.slides.Point2DFloat", 100, 50);
+var x = 100;
+var y = 50;
+
+geometryPath.moveTo(point);
+geometryPath.moveTo(x, y);
 ```
 **Remove the path segment** at a given index:
 
 ```javascript
-removeAt(index);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var geometryPath = new aspose.slides.GeometryPath();
+geometryPath.moveTo(0, 0);
+geometryPath.lineTo(100, 0);
+
+var index = 1;
+
+geometryPath.removeAt(index);
 ```
 
 ## **Add Custom Points to Shape**

@@ -77,9 +77,14 @@ By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/n
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-// Assume you have a pre-configured HttpURLConnection instance (e.g., with custom timeouts, proxy settings, etc.)
-let urlConnection = yourPreconfiguredConnection;
+// Create and pre-configure an HttpURLConnection instance (e.g., with custom timeouts, proxy settings, etc.)
+let url = java.newInstanceSync("java.net.URL", "https://api.openai.com/v1/chat/completions");
+let urlConnection = url.openConnection();
+urlConnection.setConnectTimeout(10000);
+urlConnection.setReadTimeout(60000);
+
 let aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
 

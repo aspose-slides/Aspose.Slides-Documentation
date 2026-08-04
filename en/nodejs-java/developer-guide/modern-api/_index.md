@@ -87,13 +87,20 @@ In general, you will need to replace calls that use [BufferedImage](https://docs
 
 Legacy/deprecated API:
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-var imageio = java.import("javax.imageio.ImageIO");
-var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
-var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
-var file = java.newInstanceSync("java.io.File", "image.png");
-imageio.write(slideImage, "PNG", file);
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var imageio = java.import("javax.imageio.ImageIO");
+    var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
+    var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
+    var file = java.newInstanceSync("java.io.File", "image.png");
+    imageio.write(slideImage, "PNG", file);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 Modern API:
 ``` javascript
@@ -101,10 +108,15 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
-var slideImage = pres.getSlides().get_Item(0).getImage(size);
-slideImage.save("image.png", aspose.slides.ImageFormat.Png);
-slideImage.dispose();
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
+    var slideImage = pres.getSlides().get_Item(0).getImage(size);
+    slideImage.save("image.png", aspose.slides.ImageFormat.Png);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ### **Getting a Slide Thumbnail**

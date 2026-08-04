@@ -143,9 +143,9 @@ try {
 The [PresentationFactory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ```javascript
-PresentationText getPresentationText(String file, int mode);
-PresentationText getPresentationText(InputStream stream, int mode);
-PresentationText getPresentationText(InputStream stream, int mode, LoadOptions options);
+// PresentationFactory.getInstance().getPresentationText(file, mode);
+// PresentationFactory.getInstance().getPresentationText(stream, mode);
+// PresentationFactory.getInstance().getPresentationText(stream, mode, loadOptions);
 ```
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:
