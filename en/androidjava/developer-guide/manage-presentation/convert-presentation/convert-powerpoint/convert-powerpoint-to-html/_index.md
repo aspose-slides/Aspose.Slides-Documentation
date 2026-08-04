@@ -368,6 +368,11 @@ When you externalize resources, choose two paths deliberately:
 If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 String outputDirectory = System.getProperty("user.dir") + "/html-output";
 String mediaDirectory = outputDirectory + "/media";
 File outDir = new File(outputDirectory);
@@ -380,7 +385,7 @@ String mediaBaseUri = mediaDirectory;
 
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = ...;// intro.mp4
+    byte[] videoData = Files.readAllBytes(Paths.get("intro.mp4"));
 
     IVideo video = presentation.getVideos().addVideo(videoData);
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -397,7 +402,7 @@ try {
     htmlOptions.setSlideImageFormat(slideImageFormat);
 
     String htmlFilePath = outputDirectory + "/" + htmlFileName;
-    presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
+    presentation.save(htmlFilePath, SaveFormat.Html, htmlOptions);
 } finally {
     presentation.dispose();
 }

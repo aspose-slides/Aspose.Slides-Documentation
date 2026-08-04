@@ -55,13 +55,13 @@ try {
     IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
     // Highlight the word "try" in the shape.
-    shape.getTextFrame().highlightText("try", Color.rgb(173, 216, 230));
+    shape.getTextFrame().highlightText("try", new Color(173, 216, 230));
 
     TextSearchOptions searchOptions = new TextSearchOptions();
     searchOptions.setWholeWordsOnly(true);
 
     // Highlight the word "to" in the shape.
-    int violetColor = Color.rgb(238, 130, 238);
+    Color violetColor = new Color(238, 130, 238);
     shape.getTextFrame().highlightText("to", violetColor, searchOptions, null);
 
     presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
@@ -119,7 +119,7 @@ try {
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Set the highlight color for the entire paragraph.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -147,7 +147,7 @@ try {
 
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Set the highlight color for the text portion.
-            portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
+            portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
 
@@ -207,7 +207,7 @@ try {
 
     // Set the fill color of the text to transparent color.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
     presentation.save("transparent_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -238,7 +238,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Set the transparency of the text portion.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-            portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
+            portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
     }
 

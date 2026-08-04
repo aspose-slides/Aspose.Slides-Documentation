@@ -67,8 +67,9 @@ This sample code demonstrates how to do this:
 
 ```java 
 import com.aspose.slides.*;
+import java.awt.Dimension;
 
-Size imageSize = new Size(1820, 1040);
+Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
@@ -110,7 +111,7 @@ try {
     notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Set the position of the notes.
     notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Set the position of the comments.
     notesCommentsOptions.setCommentsAreaWidth(500);                         // Set the width of the comments area.
-    notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // Set the color for the comments area.
+    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Set the color for the comments area.
 
     // Create the rendering options.
     RenderingOptions options = new RenderingOptions();
@@ -144,6 +145,7 @@ This code demonstrates a conversion process where TIFF options are used to outpu
 
 ```java 
 import com.aspose.slides.*;
+import java.awt.Dimension;
 
 // Load a presentation file.
 Presentation presentation = new Presentation("sample.pptx");
@@ -153,7 +155,7 @@ try {
 
     // Configure the settings of the output TIFF image.
     TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Size(2160, 2880));                  // Set the image size.
+    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Set the image size.
     tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Set the pixel format (black and white).
     tiffOptions.setDpiX(300);                                        // Set the horizontal resolution.
     tiffOptions.setDpiY(300);                                        // Set the vertical resolution.

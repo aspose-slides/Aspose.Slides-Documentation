@@ -97,12 +97,26 @@ This Java code shows you how to add a video from the web to a slide in a PowerPo
 
 ```java
 import com.aspose.slides.*;
+import java.io.IOException;
+import java.net.URL;
 
-// Instantiates a Presentation object that represents a presentation file 
+String videoID = "Tj75Arhq5ho";
+
+// Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation();
 try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
+    // Adds a video frame
+    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
+            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
+    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
+
+    // Loads the thumbnail
+    URL url = new URL("http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg");
+    videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
+
     pres.save("out.pptx", SaveFormat.Pptx);
+} catch (IOException e) {
+    e.printStackTrace();
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -222,10 +236,14 @@ To add captions to a video frame:
 The following code shows you how to add captions to a video frame:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = // "video.mp4";
-    IVideo video = presentation.getVideos().addVideo(videoData);
+    FileInputStream videoStream = new FileInputStream("video.mp4");
+    IVideo video = presentation.getVideos().addVideo(
+            videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
 
     ISlide slide = presentation.getSlides().get_Item(0);
     IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);

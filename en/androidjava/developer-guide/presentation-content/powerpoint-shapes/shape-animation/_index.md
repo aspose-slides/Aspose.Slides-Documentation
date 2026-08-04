@@ -86,7 +86,7 @@ try {
     effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
 
     // Save the PPTX file to disk
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+    pres.save("AnimText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -111,7 +111,6 @@ This Java code shows you how to apply the `Fly` effect to a picture frame:
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 // Instantiates a presentation class that represents a presentation file.
 Presentation pres = new Presentation();
@@ -135,8 +134,7 @@ try {
     IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Save the PPTX file to disk
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    pres.save("AnimImage_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -157,6 +155,7 @@ This Java code shows you how to apply the `PathFootball` (path football) effect 
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Point2D;
 
 // Instantiate a Presentation class that represents a PPTX file.
 Presentation pres = new Presentation();
@@ -266,9 +265,14 @@ IShape masterShape = layoutShape.getBasePlaceholder();
 IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
 
 System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
+for (IEffect[] effects : new IEffect[][] { masterShapeEffects, layoutShapeEffects, shapeEffects }) {
+    for (IEffect effect : effects) {
+        String typeName = EffectType.getName(EffectType.class, effect.getType());
+        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+
+        System.out.println(typeName + " " + subtypeName);
+    }
+}
 
 presentation.dispose();
 ```

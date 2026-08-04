@@ -142,21 +142,23 @@ Animations and transitions make slideshows more engaging and interesting—and t
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Adds a smile shape and animates it
+// The presentation with the animated smile shape created above.
+Presentation presentation = new Presentation();
+try {
+    // Adds a new slide and animated transition
 
-// ...
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-// Adds a new slide and animated transition
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
-
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 Aspose.Slides also supports animation for texts. So we animate paragraphs on objects, which will appear one after the other (with the delay set to a second):
@@ -251,7 +253,6 @@ To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 Presentation presentation = new Presentation();
 try {
@@ -268,20 +269,14 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // initial animation state
-            try {
-                // initial animation state bitmap
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // initial animation state bitmap
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // final state of the animation
-            try {
-                // last frame of the animation
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // last frame of the animation
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
@@ -295,7 +290,6 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 Presentation presentation = new Presentation("animated.pptx");
 try {
@@ -305,11 +299,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {

@@ -130,13 +130,25 @@ Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+
+    ISlide slide1 = null;
+    for (ISlide slide : presentation1.getSlides()) {
+        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
+            slide1 = slide;
+            break;
+        }
+    }
 
     if (slide1 != null)
         presentation.getSlides().addClone(slide1);
 
-    ISlide slide2 = getTitleSlide(presentation2);
+    ISlide slide2 = null;
+    for (ISlide slide : presentation2.getSlides()) {
+        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
+            slide2 = slide;
+            break;
+        }
+    }
 
     if (slide2 != null)
         presentation.getSlides().addClone(slide2);

@@ -75,11 +75,22 @@ By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/a
 
 ```java
 import com.aspose.slides.*;
+import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.URI;
 
-// Assume you have a pre-configured HttpURLConnection instance (e.g., with custom timeouts, proxy settings, etc.)
-HttpURLConnection urlConnection = yourPreconfiguredConnection;
-OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+try {
+    // Configure an HttpURLConnection instance yourself (e.g., with custom timeouts, proxy settings, etc.).
+    HttpURLConnection urlConnection = (HttpURLConnection) URI.create("https://api.openai.com/v1/chat/completions").toURL().openConnection();
+    urlConnection.setConnectTimeout(10000);
+    urlConnection.setReadTimeout(60000);
+
+    // Pass the connection to the OpenAIWebClient constructor.
+    OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
 ```
 
 ## **Key Benefits**

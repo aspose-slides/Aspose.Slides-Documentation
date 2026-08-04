@@ -47,7 +47,7 @@ try {
 
     ISlide slide = pres.getSlides().get_Item(0);
     // Alternative text of the shape to be found
-    IShape shape = findShape(slide, "Shape1");
+    IShape shape = SlideUtil.findShape(slide, "Shape1");
     if (shape != null)
     {
         System.out.println("Shape Name: " + shape.getName());
@@ -134,7 +134,7 @@ try {
     for (int i = 0; i < iCount; i++)
     {
         AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
+        if (altText.equals(ashp.getAlternativeText()))
         {
             sld.getShapes().remove(ashp);
         }
@@ -339,6 +339,8 @@ Aspose.Slides allows to align shapes either relative to the slide margins or rel
 Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("example.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -353,7 +355,6 @@ try {
     });
 } finally {
     if (pres != null) pres.dispose();
-}
 }
 ```
 

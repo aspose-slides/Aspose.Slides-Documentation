@@ -123,26 +123,18 @@ In this section, you will learn how to get started with Aspose.Slides for Androi
 1. Navigate back to the code section of the app and add these imports: 
 
 ``` java
-
- import java.io.File;
+import java.io.File;
 
 import com.aspose.slides.IAutoShape;
-
 import com.aspose.slides.IParagraph;
-
 import com.aspose.slides.IPortion;
-
 import com.aspose.slides.ISlide;
-
 import com.aspose.slides.ITextFrame;
-
 import com.aspose.slides.Presentation;
-
 import com.aspose.slides.SaveFormat;
-
 import com.aspose.slides.ShapeType;
 
-import android.os.Environment; 
+import android.os.Environment;
 
 ```
 

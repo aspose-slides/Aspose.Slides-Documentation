@@ -41,7 +41,6 @@ The implementation of the above is given below.
 
 ```java
 import com.aspose.slides.*;
-import java.io.IOException;
 
 // Use load options to define the default regualr and asian fonts
 LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
@@ -65,7 +64,6 @@ try {
 
     // Generate XPS
     pres.save("output_out.xps", SaveFormat.Xps);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }

@@ -97,8 +97,16 @@ By default, the rectangle shape is styled with fill and line colors. The followi
 ```java
 import com.aspose.slides.*;
 
-watermarkShape.getFillFormat().setFillType(FillType.NoFill);
-watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.getFillFormat().setFillType(FillType.NoFill);
+    watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Set the Font for a Text Watermark**
@@ -108,9 +116,18 @@ You can change the font of the text watermark as shown below.
 ```java
 import com.aspose.slides.*;
 
-IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
-textFormat.setLatinFont(new FontData("Arial"));
-textFormat.setFontHeight(50);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    textFormat.setLatinFont(new FontData("Arial"));
+    textFormat.setFontHeight(50);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Set the Watermark Text Color**
@@ -123,9 +140,18 @@ import java.awt.Color;
 
 int alpha = 150, red = 200, green = 200, blue = 200;
 
-IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
-fillFormat.setFillType(FillType.Solid);
-fillFormat.getSolidFillColor().setColor(Color.argb(alpha, red, green, blue));
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+    fillFormat.setFillType(FillType.Solid);
+    fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Center a Text Watermark**
@@ -134,18 +160,27 @@ It is possible to center the watermark on a slide, and for that, you can do the 
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-SizeF slideSize = presentation.getSlideSize().getSize();
+String watermarkText = "CONFIDENTIAL";
 
-float watermarkWidth = 400;
-float watermarkHeight = 40;
-float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
-float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(
-        ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+    float watermarkWidth = 400;
+    float watermarkHeight = 40;
+    float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
+    float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
 
-ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(
+            ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+} finally {
+    presentation.dispose();
+}
 ```
 
 The image below shows the final result.
@@ -163,12 +198,20 @@ import com.aspose.slides.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-InputStream imageStream = new FileInputStream("watermark.png");
-IPPImage image = presentation.getImages().addImage(imageStream);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 
-watermarkShape.getFillFormat().setFillType(FillType.Picture);
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    InputStream imageStream = new FileInputStream("watermark.png");
+    IPPImage image = presentation.getImages().addImage(imageStream);
+
+    watermarkShape.getFillFormat().setFillType(FillType.Picture);
+    watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Lock a Watermark from Editing**
@@ -176,12 +219,22 @@ watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(Picture
 If it is necessary to prevent a watermark from being edited, use the [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) method on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
 ```java
-// Lock the watermark shape from modifying
-watermarkShape.getAutoShapeLock().setSelectLocked(true);
-watermarkShape.getAutoShapeLock().setSizeLocked(true);
-watermarkShape.getAutoShapeLock().setTextLocked(true);
-watermarkShape.getAutoShapeLock().setPositionLocked(true);
-watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    // Lock the watermark shape from modifying
+    watermarkShape.getAutoShapeLock().setSelectLocked(true);
+    watermarkShape.getAutoShapeLock().setSizeLocked(true);
+    watermarkShape.getAutoShapeLock().setTextLocked(true);
+    watermarkShape.getAutoShapeLock().setPositionLocked(true);
+    watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Bring a Watermark to Front**
@@ -189,8 +242,18 @@ watermarkShape.getAutoShapeLock().setGroupingLocked(true);
 In Aspose.Slides, the Z-order of shapes can be set via the [IShapeCollection.reorder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
 ```java
-int shapeCount = slide.getShapes().size();
-slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    int shapeCount = slide.getShapes().size();
+    slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Set Watermark Rotation**
@@ -198,9 +261,21 @@ slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 Here is a code example of how to adjust the rotation of the watermark so that it is positioned diagonally across the slide:
 
 ```java
-double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-watermarkShape.setRotation((float)diagonalAngle);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
+
+    double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+
+    watermarkShape.setRotation((float)diagonalAngle);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Set a Name for a Watermark**
@@ -208,7 +283,17 @@ watermarkShape.setRotation((float)diagonalAngle);
 Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [IAutoShape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) method:
 
 ```java
-watermarkShape.setName("watermark");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.setName("watermark");
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Remove a Watermark**
@@ -218,12 +303,19 @@ To remove the watermark shape, use the [IAutoShape.getName](https://reference.as
 ```java
 import com.aspose.slides.*;
 
-IShape[] slideShapes = slide.getShapes().toArray();
-for (IShape shape : slideShapes) {
-    if ("watermark".equals(shape.getName()))
-    {
-        slide.getShapes().remove(watermarkShape);
+Presentation presentation = new Presentation("watermarked.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape[] slideShapes = slide.getShapes().toArray();
+    for (IShape shape : slideShapes) {
+        if ("watermark".equals(shape.getName()))
+        {
+            slide.getShapes().remove(shape);
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 

@@ -24,13 +24,15 @@ Embed a PDF file into the presentation.
 ```java
 import com.aspose.slides.*;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 static void addOleObject() throws IOException {
     Presentation presentation = new Presentation();
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = readAllBytes("doc.pdf");
+        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
         IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
     } finally {
@@ -46,13 +48,15 @@ Retrieve the first OLE object frame on a slide.
 ```java
 import com.aspose.slides.*;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 static void accessOleObject() throws IOException {
     Presentation presentation = new Presentation();
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = readAllBytes("doc.pdf");
+        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
         IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
 
@@ -76,13 +80,15 @@ Delete an embedded OLE object from the slide.
 ```java
 import com.aspose.slides.*;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 static void removeOleObject() throws IOException {
     Presentation presentation = new Presentation();
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
-        byte[] pdfData = readAllBytes("doc.pdf");
+        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
         IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
         
@@ -108,7 +114,7 @@ static void updateOleObjectData() throws IOException {
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
         
-        byte[] pdfData = readAllBytes("doc.pdf");
+        byte[] pdfData = Files.readAllBytes(Paths.get("doc.pdf"));
         OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, dataInfo);
 

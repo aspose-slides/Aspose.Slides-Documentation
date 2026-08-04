@@ -102,7 +102,6 @@ This Java code shows you how to create a zoom frame with a different image:
 ``` java
 import com.aspose.slides.*;
 import java.awt.Color;
-import java.io.IOException;
 
 Presentation pres = new Presentation();
 try {
@@ -120,18 +119,17 @@ try {
 
     // Creates a new image for the zoom object
     IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
     //Adds the ZoomFrame object
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
 
     // Saves the presentation
     pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -156,7 +154,6 @@ This Java code shows you how to change a zoom frame's formatting on a slide:
 ``` java 
 import com.aspose.slides.*;
 import java.awt.Color;
-import java.io.IOException;
 
 Presentation pres = new Presentation();
 try {
@@ -188,14 +185,14 @@ try {
 
     // Creates a new image for the zoom object
     IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
     // Sets custom image for zoomFrame1 object
-    zoomFrame1.setImage(picture);
+    zoomFrame1.setZoomImage(picture);
 
     // Sets a zoom frame format for the zoomFrame2 object
     zoomFrame2.getLineFormat().setWidth(5);
@@ -208,7 +205,6 @@ try {
 
     // Saves the presentation
     pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -276,7 +272,6 @@ This Java code shows you how to create a zoom frame with a different image:
 ``` java 
 import com.aspose.slides.*;
 import java.awt.Color;
-import java.io.IOException;
 
 Presentation pres = new Presentation();
 try {
@@ -303,7 +298,6 @@ try {
 
     // Saves the presentation
     pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -333,7 +327,6 @@ This Java code shows you how to change a section zoom frame's formatting:
 ``` java
 import com.aspose.slides.*;
 import java.awt.Color;
-import java.io.IOException;
 
 Presentation pres = new Presentation();
 try {
@@ -358,11 +351,11 @@ try {
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-         picture = pres.getImages().addImage(image);
-     } finally {
+        picture = pres.getImages().addImage(image);
+    } finally {
         if (image != null) image.dispose();
-     }
-    sectionZoomFrame.setImage(picture);
+    }
+    sectionZoomFrame.setZoomImage(picture);
 
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
@@ -376,7 +369,6 @@ try {
 
     // Saves the presentation
     pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -539,7 +531,6 @@ This Java code shows you how to change the formatting for a summary zoom section
 ``` java
 import com.aspose.slides.*;
 import java.awt.Color;
-import java.io.IOException;
 
 Presentation pres = new Presentation();
 try {
@@ -571,11 +562,11 @@ try {
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-    summarySection.setImage(picture);
+    summarySection.setZoomImage(picture);
 
     summarySection.setReturnToParent(false);
 
@@ -588,7 +579,6 @@ try {
 
     // Saves the presentation
     pres.save("presentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }

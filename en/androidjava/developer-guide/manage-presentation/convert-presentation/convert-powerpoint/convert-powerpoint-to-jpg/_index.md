@@ -124,7 +124,7 @@ try {
     NotesCommentsLayoutingOptions commentsOptions = new NotesCommentsLayoutingOptions();
     commentsOptions.setCommentsPosition(CommentsPositions.Right);
     commentsOptions.setCommentsAreaWidth(200);
-    commentsOptions.setCommentsAreaColor(Color.rgb(255, 140, 0));
+    commentsOptions.setCommentsAreaColor(new Color(255, 140, 0));
 
     IRenderingOptions options = new RenderingOptions();
     options.setSlidesLayoutOptions(commentsOptions);

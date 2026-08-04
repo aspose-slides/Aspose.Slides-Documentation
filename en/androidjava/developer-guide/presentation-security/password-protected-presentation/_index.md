@@ -129,6 +129,8 @@ Aspose.Slides allow you to load an encrypted file by passing its password. To de
 This sample code shows you how to decrypt a presentation: 
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setPassword("123123");
 Presentation presentation = new Presentation("pres.pptx", loadOptions);
@@ -136,7 +138,6 @@ try {
     // work with decrypted presentation
 } finally {
     if (presentation != null) presentation.dispose();
-}
 }
 ```
 

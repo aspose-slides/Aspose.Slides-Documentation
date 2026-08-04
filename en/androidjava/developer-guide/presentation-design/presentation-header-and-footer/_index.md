@@ -45,7 +45,14 @@ try {
     IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (null != masterNotesSlide)
     {
-        updateHeaderFooterText(masterNotesSlide);
+        for (IShape shape : masterNotesSlide.getShapes())
+        {
+            if (shape.getPlaceholder() != null
+                    && shape.getPlaceholder().getType() == PlaceholderType.Header)
+            {
+                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
+            }
+        }
     }
 
     // Save presentation

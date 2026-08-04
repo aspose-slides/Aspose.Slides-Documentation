@@ -44,15 +44,19 @@ import com.aspose.slides.*;
 
 Presentation pres = new Presentation("Sample.pptx");
 try {
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    notesOptions.setNotesPosition(NotesPositions.BottomFull);
+
     SwfOptions swfOptions = new SwfOptions();
     swfOptions.setViewerIncluded(false);
-    swfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-    
+    swfOptions.setSlidesLayoutOptions(notesOptions);
+
     // Saving presentation
     pres.save("Sample.swf", SaveFormat.Swf, swfOptions);
 } finally {
     if (pres != null) pres.dispose();
 }
+
 ```
 
 ## **FAQ**

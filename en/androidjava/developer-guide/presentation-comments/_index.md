@@ -49,6 +49,7 @@ This Java code shows you how to add a comment to a slide in a PowerPoint present
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Point2D;
 import java.util.Date;
 
 // Instantiates the Presentation class
@@ -123,6 +124,7 @@ This Java code shows you how to add comments and get replies to them:
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Point2D;
 import java.util.Date;
 
 Presentation pres = new Presentation();
@@ -193,6 +195,7 @@ This Java code shows you how to add a modern comment to a slide in a PowerPoint 
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Point2D;
 import java.util.Date;
 
 Presentation pres = new Presentation();
@@ -238,6 +241,7 @@ This Java code shows you how to delete specific comments on a slide:
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Date;
 

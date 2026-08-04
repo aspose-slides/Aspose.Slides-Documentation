@@ -233,6 +233,7 @@ Use this approach for pictures inserted as standalone objects. An [IPictureFrame
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -281,6 +282,7 @@ Shapes can use a picture as their fill. Check the shape's fill type first: if it
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
@@ -330,6 +332,7 @@ An [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -382,6 +385,7 @@ An [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slid
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -434,6 +438,7 @@ An [IAudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slid
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -486,6 +491,7 @@ finally
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -551,6 +557,7 @@ An [ISummaryZoomFrame](https://reference.aspose.com/slides/androidjava/com.aspos
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -609,6 +616,7 @@ An [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/it
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -673,6 +681,7 @@ An [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ic
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -726,6 +735,7 @@ An [ISmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";
@@ -800,6 +810,7 @@ Grouped shapes contain their own shape collections. The shared `enumerateShapes`
 ```java
 import com.aspose.slides.*;
 import java.io.File;
+import java.util.List;
 import java.util.Set;
 
 String inputPath = "sample.pptx";

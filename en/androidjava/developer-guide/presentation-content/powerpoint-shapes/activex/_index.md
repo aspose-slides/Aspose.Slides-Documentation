@@ -77,6 +77,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
 ```java
 import com.aspose.slides.*;
 import java.awt.FontMetrics;
+import java.awt.SystemColor;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -139,9 +140,11 @@ try {
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
+
         // Changing substitute
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
+
         java.awt.Graphics graphics = image.getGraphics();
         graphics.setColor(SystemColor.control);
         graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
@@ -165,32 +168,33 @@ try {
         graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
 
         graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
+        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
+        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
 
-                graphics.dispose();
+        graphics.dispose();
 
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(image, "PNG", baos);
 
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-            }
+        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    }
 
-            // moving 100 points down
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
+    // moving 100 points down
+    for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
+        IShapeFrame frame = ctl.getFrame();
+        ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
+                frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
+    }
+    pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
 
-            // removing controls
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
-        }
+    // removing controls
+    pres.getSlides().get_Item(0).getControls().clear();
+    pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
+
 ```
 
 ## **FAQ**

@@ -94,11 +94,21 @@ Let's write some values in cells with 
 of the **Object** type, which means you can set any value to the property:
 
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "F2").setValue(-2.5);
+
+    workbook.getCell(0, "G3").setValue(6.3);
+
+    workbook.getCell(0, "H4").setValue(3);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Now to write formula to the cell, you can use the 
@@ -111,9 +121,31 @@ To set the [R1C1Formula](https://reference.aspose.com/slides/androidjava/com.as
 Then if you try to read the values from the cells B2 and C2, they will be calculated:
 
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "F2").setValue(-2.5);
+    workbook.getCell(0, "G3").setValue(6.3);
+    workbook.getCell(0, "H4").setValue(3);
+
+    IChartDataCell cell1 = workbook.getCell(0, "B2");
+    cell1.setFormula("F2+G3+H4+1");
+
+    IChartDataCell cell2 = workbook.getCell(0, "C2");
+    cell2.setR1C1Formula("R[1]C[4]/R[2]C[5]");
+
+    workbook.calculateFormulas();
+
+    Object value1 = cell1.getValue(); // 7.8
+
+    Object value2 = cell2.getValue(); // 2.1
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Logical Constants**
@@ -122,26 +154,54 @@ You can use logical constants such as *FALSE* and *TRUE* in cell formulas:
 ```java
 import com.aspose.slides.*;
 
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // the value contains boolean "false"
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    IChartDataCell cell = workbook.getCell(0, "B2");
+    cell.setFormula("A2 = TRUE");
+    Object value = cell.getValue(); // the value contains boolean "false"
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Numerical Constants**
 Numbers can be used in common or scientific notations to create chart spreadsheet formula:
 
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setFormula("1 + 0.5");
+    workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **String Constants**
 String (or literal) constant is a specific value that is used as it is and does not change. String constants may be: dates, texts, numbers, etc.:
 
 ```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setFormula("\"abc\"");
+    workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Error Constants**
@@ -159,9 +219,17 @@ Sometimes its not possible to calculate the result by the formula. In that case,
 ```java
 import com.aspose.slides.*;
 
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // the value contains the string "#DIV/0!"
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("2 / 0");
+    Object value = cell.getValue(); // the value contains the string "#DIV/0!"
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Arithmetic Operators**
@@ -205,7 +273,17 @@ You can compare the values of cells with the comparison operators. When two valu
 Here is an example how to use A1-style cell reference in formula:
 
 ```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **R1C1-style Cell References**
@@ -223,7 +301,17 @@ workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
 Here is an example how to use A1-style cell reference in formula:
 
 ```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Predefined Functions**

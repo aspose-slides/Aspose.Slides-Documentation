@@ -225,29 +225,31 @@ try {
 This Java code demonstrates the operation: 
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
     // Let's assume that the first shape on the first slide is a table
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
     // Sets the first column cells' font height
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
+
     someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
 
     // Sets the first column cells' text alignment and right margin in one call
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
+
     someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
     // Sets the second column cells' text vertical type
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
+
     someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
     pres.save("result.pptx", SaveFormat.Pptx);

@@ -53,6 +53,9 @@ The following code example demonstrates the font loading process:
 import com.aspose.slides.*;
 
 // Define folders that contain custom font files.
+String externalFontFolder1 = "assets/fonts";
+String externalFontFolder2 = "global/fonts";
+
 String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
 // Load custom fonts from the specified folders.
@@ -61,7 +64,7 @@ FontsLoader.loadExternalFonts(fontFolders);
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
-    
+
     // Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
@@ -103,9 +106,10 @@ This Java code shows you how to use the [setDocumentLevelFontSources](https://re
 ```java
 import com.aspose.slides.*;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
+byte[] memoryFont1 = Files.readAllBytes(Paths.get("customfonts/CustomFont1.ttf"));
+byte[] memoryFont2 = Files.readAllBytes(Paths.get("customfonts/CustomFont2.ttf"));
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });

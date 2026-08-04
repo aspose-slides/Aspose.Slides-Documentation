@@ -33,7 +33,9 @@ Let's say we want to convert all the slides from a PowerPoint presentation to PN
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 import java.util.ArrayList;
+import java.util.List;
 
 String inputFilePath = "sample.pptx";
 final String outputFilePathTemplate = "slide_%d.png";
@@ -42,7 +44,7 @@ final float imageScale = 2;
 Presentation presentation = new Presentation(inputFilePath);
 
 int slideCount = presentation.getSlides().size();
-SizeF slideSize = presentation.getSlideSize().getSize();
+Dimension2D slideSize = presentation.getSlideSize().getSize();
 float slideWidth = (float) slideSize.getWidth();
 float slideHeight = (float) slideSize.getHeight();
 
@@ -75,6 +77,11 @@ for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
 	}));
 }
 
+// Start all the threads.
+for (Thread t : threads) {
+	t.start();
+}
+
 // Wait for all tasks to complete.
 try {
 	for (Thread t : threads) {
@@ -85,6 +92,7 @@ try {
 }
 
 presentation.dispose();
+
 ```
 
 ## **FAQ**

@@ -130,13 +130,15 @@ Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```java
 import com.aspose.slides.*;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 class ImageLoadingHandler implements IResourceLoadingCallback {
     public int resourceLoading(IResourceLoadingArgs args) {
         if (args.getOriginalUri().endsWith(".jpg")) {
             try {
                 // Load a substitute image.
-                byte[] imageData = getImageBytes("aspose-logo.jpg"); // Use any method to get bytes
+                byte[] imageData = Files.readAllBytes(Paths.get("aspose-logo.jpg"));
                 args.setData(imageData);
                 return ResourceLoadingAction.UserProvided;
             } catch (RuntimeException ex) {
