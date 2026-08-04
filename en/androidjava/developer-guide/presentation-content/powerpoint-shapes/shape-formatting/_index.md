@@ -62,7 +62,7 @@ try {
     // Add an auto shape of the Rectangle type.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Set the fill color for the rectangle shape.
+    // Remove the fill from the rectangle shape so only its lines are visible.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // Apply formatting to the rectangle's lines.

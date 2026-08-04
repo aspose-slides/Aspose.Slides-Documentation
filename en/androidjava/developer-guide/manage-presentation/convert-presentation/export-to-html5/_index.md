@@ -128,7 +128,7 @@ Let's say we have the following PowerPoint presentation saved in the "sample.ppt
 
 ![Two comments on the presentation slide](two_comments_pptx.png)
 
-When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `getNotesCommentsLayouting` method of the [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) class.
+When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to pass the display parameters for comments to the `setSlidesLayoutOptions` method of the [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) class.
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```java

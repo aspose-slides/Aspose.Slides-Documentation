@@ -83,7 +83,7 @@ try {
     tredLinePol.setOrder((byte)3);
     
     // Adding Power trend line for chart series 3
-    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
+    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Power);
     tredLinePower.setTrendlineType(TrendlineType.Power);
     tredLinePower.setBackward(1);
     

@@ -26,7 +26,7 @@ The article also provides a step-by-step example that shows how to create a new 
 ## **Installation**
 Previously, Aspose.Slides for Android via Java was distributed as a single ZIP file containing the JAR file, demos, and the product documentation. 
 
-1. If you want to use a version older than Aspose.Words for Android via Java 18.9, you need to unzip that version of Aspose.Slides.Android.zip into your preferred directory. 
+1. If you want to use a version older than Aspose.Slides for Android via Java 18.9, you need to unzip that version of Aspose.Slides.Android.zip into your preferred directory. 
 1. Add the extracted Jar file in your application by using the Build Path configuration. 
 ### **Add a Reference to Aspose.Slides for Android via Java Jar**
 1. Download the newest version of [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/androidjava)

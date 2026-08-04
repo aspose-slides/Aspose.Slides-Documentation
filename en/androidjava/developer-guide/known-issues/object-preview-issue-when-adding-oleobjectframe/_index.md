@@ -65,8 +65,7 @@ try {
     IImage image = Images.fromFile("myImage.png");
     IPPImage oleImage = presentation.getImages().addImage(image);
 
-    // Set a title and the image for the OLE object preview.
-    oleFrame.setSubstitutePictureTitle("My title");
+    // Set the image for the OLE object preview.
     oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
     oleFrame.setObjectIcon(false);
 
@@ -75,6 +74,8 @@ try {
     if (presentation != null) presentation.dispose();    
 }
 ```
+
+`setObjectIcon` must be `false` so that the picture is shown as the object preview rather than as an icon caption. `setSubstitutePictureTitle` is saved only for objects displayed as icons, so it is not used here.
 
 The slide containing the `OleObjectFrame` then changes to this:
 

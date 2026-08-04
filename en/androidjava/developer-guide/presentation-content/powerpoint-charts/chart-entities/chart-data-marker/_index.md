@@ -91,7 +91,7 @@ try {
     series.getMarker().setSize(15);
     
     // Save presentation with chart
-    pres.save("ScatterChart.pptx", SaveFormat.Pptx);
+    pres.save("MarkOptions_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();

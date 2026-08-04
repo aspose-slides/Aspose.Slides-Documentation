@@ -81,7 +81,7 @@ Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Set the background color for the Master slide to Forest Green.
+    // Set the background color for the master slide to green.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -107,6 +107,7 @@ The following Java example shows how to set a gradient color as the background f
 
 ```java
 import com.aspose.slides.*;
+import java.awt.Color;
 
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
@@ -116,7 +117,13 @@ try {
     // Apply a gradient effect to the background.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Add the gradient colors. Without gradient stops, the background falls back to a default black-to-white ramp.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Save the presentation to disk.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);

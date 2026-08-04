@@ -228,7 +228,7 @@ private static String makeSafeFileNamePart(String value)
 
 ## **Extract Images from Picture Frames**
 
-Use this approach for pictures inserted as standalone objects. An [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) stores its picture in `getPictureFormat().getPicture().getImage()`, which returns an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) object.
+Use this approach for pictures inserted as standalone objects. An [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) stores its picture in `getPictureFormat().getPicture().getImage()`, which returns an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) object. Note that [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) and [IAudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/) derive from [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), so this `instanceof` check also matches media frames and exports their preview images; test for those types first when you want to treat them separately, as the last example on this page does.
 
 ```java
 import com.aspose.slides.*;

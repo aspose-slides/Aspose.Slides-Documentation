@@ -227,7 +227,14 @@ This sample code shows you how to perform the described task:
 
 ```java 
 import com.aspose.slides.*;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import com.aspose.cells.SheetRender;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 Workbook book = new Workbook("chart.xlsx");
 Worksheet sheet = book.getWorksheets().get(0);
@@ -249,12 +256,13 @@ try {
         EmfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
         sr.toImage(j, EmfSheetName);
 
+        // Add the file as-is so the picture stays a vector EMF instead of being rasterized.
         IPPImage picture;
-        IImage image = Images.fromFile(EmfSheetName);
+        InputStream imageStream = new FileInputStream(EmfSheetName);
         try {
-            picture = pres.getImages().addImage(image);
+            picture = pres.getImages().addImage(imageStream);
         } finally {
-            if (image != null) image.dispose();
+            imageStream.close();
         }
         ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
         IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
@@ -285,13 +293,14 @@ Follow the steps below:
 
 ```java
 import com.aspose.slides.*;
-import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // The first way.
-    IImage imageData = Images.fromStream(new FileInputStream("image0.jpeg"));
+    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
     IPPImage oldImage = presentation.getImages().get_Item(0);
     oldImage.replaceImage(imageData);
     

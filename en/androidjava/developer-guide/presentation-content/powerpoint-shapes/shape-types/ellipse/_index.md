@@ -81,7 +81,7 @@ try {
 
     // Apply some formatting to ellipse shape
     shp.getFillFormat().setFillType(FillType.Solid);
-    shp.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Chocolate));
+    shp.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.Chocolate);
 
     // Apply some formatting to the line of Ellipse
     shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);

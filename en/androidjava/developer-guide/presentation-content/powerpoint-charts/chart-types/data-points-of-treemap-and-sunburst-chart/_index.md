@@ -107,7 +107,7 @@ try {
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
 
 ## **Set a Data Point Branch Color**
-Change color of "Steam 4" branch:
+Change color of "Stem 4" branch:
 
 ```java
 import com.aspose.slides.*;

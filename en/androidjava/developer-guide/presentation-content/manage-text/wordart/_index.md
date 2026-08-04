@@ -389,7 +389,7 @@ Aspose.Slides for Android via Java provides the [**IOuterShadow**](https://refer
 7. Set the BlurRadius of the shadow.
 8. Set the Direction of the shadow
 9. Set the Distance of the shadow.
-10. Set the RectanglelAlign to TopLeft.
+10. Set the RectangleAlign to TopLeft.
 11. Set the PresetColor of the shadow to Black.
 12. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
@@ -440,7 +440,7 @@ Go through these steps:
 7. Set the Scheme Color.
 8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code (based on the steps above) shows you how to add a connector between two shapes in Java:
+This sample code (based on the steps above) shows you how to apply the inner shadow effect to a text in Java:
 
 ```java
 import com.aspose.slides.*;

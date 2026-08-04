@@ -27,7 +27,7 @@ description: "Manage SmartArt shape nodes in PPT and PPTX with Aspose.Slides for
 
 SmartArt graphics in PowerPoint presentations are organized through nodes that contain text and define the structure of the diagram. Aspose.Slides allows you to work with these SmartArt nodes programmatically: add new nodes and child nodes, insert child nodes at a specific position, access existing nodes, and read their text, level, and position.
 
-This article explains how to manage SmartArt shape nodes. It shows how to remove nodes, work with child nodes by index or position, change an assistant node to a normal node, adjust the position, size, and rotation of SmartArt node shapes, set node fill formats, and generate a thumbnail image for a SmartArt child node.
+This article explains how to manage SmartArt shape nodes. It shows how to remove nodes, work with child nodes by index or position, change an assistant node to a normal node, adjust the position, size, and rotation of SmartArt node shapes, set node fill formats, and generate a thumbnail image for a SmartArt node.
 
 ## **Add a SmartArt Node**
 Aspose.Slides for Android via Java has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
@@ -115,7 +115,7 @@ try {
 ```
 
 ## **Access a SmartArt Node**
-The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
+The following sample code will help to access nodes inside SmartArt shape. Please note that the LayoutType of the SmartArt is chosen when the shape is added; changing it later with **setLayout** rebuilds the whole diagram, so the node positions and sizes you may have set are recalculated.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
@@ -395,7 +395,7 @@ We will use the following source SmartArt shape for our investigation in differe
 In the following sample code we will investigate how to identify **Assistant Nodes** in the SmartArt nodes collection and changing them.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
-1. Obtain the reference of second slide by using its Index.
+1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
 1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) if it is SmartArt.
 1. Traverse through all nodes inside SmartArt shape and check if they are [**Assistant Nodes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
@@ -425,7 +425,7 @@ try {
                 if (node.isAssistant()) 
                 {
                     // Setting Assistant node to false and making it normal node
-                    node.isAssistant();
+                    node.setAssistant(false);
                 }
             }
         }
@@ -482,8 +482,8 @@ try {
 }
 ```
 
-## **Generate a Thumbnail of a SmartArt Child Node**
-Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
+## **Generate a Thumbnail of a SmartArt Node**
+Developers can generate a thumbnail of a node of a SmartArt by following the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. [Add SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).

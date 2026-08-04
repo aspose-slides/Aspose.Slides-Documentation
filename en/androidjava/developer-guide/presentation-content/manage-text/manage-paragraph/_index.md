@@ -229,19 +229,15 @@ Bullet lists help you to organize and present information quickly and efficientl
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
-3. Add an [autoshape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) to the slide.
-4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) class.
-7. Load the image in [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
+3. Load the image in [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
+4. Add an [autoshape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) to the slide.
+5. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
+6. Remove the default paragraph in the `TextFrame`.
+7. Create a paragraph instance using the [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) class and set its `Text`.
 8. Set the bullet type to [Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) and set the image.
-9. Set the Paragraph `Text`.
-10. Set the Paragraph `Indent` for the bullet.
-11. Set a color for the bullet.
-12. Set a height for the bullet.
-13. Add the new paragraph to the `TextFrame` paragraph collection.
-14. Add the second paragraph and repeat the process based on the previous steps.
-15. Save the modified presentation.
+9. Set a height for the bullet.
+10. Add the new paragraph to the `TextFrame` paragraph collection.
+11. Save the modified presentation.
 
 This Java code shows you how to add and manage picture bullets:
 
@@ -586,7 +582,7 @@ The result:
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
 1. Get the reference for the slide containing the paragraph through its position.
 1. Add a rectangle [autoshape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) with two paragraphs to the Rectangle.
+1. Clear the Rectangle's [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) and add two paragraphs to it.
 1. Set the `FontHeight` and Font type for the paragraphs.
 1. Set the End properties for the paragraphs.
 1. Write the modified presentation as a PPTX file.
@@ -599,6 +595,9 @@ import com.aspose.slides.*;
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+
+    // Removes the default empty paragraph
+    shape.getTextFrame().getParagraphs().clear();
 
     Paragraph para1 = new Paragraph();
     para1.getPortions().add(new Portion("Sample text"));
@@ -630,10 +629,9 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 3. Add an [autoshape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) to the slide.
 4. Add and access `autoshape` [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
 5. Remove the default paragraph in the `ITextFrame`.
-6. Read the source HTML file in a TextReader.
-7. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) class.
-8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/).
-9. Save the modified presentation.
+6. Read the source HTML file into a string.
+7. Add the HTML content to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphcollection/).
+8. Save the modified presentation.
 
 This Java code is an implementation of the steps for importing HTML texts in paragraphs:
 
@@ -715,7 +713,6 @@ try {
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    //Extracting first paragraph as HTML
     // Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();

@@ -23,7 +23,7 @@ description: "Discover how to customize slide transitions in Aspose.Slides for A
 
 ## **Overview**
 
-This article explains how to manage slide transitions in presentations using Aspose.Slides. It shows how to apply transition types to slides, configure transition behavior such as advancing on click or after a specified time, check and disable automatic advancement, use the Morph transition and its types, and set transition effect options. The examples demonstrate how to load or create a presentation, modify transition settings for selected slides, and save the result as a PPTX file. The article also answers common questions about transition speed, transition sounds, applying the same transition to multiple slides, and checking the transition currently set on a slide.
+This article explains how to manage slide transitions in presentations using Aspose.Slides. It shows how to apply transition types to slides, configure transition behavior such as advancing on click or after a specified time, use the Morph transition and its types, and set transition effect options. The examples demonstrate how to load or create a presentation, modify transition settings for selected slides, and save the result as a PPTX file. The article also answers common questions about transition speed, transition sounds, applying the same transition to multiple slides, and checking the transition currently set on a slide.
 
 ## **Add Slide Transition**
 To create a simple slide transition effect, follow the steps below:
@@ -69,21 +69,21 @@ try {
     // Apply circle type transition on slide 1
     pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // Set the transition time of 3 seconds
+    // Advance on click or automatically after 3 seconds
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
 
     // Apply comb type transition on slide 2
     pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
     
-    // Set the transition time of 5 seconds
+    // Advance on click or automatically after 5 seconds
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
 
     // Apply zoom type transition on slide 3
     pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
     
-    // Set the transition time of 7 seconds
+    // Advance on click or automatically after 7 seconds
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
 

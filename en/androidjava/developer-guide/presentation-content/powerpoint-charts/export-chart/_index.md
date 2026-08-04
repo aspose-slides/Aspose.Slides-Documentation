@@ -36,7 +36,8 @@ try {
     IImage slideImage = chart.getImage();
 
     try {
-          slideImage.save("image.jpg", ImageFormat.Jpeg);
+          // The chart image has a transparent background, so save it in a format that supports alpha.
+          slideImage.save("image.png", ImageFormat.Png);
     } finally {
          if (slideImage != null) slideImage.dispose();
     }

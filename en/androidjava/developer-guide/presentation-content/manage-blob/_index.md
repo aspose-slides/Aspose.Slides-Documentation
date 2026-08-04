@@ -46,7 +46,7 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 
 ### **Add a Large File through BLOB to a Presentation**
 
-[Aspose.Slides](/slides/androidjava/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
+[Aspose.Slides](/slides/androidjava/) for Android via Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
 This Java shows you how to add a large video file through the BLOB process to a presentation:
 
@@ -155,7 +155,7 @@ try {
 	FileInputStream fileStream = new FileInputStream(pathToLargeImage);
 	try {
 		// Let's add the image to the presentation - we choose KeepLocked behavior because we do
-		// NOT intend to access the "largeImage.png" file.
+		// NOT intend to access the "large_image.jpg" file.
 		IPPImage img = pres.getImages().addImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 

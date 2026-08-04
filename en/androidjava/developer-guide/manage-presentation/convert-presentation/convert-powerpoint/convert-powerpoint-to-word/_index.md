@@ -55,6 +55,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
 
 ```java
 import com.aspose.slides.*;
+import com.aspose.words.*;
 import java.io.ByteArrayOutputStream;
 
 Presentation pres = new Presentation("sample.pptx");

@@ -68,7 +68,7 @@ try {
 }
 ```
 
-Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) method:
+Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, String fileName)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) method:
 
 ``` java
 import com.aspose.slides.*;
@@ -89,7 +89,7 @@ Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/pow
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)class
 1. Get a slide's reference through its index. 
-1. Add an [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) object and pass the link to the video.
+1. Add an [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) object and pass the link to the video instead of a local file.
 1. Set a thumbnail for the video frame. 
 1. Save the presentation. 
 
@@ -100,7 +100,7 @@ import com.aspose.slides.*;
 import java.io.IOException;
 import java.net.URL;
 
-String videoID = "Tj75Arhq5ho";
+String videoID = "jNQXAC9IVRw";
 
 // Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation();

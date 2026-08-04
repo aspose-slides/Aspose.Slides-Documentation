@@ -492,4 +492,4 @@ Yes. When you save to PPTX, Aspose.Slides writes the equation as editable Office
 
 ### Can I export equations to LaTeX?
 
-Aspose.Slides exports math equations to MathML. If you need LaTeX, export to MathML first and then convert MathML with a tool that supports your target LaTeX dialect.
+Yes. Call `toLatex` on the `MathParagraph` to get its equations as a LaTeX string. Aspose.Slides also exports math equations to MathML through `writeAsMathMl`.

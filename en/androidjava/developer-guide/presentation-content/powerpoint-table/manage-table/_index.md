@@ -83,7 +83,7 @@ try {
         }
     }
     // Merges cells 1 & 2 of row 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
     // Adds some text to the merged cell
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
@@ -168,7 +168,7 @@ try {
 
    If you suspect the slide you are dealing with contains a single table, you can simply check all the shapes it contains. When a shape is identified as a table, you can typecast it as a [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Table) object. But if the slide you are dealing with contains several tables, then you are better off searching for the table you need through its [setAlternativeText(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
 
-5. Use the [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) object to work with the table. In the example below, we added a new row to the table.
+5. Use the [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) object to work with the table. In the example below, we set the text of a cell in the table.
 
 6. Save the modified presentation.
 
@@ -316,6 +316,15 @@ Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.setStylePreset(TableStylePreset.DarkStyle1); // change the default style preset theme 
+
+    // Get the style preset of the table
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // Apply the retrieved style preset to another table
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();

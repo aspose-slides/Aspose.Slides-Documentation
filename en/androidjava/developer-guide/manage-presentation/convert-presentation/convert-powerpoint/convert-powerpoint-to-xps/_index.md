@@ -97,7 +97,7 @@ import com.aspose.slides.*;
 // Instantiate a Presentation object that represents a presentation file
 Presentation pres = new Presentation("Convert_XPS_Options.pptx");
 try {
-    // Instantiate the TiffOptions class
+    // Instantiate the XpsOptions class
     XpsOptions options = new XpsOptions();
 
     // Save MetaFiles as PNG

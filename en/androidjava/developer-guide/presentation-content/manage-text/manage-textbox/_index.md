@@ -281,9 +281,9 @@ You can insert a link inside a text box. When the text box is clicked, users are
 1. Create an instance of the `Presentation` class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
 3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
-4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
-5. Instantiate the `IHyperlinkManager` class. 
-6. Assign the `IHyperlinkManager` object to the [HyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Shape#getHyperlinkClick--) property associated with your preferred portion of the `TextFrame`.
+4. Add a `TextFrame` to the `AutoShape` object and set the text of its first portion. In the example below, we used this text: *Aspose.Slides*
+5. Obtain the [IHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/) object from the `PortionFormat` of your preferred portion of the `TextFrame`.
+6. Call [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) on that object to set the link that opens when the text is clicked.
 7. Finally, write the PPTX file through the `Presentation` object. 
 
 This Java code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:

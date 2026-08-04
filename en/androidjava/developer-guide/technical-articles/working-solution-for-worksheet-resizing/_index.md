@@ -46,6 +46,8 @@ Suppose we have a template Excel sheet and want to add it to a presentation as a
 
 ```java
 import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
@@ -68,8 +70,8 @@ InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Get the width and height of the OLE image in points.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
 // We need to use the modified workbook.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();

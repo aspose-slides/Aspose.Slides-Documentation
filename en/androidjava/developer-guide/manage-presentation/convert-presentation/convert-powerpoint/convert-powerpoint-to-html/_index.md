@@ -328,8 +328,6 @@ class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
 
 String outputDirectory = System.getProperty("user.dir") + "/html-output";
 String fontsDirectory = outputDirectory + "/fonts";
-File dir = new File("path/to/folder");
-dir.mkdir();
 
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -340,7 +338,7 @@ try {
     htmlOptions.setHtmlFormatter(formatter);
 
     String htmlFilePath = outputDirectory + "/presentation.html";
-    presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
+    presentation.save(htmlFilePath, SaveFormat.Html, htmlOptions);
 } finally {
     presentation.dispose();
 }
@@ -363,9 +361,9 @@ When you externalize resources, choose two paths deliberately:
 
 - `path`: the directory where generated media files will be written.
 - `fileName`: the HTML file name being generated.
-- `baseUri`: the absolute URI prefix used in the HTML links to media files.
+- `baseUri`: an absolute URI for the media directory. It must parse as a URI, so pass a `file:///` or `http(s)://` string, not a plain file system path.
 
-If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
+Exported media files are referenced in the generated HTML by file name only, relative to the HTML document. So `path` must be the directory that also holds the HTML file, otherwise the browser cannot resolve the links. For local preview, build the `file:///` URI with `Paths.get(mediaDirectory).toUri().toString()`. For a deployed application, use the absolute URL of the published media directory.
 
 ```java
 import com.aspose.slides.*;
@@ -374,14 +372,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 String outputDirectory = System.getProperty("user.dir") + "/html-output";
-String mediaDirectory = outputDirectory + "/media";
 File outDir = new File(outputDirectory);
 outDir.mkdir();
-File mediaDir = new File(mediaDirectory);
-mediaDir.mkdir();
 
 String htmlFileName = "presentation.html";
-String mediaBaseUri = mediaDirectory;
+
+// Media files are linked by name relative to the HTML document, so write them next to it.
+String mediaDirectory = outputDirectory;
+String mediaBaseUri = Paths.get(mediaDirectory).toUri().toString();
 
 Presentation presentation = new Presentation();
 try {
@@ -448,7 +446,7 @@ These values do not indicate a real visual font-size change. They are only a mat
 
 ### How should I choose baseUri for media export?
 
-Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with `mediaDirectory.toUri().toString()`. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same resource location.
+Pass `baseUri` as an absolute URI. A plain file system path or a relative path raises a URI format error in the [VideoPlayerHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplayerhtmlcontroller/) constructor. For local preview, derive it from the output directory with `Paths.get(mediaDirectory).toUri().toString()`. For deployment, use the absolute URL of the published media directory. Note that the generated `<video>` and `<img>` elements reference exported media by file name relative to the HTML document, so the file system `path` still has to be the directory that holds the HTML file.
 
 ### Can I include hidden slides?
 

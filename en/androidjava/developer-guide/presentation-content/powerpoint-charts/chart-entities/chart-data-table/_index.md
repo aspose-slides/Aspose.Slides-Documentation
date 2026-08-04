@@ -20,12 +20,12 @@ description: "Customize chart data tables in Java for PPT and PPTX with Aspose.S
 This article explains how to work with chart data tables in Aspose.Slides. It shows how to display a data table for a chart and customize its text formatting by setting font properties such as bold style and font height. The example demonstrates loading a presentation, adding a chart, enabling the chart data table, applying font settings, and saving the updated presentation.
 
 ## **Set Font Properties for a Chart Data Table**
-Aspose.Slides for Android via Java provides support for changing color of categories in a series color. 
+Aspose.Slides for Android via Java allows you to show the data table of a chart and change the font properties of its text. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
-1. set chart table.
-1. Set font height.
+1. Show the chart data table.
+1. Set the bold style and font height of the data table text.
 1. Save modified presentation.
 
  Below sample example is given. 

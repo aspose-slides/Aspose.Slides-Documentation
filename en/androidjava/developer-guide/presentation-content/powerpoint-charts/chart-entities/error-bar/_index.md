@@ -43,15 +43,15 @@ try {
     IErrorBarsFormat errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
     IErrorBarsFormat errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
 
-    errBarX.isVisible();
-    errBarY.isVisible();
+    errBarX.setVisible(true);
+    errBarY.setVisible(true);
     errBarX.setValueType((byte) ErrorBarValueType.Fixed);
     errBarX.setValue(0.1f);
     errBarY.setValueType((byte) ErrorBarValueType.Percentage);
     errBarY.setValue(5);
     errBarX.setType((byte) ErrorBarType.Plus);
     errBarY.getFormat().getLine().setWidth(2.0f);
-    errBarX.hasEndCap();
+    errBarX.setEndCap(true);
 
     // Saving presentation
     pres.save("ErrorBars.pptx", SaveFormat.Pptx);
@@ -84,8 +84,8 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     IErrorBarsFormat errBarX = series.getErrorBarsXFormat();
     IErrorBarsFormat errBarY = series.getErrorBarsYFormat();
-    errBarX.isVisible();
-    errBarY.isVisible();
+    errBarX.setVisible(true);
+    errBarY.setVisible(true);
     errBarX.setValueType((byte) ErrorBarValueType.Custom);
     errBarY.setValueType((byte) ErrorBarValueType.Custom);
 

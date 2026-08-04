@@ -73,7 +73,7 @@ try {
     // Accesses ISlide 1
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // When null is passed as an argument, comments from all authors are brought to the selected slide
+    // Gets the comments added by this author to the selected slide (pass null to get comments from all authors)
     IComment[] Comments = slide.getSlideComments(author);
 
     // Accesses the comment at index 0 for slide 1

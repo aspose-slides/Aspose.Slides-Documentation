@@ -66,10 +66,10 @@ Aspose.Slides for Android via Java offers [Presentation](https://reference.aspos
 ```java
 import com.aspose.slides.*;
 
-// Instantiate a Presentation object that represents a PPTX file
+// Instantiate a Presentation object that represents a PPT file
 Presentation pres = new Presentation("Aspose.ppt");
 try {
-// Saving the PPTX presentation to PPTX format
+// Saving the PPT presentation to PPTX format
     pres.save("ConvertedAspose.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();

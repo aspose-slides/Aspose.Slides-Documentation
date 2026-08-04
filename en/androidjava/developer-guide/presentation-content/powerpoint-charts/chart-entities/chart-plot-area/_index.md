@@ -25,7 +25,7 @@ This article shows how to work with a chart’s plot area in Aspose.Slides. It e
 It also demonstrates how to configure the plot area’s layout mode when the layout is set manually, using `LayoutTargetType` to define whether the plot area is calculated by its inner region or by its outer region together with axes and axis labels.
 
 ## **Get Width and Height of a Chart Plot Area**
-Aspose.Slides for Android via Java provides a simple API for . 
+Aspose.Slides for Android via Java provides a simple API for reading the actual position and size of a chart's plot area. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Access first slide.
@@ -76,7 +76,7 @@ try {
     chart.getPlotArea().setHeight(0.7f);
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
 
-    pres.save("SetLayoutMode_outer.pptx", SaveFormat.Pptx);
+    pres.save("SetLayoutMode_inner.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }

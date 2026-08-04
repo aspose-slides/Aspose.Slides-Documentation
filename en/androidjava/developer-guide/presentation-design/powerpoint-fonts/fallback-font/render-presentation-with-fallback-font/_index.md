@@ -22,7 +22,7 @@ description: "Render presentations with fallback fonts in Aspose.Slides for Andr
 
 Aspose.Slides allows you to render presentations using fallback font rules. This article shows how to create a fallback font rules collection, modify its rules by removing or adding fallback fonts, and assign the collection using the `FontsManager.setFontFallBackRulesCollection` method.
 
-Once the fallback font rules collection is assigned to the presentation's `FontsManager`, the rules are applied during operations such as saving, rendering, and converting the presentation. The example demonstrates how to use the configured rules when rendering a slide thumbnail and saving it as a PNG image.
+Once the fallback font rules collection is assigned to the presentation's `FontsManager`, the rules are applied during operations such as saving, rendering, and converting the presentation. The example demonstrates how to use the configured rules when rendering a slide thumbnail and saving it as a JPEG image.
 
 ## **Render a Slide Using Fallback Font Rules**
 
@@ -41,6 +41,7 @@ IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
 // create a number of rules
 rulesList.add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
+rulesList.add(new FontFallBackRule(0x600, 0x6FF, "Tahoma, Arial"));
 
 for (IFontFallBackRule fallBackRule : rulesList)
 {
@@ -48,13 +49,13 @@ for (IFontFallBackRule fallBackRule : rulesList)
     fallBackRule.remove("Tahoma");
 
     //And to update of rules for specified range
-    if ((fallBackRule.getRangeEndIndex() >= 0x4000) && (fallBackRule.getRangeStartIndex() < 0x5000))
+    if ((fallBackRule.getRangeEndIndex() >= 0x400) && (fallBackRule.getRangeStartIndex() < 0x500))
         fallBackRule.addFallBackFonts("Verdana");
 }
 
-//Also we can remove any existing rules from list
-if (rulesList.size() > 0)
-    rulesList.remove(rulesList.get_Item(0));
+//Also we can remove any existing rules from list, keeping at least one rule to render with
+if (rulesList.size() > 1)
+    rulesList.remove(rulesList.get_Item(1));
 
 Presentation pres = new Presentation("input.pptx");
 try {

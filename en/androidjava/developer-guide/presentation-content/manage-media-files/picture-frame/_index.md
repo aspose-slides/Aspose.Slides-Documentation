@@ -155,7 +155,7 @@ try {
 
 ## **Extract SVG Images from Picture Frames**
 
-When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) shapes, Aspose.Slides for Android via Java lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/), check whether the underlying [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
+When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) shapes, Aspose.Slides for Android via Java lets you retrieve the original vector images with full fidelity. Once you have a [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) whose [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) holds SVG content, you can read that SVG image and save it to disk or a stream in its native SVG format.
 
 The following code example demonstrates how to extract an SVG image from a picture frame:
 

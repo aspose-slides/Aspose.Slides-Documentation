@@ -180,8 +180,8 @@ This Java code demonstrates the operation.
 ```java
 import com.aspose.slides.*;
 
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+// Loads the presentation that contains the table
+Presentation pres = new Presentation("table.pptx");
 try {
     // Let's assume that the first shape on the first slide is a table
     ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
@@ -227,8 +227,8 @@ This Java code demonstrates the operation:
 ```java
 import com.aspose.slides.*;
 
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+// Loads the presentation that contains the table
+Presentation pres = new Presentation("table.pptx");
 try {
     // Let's assume that the first shape on the first slide is a table
     ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -269,6 +269,11 @@ Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.setStylePreset(TableStylePreset.DarkStyle1); // change the default style preset theme
+
+    // Gets the style preset applied to the table, so it can be reused elsewhere
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset); // TableStylePreset.DarkStyle1
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();

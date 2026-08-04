@@ -216,12 +216,7 @@ Finally, we save the presentation to disk:
 import com.aspose.slides.*;
 
 // The presentation created in the previous steps.
-Presentation presentation = new Presentation();
-try {
-    presentation.save("presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+presentation.save("presentation.pptx", SaveFormat.Pptx);
 ```
 
 ## **Conclusion**

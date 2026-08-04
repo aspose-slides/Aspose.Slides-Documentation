@@ -95,12 +95,13 @@ try {
     //Hiding MajorGridLines
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
+    IChartSeriesCollection seriesCollection = chart.getChartData().getSeries();
+    while (seriesCollection.size() > 1)
     {
-        chart.getChartData().getSeries().removeAt(i);
+        seriesCollection.removeAt(seriesCollection.size() - 1);
     }
 
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeries series = seriesCollection.get_Item(0);
 
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);

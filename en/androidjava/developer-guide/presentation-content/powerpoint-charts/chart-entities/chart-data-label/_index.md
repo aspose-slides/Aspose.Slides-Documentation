@@ -36,6 +36,9 @@ try {
     chart.setDataTable(true);
     chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
 
+    // Shows the values as data labels so the number format is visible on the chart
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
     pres.save("output.pptx",SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -75,7 +78,7 @@ try {
             dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
     
             IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
+            port.setText(String.format("%.2f %%", dataPontPercent));
             port.getPortionFormat().setFontHeight(8f);
             lbl.getTextFrameForOverriding().setText("");
             IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);

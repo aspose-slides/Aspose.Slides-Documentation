@@ -113,7 +113,7 @@ try {
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.cyan);
 
-    // Creates a text box for the third slide
+    // Creates a text box for the second slide
     IAutoShape autoshape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Second Slide");
 
@@ -318,7 +318,7 @@ You can control a section zoom frame's formatting on a slide this way:
 8.	Set a custom image for the created section zoom frame object.
 9.	Set the *return to the original slide from the linked section* ability. 
 10.	Remove the background from an image of the section zoom frame object.
-11.	Change the line format for the second zoom frame object.
+11.	Change the line format for the section zoom frame object.
 12.	Change the transition duration.
 13.	Write the modified presentation as a PPTX file.
 
@@ -522,7 +522,7 @@ You can control the formatting for a summary zoom section object in a summary zo
 7.  Create an [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) object that will be used to fill the frame.
 8.  Set a custom image for the created section zoom frame object.
 9.  Set the *return to the original slide from the linked section* ability. 
-11. Change the line format for the second zoom frame object.
+11. Change the line format for the summary zoom section object.
 12. Change the transition duration.
 13.	Write the modified presentation as a PPTX file.
 

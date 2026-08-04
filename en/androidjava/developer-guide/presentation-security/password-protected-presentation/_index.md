@@ -124,9 +124,9 @@ try {
 
 ## **Load an Encrypted Presentation**
 
-Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [removeEncryption](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) method with no parameters. You will then have to enter the correct password to load the presentation.
+Aspose.Slides allows you to load an encrypted presentation by passing the correct password through [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/).
 
-This sample code shows you how to decrypt a presentation: 
+This sample code shows you how to open an encrypted presentation: 
 
 ```java
 import com.aspose.slides.*;
@@ -231,7 +231,7 @@ try {
 
 ## **Check Whether a Presentation Is Write Protected**
 
-Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [isWriteProtected](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted.
+Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [isWriteProtected](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) property, which returns `true` if the presentation is write-protected or `false` if it isn't.
 
 This sample code shows you how to check whether a presentation is write-protected:
 
@@ -264,7 +264,7 @@ try {
 }
 ```
 
-It returns `true` if the presentation has been encrypted with the specified password. Otherwise, it returns `false`. 
+It returns `true` if the presentation has been write-protected with the specified password. Otherwise, it returns `false`. 
 
 {{% alert color="primary" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/androidjava/digital-signature-in-powerpoint/)

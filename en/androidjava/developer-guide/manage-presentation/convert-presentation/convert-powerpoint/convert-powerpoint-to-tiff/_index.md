@@ -150,7 +150,7 @@ try {
         Format32bppArgb   - 32 bits per pixel, ARGB.
     */
     
-    // Save the presentation as TIFF with the specified image size.
+    // Save the presentation as TIFF with the specified pixel format.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();

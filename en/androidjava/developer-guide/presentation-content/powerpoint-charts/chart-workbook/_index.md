@@ -234,10 +234,10 @@ try {
 }
 ```
 
-The `ChartData` parameter (under the `setExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
+The `updateChartData` parameter (under the `setExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
 
-* When `ChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
-* When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
+* When `updateChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
+* When `updateChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
 ```java
 import com.aspose.slides.*;

@@ -97,7 +97,7 @@ try {
     try {
         for(ISlide slide : pres2.getSlides())
         {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
+            pres1.getSlides().addClone(slide, pres1.getMasters().get_Item(0), true);
         }
     } finally {
         if (pres2 != null) pres2.dispose();
@@ -131,24 +131,12 @@ Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     presentation.getSlides().removeAt(0);
 
-    ISlide slide1 = null;
-    for (ISlide slide : presentation1.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            slide1 = slide;
-            break;
-        }
-    }
+    ISlide slide1 = getTitleSlide(presentation1);
 
     if (slide1 != null)
         presentation.getSlides().addClone(slide1);
 
-    ISlide slide2 = null;
-    for (ISlide slide : presentation2.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            slide2 = slide;
-            break;
-        }
-    }
+    ISlide slide2 = getTitleSlide(presentation2);
 
     if (slide2 != null)
         presentation.getSlides().addClone(slide2);
@@ -186,7 +174,7 @@ try {
     try {
         for(ISlide slide : pres2.getSlides())
         {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+            pres1.getSlides().addClone(slide, pres1.getLayoutSlides().get_Item(0));
         }
     } finally {
         if (pres2 != null) pres2.dispose();

@@ -220,6 +220,7 @@ try {
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
     shape.getThreeDFormat().setExtrusionHeight(150);
     shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));

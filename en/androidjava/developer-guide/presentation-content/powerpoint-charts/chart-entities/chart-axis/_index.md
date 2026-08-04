@@ -27,7 +27,7 @@ description: "Discover how to use Aspose.Slides for Android via Java to customiz
 
 ## **Overview**
 
-This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and display a unit label on the value axis.
+This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and set the display unit of the value axis.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for Android via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
@@ -55,8 +55,11 @@ try {
 	double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
 	double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
 
-	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+	double majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+	double minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+	int majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+	int minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
 
 	// Saves the presentation
 	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
@@ -76,6 +79,10 @@ import com.aspose.slides.*;
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+
+	// Loads the chart's default data into the workbook — switchRowColumn transposes the workbook,
+	// so it must be populated first
+	IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
 	//Switches rows and columns
 	chart.getChartData().switchRowColumn();
@@ -185,14 +192,14 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
-public static String convertToOADate(GregorianCalendar date) throws ParseException
+public static double convertToOADate(GregorianCalendar date) throws ParseException
 {
     double oaDate;
     SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
     java.util.Date baseDate = myFormat.parse("30 12 1899");
     Long days = TimeUnit.DAYS.convert(date.getTimeInMillis() - baseDate.getTime(), TimeUnit.MILLISECONDS);
     oaDate = (double) days + ((double) date.get(Calendar.HOUR_OF_DAY) / 24) + ((double) date.get(Calendar.MINUTE) / (60 * 24)) + ((double) date.get(Calendar.SECOND) / (60 * 24 * 60));
-    return String.valueOf(oaDate);
+    return oaDate;
 }
 ```
 
@@ -234,8 +241,8 @@ try {
 }
 ```
 
-## **Enable the Display Unit Label on Chart Value Axis**
-Aspose.Slides for Android via Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
+## **Set the Display Unit on a Chart Value Axis**
+Aspose.Slides for Android via Java allows you to set the display unit of a chart value axis. The axis then scales its tick labels by that unit: with `DisplayUnitType.Millions`, an axis that runs to 60,000,000 is labeled 0 to 60. This Java code demonstrates the operation:
 
 ```java
 import com.aspose.slides.*;
@@ -258,6 +265,6 @@ try {
 
 Axes provide a [crossing setting](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-): you can choose to cross at zero, at the maximum category/value, or at a specific numeric value. This is useful for shifting the X-axis up or down or for emphasizing a baseline.
 
-### How can I position tick labels relative to the axis (alongside, outside, inside)?
+### How can I position tick labels relative to the axis (next to it, high, low)?
 
-Set the [label position](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) to "cross", "outside", or "inside". This affects readability and helps conserve space, especially on small charts.
+Set the [tick label position](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) to `NextTo`, `High`, `Low`, or `None`. This affects readability and helps conserve space, especially on small charts. The tick marks themselves are controlled separately by [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-), which takes `Cross`, `Inside`, `Outside`, or `None`.
