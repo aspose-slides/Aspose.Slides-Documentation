@@ -61,7 +61,7 @@ You can add one or several images on your computer onto a slide in a presentatio
   try {
     $slide = $pres->getSlides()->get_Item(0);
     $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
@@ -129,7 +129,7 @@ This Java sample code shows you how to add an image to a slide master:
     $slide = $pres->getSlides()->get_Item(0);
     $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
     $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
@@ -250,7 +250,7 @@ This sample code shows you how to perform the described task:
       $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
       $sr->toImage($j, $EmfSheetName);
       $picture;
-      $image = Images->fromFile($EmfSheetName);
+      $image = Images::fromFile($EmfSheetName);
       try {
         $picture = $pres->getImages()->addImage($image);
       } finally {

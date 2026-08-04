@@ -187,6 +187,8 @@ $bulletList->getTextFrame()->getParagraphs()->add(createBulletParagraph("Schedul
 Finally, we save the presentation to disk:
 
 ```php
+$presentation = new Presentation();
+
 $presentation->save("presentation.pptx", SaveFormat::Pptx);
 ```
 
