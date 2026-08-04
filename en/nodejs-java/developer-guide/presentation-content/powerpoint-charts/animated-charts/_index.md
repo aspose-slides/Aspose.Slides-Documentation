@@ -63,7 +63,7 @@ try {
 ```
 
 ## **Chart Category Animation**
-If you want to animate a chart series, write the code according to the steps listed below:
+If you want to animate a chart category, write the code according to the steps listed below:
 
 1. Load a presentation.
 1. Get reference of the chart object.

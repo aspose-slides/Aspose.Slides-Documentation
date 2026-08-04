@@ -133,10 +133,11 @@ If you prefer to skip the first slide, you can start the numbering from the seco
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 var presentation = new aspose.slides.Presentation();
 try {
-    var layoutSlide = presentation.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
+    var layoutSlide = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
     presentation.getSlides().addEmptySlide(layoutSlide);
     presentation.getSlides().addEmptySlide(layoutSlide);
     presentation.getSlides().addEmptySlide(layoutSlide);

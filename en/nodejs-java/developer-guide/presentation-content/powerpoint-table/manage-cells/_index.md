@@ -203,7 +203,7 @@ try {
 ## **Numbering in Splitted Cell**
 In previous examples, when table cells got merged, the numeration or number system in other cells did not change. 
 
-This time, we take a regular table (a table without merged cells) and then try to split cell (1,1) to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
+This time, we take the table from the previous example (the one with the two merged pairs of cells) and then split cell (1,1) by width to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
 
 This JavaScript code demonstrates the process we described:
 

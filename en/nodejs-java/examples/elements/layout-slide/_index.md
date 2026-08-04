@@ -31,8 +31,8 @@ function addLayoutSlide() {
     try {
         let masterSlide = presentation.getMasters().get_Item(0);
 
-        // Create a layout slide with a blank layout type and a custom name.
-        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+        // Create a layout slide with a custom layout type and a custom name.
+        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Custom);
         let layoutSlide = presentation.getLayoutSlides().add(masterSlide, layoutType, "Main layout");
 
         presentation.save("layout_slide.pptx", aspose.slides.SaveFormat.Pptx);

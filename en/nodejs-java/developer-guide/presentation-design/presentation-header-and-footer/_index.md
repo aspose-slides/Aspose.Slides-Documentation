@@ -29,7 +29,7 @@ Aspose.Slides allows you to manage header and footer settings in PowerPoint pres
 You can also manage headers and footers for handout and notes slides. This includes changing the visibility and text of header, footer, slide number, and date-time placeholders for the notes master, all child notes slides, or an individual notes slide.
 
 ## **Manage Header and Footer in Presentation**
-Notes of some specific slide could be removed as shown in example below:
+The footer text and visibility of all slides, and the header text of the master notes slide, can be set as shown in the example below:
 
 ```javascript
 var aspose = aspose || {};

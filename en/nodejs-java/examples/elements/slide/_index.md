@@ -110,7 +110,7 @@ function reorderSlide() {
 
 ## **Remove a Slide**
 
-To remove a slide, simply reference it and call `remove`. This example adds a second slide and then removes the original, leaving only the new one.
+To remove a slide, simply reference it and call `remove`. This example removes the first slide from the "slide.pptx" file created earlier, leaving only the slide that was added.
 
 ```js
 var aspose = aspose || {};

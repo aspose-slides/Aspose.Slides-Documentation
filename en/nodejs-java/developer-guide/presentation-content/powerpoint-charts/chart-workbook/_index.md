@@ -184,21 +184,15 @@ This JavaScript code demonstrates the external workbook creation process:
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+const fileSystem = require("fs");
 
 var pres = new aspose.slides.Presentation();
 try {
     var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
-    try {
-        var workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) {
-            fileStream.close();
-        }
-    }
+    // readWorkbookStream returns the workbook bytes as a Node Buffer.
+    var workbookData = chart.getChartData().readWorkbookStream();
+    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
     chart.getChartData().setExternalWorkbook(workbookPath);
     pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -242,10 +236,10 @@ try {
 }
 ```
 
-The `ChartData` parameter (under the `setExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
+The second parameter of the `setExternalWorkbook` method, `updateChartData`, specifies whether the Excel workbook will be loaded or not.
 
-* When `ChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
-* When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
+* When `updateChartData` is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable.
+* When `updateChartData` is set to `true`, the chart data gets updated from the target workbook.
 
 ```javascript
 var aspose = aspose || {};

@@ -25,7 +25,7 @@ description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations 
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
 
-The [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class, and their classs contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
+The [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class, and related classes contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
 
 ## **Get or Remove Embedded Fonts from Presentation**
 
@@ -41,7 +41,7 @@ const java = require("java");
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("EmbeddedFonts.pptx");
 try {
-    // Renders a slide containing a text frame that uses embedded "FunSized"
+    // Renders a slide containing a text frame that uses the embedded "Calibri" font
     var slideImage = pres.getSlides().get_Item(0).getImage(java.newInstanceSync("java.awt.Dimension", 960, 720));
     // Save the image to disk in JPEG format
     try {

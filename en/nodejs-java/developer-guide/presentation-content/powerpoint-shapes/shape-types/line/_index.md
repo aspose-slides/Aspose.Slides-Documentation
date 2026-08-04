@@ -85,15 +85,16 @@ try {
     // Add an AutoShape of type line
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
     // Apply some formatting on the line
-    shp.getLineFormat().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
+    shp.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickBetweenThin));
     shp.getLineFormat().setWidth(10);
-    shp.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    shp.getLineFormat().setBeginArrowheadLength(aspose.slides.LineArrowheadLength.Short);
-    shp.getLineFormat().setBeginArrowheadStyle(aspose.slides.LineArrowheadStyle.Oval);
-    shp.getLineFormat().setEndArrowheadLength(aspose.slides.LineArrowheadLength.Long);
-    shp.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
+    shp.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+    shp.getLineFormat().setBeginArrowheadLength(java.newByte(aspose.slides.LineArrowheadLength.Short));
+    shp.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.Oval));
+    shp.getLineFormat().setEndArrowheadLength(java.newByte(aspose.slides.LineArrowheadLength.Long));
+    shp.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.Triangle));
     shp.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.Maroon));
+    // Maroon
+    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 128, 0, 0));
     // Write the PPTX to Disk
     pres.save("LineShape.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

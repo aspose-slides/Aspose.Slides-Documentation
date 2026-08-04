@@ -146,34 +146,6 @@ const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCal
         return aspose.slides.ResourceLoadingAction.Skip;
       }
 });
-```
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const java = require("java");
-
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Load a substitute image.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Set a substitute URL.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
-        }
-        // Skip all other images.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
-});
 
 let loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setResourceLoadingCallback(ImageLoadingHandler);

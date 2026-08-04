@@ -35,7 +35,7 @@ This article explains how to export PowerPoint presentations to XAML using Aspos
 
 ## **About XAML**
 
-XAML is a descriptive programming language that allows you to build or write user classs for apps, especially those that use WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), and Xamarin forms.
+XAML is a descriptive programming language that allows you to build or write user interfaces for apps, especially those that use WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), and Xamarin forms.
 
 XAML, which is an XML-based language, is Microsoft’s variant for describing a GUI. You are likely to use a designer to work on XAML files most of the time, but you can still write and edit your GUI. 
 

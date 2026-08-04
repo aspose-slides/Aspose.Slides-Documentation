@@ -75,7 +75,7 @@ try {
 
 ## **Hide Information from Chart**
 
-This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Node.js via Java you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
+This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Node.js via Java you can hide **Title, Vertical Axis, Horizontal Axis, Legend** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```javascript
 var aspose = aspose || {};
@@ -96,8 +96,9 @@ try {
     chart.setLegend(false);
     // Hiding MajorGridLines
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().removeAt(i);
+    // Keeping only the first series on the chart
+    while (chart.getChartData().getSeries().size() > 1) {
+        chart.getChartData().getSeries().removeAt(1);
     }
     var series = chart.getChartData().getSeries().get_Item(0);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
@@ -107,7 +108,7 @@ try {
     // Setting series line color
     series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Solid);
+    series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
     pres.save("HideInformationFromChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

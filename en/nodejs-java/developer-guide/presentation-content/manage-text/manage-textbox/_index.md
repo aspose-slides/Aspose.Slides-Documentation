@@ -141,7 +141,7 @@ shape4.getTextFrame().setText("");
 
 ## **Add Column In Text Box**
 
-Aspose.Slides provides the [setColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [setColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) methods from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
+Aspose.Slides provides the [setColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [setColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) methods from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
 
 This code in JavaScript demonstrates the described operation: 
 
@@ -181,7 +181,7 @@ This JavaScript code shows you how to add a column inside a text frame:
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+const assert = require("assert");
 
 var outPptxFileName = "ColumnsTest.pptx";
 var pres = new aspose.slides.Presentation();
@@ -194,8 +194,9 @@ try {
     var test = new aspose.slides.Presentation(outPptxFileName);
     try {
         var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        java.callStaticMethodSync("Assert", "assertTrue", java.getStaticFieldValue("java.lang.Double", "NaN") == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
+        // The column spacing was never set, so it is reported as NaN.
+        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
     } finally {
         if (test != null) {
             test.dispose();
@@ -206,8 +207,8 @@ try {
     var test1 = new aspose.slides.Presentation(outPptxFileName);
     try {
         var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        java.callStaticMethodSync("Assert", "assertTrue", 20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
     } finally {
         if (test1 != null) {
             test1.dispose();
@@ -219,8 +220,8 @@ try {
     var test2 = new aspose.slides.Presentation(outPptxFileName);
     try {
         var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        java.callStaticMethodSync("Assert", "assertTrue", 3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        java.callStaticMethodSync("Assert", "assertTrue", 15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
     } finally {
         if (test2 != null) {
             test2.dispose();
@@ -284,9 +285,9 @@ You can insert a link inside a text box. When the text box is clicked, users are
 1. Create an instance of the `Presentation` class. 
 2. Obtain a reference for the first slide in the newly created presentation. 
 3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
-4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
-5. Instantiate the `HyperlinkManager` class. 
-6. Assign the `HyperlinkManager` object to the [HyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick--) property associated with your preferred portion of the `TextFrame`.
+4. Add a `TextFrame` to the `AutoShape` object and set the text of its first portion. In the example below, we used this text: *Aspose.Slides*
+5. Obtain the `HyperlinkManager` of that portion through its `PortionFormat`.
+6. Call `setExternalHyperlinkClick` on the `HyperlinkManager` to attach the link to the portion.
 7. Finally, write the PPTX file through the `Presentation` object. 
 
 This JavaScript code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:

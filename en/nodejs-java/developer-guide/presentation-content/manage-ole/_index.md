@@ -194,10 +194,11 @@ var shape = slide.getShapes().get_Item(0);
 if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     var oleFrame = shape;
 
-    var oleStream = java.newInstanceSync("java.io.ByteArrayInputStream", oleFrame.getEmbeddedData().getEmbeddedFileData());
+    var embeddedData = Array.from(oleFrame.getEmbeddedData().getEmbeddedFileData());
+    var oleStream = java.newInstanceSync("java.io.ByteArrayInputStream", java.newArray("byte", embeddedData));
 
     // Read the OLE object data as a Workbook object.
-    var workbook = java.newInstanceSync("Workbook", oleStream);
+    var workbook = java.newInstanceSync("com.aspose.cells.Workbook", oleStream);
 
     var newOleStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
 
@@ -207,11 +208,12 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
     workbook.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
 
-    var fileOptions = java.newInstanceSync("OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
+    var fileOptions = java.newInstanceSync("com.aspose.cells.OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
     workbook.save(newOleStream, fileOptions);
 
     // Change the OLE frame object data.
-    var newData = new asposeSlides.OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
+    var newFileData = java.newArray("byte", Array.from(newOleStream.toByteArray()));
+    var newData = new asposeSlides.OleEmbeddedDataInfo(newFileData, oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 
     newOleStream.close();

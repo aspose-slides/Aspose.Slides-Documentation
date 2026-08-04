@@ -85,22 +85,29 @@ This sample code shows you how to add an image from the web to a slide in JavaSc
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
 const java = require("java");
 
 var pres = new aspose.slides.Presentation();
 try {
     // Accesses the first slide
     var sld = pres.getSlides().get_Item(0);
-    // Loads an excel file to stream
-    var readStream = fs.readFileSync("book1.xlsx");
-    var byteArray = Array.from(readStream);
-    // Creates a data object for embedding
-    var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-    // Adds an Ole Object Frame shape
-    var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
+    // Opens a stream on the image hosted on the web
+    var url = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
+    var stream = url.openStream();
+    // Creates an image from the stream and adds it to the presentation image collection
+    var picture;
+    var image = aspose.slides.Images.fromStream(stream);
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) {
+            image.dispose();
+        }
+    }
+    // Adds a picture frame holding the downloaded image
+    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
     // Writes the PPTX file to disk
-    pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
     if (pres != null) {
@@ -158,12 +165,12 @@ This sample code shows you how to implement the steps above to add an SVG image 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+const fs = require("fs");
 
 // Instantiate Presentation class that represents PPTX file
 var pres = new aspose.slides.Presentation();
 try {
-    var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
+    var svgContent = fs.readFileSync("image.svg", "utf8");
     var svgImage = new aspose.slides.SvgImage(svgContent);
     var ppImage = pres.getImages().addImage(svgImage);
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);

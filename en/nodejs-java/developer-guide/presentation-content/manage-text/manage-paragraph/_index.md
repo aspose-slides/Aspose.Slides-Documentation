@@ -103,12 +103,12 @@ try {
             if (j == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(15);
             } else if (j == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-                portion.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(18);
             }
         }
@@ -163,8 +163,8 @@ try {
     // Creates a paragraph
     var para = new aspose.slides.Paragraph();
     // Sets a paragraph bullet style and symbol
-    para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar(8226);
+    para.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    para.getParagraphFormat().getBullet().setChar(java.newChar(8226));
     // Sets a paragraph text
     para.setText("Welcome to Aspose.Slides");
     // Sets bullet indent
@@ -172,7 +172,7 @@ try {
     // Sets bullet color
     para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// set IsBulletHardColor to true to use own bullet color
+    para.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));// set IsBulletHardColor to true to use own bullet color
     // Sets Bullet Height
     para.getParagraphFormat().getBullet().setHeight(100);
     // Adds Paragraph to text frame
@@ -180,15 +180,15 @@ try {
     // Creates second paragraph
     var para2 = new aspose.slides.Paragraph();
     // Sets paragraph bullet type and style
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    para2.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(java.newByte(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain));
     // Adds paragraph text
     para2.setText("This is numbered bullet");
     // Sets bullet indent
     para2.getParagraphFormat().setIndent(25);
     para2.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// set IsBulletHardColor to true to use own bullet color
+    para2.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));// set IsBulletHardColor to true to use own bullet color
     // Sets Bullet Height
     para2.getParagraphFormat().getBullet().setHeight(100);
     // Adds Paragraph to text frame
@@ -228,6 +228,7 @@ This Javascript code shows you how to add and manage picture bullets:
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Instantiates a Presentation class that represents a PPTX file
 var presentation = new aspose.slides.Presentation();
@@ -254,7 +255,7 @@ try {
     var paragraph = new aspose.slides.Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
     // Sets paragraph bullet style and image
-    paragraph.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Picture);
+    paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Picture));
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
     // Sets bullet Height
     paragraph.getParagraphFormat().getBullet().setHeight(100);
@@ -310,39 +311,39 @@ try {
     // Adds the first paragraph
     var para1 = new aspose.slides.Paragraph();
     para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar(8226);
+    para1.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    para1.getParagraphFormat().getBullet().setChar(java.newChar(8226));
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
-    para1.getParagraphFormat().setDepth(0);
+    para1.getParagraphFormat().setDepth(java.newShort(0));
     // Adds the second paragraph
     var para2 = new aspose.slides.Paragraph();
     para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
+    para2.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    para2.getParagraphFormat().getBullet().setChar(java.newChar('-'));
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
-    para2.getParagraphFormat().setDepth(1);
+    para2.getParagraphFormat().setDepth(java.newShort(1));
     // Adds the third paragraph
     var para3 = new aspose.slides.Paragraph();
     para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar(8226);
+    para3.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    para3.getParagraphFormat().getBullet().setChar(java.newChar(8226));
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
-    para3.getParagraphFormat().setDepth(2);
+    para3.getParagraphFormat().setDepth(java.newShort(2));
     // Adds the fourth paragraph
     var para4 = new aspose.slides.Paragraph();
     para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
+    para4.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    para4.getParagraphFormat().getBullet().setChar(java.newChar('-'));
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
-    para4.getParagraphFormat().setDepth(3);
+    para4.getParagraphFormat().setDepth(java.newShort(3));
     // Adds paragraphs to collection
     text.getParagraphs().add(para1);
     text.getParagraphs().add(para2);
@@ -378,6 +379,7 @@ This Javascript code shows you how to add and manage paragraphs with custom numb
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 var presentation = new aspose.slides.Presentation();
 try {
@@ -389,21 +391,21 @@ try {
     // First list
     var paragraph1 = new aspose.slides.Paragraph();
     paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth(4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(2);
-    paragraph1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
+    paragraph1.getParagraphFormat().setDepth(java.newShort(4));
+    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(2));
+    paragraph1.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
     textFrame.getParagraphs().add(paragraph1);
     var paragraph2 = new aspose.slides.Paragraph();
     paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth(4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(3);
-    paragraph2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
+    paragraph2.getParagraphFormat().setDepth(java.newShort(4));
+    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(3));
+    paragraph2.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
     textFrame.getParagraphs().add(paragraph2);
     var paragraph5 = new aspose.slides.Paragraph();
     paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth(4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(7);
-    paragraph5.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
+    paragraph5.getParagraphFormat().setDepth(java.newShort(4));
+    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(7));
+    paragraph5.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
     textFrame.getParagraphs().add(paragraph5);
     presentation.save("SetCustomBulletsNumber-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -597,7 +599,7 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
 4. Add and access `AutoShape`'s [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 5. Remove the default paragraph in the `TextFrame`.
-6. Read the source HTML file in a TextReader.
+6. Read the source HTML file into a string.
 7. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class.
 8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/).
 9. Save the modified presentation.
@@ -608,6 +610,7 @@ This Javascript code is an implementation of the steps for importing HTML texts 
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
+const fs = require("fs");
 
 // Create Empty presentation instance
 var pres = new aspose.slides.Presentation();
@@ -621,10 +624,10 @@ try {
     ashape.addTextFrame("");
     // Clearing all paragraphs in added text frame
     ashape.getTextFrame().getParagraphs().clear();
-    // Loading the HTML file using stream reader
-    var tr = java.newInstanceSync("StreamReader", "file.html");
-    // Adding text from HTML stream reader in text frame
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
+    // Loading the HTML file content
+    var html = fs.readFileSync("file.html", "utf8");
+    // Adding text from the HTML content in text frame
+    ashape.getTextFrame().getParagraphs().addFromHtml(html);
     // Saving Presentation
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -665,7 +668,7 @@ try {
     // Creating output HTML file
     var os = java.newInstanceSync("java.io.FileOutputStream", "output.html");
     var writer = java.newInstanceSync("java.io.OutputStreamWriter", os, "UTF-8");
-    // Extracting first paragraph as HTML
+    // Extracting all paragraphs of the shape as HTML
     // Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();

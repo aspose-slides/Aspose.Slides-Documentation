@@ -280,9 +280,9 @@ Self-contained HTML is easy to move around, but embedded Base64 resources can ma
 
 - `path`: the directory where generated media files will be written.
 - `fileName`: the HTML file name being generated.
-- `baseUri`: the absolute URI prefix used in the HTML links to media files.
+- `baseUri`: an absolute URI that describes the same location as `path`.
 
-If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
+The generated HTML references each media file by file name only, so the browser resolves it relative to the HTML document. Point `path` at the directory that will hold the generated HTML file, otherwise the media links will not resolve. Build `baseUri` from that same directory: a `file:///` URI for local preview, or the absolute URL of the published directory for a deployed application.
 
 ```javascript
 var aspose = aspose || {};
@@ -293,11 +293,10 @@ let fs = require("fs");
 let path = require("path");
 
 let outputDirectory = path.join(process.cwd(), "html-output");
-let mediaDirectory = path.join(outputDirectory, "media");
-fs.mkdirSync(mediaDirectory, { recursive: true });
+fs.mkdirSync(outputDirectory, { recursive: true });
 
 let htmlFileName = "presentation.html";
-let mediaBaseUri = "file:///" + mediaDirectory.replace(/\\/g, "/") + "/";
+let mediaBaseUri = "file:///" + outputDirectory.replace(/\\/g, "/") + "/";
 
 let presentation = new aspose.slides.Presentation();
 try {
@@ -309,7 +308,7 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
 
-    let controller = new aspose.slides.VideoPlayerHtmlController(mediaDirectory, htmlFileName, mediaBaseUri);
+    let controller = new aspose.slides.VideoPlayerHtmlController(outputDirectory, htmlFileName, mediaBaseUri);
     let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
     let svgOptions = new aspose.slides.SVGOptions(controller);
     let slideImageFormat = aspose.slides.SlideImageFormat.svg(svgOptions);
@@ -365,7 +364,7 @@ These values do not indicate a real visual font-size change. They are only a mat
 
 ### How should I choose baseUri for media export?
 
-Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with a `file:///` URI. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same resource location.
+Pass `baseUri` as an absolute URI that describes the same location as the file system `path`: derive it from the output directory with a `file:///` URI for local preview, or use the absolute URL of the published directory for deployment. Because the generated HTML links media files by file name only, `path` must be the directory that holds the generated HTML file.
 
 ### Can I include hidden slides?
 

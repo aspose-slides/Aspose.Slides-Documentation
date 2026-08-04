@@ -67,7 +67,7 @@ try {
     author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, java.newInstanceSync("java.util.Date"));
     // Accesses ISlide 1
     var slide = pres.getSlides().get_Item(0);
-    // When null is passed as an argument, comments from all authors are brought to the selected slide
+    // Gets this author's comments on the selected slide; pass null instead to get comments from all authors
     var Comments = slide.getSlideComments(author);
     // Accesses the comment at index 0 for slide 1
     var str = Comments[0].getText();
@@ -236,19 +236,18 @@ try {
     author.getComments().addComment("comment 1", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.2), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
     author.getComments().addComment("comment 2", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.3), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
     // remove all comments that contain "comment 1" text
-    
-    
-    for (var i = 0; i < presentation.getCommentAuthors().length; i++) {
+    for (var i = 0; i < presentation.getCommentAuthors().size(); i++) {
         var commentAuthor = presentation.getCommentAuthors().get_Item(i);
         var toRemove = java.newInstanceSync("java.util.ArrayList");
-        for (let j = 0; j < slide.getSlideComments(commentAuthor).size(); j++) {
-            let comment = slide.getSlideComments(commentAuthor).get_Item(j);
+        var slideComments = slide.getSlideComments(commentAuthor);
+        for (let j = 0; j < slideComments.length; j++) {
+            let comment = slideComments[j];
             if (comment.getText() === "comment 1") {
                 toRemove.add(comment);
             }
         }
-        for (var i = 0; i < toRemove.length; i++) {
-            var comment = toRemove.get_Item(i);
+        for (var k = 0; k < toRemove.size(); k++) {
+            var comment = toRemove.get(k);
             commentAuthor.getComments().remove(comment);
         }
     }

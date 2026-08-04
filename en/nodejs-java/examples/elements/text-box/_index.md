@@ -108,7 +108,7 @@ function removeTextBoxes() {
             let shape = slide.getShapes().get_Item(i);
             if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
                 let autoShape = shape;
-                if (autoShape.getTextFrame().getText().includes("Slide")) {
+                if (autoShape.getTextFrame().getText().includes("Some text")) {
                     shapesToRemove.push(shape);
                 }
             }

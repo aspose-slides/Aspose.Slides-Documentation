@@ -63,7 +63,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Shape);
+    textFrameFormat.setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -96,7 +96,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.None);
+    textFrameFormat.setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -129,7 +129,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Normal);
+    textFrameFormat.setAutofitType(java.newByte(aspose.slides.TextAutofitType.Normal));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -164,7 +164,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setWrapText(aspose.slides.NullableBool.True);
+    textFrameFormat.setWrapText(java.newByte(aspose.slides.NullableBool.True));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

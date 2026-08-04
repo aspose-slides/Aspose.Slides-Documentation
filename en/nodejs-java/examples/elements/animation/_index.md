@@ -77,7 +77,7 @@ function removeAnimation() {
     try {
         let slide = presentation.getSlides().get_Item(0);
 
-        if (slide.getTimeline().getMainSequence().length > 0) {
+        if (slide.getTimeline().getMainSequence().getCount() > 0) {
             // Remove the first effect.
             slide.getTimeline().getMainSequence().removeAt(0);
         }

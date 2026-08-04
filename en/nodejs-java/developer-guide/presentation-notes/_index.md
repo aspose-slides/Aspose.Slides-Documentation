@@ -80,6 +80,7 @@ try {
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("demo.pptx");
@@ -90,7 +91,7 @@ try {
         var notesStyle = notesMaster.getNotesStyle();
         // Set symbol bullet for the first level paragraphs
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

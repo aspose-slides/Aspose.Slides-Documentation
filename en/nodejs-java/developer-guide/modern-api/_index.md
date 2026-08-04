@@ -31,7 +31,7 @@ As of version 24.4, this public API is declared deprecated.
 
 In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html). [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) is declared deprecated and its support is removed from the public Slides API.
 
-In current versions, treat the public API that depends on java.awt types as legacy/deprecated. Use the Modern API for new code and when migrating existing image-processing workflows.
+In current versions, the java.awt-based methods have been removed from the public API altogether. The "Legacy/deprecated API" snippets below are shown only so that you can recognize the old code and find its replacement — they no longer run against the current package. Use the Modern API for new code and when migrating existing image-processing workflows.
 
 ## **Modern API**
 
@@ -308,7 +308,7 @@ try {
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
+| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
@@ -345,7 +345,7 @@ try {
 
 ## **API Support for Graphics2D**
 
-Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) are declared deprecated and have no direct Modern API replacement.
+Methods that render to [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) have been removed from the public API and have no direct Modern API replacement.
 
 Use the Modern API image-rendering methods instead of the API that renders to [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html):
 

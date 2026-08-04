@@ -102,7 +102,7 @@ aspose.slides = require("aspose.slides.via.java");
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("Convert_XPS_Options.pptx");
 try {
-    // Instantiate the TiffOptions class
+    // Instantiate the XpsOptions class
     var options = new aspose.slides.XpsOptions();
     // Save MetaFiles as PNG
     options.setSaveMetafilesAsPng(true);

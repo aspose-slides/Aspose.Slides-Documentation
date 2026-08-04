@@ -63,7 +63,7 @@ try {
     // Add an auto shape of the Rectangle type.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Set the fill color for the rectangle shape.
+    // Remove the fill from the rectangle shape.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     // Apply formatting to the rectangle's lines.
@@ -607,7 +607,7 @@ The result:
 
 ## **Reset Formatting**
 
-The following Java code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) to their default settings:
+The following JavaScript code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) to their default settings:
 
 ```js
 var aspose = aspose || {};

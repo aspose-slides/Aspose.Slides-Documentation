@@ -79,9 +79,9 @@ const java = require("java");
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
-    // Iterates through the slide
-    for (let i = 0; i < slide.getSlide().getShapes().size(); i++) {
-        let shape = slide.getSlide().getShapes().get_Item(i);
+    // Iterates through the layout used by the slide - the prompt text is stored there
+    for (let i = 0; i < slide.getLayoutSlide().getShapes().size(); i++) {
+        let shape = slide.getLayoutSlide().getShapes().get_Item(i);
         if ((shape.getPlaceholder() != null) && (java.instanceOf(shape, "com.aspose.slides.AutoShape"))) {
             var text = "";
             // PowerPoint displays "Click to add title"
@@ -91,8 +91,10 @@ try {
             if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.Subtitle) {
                 text = "Add Subtitle";
             }
-            shape.getTextFrame().setText(text);
-            console.log("Placeholder with text: " + text);
+            if (text !== "") {
+                shape.getTextFrame().setText(text);
+                console.log("Placeholder with text: " + text);
+            }
         }
     }
     pres.save("Placeholders_PromptText.pptx", aspose.slides.SaveFormat.Pptx);

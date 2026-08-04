@@ -142,7 +142,7 @@ In any slide-to-image conversion process, the [setNotesPosition](https://referen
 
 The [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) class provides greater control over the resulting TIFF image by allowing you to specify parameters such as size, resolution, color palette, and more.
 
-This JavaScript code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
+This JavaScript code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2880:
 
 ```js
 var aspose = aspose || {};

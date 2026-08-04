@@ -68,7 +68,7 @@ try {
 
 ## **Convert PowerPoint to PNG With Custom Dimensions**
 
-If you want to obtain PNG files around a certain scale, you can set the values for `desiredX` and `desiredY`, which determine the dimensions of the resulting thumbnail. 
+If you want to obtain PNG files around a certain scale, you can set the values for `scaleX` and `scaleY`, which are the horizontal and vertical scale factors applied to the slide size. 
 
 This code in JavaScript demonstrates the described operation:
 

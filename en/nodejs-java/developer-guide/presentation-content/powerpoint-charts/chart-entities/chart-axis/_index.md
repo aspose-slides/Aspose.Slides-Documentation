@@ -57,6 +57,8 @@ try {
     var minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
     var majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
     var minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+    var majorUnitScale = chart.getAxes().getHorizontalAxis().getActualMajorUnitScale();
+    var minorUnitScale = chart.getAxes().getHorizontalAxis().getActualMinorUnitScale();
     // Saves the presentation
     pres.save("MaxValuesVerticalAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -169,7 +171,7 @@ function convertToOADate(date) {
                           (date.minute() / (60 * 24)) +
                           (date.second() / (60 * 24 * 60));
 
-    return String(days + fractionalDay);
+    return days + fractionalDay;
 }
 
 var pres = new aspose.slides.Presentation();
@@ -212,7 +214,7 @@ function convertToOADate(date) {
 
     const oaDate = days + fractionalDay;
 
-    return String(oaDate);
+    return oaDate;
 }
 ```
 

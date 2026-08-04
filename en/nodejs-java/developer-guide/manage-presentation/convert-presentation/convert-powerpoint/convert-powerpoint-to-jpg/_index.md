@@ -94,7 +94,7 @@ try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
         let sld = pres.getSlides().get_Item(i);
         // Creates a full scale image
-        var slideImage = sld.getImage(ScaleX, ScaleY);
+        var slideImage = sld.getImage(java.newFloat(ScaleX), java.newFloat(ScaleY));
         // Saves the image to disk in JPEG format
         try {
             slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), aspose.slides.ImageFormat.Jpeg);
@@ -123,6 +123,9 @@ var pres = new aspose.slides.Presentation("presentation.pptx");
 try {
     var notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+    // Without a comments position, the rendered image contains the notes only.
+    notesOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+    notesOptions.setCommentsAreaWidth(200);
     var opts = new aspose.slides.RenderingOptions();
     opts.setSlidesLayoutOptions(notesOptions);
     for (let i = 0; i < pres.getSlides().size(); i++) {

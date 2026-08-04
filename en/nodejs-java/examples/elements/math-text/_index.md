@@ -141,7 +141,7 @@ function removeMathText() {
 
 ## **Format Math Text**
 
-Set font properties for a math portion.
+Set font properties for a math paragraph.
 
 ```js
 var aspose = aspose || {};
@@ -156,9 +156,9 @@ function formatMathText() {
         let mathShape = slide.getShapes().get_Item(0);
 
         let paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        let textPortion = paragraph.getPortions().get_Item(0);
 
-        textPortion.getPortionFormat().setFontHeight(20);
+        // Set the font size for the math paragraph.
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
 
         presentation.save("math_text_formatted.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

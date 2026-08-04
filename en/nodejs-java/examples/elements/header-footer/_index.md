@@ -31,8 +31,10 @@ function addHeaderFooter() {
     try {
         let slide = presentation.getSlides().get_Item(0);
 
-        slide.getHeaderFooterManager().setFooterText("My footer");
+        // Make the placeholder visible first - setting the text on a hidden
+        // footer has no effect.
         slide.getHeaderFooterManager().setFooterVisibility(true);
+        slide.getHeaderFooterManager().setFooterText("My footer");
 
         presentation.save("header_footer.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -54,8 +56,10 @@ function updateDateTime() {
     try {
         let slide = presentation.getSlides().get_Item(0);
 
-        slide.getHeaderFooterManager().setDateTimeText("01/01/2024");
+        // Make the placeholder visible first - setting the text on a hidden
+        // date and time placeholder has no effect.
         slide.getHeaderFooterManager().setDateTimeVisibility(true);
+        slide.getHeaderFooterManager().setDateTimeText("01/01/2024");
 
         presentation.save("header_footer_updated.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

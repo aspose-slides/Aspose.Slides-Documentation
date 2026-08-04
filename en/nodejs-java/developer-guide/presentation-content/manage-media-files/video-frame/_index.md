@@ -120,6 +120,7 @@ try {
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const http = require("http");
+const java = require("java");
 
 async function addVideoFromYouTube(pres, videoID) {
     let slide = pres.getSlides().get_Item(0);
@@ -131,19 +132,22 @@ async function addVideoFromYouTube(pres, videoID) {
     let thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
 
     try {
-        const imageStream = await getImageStream(thumbnailUri);
-        let image = pres.getImages().addImage(imageStream);
+        const imageData = await getImageData(thumbnailUri);
+        let image = pres.getImages().addImage(java.newArray("byte", Array.from(imageData)));
         videoFrame.getPictureFormat().getPicture().setImage(image);
     } catch (error) {
         console.error("Error loading thumbnail:", error);
     }
 }
 
-async function getImageStream(url) {
+async function getImageData(url) {
     return new Promise((resolve, reject) => {
         http.get(url, (response) => {
             if (response.statusCode === 200) {
-                resolve(response);
+                const chunks = [];
+                response.on("data", (chunk) => chunks.push(chunk));
+                response.on("end", () => resolve(Buffer.concat(chunks)));
+                response.on("error", reject);
             } else {
                 reject(new Error(`Failed to load image: ${response.statusCode}`));
             }

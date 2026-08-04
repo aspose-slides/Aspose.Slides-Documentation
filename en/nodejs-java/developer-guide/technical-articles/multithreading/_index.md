@@ -55,7 +55,10 @@ const imageScale = 2;
 
         try {
             const slide = slidePresentation.getSlides().get_Item(0);
-            const image = slide.getImage(imageScale, imageScale);
+            // Render the slide on a background thread so the conversions actually run in parallel.
+            const image = await new Promise((resolve, reject) => {
+                slide.getImageAsync(imageScale, imageScale, (error, result) => error ? reject(error) : resolve(result));
+            });
             const imageFilePath = outputFilePathTemplate.replace("%d", slideIndex + 1);
 
             image.save(imageFilePath, aspose.slides.ImageFormat.Png);

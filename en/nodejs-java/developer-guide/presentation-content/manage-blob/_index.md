@@ -135,7 +135,7 @@ try {
 
 ### **Add Image as BLOB in Presentation**
 
-With methods from the [**ImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class and [**ImageCollection** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
+With the `addImage` method of the [**ImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
 
 This JavaScript code shows you how to add a large image through the BLOB process:
 

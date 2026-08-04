@@ -426,7 +426,7 @@ try {
     shadow.setBlurRadius(4.0);
     shadow.setDirection(45);
     shadow.setDistance(3);
-    shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
+    shadow.setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.TopLeft));
     shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
     // Write the presentation to disk
     pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -450,7 +450,7 @@ Go through these steps:
 7. Set the Scheme Color.
 8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code (based on the steps above) shows you how to add a connector between two shapes in JavaScript:
+This sample code (based on the steps above) shows you how to apply the inner shadow effect to a text in JavaScript:
 
 ```javascript
 var aspose = aspose || {};
@@ -476,7 +476,7 @@ try {
     ef.getInnerShadowEffect().setBlurRadius(8.0);
     ef.getInnerShadowEffect().setDirection(90.0);
     ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB(189);
+    ef.getInnerShadowEffect().getShadowColor().setB(java.newByte(189));
     // Set ColorType as Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
     // Set Scheme Color

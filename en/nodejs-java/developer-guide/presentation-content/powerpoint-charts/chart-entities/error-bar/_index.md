@@ -34,6 +34,7 @@ Aspose.Slides for Node.js via Java provides a simple API for managing error bar 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
@@ -43,15 +44,15 @@ try {
     // Adding Error bars and setting its format
     var errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
     var errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
-    errBarX.isVisible();
-    errBarY.isVisible();
+    errBarX.setVisible(true);
+    errBarY.setVisible(true);
     errBarX.setValueType(aspose.slides.ErrorBarValueType.Fixed);
-    errBarX.setValue(0.1);
+    errBarX.setValue(java.newFloat(0.1));
     errBarY.setValueType(aspose.slides.ErrorBarValueType.Percentage);
-    errBarY.setValue(5);
+    errBarY.setValue(java.newFloat(5));
     errBarX.setType(aspose.slides.ErrorBarType.Plus);
     errBarY.getFormat().getLine().setWidth(2.0);
-    errBarX.hasEndCap();
+    errBarX.setEndCap(true);
     // Saving presentation
     pres.save("ErrorBars.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -86,8 +87,8 @@ try {
     var series = chart.getChartData().getSeries().get_Item(0);
     var errBarX = series.getErrorBarsXFormat();
     var errBarY = series.getErrorBarsYFormat();
-    errBarX.isVisible();
-    errBarY.isVisible();
+    errBarX.setVisible(true);
+    errBarY.setVisible(true);
     errBarX.setValueType(aspose.slides.ErrorBarValueType.Custom);
     errBarY.setValueType(aspose.slides.ErrorBarValueType.Custom);
     // Accessing chart series data point and setting error bars values for

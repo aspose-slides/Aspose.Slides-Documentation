@@ -65,7 +65,6 @@ This Javascript code shows you how to apply the `Fade` effect to AutoShape and s
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
-const path = require("path");
 
 // Instantiates a presentation class that represents a presentation file.
 var pres = new aspose.slides.Presentation();
@@ -82,7 +81,7 @@ try {
     // Animates shape text by 1st level paragraphs
     effect.getTextAnimation().setBuildType(aspose.slides.BuildType.ByLevelParagraphs1);
     // Save the PPTX file to disk
-    pres.save(path + "AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -110,7 +109,6 @@ This Javascript code shows you how to apply the `Fly` effect to a picture frame:
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
-const path = require("path");
 
 // Instantiates a presentation class that represents a presentation file.
 var pres = new aspose.slides.Presentation();
@@ -132,7 +130,7 @@ try {
     // Adds Fly from Left animation effect to picture frame
     var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
     // Save the PPTX file to disk
-    pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
     if (pres != null) {
@@ -176,9 +174,9 @@ try {
     var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
     // Adds commands for moving since created path is empty.
     var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
+    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.076), java.newFloat(0.59))]);
     motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-    pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
+    pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59))]);
     motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
     motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
     // Writes the PPTX file to disk
@@ -276,13 +274,6 @@ printEffects(shapeEffects);
 
 presentation.dispose();
 ```
-```js
-function printEffects(effects) {
-    for (const effect of effects) {
-        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
-    }
-}
-```
 
 Output:
 ```text
@@ -317,6 +308,7 @@ This Javascript code demonstrates the operation:
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Instantiates a presentation class that represents a presentation file.
 var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
@@ -328,9 +320,9 @@ try {
     // Changes effect TriggerType to start on click
     effect.getTiming().setTriggerType(aspose.slides.EffectTriggerType.OnClick);
     // Changes effect Duration
-    effect.getTiming().setDuration(3.0);
+    effect.getTiming().setDuration(java.newFloat(3.0));
     // Changes effect TriggerDelayTime
-    effect.getTiming().setTriggerDelayTime(0.5);
+    effect.getTiming().setTriggerDelayTime(java.newFloat(0.5));
     // Saves the PPTX file to disk
     pres.save("AnimExample_changed.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -472,7 +464,7 @@ Aspose.Slides provides these properties to allow you to work with an animation e
 
 This is how you can change the Effect Animate text properties:
 
-1. [Apply](#apply-animation-to-shape) or get the animation effect.
+1. [Apply](#apply-animation-to-textbox) or get the animation effect.
 2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textanimation/#setBuildType-int-) method to [BuildType.AsOneObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
 3. Set new values for the [setAnimateTextType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) properties.
 4. Save the modified PPTX file.
@@ -484,7 +476,7 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
 // Instantiates a presentation class that represents a presentation file.
-var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
+var pres = new aspose.slides.Presentation("AnimText_out.pptx");
 try {
     var firstSlide = pres.getSlides().get_Item(0);
     // Gets the first effect of the main sequence

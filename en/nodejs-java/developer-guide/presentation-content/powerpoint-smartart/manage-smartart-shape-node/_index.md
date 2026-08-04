@@ -335,6 +335,7 @@ Now Aspose.Slides for Node.js via Java support for setting [SmartArtShape](https
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Instantiate Presentation Class
 var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
@@ -343,16 +344,16 @@ try {
     // Move SmartArt shape to new position
     var node = smart.getAllNodes().get_Item(1);
     var shape = node.getShapes().get_Item(1);
-    shape.setX(shape.getX() + (shape.getWidth() * 2));
-    shape.setY(shape.getY() - (shape.getHeight() * 2));
+    shape.setX(java.newFloat(shape.getX() + (shape.getWidth() * 2)));
+    shape.setY(java.newFloat(shape.getY() - (shape.getHeight() * 2)));
     // Change SmartArt shape's widths
     node = smart.getAllNodes().get_Item(2);
     shape = node.getShapes().get_Item(1);
-    shape.setWidth(shape.getWidth() + (shape.getWidth() * 2));
+    shape.setWidth(java.newFloat(shape.getWidth() + (shape.getWidth() * 2)));
     // Change SmartArt shape's height
     node = smart.getAllNodes().get_Item(3);
     shape = node.getShapes().get_Item(1);
-    shape.setHeight(shape.getHeight() + (shape.getHeight() * 2));
+    shape.setHeight(java.newFloat(shape.getHeight() + (shape.getHeight() * 2)));
     // Change SmartArt shape's rotation
     node = smart.getAllNodes().get_Item(4);
     shape = node.getShapes().get_Item(1);
@@ -407,7 +408,7 @@ try {
                 // Check if node is Assistant node
                 if (node.isAssistant()) {
                     // Setting Assistant node to false and making it normal node
-                    node.isAssistant();
+                    node.setAssistant(false);
                 }
             }
         }

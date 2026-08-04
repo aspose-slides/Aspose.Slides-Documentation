@@ -83,17 +83,18 @@ To clone a shape to a slide using Aspose.Slides for Node.js via Java:
 1. Clone shapes from the source slide shape collection to the new slide.
 1. Save the modified presentation as a PPTX file.
 
-The example below adds a group shape to a slide.
+The example below clones shapes from the first slide onto a new slide.
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Instantiate Presentation class
 var pres = new aspose.slides.Presentation("Source Frame.pptx");
 try {
     var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
+    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
     var destSlide = pres.getSlides().addEmptySlide(blankLayout);
     var destShapes = destSlide.getShapes();
     destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
@@ -128,11 +129,13 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Add autoshape of rectangle type
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    var moon = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    // Tag the shape that has to be removed
+    moon.setAlternativeText("User Defined");
     var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
+    // Walk backwards so removing an item does not shift the indexes still to be visited
+    for (var i = sld.getShapes().size() - 1; i >= 0; i--) {
+        var ashp = sld.getShapes().get_Item(i);
         if (altText === ashp.getAlternativeText()) {
             sld.getShapes().remove(ashp);
         }
@@ -166,7 +169,9 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Add autoshape of rectangle type
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    var moon = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    // Tag the shape that has to be hidden
+    moon.setAlternativeText("User Defined");
     var alttext = "User Defined";
     var iCount = sld.getShapes().size();
     for (var i = 0; i < iCount; i++) {

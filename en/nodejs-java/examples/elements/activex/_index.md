@@ -99,7 +99,7 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
 function setActiveXProperties() {
-    let presentation = new aspose.slides.Presentation();
+    let presentation = new aspose.slides.Presentation("activex.pptm");
     try {
         let slide = presentation.getSlides().get_Item(0);
 

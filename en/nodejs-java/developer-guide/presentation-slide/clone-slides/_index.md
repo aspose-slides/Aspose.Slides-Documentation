@@ -64,7 +64,7 @@ If you want to clone a slide and then use it within the same presentation file b
 1. Call the [insertClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) method exposed by the [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) object and pass the slide to be cloned along with the index for the new position as a parameter to the [insertClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) method.
 1. Write the modified presentation as a PPTX file.
 
-In the example given below, we have cloned a slide (lying at the zero index – position 1 – of the presentation) to index 1 – Position 2 – of the presentation.
+In the example given below, we have cloned a slide (lying at index 1 – position 2 – of the presentation) to index 2 – position 3 – of the presentation.
 
 ```javascript
 var aspose = aspose || {};
@@ -141,7 +141,7 @@ try {
     try {
         // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
         var slds = destPres.getSlides();
-        slds.insertClone(2, srcPres.getSlides().get_Item(0));
+        slds.insertClone(1, srcPres.getSlides().get_Item(0));
         // Write the destination presentation to disk
         destPres.save("Aspose2_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -183,14 +183,11 @@ try {
         // Clone the desired master slide from the source presentation to the collection of masters in the
         // Destination presentation
         var masters = destPres.getMasters();
-        var DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
-        // Clone the desired master slide from the source presentation to the collection of masters in the
-        // Destination presentation
-        var iSlide = masters.addClone(SourceMaster);
+        var DestMaster = masters.addClone(SourceMaster);
         // Clone the desired slide from the source presentation with the desired master to the end of the
         // Collection of slides in the destination presentation
         var slds = destPres.getSlides();
-        slds.addClone(SourceSlide, iSlide, true);
+        slds.addClone(SourceSlide, DestMaster, true);
         // Save the destination presentation to disk
         destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

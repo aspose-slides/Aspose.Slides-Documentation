@@ -164,6 +164,8 @@ function makeSafeFileNamePart(value) {
 
 Use this approach for pictures inserted as standalone objects. A [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) stores its picture in `getPictureFormat().getPicture().getImage()`, which returns a [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) object.
 
+Note that [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) and [AudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/) derive from `PictureFrame`, so the type check below also matches media frames and saves their preview images. Test for the media types first if you want ordinary picture frames only—see [Include Images Inside Grouped Shapes](#include-images-inside-grouped-shapes) for that ordering.
+
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
 const fileSystem = require("fs");

@@ -214,20 +214,6 @@ let presentation = new aspose.slides.Presentation("sample.pptx");
 presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const FontSubstitutionHandler = java.newProxy("com.aspose.slides.IWarningCallback", {
-	warning: function (warning) {
-		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss) {
-			console.warn("Font substitution warning: " + warning.getDescription());
-		}
-		return aspose.slides.ReturnAction.Continue;
-	}
-});
-```
 
 {{%  alert color="primary"  %}} 
 
@@ -282,8 +268,11 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Save the resized presentation to a PDF with notes.
-    resizedPresentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf);
+    // Remove the empty slide the new presentation was created with.
+    resizedPresentation.getSlides().removeAt(1);
+
+    // Save the resized presentation as a PDF.
+    resizedPresentation.save("PDF_with_custom_slide_size.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
     presentation.dispose();

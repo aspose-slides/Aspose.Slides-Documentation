@@ -110,7 +110,7 @@ try {
         RLE
     */
 
-    // The depth depends on the compression type and cannot be set manually.
+    // The color depth is controlled by the pixel format (see the example below); CCITT3 and CCITT4 always produce 1 bit per pixel.
 
     // Set the image DPI.
     tiffOptions.setDpiX(200);

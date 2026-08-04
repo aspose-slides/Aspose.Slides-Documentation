@@ -104,7 +104,7 @@ try {
     var picture;
     var image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
         if (image != null) {
             image.dispose();
@@ -154,7 +154,7 @@ const java = require("java");
 
 var pres = new aspose.slides.Presentation();
 try {
-    var video = pres.getVideos().addVideo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "video.avi")));
+    var video = pres.getVideos().addVideo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "video.avi")), aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
     var videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
     videoFrame.setHyperlinkClick(new aspose.slides.Hyperlink("https://www.aspose.com/"));
     videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
@@ -253,7 +253,7 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
         let slide = pres.getSlides().get_Item(i);
@@ -268,15 +268,15 @@ try {
                     // Iterates through each portion in paragraph
                     for (let j1 = 0; j1 < paragraph.getPortions().getCount(); j1++) {
                         let portion = paragraph.getPortions().get_Item(j1)
-                        portion.setText(portion.getText().replace("years", "months"));// Changes text
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Changes formatting
+                        // Removes the hyperlink from the portion
+                        portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
                     }
                 }
             }
         }
     }
     // Saves modified presentation
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("pres-removed-hyperlinks.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();

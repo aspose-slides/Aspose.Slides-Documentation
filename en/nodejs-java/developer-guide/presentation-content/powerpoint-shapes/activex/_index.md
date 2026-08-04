@@ -44,7 +44,7 @@ try {
     // Adding the Media Player ActiveX control
     pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
     // Access the Media Player ActiveX control and set the video path
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("java.net.URL", "Wildlife.wmv");
+    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
     // Save the Presentation
     pres.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -173,7 +173,7 @@ try {
 
 ## **FAQ**
 
-### Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Python runtime?
+### Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Node.js runtime?
 
 Yes. Aspose.Slides treats them as part of the presentation and can read/modify their properties and frames; executing the controls themselves is not required to preserve them.
 

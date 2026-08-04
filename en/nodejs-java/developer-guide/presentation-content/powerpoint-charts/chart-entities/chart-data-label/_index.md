@@ -74,7 +74,7 @@ try {
             var lbl = series.getDataPoints().get_Item(j).getLabel();
             dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
             var port = new aspose.slides.Portion();
-            port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
+            port.setText(java.callStaticMethodSync("java.lang.String", "format", "%.2f %%", dataPontPercent));
             port.getPortionFormat().setFontHeight(8.0);
             lbl.getTextFrameForOverriding().setText("");
             var para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
@@ -194,6 +194,7 @@ This JavaScript code shows you how to adjust the label location on a pie chart:
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 var pres = new aspose.slides.Presentation();
 try {
@@ -202,8 +203,8 @@ try {
     var label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
-    label.setX(0.71);
-    label.setY(0.04);
+    label.setX(java.newFloat(0.71));
+    label.setY(java.newFloat(0.04));
     pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

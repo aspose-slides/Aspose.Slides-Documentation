@@ -106,7 +106,9 @@ function updateChartData() {
         let slide = presentation.getSlides().get_Item(0);
         let chart = slide.getShapes().get_Item(0);
 
-        // Change the chart title.
+        // Change the chart title. The title must be turned on, otherwise
+        // its text is dropped when the presentation is saved.
+        chart.setTitle(true);
         chart.getChartTitle().addTextFrameForOverriding("Sales Report");
 
         presentation.save("chart_title.pptx", aspose.slides.SaveFormat.Pptx);

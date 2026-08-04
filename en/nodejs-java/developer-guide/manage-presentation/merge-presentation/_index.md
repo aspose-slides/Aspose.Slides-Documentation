@@ -109,7 +109,7 @@ try {
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
+            pres1.getSlides().addClone(slide, pres1.getMasters().get_Item(0), true);
         }
     } finally {
         if (pres2 != null) {
@@ -204,7 +204,7 @@ try {
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+            pres1.getSlides().addClone(slide, pres1.getLayoutSlides().get_Item(0));
         }
     } finally {
         if (pres2 != null) {

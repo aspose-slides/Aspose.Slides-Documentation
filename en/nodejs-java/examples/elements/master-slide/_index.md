@@ -95,7 +95,7 @@ function accessMasterSlide() {
 
 ## **Remove a Master Slide**
 
-Master slides can be removed either by index or by reference.
+Master slides can be removed either by index or by reference. A master slide that is still used by a slide cannot be removed—Aspose.Slides throws a `PptxEditException` with the message "this master slide is used in presentation". In `master_slide.pptx` the master at index 0 is the one no slide uses, so it is the one that can be removed.
 
 ```js
 var aspose = aspose || {};
@@ -107,9 +107,9 @@ function removeMasterSlide() {
         // Remove a master slide by index.
         presentation.getMasters().removeAt(0);
 
-        // Remove a master slide by reference.
-        let firstMasterSlide = presentation.getMasters().get_Item(0);
-        presentation.getMasters().remove(firstMasterSlide);
+        // The same master slide can be removed by reference instead:
+        // let firstMasterSlide = presentation.getMasters().get_Item(0);
+        // presentation.getMasters().remove(firstMasterSlide);
 
         presentation.save("master_slide_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

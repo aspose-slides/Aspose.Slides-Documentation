@@ -81,7 +81,7 @@ const java = require("java");
 
 // Create and manage an HttpURLConnection instance yourself.
 var url = java.newInstanceSync("java.net.URL", "https://api.openai.com/v1/chat/completions");
-var urlConnection = url.openConnectionSync();
+var urlConnection = url.openConnection();
 
 // Pass the HttpURLConnection to the OpenAIWebClient constructor.
 var aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId", urlConnection);

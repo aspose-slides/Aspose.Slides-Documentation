@@ -36,12 +36,13 @@ In the example given below, we have set the size of the hole in a doughnut chart
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Doughnut, 50, 50, 400, 400);
-    chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize(90);
+    chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize(java.newByte(90));
     // Write presentation to disk
     pres.save("DoughnutHoleSize_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

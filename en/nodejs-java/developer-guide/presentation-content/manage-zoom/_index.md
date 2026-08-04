@@ -62,19 +62,19 @@ try {
     var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     // Creates a background for the second slide
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide2.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
     // Creates a text box for the second slide
     var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Second Slide");
     // Creates a background for the third slide
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide3.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
     // Create a text box for the third slide
     autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
+    autoshape.getTextFrame().setText("Third Slide");
     // Adds ZoomFrame objects
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
@@ -109,7 +109,7 @@ try {
     // Adds a new slide to the presentation
     var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     // Creates a background for the second slide
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
     // Creates a text box for the third slide
@@ -166,19 +166,19 @@ try {
     var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     // Creates a background for the second slide
-    slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide2.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide2.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
     // Creates a text box for the second slide
     var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
     autoshape.getTextFrame().setText("Second Slide");
     // Creates a background for the third slide
-    slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide3.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     slide3.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
     // Creates a text box for the third slide
     autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
-    autoshape.getTextFrame().setText("Trird Slide");
+    autoshape.getTextFrame().setText("Third Slide");
     // Adds ZoomFrame objects
     var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
     var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
@@ -193,12 +193,12 @@ try {
         }
     }
     // Sets custom image for zoomFrame1 object
-    zoomFrame1.setImage(picture);
+    zoomFrame1.setZoomImage(picture);
     // Sets a zoom frame format for the zoomFrame2 object
     zoomFrame2.getLineFormat().setWidth(5);
     zoomFrame2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-    zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    zoomFrame2.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     // Setting for Do not show background for zoomFrame2 object
     zoomFrame2.setShowBackground(false);
     // Saves the presentation
@@ -243,7 +243,7 @@ try {
     var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new Section to the presentation
     pres.getSections().addSection("Section 1", slide);
     // Adds a SectionZoomFrame object
@@ -282,7 +282,7 @@ try {
     var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new Section to the presentation
     pres.getSections().addSection("Section 1", slide);
     // Creates a new image for the zoom object
@@ -340,7 +340,7 @@ try {
     var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new Section to the presentation
     pres.getSections().addSection("Section 1", slide);
     // Add SectionZoomFrame object
@@ -359,14 +359,14 @@ try {
             image.dispose();
         }
     }
-    sectionZoomFrame.setImage(picture);
+    sectionZoomFrame.setZoomImage(picture);
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
     sectionZoomFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    sectionZoomFrame.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     sectionZoomFrame.getLineFormat().setWidth(2.5);
-    sectionZoomFrame.setTransitionDuration(1.5);
+    sectionZoomFrame.setTransitionDuration(java.newFloat(1.5));
     // Saves the presentation
     pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -407,28 +407,28 @@ try {
     var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 1", slide);
     // Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 2", slide);
     // Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 3", slide);
     // Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 4", slide);
     // Adds a SummaryZoomFrame object
@@ -467,14 +467,14 @@ try {
     var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 1", slide);
     // Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 2", slide);
     // Adds SummaryZoomFrame object
@@ -483,7 +483,7 @@ try {
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     var section3 = pres.getSections().addSection("Section 3", slide);
     // Adds a section to the Summary Zoom
@@ -529,14 +529,14 @@ try {
     var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 1", slide);
     // Adds a new slide to the presentation
     slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
     slide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-    slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
     // Adds a new section to the presentation
     pres.getSections().addSection("Section 2", slide);
     // Adds a SummaryZoomFrame object
@@ -547,19 +547,19 @@ try {
     var picture;
     var image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
         if (image != null) {
             image.dispose();
         }
     }
-    summarySection.setImage(picture);
+    summarySection.setZoomImage(picture);
     summarySection.setReturnToParent(false);
     summarySection.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-    summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    summarySection.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     summarySection.getLineFormat().setWidth(1.5);
-    summarySection.setTransitionDuration(1.5);
+    summarySection.setTransitionDuration(java.newFloat(1.5));
     // Saves the presentation
     pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);

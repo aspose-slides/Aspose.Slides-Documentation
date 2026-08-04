@@ -36,6 +36,7 @@ In the example given below, we have set the position and size for Chart legend.
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
@@ -45,10 +46,10 @@ try {
     // Add a clustered column chart on the slide
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
     // Set Legend Properties
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
     // Write presentation to disk
     pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -112,9 +113,9 @@ var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
     var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+    tf.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
     tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+    tf.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
     tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);

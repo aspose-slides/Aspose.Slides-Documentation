@@ -41,12 +41,12 @@ In the example given below, we have added a simple rectangle to the first slide 
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Instantiate Prseetation class that represents the PPTX
+// Instantiate the Presentation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Get the first slide
     var sld = pres.getSlides().get_Item(0);
-    // Add AutoShape of ellipse type
+    // Add an AutoShape of rectangle type
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
     // Write the PPTX file to disk
     pres.save("RecShp1.pptx", aspose.slides.SaveFormat.Pptx);
@@ -76,17 +76,17 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Instantiate Prseetation class that represents the PPTX
+// Instantiate the Presentation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Get the first slide
     var sld = pres.getSlides().get_Item(0);
-    // Add AutoShape of ellipse type
+    // Add an AutoShape of rectangle type
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
-    // Apply some formatting to ellipse shape
+    // Apply some formatting to the rectangle shape
     shp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    // Apply some formatting to the line of Ellipse
+    // Apply some formatting to the line of the rectangle
     shp.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     shp.getLineFormat().setWidth(5);
