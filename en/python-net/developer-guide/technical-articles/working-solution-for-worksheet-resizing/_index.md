@@ -45,6 +45,7 @@ Suppose we have a template Excel sheet and want to add it to a presentation as a
 
 ```py
 import io
+import aspose.cells as cells
 
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
@@ -74,6 +75,31 @@ def create_ole_image(cell_range, image_resolution):
 ```py
 import io
 import aspose.slides as slides
+import aspose.cells as cells
+
+def create_ole_image(cell_range, image_resolution):
+    page_setup = cell_range.worksheet.page_setup
+    page_setup.print_area = cell_range.address
+    page_setup.left_margin = 0.0
+    page_setup.right_margin = 0.0
+    page_setup.top_margin = 0.0
+    page_setup.bottom_margin = 0.0
+    page_setup.clear_header_footer()
+
+    image_options = cells.rendering.ImageOrPrintOptions()
+    image_options.image_type = cells.drawing.ImageType.PNG
+    image_options.vertical_resolution = image_resolution
+    image_options.horizontal_resolution = image_resolution
+    image_options.one_page_per_sheet = True
+    image_options.only_area = True
+
+    sheet_render = cells.rendering.SheetRender(cell_range.worksheet, image_options)
+    image_data = io.BytesIO()
+
+    sheet_render.to_image(0, image_data)
+    image_data.seek(0)
+
+    return image_data
 
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13
@@ -124,6 +150,8 @@ In this approach, we will learn how to scale the heights of the participating ro
 Suppose we have a template Excel sheet and want to add it to a presentation as an OLE frame. In this scenario, we will set the size of the OLE frame and scale the size of the rows and columns that participate in the OLE frame area. We will then save the workbook to a stream to apply the changes and convert it to a byte array for adding it to the OLE frame. To avoid the red "EMBEDDED OLE OBJECT" message for the OLE frame in PowerPoint, we will also capture an image of the desired portions of the rows and columns in the workbook and set it as the OLE frame image.
 
 ```py
+import aspose.cells as cells
+
 # <param name="width">The expected width of the cell range in points.</param>
 # <param name="height">The expected height of the cell range in points.</param>
 def scale_cell_range(cell_range, width, height):
@@ -149,6 +177,7 @@ def scale_cell_range(cell_range, width, height):
 
 ```py
 import io
+import aspose.cells as cells
 
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
@@ -178,6 +207,53 @@ def create_ole_image(cell_range, image_resolution):
 ```py
 import io
 import aspose.slides as slides
+import aspose.cells as cells
+
+# <param name="width">The expected width of the cell range in points.</param>
+# <param name="height">The expected height of the cell range in points.</param>
+def scale_cell_range(cell_range, width, height):
+    range_width = cell_range.width
+    range_height = cell_range.height
+
+    for i in range(cell_range.column_count):
+        column_index = cell_range.first_column + i
+        column_width = cell_range.worksheet.cells.get_column_width(column_index, False, cells.CellsUnitType.POINT)
+
+        new_column_width = column_width * width / range_width
+        width_in_inches = new_column_width / 72
+        cell_range.worksheet.cells.set_column_width_inch(column_index, width_in_inches)
+
+    for i in range(cell_range.row_count):
+        row_index = cell_range.first_row + i
+        row_height = cell_range.worksheet.cells.get_row_height(row_index, False, cells.CellsUnitType.POINT)
+
+        new_row_height = row_height * height / range_height
+        height_in_inches = new_row_height / 72
+        cell_range.worksheet.cells.set_row_height_inch(row_index, height_in_inches)
+
+def create_ole_image(cell_range, image_resolution):
+    page_setup = cell_range.worksheet.page_setup
+    page_setup.print_area = cell_range.address
+    page_setup.left_margin = 0.0
+    page_setup.right_margin = 0.0
+    page_setup.top_margin = 0.0
+    page_setup.bottom_margin = 0.0
+    page_setup.clear_header_footer()
+
+    image_options = cells.rendering.ImageOrPrintOptions()
+    image_options.image_type = cells.drawing.ImageType.PNG
+    image_options.vertical_resolution = image_resolution
+    image_options.horizontal_resolution = image_resolution
+    image_options.one_page_per_sheet = True
+    image_options.only_area = True
+
+    sheet_render = cells.rendering.SheetRender(cell_range.worksheet, image_options)
+    image_data = io.BytesIO()
+
+    sheet_render.to_image(0, image_data)
+    image_data.seek(0)
+
+    return image_data
 
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13

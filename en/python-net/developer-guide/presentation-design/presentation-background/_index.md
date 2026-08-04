@@ -193,24 +193,31 @@ Read more: [**Tile Picture As Texture**](/slides/python-net/shape-formatting/#ti
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following Python code shows you how to change the transparency for a slide background image:
 
 ```python
-transparency_value = 30  # For example.
+import aspose.slides as slides
 
-# Get the collection of picture transform operations.
-image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
+with slides.Presentation("ImageAsBackground.pptx") as presentation:
+    slide = presentation.slides[0]
 
-transparency_operation = None
+    transparency_value = 30  # For example.
 
-# Find an existing fixed-percentage transparency effect.
-for operation in image_transform:
-    if type(operation) is slides.AlphaModulateFixed:
-        transparency_operation = operation
-        break
+    # Get the collection of picture transform operations.
+    image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
 
-# Set the new transparency value.
-if transparency_operation is None:
-    image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
-else:
-    transparency_operation.amount = 100 - transparency_value
+    transparency_operation = None
+
+    # Find an existing fixed-percentage transparency effect.
+    for operation in image_transform:
+        if type(operation) is slides.effects.AlphaModulateFixed:
+            transparency_operation = operation
+            break
+
+    # Set the new transparency value.
+    if transparency_operation is None:
+        image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
+    else:
+        transparency_operation.amount = 100 - transparency_value
+
+    presentation.save("TransparentBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Get the Slide Background Value**

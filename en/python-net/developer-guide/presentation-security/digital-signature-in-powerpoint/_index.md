@@ -41,7 +41,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as pres:
     # Create DigitalSignature object with PFX file and PFX password 
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+    signature = slides.DigitalSignature("testsignature1.pfx", "testpass1")
 
     # Comment new digital signature
     signature.comments = "Aspose.Slides digital signing test."

@@ -57,9 +57,21 @@ with slides.Presentation() as pres:
 Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
 ```py 
+import aspose.slides as slides
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+
     fontData = slides.FontData("Arial Black")
     portion.portion_format.latin_font = fontData
     portion.portion_format.font_height = 36
+
+    pres.save("wordart-1.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 **Using Microsoft PowerPoint**
@@ -79,13 +91,28 @@ These are some of the available parameters or options:
 Here, we apply the SmallGrid pattern color to the text and add a 1-width black text border using this code:
 
 ```py 
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
     portion.portion_format.fill_format.fill_type = slides.FillType.PATTERN
     portion.portion_format.fill_format.pattern_format.fore_color.color = draw.Color.dark_orange
     portion.portion_format.fill_format.pattern_format.back_color.color = draw.Color.white
     portion.portion_format.fill_format.pattern_format.pattern_style = slides.PatternStyle.SMALL_GRID
-                
+
     portion.portion_format.line_format.fill_format.fill_type = slides.FillType.SOLID
     portion.portion_format.line_format.fill_format.solid_fill_color.color = draw.Color.black
+
+    pres.save("wordart-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The resulting text:
@@ -107,6 +134,19 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in Python:
 
 ```py 
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
     portion.portion_format.effect_format.enable_outer_shadow_effect()
     portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.black
     portion.portion_format.effect_format.outer_shadow_effect.scale_horizontal = 100
@@ -117,6 +157,8 @@ Here, we intend to set the properties relating to a text only. We apply the shad
     portion.portion_format.effect_format.outer_shadow_effect.skew_horizontal = 30
     portion.portion_format.effect_format.outer_shadow_effect.skew_vertical = 0
     portion.portion_format.effect_format.outer_shadow_effect.shadow_color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.32)
+
+    pres.save("wordart-3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Aspose.Slides API supports three types of shadows: OuterShadow, InnerShadow, and PresetShadow. 
@@ -143,17 +185,32 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 We add display to the text through this code sample in Python:
 
 ```py 
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
     portion.portion_format.effect_format.enable_reflection_effect()
-    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5 
-    portion.portion_format.effect_format.reflection_effect.distance = 4.72 
-    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0 
+    portion.portion_format.effect_format.reflection_effect.blur_radius = 0.5
+    portion.portion_format.effect_format.reflection_effect.distance = 4.72
+    portion.portion_format.effect_format.reflection_effect.start_pos_alpha = 0
     portion.portion_format.effect_format.reflection_effect.end_pos_alpha = 60
-    portion.portion_format.effect_format.reflection_effect.direction = 90 
-    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100 
+    portion.portion_format.effect_format.reflection_effect.direction = 90
+    portion.portion_format.effect_format.reflection_effect.scale_horizontal = 100
     portion.portion_format.effect_format.reflection_effect.scale_vertical = -100
     portion.portion_format.effect_format.reflection_effect.start_reflection_opacity = 60
     portion.portion_format.effect_format.reflection_effect.end_reflection_opacity = 0.9
-    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT  
+    portion.portion_format.effect_format.reflection_effect.rectangle_align = slides.RectangleAlignment.BOTTOM_LEFT
+
+    pres.save("wordart-4.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### Applying Glow Effect to Texts
@@ -161,10 +218,25 @@ We add display to the text through this code sample in Python:
 We apply the glow effect to the text to make it shine or stand out using this code:
 
 ```py 
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
     portion.portion_format.effect_format.enable_glow_effect()
     portion.portion_format.effect_format.glow_effect.color.r = 255
     portion.portion_format.effect_format.glow_effect.color.color_transform.add(slides.ColorTransformOperation.SET_ALPHA, 0.54)
     portion.portion_format.effect_format.glow_effect.radius = 7
+
+    pres.save("wordart-5.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The result of the operation:
@@ -183,7 +255,19 @@ We use the Transform property (inherent in the entire block of text) through thi
 ```py 
 import aspose.slides as slides
 
-textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
+    textFrame.text_frame_format.transform = slides.TextShapeType.ARCH_UP_POUR
+
+    pres.save("wordart-6.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The result:
@@ -209,6 +293,19 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ```py 
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
     autoShape.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
     autoShape.three_d_format.bevel_bottom.height = 10.5
     autoShape.three_d_format.bevel_bottom.width = 10.5
@@ -232,6 +329,8 @@ We set a 3D effect to a text shape using this sample code:
     autoShape.three_d_format.light_rig.set_rotation(0, 0, 40)
 
     autoShape.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+
+    pres.save("wordart-7.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The resulting text and its shape:
@@ -241,6 +340,19 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this Python code:
 
 ```py 
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as pres:
+    slide = pres.slides[0]
+    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    textFrame = autoShape.text_frame
+
+    portion = textFrame.paragraphs[0].portions[0]
+    portion.text = "Aspose.Slides"
+    portion.portion_format.latin_font = slides.FontData("Arial Black")
+    portion.portion_format.font_height = 36
+
     textFrame.text_frame_format.three_d_format.bevel_bottom.bevel_type = slides.BevelPresetType.CIRCLE
     textFrame.text_frame_format.three_d_format.bevel_bottom.height = 3.5
     textFrame.text_frame_format.three_d_format.bevel_bottom.width = 3.5
@@ -264,6 +376,8 @@ We apply a 3D effect to the text with this Python code:
     textFrame.text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
 
     textFrame.text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
+
+    pres.save("wordart-8.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The result of the operation:

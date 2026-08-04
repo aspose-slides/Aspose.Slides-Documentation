@@ -45,7 +45,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "AddNodes.pptx") as pres:
+with slides.Presentation("AddNodes.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
 
@@ -128,7 +128,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "AccessSmartArt.pptx") as pres:
+with slides.Presentation("AccessSmartArt.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -162,7 +162,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
+with slides.Presentation("AccessChildNodes.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -232,7 +232,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "RemoveNode.pptx") as pres:
+with slides.Presentation("RemoveNode.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -269,7 +269,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:             
+with slides.Presentation("RemoveNodeSpecificPosition.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -297,7 +297,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "AccessChildNodes.pptx") as pres: 
+with slides.Presentation("AccessChildNodes.pptx") as pres:
 	smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
 
 	# Move SmartArt shape to new position
@@ -343,7 +343,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Creating a presentation instance
-with slides.Presentation(path + "AssistantNode.pptx") as pres: 
+with slides.Presentation("AssistantNode.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -415,7 +415,7 @@ import aspose.slides.smartart as art
 # Instantiate Presentation class that represents the PPTX file 
 with slides.Presentation() as presentation: 
     # Add SmartArt 
-    smart = pres.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
 
     # Obtain the reference of a node by using its Index  
     node = smart.nodes[1]

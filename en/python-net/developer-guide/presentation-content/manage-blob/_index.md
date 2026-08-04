@@ -75,7 +75,7 @@ loadOptions.blob_management_options = slides.BlobManagementOptions()
 loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 loadOptions.blob_management_options.is_temporary_files_allowed = True
 
-with slides.Presentation(path + "Video.pptx", loadOptions) as pres:
+with slides.Presentation("Video.pptx", loadOptions) as pres:
 	# Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
 	# to transfer the data from the presentation's video stream to a stream for a newly created video file.
 	# byte[] buffer = new byte[8 * 1024];

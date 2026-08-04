@@ -103,10 +103,21 @@ For example, in a table with 4 columns and 4 rows, the cells are numbered as fol
 The following Python example shows how to reference cells using this zero-based numbering:
 
 ```python
-for row_index in range(len(table.rows)):
-    for column_index in range(len(table.rows[row_index])):
-        cell = table.rows[row_index][column_index]
-        cell.text_frame.text = f"({column_index}, {row_index})"
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
+
+    # Add a table with 4 columns and 4 rows.
+    table = slide.shapes.add_table(100, 50, [50, 50, 50, 50], [30, 30, 30, 30])
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            cell.text_frame.text = f"({column_index}, {row_index})"
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Access an Existing Table**

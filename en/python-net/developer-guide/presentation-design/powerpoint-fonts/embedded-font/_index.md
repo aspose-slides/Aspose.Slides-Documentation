@@ -52,7 +52,7 @@ with slides.Presentation("EmbeddedFonts.pptx") as presentation:
     embedded_fonts = fonts_manager.get_embedded_fonts()
 
     # Find the 'Calibri' font.
-    font_data = list(filter(lambda data : data.font_name == "Calibri", embedded_fonts))[0]
+    font_data = [font for font in embedded_fonts if font.font_name == "Calibri"][0]
 
     # Remove the 'Calibri' font.
     fonts_manager.remove_embedded_font(font_data)

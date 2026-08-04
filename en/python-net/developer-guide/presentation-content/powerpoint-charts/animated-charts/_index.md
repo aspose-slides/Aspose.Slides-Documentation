@@ -39,7 +39,7 @@ import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 # Instantiate Presentation class that represents a presentation file 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes
@@ -94,7 +94,7 @@ In the example given below, we animated chart category.
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes
@@ -137,7 +137,7 @@ import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 # Load a presentation
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes
@@ -180,7 +180,7 @@ In the example given below, we have animated categories elements.
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes

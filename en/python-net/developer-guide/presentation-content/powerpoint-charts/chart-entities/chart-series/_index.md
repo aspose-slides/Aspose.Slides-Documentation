@@ -226,25 +226,25 @@ The following code example shows how to do this:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
-	chart.chart_data.series.clear()
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
+    chart.chart_data.series.clear()
 
-	series = series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
+    workbook = chart.chart_data.chart_data_workbook
+    series = chart.chart_data.series.add(workbook.get_cell(0, "B1"), chart.type)
 
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B2", -5))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B3", 3))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B4", -3))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B5", 1))
 
-	series.invert_if_negative = False
-	series.data_points[2].invert_if_negative = True
+    series.invert_if_negative = False
+    series.data_points[2].invert_if_negative = True
 
-	presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Clear Data for Specific Data Points**

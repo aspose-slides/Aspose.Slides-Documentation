@@ -77,7 +77,7 @@ Clone any table row or column and insert the copy at the desired position in the
 This Python code shows how to clone a row and column of a PowerPoint table:
 
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
 # Instantiate the Presentation class.
 with slides.Presentation() as presentation:

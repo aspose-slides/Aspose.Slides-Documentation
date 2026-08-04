@@ -320,9 +320,9 @@ with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
     # Get the PictureFrame from the first slide.
-    picture_frame = slides.shape[0]
+    picture_frame = slide.shapes[0]
 
-    # Get the PictureFrame from the first slide.
+    # Delete the cropped areas of the image.
     cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
 
     # Save the result.

@@ -121,7 +121,7 @@ Using the **CategoryAxisType** property, you can specify your preferred category
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     chart = presentation.slides[0].shapes[0]
     chart.axes.horizontal_axis.category_axis_type = charts.CategoryAxisType.DATE
     chart.axes.horizontal_axis.is_automatic_major_unit = False

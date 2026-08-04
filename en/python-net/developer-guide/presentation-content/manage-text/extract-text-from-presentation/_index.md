@@ -104,9 +104,19 @@ with slides.Presentation("demo.pptx") as presentation:
 The [PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ```py
-PresentationFactory.get_presentation_text(file, mode)
-PresentationFactory.get_presentation_text(stream, mode)
-PresentationFactory.get_presentation_text(stream, mode, options)
+import io
+import aspose.slides as slides
+
+file_name = "presentation.pptx"
+stream = io.BytesIO()
+mode = slides.TextExtractionArrangingMode.UNARRANGED
+options = slides.LoadOptions()
+
+factory = slides.PresentationFactory.instance
+
+presentation_text = factory.get_presentation_text(file_name, mode)
+presentation_text = factory.get_presentation_text(stream, mode)
+presentation_text = factory.get_presentation_text(stream, mode, options)
 ```
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/python-net/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:

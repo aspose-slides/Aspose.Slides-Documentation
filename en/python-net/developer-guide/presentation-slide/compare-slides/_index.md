@@ -27,8 +27,8 @@ Two slides are equal if all shapes, styles, texts, animation and other settings.
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as p1:
-    with slides.Presentation(path + "HelloWorld.pptx") as p2:
+with slides.Presentation("AccessSlides.pptx") as p1:
+    with slides.Presentation("HelloWorld.pptx") as p2:
         for i in range(len(p1.masters)):
             for j in range(len(p2.masters)):
                 if p1.masters[i].equals(p2.masters[j]):

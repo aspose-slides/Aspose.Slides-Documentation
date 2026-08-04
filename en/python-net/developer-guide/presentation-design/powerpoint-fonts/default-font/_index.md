@@ -41,13 +41,13 @@ The implementation of the above is given below.
 ```py
 import aspose.slides as slides
 
-# Use load options to define the default regualr and asian fonts# Use load options to define the default regualr and asian fonts
+# Use load options to define the default regular and asian fonts
 loadOptions = slides.LoadOptions(slides.LoadFormat.AUTO)
 loadOptions.default_regular_font = "Wingdings"
 loadOptions.default_asian_font = "Wingdings"
 
 # Load the presentation
-with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as pptx:
+with slides.Presentation("DefaultFonts.pptx", loadOptions) as pptx:
     # Generate slide thumbnail
     with pptx.slides[0].get_image(1, 1) as img:
         img.save("output_out.png", slides.ImageFormat.PNG)

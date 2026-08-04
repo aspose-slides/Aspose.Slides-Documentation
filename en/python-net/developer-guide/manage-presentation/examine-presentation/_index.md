@@ -76,15 +76,16 @@ Let's say we have a PowerPoint presentation with the document properties shown b
 This code example shows you how to edit some presentation properties:
 
 ```py
+import aspose.slides as slides
 import datetime
 
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)

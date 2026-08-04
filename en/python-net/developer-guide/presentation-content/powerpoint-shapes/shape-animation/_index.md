@@ -243,6 +243,10 @@ def print_effects(effects):
 ```py
 import aspose.slides as slides
 
+def print_effects(effects):
+    for effect in effects:
+        print(effect.type.name, effect.subtype.name)
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
@@ -332,7 +336,7 @@ This Python code shows you how to add an animation effect sound and stop it when
 ```python
 import aspose.slides as slides
 
-with Presentation("AnimExample_out.pptx") as pres:
+with slides.Presentation("AnimExample_out.pptx") as pres:
     # Adds audio to presentation audio collection
     effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
@@ -406,6 +410,7 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
 This Python code shows you how to change an after animation effect:
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Instantiates a presentation class that represents a presentation file
@@ -416,10 +421,10 @@ with slides.Presentation("AnimImage_out.pptx") as pres:
     first_effect = first_slide.timeline.main_sequence[0]
 
     # Changes the after animation type to Color
-    first_effect.after_animation_type = AfterAnimationType.COLOR
+    first_effect.after_animation_type = slides.animation.AfterAnimationType.COLOR
 
     # Sets the after animation dim color
-    first_effect.after_animation_color.color = Color.alice_blue
+    first_effect.after_animation_color.color = draw.Color.alice_blue
 
     # Writes the PPTX file to disk
     pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)

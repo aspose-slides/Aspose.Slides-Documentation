@@ -64,6 +64,7 @@ The following Python code example demonstrates how to convert the PowerPoint pre
 ```py
 import aspose.slides as slides
 import aspose.words as words
+from io import BytesIO
 
 # Load a presentation file.
 with slides.Presentation("sample.pptx") as presentation:

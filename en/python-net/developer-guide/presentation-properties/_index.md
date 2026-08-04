@@ -51,7 +51,7 @@ These properties as exposed by **IDocumentProperties** object include: **Creator
 import aspose.slides as slides
 
 # Instantiate the Presentation class that represents the presentation
-with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
+with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
     # Create a reference to object associated with Presentation
     documentProperties = pres.document_properties
 
@@ -80,7 +80,7 @@ Modifying the built-in properties of presentation files is as easy as that of ac
 import aspose.slides as slides
 
 # Instantiate the Presentation class that represents the Presentation
-with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
+with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
     # Create a reference to object associated with Presentation
     documentProperties = presentation.document_properties
 
@@ -130,18 +130,22 @@ Aspose.Slides for Python via .NET also allows developers to access the values of
 import aspose.slides as slides
 
 # Instanciate the Presentation class that represents the PPTX
-with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
+with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
     # Create a reference to document_properties object associated with Prsentation
     documentProperties = presentation.document_properties
 
     # Access and modify custom properties
     for i in range(documentProperties.count_of_custom_properties):
+        property_name = documentProperties.get_custom_property_name(i)
+
         # Display names and values of custom properties
-        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
-        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        property_value = [""]
+        documentProperties.get_custom_property_value(property_name, property_value)
+        print("Custom Property Name : " + property_name)
+        print("Custom Property Value : " + property_value[0])
 
         # Modify values of custom properties
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
+        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
     # save your presentation to a file
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -155,7 +159,7 @@ This Python code shows you how to set the proofing language for a PowerPoint:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
+with slides.Presentation("SetProofingLanguage.pptx") as pres:
     auto_shape = pres.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
     paragraph.portions.clear()

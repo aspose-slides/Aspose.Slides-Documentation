@@ -55,7 +55,7 @@ with slides.Presentation() as pres:
     sld = pres.slides[0]
 
     # Loads the wav sound file to stream
-    with open(path + "sampleaudio.wav", "rb") as in_file:
+    with open("sampleaudio.wav", "rb") as in_file:
         # Adds the Audio Frame
         audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
 

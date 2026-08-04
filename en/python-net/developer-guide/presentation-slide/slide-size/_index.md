@@ -51,9 +51,9 @@ By default, presentations created with Aspose.Slides use the standard 4:3 aspect
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
-    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
-    pres.save("pres-4x3-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("AccessSlides.pptx") as pres:
+    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN_16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    pres.save("pres-16x9-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Specify Custom Slide Sizes**
@@ -65,7 +65,7 @@ This sample code shows you how to use Aspose.Slides for Python via .NET to speci
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
     pres.slide_size.set_size(780, 540, slides.SlideSizeScaleType.DO_NOT_SCALE) # A4 paper size
     pres.save("pres-a4-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -93,7 +93,7 @@ This sample code shows you how to use the `MAXIMIZE` setting when changing the s
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
    pres.slide_size.set_size(slides.SlideSizeType.LEDGER, slides.SlideSizeScaleType.MAXIMIZE)
 ```
 

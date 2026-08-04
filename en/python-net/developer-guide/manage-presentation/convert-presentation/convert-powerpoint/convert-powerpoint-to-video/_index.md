@@ -112,16 +112,18 @@ Animations and transitions make slideshows more engaging and interesting — and
 
 ```python
 import aspose.pydrawing as drawing
+import aspose.slides as slides
 
-# Add a smile shape and animate it.
-# ...
+with slides.Presentation() as presentation:
+    # Add a smile shape and animate it.
+    # ...
 
-# Add a new slide and an animated transition.
-new_slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-new_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
-new_slide.background.fill_format.fill_type = slides.FillType.SOLID
-new_slide.background.fill_format.solid_fill_color.color = drawing.Color.indigo
-new_slide.slide_show_transition.type = slides.TransitionType.PUSH
+    # Add a new slide and an animated transition.
+    new_slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    new_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    new_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    new_slide.background.fill_format.solid_fill_color.color = drawing.Color.indigo
+    new_slide.slide_show_transition.type = slides.slideshow.TransitionType.PUSH
 ```
 
 Aspose.Slides for Python also supports text animations. In this example, we animate paragraphs on objects so that they appear one after the other, with a one-second delay between them:

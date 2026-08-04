@@ -398,10 +398,13 @@ By default, points on a line chart are joined by straight continuous lines. If y
 ```python
 import aspose.slides as slides
 
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The result:

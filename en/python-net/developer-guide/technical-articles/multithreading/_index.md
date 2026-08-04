@@ -31,11 +31,14 @@ It is **not** safe to load, save, and/or clone an instance of a [Presentation](h
 Let's say we want to convert all the slides from a PowerPoint presentation to PNG images in parallel. Since it is unsafe to use a single `Presentation` instance in multiple threads, we split the presentation slides into separate presentations and convert the slides to images in parallel, using each presentation in a separate thread. The following code example shows how to do this.
 
 ```py
+import aspose.slides as slides
+from concurrent.futures import ThreadPoolExecutor
+
 input_file_path = "sample.pptx"
 output_file_path_template = "slide_{0}.png"
 image_scale = 2
 
-presentation = Presentation(input_file_path)
+presentation = slides.Presentation(input_file_path)
 
 slide_count = len(presentation.slides)
 slide_size = presentation.slide_size.size
@@ -45,8 +48,8 @@ conversion_tasks = []
 
 def convert_slide(slide_index):
     # Extract slide i into a separate presentation.
-    with Presentation() as slide_presentation:
-        slide_presentation.slide_size.set_size(slide_size.width, slide_size.height, SlideSizeScaleType.DO_NOT_SCALE)
+    with slides.Presentation() as slide_presentation:
+        slide_presentation.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.DO_NOT_SCALE)
         slide_presentation.slides.remove_at(0)
         slide_presentation.slides.add_clone(presentation.slides[slide_index])
 
@@ -56,7 +59,7 @@ def convert_slide(slide_index):
         # Convert the slide to an image.
         with slide.get_image(image_scale, image_scale) as image:
             image_file_path = output_file_path_template.format(slide_number)
-            image.save(image_file_path, ImageFormat.PNG)
+            image.save(image_file_path, slides.ImageFormat.PNG)
 
 
 with ThreadPoolExecutor() as thread_executor:

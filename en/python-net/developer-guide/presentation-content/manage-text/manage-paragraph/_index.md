@@ -186,7 +186,7 @@ with slides.Presentation() as presentation:
 
     # Set the paragraph's bullet type and style.
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
+    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
 
     # Set the paragraph text.
     paragraph2.text = "This is numbered bullet"
@@ -305,7 +305,7 @@ with slides.Presentation() as presentation:
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
     # Access the TextFrame of the created AutoShape.
-    text_frame = auto_shape.text_frame
+    text_frame = shape.text_frame
     
     # Clear the default paragraph.
     text_frame.paragraphs.clear()

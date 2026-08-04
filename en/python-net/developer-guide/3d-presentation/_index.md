@@ -103,8 +103,14 @@ In Aspose.Slides, set the camera type and rotation through [ThreeDFormat.camera]
 ```py
 import aspose.slides as slides
 
-shape.three_d_format.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
-shape.three_d_format.camera.set_rotation(20, 30, 40)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
+
+    shape.three_d_format.camera.camera_type = slides.CameraPresetType.ORTHOGRAPHIC_FRONT
+    shape.three_d_format.camera.set_rotation(20, 30, 40)
+
+    presentation.save("shape_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
@@ -119,10 +125,17 @@ Set [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-n
 
 ```py
 import aspose.pydrawing as drawing
+import aspose.slides as slides
 
-shape.three_d_format.camera.set_rotation(20, 30, 40)
-shape.three_d_format.extrusion_height = 100
-shape.three_d_format.extrusion_color.color = drawing.Color.purple
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 200, 200)
+
+    shape.three_d_format.camera.set_rotation(20, 30, 40)
+    shape.three_d_format.extrusion_height = 100
+    shape.three_d_format.extrusion_color.color = drawing.Color.purple
+
+    presentation.save("shape_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Use [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) when you need to work with PowerPoint's depth value directly or combine depth with bevel, material, and text effects. In many shape scenarios, [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) is the clearer setting because it directly expresses the visible extrusion.
@@ -174,15 +187,21 @@ import aspose.slides as slides
 with open("image.jpg", "rb") as image_file:
     image_data = image_file.read()
 
-image = presentation.images.add_image(image_data)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 150, 250, 250)
 
-shape.fill_format.fill_type = slides.FillType.PICTURE
-shape.fill_format.picture_fill_format.picture.image = image
-shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    image = presentation.images.add_image(image_data)
 
-shape.three_d_format.camera.set_rotation(10, 20, 30)
-shape.three_d_format.extrusion_height = 150
-shape.three_d_format.extrusion_color.color = drawing.Color.dark_orange
+    shape.fill_format.fill_type = slides.FillType.PICTURE
+    shape.fill_format.picture_fill_format.picture.image = image
+    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+
+    shape.three_d_format.camera.set_rotation(10, 20, 30)
+    shape.three_d_format.extrusion_height = 150
+    shape.three_d_format.extrusion_color.color = drawing.Color.dark_orange
+
+    presentation.save("shape_3d_picture.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:

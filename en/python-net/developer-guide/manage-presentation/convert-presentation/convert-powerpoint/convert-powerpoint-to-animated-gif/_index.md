@@ -38,8 +38,8 @@ This sample code in Python shows you how to convert a presentation to animated G
 ```py
 import aspose.slides as slides
 
-pres = slides.Presentation(path + "pres.pptx")
-pres.save("pres.gif", slides.export.SaveFormat.GIF)
+with slides.Presentation("pres.pptx") as pres:
+    pres.save("pres.gif", slides.export.SaveFormat.GIF)
 ```
 
 The animated GIF will be created with default parameters. 
@@ -58,14 +58,13 @@ This sample code shows you how to convert a presentation to animated GIF using c
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-pres = slides.Presentation(path + "pres.pptx")
+with slides.Presentation("pres.pptx") as pres:
+    options = slides.export.GifOptions()
+    options.frame_size = drawing.Size(960, 720)  # the size of the resulted GIF
+    options.default_delay = 2000  # how long each slide will be showed until it will be changed to the next one
+    options.transition_fps = 35  # increase FPS to better transition animation quality
 
-options = slides.export.GifOptions()
-options.frame_size = drawing.Size(960, 720) # the size of the resulted GIF  
-options.default_delay = 2000 # how long each slide will be showed until it will be changed to the next one
-options.transition_fps = 35  # increase FPS to better transition animation quality
-
-pres.save("pres.gif", slides.export.SaveFormat.GIF, options)
+    pres.save("pres.gif", slides.export.SaveFormat.GIF, options)
 ```
 
 {{% alert title="Info" color="info" %}}

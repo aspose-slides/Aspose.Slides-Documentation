@@ -94,6 +94,13 @@ of the **Object** type, which means you can set any value to the property:
 
 
 ```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
     workbook.get_cell(0, "F2").value = -2.5
     workbook.get_cell(0, "G3").value = 6.3
     workbook.get_cell(0, "H4").value = 3
@@ -105,6 +112,13 @@ Now to write formula to the cell, you can use the
 [**formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) property:
 
 ```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
     workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
 ```
 
@@ -115,6 +129,13 @@ Now to write formula to the cell, you can use the
 To set the [r1c1_formula](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) cell reference, you can use the [**r1c1_formula**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatacell/) property:
 
 ```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
     workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
 ```
 
@@ -123,6 +144,20 @@ Then use the [**calculate_formulas**](https://reference.aspose.com/slides/python
 
 
 ```py
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
+    workbook.get_cell(0, "F2").value = -2.5
+    workbook.get_cell(0, "G3").value = 6.3
+    workbook.get_cell(0, "H4").value = 3
+
+    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
+    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
+
     workbook.calculate_formulas()
     print(workbook.get_cell(0, "B2").value) # 7.8
     print(workbook.get_cell(0, "C2").value) # 2.1

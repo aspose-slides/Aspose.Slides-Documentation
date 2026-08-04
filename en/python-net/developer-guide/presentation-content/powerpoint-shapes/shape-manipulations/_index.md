@@ -220,7 +220,7 @@ Aspose.Slides provides a simple API for accessing layout formats for shapes. Thi
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(folder_path + "sample.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     for layout_slide in presentation.layout_slides:
         fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
         line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))

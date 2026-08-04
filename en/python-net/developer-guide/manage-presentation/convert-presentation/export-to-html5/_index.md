@@ -121,11 +121,16 @@ When you convert a PowerPoint presentation to an HTML5 document, you can easily 
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```py
-html5_options = Html5Options()
-html5_options.notes_comments_layouting.comments_position = CommentsPositions.RIGHT
+import aspose.slides as slides
 
-with Presentation("sample.pptx") as presentation:
-    presentation.save("output.html", SaveFormat.HTML5, html5_options)
+layouting_options = slides.export.NotesCommentsLayoutingOptions()
+layouting_options.comments_position = slides.export.CommentsPositions.RIGHT
+
+html5_options = slides.export.Html5Options()
+html5_options.slides_layout_options = layouting_options
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("output.html", slides.export.SaveFormat.HTML5, html5_options)
 ```
 
 The "output.html" document is shown in the image below.

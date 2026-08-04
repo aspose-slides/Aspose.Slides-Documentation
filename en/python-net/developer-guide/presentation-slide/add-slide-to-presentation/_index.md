@@ -36,11 +36,11 @@ import aspose.slides as slides
 # Instantiate the Presentation class.
 with slides.Presentation() as presentation:
     # Access the slide collection.
-    slides = presentation.slides
+    slide_collection = presentation.slides
 
     for layout_slide in presentation.layout_slides:
         # Add an empty slide to the slide collection.
-        slides.add_empty_slide(layout_slide)
+        slide_collection.add_empty_slide(layout_slide)
 
     # Do some work on the newly added slides.
 

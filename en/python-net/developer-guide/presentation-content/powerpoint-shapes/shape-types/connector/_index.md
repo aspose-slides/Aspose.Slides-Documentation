@@ -177,6 +177,27 @@ To avoid the third shape, adjust the connector by moving its vertical segment to
 ![Fixed connector obstruction](connector-obstruction-fixed.png)
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+
+    connector.start_shape_connected_to = shape_from
+    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connection_site_index = 2
+
+    # Move the vertical segment of the connector to the left.
     adjustment2 = connector.adjustments[1]
     adjustment2.raw_value += 10000
 ```
@@ -242,6 +263,33 @@ with slides.Presentation() as presentation:
 Change the connector’s adjustment point values by increasing the width percentage by 20% and the height percentage by 200%, respectively:
 
 ```python
+import aspose.slides as slides
+
+# Instantiate the Presentation class to create a PPTX file.
+with slides.Presentation() as presentation:
+
+    # Get the first slide.
+    slide = presentation.slides[0]
+
+    # Add the shapes to be linked.
+    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    shape_from.text_frame.text = "From"
+    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    shape_to.text_frame.text = "To"
+
+    # Add a connector.
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    # Link the shapes with the connector.
+    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connection_site_index = 2
+
+    # Get the connector's adjustment points.
+    adjustment_0 = connector.adjustments[0]
+    adjustment_1 = connector.adjustments[1]
+
     # Change the values of the adjustment points.
     adjustment_0.raw_value += 20000
     adjustment_1.raw_value += 200000
@@ -254,6 +302,37 @@ The result:
 To define a model that allows us to determine the coordinates and shape of the connector’s segments, create a shape that corresponds to the vertical component of the connector at `connector.adjustments[0]`:
 
 ```python
+import aspose.slides as slides
+
+# Instantiate the Presentation class to create a PPTX file.
+with slides.Presentation() as presentation:
+
+    # Get the first slide.
+    slide = presentation.slides[0]
+
+    # Add the shapes to be linked.
+    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    shape_from.text_frame.text = "From"
+    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    shape_to.text_frame.text = "To"
+
+    # Add a connector.
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    # Link the shapes with the connector.
+    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connection_site_index = 2
+
+    # Get the connector's adjustment points.
+    adjustment_0 = connector.adjustments[0]
+    adjustment_1 = connector.adjustments[1]
+
+    # Change the values of the adjustment points.
+    adjustment_0.raw_value += 20000
+    adjustment_1.raw_value += 200000
+
     # Draw the vertical component of the connector.
     x = connector.x + connector.width * adjustment_0.raw_value / 100000
     y = connector.y
@@ -273,19 +352,31 @@ In **Case 1**, we demonstrated a simple connector adjustment using basic princip
 First, add a new text frame object (**To 1**) to the slide (for connection), and create a new green connector that links it to the existing objects.
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+
+    # Get the first slide.
+    slide = presentation.slides[0]
+
+    # Create the source object.
+    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    shape_from.text_frame.text = "From"
+
     # Create a new target object.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    shape_to_1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
     shape_to_1.text_frame.text = "To 1"
 
     # Create a new connector.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
 
     # Connect the objects using the newly created connector.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = shape_from
     connector.start_shape_connection_site_index = 2
     connector.end_shape_connected_to = shape_to_1
     connector.end_shape_connection_site_index = 3
@@ -293,7 +384,7 @@ First, add a new text frame object (**To 1**) to the slide (for connection), and
     # Get the connector adjustment points.
     adjustment_0 = connector.adjustments[0]
     adjustment_1 = connector.adjustments[1]
-    
+
     # Change the values of the adjustment points.
     adjustment_0.raw_value += 20000
     adjustment_1.raw_value += 200000
@@ -312,10 +403,47 @@ Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 In our case, the object’s rotation angle is 90 degrees and the connector is displayed vertically, so the corresponding code is:
 
 ```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+
+    # Get the first slide.
+    slide = presentation.slides[0]
+
+    # Create the source object.
+    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    shape_from.text_frame.text = "From"
+
+    # Create a new target object.
+    shape_to_1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    shape_to_1.text_frame.text = "To 1"
+
+    # Create a new connector.
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
+    connector.line_format.width = 3
+
+    # Connect the objects using the newly created connector.
+    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connection_site_index = 3
+
+    # Get the connector adjustment points.
+    adjustment_0 = connector.adjustments[0]
+    adjustment_1 = connector.adjustments[1]
+
+    # Change the values of the adjustment points.
+    adjustment_0.raw_value += 20000
+    adjustment_1.raw_value += 200000
+
     # Save the connector coordinates.
     x = connector.x
     y = connector.y
-    
+
     # Correct the connector coordinates if it is flipped.
     if connector.frame.flip_h == 1:
         x += connector.width
@@ -323,15 +451,15 @@ In our case, the object’s rotation angle is 90 degrees and the connector is di
         y += connector.height
 
     # Use the adjustment point value as the coordinate.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
+    x += connector.width * adjustment_0.raw_value / 100000
+
     # Convert the coordinates because sin(90°) = 1 and cos(90°) = 0.
     xx = connector.frame.center_x - y + connector.frame.center_y
     yy = x - connector.frame.center_x + connector.frame.center_y
 
     # Determine the width of the horizontal segment using the second adjustment point value.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
+    width = connector.height * adjustment_1.raw_value / 100000
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
 ```

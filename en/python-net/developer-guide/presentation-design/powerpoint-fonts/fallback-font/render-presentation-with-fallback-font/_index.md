@@ -52,7 +52,7 @@ for fallBackRule in rulesList:
 if len(rulesList) > 0:
 	rulesList.remove(rulesList[0])
 
-with slides.Presentation(path + "input.pptx") as pres:
+with slides.Presentation("input.pptx") as pres:
 	#Assigning a prepared rules list for using
 	pres.fonts_manager.font_fall_back_rules_collection = rulesList
 

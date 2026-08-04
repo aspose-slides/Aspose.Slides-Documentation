@@ -287,7 +287,15 @@ with slides.Presentation("sample.pptx") as presentation:
 After you add a linked OLE object to a slide, PowerPoint may prompt you to update links when you open the presentation. Selecting Update Links can change the OLE object frame’s size and position because PowerPoint refreshes the preview with data from the linked object. To prevent PowerPoint from prompting you to update the object’s data, set the `update_automatic` property of the [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) class to `False`:
 
 ```py
-ole_frame.update_automatic = False
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    ole_frame.update_automatic = False
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Extract Embedded Files**
