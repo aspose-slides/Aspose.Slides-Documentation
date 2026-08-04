@@ -39,6 +39,13 @@ For C++ sample code to convert PPTX to PPT, please see the section below i.e. [C
 To convert a PPTX to PPT simply pass the file name and save format to the **Save** method of [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) class. The C++ code sample below converts a Presentation from PPTX to PPT using default options.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Load the PPTX.
 SharedPtr<Presentation> prs = MakeObject<Presentation>(u"sourceFile.pptx");
 

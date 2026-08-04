@@ -74,6 +74,11 @@ When converting a presentation to XPS, you have to save the presentation using e
 This sample code in C++ shows you how to convert a presentation to an XPS document using standard settings:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Instantiate a Presentation object that represents a presentation file
 auto pres = System::MakeObject<Presentation>(u"Convert_XPS.pptx");
 // Saving the presentation to XPS document
@@ -85,6 +90,12 @@ pres->Save(u"XPS_Output_Without_XPSOption_out.xps", SaveFormat::Xps);
 This sample code shows you how to convert a presentation to an XPS document using custom settings in C++:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Export/XpsOptions.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Instantiate a Presentation object that represents a presentation file
 auto pres = System::MakeObject<Presentation>(u"Convert_XPS_Options.pptx");
 // Instantiate the TiffOptions class

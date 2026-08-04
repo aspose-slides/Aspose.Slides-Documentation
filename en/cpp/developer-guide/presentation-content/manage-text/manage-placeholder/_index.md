@@ -38,6 +38,19 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 This C++ code shows how to change the text in a placeholder:
 
 ```c++
+#include <DOM/AutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // The path to the documents directory.
 const String outPath = u"../out/ReplacingText_out.pptx";
 const String templatePath = u"../templates/DefaultFonts.pptx";
@@ -67,6 +80,16 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This C++ code shows you how to set the prompt text in a placeholder:
 
 ```c++
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 const System::String templatePath = u"../templates/Presentation2.pptx";
     
 auto pres = System::MakeObject<Presentation>(templatePath);
@@ -99,6 +122,24 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This C++ code shows you how to set the transparency for a picture background (inside a shape):
 
 ```c++
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>();
     
 auto autoShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);

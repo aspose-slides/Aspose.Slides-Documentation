@@ -60,6 +60,23 @@ To get started, we need two things:
 ![PowerPoint template example](example1_image1.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Excel/ExcelDataWorkbook.h>
+#include <Excel/IExcelDataCell.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Excel;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Load the Excel workbook with employee data.
 auto workbook = MakeObject<ExcelDataWorkbook>(u"TemplateData.xlsx");
 auto worksheetIndex = 0;
@@ -112,6 +129,23 @@ In the second example, we simply copy data from an Excel table and display it on
 In this example, we reuse the same Excel workbook from the first example, which contains a simple employee table.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/ITable.h>
+#include <Excel/ExcelDataWorkbook.h>
+#include <Excel/IExcelDataCell.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Excel;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Load the Excel workbook containing the employee data.
 auto workbook = MakeObject<ExcelDataWorkbook>(u"TemplateData.xlsx");
 auto worksheetIndex = 0;
@@ -150,6 +184,16 @@ First, we add a Pie chart to the Excel workbook based on the employees table.
 ![Excel Chart example](example3_image0.png)
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Import/ExcelWorkbookImporter.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Import;
+using namespace System;
+
 // Create a new PowerPoint presentation.
 auto presentation = MakeObject<Presentation>();
 
@@ -173,6 +217,21 @@ Let's imagine you have an Excel workbook full of charts and you need to import t
 The following code iterates through all worksheets in the source Excel file, extracts the charts from each worksheet, and adds each chart to a separate slide using a blank slide layout. In the resulting presentation, only the chart data will be embedded, not the entire workbook.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Excel/ExcelDataWorkbook.h>
+#include <Export/SaveFormat.h>
+#include <Import/ExcelWorkbookImporter.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Excel;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Import;
+using namespace System;
+
 // Load the Excel workbook containing the employee data.
 auto workbook = MakeObject<ExcelDataWorkbook>(u"ExcelWithCharts.xlsx");
 

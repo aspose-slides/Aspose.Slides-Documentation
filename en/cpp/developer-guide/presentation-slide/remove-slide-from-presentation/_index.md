@@ -30,6 +30,15 @@ If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides
 This C++ code shows you how to remove a slide through its reference: 
 
 ```c++
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// The path to the documents directory
 	const String templatePath = L"../templates/AddSlides.pptx";
 	const String outPath = L"../out/RemoveSlidesByReference.pptx";
@@ -57,6 +66,14 @@ This C++ code shows you how to remove a slide through its reference:
 This C++ code shows you how to remove a slide through its index: 
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// The path to the documents directory
 	const String templatePath = L"../templates/AddSlides.pptx";
 	const String outPath = L"../out/RemoveSlidesByID.pptx";
@@ -76,6 +93,13 @@ This C++ code shows you how to remove a slide through its index:
 Aspose.Slides provides the [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method (from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused layout slides. This C++ code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 LowCode::Compress::RemoveUnusedLayoutSlides(pres);
@@ -88,6 +112,13 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 Aspose.Slides provides the [RemoveUnusedMasterSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) method (from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This C++ code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(pres);

@@ -61,6 +61,12 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This C++ code shows you how to convert PowerPoint to CommonMark: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto opt = System::MakeObject<MarkdownSaveOptions>();
 opt->set_Flavor(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Flavor::CommonMark);
@@ -98,6 +104,14 @@ If you want the images to appear together in the resulting markdown, you have to
 This C++ code demonstrates the operation: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 const System::String outPath = u"x:\\documents";
 auto opt = System::MakeObject<MarkdownSaveOptions>();

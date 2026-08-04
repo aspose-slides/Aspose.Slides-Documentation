@@ -49,6 +49,21 @@ To create a textbox on a slide, go through these steps:
 This C++ code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Instantiates Presentation
 auto pres = System::MakeObject<Presentation>();
 
@@ -86,6 +101,13 @@ Aspose.Slides provides the [get_IsTextBox](https://reference.aspose.com/slides/c
 This C++ code shows you how to check whether a shape was created as a text box: 
 
 ```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 for (auto&& slide : presentation->get_Slides())
 {
@@ -105,6 +127,16 @@ presentation->Dispose();
 Note that if you simply add an autoshape using the `AddAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface, the `get_IsTextBox` method of the autoshape will return `false`. However, after you add text to the autoshape using the `AddTextFrame` method or the `set_Text` method, the `get_IsTextBox` method returns `true`.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -136,6 +168,20 @@ Aspose.Slides provides the [set_ColumnCount](https://reference.aspose.com/slides
 This code in C++ demonstrates the described operation: 
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 // Gets the first slide in the presentation
 auto slide = presentation->get_Slides()->idx_get(0);
@@ -169,6 +215,20 @@ Aspose.Slides for C++ provides the [set_ColumnCount](https://reference.aspose.co
 This C++ code shows you how to add a column inside a text frame:
 
 ```cpp
+#include <DOM/AutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextFrameFormat.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 String outPptxFileName = u"ColumnsTest.pptx";
     
 auto pres = System::MakeObject<Presentation>();
@@ -218,6 +278,15 @@ Aspose.Slides allows you to change or update the text contained in a text box or
 This C++ code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>(u"text.pptx");
 for (const auto& slide : pres->get_Slides())
 {
@@ -261,6 +330,23 @@ You can insert a link inside a text box. When the text box is clicked, users are
 This C++ code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Instantiates a Presentation class that represents a PPTX
 auto presentation = System::MakeObject<Presentation>();
 

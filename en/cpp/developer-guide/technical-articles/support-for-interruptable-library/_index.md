@@ -33,6 +33,11 @@ In [Aspose.Slides 18.4](https://releases.aspose.com/slides/cpp/release-notes/201
 The following code snippet demonstrates interrupting a running task:
 
 ```cpp
+#include <IInterruptionToken.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 void Run(Action<SharedPtr<IInterruptionToken>> action, SharedPtr<IInterruptionToken> token)
 {
     auto threadFunction = std::function<void()>([&action, &token]() -> void

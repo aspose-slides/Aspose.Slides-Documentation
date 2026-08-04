@@ -39,6 +39,19 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <LoadFormat.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 // Use the load options to specify default regular and Asian fonts
 auto loadOptions = MakeObject<LoadOptions>(LoadFormat::Auto);
 loadOptions->set_DefaultRegularFont(u"Wingdings");

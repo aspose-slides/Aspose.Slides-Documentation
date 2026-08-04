@@ -27,6 +27,19 @@ SmartArt is a PowerPoint diagram made from nodes, node shapes, and a layout. Wit
 A SmartArt node can contain one or more shapes. To read the visible text, iterate through [ISmartArt::get_AllNodes](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/get_allnodes/), then read the [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) returned by [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartartshape/get_textframe/).
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtNodeCollection.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <DOM/SmartArt/ISmartArtShapeCollection.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -59,6 +72,16 @@ presentation->Dispose();
 The SmartArt layout controls how nodes are arranged and connected. The following example creates a SmartArt object with the [SmartArtLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartartlayouttype/) `BasicBlockList` value, changes it to the `BasicProcess` value, and saves the presentation.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
@@ -77,6 +100,20 @@ presentation->Dispose();
 The following example adds a node to a SmartArt object that uses the [SmartArtLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartartlayouttype/) `RadialCycle` value and checks the node's hidden state.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtNodeCollection.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
@@ -101,6 +138,18 @@ For SmartArt diagrams that use an organization chart layout, [ISmartArtNode::get
 The following example creates an organization chart and sets the layout for the first node to the [OrganizationChartLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/organizationchartlayouttype/) `LeftHanging` value.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/OrganizationChartLayoutType.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(
@@ -118,6 +167,15 @@ presentation->Dispose();
 A picture organization chart is a SmartArt layout designed for hierarchy diagrams that include image placeholders. Use the [SmartArtLayoutType](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartartlayouttype/) `PictureOrganizationChart` value when adding the SmartArt object to a slide.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SmartArt;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto smartArt = presentation->get_Slide(0)->get_Shapes()->AddSmartArt(

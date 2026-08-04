@@ -108,6 +108,13 @@ For example, if you rename your license file to *Aspose.Slides.lic.xml*, you mus
 You can load a license from a stream. The following C++ code shows how to apply a license from a stream:
 
 ```c++
+#include <Util/License.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto license = MakeObject<License>();
 
 auto stream = File::OpenRead(u"Aspose.Slides.lic");
@@ -120,6 +127,11 @@ license->SetLicense(stream);
 To check whether a license has been set properly, you can validate it. The following C++ code shows how to validate a license:
 
 ```c++
+#include <Util/License.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto license = MakeObject<License>();
 
 license->SetLicense(u"Aspose.Slides.lic");

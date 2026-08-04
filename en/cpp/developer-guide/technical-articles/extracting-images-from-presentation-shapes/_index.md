@@ -218,6 +218,18 @@ String MakeSafeFileNamePart(String value)
 Use this approach for pictures inserted as standalone objects. An [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) stores its picture in `get_PictureFormat()->get_Picture()->get_Image()`, which returns an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"extracted-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -253,6 +265,16 @@ presentation->Dispose();
 Shapes can use a picture as their fill. Check the shape's fill type first: if it is not [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/)::`Picture`, there is no picture to extract from that fill. The example below handles [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) objects and saves each image as PNG through [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)::`get_Image()`.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"shape-fill-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -289,6 +311,18 @@ presentation->Dispose();
 An [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) can have a substitute picture that PowerPoint uses as the object's preview on a slide. This image is available through `get_SubstitutePictureFormat()->get_Picture()->get_Image()`. Extracting this picture gives you the preview image, not the embedded OLE package contents.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"ole-preview-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -328,6 +362,18 @@ presentation->Dispose();
 An [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) can also store a preview image in `get_PictureFormat()->get_Picture()->get_Image()`. This is the poster or thumbnail shown on the slide, not a frame decoded from the video stream.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"video-preview-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -367,6 +413,18 @@ presentation->Dispose();
 An [IAudioFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/) can store a thumbnail in `get_PictureFormat()->get_Picture()->get_Image()`. This is the image shown for the audio object on the slide.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"audio-preview-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -406,6 +464,18 @@ presentation->Dispose();
 [IZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/izoomframe/) and [ISectionZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isectionzoomframe/) shapes can use custom images. Read `get_ZoomImage()` from the zoom frame.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"zoom-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -450,6 +520,18 @@ presentation->Dispose();
 An [ISummaryZoomFrame](https://reference.aspose.com/slides/cpp/aspose.slides/isummaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `get_ZoomImage()` method.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"summary-zoom-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -495,6 +577,18 @@ presentation->Dispose();
 An [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) is a shape. Images in a table are usually stored as picture fills in table cells.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"table-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -545,6 +639,18 @@ presentation->Dispose();
 An [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) is a shape. The example below extracts an image from the chart area's picture fill.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"chart-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -585,6 +691,18 @@ presentation->Dispose();
 An [ISmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartart/) object is a shape. Depending on the SmartArt layout, images may be stored in node bullet fills or in the fill formats of node shapes.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"smartart-images");
 Directory::CreateDirectory_(outputDirectory);
@@ -646,6 +764,18 @@ presentation->Dispose();
 Grouped shapes contain their own shape collections. The shared `EnumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 String inputPath = u"sample.pptx";
 String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"all-shape-images");
 Directory::CreateDirectory_(outputDirectory);

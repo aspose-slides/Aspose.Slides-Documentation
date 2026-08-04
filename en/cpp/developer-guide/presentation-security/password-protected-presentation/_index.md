@@ -108,6 +108,12 @@ To encrypt or password protect a presentation, you have to use the encrypt metho
 This sample code shows you how to encrypt a presentation:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->Encrypt(u"123123");
@@ -123,6 +129,12 @@ You can add a mark stating “Do not modify” to a presentation. This way, you 
 To set a write protection, you have to use the setWriteProtection method. This sample code shows you how to set a write protection to a presentation:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
@@ -136,6 +148,9 @@ Aspose.Slides allow you to load an encrypted file by passing its password. To de
 This sample code shows you how to decrypt a presentation: 
 
 ``` cpp
+#include <DOM/LoadOptions.h>
+using namespace Aspose::Slides;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_Password(u"123123");
     
@@ -151,6 +166,13 @@ You can remove the encryption or password protection on a presentation. This way
 To remove encryption or password protection, you have to call the [RemoveEncryption](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) method. This sample code shows you to remove encryption from a presentation:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_Password(u"123123");
     
@@ -167,6 +189,12 @@ You can use Aspose.Slides to remove the write protection used on a presentation 
 You can remove the write protection from a presentation by using the [RemoveWriteProtection](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50) method. This sample code shows you to remove the write protection from a presentation:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->RemoveWriteProtection();
@@ -182,6 +210,10 @@ Typically, users struggle to get the document properties of an encrypted or pass
 If you want users to retain the ability to access the properties of a presentation you encrypted, you can pass `true` to the [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d) method. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
@@ -195,6 +227,12 @@ Before you load a presentation, you might want to check and confirm that the pre
 This C++ code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
 
 ```c++
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
 System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
                            presentationInfo->get_IsPasswordProtected());
@@ -207,6 +245,10 @@ Aspose.Slides allows you to check whether a presentation is encrypted. To perfor
 This sample code shows you how to check whether a presentation is encrypted:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
@@ -219,6 +261,10 @@ Aspose.Slides allows you to check whether a presentation is write-protected. To 
 This sample code shows you how to check whether a presentation is write-protected:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
@@ -231,6 +277,10 @@ You may want to check and confirm that a specific password has been used to prot
 This sample code shows you how to validate a password:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 // check if "pass" is matched with

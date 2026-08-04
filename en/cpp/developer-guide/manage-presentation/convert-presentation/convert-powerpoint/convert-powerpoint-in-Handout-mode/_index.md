@@ -29,6 +29,16 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/HandoutLayoutingOptions.h>
+#include <Export/HandoutType.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Load a presentation.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 

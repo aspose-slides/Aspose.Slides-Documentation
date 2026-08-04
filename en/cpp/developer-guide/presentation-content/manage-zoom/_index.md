@@ -50,6 +50,13 @@ You can add a zoom frame on a slide this way:
 This C++ code shows you how to create a zoom frame on a slide:
 
 ``` cpp 
+#include <DOM/ISlide.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 {
     slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -59,6 +66,19 @@ void SetSlideBackground(SharedPtr<ISlide> slide, Color color)
 ```
 
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -100,6 +120,21 @@ With Aspose.Slides for C++, you can create a zoom frame with a different slide p
 This C++ code shows you how to create a zoom frame with a different image:
 
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -141,6 +176,27 @@ You can control a zoom frame's formatting on a slide this way:
 This C++ code shows you how to change a zoom frame's formatting on a slide: 
 
 ``` cpp 
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Zoom/IZoomFrame.h>
+#include <Export/SaveFormat.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide1 = pres->get_Slides()->idx_get(0);
 //Adds new slides to the presentation
@@ -205,6 +261,17 @@ You can add a section zoom frame to a slide this way:
 This C++ code shows you how to create a zoom frame on a slide:
 
 ``` cpp 
+#include <DOM/ISectionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -236,6 +303,19 @@ Using Aspose.Slides for C++, you can create a section zoom frame with a differen
 This C++ code shows you how to create a zoom frame with a different image:
 
 ``` cpp 
+#include <DOM/IImageCollection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -279,6 +359,25 @@ You can control a section zoom frame's formatting on a slide this way:
 This C++ code shows you how to change a section zoom frame's formatting:
 
 ``` cpp 
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/Zoom/ISectionZoomFrame.h>
+#include <Export/SaveFormat.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -337,6 +436,17 @@ You can add a summary zoom frame to a slide this way:
 This C++ code shows you how to create a summary zoom frame on a slide:
 
 ``` cpp 
+#include <DOM/ISectionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -390,6 +500,19 @@ All sections in a summary zoom frame are represented by [ISummaryZoomSection](ht
 This C++ code shows you how to add and remove sections in a summary zoom frame:
 
 ``` cpp 
+#include <DOM/ISectionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Zoom/ISummaryZoomFrame.h>
+#include <DOM/Zoom/ISummaryZoomSectionCollection.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 
@@ -447,6 +570,27 @@ You can control the formatting for a summary zoom section object in a summary zo
 This C++ code shows you how to change the formatting for a summary zoom section object:
 
 ``` cpp 
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/Zoom/ISummaryZoomFrame.h>
+#include <DOM/Zoom/ISummaryZoomSection.h>
+#include <DOM/Zoom/ISummaryZoomSectionCollection.h>
+#include <Export/SaveFormat.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide0 = pres->get_Slides()->idx_get(0);
 

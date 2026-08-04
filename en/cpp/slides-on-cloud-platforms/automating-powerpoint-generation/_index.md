@@ -68,6 +68,16 @@ Ok, let’s walk through building a sample presentation using real-world content
 We'll begin by creating a new presentation and adding a title slide with a main heading and subtitle.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 auto slide0 = presentation->get_Slide(0);
@@ -89,6 +99,15 @@ subtitleShape->get_TextFrame()->set_Text(u"Prepared for Executive Team");
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 auto layoutSlide1 = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 auto slide1 = presentation->get_Slides()->AddEmptySlide(layoutSlide1);
 
@@ -122,6 +141,11 @@ series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIn
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```cpp
+#include <DOM/SlideLayoutType.h>
+#include <system/array.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto layoutSlide2 = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 auto slide2 = presentation->get_Slides()->AddEmptySlide(layoutSlide2);
 
@@ -148,6 +172,11 @@ table->get_Column(1)->idx_get(4)->get_TextFrame()->set_Text(u"87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```cpp
+#include <DOM/IParagraph.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static SharedPtr<IParagraph> CreateBulletParagraph(String text) {
     auto paragraph = MakeObject<Paragraph>();
     paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
@@ -159,6 +188,11 @@ static SharedPtr<IParagraph> CreateBulletParagraph(String text) {
 }
 ```
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+using namespace Aspose::Slides;
+
 auto layoutSlide3 = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 auto slide3 = presentation->get_Slides()->AddEmptySlide(layoutSlide3);
 

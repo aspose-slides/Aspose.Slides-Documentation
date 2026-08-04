@@ -63,6 +63,12 @@ Modifying the built-in properties of presentation files is as easy as that of ac
 Aspose.Slides for C++ also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ``` cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Instantiate the Presentation class
 auto presentation = System::MakeObject<Presentation>();
 

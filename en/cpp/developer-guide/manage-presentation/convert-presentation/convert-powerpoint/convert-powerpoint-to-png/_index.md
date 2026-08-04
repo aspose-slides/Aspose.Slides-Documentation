@@ -42,6 +42,16 @@ Go through these steps:
 This C++ code shows you how to convert a PowerPoint presentation to PNG:
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
 for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
@@ -59,6 +69,16 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in C++ demonstrates the described operation:
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 float scaleX = 2.f;
@@ -78,6 +98,16 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <drawing/imaging/image_format.h>
+#include <drawing/size.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
     
 Size size(960, 720);

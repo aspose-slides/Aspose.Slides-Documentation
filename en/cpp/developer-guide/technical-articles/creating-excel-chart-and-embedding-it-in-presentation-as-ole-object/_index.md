@@ -73,6 +73,10 @@ presentation->Dispose();
 ```
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide, 
                                  System::SharedPtr<System::IO::Stream> workbookStream, 
                                  intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> chartImage)

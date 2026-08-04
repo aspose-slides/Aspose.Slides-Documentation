@@ -41,6 +41,17 @@ Aspose.Slides for C++ does not provide a simple method to extract the entire pre
 
 The following code example extracts the entire presentation slide background as an image.
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing::Imaging;
+
 auto slideIndex = 0;
 auto imageScale = 1;
 

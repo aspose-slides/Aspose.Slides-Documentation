@@ -32,6 +32,9 @@ You can also manage headers and footers for handout and notes slides. This inclu
 Notes of some specific slide could be updated as shown in the example below:
 
 ``` cpp
+#include <DOM/IBaseSlide.h>
+using namespace Aspose::Slides;
+
 // Function to set Header/Footer Text
 void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 {
@@ -49,6 +52,13 @@ void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
 ```
 
 ``` cpp
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/IPresentationHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Load Presentation
 auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
 
@@ -83,6 +93,19 @@ Aspose.Slides for C++ supports Header and Footer in Handout and notes slides. Pl
 Code Snippet provided in the below Example.
 
 ``` cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 // Change Header and Footer settings for notes master and all notes slides
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();

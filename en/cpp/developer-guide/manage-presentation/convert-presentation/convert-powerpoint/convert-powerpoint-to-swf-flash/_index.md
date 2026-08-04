@@ -40,6 +40,13 @@ This article explains how to convert PowerPoint presentations to SWF by using As
 The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) class and [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) class. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesPositions.h>
+#include <Export/SaveFormat.h>
+#include <Export/SwfOptions.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // The path to the documents directory.
     System::String dataDir = GetDataPath();
 

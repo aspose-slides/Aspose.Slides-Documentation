@@ -38,6 +38,16 @@ To generate a shape thumbnail from any slide using Aspose.Slides for C++:
 The example below generating shape thumbnail.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto presentation = MakeObject<Presentation>(u"HelloWorld.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -60,6 +70,17 @@ To generate the shape thumbnail of any slide shape using Aspose.Slides for C++:
 The example below generate a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeThumbnailBounds.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto bounds = ShapeThumbnailBounds::Shape;
 auto scale = 1; // Scaling along X and Y axes.
 
@@ -84,6 +105,17 @@ This method for creating thumbnails of shapes allows developers to generate a th
 The example below create a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeThumbnailBounds.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto bounds = ShapeThumbnailBounds::Appearance;
 auto scale = 1; // Scaling along X and Y axes.
 
@@ -108,6 +140,13 @@ Use [Shape::GetVisualBounds](https://reference.aspose.com/slides/cpp/aspose.slid
 The following example gets and compares the frame and visual bounds:
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Shape.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"example.pptx");
 
 auto slide = presentation->get_Slide(0);

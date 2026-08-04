@@ -31,6 +31,18 @@ It is **not** safe to load, save, and/or clone an instance of a [Presentation](h
 Let's say we want to convert all the slides from a PowerPoint presentation to PNG images in parallel. Since it is unsafe to use a single `Presentation` instance in multiple threads, we split the presentation slides into separate presentations and convert the slides to images in parallel, using each presentation in a separate thread. The following code example shows how to do this.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto inputFilePath = u"sample.pptx";
 auto outputFilePathTemplate = u"slide_{0}.png";
 auto imageScale = 2;

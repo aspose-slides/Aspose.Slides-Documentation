@@ -40,6 +40,14 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 This C++ code shows you how to set a table's first row as its header:
 
 ```c++
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Instantiates the Presentation class 
 auto pres = System::MakeObject<Presentation>(u"table.pptx");
 
@@ -77,6 +85,25 @@ tbl->set_FirstRow(true);
 This C++ code shows you how to clone a PowerPoint table's row or column:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
  // The path to the documents directory.
 const String outPath = u"../out/CloningInTable_out.pptx";
 
@@ -164,6 +191,19 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 This C++ code shows you how to remove a row or column from a table:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // The path to the documents directory.
 const String outPath = u"../out/RemovingRowColumn_out.pptx";
 
@@ -210,6 +250,22 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 This C++ code demonstrates the operation.
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Creates an instance of the Presentation class
 auto presentation = System::MakeObject<Presentation>();
 
@@ -250,6 +306,22 @@ presentation->Save(u"result.pptx", SaveFormat::Pptx);
 This C++ code demonstrates the operation: 
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Creates an instance of the Presentation class
 auto pres = System::MakeObject<Presentation>();
 
@@ -282,6 +354,15 @@ pres->Save(u"result.pptx", SaveFormat::Pptx);
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This C++ code shows you how to get the style properties from a table preset style:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TableStylePreset.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slide(0)->get_Shapes();
 auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));

@@ -41,6 +41,15 @@ You can convert a slide to a bitmap object and use it directly in your applicati
 This C++ code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
 
 ```cpp 
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
 // Convert the first slide in the presentation to a bitmap.
@@ -60,6 +69,15 @@ You may need to get an image of a certain size. Using an overload from the [GetI
 This sample code demonstrates how to do this:
 
 ```cpp 
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/imaging/image_format.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
@@ -85,6 +103,22 @@ With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp
 This C++ code demonstrates how to convert a slide with notes and comments:
 
 ```cpp 
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <drawing/color.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::Drawing::Imaging;
+
 float scaleX = 2;
 float scaleY = scaleX;
 
@@ -124,6 +158,19 @@ The [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/
 This C++ code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
 
 ```cpp 
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/ImagePixelFormat.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 // Load a presentation file.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
@@ -154,6 +201,16 @@ Aspose.Slides allows you to convert all slides in a presentation to images, effe
 This sample code demonstrates how to convert all slides in a presentation to images in C++:
 
 ```cpp 
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 float scaleX = 2;
 float scaleY = scaleX;
 

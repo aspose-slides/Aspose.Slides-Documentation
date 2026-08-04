@@ -110,6 +110,12 @@ pres->get_Slide(0)->get_Shape(0)->GetImage()->Save(u"shape.png");
 Legacy/deprecated API:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/RenderingOptions.h>
+#include <drawing/bitmap.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto bitmaps = pres->GetThumbnails(System::MakeObject<RenderingOptions>(), System::Drawing::Size(1980, 1028));
@@ -124,6 +130,14 @@ for (int32_t index = 0; index < bitmaps->get_Length(); index++)
 Modern API:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing::Imaging;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto images = pres->GetImages(System::MakeObject<RenderingOptions>(), System::Drawing::Size(1980, 1028));

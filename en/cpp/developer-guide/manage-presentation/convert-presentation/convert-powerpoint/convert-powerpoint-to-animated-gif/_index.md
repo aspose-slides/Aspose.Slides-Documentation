@@ -38,6 +38,11 @@ Aspose.Slides allows you to convert PowerPoint presentations to animated GIF fil
 This sample code in C++ shows you how to convert a presentation to animated GIF using standard settings:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif);
 ```
@@ -55,6 +60,13 @@ If you prefer to customize the parameters for the GIF, you can use the [GifOptio
 This sample code shows you how to convert a presentation to animated GIF using custom settings in C++:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/GifOptions.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto gifOptions = System::MakeObject<GifOptions>();
 // the size of the resulted GIF 
 gifOptions->set_FrameSize(Size(960, 720));

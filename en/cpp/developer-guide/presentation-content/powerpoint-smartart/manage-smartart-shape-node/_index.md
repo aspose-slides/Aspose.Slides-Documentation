@@ -165,6 +165,21 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 The example below generating a thumbnail of SmartArt child node
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <DOM/SmartArt/SmartArtLayoutType.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 

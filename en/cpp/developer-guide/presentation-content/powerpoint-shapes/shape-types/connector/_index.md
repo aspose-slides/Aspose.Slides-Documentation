@@ -58,6 +58,19 @@ Aspose.Slides provides these connectors:
 This C++ code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
 
 ```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // The path to the documents directory.
 	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
 	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
@@ -112,6 +125,19 @@ If you want a connector to link two shapes using specific dots on the shapes, yo
 This C++ code demonstrates an operation where a preferred connection dot is specified:
 
 ```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// The path to the documents directory.
 	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
 	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
@@ -167,6 +193,21 @@ Consider a case where a connector between two shapes (A and B) passes through a 
 Code:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto shapes = slide->get_Shapes();
@@ -216,6 +257,24 @@ Consider a case where two text frame objects are linked together through a conne
 Code:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 // Instantiates a presentation class that represents a PPTX file
 auto pres = System::MakeObject<Presentation>();
 // Gets the first slide in the presentation
@@ -268,6 +327,9 @@ The result:
 To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.Adjustments[0] point:
 
 ```c++
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 // Draw the vertical component of the connector
 float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
 float y = connector->get_Y();
@@ -286,6 +348,13 @@ In **Case 1**, we demonstrated a simple connector adjustment operation using bas
 First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 // Creates a new binding object
 auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
 shapeTo_1->get_TextFrame()->set_Text(u"To 1");

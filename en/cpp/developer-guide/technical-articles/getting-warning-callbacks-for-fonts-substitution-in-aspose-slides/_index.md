@@ -32,6 +32,10 @@ Aspose.Slides for C++ provides straightforward APIs for receiving warning callba
 
 ```cpp
 #include <Warnings/IWarningCallback.h>
+#include <Warnings/ReturnAction.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides::Warnings;
+using namespace System;
 
 class FontWarningHandler : public IWarningCallback
 {
@@ -57,6 +61,13 @@ ReturnAction FontWarningHandler::Warning(SharedPtr<IWarningInfo> warning)
 **Generate a Slide Thumbnail:**
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/RenderingOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Set up a warning callback to handle font-related warnings during slide rendering.
 auto options = MakeObject<RenderingOptions>();
 options->set_WarningCallback(MakeObject<FontWarningHandler>());
@@ -80,6 +91,15 @@ presentation->Dispose();
 **Export to PDF Format:**
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 // Set up a warning callback to handle font-related warnings during PDF export.
 auto options = MakeObject<PdfOptions>();
 options->set_WarningCallback(MakeObject<FontWarningHandler>());
@@ -99,6 +119,15 @@ presentation->Dispose();
 **Export to HTML Format:**
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/HtmlOptions.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 // Set up a warning callback to handle font-related warnings during HTML export.
 auto options = MakeObject<HtmlOptions>();
 options->set_WarningCallback(MakeObject<FontWarningHandler>());

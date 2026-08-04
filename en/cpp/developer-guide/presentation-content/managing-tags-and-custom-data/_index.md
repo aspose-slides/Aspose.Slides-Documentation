@@ -42,6 +42,10 @@ Tags are essentially string-key pair values.
 In slides, a tag corresponds to the IDocumentProperties.Keywords property. This sample code shows you how to get a tag’s value with Aspose.Slides for C++ for [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/):
 
 ``` cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 System::String keywords = pres->get_DocumentProperties()->get_Keywords();
 ```
@@ -58,6 +62,11 @@ If you need to classify some presentations based on a specific rule or property,
 This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) using Aspose.Slides for C++:
 
 ``` cpp
+#include <DOM/ICustomData.h>
+#include <DOM/ITagCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 System::SharedPtr<ITagCollection> tags = pres->get_CustomData()->get_Tags();
@@ -67,6 +76,13 @@ pres->get_CustomData()->get_Tags()->idx_set(u"MyTag", u"My Tag Value");
 Tags also can be set for [Slide](https://reference.aspose.com/slides/cpp/aspose.slides/slide/):
 
 ``` cpp
+#include <DOM/ICustomData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITagCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -76,6 +92,17 @@ slide->get_CustomData()->get_Tags()->idx_set(u"tag", u"value");
 Or any individual [Shape](https://reference.aspose.com/slides/cpp/aspose.slides/shape/):
 
 ``` cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ICustomData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITagCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto slide = pres->get_Slides()->idx_get(0);

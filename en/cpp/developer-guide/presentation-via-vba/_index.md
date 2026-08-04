@@ -52,6 +52,18 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/cpp/
 This C++ code shows you how to add a VBA macro from scratch to a presentation: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaReferenceCollection.h>
+#include <DOM/Vba/VbaProject.h>
+#include <DOM/Vba/VbaReferenceOleTypeLib.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Vba;
+using namespace System;
 
 // The path to the documents directory.
 const String outPath = u"../out/AddVBAMacros_out.pptm";
@@ -102,6 +114,10 @@ Using the [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slid
 This C++ code shows you how to remove a VBA macro: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
 
 // The path to the documents directory.
 const String outPath = u"../out/RemoveVBAMacros_out.pptm";
@@ -128,6 +144,15 @@ presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 This C++ code shows you how to extract VBA macros from a presentation containing macros: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
 
 	// The path to the documents directory.
 	const String templatePath = u"../templates/VBA.pptm";
@@ -159,6 +184,13 @@ Using the [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/sl
 3. Check whether the VBA project is password-protected to view its properties.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"VBA.pptm");
     
 if (presentation->get_VbaProject() != nullptr) // Check whether the presentation contains a VBA project.

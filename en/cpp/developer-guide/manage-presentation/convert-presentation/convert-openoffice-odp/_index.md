@@ -31,6 +31,13 @@ description: "Aspose.Slides for C++ lets you convert ODP to PDF, HTML, and image
 For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = MakeObject<Presentation>(u"pres.odp");
 pres->Save(u"pres.pdf", SaveFormat::Pdf);
 pres->Dispose();

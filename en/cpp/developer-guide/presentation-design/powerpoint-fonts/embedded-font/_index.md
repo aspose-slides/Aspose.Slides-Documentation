@@ -35,6 +35,13 @@ Aspose.Slides for C++ provides the `GetEmbeddedFonts` method through the [FontsM
 The following C++ code demonstrates how to get embedded fonts from a presentation file:
 
 ```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Instantiate the Presentation class that represents a presentation file.
 auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
@@ -57,6 +64,16 @@ Aspose.Slides for C++ allows you to embed fonts into a PowerPoint presentation u
 The following C++ code checks all the fonts used in a presentation, and embeds any fonts that are not already embedded.
 
 ```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Load a presentation file.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
@@ -92,6 +109,15 @@ Aspose.Slides for C++ provides the `RemoveEmbeddedFont` method through the [Font
 The following C++ code demonstrates how to remove an embedded font from a presentation:
 
 ```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto fontName = u"Calibri";
 
 // Instantiate the Presentation class that represents a presentation file.
@@ -122,6 +148,15 @@ Aspose.Slides for C++ provides the `CompressEmbeddedFonts` method through the [C
 The following C++ code demonstrates how to compress embedded fonts in a PowerPoint presentation:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 Compress::CompressEmbeddedFonts(presentation);

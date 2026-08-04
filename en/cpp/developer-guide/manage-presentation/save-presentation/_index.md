@@ -33,6 +33,13 @@ description: "Discover how to save presentations in C++ using Aspose.Slides—ex
 Save a presentation to a file by calling the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class’s `Save` method. Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a presentation file.
 auto presentation = MakeObject<Presentation>();
 
@@ -49,6 +56,16 @@ presentation->Dispose();
 You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class’s `Save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 // Instantiate the Presentation class that represents a presentation file.
 auto presentation = MakeObject<Presentation>();
 
@@ -66,6 +83,15 @@ fileStream->Close();
 Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/viewproperties/) class. Use the [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/viewproperties/set_lastview/) method with a value from the [ViewType](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) enumeration.
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -81,6 +107,15 @@ Aspose.Slides lets you save a presentation in the Strict Office Open XML format.
 The example below creates a presentation and saves it in the Strict Office Open XML format.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/Conformance.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
@@ -107,6 +142,15 @@ This method can be used with the following modes:
 The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <Export/Zip64Mode.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pptxOptions = MakeObject<PptxOptions>();
 pptxOptions->set_Zip64Mode(Zip64Mode::Always);
 
@@ -132,6 +176,14 @@ The [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/cpp/
 In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pptxOptions = MakeObject<PptxOptions>();
 pptxOptions->set_RefreshThumbnail(false);
 
@@ -154,6 +206,9 @@ The [IProgressCallback](https://reference.aspose.com/slides/cpp/aspose.slides/ip
 The following code snippets show how to use `IProgressCallback`.
 
 ```cpp
+#include <system/console.h>
+using namespace System;
+
 class ExportProgressHandler : public IProgressCallback
 {
 public:
@@ -167,6 +222,13 @@ public:
 };
 ```
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto saveOptions = MakeObject<PdfOptions>();
 saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 

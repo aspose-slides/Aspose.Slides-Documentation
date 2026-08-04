@@ -49,6 +49,9 @@ By default, presentations created with Aspose.Slides use the standard 4:3 aspect
  This sample code shows you how to change the slide size in a presentation in C++ using Aspose.Slides:
 
 ``` cpp
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres-4x3-aspect-ratio.pptx");
 pres->get_SlideSize()->SetSize(SlideSizeType::OnScreen16x9, SlideSizeScaleType::DoNotScale);
 pres->Save(u"pres-4x3-aspect-ratio.pptx", SaveFormat::Pptx);
@@ -61,6 +64,13 @@ If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you 
 This sample code shows you how to use Aspose.Slides for C++ to specify a custom slide size for a presentation in C++:
 
 ``` cpp
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 // A4 paper size
 pres->get_SlideSize()->SetSize(780.0f, 540.0f, SlideSizeScaleType::DoNotScale);
@@ -88,6 +98,9 @@ Depending on what you intend to do or achieve, you can use any of these settings
 This sample code shows you how to use the `Maximize` setting when changing the size of a presentation’s slide:
 
 ``` cpp
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->get_SlideSize()->SetSize(SlideSizeType::Ledger, SlideSizeScaleType::Maximize);
 ```

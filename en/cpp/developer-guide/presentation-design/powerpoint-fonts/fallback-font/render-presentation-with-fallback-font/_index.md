@@ -33,6 +33,18 @@ The following example includes these steps:
 1. With [Presentation::Save()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <DOM/Fonts/FontFallBackRulesCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 // Create new instance of a rules collection
 auto rulesList = MakeObject<FontFallBackRulesCollection>();
 

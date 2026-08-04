@@ -39,6 +39,18 @@ A PowerPoint theme uses a specific set of colors for different elements on a sli
 This C++ code shows you how to change the accent color for a theme:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
@@ -50,6 +62,9 @@ shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Acce
 You can determine the resulting color's effective value this way:
 
 ```c++
+#include <system/console.h>
+using namespace System;
+
 auto fillEffective = shape->get_FillFormat()->GetEffective();
     
 Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(), fillEffective->get_SolidFillColor());
@@ -59,6 +74,13 @@ Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(),
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
     
 otherShape->get_FillFormat()->set_FillType(FillType::Solid);
@@ -82,6 +104,21 @@ When you apply luminance transformations to the main theme color(1), colors from
 This C++ code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
 ```c++
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -178,6 +215,14 @@ To allow you select fonts for themes and other purposes, Aspose.Slides uses thes
 This C++ code shows you how to assign the Latin font to a theme element:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 
 auto paragraph = System::MakeObject<Paragraph>();
@@ -212,6 +257,15 @@ By default, the PowerPoint app provides 12 predefined backgrounds but only 3 fro
 For example, after you save a presentation in the PowerPoint app, you can run this C++ code to find out the number of predefined backgrounds in the presentation:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Theme;
+using namespace System;
+
 auto pres = MakeObject<Presentation>(u"pres.pptx");
         
 int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()->get_Count();
@@ -250,6 +304,13 @@ Using 3 properties ([FillStyles](https://reference.aspose.com/slides/cpp/class/a
 This C++ code shows you how to change a theme effect by altering parts of elements:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
         
 pres->get_MasterTheme()->get_FormatScheme()->get_LineStyles()->idx_get(0)->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());

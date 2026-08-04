@@ -44,6 +44,14 @@ Aspose.Slides for C++ provides the [Aspose.Slides.Util](https://reference.aspose
 The following code snippet extracts all the text from the first slide of the presentation:
 
 ```cpp
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Util;
+using namespace System;
+
 auto slideIndex = 0;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
@@ -87,6 +95,14 @@ To scan text from the entire presentation, use the [GetAllTextFrames](https://re
 The method returns an array of objects of type [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/), including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
 
 ```cpp
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Util;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
 auto includeMasterSlides = true;
@@ -143,6 +159,14 @@ The unarranged mode can be used when speed is critical; it's faster than the arr
 - `get_CommentsText()` - The text within comments associated with this slide.
 
 ```cpp
+#include <DOM/IPresentationText.h>
+#include <DOM/ISlideText.h>
+#include <DOM/PresentationFactory.h>
+#include <DOM/TextExtractionArrangingMode.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentationPath = u"presentation.ppt";
 auto arrangingMode = TextExtractionArrangingMode::Unarranged;
 auto presentationText = PresentationFactory::get_Instance()->GetPresentationText(presentationPath, arrangingMode);

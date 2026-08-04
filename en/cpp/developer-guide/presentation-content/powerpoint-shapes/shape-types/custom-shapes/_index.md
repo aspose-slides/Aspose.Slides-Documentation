@@ -72,36 +72,54 @@ This C++ code shows you how to
 **Add a line** to the end of a path
 
 ``` cpp
+#include <drawing/point_f.h>
+using namespace System::Drawing;
+
 void LineTo(PointF point);
 void LineTo(float x, float y);
 ```
 **Add a line** to a specified position on a path:
 
 ``` cpp    
+#include <drawing/point_f.h>
+using namespace System::Drawing;
+
 void LineTo(PointF point, uint32_t index);
 void LineTo(float x, float y, uint32_t index);
 ```
 **Add a cubic Bezier curve** at the end of a path:
 
 ``` cpp
+#include <drawing/point_f.h>
+using namespace System::Drawing;
+
 void CubicBezierTo(PointF point1, PointF point2, PointF point3);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
 ```
 **Add a cubic Bezier curve** to the specified position on a path:
 
 ``` cpp
+#include <drawing/point_f.h>
+using namespace System::Drawing;
+
 void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
 void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
 ```
 **Add a quadratic Bezier curve** at the end of a path:
 
 ``` cpp
+#include <drawing/point_f.h>
+using namespace System::Drawing;
+
 void QuadraticBezierTo(PointF point1, PointF point2);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2);
 ```
 **Add quadratic Bezier curve** to a specified position on a path:
 
 ``` cpp
+#include <drawing/point_f.h>
+using namespace System::Drawing;
+
 void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
 void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
 ```
@@ -118,6 +136,9 @@ void CloseFigure();
 **Set the position for the next point**:
 
 ``` cpp
+#include <drawing/point_f.h>
+using namespace System::Drawing;
+
 void MoveTo(PointF point);
 void MoveTo(float x, float y);
 ```
@@ -136,6 +157,17 @@ void RemoveAt(int32_t index);
 This C++ code shows you how to add custom points to a shape:
 
 ``` cpp
+#include <DOM/GeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -160,6 +192,17 @@ shape->SetGeometryPath(geometryPath);
 This C++ code shows you how to remove points from a shape:
 
 ``` cpp
+#include <DOM/GeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -182,6 +225,20 @@ shape->SetGeometryPath(path);
 This C++ code shows you how to create a custom shape:
 
 ``` cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/GeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
 
 float R = 100.0f, r = 50.0f;
@@ -230,6 +287,18 @@ shape->SetGeometryPath(starPath);
 This C++ code shows you to create a composite custom shape:
 
 ``` cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/GeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -258,6 +327,19 @@ shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPa
 This C++ code shows you how to create a custom shape with curved corners (inwards);
 
 ```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 float shapeX = 20.f;
 float shapeY = 20.f;
 float shapeWidth = 300.f;
@@ -302,6 +384,11 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```cpp
+#include <DOM/IGeometryShape.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
 {
     bool isClosed = false;
@@ -333,6 +420,26 @@ bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
 This C++ code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
 ``` cpp
+#include <DOM/GeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/PathFillModeType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Util/ShapeUtil.h>
+#include <drawing/drawing2d/graphics_path.h>
+#include <drawing/font_family.h>
+#include <drawing/point_f.h>
+#include <drawing/string_format.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::Drawing;
+
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();

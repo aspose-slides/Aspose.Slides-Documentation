@@ -60,6 +60,31 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 This C++ code is an implementation of the steps for adding paragraphs containing portions: 
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // The path to the documents directory.
 const String outPath = u"../out/MultipleParagraphs_out.pptx";
 
@@ -160,6 +185,30 @@ Bullet lists help you to organize and present information quickly and efficientl
 This C++ code shows you how to add a paragraph bullet:
 
 ```c++
+#include <DOM/BulletType.h>
+#include <DOM/ColorType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // The path to the documents directory.
 const String outPath = u"../out/ParagraphBullets_out.pptx";
 const String templatePath = u"../templates/DefaultFonts.pptx";
@@ -417,6 +466,21 @@ The [IBulletFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulle
 This C++ code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```c++
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
@@ -477,6 +541,31 @@ The example below creates several paragraphs and applies different `Indent` valu
 This code shows you how to set a paragraph indent:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -542,6 +631,31 @@ This formatting is useful for bibliographies, references, glossary entries, and 
 This code shows you how to set a hanging indent for a paragraph:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -592,6 +706,25 @@ The result:
 This C++ code shows you how to set the End properties for paragraphs in PowerPoint: 
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // The path to the documents directory.
 const String outPath = u"../out/EndParaGraphProperties_out.pptx";
 //const String templatePath = u"../templates/DefaultFonts.pptx";
@@ -657,6 +790,22 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 This C++ code is an implementation of the steps for importing HTML texts in paragraphs: 
 
 ```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
 // The path to the documents directory.
 const String outPath = u"../out/ImportingHTMLText_out.pptx";
@@ -744,6 +893,18 @@ Aspose.Slides provides enhanced support for exporting texts (contained in paragr
 This C++ code shows you how to export PowerPoint paragraph texts to HTML: 
 
 ```c++
+#include <DOM/AutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/string.h>
+#include <system/text/encoding.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Text;
+
 For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
 // The path to the documents directory.
 const String outPath = u"../out/output.html";
@@ -788,6 +949,26 @@ Let's assume we have a presentation file called sample.pptx with one slide, wher
 In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/bitmap.h>
+#include <drawing/graphics.h>
+#include <drawing/graphics_unit.h>
+#include <drawing/image.h>
+#include <drawing/imaging/image_format.h>
+#include <drawing/rectangle_f.h>
+#include <system/io/memory_stream.h>
+#include <system/math.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::Drawing::Imaging;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
@@ -832,6 +1013,27 @@ The result:
 In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeThumbnailBounds.h>
+#include <IImage.h>
+#include <drawing/bitmap.h>
+#include <drawing/graphics.h>
+#include <drawing/graphics_unit.h>
+#include <drawing/image.h>
+#include <drawing/imaging/image_format.h>
+#include <drawing/rectangle_f.h>
+#include <system/io/memory_stream.h>
+#include <system/math.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::Drawing::Imaging;
+using namespace System::IO;
+
 auto imageScaleX = 2.0f;
 auto imageScaleY = imageScaleX;
 

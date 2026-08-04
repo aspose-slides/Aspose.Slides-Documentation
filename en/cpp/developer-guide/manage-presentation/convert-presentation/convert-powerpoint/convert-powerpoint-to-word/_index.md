@@ -60,6 +60,12 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for C++
 Use this code snippet to convert the PowerPoint to Word:
 
 ```cpp
+#include <DOM/AutoShape.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto doc = MakeObject<Aspose::Words::Document>();
 auto builder = MakeObject<Aspose::Words::DocumentBuilder>(doc);

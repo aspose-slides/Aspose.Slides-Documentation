@@ -38,6 +38,34 @@ To manage a simple ActiveX control like a text box and simple command button on 
 The code snippet below updates the ActiveX controls on the presentation slides to the slide as shown below.
 
 ``` cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <drawing/bitmap.h>
+#include <drawing/color.h>
+#include <drawing/font.h>
+#include <drawing/graphics.h>
+#include <drawing/known_color.h>
+#include <drawing/pen.h>
+#include <drawing/size_f.h>
+#include <drawing/solid_brush.h>
+#include <system/io/memory_stream.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+using namespace System::IO;
+
 // Accessing the presentation with  ActiveX controls
 auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
 
@@ -147,6 +175,16 @@ ActiveX control are used in presentations. Aspose.Slides for C++ lets you add an
 1. Save the presentation to a PPTX file.
 
 ``` cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Instantiate Presentation class that represents PPTX file
 auto presentation = System::MakeObject<Presentation>(u"template.pptx");
 

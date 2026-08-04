@@ -69,6 +69,13 @@ The standard PowerPoint-to-PDF conversion process uses default options. In this 
 This C++ code shows you how to convert a presentation (PPT, PPTX, ODP, etc.) to PDF:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.ppt");
 
@@ -95,6 +102,16 @@ Using custom conversion options, you can define your preferred quality setting f
 The code example below demonstrates how to convert a PowerPoint presentation to PDF with several custom options.
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/PdfCompliance.h>
+#include <Export/PdfOptions.h>
+#include <Export/PdfTextCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the PdfOptions class.
 auto pdfOptions = MakeObject<PdfOptions>();
 
@@ -129,6 +146,14 @@ If a presentation contains hidden slides, you can use the [set_ShowHiddenSlides]
 This C++ code shows how to convert a PowerPoint presentation to PDF with hidden slides included:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
@@ -149,6 +174,15 @@ presentation->Dispose();
 This C++ code demonstrates how to convert a PowerPoint presentation into a password-protected PDF using the protection parameters from the [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) class:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/PdfAccessPermissions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
@@ -172,6 +206,12 @@ Aspose.Slides provides the [set_WarningCallback](https://reference.aspose.com/sl
 This C++ code shows how to detect font substitutions:
 
 ```c++
+#include <Warnings/IWarningInfo.h>
+#include <Warnings/ReturnAction.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides::Warnings;
+using namespace System;
+
 // Implementation of the warning callback.
 class FontSubstitutionHandler : public IWarningCallback
 {
@@ -221,6 +261,14 @@ For more information on font substitution, see the [Font Substitution](/slides/c
 This C++ code demonstrates how to convert only specific slides from a PowerPoint presentation to PDF:
 
 ```C++
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
@@ -238,6 +286,16 @@ presentation->Dispose();
 This C++ code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size:
 
 ```C++
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto slideWidth = 612;
 auto slideHeight = 792;
 
@@ -266,6 +324,16 @@ presentation->Dispose();
 This C++ code demonstrates how to convert a PowerPoint presentation to a PDF that includes notes:
 
 ```C++
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
@@ -288,6 +356,15 @@ Aspose.Slides allows you to use a conversion procedure that complies with [Web C
 This C++ code demonstrates a PowerPoint-to-PDF conversion process that produces multiple PDFs based on different compliance standards:
 
 ```C++
+#include <DOM/Presentation.h>
+#include <Export/PdfCompliance.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"pres.pptx");
 
 auto pdfOptionsA1a = MakeObject<PdfOptions>();

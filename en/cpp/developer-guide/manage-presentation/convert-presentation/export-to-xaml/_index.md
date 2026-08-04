@@ -43,6 +43,9 @@ XAML, which is an XML-based language, is Microsoft’s variant for describing a 
 This C++ code shows you how to export a presentation to XAML with default settings:
 
 ``` cpp
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(System::MakeObject<XamlOptions>());
 ```
@@ -54,6 +57,11 @@ You get to select options from the [IXamlOptions](https://reference.aspose.com/s
 For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can pass true to the [set_ExportHiddenSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.xaml.i_xaml_options#a94c59a06cc2163b17e6fa2fe817c0313) method. See this sample C++ code: 
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/Xaml/XamlOptions.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export::Xaml;
+
 auto xamlOptions = System::MakeObject<XamlOptions>();
 xamlOptions->set_ExportHiddenSlides(true);
 

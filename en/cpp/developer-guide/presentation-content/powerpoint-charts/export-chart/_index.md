@@ -24,6 +24,19 @@ Aspose.Slides allows you to export a chart from a presentation as an image. This
 Aspose.Slides for C++ provides support for extracting image of specific chart. Below sample example is given. 
 
 ```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <drawing/imaging/image_format.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Drawing::Imaging;
+
 auto presentation = MakeObject<Presentation>(u"test.pptx");
 
 auto slide = presentation->get_Slide(0);
