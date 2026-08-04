@@ -104,6 +104,8 @@ with slides.Presentation() as presentation:
 For a stacked fraction, use `MathFractionTypes.BAR`:
 
 ```py
+import aspose.slides.mathtext as math
+
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
@@ -160,6 +162,8 @@ with slides.Presentation() as presentation:
 For a custom function name, make the function name the current element:
 
 ```py
+import aspose.slides.mathtext as math
+
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
@@ -197,6 +201,8 @@ N-ary operators are for large operators with optional limits. Simple operators s
 For an integral, use `integral`:
 
 ```py
+import aspose.slides.mathtext as math
+
 integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
 integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
