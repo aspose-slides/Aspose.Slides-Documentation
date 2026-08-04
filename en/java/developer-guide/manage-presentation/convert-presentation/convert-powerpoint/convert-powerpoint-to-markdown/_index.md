@@ -38,7 +38,7 @@ You can export presentations as plain Markdown, choose from multiple Markdown fl
 
 {{% alert color="warning" %}}
 
-PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to use `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also use the `setBasePath` where the images referenced in the markdown document will be saved.
+PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, set the export type to `MarkdownExportType.Visual` or `MarkdownExportType.Sequential` - the default `MarkdownExportType.TextOnly` value skips images. Use `setBasePath` to choose where the images referenced in the markdown document are saved; that folder must already exist, otherwise the save fails.
 
 {{% /alert %}}
 

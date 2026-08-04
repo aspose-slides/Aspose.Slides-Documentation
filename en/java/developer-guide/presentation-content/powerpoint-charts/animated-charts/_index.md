@@ -33,7 +33,7 @@ If you want to animate a chart series, write the code according to the steps lis
 1. Animate the series.
 1. Write the presentation file to disk.
 
-In the example given below, we animated chart series.
+In the example given below, we animated chart series. The chart in the example file has three series, so one effect is added for each index from 0 to 2. Aspose.Slides does not check the index against the chart data, and an effect added for a series that does not exist is written to the file but animates nothing—keep the index below the number of series in your own chart.
 
 ```java
 import com.aspose.slides.*;
@@ -62,10 +62,6 @@ try {
             EffectChartMajorGroupingType.BySeries, 2,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-            EffectChartMajorGroupingType.BySeries, 3,
-            EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     // Write the modified presentation to disk
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -74,7 +70,7 @@ try {
 ```
 
 ## **Chart Category Animation**
-If you want to animate a chart series, write the code according to the steps listed below:
+If you want to animate a chart category, write the code according to the steps listed below:
 
 1. Load a presentation.
 1. Get reference of the chart object.

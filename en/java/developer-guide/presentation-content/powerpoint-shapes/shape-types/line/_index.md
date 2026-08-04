@@ -72,7 +72,6 @@ Aspose.Slides for Java also allows developers to configure some properties of th
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
 
 // Instantiate PresentationEx class that represents the PPTX file
 Presentation pres = new Presentation();
@@ -96,7 +95,7 @@ try {
     shp.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
 
     shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Maroon));
+    shp.getLineFormat().getFillFormat().getSolidFillColor().setPresetColor(PresetColor.Maroon);
 
     // Write the PPTX to Disk
     pres.save("LineShape.pptx", SaveFormat.Pptx);

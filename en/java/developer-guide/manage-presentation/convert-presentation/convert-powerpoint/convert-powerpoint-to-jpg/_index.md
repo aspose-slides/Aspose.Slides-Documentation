@@ -114,6 +114,8 @@ Presentation pres = new Presentation("presentation.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomTruncated);
+    notesOptions.setCommentsPosition(CommentsPositions.Right);
+    notesOptions.setCommentsAreaWidth(200);
 
     IRenderingOptions opts = new RenderingOptions();
     opts.setSlidesLayoutOptions(notesOptions);

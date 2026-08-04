@@ -55,7 +55,7 @@ This method of creating shape thumbnails allows developers to generate a shape t
 import com.aspose.slides.*;
 
 
- Presentation pres = new Presentation();
+ Presentation pres = new Presentation("Presentation.pptx");
 
 IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
@@ -103,6 +103,6 @@ pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
+pres.save("test.pptm", SaveFormat.Pptm);
 
 ```

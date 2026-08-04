@@ -424,7 +424,7 @@ try {
                 if (node.isAssistant()) 
                 {
                     // Setting Assistant node to false and making it normal node
-                    node.isAssistant();
+                    node.setAssistant(false);
                 }
             }
         }

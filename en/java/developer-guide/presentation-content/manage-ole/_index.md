@@ -184,6 +184,8 @@ In the example below, an OLE object frame (an Excel chart object embedded in a s
 
 ``` java 
 import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 

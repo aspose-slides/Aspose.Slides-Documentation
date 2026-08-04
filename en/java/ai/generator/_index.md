@@ -51,13 +51,13 @@ try {
     var aiAgent = new SlidesAIAgent(aiWebClient);
 
     // Define the instruction for generating the presentation.
-    var instruction = "Generate a presentation about Aspose.Slides for .NET, highlighting its capabilities and advantages over competitors.";
+    var instruction = "Generate a presentation about Aspose.Slides for Java, highlighting its capabilities and advantages over competitors.";
 
     // Generate a presentation with a medium amount of content based on the instruction.
     IPresentation presentation = aiAgent.generatePresentation(instruction, PresentationContentAmountType.Medium);
     try {
     // Save the generated presentation to the local disk as a PowerPoint (.pptx) file.
-    presentation.save("Aspose.Slides.NET.pptx", SaveFormat.Pptx);
+    presentation.save("Aspose.Slides.Java.pptx", SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -87,7 +87,7 @@ try {
     var aiAgent = new SlidesAIAgent(aiWebClient);
 
     // Define the instruction for generating the presentation.
-    var instruction = "Generate a presentation about Aspose.Slides for .NET, highlighting its capabilities and advantages over competitors.";
+    var instruction = "Generate a presentation about Aspose.Slides for Java, highlighting its capabilities and advantages over competitors.";
 
     // Load a master presentation from the local disk to use as the design template.
     Presentation masterPresentation = new Presentation("masterPresentation.pptx");
@@ -97,7 +97,7 @@ try {
 
     try {
         // Save the generated presentation as a PDF.
-        presentation.save("Aspose.Slides.NET.pdf", SaveFormat.Pdf);
+        presentation.save("Aspose.Slides.Java.pdf", SaveFormat.Pdf);
     } finally {
         presentation.dispose();
         masterPresentation.dispose();

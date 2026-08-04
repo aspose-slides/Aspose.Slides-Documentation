@@ -153,8 +153,8 @@ ENV ASPOSE_VERSION=25.3
 ENV ASPOSE_JAR=aspose-slides-${ASPOSE_VERSION}-jdk16.jar
 ENV ASPOSE_URL=https://releases.aspose.com/java/repo/com/aspose/aspose-slides/${ASPOSE_VERSION}/${ASPOSE_JAR}
 
-# Create a working directory
-RUN mkdir -p ${APP_DIR}
+# Create a working directory and the folder the presentation is saved into
+RUN mkdir -p ${APP_DIR}/output
 WORKDIR ${APP_DIR}
 
 # Install dependencies

@@ -37,7 +37,7 @@ This property returns or sets the superscript or subscript text (value from -100
 - Set some text for [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) and then add that in portion collection of paragraph.
 - Create a new paragraph object for holding subscript text and add it to the IParagraphs collection of the ITextFrame.
 - Create a new portion object
-- Set Escapement property for portion between 0 to -100 for adding superscript. (0 mean no subscript)
+- Set Escapement property for portion between 0 to -100 for adding subscript. (0 mean no subscript)
 - Set some text for [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) and then add that in portion collection of paragraph.
 - Save the presentation as a PPTX file.
 

@@ -48,6 +48,7 @@ Follow the instructions below to convert a PowerPoint or OpenDocument presentati
 
 ```java
 import com.aspose.slides.*;
+import com.aspose.words.*;
 import java.io.ByteArrayOutputStream;
 
 Presentation pres = new Presentation("sample.pptx");

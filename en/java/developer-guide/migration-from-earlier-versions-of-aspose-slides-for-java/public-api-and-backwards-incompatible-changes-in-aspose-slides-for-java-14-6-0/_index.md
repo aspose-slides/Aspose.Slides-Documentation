@@ -26,7 +26,7 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 ## **Public API Changes**
 ### **Added Classes, Methods, Interfaces and Enumerations**
 #### **Added ViewType Enumeration, IViewProperties Interface, ViewProperties Class and IPresentation.getViewProperties() Method**
-The IPresentation.getViewProperty() method provides access to IViewProperties and allows you to change the presentation view type and notes visibility when a presentation is opened in Microsoft PowerPoint.
+The IPresentation.getViewProperties() method provides access to IViewProperties and allows you to change the presentation view type and notes visibility when a presentation is opened in Microsoft PowerPoint.
 
 ``` java
 import com.aspose.slides.*;

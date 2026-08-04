@@ -21,12 +21,12 @@ This article explains how to work with chart data tables in Aspose.Slides. It sh
 It also includes brief answers to common questions about showing legend keys in a chart data table, preserving the data table during export, working with charts loaded from existing presentations or templates, and identifying charts where the data table is enabled.
 
 ## **Set Font Properties for a Chart Data Table**
-Aspose.Slides for Java provides support for changing color of categories in a series color. 
+Aspose.Slides for Java allows you to show the data table of a chart and change the font properties of its text. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
-1. set chart table.
-1. Set font height.
+1. Show the chart data table.
+1. Set the bold style and font height of the data table text.
 1. Save modified presentation.
 
  Below sample example is given. 

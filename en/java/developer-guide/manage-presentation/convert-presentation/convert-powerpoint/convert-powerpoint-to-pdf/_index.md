@@ -268,8 +268,11 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Save the resized presentation to a PDF with notes.
-    resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf);
+    // Remove the empty slide the new presentation was created with.
+    resizedPresentation.getSlides().removeAt(1);
+
+    // Save the resized presentation as a PDF.
+    resizedPresentation.save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
     presentation.dispose();

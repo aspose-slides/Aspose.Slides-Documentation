@@ -76,14 +76,13 @@ This Java code shows you how to change a series' color:
 import com.aspose.slides.*;
 import java.awt.Color;
 
-Presentation pres = new Presentation("test.pptx");
+Presentation pres = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
 
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
@@ -166,34 +165,32 @@ try {
 }
 ```
 
-## **Set the Chart Series Fill Color**
+## **Get the Automatic Series Fill Color**
 
-Aspose.Slides for Java allows you to set the automatic fill color for chart series inside a plot area this way:
+Aspose.Slides for Java allows you to read the automatic fill color that a chart series takes from the presentation theme this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
-1. Access the chart series and set the fill color to Automatic.
-1. Save the presentation to a PPTX file.
+1. Access the chart series and get its automatic fill color.
 
-This Java code shows you how to set the automatic fill color for a chart series:
+This Java code shows you how to get the automatic fill color of a chart series:
 
 ```java
 import com.aspose.slides.*;
+import java.awt.Color;
 
 Presentation pres = new Presentation();
 try {
     // Creates a clustered column chart
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-    // Sets series fill format to automatic
+    // Gets the automatic fill color of every series
     for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
     {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
+        Color color = chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
+        System.out.println("Series " + i + " color: " + color);
     }
-
-    // Writes the presentation file to disk
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -283,7 +280,7 @@ Aspose.Slides for Java allows you to clear the `DataPoints` data for a specific 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 2. Obtain the reference of a slide through its index.
 3. Obtain the reference of a chart through its index.
-4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
+4. Iterate through all the chart `DataPoints` and clear the workbook cells behind them. Category charts (column, bar, line, pie) keep the number in `Value`, while scatter and bubble charts keep it in `XValue` and `YValue`, so check each cell before clearing it.
 5. Clear all`DataPoints` for specific chart series.
 6. Write the modified presentation to a PPTX file.
 
@@ -300,8 +297,10 @@ try {
 
     for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
     {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+        // Category charts store the number in Value; scatter and bubble charts store it in XValue and YValue.
+        if (dataPoint.getValue().getAsCell() != null) dataPoint.getValue().getAsCell().setValue(null);
+        if (dataPoint.getXValue().getAsCell() != null) dataPoint.getXValue().getAsCell().setValue(null);
+        if (dataPoint.getYValue().getAsCell() != null) dataPoint.getYValue().getAsCell().setValue(null);
     }
 
     chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
@@ -336,31 +335,8 @@ try {
     // Adds a chart with default data
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
     
-    // Sets the index of the chart data sheet
-    int defaultWorksheetIndex = 0;
-    
-    // Gets the chart data worksheet
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Adds series
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Adds Categories
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
     // Takes the second chart series
     IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Populates the series data
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
     // Sets GapWidth value
     series.getParentSeriesGroup().setGapWidth(50);

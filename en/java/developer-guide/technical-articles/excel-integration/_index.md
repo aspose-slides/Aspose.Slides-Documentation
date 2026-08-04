@@ -203,6 +203,9 @@ try {
     // Retrieve the blank slide layout.
     ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
+    // Remove the default slide so that the result contains one slide per chart.
+    presentation.getSlides().removeAt(0);
+
     // Get the names of all worksheets contained in the Excel workbook.
     List<String> worksheetNames = workbook.getWorksheetNames();
 

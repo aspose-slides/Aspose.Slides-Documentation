@@ -443,7 +443,7 @@ Go through these steps:
 7. Set the Scheme Color.
 8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code (based on the steps above) shows you how to add a connector between two shapes in Java:
+This sample code (based on the steps above) shows you how to apply the inner shadow effect to the text in a shape in Java:
 
 ```java
 import com.aspose.slides.*;

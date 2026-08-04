@@ -70,9 +70,6 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Set OverLap value
-    series.getParentSeriesGroup().setOverlap((byte)100);
-    
     // Write presentation to disk
     pres.save("Rotation3D_out.pptx", SaveFormat.Pptx);
 } finally {

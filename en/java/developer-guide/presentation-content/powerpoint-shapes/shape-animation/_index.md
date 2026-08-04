@@ -497,7 +497,7 @@ This Java code demonstrates the operation:
 import com.aspose.slides.*;
 
 // Instantiates a presentation class that represents a presentation file.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
+Presentation pres = new Presentation("AnimText_out.pptx");
 try {
     ISlide firstSlide = pres.getSlides().get_Item(0);
 

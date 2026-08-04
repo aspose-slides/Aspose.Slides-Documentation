@@ -94,10 +94,7 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    
-    // Sets the first series to show values
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setTitle(true);
     
     // Sets the index for the chart data sheet
     int defaultWorksheetIndex = 0;
@@ -297,9 +294,6 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Sets the first series to show values
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
     // Sets the index for the chart data sheet
     int defaultWorksheetIndex = 0;
     
@@ -396,10 +390,6 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.Line`).
-1. Access the chart data IChartDataWorkbook.
-1. Clear the default series and categories.
-1. Add new series and categories.
-1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
 This Java code shows you how to create a line chart:
@@ -1089,12 +1079,13 @@ This Java code shows you how to update a chart:
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+// Opens the presentation that contains the chart to update
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Access first slideMarker
+    // Access first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Get chart with default data
+    // Get the chart from the slide
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
     // Setting the index of chart data sheet
@@ -1160,7 +1151,8 @@ This Java code shows you how to set the data range for a chart:
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+// Opens the presentation that contains the chart
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);

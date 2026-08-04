@@ -33,7 +33,7 @@ Aspose.Slides allows you to work with presentation document properties through t
 
 {{% alert color="primary" %}} 
 
-Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for Java x.x.x".
+Please note that the **Application** and **AppVersion** fields cannot be modified. Aspose.Slides rewrites them on every save, so a saved presentation always reports "Aspose.Slides for Java" and the version of the library that produced it. Any value passed to `setNameOfApplication` is discarded when the presentation is written.
 
 {{% /alert %}} 
 
@@ -124,7 +124,7 @@ This example modifies the built-in properties of the presentation that can be vi
 
 ## **Add Custom Document Properties**
 
-Aspose.Slides for Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+Aspose.Slides for Java also allows developers to add the custom the values for presentation Document properties. The example below adds three custom properties, then looks up the name stored at index 2 and removes that property, so the saved presentation keeps two of them. Custom properties are indexed in alphabetical order, not in the order they were added.
 
 ```java
 import com.aspose.slides.*;
@@ -284,22 +284,11 @@ for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
 }
 ```
 
-```java
-import com.aspose.slides.*;
-
-private static void updateByTemplate(String path, IDocumentProperties template) 
-{
-    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
 ## **Set Proofing Language**
 
 Aspose.Slides provides the LanguageId property (exposed by the PortionFormat class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-This Java code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+This Java code shows you how to set the proofing language for a PowerPoint:
 
 ```java
 import com.aspose.slides.*;

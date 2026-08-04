@@ -358,18 +358,16 @@ When you externalize resources, choose two paths deliberately:
 - `fileName`: the HTML file name being generated.
 - `baseUri`: the absolute URI prefix used in the HTML links to media files.
 
-If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
+The generated HTML references media files by file name only, relative to the HTML document, so `path` must be the directory that also receives the HTML file. `baseUri` has to be an absolute URI: for local preview, build a `file:///` URI from the output directory; for a deployed application, use the absolute URL of the published directory.
 
 ```java
 import com.aspose.slides.*;
 
 java.nio.file.Path outputDirectory = java.nio.file.Paths.get(System.getProperty("user.dir"), "html-output");
-java.nio.file.Path mediaDirectory = outputDirectory.resolve("media");
 java.nio.file.Files.createDirectories(outputDirectory);
-java.nio.file.Files.createDirectories(mediaDirectory);
 
 String htmlFileName = "presentation.html";
-String mediaBaseUri = mediaDirectory.toUri().toString();
+String mediaBaseUri = outputDirectory.toUri().toString();
 
 Presentation presentation = new Presentation();
 try {
@@ -380,7 +378,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
 
-    String mediaDirectoryPath = mediaDirectory.toString();
+    String mediaDirectoryPath = outputDirectory.toString();
     VideoPlayerHtmlController controller = new VideoPlayerHtmlController(mediaDirectoryPath, htmlFileName, mediaBaseUri);
     HtmlFormatter formatter = HtmlFormatter.createCustomFormatter(controller);
     SVGOptions svgOptions = new SVGOptions(controller);
@@ -437,7 +435,7 @@ These values do not indicate a real visual font-size change. They are only a mat
 
 ### How should I choose baseUri for media export?
 
-Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with `mediaDirectory.toUri().toString()`. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same resource location.
+Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with `outputDirectory.toUri().toString()`. For deployment, use the absolute URL of the published directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same location, and that location has to be the directory holding the generated HTML file because media links are written relative to it.
 
 ### Can I include hidden slides?
 

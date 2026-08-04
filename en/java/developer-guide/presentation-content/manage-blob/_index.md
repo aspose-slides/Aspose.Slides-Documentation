@@ -154,7 +154,7 @@ try {
 	FileInputStream fileStream = new FileInputStream(pathToLargeImage);
 	try {
 		// Let's add the image to the presentation - we choose KeepLocked behavior because we do
-		// NOT intend to access the "largeImage.png" file.
+		// NOT intend to access the "large_image.jpg" file.
 		IPPImage img = pres.getImages().addImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 

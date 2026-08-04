@@ -39,7 +39,7 @@ import java.awt.Dimension;
 // Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Renders a slide containing a text frame that uses embedded "FunSized"
+    // Renders a slide containing a text frame that uses embedded "Calibri"
     IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
     //Save the image to disk in JPEG format

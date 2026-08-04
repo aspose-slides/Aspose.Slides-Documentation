@@ -32,6 +32,8 @@ renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, float scale);
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics);
 were added to com.aspose.slides.ISlide interface and to com.aspose.slides.Slide class. These methods allow render a slide to specified Graphics2D object.
 
+The `renderToGraphics` methods have since been removed from the public API. In current versions, render a slide with [ISlide.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), as the example below does:
+
 ``` java
 import com.aspose.slides.*;
 import java.awt.Dimension;

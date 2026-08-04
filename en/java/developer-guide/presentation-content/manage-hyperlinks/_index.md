@@ -247,14 +247,14 @@ This Java code shows you how to remove the hyperlink from a text in a presentati
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -278,7 +278,7 @@ This Java code shows you how to remove the hyperlink from a shape in a presentat
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -315,6 +315,9 @@ try {
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
+
+	// Changes the tooltip of the hyperlink that has already been added
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
 
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {

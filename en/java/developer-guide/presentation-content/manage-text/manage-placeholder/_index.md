@@ -74,7 +74,7 @@ import com.aspose.slides.*;
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Iterates through the slide
+    for (IShape shape : slide.getLayoutSlide().getShapes()) // Iterates through the slide layout, where prompt texts live
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
@@ -86,6 +86,10 @@ try {
             else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Adds subtitle
             {
                 text = "Add Subtitle";
+            }
+            else // Leaves the date, footer and slide number placeholders untouched
+            {
+                continue;
             }
 
             ((IAutoShape)shape).getTextFrame().setText(text);
@@ -113,17 +117,29 @@ Presentation presentation = new Presentation("example.pptx");
 IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
 IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+int alphaValue = 40;
+
+// Look for a fixed-percentage transparency effect already applied to the picture.
+AlphaModulateFixed alphaModulate = null;
 for (int i = 0; i < operationCollection.size(); i++)
 {
     if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
     {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
+        alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
         float currentValue = 100 - alphaModulate.getAmount();
         System.out.println("Current transparency value: " + currentValue);
-
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+        break;
     }
+}
+
+if (alphaModulate == null)
+{
+    // The picture has no transparency effect yet, so add one.
+    operationCollection.addAlphaModulateFixedEffect(100 - alphaValue);
+}
+else
+{
+    alphaModulate.setAmount(100 - alphaValue);
 }
 
 presentation.save("example_out.pptx", SaveFormat.Pptx);

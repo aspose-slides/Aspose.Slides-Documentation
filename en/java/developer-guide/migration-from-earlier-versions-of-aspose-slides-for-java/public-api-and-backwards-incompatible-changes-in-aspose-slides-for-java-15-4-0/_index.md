@@ -55,7 +55,7 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 ```
 ### **Method IPresentation.getSlideById(long) has been added**
-Method Aspose.Slides.IPresentation.getSlideById(int) returns a Slide, MasterSlide or LayoutSlide by slide Id.
+Method Aspose.Slides.IPresentation.getSlideById(long) returns a Slide, MasterSlide or LayoutSlide by slide Id.
 
 ``` java
 import com.aspose.slides.*;
@@ -125,7 +125,7 @@ if(hidden) {
 
 pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **Methods ISmartArt.isReversed(), setReserved() have been added**
+### **Methods ISmartArt.isReversed(), setReversed() have been added**
 Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
 ``` java

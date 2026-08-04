@@ -200,8 +200,6 @@ Finally, we save the presentation to disk:
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation();
-
 presentation.save("presentation.pptx", SaveFormat.Pptx);
 ```
 

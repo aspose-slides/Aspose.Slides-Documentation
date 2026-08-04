@@ -53,7 +53,7 @@ try {
     // Get the first shape from the first slide.
     IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Highlight the word "try" in the shape.
+    // Highlight every occurrence of "try" in the shape, including inside longer words.
     shape.getTextFrame().highlightText("try", Color.LIGHT_GRAY);
 
     TextSearchOptions searchOptions = new TextSearchOptions();

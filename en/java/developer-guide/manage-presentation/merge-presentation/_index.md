@@ -92,7 +92,7 @@ Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
+        IMasterSlide masterSlide = presentation1.getMasters().get_Item(0);
         presentation1.getSlides().addClone(slide, masterSlide, true);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);
@@ -168,7 +168,7 @@ Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
+        ILayoutSlide layoutSlide = presentation1.getLayoutSlides().get_Item(layoutIndex);
         presentation1.getSlides().addClone(slide, layoutSlide);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);

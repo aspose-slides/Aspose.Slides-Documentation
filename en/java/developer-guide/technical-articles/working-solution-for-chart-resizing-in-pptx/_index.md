@@ -48,7 +48,7 @@ Suppose we have defined a template and want to create presentations based on it.
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 
-// Set the window width of the workbook in inches (divided by 576 as PowerPoint uses 576 pixels per inch).
+// Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 points per inch).
 workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
  
 // Set the window height of the workbook in inches.
@@ -59,13 +59,13 @@ ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
 // Create an OLE object frame with the embedded Excel data.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
     slide.getShapes().get_Item(2).getX(),
     slide.getShapes().get_Item (2).getY(),
     slide.getShapes().get_Item (2).getWidth(),
     slide.getShapes().get_Item (2).getHeight(),
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 **Scenario 2**
@@ -85,24 +85,24 @@ int desiredWidth = 684; // 9.5 inch (9.5 * 72)
 // Define the chart size with a window.
 chart.setSizeWithWindow(true);
  
-// Set the window width of the workbook in inches (divided by 576 as PowerPoint uses 576 pixels per inch).
-workbook.getSettings().setWindowWidthInch(desiredHeight / 72f);
+// Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 points per inch).
+workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
  
 // Set the window height of the workbook in inches.
-workbook.getSettings().setWindowHeightInch(desiredWidth / 72f);
+workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
  
 // Save the workbook to a memory stream.
 ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
 // Create an OLE object frame with the embedded Excel data.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    288,
-    576,
+    36,  // x = 0.5 inch (0.5 * 72)
+    72,  // y = 1 inch (1 * 72)
     desiredWidth,
     desiredHeight,
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 ## **Second Approach**
@@ -127,20 +127,20 @@ chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() 
 chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
  
 // Define the chart print size.
-chart.setPrintSize(PrintSizeType.CUSTOM);
+chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
  
 // Save the workbook to a memory stream.
 ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
 // Create an OLE object frame with the embedded Excel data.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
     slide.getShapes().get_Item(2).getX(),
     slide.getShapes().get_Item (2).getY(),
     slide.getShapes().get_Item (2).getWidth(),
     slide.getShapes().get_Item (2).getHeight(),
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 **Scenario 2**:
@@ -160,24 +160,24 @@ int desiredWidth = 684; // 9.5 inch (9.5 * 72)
 // Define the chart size without a window.
 chart.setSizeWithWindow(false);
  
-// Set the chart width in pixels (multiply by 96 as Excel uses 96 pixels per inch).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 576f) * 96f));
+// Set the chart width in pixels (divided by 72 to get inches, multiplied by 96 as Excel uses 96 pixels per inch).
+chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
  
 // Set the chart height in pixels.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 576f) * 96f));
+chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
  
 // Save the workbook to a memory stream.
 ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
 // Create an OLE object frame with the embedded Excel data.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    288,
-    576,
+    36,  // x = 0.5 inch (0.5 * 72)
+    72,  // y = 1 inch (1 * 72)
     desiredWidth,
     desiredHeight,
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 ## **Conclusion**

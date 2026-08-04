@@ -74,8 +74,8 @@ import com.aspose.slides.*;
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
-    // Create a full scale image
-    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 1, 1);
+    // Create an image scaled by a factor of 2 in both directions
+    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 2, 2);
 
     // Save the image to disk in PNG format
     try {

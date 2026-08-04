@@ -54,7 +54,7 @@ import com.aspose.slides.*;
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
+    pres.save("pres-16x9-aspect-ratio.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }

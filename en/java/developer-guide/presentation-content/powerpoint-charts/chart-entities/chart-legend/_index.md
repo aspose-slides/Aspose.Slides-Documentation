@@ -94,8 +94,6 @@ The Aspose.Slides for Java lets developers allow to set font size of individual 
 - Creating the default chart.
 - Access legend entry.
 - Set the Font Size.
-- Set minimum axis value.
-- Set maximum axis value.
 - Write presentation to disk.
 
 ```java
