@@ -7,108 +7,256 @@ weight: 40
 keywords:
 - แผนภูมิ treemap
 - แผนภูมิ sunburst
+- แผนภูมิเชิงลำดับชั้น
 - จุดข้อมูล
-- สีป้าย
+- ป้ายข้อมูล
 - สีสาขา
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการจุดข้อมูลในแผนภูมิ treemap และ sunburst ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ซึ่งรองรับรูปแบบไฟล์ PowerPoint"
+description: "เรียนรู้วิธีสร้างข้อมูลเชิงลำดับชั้นและปรับแต่งระดับ ป้ายข้อความ และสีในแผนภูมิ Treemap และ Sunburst ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-นอกจากประเภทของแผนภูมิ PowerPoint อื่น ๆ แล้ว ยังมีประเภท “แบบลำดับชั้น” สองประเภท คือแผนภูมิ **Treemap** และ **Sunburst** (ซึ่งยังเรียกอีกชื่อว่า Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph หรือ Multi Level Pie Chart) แผนภูมิเหล่านี้แสดงข้อมูลแบบลำดับชั้นที่จัดเป็นต้นไม้ ตั้งแต่ใบไม้จนถึงยอดกิ่ง ใบไม้ถูกกำหนดโดยจุดข้อมูลของซีรีส์ และระดับการจัดกลุ่มที่ซ้อนกันต่อมาจะกำหนดโดยหมวดหมู่ที่สอดคล้องกัน Aspose.Slides for PHP via Java ให้ความสามารถในการจัดรูปแบบจุดข้อมูลของแผนภูมิ Sunburst และ Treemap .
+Treemap และ Sunburst แสดงข้อมูลเชิงลำดับชั้นแบบเดียวกัน แต่ใช้การจัดเรียงที่แตกต่างกัน Treemap แสดงลำดับชั้นเป็นสี่เหลี่ยมซ้อนกันโดยพื้นที่ของสี่เหลี่ยมแทนค่าของใบข้อมูล ส่วน Sunburst แสดงเป็นวงแหวนรอบศูนย์: กลุ่มระดับบนอยู่ใกล้ศูนย์และหมวดหมู่ใบข้อมูลอยู่บนวงแหวนด้านนอก
 
-ด้านล่างเป็นแผนภูมิ Sunburst ซึ่งข้อมูลในคอลัมน์ Series1 กำหนดโหนดใบไม้ ส่วนคอลัมน์อื่น ๆ กำหนดจุดข้อมูลแบบลำดับชั้น:
+ใน Aspose.Slides for PHP via Java ค่าเชิงตัวเลขแต่ละค่าจะเป็น [ChartDataPoint](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/). วิธีการ [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) ให้เข้าถึงใบข้อมูลและกลุ่มแม่ของมัน บทความนี้อธิบายการแมปนี้และแสดงวิธีสร้างและกำหนดรูปแบบแผนภูมิทั้งสองประเภทจากข้อมูลตัวอย่างเดียวกัน
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![แผนภูมิ Treemap ที่มีสาขา Consumer และ Business](treemap-hierarchy.png)
 
-เริ่มต้นด้วยการเพิ่มแผนภูมิ Sunburst ใหม่ลงในงานนำเสนอ:
+![แผนภูมิ Sunburst ที่มีลำดับชั้น Consumer และ Business เดียวกัน](sunburst-hierarchy.png)
+
+## **ทำความเข้าใจหมวดหมู่, จุดข้อมูล, และระดับ**
+
+ตัวอย่างที่ใช้ด้านล่างมีระดับหมวดหมู่สามระดับและชุดค่าตัวเลขหนึ่งชุด:
+
+| สาขา | โครง | ใบ | รายได้ |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+แต่ละแถวสร้างหมวดหมู่ใบหนึ่งรายการและจุดข้อมูลหนึ่งรายการ ระดับการจัดกลุ่มหมวดหมู่อธิบายเส้นทางจากใบนั้นถึงกลุ่มแม่ของมัน สำหรับแถวแรก เส้นทางคือ `Consumer > Computers > Laptops`
+
+ดัชนีที่ส่งคืนโดย [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) จะเริ่มจากใบข้อมูลและขึ้นไปด้านบน:
+
+| `getDataPointLevels()` index | ระดับตรรกะ | การแสดงผล Treemap | การแสดงผล Sunburst |
+| ---: | --- | --- | --- |
+| `0` | ใบ | สี่เหลี่ยมค่าตัว | ส่วนวงแหวนด้านนอก |
+| `1` | โครง | สี่เหลี่ยมพาเรนต์หรือหัวข้อ | ส่วนวงแหวนกลาง |
+| `2` | สาขา | สี่เหลี่ยมระดับบนหรือหัวข้อ | ส่วนวงแหวนด้านใน |
+
+ลำดับนี้เหมือนกันสำหรับแผนภูมิทั้งสองประเภท แม้ว่าการจัดวางจะต่างกัน ส่วนของพาเรนต์จะถูกแชร์โดยหลายใบ เพื่อกำหนดรูปแบบให้ใช้ระดับที่สอดคล้องกับจุดข้อมูลแรกในกลุ่มนั้น ตัวอย่างเช่น สาขา `Consumer` เริ่มต้นด้วยจุด `Laptops` ส่วนโครง `Software` เริ่มต้นด้วยจุด `Licenses` การเก็บอ้างอิงจุดเหล่านั้นทำให้โค้ดชัดเจนและปลอดภัยกว่าการใช้การแสดงผลที่ไม่อธิบายเช่น `$dataPoints->get_Item(0)` หรือ `$dataPoints->get_Item(6)`
+
+## **สร้างและปรับแต่งแผนภูมิทั้งสองประเภท**
+
+ตัวอย่างเต็มต่อไปนี้สร้าง Treemap บนสไลด์แรกและ Sunburst บนสไลด์ที่สอง มันสร้างลำดับชั้น แสดงค่าของ `Tablets` ใช้สีคงที่กับระดับที่เลือก กำหนดรูปแบบป้ายสาขา และบันทึกงานนำเสนอ
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $worksheetIndex = 0;
+    $leafLevelIndex = 0;
+    $stemLevelIndex = 1;
+    $branchLevelIndex = 2;
+
+    $branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    $stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    $leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    $revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    $dataPointCount = count($leafNames);
+
+    $chartTypes = [ChartType::Treemap, ChartType::Sunburst];
+    $chartCount = count($chartTypes);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+
+    for ($chartIndex = 0; $chartIndex < $chartCount; $chartIndex++) {
+        $chartType = $chartTypes[$chartIndex];
+
+        if ($chartIndex === 0) {
+            $slide = $presentation->getSlides()->get_Item(0);
+        } else {
+            $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+        }
+
+        $chart = $slide->getShapes()->addChart($chartType, 40, 40, 640, 440);
+        $chart->setTitle(false);
+        $chart->setLegend(false);
+
+        $chartData = $chart->getChartData();
+        $chartData->getCategories()->clear();
+        $chartData->getSeries()->clear();
+
+        $workbook = $chartData->getChartDataWorkbook();
+        $workbook->clear($worksheetIndex);
+
+        // เพิ่มหมวดหมู่ใบข้อมูล. รายการจัดกลุ่มจะถูกตั้งค่าเฉพาะเมื่อกลุ่มใหม่เริ่มต้น;
+        // หมวดหมู่ต่อไปนี้คงอยู่ในกลุ่มนั้นจนกว่ารายการอื่นจะถูกตั้งค่า.
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $categoryCell = $workbook->getCell($worksheetIndex, $rowIndex, 2, $leafName);
+            $category = $chartData->getCategories()->add($categoryCell);
+
+            $stemName = $stemNames[$dataIndex];
+            $startsNewStem = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousStemName = $stemNames[$dataIndex - 1];
+                $startsNewStem = $stemName !== $previousStemName;
+            }
+            if ($startsNewStem) {
+                $category->getGroupingLevels()->setGroupingItem($stemLevelIndex, $stemName);
+            }
+
+            $branchName = $branchNames[$dataIndex];
+            $startsNewBranch = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousBranchName = $branchNames[$dataIndex - 1];
+                $startsNewBranch = $branchName !== $previousBranchName;
+            }
+            if ($startsNewBranch) {
+                $category->getGroupingLevels()->setGroupingItem($branchLevelIndex, $branchName);
+            }
+        }
+
+        $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Revenue");
+        $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
+
+        $laptopsDataPoint = null;
+        $tabletsDataPoint = null;
+        $licensesDataPoint = null;
+
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $revenue = $revenues[$dataIndex];
+            $valueCell = $workbook->getCell($worksheetIndex, $rowIndex, 3, $revenue);
+
+            if ($chartType === ChartType::Treemap) {
+                $dataPoint = $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+            } else {
+                $dataPoint = $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+            }
+
+            if ($leafName === "Laptops") {
+                $laptopsDataPoint = $dataPoint;
+            } elseif ($leafName === "Tablets") {
+                $tabletsDataPoint = $dataPoint;
+            } elseif ($leafName === "Licenses") {
+                $licensesDataPoint = $dataPoint;
+            }
+        }
+
+        // แสดงหมวดหมู่และค่าบนใบข้อมูล Tablets.
+        $tabletsLeafLevel = $tabletsDataPoint->getDataPointLevels()->get_Item($leafLevelIndex);
+        $tabletsLabelFormat = $tabletsLeafLevel->getLabel()->getDataLabelFormat();
+        $tabletsLabelFormat->setShowCategoryName(true);
+        $tabletsLabelFormat->setShowValue(true);
+        $tabletsLabelFormat->setSeparator("\n");
+        $tabletsLabelFormat->setNumberFormat('$0');
+
+        // กำหนดรูปแบบสาขา Consumer ผ่านใบข้อมูลแรกในสาขานั้น.
+        $consumerBranchLevel = $laptopsDataPoint->getDataPointLevels()->get_Item($branchLevelIndex);
+        $consumerBranchFill = $consumerBranchLevel->getFormat()->getFill();
+        $consumerBranchColor = new java("java.awt.Color", 31, 78, 121);
+        $consumerBranchFill->setFillType(FillType::Solid);
+        $consumerBranchFill->getSolidFillColor()->setColor($consumerBranchColor);
+
+        $consumerLabelFormat = $consumerBranchLevel->getLabel()->getDataLabelFormat();
+        $consumerLabelFormat->setShowCategoryName(true);
+        $consumerLabelFormat->setShowSeriesName(false);
+        $consumerLabelTextFill = $consumerLabelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+        $white = java("java.awt.Color")->WHITE;
+        $consumerLabelTextFill->setFillType(FillType::Solid);
+        $consumerLabelTextFill->getSolidFillColor()->setColor($white);
+
+        // กำหนดรูปแบบโครง Software ผ่านใบข้อมูลแรกในโครงนั้น.
+        $softwareStemLevel = $licensesDataPoint->getDataPointLevels()->get_Item($stemLevelIndex);
+        $softwareStemFill = $softwareStemLevel->getFormat()->getFill();
+        $softwareStemColor = new java("java.awt.Color", 112, 173, 71);
+        $softwareStemFill->setFillType(FillType::Solid);
+        $softwareStemFill->getSolidFillColor()->setColor($softwareStemColor);
+
+        // ParentLabelLayout มีผลต่อป้ายพาเรนต์ของ Treemap; Sunburst ใช้ส่วนของวงแหวน.
+        if ($chartType === ChartType::Treemap) {
+            $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
+        }
     }
-  }
+
+    $presentation->save("hierarchical-charts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" title="ดูเพิ่มเติม" %}} 
-- [**สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ใน PHP**](/slides/th/php-java/create-chart/)
-{{% /alert %}}
+เซลล์หมวดหมู่และเซลล์ค่าจะใช้แถว worksheet เดียวกัน ดังนั้นตำแหน่งของคอลเลกชันจึงยังคงตรงกัน เมื่อทำงานกับแผนภูมิที่มีอยู่แทนการสร้างใหม่ ให้ตรวจสอบแถวหมวดหมู่ก่อนและเก็บอ้างอิงที่ตั้งชื่อไว้สำหรับจุดข้อมูลและระดับที่ต้องการกำหนดรูปแบบ
 
-หากต้องการจัดรูปแบบจุดข้อมูลของแผนภูมิ เราควรใช้สิ่งต่อไปนี้:
+## **พฤติกรรมและข้อพิจารณาการใช้งาน**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevelsmanager/), [**ChartDataPointLevel**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevel/) classes และเมธอด [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) ให้การเข้าถึงการจัดรูปแบบจุดข้อมูลของแผนภูมิ Treemap และ Sunburst. [**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevelsmanager/) ใช้สำหรับเข้าถึงหมวดหมู่หลายระดับ – มันเป็นคอนเทนเนอร์ของวัตถุ [**ChartDataPointLevel**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevel/) objects. โดยพื้นฐานแล้วมันเป็น wrapper สำหรับ [**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartcategorylevelsmanager/) พร้อมคุณสมบัติที่เพิ่มขึ้นเฉพาะสำหรับจุดข้อมูล. คลาส [**ChartDataPointLevel**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevel/) มีสองเมธอด: [**getFormat**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevel/#getFormat) และ [**getDataLabel**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevel/#getLabel) ซึ่งให้การเข้าถึงการตั้งค่าที่สอดคล้องกัน.
+### **ความแตกต่างระหว่าง Treemap และ Sunburst**
 
-## **แสดงค่าจุดข้อมูล**
+- Treemap ใช้พื้นที่เพื่อสื่อค่าตัวเลขและสี่เหลี่ยมซ้อนกันเพื่อสื่อลำดับชั้น วิธีการ [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#setParentLabelLayout) ควบคุมวิธีการแสดงป้ายพาเรนต์ในประเภทแผนภูมินี้
+- Sunburst ใช้มุมเพื่อสื่อค่าตัวเลขและความลึกของวงแหวนเพื่อสื่อลำดับชั้น [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#setParentLabelLayout) ไม่ควบคุมป้ายวงแหวนของมัน
+- แผนภูมิทั้งสองใช้ระดับการจัดกลุ่มหมวดหมู่เดียวกันและลำดับใบถึงพาเรนต์เดียวกันที่ส่งคืนโดย [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) ดังนั้นโค้ดการสร้างข้อมูลและการกำหนดรูปแบบระดับสามารถใช้ร่วมกันได้
+- ค่าพาเรนต์จะคำนวณจากใบข้อมูลที่สืบทอด ไม่เพิ่มจุดตัวเลขแยกต่างหากสำหรับสาขาหรือโครง
 
-แสดงค่าของจุดข้อมูล "Leaf 4":
+### **การจัดเรียงและลำดับส่วน**
 
-```php
-  $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-  $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
+เครื่องยนต์การจัดวางแผนภูมิจัดตำแหน่งสุดท้ายของสี่เหลี่ยมและส่วนวงแหวน จัดแถวหมวดหมู่ที่เกี่ยวข้องให้ต่อเนื่องก่อนเพิ่มลงไป แต่ไม่ควรอิงตำแหน่งสี่เหลี่ยมหรือมุมเริ่มต้นใดเป็นพิเศษ หากลำดับมีความหมาย ให้ใส่ไว้ในป้ายหรือใช้ประเภทแผนภูมิที่มีแกนหมวดหมู่ชัดเจน
 
-```
+### **ธีมและสีคงที่**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+ระดับแผนภูมิที่ไม่ได้กำหนดรูปแบบจะสืบทอดสีจากธีมงานนำเสนอ ตัวอย่างใช้การเติมสี RGB อย่างชัดเจนเพื่อให้ผลลัพธ์คาดเดาได้ หากต้องการให้แผนภูมิตามการเปลี่ยนธีม ให้ใช้สีจากสคีมแทนค่า RGB คงที่และหลีกเลี่ยงการเขียนทับทุกระดับ ตรวจสอบความคอนทราสต์ของป้ายหลังเปลี่ยนสีสาขาหรือโครง
 
-## **ตั้งป้ายและสีของจุดข้อมูล**
+### **ป้ายและพื้นที่ว่างที่ใช้ได้**
 
-ตั้งป้ายข้อมูลของ "Branch 1" ให้แสดงชื่อซีรีส์ ("Series1") แทนชื่อหมวดหมู่ จากนั้นตั้งค่าสีข้อความเป็นสีเหลือง:
+PowerPoint อาจซ่อนหรือตัดทอนป้ายเมื่อส่วนมีขนาดเล็กเกินไป การเพิ่มขนาดแผนภูมิ การย่อชื่อหมวดหมู่ หรือแสดงฟิลด์ป้ายให้น้อยลงมักทำให้ผลลัพธ์ชัดเจนขึ้น ป้ายสามารถรวมชื่อหมวดหมู่, ชื่อชุด, และค่าได้ผ่าน [DataLabelFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/) แต่การเปิดใช้งานทุกฟิลด์มักทำให้แผนภูมิเชิงลำดับชั้นอ่านยาก
 
-```php
-  $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
-  $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
-  $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
+### **การส่งออกและการแสดงผล**
 
-```
-
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-
-## **ตั้งสีสาขาของจุดข้อมูล**
-
-เปลี่ยนสีของสาขา "Steam 4":
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
-    $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+การบันทึกเป็น PPTX ทำให้แผนภูมิแก้ไขได้ เมื่อ Aspose.Slides แสดงผลงานนำเสนอเป็น PDF หรือรูปภาพ การเติมสีและการตั้งค่าป้ายที่รองรับจะถูกรวมในการแสดงผล การแทนที่ฟอนท์และความแตกต่างเล็กน้อยของพื้นที่จัดวางที่ใช้ได้อาจทำให้การตัดบรรทัดหรือการมองเห็นป้ายเปลี่ยนแปลง ดังนั้นให้ติดตั้งฟอนท์ที่ต้องการและตรวจสอบเป้าหมายการส่งออกที่สำคัญ
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถเปลี่ยนลำดับ (การจัดเรียง) ของส่วนใน Sunburst/Treemap ได้หรือไม่?**
+**ทำไมการเปลี่ยนระดับพาเรนต์ถึงส่งผลต่อหลายใบ?**
 
-ไม่ PowerPoint จะจัดเรียงส่วนโดยอัตโนมัติ (โดยทั่วไปเรียงจากค่ามากไปน้อยตามเข็มนาฬิกา) Aspose.Slides ทำตามพฤติกรรมนี้เช่นกัน: คุณไม่สามารถเปลี่ยนลำดับโดยตรงได้; ต้องทำโดยการเตรียมข้อมูลล่วงหน้า
+สาขาหรือโครงเป็นส่วนภาพที่แชร์กัน การเข้าถึง [ChartDataPointLevel](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointlevel/) ทำได้ผ่านใบข้อมูลที่สืบทอด แต่การกำหนดรูปแบบเป็นของส่วนพาเรนต์ที่แชร์ ไม่ได้เป็นของใบเดียวเท่านั้น
 
-**ธีมของงานนำเสนอมีผลต่อสีของส่วนและป้ายอย่างไร?**
+**ทำไมป้ายข้อมูลถึงหายไป?**
 
-สีของแผนภูมิจะสืบทอดจาก [ธีม/พาเลต](/slides/th/php-java/presentation-theme/) ของงานนำเสนอ ถ้าคุณไม่ได้ตั้งค่าเติมสี/ฟอนต์ด้วยตนเอง เพื่อให้ผลลัพธ์สม่ำเสมอ ควรกำหนดการเติมสีทึบและการจัดรูปแบบข้อความที่ระดับที่ต้องการ
+ให้เปิดใช้งานฟิลด์ที่ต้องการบนวัตถุ [DataLabelFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/) ก่อน จากนั้นตรวจสอบว่ามีพื้นที่เพียงพอสำหรับส่วนหรือไม่ การจัดวางป้ายพาเรนต์ของ Treemap, ขนาดแผนภูมิ, ความยาวป้าย, ขนาดฟอนท์, และจำนวนฟิลด์ที่เปิดใช้งานทั้งหมดมีผลต่อการแสดงป้ายหรือไม่
 
-**การส่งออกเป็น PDF/PNG จะคงสีสาขาที่กำหนดเองและการตั้งค่าป้ายไว้หรือไม่?**
+**ฉันสามารถกำหนดลำดับหรือพิกัดของส่วนอย่างแม่นยำได้หรือไม่?**
 
-ใช่ เมื่อส่งออกงานนำเสนอ การตั้งค่าของแผนภูมิ (การเติมสี, ป้าย) จะถูกคงไว้ในรูปแบบผลลัพธ์ เนื่องจาก Aspose.Slides จะเรนเดอร์โดยใช้การจัดรูปแบบของแผนภูมิ
+คุณสามารถควบคุมลำดับแถวต้นฉบับและทำให้แต่ละกลุ่มต่อเนื่องกันได้ แต่ไม่สามารถกำหนดสี่เหลี่ยม Treemap หรือมุม Sunburst อย่างแม่นยำได้ เครื่องยนต์การจัดวางแผนภูมิคำนวณจากลำดับชั้น, ค่าตัวเลข, และพื้นที่ว่างที่มี
 
-**ฉันสามารถคำนวณพิกัดจริงของป้าย/องค์ประกอบเพื่อวางโอเวอร์เลย์แบบกำหนดเองบนแผนภูมิได้หรือไม่?**
+**ทำไมสีจึงเปลี่ยนหลังจากธีมงานนำเสนอเปลี่ยน?**
 
-ได้ หลังจากการจัดวางแผนภูมิได้รับการตรวจสอบแล้ว พิกัด *x* และ *y* จริงจะพร้อมใช้งานสำหรับองค์ประกอบ (เช่น [DataLabel](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/)) ซึ่งช่วยในการวางตำแหน่งโอเวอร์เลย์อย่างแม่นยำ
+การเติมสีตามธีมออกแบบมาให้ตามพาเล็ตของงานนำเสนอ ใช้สี RGB อย่างชัดเจนกับระดับที่ต้องการคงที่ หรือคงสีจากสคีมเมื่อการปรับให้เข้ากับธีมใหม่เป็นที่ต้องการ
+
+**การกำหนดรูปแบบที่กำหนดเองจะคงอยู่ใน PDF และการส่งออกรูปภาพหรือไม่?**
+
+ใช่ การเติมสีแผนภูมิและการตั้งค่าป้ายที่รองรับจะถูกรวมในการแสดงผล เพื่อผลลัพธ์สม่ำเสมอข้ามระบบ ให้ทำให้ฟอนท์ที่จำเป็นพร้อมใช้งานและทดสอบขนาดการส่งออกสุดท้าย เพราะการปรับขนาดป้ายขึ้นอยู่กับการจัดวาง
+
+## **ดูเพิ่มเติม**
+
+- [Create Treemap charts](/slides/th/php-java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/th/php-java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/th/php-java/export-chart/)
+- [Manage presentation themes](/slides/th/php-java/presentation-theme/)

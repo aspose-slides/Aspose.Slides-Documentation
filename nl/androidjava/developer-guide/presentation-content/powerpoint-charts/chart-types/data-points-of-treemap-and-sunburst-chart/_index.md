@@ -1,125 +1,264 @@
 ---
-title: Gegevenspunten aanpassen in Treemap- en Sunburst-grafieken op Android
-linktitle: Gegevenspunten in Treemap- en Sunburst-grafieken
+title: Aanpassen van gegevenspunten in Treemap‑ en Sunburst‑diagrammen op Android
+linktitle: Gegevenspunten in Treemap‑ en Sunburst‑diagrammen
 type: docs
 url: /nl/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- treemap-grafiek
-- sunburst-grafiek
+- treemap diagram
+- sunburst diagram
+- hiërarchisch diagram
 - gegevenspunt
-- labelkleur
+- databelabel
 - takkleur
 - PowerPoint
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u gegevenspunten in treemap- en sunburst-grafieken kunt beheren met Aspose.Slides for Android via Java, compatibel met PowerPoint-formaten."
+description: "Leer hoe je hiërarchische gegevens maakt en niveaus, labels en kleuren aanpast in Treemap‑ en Sunburst‑diagrammen met Aspose.Slides for Android via Java."
 ---
-## **Introductie**
+## **Overzicht**
 
-Naast andere soorten PowerPoint‑grafieken bestaan er twee “hiërarchische” soorten – **Treemap** en **Sunburst**‑grafiek (ook bekend als Sunburst‑grafiek, Sunburst‑diagram, Radiale grafiek, Radiale diagram of Meerlagige taartgrafiek). Deze grafieken tonen hiërarchische gegevens die zijn georganiseerd als een boom – van bladeren tot de top van de tak. Bladeren worden gedefinieerd door de gegevenspunten van de reeks, en elk volgend genest groeppenniveau wordt bepaald door de bijbehorende categorie. Aspose.Slides for Android via Java maakt het mogelijk om gegevenspunten van Sunburst‑grafieken en Treemap in Java te formatteren.
+Treemap‑ en Sunburst‑diagrammen geven dezelfde soort hiërarchische gegevens weer, maar gebruiken verschillende indelingen. Een Treemap tekent de hiërarchie als geneste rechthoeken waarvan de oppervlakte de bladwaarden vertegenwoordigt. Een Sunburst tekent het als concentrische ringen: groepen van het hoogste niveau staan dicht bij het centrum en bladcategorieën bevinden zich op de buitenste ring.
 
-Hier is een Sunburst‑grafiek, waarbij de gegevens in de kolom Series1 de bladknopen definiëren, terwijl andere kolommen hiërarchische gegevenspunten definiëren:
+In Aspose.Slides for Android via Java is elke numerieke waarde een [IChartDataPoint](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdatapoint/). De [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--)‑methode biedt toegang tot het blad en zijn bovenliggende groepen. Dit artikel legt die koppeling uit en toont hoe beide diagramtypen te maken en op te maken vanuit dezelfde voorbeeldgegevens.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Een Treemap-diagram met Consumer- en Business-takken](treemap-hierarchy.png)
 
-Laat ons beginnen met het toevoegen van een nieuwe Sunburst‑grafiek aan de presentatie:
+![Een Sunburst-diagram met dezelfde Consumer- en Business-hiërarchie](sunburst-hierarchy.png)
+
+## **Begrijp categorieën, gegevenspunten en niveaus**
+
+De hieronder gebruikte voorbeeldset heeft drie categorieniveaus en één numerieke serie:
+
+| Tak | Stam | Blad | Omzet |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Elke rij creëert één blad‑categorie en één gegevenspunt. De categoriegroeperingsniveaus beschrijven het pad van dat blad naar zijn bovenliggende groepen. Voor de eerste rij is het pad `Consumer > Computers > Laptops`.
+
+De indexen die worden geretourneerd door [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) lopen van het blad naar boven:
+
+| `getDataPointLevels()` index | Logisch niveau | Treemap‑weergave | Sunburst‑weergave |
+| ---: | --- | --- | --- |
+| `0` | Blad | Waarde‑rechthoek | Segment van buitenste ring |
+| `1` | Stam | Bovenliggende rechthoek of kop | Segment van middelste ring |
+| `2` | Tak | Bovenliggende rechthoek of kop | Segment van binnenste ring |
+
+Deze volgorde is voor beide diagramtypen hetzelfde, ook al verschillen hun visuele indelingen. Een bovenliggend segment wordt gedeeld door meerdere bladeren. Om het op te maken, gebruik je het overeenkomstige niveau van het eerste gegevenspunt in die groep. Bijvoorbeeld, de `Consumer`‑tak begint met het `Laptops`‑punt, terwijl de `Software`‑stam begint met het `Licenses`‑punt. Het bijhouden van referenties naar die punten is duidelijker en veiliger dan onverklaarde uitdrukkingen zoals `dataPoints.get_Item(0)` of `dataPoints.get_Item(6)`.
+
+## **Maak en pas beide diagramtypen aan**
+
+Het volgende complete voorbeeld maakt een Treemap op de eerste dia en een Sunburst op de tweede dia. Het bouwt de hiërarchie, toont de waarde voor `Tablets`, past vaste kleuren toe op geselecteerde niveaus, formatteert een tak­label en slaat de presentatie op.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Voeg de bladcategorieën toe. Een groepeeritem wordt alleen ingesteld wanneer een nieuwe groep begint;
+        // de volgende categorieën blijven in die groep totdat een ander item wordt ingesteld.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Toon de categorie en de waarde op het Tablets-blad.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Formateer de Consumer‑tak via het eerste blad in die tak.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        int consumerBranchColor = Color.rgb(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Formateer de Software‑stam via het eerste blad in die stam.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        int softwareStemColor = Color.rgb(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout beïnvloedt Treemap‑bovenliggende labels; Sunburst gebruikt ringsegmenten.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Zie ook" %}} 
-- [**Maak of werk PowerPoint‑presentatie‑grafieken bij op Android**](/slides/nl/androidjava/create-chart/)
-{{% /alert %}}
+De categoriecellen en waardecellen gebruiken dezelfde werkblad‑rij, zodat hun verzamelingsposities uitgelijnd blijven. Wanneer je werkt met een bestaand diagram in plaats van er een te maken, inspecteer dan eerst de categorierijen en sla benoemde referenties op naar de gegevenspunten en niveaus die je wilt opmaken.
 
-Als er behoefte is om gegevenspunten van de grafiek te formatteren, moeten we het volgende gebruiken:
+## **Gedrag en praktische overwegingen**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPointLevel) klassen 
-en [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPoint#getDataPointLevels--) methode 
-bieden toegang tot het formatteren van gegevenspunten van Treemap‑ en Sunburst‑grafieken.  
+### **Verschillen tussen Treemap en Sunburst**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPointLevelsManager) wordt gebruikt om toegang te krijgen tot meerlagige categorieën – het vertegenwoordigt de container van 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPointLevel) objecten. In wezen is het een wrapper voor 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartCategoryLevelsManager) met de specifiek toegevoegde eigenschappen voor gegevenspunten.  
-De klasse [**IChartDataPointLevel**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPointLevel) heeft twee methoden: 
-[**getFormat**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPointLevel#getFormat--) en 
-[**getDataLabel**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataPointLevel#getLabel--) die toegang bieden tot de bijbehorende instellingen.
+- Een Treemap gebruikt oppervlakte om waarde te communiceren en geneste rechthoeken om hiërarchie te communiceren. De [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartseries/#setParentLabelLayout-int-)‑methode bepaalt hoe bovenliggende labels in dit diagramtype verschijnen.
+- Een Sunburst gebruikt hoek om waarde te communiceren en ringdiepte om hiërarchie te communiceren. [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) bepaalt niet de ringlabels.
+- Beide diagramtypen gebruiken dezelfde categoriegroeperingsniveaus en dezelfde blad‑naar‑bovenliggende‑volgorde die door [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) wordt geretourneerd, zodat de code voor gegevensopbouw en niveau‑opmaak kan worden gedeeld.
+- Bovenliggende waarden worden berekend uit hun afstammende bladeren. Voeg geen aparte numerieke punten toe voor takken of stammen.
 
-## **Waarde van een Gegevenspunt**
+### **Sorteren en segmentvolgorde**
 
-Toon de waarde van gegevenspunt "Leaf 4":
+De diagram‑lay‑engine bepaalt de uiteindelijke plaatsing van rechthoeken en ringsegmenten. Groepeer gerelateerde categorierijen voordat je ze toevoegt, maar vertrouw niet op een specifieke rechthoek‑positie of starthoek. Als de volgorde betekenis heeft, neem die dan op in de labels of gebruik een diagramtype met een expliciete categorische as.
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Thema en vaste kleuren**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+Niet‑opgemaakte diagram‑niveaus erven kleuren van het presentatiethema. Het voorbeeld gebruikt expliciete RGB‑vullingen voor voorspelbare uitvoer. Als het diagram thema‑wijzigingen moet volgen, gebruik dan schemakleuren in plaats van vaste RGB‑waarden en vermijd het overschrijven van elk niveau. Controleer ook het label‑contrast nadat je een tak‑ of stam‑vulling wijzigt.
 
-## **Gegevenspuntlabel en -kleur Instellen**
+### **Labels en beschikbare ruimte**
 
-Stel het gegevenslabel van "Branch 1" in om de serienaam ("Series1") weer te geven in plaats van de categorienaam. Stel vervolgens de tekstkleur in op geel:
+PowerPoint kan labels verbergen of afkorten wanneer een segment te klein is. Het vergroten van de diagramgrootte, inkorten van categorienamen of minder labelvelden tonen levert meestal een duidelijker resultaat op. Een label kan de categorienaam, serienaam en waarde combineren via [IDataLabelFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idatalabelformat/), maar het inschakelen van elk veld maakt hiërarchische diagrammen vaak moeilijk leesbaar.
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+### **Exporteren en renderen**
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+Opslaan als PPTX behoudt het bewerkbare diagram. Wanneer Aspose.Slides de presentatie rendert naar PDF of een afbeelding, worden de ondersteunde vullingen en labelinstellingen met het diagram gerenderd. Font‑substitutie en kleine verschillen in beschikbare lay‑ruimte kunnen regel‑omslag of label‑zichtbaarheid wijzigen, dus installeer de vereiste lettertypen en controleer belangrijke export‑doelen.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+## **FAQ**
 
-## **Kleur van een Gegevenspunt‑tak Instellen**
+**Waarom beïnvloedt het wijzigen van een bovenliggend niveau meerdere bladeren?**
 
-Verander de kleur van de tak "Steam 4":
+Een tak of stam is een gedeeld visueel segment. De [IChartDataPointLevel](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdatapointlevel/) kan worden bereikt via een afstammend blad, maar de opmaak behoort tot het gedeelde bovenliggende segment en niet alleen tot dat blad.
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+**Waarom ontbreekt een datalabel?**
 
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
+Schakel eerst de benodigde velden in op het [IDataLabelFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idatalabelformat/)‑object van het label. Controleer daarna of het segment voldoende ruimte heeft. De lay‑out van Treemap‑bovenliggende labels, diagramafmetingen, label‑lengte, lettergrootte en het aantal ingeschakelde velden beïnvloeden allemaal of een label kan worden weergegeven.
 
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
+**Kan ik de exacte volgorde of coördinaten van segmenten bepalen?**
 
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
+Je kunt de bron‑rijvolgorde sturen en elke groep aaneengesloten houden, maar je kunt geen exacte Treemap‑rechthoeken of Sunburst‑hoeken toewijzen. De lay‑engine berekent ze op basis van de hiërarchie, waarden en beschikbare ruimte.
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+**Waarom veranderen kleuren na een thema‑wijziging van de presentatie?**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Thema‑gebaseerde vullingen volgen het presentatierechterschema. Pas expliciete RGB‑kleuren toe op de niveaus die vast moeten blijven, of behoud schemakleuren wanneer aanpassing aan een nieuw thema gewenst is.
 
-## **Veelgestelde vragen**
+**Wordt aangepaste opmaak behouden bij PDF‑ en afbeeldingsexport?**
 
-**Kan ik de volgorde (sortering) van segmenten in Sunburst/Treemap wijzigen?**
+Ja, ondersteunde diagram‑vullingen en labelinstellingen worden meegenomen tijdens het renderen. Zorg voor de benodigde lettertypen en test de uiteindelijke exportgrootte, want label‑passing is lay‑afhankelijk.
 
-Nee. PowerPoint sorteert segmenten automatisch (meestal op aflopende waarden, met de klok mee). Aspose.Slides spiegelt dit gedrag: je kunt de volgorde niet direct wijzigen; je bereikt dit door de gegevens vooraf te verwerken.
+## **Zie ook**
 
-**Hoe beïnvloedt het presentatiethema de kleuren van segmenten en labels?**
-
-Grafiekkleuren erven het [theme/palette](/slides/nl/androidjava/presentation-theme/) van de presentatie, tenzij je expliciet vullingen of lettertypen instelt. Voor consistente resultaten kun je vaste vullingen en tekstopmaak vergrendelen op de gewenste niveaus.
-
-**Zal exporteren naar PDF/PNG aangepaste takkleuren en labelinstellingen behouden?**
-
-Ja. Bij het exporteren van de presentatie worden de grafiekinstellingen (vullingen, labels) behouden in de uitvoerformaten omdat Aspose.Slides rendert met de toegepaste opmaak van de grafiek.
-
-**Kan ik de werkelijke coördinaten van een label/element berekenen voor aangepaste overlayplaatsing bovenop de grafiek?**
-
-Ja. Nadat de grafieklay-out is gevalideerd, zijn de werkelijke *x* en *y* beschikbaar voor elementen (bijvoorbeeld een [DataLabel](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/datalabel/)), wat helpt bij de precieze positionering van overlays.
+- [Create Treemap charts](/slides/nl/androidjava/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/nl/androidjava/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/nl/androidjava/export-chart/)
+- [Manage presentation themes](/slides/nl/androidjava/presentation-theme/)

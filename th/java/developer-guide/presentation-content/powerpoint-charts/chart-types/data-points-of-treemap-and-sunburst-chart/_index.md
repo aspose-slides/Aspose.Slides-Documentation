@@ -5,120 +5,259 @@ type: docs
 url: /th/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- แผนภูมิ treemap
-- แผนภูมิ sunburst
+- แผนภูมิ Treemap
+- แผนภูมิ Sunburst
+- แผนภูมิเชิงลำดับชั้น
 - จุดข้อมูล
-- สีป้าย
+- ป้ายข้อมูล
 - สีสาขา
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีการจัดการจุดข้อมูลในแผนภูมิ treemap และ sunburst ด้วย Aspose.Slides สำหรับ Java ที่รองรับรูปแบบของ PowerPoint."
+description: "เรียนรู้วิธีสร้างข้อมูลเชิงลำดับชั้นและปรับแต่งระดับ ป้ายและสีในแผนภูมิ Treemap และ Sunburst ด้วย Aspose.Slides สำหรับ Java."
 ---
-## **การแนะนำ**
+## **ภาพรวม**
 
-นอกเหนือจากประเภทแผนภูมิ PowerPoint อื่น ๆ มีสองประเภท “เชิงลำดับขั้น” คือแผนภูมิ **Treemap** และแผนภูมิ **Sunburst** (ที่รู้จักกันในชื่อ Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph หรือ Multi Level Pie Chart) แผนภูมิเหล่านี้แสดงข้อมูลเชิงลำดับขั้นที่จัดระเบียบเป็นต้นไม้ – จากใบไม้ไปยังยอดของกิ่ง ใบไม้ถูกกำหนดโดยจุดข้อมูลของ series และแต่ละระดับการจัดกลุ่มที่ซ้อนกันต่อมาถูกกำหนดโดยหมวดหมู่ที่สอดคล้องกัน Aspose.Slides for Java ให้คุณจัดรูปแบบจุดข้อมูลของแผนภูมิ Sunburst และ Treemap ด้วย Java
+แผนภูมิ Treemap และ Sunburst แสดงข้อมูลเชิงลำดับชั้นแบบเดียวกัน แต่ใช้การจัดวางที่ต่างกัน Treemap วาดลำดับชั้นเป็นสี่เหลี่ยมซ้อนกันโดยพื้นที่แทนค่าของใบ (leaf) ส่วน Sunburst วาดเป็นวงแหวนศูนย์กลาง: กลุ่มระดับบนอยู่ใกล้ศูนย์กลางและหมวดหมู่ใบอยู่บนวงแหวนภายนอก
 
-นี่คือแผนภูมิ Sunburst ที่ข้อมูลในคอลัมน์ Series1 กำหนดโนดใบไม้ ส่วนคอลัมน์อื่น ๆ กำหนดจุดข้อมูลเชิงลำดับขั้น:
+ใน Aspose.Slides for Java ค่าตัวเลขแต่ละค่าจะเป็น [IChartDataPoint](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/) เมธอด [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) ให้เข้าถึงใบและกลุ่มผู้ปกครองของมัน บทความนี้อธิบายการแม็พนี้และแสดงวิธีสร้างและกำหนดรูปแบบของทั้งสองประเภทแผนภูมิจากข้อมูลตัวอย่างเดียวกัน
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![แผนภูมิ Treemap กับสาขา Consumer และ Business](treemap-hierarchy.png)
 
-เริ่มต้นด้วยการเพิ่มแผนภูมิ Sunburst ใหม​้เข้าไปในงานนำเสนอ:
+![แผนภูมิ Sunburst กับโครงสร้าง Consumer และ Business เดียวกัน](sunburst-hierarchy.png)
+
+## **ทำความเข้าใจหมวดหมู่, จุดข้อมูล, และระดับ**
+
+ตัวอย่างที่ใช้ด้านล่างมีระดับหมวดหมู่สามระดับและชุดข้อมูลเชิงตัวเลขหนึ่งชุด:
+
+| สาขา | ส่วนย่อย | ใบ | รายได้ |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+แต่ละแถวสร้างหมวดหมู่ใบหนึ่งรายการและจุดข้อมูลหนึ่งรายการ ระดับการจัดกลุ่มของหมวดหมู่บรรยายเส้นทางจากใบนั้นไปถึงผู้ปกครองของมัน สำหรับแถวแรก เส้นทางคือ `Consumer > Computers > Laptops`.
+
+ดัชนีที่คืนค่าจาก [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) จะไล่จากใบขึ้นไปบนสุด:
+
+| `getDataPointLevels()` ดัชนี | ระดับเชิงตรรกะ | การแทนค่าใน Treemap | การแทนค่าใน Sunburst |
+| ---: | --- | --- | --- |
+| `0` | ใบ | สี่เหลี่ยมค่าตัวเลข | ส่วนของวงแหวนภายนอก |
+| `1` | ส่วนย่อย | สี่เหลี่ยมหรือส่วนหัวผู้ปกครอง | ส่วนของวงแหวนระดับกลาง |
+| `2` | สาขา | สี่เหลี่ยมหรือส่วนหัวระดับบน | ส่วนของวงแหวนภายใน |
+
+ลำดับนี้เหมือนกันสำหรับแผนภูมิทั้งสอง แม้ว่าการจัดวางภาพจะแตกต่างกัน กรองส่วนผู้ปกครองจะแชร์โดยหลายใบ เพื่อกำหนดรูปแบบให้ใช้ระดับของจุดข้อมูลแรกในกลุ่มนั้น ตัวอย่างเช่น สาขา `Consumer` เริ่มจากจุด `Laptops` ขณะที่ส่วน `Software` เริ่มจากจุด `Licenses` การเก็บอ้างอิงไปยังจุดเหล่านั้นทำให้โค้ดชัดเจนและปลอดภัยกว่าการใช้การอ้างอิงที่ไม่อธิบายเช่น `dataPoints.get_Item(0)` หรือ `dataPoints.get_Item(6)`.
+
+## **สร้างและปรับแต่งแผนภูมิทั้งสองประเภท**
+
+ตัวอย่างเต็มต่อไปนี้สร้าง Treemap บนสไลด์แรกและ Sunburst บนสไลด์ที่สอง มันสร้างโครงสร้าง, แสดงค่าของ `Tablets`, ใช้สีคงที่กับระดับที่เลือก, กำหนดรูปแบบป้ายสาขา, และบันทึกงานพรีเซนเทชัน
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // เพิ่มหมวดหมู่ระดับใบ. รายการจัดกลุ่มจะถูกตั้งค่าเฉพาะเมื่อเริ่มกลุ่มใหม่;
+        // หมวดหมู่ต่อไปนี้จะคงอยู่ในกลุ่มนั้นจนกว่ารายการอื่นจะถูกตั้งค่า.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // แสดงหมวดหมู่และค่าในใบ Tablets.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // กำหนดรูปแบบสาขา Consumer ผ่านใบแรกในสาขานั้น.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        Color consumerBranchColor = new Color(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // กำหนดรูปแบบส่วนย่อย Software ผ่านใบแรกในส่วนย่อยนั้น.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        Color softwareStemColor = new Color(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout ส่งผลต่อป้ายผู้ปกครองของ Treemap; Sunburst ใช้ส่วนของวงแหวน.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [**สร้างหรืออัปเดตแผนภูมิ PowerPoint ด้วย Java**](/slides/th/java/create-chart/)
-{{% /alert %}}
+เซลล์หมวดหมู่และเซลล์ค่าจะใช้แถว Worksheet เดียวกัน ดังนั้นตำแหน่งของคอลเลกชันจึงยังคงสอดคล้องกัน เมื่อคุณทำงานกับแผนภูมิที่มีอยู่แทนการสร้างใหม่ ให้ตรวจสอบแถวหมวดหมู่ก่อนและเก็บอ้างอิงที่ตั้งชื่อไว้สำหรับจุดข้อมูลและระดับที่คุณตั้งใจจะกำหนดรูปแบบ
 
-หากต้องการจัดรูปแบบจุดข้อมูลของแผนภูมิ เราควรใช้สิ่งต่อไปนี้:
+## **พฤติกรรมและข้อควรพิจารณาเชิงปฏิบัติ**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPointLevel) class 
-และ [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) method 
-ให้การเข้าถึงการจัดรูปแบบจุดข้อมูลของแผนภูมิ Treemap และ Sunburst. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPointLevelsManager) 
-ใช้สำหรับเข้าถึงหมวดหมู่หลายระดับ – มันเป็นคอนเทนเนอร์ของ 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPointLevel) objects. 
-โดยพื้นฐานแล้วเป็น wrapper สำหรับ 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartCategoryLevelsManager) พร้อมกับ 
-คุณสมบัติเพิ่มเติมที่จำเพาะสำหรับจุดข้อมูล. 
-คลาส [**IChartDataPointLevel**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPointLevel) มี 
-สองเมธอด: [**getFormat**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPointLevel#getFormat--) และ 
-[**getDataLabel**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataPointLevel#getLabel--) ซึ่ง 
-ให้การเข้าถึงการตั้งค่าที่สอดคล้องกัน.
+### **ความแตกต่างระหว่าง Treemap และ Sunburst**
 
-## **แสดงค่าจุดข้อมูล**
-แสดงค่าของจุดข้อมูล “Leaf 4”:
+- Treemap ใช้พื้นที่ในการสื่อค่าตัวเลขและสี่เหลี่ยมซ้อนกันเพื่อสื่อลำดับชั้น เมธอด [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) ควบคุมว่าป้ายผู้ปกครองจะแสดงอย่างไรในประเภทแผนภูมินี้
+- Sunburst ใช้มุมในการสื่อค่าตัวเลขและความลึกของวงเพื่อสื่อลำดับชั้น เมธอดเดียวกันไม่ควบคุมป้ายของวงแหวน
+- แผนภูมิทั้งสองใช้ระดับการจัดกลุ่มหมวดหมู่เดียวกันและลำดับใบ‑ถึง‑ผู้ปกครองเดียวกันที่คืนค่าจาก [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) ดังนั้นโค้ดการสร้างข้อมูลและการฟอร์แมตระดับสามารถใช้ร่วมกันได้
+- ค่าผู้ปกครองคำนวณจากใบลูกหลานของมัน ไม่ควรเพิ่มจุดตัวเลขแยกสำหรับสาขาหรือส่วนย่อย
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **การจัดเรียงและลำดับส่วน**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+เอนจินการจัดวางแผนภูมิจะกำหนดตำแหน่งสุดท้ายของสี่เหลี่ยมและส่วนของวงแหวน จัดกลุ่มแถวหมวดหมู่ที่เกี่ยวข้องให้อยู่ด้วยกันก่อนเพิ่มลงในแผนภูมิ แต่ไม่ควรพึ่งพาตำแหน่งสี่เหลี่ยมหรือมุมเริ่มต้นที่เจาะจง หากลำดับมีความหมาย ให้รวมไว้ในป้ายหรือใช้แผนภูมิที่มีแกนหมวดหมู่ชัดเจน
 
-## **ตั้งค่าป้ายและสีของจุดข้อมูล**
-ตั้งค่าป้ายข้อมูล “Branch 1” ให้แสดงชื่อ series (“Series1”) แทนชื่อหมวดหมู่ แล้วตั้งค่าสีข้อความเป็นสีเหลือง:
+### **ธีมและสีคงที่**
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+ระดับแผนภูมิที่ไม่ได้กำหนดรูปแบบจะสืบสีจากธีมของพรีเซนเทชัน ตัวอย่างใช้การเติมสี RGB อย่างชัดเจนเพื่อให้ผลลัพธ์คาดเดาได้ หากต้องการให้แผนภูมิเปลี่ยนตามธีม ควรใช้สีจากสคีมแทนค่าตายตัวและหลีกเลี่ยงการเขียนทับทุกระดับ อีกทั้งควรตรวจสอบคอนทราสต์ของป้ายหลังเปลี่ยนสีสาขาหรือส่วนย่อย
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **ป้ายและพื้นที่ที่มีอยู่**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+PowerPoint อาจซ่อนหรือตัดทอนป้ายเมื่อส่วนมีขนาดเล็กเกินไป การเพิ่มขนาดแผนภูมิ, ย่อตัวอักษรชื่อหมวดหมู่, หรือแสดงฟิลด์ป้ายน้อยลงมักจะให้ผลลัพธ์ที่ชัดเจน ป้ายสามารถรวมชื่อหมวดหมู่, ชื่อชุดข้อมูล, และค่าได้ผ่าน [IDataLabelFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/idatalabelformat/) แต่การเปิดทุกฟิลด์มักทำให้แผนภูมิเชิงลำดับชั้นอ่านยาก
 
-## **ตั้งค่าสีของสาขาจุดข้อมูล**
-เปลี่ยนสีของสาขา “Steam 4”:
+### **การส่งออกและการเรนเดอร์**
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+การบันทึกเป็น PPTX ทำให้แผนภูมิยังแก้ไขได้ เมื่อ Aspose.Slides เรนเดอร์พรีเซนเทชันเป็น PDF หรือรูปภาพ การเติมสีและการตั้งค่าป้ายที่สนับสนุนจะถูกรวมด้วย การแทนที่ฟอนต์และความแตกต่างเล็กน้อยของพื้นที่จัดวางที่ใช้ได้อาจทำให้การตัดบรรทัดหรือการมองเห็นป้ายเปลี่ยนแปลง ดังนั้นควรติดตั้งฟอนต์ที่จำเป็นและตรวจสอบเป้าหมายการส่งออกที่สำคัญ
 
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
+## **คำถามที่พบบ่อย**
 
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
+**ทำไมการเปลี่ยนระดับผู้ปกครองจึงส่งผลต่อหลายใบ?**
 
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
+สาขาหรือส่วนย่อยเป็นส่วนที่แชร์กันหลายใบ สามารถเข้าถึง [IChartDataPointLevel](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapointlevel/) ผ่านใบลูกหลานได้ แต่การฟอร์แมตจะเป็นของส่วนผู้ปกครองที่แชร์ ไม่ได้เป็นของใบเดียวเท่านั้น
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+**ทำไมจุดข้อมูลบางจุดถึงไม่มีป้าย?**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+แรกสุดให้เปิดใช้งานฟิลด์ที่ต้องการในวัตถุ [IDataLabelFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/idatalabelformat/) ของป้าย แล้วตรวจสอบว่ามีพื้นที่เพียงพอหรือไม่ การจัดวางป้ายผู้ปกครองใน Treemap, ขนาดแผนภูมิ, ความยาวป้าย, ขนาดฟอนต์, และจำนวนฟิลด์ที่เปิดใช้งานทั้งหมดต่างมีผลต่อการแสดงป้าย
 
-## **FAQ**
+**ฉันสามารถกำหนดลำดับหรือพิกัดของส่วนได้อย่างแม่นยำหรือไม่?**
 
-**ฉันสามารถเปลี่ยนลำดับ (การเรียงลำดับ) ของส่วนใน Sunburst/Treemap ได้หรือไม่?**
+คุณสามารถควบคุมลำดับของแถวแหล่งข้อมูลและทำให้แต่ละกลุ่มต่อเนื่องกันได้ แต่ไม่สามารถกำหนดสี่เหลี่ยม Treemap หรือมุม Sunburst อย่างแม่นยำได้ เอนจินจัดวางแผนภูมิคำนวณจากโครงสร้าง, ค่า, และพื้นที่ที่มี
 
-ไม่ได้ PowerPoint จะเรียงลำดับส่วนอัตโนมัติ (โดยทั่วไปคือค่าลดลงตามเข็มนาฬิกา) Aspose.Slides ทำตามพฤติกรรมนี้เช่นกัน: คุณไม่สามารถเปลี่ยนลำดับโดยตรงได้; ต้องทำการเตรียมข้อมูลล่วงหน้าเพื่อให้ได้ลำดับที่ต้องการ
+**ทำไมสีถึงเปลี่ยนเมื่อธีมพรีเซนเทชันเปลี่ยน?**
 
-**ธีมของงานนำเสนอมีผลต่อสีของส่วนและป้ายอย่างไร?**
+การเติมสีตามธีมออกแบบมาให้สอดคล้องกับพาเล็ตของพรีเซนเทชัน ใช้สี RGB อย่างชัดเจนกับระดับที่ต้องคงที่ หรือใช้สีจากสคีมเมื่อยอมรับการเปลี่ยนธีม
 
-สีของแผนภูมิสืบทอดจาก [theme/palette](/slides/th/java/presentation-theme/) ของงานนำเสนอ เว้นแต่คุณจะกำหนดสีเติมหรือฟอนต์อย่างชัดเจน เพื่อผลลัพธ์ที่สม่ำเสมอ ควรกำหนดสีเติมแบบทึบและการจัดรูปแบบข้อความที่ระดับที่ต้องการ
+**การฟอร์แมตแบบกำหนดเองจะคงไว้ในไฟล์ PDF และภาพหรือไม่?**
 
-**การส่งออกไปยัง PDF/PNG จะรักษาสีสาขาที่กำหนดเองและการตั้งค่าป้ายหรือไม่?**
+ใช่ การเติมสีและการตั้งค่าป้ายที่สนับสนุนจะถูกรวมในการเรนเดอร์ เพื่อผลลัพธ์สม่ำเสมอระหว่างระบบ ให้ทำให้ฟอนต์ที่ต้องการพร้อมและทดสอบขนาดการส่งออกสุดท้ายเนื่องจากการจัดวางป้ายขึ้นกับพื้นที่
 
-ใช่ เมื่อส่งออกงานนำเสนอ การตั้งค่าแผนภูมิ (สีเติม, ป้าย) จะถูกเก็บไว้ในรูปแบบไฟล์ผลลัพธ์ เนื่องจาก Aspose.Slides เรนเดอร์ด้วยการจัดรูปแบบที่กำหนดไว้
+## **ดูเพิ่มเติม**
 
-**ฉันสามารถคำนวณพิกัดจริงของป้าย/องค์ประกอบเพื่อวาง overlay แบบกำหนดเองบนแผนภูมิได้หรือไม่?**
-
-ได้ หลังจากแผนภูมิถูกวาง layout ตรวจสอบแล้ว จะมีค่า *x* และ *y* จริงสำหรับองค์ประกอบ (เช่น [DataLabel](https://reference.aspose.com/slides/th/java/com.aspose.slides/datalabel/)) ซึ่งช่วยให้กำหนดตำแหน่ง overlay อย่างแม่นยำ.
+- [Create Treemap charts](/slides/th/java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/th/java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/th/java/export-chart/)
+- [Manage presentation themes](/slides/th/java/presentation-theme/)

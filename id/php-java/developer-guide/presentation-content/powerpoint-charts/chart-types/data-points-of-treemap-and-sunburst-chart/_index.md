@@ -1,124 +1,262 @@
 ---
-title: Sesuaikan Titik Data dalam Diagram Treemap dan Sunburst Menggunakan PHP
-linktitle: Titik Data dalam Diagram Treemap dan Sunburst
+title: "Sesuaikan Titik Data dalam Diagram Treemap dan Sunburst di PHP"
+linktitle: "Titik Data dalam Diagram Treemap dan Sunburst"
 type: docs
 url: /id/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
 - diagram treemap
 - diagram sunburst
+- diagram hierarkis
 - titik data
-- warna label
+- label data
 - warna cabang
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara mengelola titik data dalam diagram treemap dan sunburst dengan Aspose.Slides untuk PHP via Java, kompatibel dengan format PowerPoint."
+description: "Pelajari cara membuat data hierarkis dan menyesuaikan tingkat, label, serta warna dalam diagram Treemap dan Sunburst dengan Aspose.Slides untuk PHP via Java."
 ---
-## **Pendahuluan**
+## **Ikhtisar**
 
-Di antara jenis diagram PowerPoint lainnya, ada dua jenis “hierarkis” – **Treemap** dan **Sunburst** chart (juga dikenal sebagai Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph atau Multi Level Pie Chart). Diagram‑diagram ini menampilkan data hierarkis yang diatur seperti pohon – dari daun hingga puncak cabang. Daun didefinisikan oleh titik data seri, dan setiap tingkat pengelompokan bersarang berikutnya didefinisikan oleh kategori yang bersangkutan. Aspose.Slides for PHP via Java memungkinkan pemformatan titik data Sunburst Chart dan Treemap.
+Treemap dan Sunburst menampilkan jenis data hierarkis yang sama, tetapi menggunakan tata letak yang berbeda. Treemap menggambar hierarki sebagai persegi panjang bersarang yang luasnya mewakili nilai daun. Sunburst menggambarnya sebagai cincin konsentris: grup tingkat atas berada di dekat pusat, dan kategori daun berada pada cincin luar.
 
-Berikut contoh Sunburst Chart, di mana data pada kolom Series1 mendefinisikan node daun, sementara kolom lain mendefinisikan titik data hierarkis:
+Di Aspose.Slides untuk PHP via Java, setiap nilai numerik adalah sebuah [ChartDataPoint](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/). Metode [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) menyediakan akses ke daun dan grup induknya. Artikel ini menjelaskan pemetaan tersebut dan menunjukkan cara membuat serta memformat kedua tipe diagram dari data contoh yang sama.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Diagram Treemap dengan cabang Consumer dan Business](treemap-hierarchy.png)
 
-Mari mulai dengan menambahkan diagram Sunburst baru ke presentasi:
+![Diagram Sunburst dengan hierarki Consumer dan Business yang sama](sunburst-hierarchy.png)
+
+## **Memahami Kategori, Titik Data, dan Tingkat**
+
+Contoh yang digunakan di bawah memiliki tiga tingkat kategori dan satu seri numerik:
+
+| Cabang | Stam | Daun | Pendapatan |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Setiap baris membuat satu kategori daun dan satu titik data. Tingkat pengelompokan kategori menggambarkan jalur dari daun tersebut ke induknya. Untuk baris pertama, jalurnya adalah `Consumer > Computers > Laptops`.
+
+Indeks yang dikembalikan oleh [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) berjalan dari daun ke atas:
+
+| `getDataPointLevels()` index | Tingkat logis | Representasi Treemap | Representasi Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Daun | Persegi nilai | Segmen cincin luar |
+| `1` | Stam | Persegi induk atau header | Segmen cincin tengah |
+| `2` | Cabang | Persegi tingkat atas atau header | Segmen cincin dalam |
+
+Urutan ini sama untuk kedua tipe diagram meskipun tata letak visualnya berbeda. Sebuah segmen induk dibagi oleh beberapa daun. Untuk memformatnya, gunakan tingkat yang sesuai dari titik data pertama dalam grup tersebut. Misalnya, cabang `Consumer` dimulai dengan titik `Laptops`, sedangkan stam `Software` dimulai dengan titik `Licenses`. Menyimpan referensi ke titik‑titik tersebut lebih jelas dan aman daripada menggunakan ekspresi yang tidak dijelaskan seperti `$dataPoints->get_Item(0)` atau `$dataPoints->get_Item(6)`.
+
+## **Membuat dan Menyesuaikan Kedua Tipe Diagram**
+
+Contoh lengkap berikut membuat Treemap pada slide pertama dan Sunburst pada slide kedua. Ia membangun hierarki, menampilkan nilai untuk `Tablets`, menerapkan warna tetap pada tingkat tertentu, memformat label cabang, dan menyimpan presentasi.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $worksheetIndex = 0;
+    $leafLevelIndex = 0;
+    $stemLevelIndex = 1;
+    $branchLevelIndex = 2;
+
+    $branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    $stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    $leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    $revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    $dataPointCount = count($leafNames);
+
+    $chartTypes = [ChartType::Treemap, ChartType::Sunburst];
+    $chartCount = count($chartTypes);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+
+    for ($chartIndex = 0; $chartIndex < $chartCount; $chartIndex++) {
+        $chartType = $chartTypes[$chartIndex];
+
+        if ($chartIndex === 0) {
+            $slide = $presentation->getSlides()->get_Item(0);
+        } else {
+            $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+        }
+
+        $chart = $slide->getShapes()->addChart($chartType, 40, 40, 640, 440);
+        $chart->setTitle(false);
+        $chart->setLegend(false);
+
+        $chartData = $chart->getChartData();
+        $chartData->getCategories()->clear();
+        $chartData->getSeries()->clear();
+
+        $workbook = $chartData->getChartDataWorkbook();
+        $workbook->clear($worksheetIndex);
+
+        // Tambahkan kategori daun. Item pengelompokan hanya disetel ketika grup baru dimulai;
+        // kategori berikutnya tetap berada dalam grup itu sampai item lain disetel.
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $categoryCell = $workbook->getCell($worksheetIndex, $rowIndex, 2, $leafName);
+            $category = $chartData->getCategories()->add($categoryCell);
+
+            $stemName = $stemNames[$dataIndex];
+            $startsNewStem = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousStemName = $stemNames[$dataIndex - 1];
+                $startsNewStem = $stemName !== $previousStemName;
+            }
+            if ($startsNewStem) {
+                $category->getGroupingLevels()->setGroupingItem($stemLevelIndex, $stemName);
+            }
+
+            $branchName = $branchNames[$dataIndex];
+            $startsNewBranch = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousBranchName = $branchNames[$dataIndex - 1];
+                $startsNewBranch = $branchName !== $previousBranchName;
+            }
+            if ($startsNewBranch) {
+                $category->getGroupingLevels()->setGroupingItem($branchLevelIndex, $branchName);
+            }
+        }
+
+        $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Revenue");
+        $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
+
+        $laptopsDataPoint = null;
+        $tabletsDataPoint = null;
+        $licensesDataPoint = null;
+
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $revenue = $revenues[$dataIndex];
+            $valueCell = $workbook->getCell($worksheetIndex, $rowIndex, 3, $revenue);
+
+            if ($chartType === ChartType::Treemap) {
+                $dataPoint = $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+            } else {
+                $dataPoint = $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+            }
+
+            if ($leafName === "Laptops") {
+                $laptopsDataPoint = $dataPoint;
+            } elseif ($leafName === "Tablets") {
+                $tabletsDataPoint = $dataPoint;
+            } elseif ($leafName === "Licenses") {
+                $licensesDataPoint = $dataPoint;
+            }
+        }
+
+        // Tampilkan kategori dan nilai pada daun Tablets.
+        $tabletsLeafLevel = $tabletsDataPoint->getDataPointLevels()->get_Item($leafLevelIndex);
+        $tabletsLabelFormat = $tabletsLeafLevel->getLabel()->getDataLabelFormat();
+        $tabletsLabelFormat->setShowCategoryName(true);
+        $tabletsLabelFormat->setShowValue(true);
+        $tabletsLabelFormat->setSeparator("\n");
+        $tabletsLabelFormat->setNumberFormat('$0');
+
+        // Format cabang Consumer melalui daun pertama dalam cabang tersebut.
+        $consumerBranchLevel = $laptopsDataPoint->getDataPointLevels()->get_Item($branchLevelIndex);
+        $consumerBranchFill = $consumerBranchLevel->getFormat()->getFill();
+        $consumerBranchColor = new java("java.awt.Color", 31, 78, 121);
+        $consumerBranchFill->setFillType(FillType::Solid);
+        $consumerBranchFill->getSolidFillColor()->setColor($consumerBranchColor);
+
+        $consumerLabelFormat = $consumerBranchLevel->getLabel()->getDataLabelFormat();
+        $consumerLabelFormat->setShowCategoryName(true);
+        $consumerLabelFormat->setShowSeriesName(false);
+        $consumerLabelTextFill = $consumerLabelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+        $white = java("java.awt.Color")->WHITE;
+        $consumerLabelTextFill->setFillType(FillType::Solid);
+        $consumerLabelTextFill->getSolidFillColor()->setColor($white);
+
+        // Format stam Software melalui daun pertama dalam stam tersebut.
+        $softwareStemLevel = $licensesDataPoint->getDataPointLevels()->get_Item($stemLevelIndex);
+        $softwareStemFill = $softwareStemLevel->getFormat()->getFill();
+        $softwareStemColor = new java("java.awt.Color", 112, 173, 71);
+        $softwareStemFill->setFillType(FillType::Solid);
+        $softwareStemFill->getSolidFillColor()->setColor($softwareStemColor);
+
+        // ParentLabelLayout memengaruhi label induk Treemap; Sunburst menggunakan segmen cincin.
+        if ($chartType === ChartType::Treemap) {
+            $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
+        }
     }
-  }
+
+    $presentation->save("hierarchical-charts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" title="Lihat juga" %}} 
-- [**Create or Update PowerPoint Presentation Charts in PHP**](/slides/id/php-java/create-chart/)
-{{% /alert %}}
+Sel sel kategori dan sel nilai menggunakan baris worksheet yang sama, sehingga posisi koleksinya tetap selaras. Saat Anda bekerja dengan diagram yang sudah ada alih‑alih membuat yang baru, periksa baris kategori terlebih dahulu dan simpan referensi bernama ke titik data serta tingkat yang ingin Anda format.
 
-Jika perlu memformat titik data diagram, gunakan hal‑hal berikut:
+## **Perilaku dan Pertimbangan Praktis**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevelsmanager/), 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevel/) kelas 
-dan [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) metode 
-menyediakan akses untuk memformat titik data Treemap dan Sunburst. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevelsmanager/)
-digunakan untuk mengakses kategori multi‑tingkat – ia mewakili kontainer dari 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevel/) objek.  
-Pada dasarnya ia merupakan wrapper untuk 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartcategorylevelsmanager/) dengan
-properti‑properti tambahan khusus untuk titik data. 
-Kelas [**ChartDataPointLevel**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevel/) memiliki
-dua metode: [**getFormat**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevel/#getFormat) dan 
-[**getDataLabel**](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevel/#getLabel) yang
-menyediakan akses ke pengaturan yang bersesuaian.
+### **Perbedaan Treemap dan Sunburst**
 
-## **Tampilkan Nilai Titik Data**
-Tampilkan nilai titik data “Leaf 4”:
+- Treemap menggunakan area untuk menyampaikan nilai dan persegi panjang bersarang untuk menyampaikan hierarki. Metode [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#setParentLabelLayout) mengontrol bagaimana label induk muncul pada tipe diagram ini.
+- Sunburst menggunakan sudut untuk menyampaikan nilai dan kedalaman cincin untuk menyampaikan hierarki. [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#setParentLabelLayout) tidak mengontrol label cincinnya.
+- Kedua tipe diagram menggunakan tingkat pengelompokan kategori yang sama dan urutan daun‑ke‑induk yang sama yang dikembalikan oleh [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#getDataPointLevels), sehingga kode pembuatan data dan pemformatan tingkat dapat dipakai bersama.
+- Nilai induk dihitung dari daun‑daun turunannya. Jangan menambahkan titik numerik terpisah untuk cabang atau stam.
 
-```php
-  $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-  $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
+### **Pengurutan dan Urutan Segmen**
 
-```
+Mesin tata letak diagram menentukan penempatan akhir persegi panjang dan segmen cincin. Susun baris kategori yang terkait bersama sebelum menambahkannya, tetapi jangan bergantung pada posisi persegi panjang atau sudut mulai tertentu. Jika urutan memiliki arti, sertakan dalam label atau gunakan tipe diagram dengan sumbu kategori yang eksplisit.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Tema dan Warna Tetap**
 
-## **Atur Label dan Warna Titik Data**
-Atur label data “Branch 1” agar menampilkan nama seri (“Series1”) alih‑alih nama kategori. Kemudian atur warna teks menjadi kuning:
+Tingkat diagram yang tidak diformat mewarisi warna dari tema presentasi. Contoh ini menggunakan isian RGB eksplisit untuk output yang dapat diprediksi. Jika diagram harus mengikuti perubahan tema, gunakan warna skema alih‑alih nilai RGB tetap dan hindari menimpa setiap tingkat. Periksa kontras label setelah mengubah isian cabang atau stam.
 
-```php
-  $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
-  $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
-  $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
+### **Label dan Ruang Tersedia**
 
-```
+PowerPoint dapat menyembunyikan atau memotong label ketika segmen terlalu kecil. Membesarkan ukuran diagram, memendekkan nama kategori, atau menampilkan lebih sedikit bidang label biasanya menghasilkan hasil yang lebih jelas. Sebuah label dapat menggabungkan nama kategori, nama seri, dan nilai melalui [DataLabelFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabelformat/), tetapi mengaktifkan semua bidang sering membuat diagram hierarki sulit dibaca.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Ekspor dan Rendering**
 
-## **Atur Warna Cabang Titik Data**
-Ubah warna cabang “Steam 4”:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
-    $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Menyimpan ke PPTX menjaga diagram tetap dapat diedit. Ketika Aspose.Slides merender presentasi ke PDF atau gambar, isian dan pengaturan label yang didukung dirender bersama diagram. Substitusi font dan perbedaan kecil dalam ruang tata letak yang tersedia dapat mengubah pembungkusan baris atau visibilitas label, jadi pasang font yang diperlukan dan verifikasi target ekspor penting.
 
 ## **FAQ**
 
-**Apakah saya dapat mengubah urutan (penyortiran) segmen pada Sunburst/Treemap?**
+**Mengapa mengubah tingkat induk memengaruhi beberapa daun?**
 
-Tidak. PowerPoint menyortir segmen secara otomatis (biasanya menurun, searah jarum jam). Aspose.Slides meniru perilaku ini: Anda tidak dapat mengubah urutan secara langsung; Anda melakukannya dengan memproses data terlebih dahulu.
+Sebuah cabang atau stam adalah segmen visual yang dibagi. [ChartDataPointLevel](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointlevel/) dapat diakses melalui daun turunan, tetapi pemformatannya berlaku untuk segmen induk yang dibagi, bukan hanya pada daun tersebut.
 
-**Bagaimana tema presentasi memengaruhi warna segmen dan label?**
+**Mengapa label data tidak muncul?**
 
-Warna diagram mewarisi [tema/palet](/slides/id/php-java/presentation-theme/) presentasi kecuali Anda secara eksplisit mengatur isian/font. Untuk hasil yang konsisten, gunakan isian padat dan format teks pada tingkat yang diperlukan.
+Pertama aktifkan bidang yang diperlukan pada objek [DataLabelFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabelformat/) label. Kemudian periksa apakah segmen memiliki ruang yang cukup. Tata letak label induk Treemap, dimensi diagram, panjang label, ukuran font, dan jumlah bidang yang diaktifkan semuanya memengaruhi apakah label dapat ditampilkan.
 
-**Apakah ekspor ke PDF/PNG mempertahankan warna cabang khusus dan pengaturan label?**
+**Bisakah saya menentukan urutan atau koordinat tepat segmen?**
 
-Ya. Saat mengekspor presentasi, pengaturan diagram (isian, label) dipertahankan dalam format output karena Aspose.Slides merender dengan format diagram yang telah diterapkan.
+Anda dapat mengontrol urutan baris sumber dan menjaga setiap grup tetap berurutan, tetapi tidak dapat menetapkan persegi panjang Treemap atau sudut Sunburst secara eksak. Mesin tata letak diagram menghitungnya dari hierarki, nilai, dan ruang yang tersedia.
 
-**Bisakah saya menghitung koordinat sebenarnya dari label/elemen untuk penempatan overlay khusus di atas diagram?**
+**Mengapa warna berubah setelah tema presentasi diubah?**
 
-Ya. Setelah tata letak diagram divalidasi, nilai *x* aktual dan *y* aktual tersedia untuk elemen (misalnya, sebuah [DataLabel](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/)), yang membantu dalam penempatan overlay secara tepat.
+Isian berbasis tema dirancang untuk mengikuti palet presentasi. Terapkan warna RGB eksplisit pada tingkat yang harus tetap tetap, atau pertahankan warna skema ketika menyesuaikan ke tema baru lebih diutamakan.
+
+**Apakah format khusus akan dipertahankan dalam ekspor PDF dan gambar?**
+
+Ya, isian diagram dan pengaturan label yang didukung disertakan saat rendering. Untuk hasil yang konsisten di berbagai sistem, sediakan font yang diperlukan dan uji ukuran ekspor akhir karena penyesuaian label bergantung pada tata letak.
+
+## **Lihat Juga**
+
+- [Buat diagram Treemap](/slides/id/php-java/create-chart/#create-tree-map-charts)
+- [Buat diagram Sunburst](/slides/id/php-java/create-chart/#create-sunburst-charts)
+- [Ekspor diagram presentasi](/slides/id/php-java/export-chart/)
+- [Kelola tema presentasi](/slides/id/php-java/presentation-theme/)

@@ -1,108 +1,249 @@
 ---
-title: Anpassa datapunkter i Treemap- och Sunburst-diagram med С++
+title: Anpassa datapunkter i Treemap- och Sunburst-diagram i C++
 linktitle: Datapunkter i Treemap- och Sunburst-diagram
 type: docs
 url: /sv/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords:
 - treemap-diagram
 - sunburst-diagram
+- hierarkiskt diagram
 - datapunkt
-- etikettfärg
+- datapunktetikett
 - grenfärg
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Lär dig hur du hanterar datapunkter i treemap- och sunburst-diagram med Aspose.Slides för С++, kompatibel med PowerPoint-format."
+description: "Lär dig hur du skapar hierarkisk data och anpassar nivåer, etiketter och färger i Treemap- och Sunburst-diagram med Aspose.Slides för C++."
 ---
-## **Introduktion**
+## **Översikt**
 
-Förutom andra typer av PowerPoint-diagram finns det två ”hierarkiska” typer – **Treemap** och **Sunburst**‑diagram (även känt som Sunburst‑graf, Sunburst‑diagram, radiellt diagram, radiell graf eller flernivå‑cirkeldiagram). Dessa diagram visar hierarkiska data organiserade som ett träd – från löv till grenens topp. Löv definieras av seriedatapunkterna, och varje efterföljande inbäddad gruppering definieras av motsvarande kategori. Aspose.Slides för C++ möjliggör formatering av datapunkter i Sunburst‑diagram och Treemap i C++.
+Treemap‑ och Sunburst‑diagram visar samma typ av hierarkisk data, men de använder olika layouter. En Treemap ritar hierarkin som nästlade rektanglar vars område representerar lövvärden. En Sunburst ritar den som koncentriska ringar: top‑nivågrupper är nära centrum, och lövkategorier är på den yttre ringen.
 
-Här är ett Sunburst‑diagram, där data i kolumnen Series1 definierar löv‑noderna, medan andra kolumner definierar hierarkiska datapunkter:
+I Aspose.Slides för C++ är varje numeriskt värde en [IChartDataPoint](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/). Dess [IChartDataPoint::get_DataPointLevels()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/)‑metod ger åtkomst till lövet och dess föräldragrupper. Denna artikel förklarar den mappningen och visar hur man skapar och formaterar båda diagramtyperna från samma exempeldata.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Ett Treemap‑diagram med Consumer och Business‑grenar](treemap-hierarchy.png)
 
-Låt oss börja med att lägga till ett nytt Sunburst‑diagram i presentationen:
+![Ett Sunburst‑diagram med samma Consumer och Business‑hierarki](sunburst-hierarchy.png)
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
-// ...
+## **Förstå kategorier, datapunkter och nivåer**
+
+Exemplet nedan har tre kategori‑nivåer och en numerisk serie:
+
+| Gren | Stam | Löv | Intäkt |
+| --- | --- | --- | ---: |
+| Konsument | Datorer | Bärbara | 12 |
+| Konsument | Datorer | Stationära | 8 |
+| Konsument | Mobil | Telefoner | 15 |
+| Konsument | Mobil | Surfplattor | 6 |
+| Företag | Tjänster | Konsultation | 10 |
+| Företag | Tjänster | Support | 7 |
+| Företag | Programvara | Licenser | 11 |
+| Företag | Programvara | Prenumerationer | 14 |
+
+Varje rad skapar en lövkategori och en datapunkt. Kategorigrupperingsnivåerna beskriver sökvägen från det lövet till dess föräldrar. För den första raden är sökvägen `Consumer > Computers > Laptops`.
+
+Indexen som returneras av [IChartDataPoint::get_DataPointLevels()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) löper från lövet uppåt:
+
+| `get_DataPointLevels()`‑index | Logisk nivå | Treemap‑representation | Sunburst‑representation |
+| ---: | --- | --- | --- |
+| `0` | Löv | Värderektangel | Segment i ytterring |
+| `1` | Stam | Föräldrarektangel eller rubrik | Segment i mellarring |
+| `2` | Gren | Rektangel eller rubrik på top‑nivå | Segment i innerring |
+
+Denna ordning är densamma för båda diagramtyperna även om deras visuella layouter skiljer sig. Ett föräldrasegment delas av flera löv. För att formatera det använder du motsvarande nivå för den första datapunkten i den gruppen. Till exempel börjar gren `Consumer` med datapunkten `Laptops`, medan stam `Software` börjar med datapunkten `Licenses`. Att hålla referenser till dessa punkter är tydligare och säkrare än att använda obegripliga uttryck som `dataPoints->idx_get(0)` eller `dataPoints->idx_get(6)`.
+
+## **Skapa och anpassa båda diagramtyperna**
+
+Följande kompletta exempel skapar en Treemap på den första bilden och en Sunburst på den andra bilden. Det bygger hierarkin, visar värdet för `Tablets`, använder fasta färger på valda nivåer, formaterar en grenetikett och sparar presentationen.
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto addHierarchyChart = [](SharedPtr<ISlide> slide, ChartType chartType)
+{
+    const int worksheetIndex = 0;
+    const int leafLevelIndex = 0;
+    const int stemLevelIndex = 1;
+    const int branchLevelIndex = 2;
+
+    auto chart = slide->get_Shapes()->AddChart(chartType, 40, 40, 640, 440);
+    chart->set_HasTitle(false);
+    chart->set_HasLegend(false);
+    chart->get_ChartData()->get_Categories()->Clear();
+    chart->get_ChartData()->get_Series()->Clear();
+
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    workbook->Clear(worksheetIndex);
+
+    auto addCategory = [&](int rowIndex, const String& leafName)
+    {
+        auto leafNameValue = ObjectExt::Box<String>(leafName);
+        auto categoryCell = workbook->GetCell(worksheetIndex, rowIndex, 2, leafNameValue);
+        return chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    };
+
+    auto setGroupingItem = [](SharedPtr<IChartCategory> category, int levelIndex,
+                              const String& groupName)
+    {
+        auto groupNameValue = ObjectExt::Box<String>(groupName);
+        category->get_GroupingLevels()->SetGroupingItem(levelIndex, groupNameValue);
+    };
+
+    // Lägg till lövkategorierna. Ett grupperingselement sätts endast när en ny grupp påbörjas;
+    // följande kategorier förblir i den gruppen tills ett annat element sätts.
+    auto laptopsCategory = addCategory(1, u"Laptops");
+    setGroupingItem(laptopsCategory, stemLevelIndex, u"Computers");
+    setGroupingItem(laptopsCategory, branchLevelIndex, u"Consumer");
+
+    addCategory(2, u"Desktops");
+
+    auto phonesCategory = addCategory(3, u"Phones");
+    setGroupingItem(phonesCategory, stemLevelIndex, u"Mobile");
+
+    addCategory(4, u"Tablets");
+
+    auto consultingCategory = addCategory(5, u"Consulting");
+    setGroupingItem(consultingCategory, stemLevelIndex, u"Services");
+    setGroupingItem(consultingCategory, branchLevelIndex, u"Business");
+
+    addCategory(6, u"Support");
+
+    auto licensesCategory = addCategory(7, u"Licenses");
+    setGroupingItem(licensesCategory, stemLevelIndex, u"Software");
+
+    addCategory(8, u"Subscriptions");
+
+    auto seriesNameValue = ObjectExt::Box<String>(u"Revenue");
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 3, seriesNameValue);
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chartType);
+    series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowCategoryName(true);
+
+    auto addDataPoint = [&](int rowIndex, double value)
+    {
+        auto valueObject = ObjectExt::Box<double>(value);
+        auto valueCell = workbook->GetCell(worksheetIndex, rowIndex, 3, valueObject);
+
+        if (chartType == ChartType::Treemap)
+        {
+            return series->get_DataPoints()->AddDataPointForTreemapSeries(valueCell);
+        }
+
+        return series->get_DataPoints()->AddDataPointForSunburstSeries(valueCell);
+    };
+
+    auto laptopsDataPoint = addDataPoint(1, 12);
+    addDataPoint(2, 8);
+    addDataPoint(3, 15);
+    auto tabletsDataPoint = addDataPoint(4, 6);
+    addDataPoint(5, 10);
+    addDataPoint(6, 7);
+    auto licensesDataPoint = addDataPoint(7, 11);
+    addDataPoint(8, 14);
+
+    auto setSolidFill = [](SharedPtr<IFillFormat> fillFormat, Color color)
+    {
+        fillFormat->set_FillType(FillType::Solid);
+        fillFormat->get_SolidFillColor()->set_Color(color);
+    };
+
+    // Visa kategori och värde på lövet Tablets.
+    auto tabletsLeafLevel = tabletsDataPoint->get_DataPointLevels()->idx_get(leafLevelIndex);
+    auto tabletsLabelFormat = tabletsLeafLevel->get_Label()->get_DataLabelFormat();
+    tabletsLabelFormat->set_ShowCategoryName(true);
+    tabletsLabelFormat->set_ShowValue(true);
+    tabletsLabelFormat->set_Separator(u"\n");
+    tabletsLabelFormat->set_NumberFormat(u"$0");
+
+    // Formatera Consumer-grenen via det första lövet i den grenen.
+    auto consumerBranchLevel = laptopsDataPoint->get_DataPointLevels()->idx_get(branchLevelIndex);
+    auto consumerBranchFill = consumerBranchLevel->get_Format()->get_Fill();
+    auto consumerBranchColor = Color::FromArgb(31, 78, 121);
+    setSolidFill(consumerBranchFill, consumerBranchColor);
+
+    auto consumerLabelFormat = consumerBranchLevel->get_Label()->get_DataLabelFormat();
+    consumerLabelFormat->set_ShowCategoryName(true);
+    consumerLabelFormat->set_ShowSeriesName(false);
+    auto consumerLabelTextFill = consumerLabelFormat->get_TextFormat()
+        - >get_PortionFormat()->get_FillFormat();
+    setSolidFill(consumerLabelTextFill, Color::get_White());
+
+    // Formatera Software-stammen via det första lövet i den stammen.
+    auto softwareStemLevel = licensesDataPoint->get_DataPointLevels()->idx_get(stemLevelIndex);
+    auto softwareStemFill = softwareStemLevel->get_Format()->get_Fill();
+    auto softwareStemColor = Color::FromArgb(112, 173, 71);
+    setSolidFill(softwareStemFill, softwareStemColor);
+
+    // ParentLabelLayout påverkar föräldraetiketterna i Treemap; Sunburst använder ringsegment.
+    if (chartType == ChartType::Treemap)
+    {
+        series->set_ParentLabelLayout(ParentLabelLayoutType::Overlapping);
+    }
+};
+
+auto treemapSlide = presentation->get_Slide(0);
+addHierarchyChart(treemapSlide, ChartType::Treemap);
+
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto sunburstSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+addHierarchyChart(sunburstSlide, ChartType::Sunburst);
+
+presentation->Save(u"hierarchical-charts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert color="primary" title="Se även" %}} 
-- [**Skapa Sunburst‑diagram**](/slides/sv/cpp/create-chart/#create-sunburst-chart)
-{{% /alert %}}
+Kategoricellerna och värdecellerna använder samma arbetsbladsrad, så deras samlingspositioner förblir anpassade. När du arbetar med ett befintligt diagram istället för att skapa ett, inspektera först kategoriraderna och lagra namnreferenser till de datapunkter och nivåer du avser att formatera.
 
-Om det finns ett behov av att formatera diagrammets datapunkter bör vi använda följande:
+## **Beteende och praktiska överväganden**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/) classes and [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) method ger åtkomst till att formatera datapunkter i Treemap‑ och Sunburst‑diagram.
+### **Treemap‑ och Sunburst‑skillnader**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) används för att komma åt flernivåkategorier – den representerar behållaren för [**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/)‑objekt.
+- En Treemap använder område för att kommunicera värde och nästlade rektanglar för att kommunicera hierarki. Metoden [IChartSeries::get_ParentLabelLayout()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_parentlabellayout/) styr hur föräldraetiketter visas i denna diagramtyp.
+- En Sunburst använder vinkel för att kommunicera värde och ringdjup för att kommunicera hierarki. [IChartSeries::get_ParentLabelLayout()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartseries/get_parentlabellayout/) styr inte dess ringetiketter.
+- Båda diagramtyperna använder samma kategorigrupperingsnivåer och samma löv‑till‑förälder‑ordning som returneras av [IChartDataPoint::get_DataPointLevels()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/), så kod för data‑byggnad och nivå‑formatering kan delas.
+- Föräldravärden beräknas från deras underordnade löv. Lägg inte till separata numeriska punkter för grenar eller stammar.
 
-I princip är det ett omslag för [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) med egenskaper som är specifika för datapunkter.
+### **Sortering och segmentordning**
 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/)‑klassen har två metoder: [**get_Format()**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) och [**get_Label()**](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) som ger åtkomst till motsvarande inställningar.
+Diagramlayoutmotorn bestämmer den slutgiltiga placeringen av rektanglar och ringsegment. Arrangera relaterade kategorirader tillsammans innan du lägger till dem, men förlita dig inte på en specifik rektangelposition eller startvinkel. Om sekvensen har betydelse, inkludera den i etiketterna eller använd en diagramtyp med en explicit kategori‑axel.
 
-## **Visa ett datapunktvärde**
+### **Tema och fasta färger**
 
-Visa värdet för datapunkten "Leaf 4":
+Ej formaterade diagramnivåer ärver färger från presentationens tema. Exemplet använder explicita RGB‑fyllningar för förutsägbara resultat. Om diagrammet ska följa temaförändringar, använd schemafärger i stället för fasta RGB‑värden och undvik att åsidosätta varje nivå. Kontrollera också etikettkontrast efter att ha ändrat en gren‑ eller stamfyllning.
 
-``` cpp
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
-dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_DataLabelFormat()->set_ShowValue(true);
-```
+### **Etiketter och tillgängligt utrymme**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+PowerPoint kan dölja eller trunkera etiketter när ett segment är för litet. Att öka diagrammets storlek, förkorta kategorinamnen eller visa färre etikettfält ger vanligtvis ett tydligare resultat. En etikett kan kombinera kategorinamnet, serienamnet och värdet via [IDataLabelFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabelformat/), men att aktivera alla fält gör ofta hierarkiska diagram svåra att läsa.
 
-## **Ställ in en datapunktetikett och färg**
+### **Export och rendering**
 
-Ställ in datapunktetiketten för "Branch 1" så att den visar serienamnet ("Series1") istället för kategorinamnet. Ställ sedan in textfärgen till gul:
+Att spara som PPTX behåller diagrammet redigerbart. När Aspose.Slides renderar presentationen till PDF eller en bild, renderas de stödjade fyllningarna och etikettinställningarna med diagrammet. Teckensnittssubstitution och små skillnader i tillgängligt layoututrymme kan ändra radbrytning eller etikettens synlighet, så installera de erforderliga teckensnitten och verifiera viktiga exportmål.
 
-``` cpp
-auto branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
-branch1Label->get_DataLabelFormat()->set_ShowCategoryName(false);
-branch1Label->get_DataLabelFormat()->set_ShowSeriesName(true);
+## **Vanliga frågor**
 
-branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
-```
+**Varför påverkar en ändring på en föräldranivå flera löv?**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+En gren eller stam är ett delat visuellt segment. Dess [IChartDataPointLevel](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatapointlevel/) kan nås via ett underordnat löv, men formateringen tillhör det delade föräldrasegmentet snarare än bara det lövet.
 
-## **Ställ in grenfärgen för datapunkten**
+**Varför saknas en datalabel?**
 
-Ändra färgen på grenen "Stem 4":
+Aktivera först de erforderliga fälten på etikettens [IDataLabelFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/idatalabelformat/)-objekt. Kontrollera sedan om segmentet har tillräckligt med utrymme. Treemap‑föräldraetikettlayout, diagramdimensioner, etikettlängd, teckensnittsstorlek och antalet aktiverade fält påverkar alla om en etikett kan visas.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
+**Kan jag ange exakt ordning eller koordinater för segmenten?**
 
-auto stem4branch = dataPoints->idx_get(9)->get_DataPointLevels()->idx_get(1);
-stem4branch->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-stem4branch->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Red());
+Du kan kontrollera källradens ordning och hålla varje grupp sammanhängande, men du kan inte tilldela exakta Treemap‑rektanglar eller Sunburst‑vinklar. Diagramlayoutmotorn beräknar dem från hierarkin, värdena och tillgängligt utrymme.
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
+**Varför ändras färgerna efter att presentationstemat har ändrats?**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Temabaserade fyllningar är avsedda att följa presentationens palett. Applicera explicita RGB‑färger på de nivåer som måste vara fasta, eller behåll schemafärger när anpassning till ett nytt tema föredras.
 
-## **FAQ**
+**Behålls anpassad formatering i PDF‑ och bildexport?**
 
-**Kan jag ändra ordningen (sorteringen) av segment i Sunburst/Treemap?**
+Ja, stödjade diagramfyllningar och etikettinställningar inkluderas vid rendering. För konsekventa resultat på olika system, gör de erforderliga teckensnitten tillgängliga och testa den slutgiltiga exportens storlek eftersom etikettpassning beror på layouten.
 
-Nej. PowerPoint sorterar segment automatiskt (vanligtvis efter fallande värden, medurs). Aspose.Slides speglar detta beteende: du kan inte ändra ordningen direkt; du måste göra det genom att förbehandla data.
+## **Se även**
 
-**Hur påverkar presentationens tema färgerna på segment och etiketter?**
-
-Diagrammets färger ärver presentationens [tema/palett](/slides/sv/cpp/presentation-theme/) om du inte explicit ställer in fyllningar/teckensnitt. För konsekventa resultat, lås fast solida fyllningar och textformatering på de nödvändiga nivåerna.
-
-**Kommer export till PDF/PNG att bevara anpassade grenfärger och etikettsinställningar?**
-
-Ja. Vid export av presentationen bevaras diagraminställningarna (fyllningar, etiketter) i de exporterade formaten eftersom Aspose.Slides renderar med diagrammets formatering applicerad.
-
-**Kan jag beräkna de faktiska koordinaterna för en etikett/element för att placera en anpassad överläggning ovanpå diagrammet?**
-
-Ja. Efter att diagramlayouten har validerats finns faktiska X- och Y-koordinater tillgängliga för element (till exempel en [DataLabel](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/datalabel/)), vilket underlättar exakt placering av överlägg.
+- [Skapa Treemap‑diagram](/slides/sv/cpp/create-chart/#create-tree-map-charts)
+- [Skapa Sunburst‑diagram](/slides/sv/cpp/create-chart/#create-sunburst-charts)
+- [Exportera presentationsdiagram](/slides/sv/cpp/export-chart/)
+- [Hantera presentationsteman](/slides/sv/cpp/presentation-theme/)
