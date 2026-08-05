@@ -207,6 +207,8 @@ To inspect the metadata of an encrypted presentation without loading its slides 
 The following code example reads built-in and custom document properties through [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--):
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setOnlyLoadDocumentProperties(true);
 

@@ -35,6 +35,11 @@ Aspose.Slides can convert a PowerPoint math equation directly to LaTeX; an inter
 The following example examines every text frame on every slide, finds all math portions, and writes each equation to a separate `.tex` file:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
+
 Presentation presentation = new Presentation("equations.pptx");
 try {
     int slideCount = presentation.getSlides().size();
