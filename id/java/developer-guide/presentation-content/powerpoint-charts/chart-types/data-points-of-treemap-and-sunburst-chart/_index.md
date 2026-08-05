@@ -1,127 +1,263 @@
 ---
-title: Sesuaikan Titik Data pada Diagram Treemap dan Sunburst Menggunakan Java
-linktitle: Titik Data pada Diagram Treemap dan Sunburst
+title: Sesuaikan Titik Data pada Bagan Treemap dan Sunburst di Java
+linktitle: Titik Data dalam Bagan Treemap dan Sunburst
 type: docs
 url: /id/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- diagram treemap
-- diagram sunburst
+- bagan treemap
+- bagan sunburst
+- bagan hierarki
 - titik data
-- warna label
+- label data
 - warna cabang
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari cara mengelola titik data pada diagram treemap dan sunburst dengan Aspose.Slides untuk Java, kompatibel dengan format PowerPoint."
+description: "Pelajari cara membuat data hierarkis dan menyesuaikan tingkat, label, serta warna pada bagan Treemap dan Sunburst dengan Aspose.Slides untuk Java."
 ---
-## **Pendahuluan**
+## **Ikhtisar**
 
-Di antara jenis diagram PowerPoint lainnya, terdapat dua jenis “hierarkis” ‑ **Treemap** dan **Sunburst** chart (juga dikenal sebagai Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph, atau Multi Level Pie Chart). Diagram ini menampilkan data hierarkis yang diorganisir sebagai pohon ‑ dari daun hingga puncak cabang. Daun ditentukan oleh titik data seri, dan setiap tingkat pengelompokan bertingkat berikutnya ditentukan oleh kategori yang bersangkutan. Aspose.Slides for Java memungkinkan pemformatan titik data Sunburst Chart dan Treemap dalam Java.
+Bagan Treemap dan Sunburst menampilkan jenis data hierarki yang sama, tetapi menggunakan tata letak yang berbeda. Treemap menggambar hierarki sebagai persegi panjang bersarang yang area‑nya mewakili nilai daun. Sunburst menggambarnya sebagai cincin konsentrik: grup tingkat atas berada di dekat pusat, dan kategori daun berada pada cincin terluar.
 
-Berikut ini adalah Sunburst Chart, di mana data pada kolom Series1 mendefinisikan node daun, sementara kolom lainnya mendefinisikan titik data hierarkis:
+Di Aspose.Slides untuk Java, setiap nilai numerik adalah sebuah [IChartDataPoint](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdatapoint/). Metode [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) menyediakan akses ke daun dan grup induknya. Artikel ini menjelaskan pemetaan tersebut dan menunjukkan cara membuat serta memformat kedua tipe bagan dari data contoh yang sama.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![A Treemap chart with Consumer and Business branches](treemap-hierarchy.png)
 
-Mari kita mulai dengan menambahkan diagram Sunburst baru ke presentasi:
+![A Sunburst chart with the same Consumer and Business hierarchy](sunburst-hierarchy.png)
+
+## **Memahami Kategori, Titik Data, dan Tingkat**
+
+Contoh yang digunakan di bawah memiliki tiga tingkat kategori dan satu seri numerik:
+
+| Cabang | Batang | Daun | Pendapatan |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Setiap baris membuat satu kategori daun dan satu titik data. Tingkat pengelompokan kategori menggambarkan jalur dari daun tersebut ke induknya. Untuk baris pertama, jalurnya adalah `Consumer > Computers > Laptops`.
+
+Indeks yang dikembalikan oleh [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) berjalan dari daun ke atas:
+
+| Indeks `getDataPointLevels()` | Tingkat logis | Representasi Treemap | Representasi Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Daun | Persegi nilai | Segmen cincin terluar |
+| `1` | Batang | Persegi induk atau header | Segmen cincin tengah |
+| `2` | Cabang | Persegi tingkat atas atau header | Segmen cincin dalam |
+
+Urutan ini sama untuk kedua tipe bagan meskipun tata letak visualnya berbeda. Sebuah segmen induk dibagi oleh beberapa daun. Untuk memformatnya, gunakan tingkat yang sesuai dari titik data pertama pada grup tersebut. Misalnya, cabang `Consumer` dimulai dengan titik `Laptops`, sementara batang `Software` dimulai dengan titik `Licenses`. Menyimpan referensi ke titik‑titik tersebut lebih jelas dan lebih aman dibandingkan menggunakan ekspresi yang tidak dijelaskan seperti `dataPoints.get_Item(0)` atau `dataPoints.get_Item(6)`.
+
+## **Membuat dan Menyesuaikan Kedua Tipe Bagan**
+
+Contoh lengkap berikut membuat Treemap pada slide pertama dan Sunburst pada slide kedua. Contoh ini membangun hierarki, menampilkan nilai untuk `Tablets`, menerapkan warna tetap pada tingkat yang dipilih, memformat label cabang, dan menyimpan presentasi.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Tambahkan kategori daun. Item pengelompokan hanya diatur ketika grup baru dimulai;
+        // kategori berikut tetap dalam grup tersebut hingga item lain diatur.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Tampilkan kategori dan nilai pada daun Tablets.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Format cabang Consumer lewat daun pertama dalam cabang tersebut.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        Color consumerBranchColor = new Color(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Format batang Software lewat daun pertama dalam batang tersebut.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        Color softwareStemColor = new Color(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout memengaruhi label induk pada Treemap; Sunburst menggunakan segmen cincin.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Lihat juga" %}} 
-- [**Buat atau Perbarui Diagram Presentasi PowerPoint di Java**](/slides/id/java/create-chart/)
-{{% /alert %}}
+Sel sel kategori dan sel nilai menggunakan baris worksheet yang sama, sehingga posisi koleksi mereka tetap selaras. Ketika Anda bekerja dengan bagan yang sudah ada alih‑alih membuat yang baru, periksa baris‑baris kategori terlebih dahulu dan simpan referensi bernama ke titik data serta tingkat yang ingin Anda format.
 
-Jika perlu memformat titik data diagram, kita harus menggunakan hal berikut:
+## **Perilaku dan Pertimbangan Praktis**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPointLevelsManager), 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPointLevel) kelas 
-dan metode [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) 
-memberikan akses untuk memformat titik data Treemap dan Sunburst. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPointLevelsManager) 
-digunakan untuk mengakses kategori multi‑level – ia mewakili wadah dari 
-objek [**IChartDataPointLevel**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPointLevel) . 
-Pada dasarnya itu adalah pembungkus untuk 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartCategoryLevelsManager) dengan 
-properti yang ditambahkan khusus untuk titik data. 
-Kelas [**IChartDataPointLevel**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPointLevel) memiliki 
-dua metode: [**getFormat**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPointLevel#getFormat--) dan 
-[**getDataLabel**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataPointLevel#getLabel--) yang 
-memberikan akses ke pengaturan yang bersangkutan.
+### **Perbedaan Treemap dan Sunburst**
 
-## **Tampilkan Nilai Titik Data**
+- Treemap menggunakan luas untuk menyampaikan nilai dan persegi panjang bersarang untuk menyampaikan hierarki. Metode [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) mengontrol bagaimana label induk muncul pada tipe bagan ini.
+- Sunburst menggunakan sudut untuk menyampaikan nilai dan kedalaman cincin untuk menyampaikan hierarki. [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) tidak mengontrol label cincinnya.
+- Kedua tipe bagan menggunakan tingkat pengelompokan kategori yang sama dan urutan daun‑ke‑induk yang sama yang dikembalikan oleh [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--), sehingga kode pembuatan data dan pemformatan tingkat dapat digunakan bersama.
+- Nilai induk dihitung dari daun‑daun keturunan mereka. Jangan menambahkan titik numerik terpisah untuk cabang atau batang.
 
-Tampilkan nilai titik data “Leaf 4”:
+### **Pengurutan dan Urutan Segmen**
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+Mesin tata letak bagan menentukan penempatan akhir persegi panjang dan segmen cincin. Kelompokkan baris‑baris kategori yang terkait bersama sebelum menambahkannya, tetapi jangan bergantung pada posisi persegi panjang atau sudut awal tertentu. Jika urutan memiliki makna, sertakan dalam label atau gunakan tipe bagan dengan sumbu kategori yang eksplisit.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Tema dan Warna Tetap**
 
-## **Atur Label dan Warna Titik Data**
+Tingkat bagan yang belum diformat mewarisi warna dari tema presentasi. Contoh ini menggunakan isian RGB eksplisit untuk output yang dapat diprediksi. Jika bagan harus mengikuti perubahan tema, gunakan warna skema alih‑alih nilai RGB tetap dan hindari menimpa setiap tingkat. Juga periksa kontras label setelah mengubah isian cabang atau batang.
 
-Atur label data “Branch 1” agar menampilkan nama seri (“Series1”) bukan nama kategori. Kemudian atur warna teks menjadi kuning:
+### **Label dan Ruang yang Tersedia**
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+PowerPoint dapat menyembunyikan atau memotong label ketika segmen terlalu kecil. Membesarkan ukuran bagan, memendekkan nama kategori, atau menampilkan lebih sedikit bidang label biasanya menghasilkan hasil yang lebih jelas. Sebuah label dapat menggabungkan nama kategori, nama seri, dan nilai melalui [IDataLabelFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/idatalabelformat/), tetapi mengaktifkan semua bidang sering membuat bagan hierarki sulit dibaca.
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **Ekspor dan Rendering**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-
-## **Atur Warna Cabang Titik Data**
-
-Ubah warna cabang “Steam 4”:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
-
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Menyimpan ke PPTX membuat bagan dapat diedit. Ketika Aspose.Slides merender presentasi ke PDF atau gambar, isian dan pengaturan label yang didukung dirender bersama bagan. Substitusi font dan perbedaan kecil dalam ruang tata letak yang tersedia dapat mengubah pembungkusan baris atau visibilitas label, sehingga pasang font yang diperlukan dan verifikasi target ekspor penting.
 
 ## **FAQ**
 
-**Apakah saya dapat mengubah urutan (penyortiran) segmen dalam Sunburst/Treemap?**
+**Mengapa mengubah tingkat induk memengaruhi beberapa daun?**
 
-Tidak. PowerPoint secara otomatis menyortir segmen (biasanya berdasarkan nilai menurun, searah jarum jam). Aspose.Slides meniru perilaku ini: Anda tidak dapat mengubah urutan secara langsung; Anda melakukannya dengan memproses data terlebih dahulu.
+Sebuah cabang atau batang merupakan segmen visual yang dibagi. [IChartDataPointLevel](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdatapointlevel/) dapat diakses melalui daun keturunan, tetapi pemformatannya berlaku untuk segmen induk yang dibagi, bukan hanya pada daun itu saja.
 
-**Bagaimana tema presentasi memengaruhi warna segmen dan label?**
+**Mengapa sebuah label data tidak muncul?**
 
-Warna diagram mewarisi [tema/palet](/slides/id/java/presentation-theme/) presentasi kecuali Anda secara eksplisit mengatur isian/font. Untuk hasil yang konsisten, kunci isian solid dan pemformatan teks pada tingkat yang diperlukan.
+Pertama aktifkan bidang yang diperlukan pada objek [IDataLabelFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/idatalabelformat/) label. Kemudian periksa apakah segmen memiliki ruang yang cukup. Tata letak label induk Treemap, dimensi bagan, panjang label, ukuran font, dan jumlah bidang yang diaktifkan semuanya memengaruhi apakah label dapat ditampilkan.
 
-**Apakah ekspor ke PDF/PNG akan mempertahankan warna cabang khusus dan pengaturan label?**
+**Apakah saya dapat menentukan urutan atau koordinat tepat segmen?**
 
-Ya. Saat mengekspor presentasi, pengaturan diagram (isian, label) dipertahankan dalam format keluaran karena Aspose.Slides merender dengan format diagram yang diterapkan.
+Anda dapat mengontrol urutan baris sumber dan menjaga tiap grup tetap berurutan, tetapi Anda tidak dapat menetapkan persegi panjang Treemap atau sudut Sunburst secara tepat. Mesin tata letak bagan menghitungnya dari hierarki, nilai, dan ruang yang tersedia.
 
-**Apakah saya dapat menghitung koordinat sebenarnya dari label/elemen untuk penempatan overlay khusus di atas diagram?**
+**Mengapa warna berubah setelah tema presentasi berubah?**
 
-Ya. Setelah tata letak diagram divalidasi, nilai *x* dan *y* aktual tersedia untuk elemen (misalnya, sebuah [DataLabel](https://reference.aspose.com/slides/id/java/com.aspose.slides/datalabel/)), yang membantu dalam penempatan overlay secara tepat.
+Isian berbasis tema dirancang mengikuti palet presentasi. Terapkan warna RGB eksplisit pada tingkat yang harus tetap, atau pertahankan warna skema ketika penyesuaian ke tema baru diinginkan.
+
+**Apakah pemformatan khusus akan dipertahankan dalam ekspor PDF dan gambar?**
+
+Ya, isian bagan dan pengaturan label yang didukung disertakan saat rendering. Untuk hasil yang konsisten di semua sistem, sediakan font yang diperlukan dan uji ukuran ekspor akhir karena penyesuaian label bergantung pada tata letak.
+
+## **Lihat Juga**
+
+- [Create Treemap charts](/slides/id/java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/id/java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/id/java/export-chart/)
+- [Manage presentation themes](/slides/id/java/presentation-theme/)

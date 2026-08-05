@@ -1,116 +1,230 @@
 ---
-title: Aangepaste gegevenspunten in Treemap en Sunburst diagrammen in Python
-linktitle: Gegevenspunten in Treemap en Sunburst diagrammen
+title: Aangepaste gegevenspunten in Treemap- en Sunburst-grafieken in Python
+linktitle: Gegevenspunten in Treemap- en Sunburst-grafieken
 type: docs
 url: /nl/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords:
-- treemap-diagram
-- sunburst-diagram
+- treemap-grafiek
+- sunburst-grafiek
+- hiërarchische grafiek
 - gegevenspunt
-- labelkleur
+- gegevenslabel
 - takkleur
 - PowerPoint
-- OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u gegevenspunten in treemap‑ en sunburst‑diagrammen kunt beheren met Aspose.Slides voor Python via .NET, compatibel met PowerPoint‑ en OpenDocument‑formaten."
+description: "Leer hoe je hiërarchische gegevens maakt en niveaus, labels en kleuren aanpast in Treemap- en Sunburst-grafieken met Aspose.Slides voor Python via .NET."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Naast andere PowerPoint-diagramtypen zijn er twee hiërarchische—**Treemap** en **Sunburst** (ook wel Sunburst‑grafiek, Sunburst‑diagram, Radiale diagram, Radiale grafiek of Meerlagige taartdiagram genoemd). Deze diagrammen tonen hiërarchische gegevens die zijn georganiseerd als een boom—van bladeren tot de top van een tak. Bladeren worden gedefinieerd door de gegevenspunten van de reeks, en elk daaropvolgend genest groepeerniveau wordt bepaald door de bijbehorende categorie. Aspose.Slides for Python via .NET stelt je in staat om gegevenspunten van Sunburst‑diagrammen en Treemaps in Python te formatteren.
+Treemap‑ en Sunburst‑grafieken geven hetzelfde type hiërarchische gegevens weer, maar ze gebruiken verschillende lay‑outs. Een Treemap tekent de hiërarchie als geneste rechthoeken waarvan de oppervlakten de bladwaarden vertegenwoordigen. Een Sunburst tekent die hiërarchie als concentrische ringen: bovenliggende groepen staan dicht bij het midden en bladcategorieën bevinden zich op de buitenste ring.
 
-Hier is een Sunburst‑diagram waarbij de gegevens in de kolom Series1 de bladknooppunten definiëren, terwijl de andere kolommen de hiërarchische gegevenspunten definiëren:
+In Aspose.Slides for Python via .NET is elke numerieke waarde een [ChartDataPoint](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/). De [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/)‑collectie biedt toegang tot het blad en de bijbehorende bovenliggende groepen. Dit artikel legt die koppeling uit en laat zien hoe beide grafiektype­s gemaakt en opgemaakt kunnen worden met dezelfde voorbeeldgegevens.
 
-![Sunburst chart example](sunburst_example.png)
+![A Treemap chart with Consumer and Business branches](treemap-hierarchy.png)
 
-Laten we beginnen met het toevoegen van een nieuw Sunburst‑diagram aan de presentatie:
+![A Sunburst chart with the same Consumer and Business hierarchy](sunburst-hierarchy.png)
 
-```py
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
-```
+## **Begrijp categorieën, gegevenspunten en niveaus**
 
-{{% alert color="primary" title="Zie ook" %}}
-- [**Sunburst‑diagrammen maken**](/slides/nl/python-net/create-chart/#create-sunburst-charts)
-{{% /alert %}}
+Het onderstaande voorbeeld bevat drie categoriëniveaus en één numerieke reeks:
 
-Als je diagram‑gegevenspunten moet formatteren, gebruik dan de volgende API’s:
+| Tak | Stengel | Blad | Omzet |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
 
-[ChartDataPointLevelsManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapointlevelsmanager/), [ChartDataPointLevel](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapointlevel/), en de [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/) eigenschap. Ze bieden toegang tot het formatteren van gegevenspunten in Treemap‑ en Sunburst‑diagrammen. [ChartDataPointLevelsManager] wordt gebruikt om meer‑niveau‑categorieën te benaderen; het vertegenwoordigt een container van [ChartDataPointLevel]‑objecten. Het is in essentie een wrapper rond [ChartCategoryLevelsManager] met extra eigenschappen die specifiek zijn voor gegevenspunten. Het type [ChartDataPointLevel] stelt twee eigenschappen bloot—[format] en [label]—die toegang geven tot de bijbehorende instellingen.
+Elke rij creëert één bladcategorie en één gegevenspunt. De categoriën‑groeperingsniveaus beschrijven het pad van dat blad naar zijn bovenliggende elementen. Voor de eerste rij is het pad `Consumer > Computers > Laptops`.
 
-## **Weergave van gegevenspuntwaarden**
+De indexen in [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/) lopen van het blad omhoog:
 
-Deze sectie toont hoe je de waarde van individuele gegevenspunten in Treemap‑ en Sunburst‑diagrammen kunt weergeven. Je ziet hoe je waardelabels voor geselecteerde punten inschakelt.
+| `data_point_levels`‑index | Logisch niveau | Treemap‑weergave | Sunburst‑weergave |
+| ---: | --- | --- | --- |
+| `0` | Blad | Waarde‑rechthoek | Segment van buitenste ring |
+| `1` | Stengel | Bovenliggende rechthoek of koptekst | Segment van middelste ring |
+| `2` | Tak | Bovenliggende rechthoek of koptekst | Segment van binnenste ring |
 
-Geef de waarde van het gegevenspunt "Leaf 4" weer:
+Deze volgorde is voor beide grafiektype­s gelijk, hoewel hun visuele lay‑out verschilt. Een bovenliggend segment wordt gedeeld door meerdere bladeren. Om het op te maken, gebruik je het overeenkomstige niveau van het eerste gegevenspunt in die groep. Bijvoorbeeld, de `Consumer`‑tak start met het `Laptops`‑punt, terwijl de `Software`‑stengel start met het `Licenses`‑punt. Verwijzingen naar die punten bewaren is duidelijker en veiliger dan onverklaarde uitdrukkingen zoals `data_points[0]` of `data_points[6]`.
 
-```py
-data_points = chart.chart_data.series[0].data_points
-data_points[3].data_point_levels[0].label.data_label_format.show_value = True
-```
+## **Maak en pas beide grafiektype­s aan**
 
-![Data point value](data_point_value.png)
-
-## **Labels en kleuren instellen voor gegevenspunten**
-
-Deze sectie laat zien hoe je aangepaste labels en kleuren kunt instellen voor individuele gegevenspunten in Treemap‑ en Sunburst‑diagrammen. Je leert hoe je een specifiek gegevenspunt benadert, een label toewijst en een effen vulling toepast om belangrijke knooppunten te markeren.
-
-Stel het gegevenslabel van "Branch 1" in om de naam van de reeks ("Series1") weer te geven in plaats van de categorienaam, en stel vervolgens de tekstkleur in op geel:
+Het onderstaande volledige voorbeeld maakt een Treemap op de eerste dia en een Sunburst op de tweede dia. Het bouwt de hiërarchie, toont de waarde voor `Tablets`, past vaste kleuren toe op geselecteerde niveaus, formatteert een tak‑label en slaat de presentatie op.
 
 ```py
-branch1_label = data_points[0].data_point_levels[2].label
-branch1_label.data_label_format.show_category_name = False
-branch1_label.data_label_format.show_series_name = True
-
-branch1_label.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-branch1_label.data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.yellow
-```
-
-![Data point's label and color](data_point_color.png)
-
-## **Branchkleuren instellen voor gegevenspunten**
-
-Gebruik branchkleuren om te bepalen hoe boven‑ en onderliggende knooppunten visueel gegroepeerd worden in Treemap‑ en Sunburst‑diagrammen. Deze sectie laat zien hoe je een aangepaste branchkleur voor een specifiek gegevenspunt instelt zodat je belangrijke subbomen kunt markeren en de leesbaarheid van het diagram verbetert.
-
-Wijzig de kleur van de "Stem 4"‑branch:
-
-```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
+
+
+def set_solid_fill(fill_format, color):
+    fill_format.fill_type = slides.FillType.SOLID
+    fill_format.solid_fill_color.color = color
+
+
+def add_hierarchy_chart(slide, chart_type):
+    worksheet_index = 0
+    leaf_level_index = 0
+    stem_level_index = 1
+    branch_level_index = 2
+
+    chart = slide.shapes.add_chart(chart_type, 40, 40, 640, 440)
+    chart.has_title = False
+    chart.has_legend = False
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(worksheet_index)
+
+    def add_category(row_index, leaf_name):
+        category_cell = workbook.get_cell(worksheet_index, row_index, 2, leaf_name)
+        return chart.chart_data.categories.add(category_cell)
+
+    # Voeg de bladcategorieën toe. Een groepeerelement wordt alleen ingesteld wanneer een nieuwe groep begint;
+    # de volgende categorieën blijven in die groep tot een ander element wordt ingesteld.
+    laptops_category = add_category(1, "Laptops")
+    laptops_category.grouping_levels.set_grouping_item(stem_level_index, "Computers")
+    laptops_category.grouping_levels.set_grouping_item(branch_level_index, "Consumer")
+
+    add_category(2, "Desktops")
+
+    phones_category = add_category(3, "Phones")
+    phones_category.grouping_levels.set_grouping_item(stem_level_index, "Mobile")
+
+    add_category(4, "Tablets")
+
+    consulting_category = add_category(5, "Consulting")
+    consulting_category.grouping_levels.set_grouping_item(stem_level_index, "Services")
+    consulting_category.grouping_levels.set_grouping_item(branch_level_index, "Business")
+
+    add_category(6, "Support")
+
+    licenses_category = add_category(7, "Licenses")
+    licenses_category.grouping_levels.set_grouping_item(stem_level_index, "Software")
+
+    add_category(8, "Subscriptions")
+
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Revenue")
+    series = chart.chart_data.series.add(series_name_cell, chart_type)
+    series.labels.default_data_label_format.show_category_name = True
+
+    def add_data_point(row_index, value):
+        value_cell = workbook.get_cell(worksheet_index, row_index, 3, value)
+
+        if chart_type == charts.ChartType.TREEMAP:
+            return series.data_points.add_data_point_for_treemap_series(value_cell)
+
+        return series.data_points.add_data_point_for_sunburst_series(value_cell)
+
+    laptops_data_point = add_data_point(1, 12)
+    add_data_point(2, 8)
+    add_data_point(3, 15)
+    tablets_data_point = add_data_point(4, 6)
+    add_data_point(5, 10)
+    add_data_point(6, 7)
+    licenses_data_point = add_data_point(7, 11)
+    add_data_point(8, 14)
+
+    # Toon de categorie en de waarde op het blad Tablets.
+    tablets_label_format = tablets_data_point.data_point_levels[leaf_level_index].label.data_label_format
+    tablets_label_format.show_category_name = True
+    tablets_label_format.show_value = True
+    tablets_label_format.separator = "\n"
+    tablets_label_format.number_format = "$0"
+
+    # Formatteer de Consumer‑tak via het eerste blad in die tak.
+    consumer_branch_level = laptops_data_point.data_point_levels[branch_level_index]
+    consumer_branch_fill = consumer_branch_level.format.fill
+    consumer_branch_color = drawing.Color.from_argb(31, 78, 121)
+    set_solid_fill(consumer_branch_fill, consumer_branch_color)
+
+    consumer_label_format = consumer_branch_level.label.data_label_format
+    consumer_label_format.show_category_name = True
+    consumer_label_format.show_series_name = False
+    consumer_label_text_fill = consumer_label_format.text_format.portion_format.fill_format
+    set_solid_fill(consumer_label_text_fill, drawing.Color.white)
+
+    # Formatteer de Software‑stengel via het eerste blad in die stengel.
+    software_stem_level = licenses_data_point.data_point_levels[stem_level_index]
+    software_stem_fill = software_stem_level.format.fill
+    software_stem_color = drawing.Color.from_argb(112, 173, 71)
+    set_solid_fill(software_stem_fill, software_stem_color)
+
+    # parent_label_layout beïnvloedt de bovenliggende labels van Treemap; Sunburst gebruikt ringsegmenten.
+    if chart_type == charts.ChartType.TREEMAP:
+        series.parent_label_layout = charts.ParentLabelLayoutType.OVERLAPPING
+
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    treemap_slide = presentation.slides[0]
+    add_hierarchy_chart(treemap_slide, charts.ChartType.TREEMAP)
 
-    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
-    data_points = chart.chart_data.series[0].data_points
+    layout_slide = presentation.layout_slides[0]
+    sunburst_slide = presentation.slides.add_empty_slide(layout_slide)
+    add_hierarchy_chart(sunburst_slide, charts.ChartType.SUNBURST)
 
-    stem4_branch = data_points[9].data_point_levels[1]
-    
-    stem4_branch.format.fill.fill_type = slides.FillType.SOLID
-    stem4_branch.format.fill.solid_fill_color.color = draw.Color.red
-      
-    presentation.save("branch_color.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("hierarchical-charts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Branch color](branch_color.png)
+De categorie‑cellen en waarde‑cellen gebruiken dezelfde werkblad‑rij, zodat hun collectie‑posities op één lijn blijven. Als je met een bestaande grafiek werkt in plaats van er een te maken, inspecteer dan eerst de categorie‑rijen en bewaar benoemde verwijzingen naar de gegevenspunten en niveaus die je wilt opmaken.
 
-## **Veelgestelde vragen**
+## **Gedrag en praktische overwegingen**
 
-**Kan ik de volgorde (sortering) van segmenten in Sunburst/Treemap wijzigen?**
+### **Verschillen tussen Treemap en Sunburst**
 
-Nee. PowerPoint sorteert segmenten automatisch (meestal op aflopende waarden, met de klok mee). Aspose.Slides spiegelt dit gedrag: je kunt de volgorde niet rechtstreeks wijzigen; dit moet je doen door de gegevens vooraf te verwerken.
+- Een Treemap gebruikt oppervlakte om waarde te communiceren en geneste rechthoeken om hiërarchie te communiceren. De [ChartSeries.parent_label_layout](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/parent_label_layout/)‑eigenschap bepaalt hoe bovenliggende labels verschijnen in dit grafiektype.
+- Een Sunburst gebruikt hoek om waarde te communiceren en ringdiepte om hiërarchie te communiceren. [ChartSeries.parent_label_layout](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartseries/parent_label_layout/) regelt de ring‑labels niet.
+- Beide grafiektype­s gebruiken dezelfde categoriën‑groeperingsniveaus en dezelfde blad‑naar‑bovenliggend‑volgorde in `data_point_levels`, zodat de data‑opbouw‑ en niveau‑opmaakcode gedeeld kan worden.
+- Bovenliggende waarden worden berekend uit hun onderliggende bladeren. Voeg geen afzonderlijke numerieke punten toe voor takken of stengels.
 
-**Hoe beïnvloedt het presentatiethema de kleuren van segmenten en labels?**
+### **Sortering en segmentvolgorde**
 
-Diagramkleuren erven het [theme/palette](/slides/nl/python-net/presentation-theme/) van de presentatie tenzij je expliciet vullingen/lettertypen instelt. Voor consistente resultaten kun je het beste vaste vullingen en tekstopmaak vastzetten op de benodigde niveaus.
+De grafiek‑lay‑out‑engine bepaalt de uiteindelijke plaatsing van rechthoeken en ringsegmenten. Groepeer gerelateerde categoriënrijen vóór het toevoegen, maar vertrouw niet op een specifieke rechthoek‑positie of starthoek. Als de volgorde betekenis heeft, neem die dan op in de labels of gebruik een grafiektype met een expliciete categoriënas.
 
-**Zal exporteren naar PDF/PNG aangepaste branchkleuren en labelinstellingen behouden?**
+### **Thema en vaste kleuren**
 
-Ja. Bij het exporteren van de presentatie blijven de diagraminstellingen (vullingen, labels) behouden in de uitvoerformaten, omdat Aspose.Slides rendert met de toegepaste diagramopmaak.
+Niet‑opgemaakte grafiekniveaus erven kleuren van het presentatiethema. Het voorbeeld gebruikt expliciete RGB‑vullingen voor voorspelbare output. Als de grafiek thema‑wijzigingen moet volgen, gebruik dan scheme‑kleuren in plaats van vaste RGB‑waarden en vermijd het overschrijven van elk niveau. Controleer ook het label‑contrast na het wijzigen van een tak‑ of stengel‑vulling.
 
-**Kan ik de werkelijke coördinaten van een label/element berekenen voor aangepaste overlay‑plaatsing bovenop het diagram?**
+### **Labels en beschikbare ruimte**
 
-Ja. Nadat de diagramlay-out is gevalideerd, zijn `actual_x`/`actual_y` beschikbaar voor elementen (bijvoorbeeld een [DataLabel]), wat helpt bij het nauwkeurig positioneren van overlays.
+PowerPoint kan labels verbergen of afkappen wanneer een segment te klein is. Het vergroten van de grafiek, verkorten van categorienamen of minder labelvelden tonen, levert meestal een duidelijker resultaat op. Een label kan de categorienaam, reeksennaam en waarde combineren via [DataLabelFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/datalabelformat/), maar het inschakelen van elk veld maakt hiërarchische grafieken vaak moeilijk leesbaar.
+
+### **Export en rendering**
+
+Opslaan als PPTX behoudt de bewerkbaarheid van de grafiek. Wanneer Aspose.Slides de presentatie rendert naar PDF of een afbeelding, worden de ondersteunde vullingen en labelinstellingen gerenderd met de grafiek. Lettertype‑substitutie en kleine verschillen in beschikbare lay‑out‑ruimte kunnen de regel‑afbraak of zichtbaarheid van labels beïnvloeden, dus installeer de vereiste lettertypen en controleer belangrijke exportdoelen.
+
+## **FAQ**
+
+**Waarom beïnvloedt het wijzigen van een bovenliggend niveau meerdere bladeren?**
+
+Een tak of stengel is een gedeeld visueel segment. Het [ChartDataPointLevel](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chartdatapointlevel/) kan bereikt worden via een onderliggend blad, maar de opmaak behoort tot het gedeelde bovenliggende segment, niet alleen tot dat blad.
+
+**Waarom ontbreekt een datalabel?**
+
+Schakel eerst de vereiste velden in op het label‑object [DataLabelFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/datalabelformat/). Controleer daarna of het segment voldoende ruimte heeft. De lay‑out van Treemap‑ouder‑labels, grafiekafmetingen, label‑lengte, lettergrootte en het aantal ingeschakelde velden bepalen allemaal of een label getoond kan worden.
+
+**Kan ik de exacte volgorde of coördinaten van segmenten instellen?**
+
+Je kunt de bron‑rij‑volgorde bepalen en elke groep aaneengesloten houden, maar je kunt geen exacte Treemap‑rechthoeken of Sunburst‑hoeken toewijzen. De grafiek‑lay‑out‑engine berekent deze uit de hiërarchie, waarden en beschikbare ruimte.
+
+**Waarom veranderen kleuren na een thema‑wijziging van de presentatie?**
+
+Thema‑gebaseerde vullingen zijn bedoeld om het presentatiethema te volgen. Gebruik expliciete RGB‑kleuren voor de niveaus die vast moeten blijven, of behoud scheme‑kleuren wanneer aanpassing aan een nieuw thema gewenst is.
+
+**Wordt aangepaste opmaak behouden bij PDF‑ en afbeeldingsexport?**
+
+Ja, ondersteunde grafiekvullingen en labelinstellingen worden meegenomen tijdens het renderen. Zorg voor de benodigde lettertypen en test de uiteindelijke exportgrootte, want label‑passing is lay‑out‑afhankelijk.
+
+## **Zie ook**
+
+- [Create Treemap charts](/slides/nl/python-net/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/nl/python-net/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/nl/python-net/export-chart/)
+- [Manage presentation themes](/slides/nl/python-net/presentation-theme/)

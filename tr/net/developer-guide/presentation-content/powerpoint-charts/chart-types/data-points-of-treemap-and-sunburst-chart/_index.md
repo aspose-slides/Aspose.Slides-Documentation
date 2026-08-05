@@ -1,104 +1,243 @@
 ---
-title: Treemap ve Sunburst Grafiklerinde Veri Noktalarını Özelleştirme (.NET)
-linktitle: Treemap ve Sunburst Grafiklerinde Veri Noktaları
+title: .NET'te Treemap ve Sunburst Grafiklerde Veri Noktalarını Özelleştirme
+linktitle: Treemap ve Sunburst Grafiklerde Veri Noktaları
 type: docs
 url: /tr/net/data-points-of-treemap-and-sunburst-chart/
 keywords:
-- treemap grafik
-- sunburst grafik
+- treemap grafiği
+- sunburst grafiği
+- hiyerarşik grafik
 - veri noktası
-- etiket rengi
-- dal rengi
+- veri etiketi
+- şube rengi
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile treemap ve sunburst grafiklerdeki veri noktalarını nasıl yöneteceğinizi öğrenin, PowerPoint formatlarıyla uyumludur."
+description: "Aspose.Slides for .NET ile Treemap ve Sunburst grafiklerde hiyerarşik veri oluşturmayı ve seviyeleri, etiketleri ve renkleri özelleştirmeyi öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-PowerPoint grafiklerinin diğer türleri arasında, iki adet “hiyerarşik” tür bulunmaktadır - **Treemap** ve **Sunburst** grafiği (Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph veya Multi Level Pie Chart olarak da bilinir). Bu grafikler, yapraklardan dalın tepesine kadar bir ağaç olarak düzenlenmiş hiyerarşik verileri gösterir. Yapraklar, seri veri noktalarıyla tanımlanırken, sonraki her iç içe grup seviyesi ilgili kategoriyle tanımlanır. Aspose.Slides for .NET, C#’ta Sunburst Chart ve Treemap’in veri noktalarını biçimlendirmeye olanak tanır.
+Treemap ve Sunburst grafikler aynı tür hiyerarşik veriyi gösterir, ancak farklı düzenler kullanır. Bir Treemap hiyerarşiyi, alanları yaprak değerlerini temsil eden iç içe dikdörtgenler olarak çizer. Bir Sunburst ise bunu konsantrik halkalar şeklinde gösterir: üst düzey gruplar merkeze yakın, yaprak kategoriler ise dış halkada bulunur.
 
-İşte bir Sunburst Grafiği, Series1 sütunundaki verilerin yaprak düğümleri tanımladığı, diğer sütunların ise hiyerarşik veri noktalarını tanımladığı bir örnek:
+Aspose.Slides for .NET'te her sayısal değer bir [IChartDataPoint](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/) dir. Onun [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) koleksiyonu, yaprağa ve onun üst grup(lar)ına erişim sağlar. Bu makale bu eşlemeyi açıklar ve aynı örnek veriden iki grafik türünü nasıl oluşturup biçimlendireceğinizi gösterir.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Tüketici ve İşletme dallarıyla bir Treemap grafiği](treemap-hierarchy.png)
 
-Sunburst grafiğini sunuma ekleyerek başlayalım:
+![Aynı Tüketici ve İşletme hiyerarşisiyle bir Sunburst grafiği](sunburst-hierarchy.png)
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-}
-```
+## **Kategorileri, Veri Noktalarını ve Seviyeleri Anlamak**
 
-{{% alert color="primary" title="Ayrıca bakınız" %}} 
-- [**Sunburst Grafiği Oluşturma**](/slides/tr/net/adding-charts/#addingcharts-creatingsunburstchart)
-{{% /alert %}}
+Aşağıda kullanılan örnek üç kategori seviyesi ve bir sayısal seri içerir:
 
-Grafiğin veri noktalarını biçimlendirme ihtiyacı varsa, aşağıdakileri kullanmalıyız:
+| Şube | Kök | Yaprak | Gelir |
+| --- | --- | --- | ---: |
+| Tüketici | Bilgisayarlar | Dizüstü Bilgisayarlar | 12 |
+| Tüketici | Bilgisayarlar | Masaüstü Bilgisayarlar | 8 |
+| Tüketici | Mobil | Telefonlar | 15 |
+| Tüketici | Mobil | Tabletler | 6 |
+| İş | Hizmetler | Danışmanlık | 10 |
+| İş | Hizmetler | Destek | 7 |
+| İş | Yazılım | Lisanslar | 11 |
+| İş | Yazılım | Abonelikler | 14 |
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/IChartDataPointLevelsManager), [IChartDataPointLevel](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapointlevel) sınıfları ve [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) özelliği, Treemap ve Sunburst grafiklerinin veri noktalarını biçimlendirmeye erişim sağlar. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/IChartDataPointLevelsManager) multi seviyeli kategorilere erişmek için kullanılır – [**IChartDataPointLevel**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/IChartDataPointLevel) nesnelerinin konteynerini temsil eder. Temelde, veri noktalarına özgü eklenen özelliklerle [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/IChartCategoryLevelsManager) için bir sarmalayıcıdır. [**IChartDataPointLevel**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/IChartDataPointLevel) sınıfının iki özelliği vardır: [**Format**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapointlevel/properties/format) ve [**DataLabel**](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapointlevel/properties/label) , bunlar ilgili ayarlara erişim sağlar.
+Her satır bir yaprak kategorisi ve bir veri noktası oluşturur. Kategori gruplama seviyeleri, o yapraktan üst gruplarına olan yolu tanımlar. İlk satır için yol `Consumer > Computers > Laptops` şeklindedir.
 
-## **Veri Noktasının Değerini Göster**
-“Leaf 4” veri noktasının değerini göster:
+İndeksler, [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) içinde yapraktan yukarı doğru ilerler:
 
-```c#
-IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
-dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
-```
+| `DataPointLevels` indeksi | Mantıksal Seviye | Treemap temsilciliği | Sunburst temsilciliği |
+| ---: | --- | --- | --- |
+| `0` | Yaprak | Değer dikdörtgeni | Dış halkası segmenti |
+| `1` | Kök | Üst dikdörtgen veya başlık | Orta halkası segmenti |
+| `2` | Şube | Üst düzey dikdörtgen veya başlık | İç halkası segmenti |
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
-## **Veri Noktası Etiketini ve Rengini Ayarla**
-“Branch 1” veri etiketini kategori adı yerine seri adı (“Series1”) gösterecek şekilde ayarlayın. Ardından metin rengini sarıya değiştirin:
+Bu sıralama, görsel düzenleri farklı olsa da, iki grafik türü için de aynıdır. Bir üst segment birden fazla yaprak tarafından paylaşılır. Bunu biçimlendirmek için, o gruptaki ilk veri noktasının ilgili seviyesini kullanın. Örneğin, `Consumer` şubesi `Laptops` noktasından başlarken, `Software` kökü `Licenses` noktasından başlar. Bu noktalara referans tutmak, `dataPoints[0]` veya `dataPoints[6]` gibi açıklanmamış ifadeler kullanmaktan daha net ve güvenlidir.
 
-```c#
-IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
-branch1Label.DataLabelFormat.ShowCategoryName = false;
-branch1Label.DataLabelFormat.ShowSeriesName = true;
+## **Her iki Grafik Türünü de Oluşturma ve Özelleştirme**
 
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-```
-
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-## **Veri Noktası Dal Rengini Ayarla**
-“Stem 4” dalının rengini değiştirin:
+Aşağıdaki tam örnek, ilk slaytta bir Treemap ve ikinci slaytta bir Sunburst oluşturur. Hiyerarşiyi inşa eder, `Tablets` değerini gösterir, seçili seviyelere sabit renkler uygular, bir şube etiketini biçimlendirir ve sunumu kaydeder.
 
 ```csharp
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    
-    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChartDataPointLevel stem4branch = dataPoints[9].DataPointLevels[1];
-    
-    stem4branch.Format.Fill.FillType = FillType.Solid;
-    stem4branch.Format.Fill.SolidFillColor.Color = Color.Red;
-      
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+
+var treemapSlide = presentation.Slides[0];
+AddHierarchyChart(treemapSlide, ChartType.Treemap);
+
+var layoutSlide = presentation.LayoutSlides[0];
+var sunburstSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+AddHierarchyChart(sunburstSlide, ChartType.Sunburst);
+
+presentation.Save("hierarchical-charts.pptx", SaveFormat.Pptx);
+
+static void AddHierarchyChart(ISlide slide, ChartType chartType)
+{
+    const int worksheetIndex = 0;
+    const int leafLevelIndex = 0;
+    const int stemLevelIndex = 1;
+    const int branchLevelIndex = 2;
+
+    var chart = slide.Shapes.AddChart(chartType, 40, 40, 640, 440);
+    chart.HasTitle = false;
+    chart.HasLegend = false;
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(worksheetIndex);
+
+    // YAPRAK KATEGORİLERİNİ EKLEYİN. BİR GRUPLAMA ÖĞESİ YALNIZCA YENİ BİR GRUP BAŞLADIĞINDA AYARLANIR;
+    // İZLEYEN KATEGORİLER, BAŞKA BİR ÖĞE AYARLANANA KADAR BU GRUP İÇİNDE KALIR.
+    var laptopsCategory = AddCategory(1, "Laptops");
+    laptopsCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Computers");
+    laptopsCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Consumer");
+
+    AddCategory(2, "Desktops");
+
+    var phonesCategory = AddCategory(3, "Phones");
+    phonesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Mobile");
+
+    AddCategory(4, "Tablets");
+
+    var consultingCategory = AddCategory(5, "Consulting");
+    consultingCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Services");
+    consultingCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Business");
+
+    AddCategory(6, "Support");
+
+    var licensesCategory = AddCategory(7, "Licenses");
+    licensesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Software");
+
+    AddCategory(8, "Subscriptions");
+
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Revenue");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chartType);
+    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+
+    var laptopsDataPoint = AddDataPoint(1, 12);
+    AddDataPoint(2, 8);
+    AddDataPoint(3, 15);
+    var tabletsDataPoint = AddDataPoint(4, 6);
+    AddDataPoint(5, 10);
+    AddDataPoint(6, 7);
+    var licensesDataPoint = AddDataPoint(7, 11);
+    AddDataPoint(8, 14);
+
+    // TABLET YAPRAĞINDA KATEGORİ VE DEĞERİ GÖSTER.
+    var tabletsLabelFormat = tabletsDataPoint.DataPointLevels[leafLevelIndex]
+        .Label.DataLabelFormat;
+    tabletsLabelFormat.ShowCategoryName = true;
+    tabletsLabelFormat.ShowValue = true;
+    tabletsLabelFormat.Separator = "\n";
+    tabletsLabelFormat.NumberFormat = "$0";
+
+    // CONSUMER ŞUBESİNİ, O ŞUBEDEKİ İLK YAPRAK ÜZERİNDEN BİÇİMLENDİRİN.
+    var consumerBranchLevel = laptopsDataPoint.DataPointLevels[branchLevelIndex];
+    var consumerBranchFill = consumerBranchLevel.Format.Fill;
+    var consumerBranchColor = Color.FromArgb(31, 78, 121);
+    SetSolidFill(consumerBranchFill, consumerBranchColor);
+
+    var consumerLabelFormat = consumerBranchLevel.Label.DataLabelFormat;
+    consumerLabelFormat.ShowCategoryName = true;
+    consumerLabelFormat.ShowSeriesName = false;
+    var consumerLabelTextFill = consumerLabelFormat.TextFormat.PortionFormat.FillFormat;
+    SetSolidFill(consumerLabelTextFill, Color.White);
+
+    // SOFTWARE KÖKÜNÜ, O KÖKTEDİKİ İLK YAPRAK ÜZERİNDEN BİÇİMLENDİRİN.
+    var softwareStemLevel = licensesDataPoint.DataPointLevels[stemLevelIndex];
+    var softwareStemFill = softwareStemLevel.Format.Fill;
+    var softwareStemColor = Color.FromArgb(112, 173, 71);
+    SetSolidFill(softwareStemFill, softwareStemColor);
+
+    // PARENTLABELLAYOUT, TREEMAP ÜST ETİKETLERİNİ ETPİYOR; SUNBURST İSE HALKA SEGMENTLERİNİ KULLANIR.
+    if (chartType == ChartType.Treemap)
+    {
+        series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+    }
+
+    IChartCategory AddCategory(int rowIndex, string leafName)
+    {
+        var categoryCell = workbook.GetCell(worksheetIndex, rowIndex, 2, leafName);
+        return chart.ChartData.Categories.Add(categoryCell);
+    }
+
+    IChartDataPoint AddDataPoint(int rowIndex, double value)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, rowIndex, 3, value);
+
+        if (chartType == ChartType.Treemap)
+        {
+            return series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+        }
+
+        return series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+    }
+
+    static void SetSolidFill(IFillFormat fillFormat, Color color)
+    {
+        fillFormat.FillType = FillType.Solid;
+        fillFormat.SolidFillColor.Color = color;
+    }
 }
 ```
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Kategori hücreleri ve değer hücreleri aynı çalışma sayfası satırını kullanır, bu yüzden koleksiyon konumları hizalı kalır. Yeni bir grafik oluşturmak yerine mevcut bir grafik ile çalıştığınızda, önce kategori satırlarını inceleyin ve biçimlendirmek istediğiniz veri noktalarına ve seviyelere adlandırılmış referanslar depolayın.
+
+## **Davranış ve Pratik Düşünceler**
+
+### **Treemap ve Sunburst Farklılıkları**
+
+- Bir Treemap, değeri iletmek için alan ve hiyerarşiyi iletmek için iç içe dikdörtgenler kullanır. [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/parentlabellayout/) özelliği, bu grafik türünde üst etiketlerin nasıl görüneceğini kontrol eder.
+- Bir Sunburst, değeri iletmek için açı ve hiyerarşiyi iletmek için halka derinliği kullanır. [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/parentlabellayout/) bu halkanın etiketlerini kontrol etmez.
+- Her iki grafik türü aynı kategori gruplama seviyelerini ve `DataPointLevels` içinde aynı yaprak‑üst sırasını kullanır; bu nedenle veri oluşturma ve seviye biçimlendirme kodu paylaşılabilir.
+- Üst değerler, alt yapraklardan hesaplanır. Şubeler veya kökler için ayrı sayısal noktalar eklemeyin.
+
+### **Sıralama ve Segment Sırası**
+
+Grafik yerleşim motoru, dikdörtgenlerin ve halka segmentlerinin son konumunu belirler. İlgili kategori satırlarını eklemeden önce birlikte düzenleyin, ancak belirli bir dikdörtgen konumuna veya başlangıç açısına güvenmeyin. Eğer sıralama anlam taşıyorsa, bunu etiketlerde belirtin veya açık bir kategori ekseni olan bir grafik türü kullanın.
+
+### **Tema ve Sabit Renkler**
+
+Biçimlendirilmemiş grafik seviyeleri, sunum temasından renkleri devralır. Örnek, öngörülebilir çıktı için açık RGB doldurmalar kullanır. Grafik temasındaki değişiklikleri takip etmesi gerekiyorsa, sabit RGB değerleri yerine şema renkleri kullanın ve her seviyeyi geçersiz kılmaktan kaçının. Ayrıca bir şube veya kök dolgusunu değiştirdikten sonra etiket kontrastını kontrol edin.
+
+### **Etiketler ve Mevcut Alan**
+
+PowerPoint, bir segment çok küçük olduğunda etiketleri gizleyebilir veya kısaltabilir. Grafik boyutunu artırmak, kategori adlarını kısaltmak veya daha az etiket alanı göstermek genellikle daha net bir sonuç verir. Bir etiket, kategori adı, seri adı ve değeri [IDataLabelFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/idatalabelformat/) aracılığıyla birleştirebilir, ancak tüm alanların etkinleştirilmesi genellikle hiyerarşik grafiklerin okunmasını zorlaştırır.
+
+### **Dışa Aktarım ve Oluşturma**
+
+PPTX olarak kaydetmek, grafiği düzenlenebilir tutar. Aspose.Slides sunumu PDF veya görüntüye oluşturduğunda, desteklenen doldurmalar ve etiket ayarları grafikle birlikte işlenir. Yazı tipi ikamesi ve mevcut yerleşim alanındaki küçük farklılıklar satır kaydırmayı veya etiket görünürlüğünü değiştirebilir; bu yüzden gerekli yazı tiplerini kurun ve önemli dışa aktarım hedeflerini doğrulayın.
 
 ## **SSS**
 
-**Sunburst/Treemap'teki segmentlerin sırasını (sıralamasını) değiştirebilir miyim?**
+**Neden bir üst seviyeyi değiştirmek birden fazla yaprağı etkiler?**
 
-Hayır. PowerPoint segmentleri otomatik olarak sıralar (genellikle azalan değerlerle, saat yönünde). Aspose.Slides bu davranışı yansıtır: sıralamayı doğrudan değiştiremezsiniz; bunu veriyi ön işleme tabi tutarak elde edersiniz.
+Bir şube veya kök, birden fazla yaprak tarafından paylaşılan görsel bir segmenttir. Onun [IChartDataPointLevel](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapointlevel/) bir alt yapraktan ulaşılabilir, ancak biçimlendirme sadece o yaprağa değil, paylaşılan üst segmente uygulanır.
 
-**Sunum teması segmentlerin ve etiketlerin renklerini nasıl etkiler?**
+**Veri etiketi neden eksik?**
 
-Grafik renkleri, doldurma/karakterleri açıkça ayarlamadığınız sürece, sunumun [tema/renk paleti](/slides/tr/net/presentation-theme/) üzerinden devralınır. Tutarlı sonuçlar için, gerekli seviyelerde katı dolgu ve metin biçimlendirmesini sabitleyin.
+Önce etiketin [IDataLabelFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/idatalabelformat/) nesnesinde gerekli alanları etkinleştirin. Ardından segmentin yeterli alana sahip olup olmadığını kontrol edin. Treemap üst‑etiket düzeni, grafik boyutları, etiket uzunluğu, yazı tipi boyutu ve etkin alanların sayısı, bir etiketin gösterilip gösterilmeyeceğini etkiler.
 
-**PDF/PNG olarak dışa aktarma, özel dal renklerini ve etiket ayarlarını korur mu?**
+**Segmentlerin tam sırasını veya koordinatlarını ayarlayabilir miyim?**
 
-Evet. Sunumu dışa aktarırken, grafik ayarları (dolgu, etiketler) çıkış formatlarında korunur; çünkü Aspose.Slides grafik formatlamasıyla render alır.
+Satır‑kaynağı sırasını kontrol edebilir ve her grubu art arda tutabilirsiniz, ancak tam Treemap dikdörtgenlerini veya Sunburst açılarını belirleyemezsiniz. Bu değerler hiyerarşi, veri ve mevcut alandan layout motoru tarafından hesaplanır.
 
-**Grafiğin üstüne özel bir katman yerleştirmek için bir etiket/elemanın gerçek koordinatlarını hesaplayabilir miyim?**
+**Sunum teması değiştiğinde renkler neden değişir?**
 
-Evet. Grafik düzeni doğrulandıktan sonra, öğeler için `ActualX`/`ActualY` değerleri mevcuttur (örneğin, bir [DataLabel](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/datalabel/)), bu da katmanların hassas konumlandırılmasına yardımcı olur.
+Tema‑bazlı doldurmalar, sunum paletine uymak üzere tasarlanmıştır. Sabit kalması gereken seviyelere açık RGB renkleri uygulayın ya da yeni bir temaya uyum sağlamak istendiğinde şema renklerini koruyun.
+
+**Özel biçimlendirme PDF ve görüntü dışa aktarımlarında korunur mu?**
+
+Evet, desteklenen grafik doldurmaları ve etiket ayarları oluşturma sırasında dahil edilir. Tutarlı sonuçlar için gerekli yazı tiplerini sağlayın ve etiket sığdırmanın yerleşime bağlı olduğunu unutmayarak nihai dışa aktarım boyutunu test edin.
+
+## **İlgili Bağlantılar**
+
+- [Treemap grafikler oluştur](/slides/tr/net/create-chart/#create-tree-map-charts)
+- [Sunburst grafikler oluştur](/slides/tr/net/create-chart/#create-sunburst-charts)
+- [Sunum grafiklerini dışa aktar](/slides/tr/net/export-chart/)
+- [Sunum temalarını yönet](/slides/tr/net/presentation-theme/)
