@@ -7,40 +7,44 @@ url: /nl/php-java/create-shape-thumbnails/
 keywords:
 - vormminiatuur
 - vormafbeelding
-- vorm renderen
+- vorm weergeven
 - vormrendering
+- visuele grenzen
+- vormgrenzen
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Genereer hoogwaardige vormminiaturen van PowerPoint-dia's met Aspose.Slides for PHP via Java - maak eenvoudig presentatieminiaturen aan en exporteer ze."
+description: "Genereer hoogwaardige vormminiaturen van PowerPoint-dia’s met Aspose.Slides voor PHP via Java – maak en exporteer eenvoudig presentatie-miniaturen."
 ---
-## **Inleiding**
+## **Introductie**
 
-Aspose.Slides wordt gebruikt om presentatiedocumenten te maken waarbij elke pagina een dia is. Deze dia's kunnen bekeken worden door de presentatiedocumenten te openen met Microsoft PowerPoint. Maar soms moeten ontwikkelaars de afbeeldingen van de vormen afzonderlijk bekijken in een afbeeldingsviewer. In zulke gevallen helpt Aspose.Slides u miniatuurafbeeldingen van de dia‑vormen te genereren. Hoe u deze functie gebruikt, wordt in dit artikel beschreven.  
+Aspose.Slides wordt gebruikt om presentatiebestanden te maken waarbij elke pagina een dia is. Deze dia’s kunnen worden bekeken door de presentatiebestanden te openen met Microsoft PowerPoint. Maar soms moeten ontwikkelaars de afbeeldingen van de vormen afzonderlijk bekijken in een afbeeldingsviewer. In dergelijke gevallen helpt Aspose.Slides u miniatuurafbeeldingen van de dia‑vormen te genereren. Hoe u deze functie gebruikt, wordt in dit artikel beschreven.
+
 Dit artikel legt uit hoe u dia‑miniaturen op verschillende manieren kunt genereren:
 
-- Een vorm‑miniatuur genereren binnen een dia.  
-- Een vorm‑miniatuur genereren voor een dia‑vorm met door de gebruiker opgegeven afmetingen.  
-- Een vorm‑miniatuur genereren binnen de grenzen van de weergave van een vorm.
+- Een miniatuur van een vorm genereren binnen een dia.
+- Een miniatuur van een vorm genereren voor een dia‑vorm met door de gebruiker gedefinieerde afmetingen.
+- Een miniatuur van een vorm genereren binnen de grenzen van de weergave van een vorm.
 
-## **Een vorm‑miniatuur genereren vanuit een dia**
-Om een vorm‑miniatuur van een willekeurige dia te genereren met Aspose.Slides for PHP via Java, doet u het volgende:
+## **Genereer een vorm‑miniatuur vanuit een dia**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)‑klasse.  
-1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of de index.  
-1. [Haal de vorm‑miniatuur op](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage) van de referentie‑dia op met de standaardschaal.  
-1. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingformaat.
+Om een vorm‑miniatuur van een willekeurige dia te genereren met Aspose.Slides voor PHP via Java, doet u het volgende:
 
-Deze voorbeeldcode laat zien hoe u een vorm‑miniatuur van een dia genereert:
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)-klasse.
+1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of index.
+1. [Haal de miniatuurafbeelding van de vorm op](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage) van de referentie‑dia op standaardschaal.
+1. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingsformaat.
+
+Dit voorbeeld toont hoe u een vorm‑miniatuur van een dia genereert:
 
 ```php
-  # Instantieer een Presentation-klasse die het presentatiebestand vertegenwoordigt
+  # Instantieer een Presentation‑klasse die het presentatie‑bestand vertegenwoordigt
   $pres = new Presentation("Thumbnail.pptx");
   try {
     # Maak een afbeelding op volledige schaal
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage();
-    # Sla de afbeelding op schijf in PNG-formaat
+    # Sla de afbeelding op schijf op in PNG‑formaat
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -55,23 +59,24 @@ Deze voorbeeldcode laat zien hoe u een vorm‑miniatuur van een dia genereert:
   }
 ```
 
-## **Een miniatuur met door de gebruiker gedefinieerde schaalfactor genereren**
-Om de vorm‑miniatuur van een dia te genereren met Aspose.Slides for PHP via Java, doet u het volgende:
+## **Genereer een miniatuur met door de gebruiker gedefinieerde schaalfactor**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)‑klasse.  
-1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of de index.  
-1. [Haal de vorm‑miniatuur op](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage) van de referentie‑dia met door de gebruiker opgegeven afmetingen.  
-1. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingformaat.
+Om de vorm‑miniatuur van een dia te genereren met Aspose.Slides voor PHP via Java, doet u het volgende:
 
-Deze voorbeeldcode laat zien hoe u een vorm‑miniatuur op basis van een gedefinieerde schaalfactor genereert:
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)-klasse.
+1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of index.
+1. [Haal de miniatuurafbeelding van de vorm op](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage) van de referentie‑dia met door de gebruiker gedefinieerde afmetingen.
+1. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingsformaat.
+
+Dit voorbeeld toont hoe u een vorm‑miniatuur genereert op basis van een gedefinieerde schaalfactor:
 
 ```php
-  # Instantieer een Presentation-klasse die het presentatiebestand vertegenwoordigt
+  # Instantieer een Presentation‑klasse die het presentatie‑bestand vertegenwoordigt
   $pres = new Presentation("Thumbnail.pptx");
   try {
     # Maak een afbeelding op volledige schaal
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Shape, 1, 1);
-    # Sla de afbeelding op schijf in PNG-formaat
+    # Sla de afbeelding op schijf op in PNG‑formaat
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -86,23 +91,24 @@ Deze voorbeeldcode laat zien hoe u een vorm‑miniatuur op basis van een gedefin
   }
 ```
 
-## **Een vorm‑miniatuur op basis van de weergave‑grenzen maken**
-Deze methode om miniaturen van vormen te maken stelt ontwikkelaars in staat om een miniatuur te genereren binnen de grenzen van de weergave van de vorm. Hierbij worden alle vorm‑effecten meegenomen. De gegenereerde vorm‑miniatuur wordt beperkt door de dia‑grenzen. Om een miniatuur van een dia‑vorm binnen de grenzen van de weergave te genereren, doet u het volgende:
+## **Maak een op grenzen gebaseerde weergave‑miniatuur van een vorm**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)‑klasse.  
-1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of de index.  
-1. Haal de miniatuur van de referentie‑dia op met vorm‑grenzen als weergave.  
-1. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingformaat.
+Deze methode om miniaturen van vormen te maken stelt ontwikkelaars in staat een miniatuur te genereren binnen de grenzen van de weergave van een vorm. Hierbij worden alle vormeffecten meegenomen. De gegenereerde vorm‑miniatuur wordt beperkt door de dia‑grenzen. Om een miniatuur van een dia‑vorm binnen de grens van zijn weergave te genereren, doet u het volgende:
 
-Deze voorbeeldcode is gebaseerd op de bovenstaande stappen:
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation)-klasse.
+1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of index.
+1. Haal de miniatuurafbeelding van de referentie‑dia op met vormgrenzen als weergave.
+1. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingsformaat.
+
+Dit voorbeeld is gebaseerd op de bovenstaande stappen:
 
 ```php
-  # Instantieer een Presentation-klasse die het presentatiebestand vertegenwoordigt
+  # Instantieer een Presentation-klasse die het presentatiedossier vertegenwoordigt
   $pres = new Presentation("Thumbnail.pptx");
   try {
     # Maak een afbeelding op volledige schaal
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Appearance, 1, 1);
-    # Sla de afbeelding op schijf in PNG-formaat
+    # Sla de afbeelding op schijf op in PNG-formaat
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -116,6 +122,43 @@ Deze voorbeeldcode is gebaseerd op de bovenstaande stappen:
     }
   }
 ```
+
+## **Haal de werkelijke zichtbare grenzen van een vorm op**
+
+De frame‑eigenschappen van [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/)—`Shape::getX()`, `Shape::getY()`, `Shape::getWidth()` en `Shape::getHeight()`—beschrijven het rechthoekige gebied dat in het presentatiemodel is opgeslagen. De inhoud die daadwerkelijk gerenderd wordt, kan buiten dat frame uitsteken of een ander rechthoekig gebied innemen. Rotatie, contouren, pijlpuntjes, tekstindeling en overflow, gegenereerde SmartArt‑geometrie en andere render‑effecten kunnen het bezette gebied allemaal wijzigen.
+
+Gebruik [Shape::getVisualBounds](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getVisualBounds) om dat bezette gebied te berekenen zonder een afbeelding te maken. De methode retourneert een [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) in dia‑coördinaten. Het geretourneerde rechthoekige gebied wordt niet bijgesneden tot de dia, zodat de coördinaten negatief kunnen zijn wanneer de inhoud buiten het dia‑origineel uitstrekt.
+
+Het volgende voorbeeld haalt de frame‑ en visual‑bounds op en vergelijkt ze:
+
+```php
+  $presentation = new Presentation("example.pptx");
+  try {
+      $slide = $presentation->getSlides()->get_Item(0);
+      $shape = $slide->getShapes()->get_Item(0);
+
+      $visualBounds = $shape->getVisualBounds();
+
+      $frameX = $shape->getX();
+      $frameY = $shape->getY();
+      $frameWidth = $shape->getWidth();
+      $frameHeight = $shape->getHeight();
+
+      $visualX = $visualBounds->getX();
+      $visualY = $visualBounds->getY();
+      $visualWidth = $visualBounds->getWidth();
+      $visualHeight = $visualBounds->getHeight();
+
+      echo "Frame bounds (x, y, width, height): $frameX, $frameY, $frameWidth, $frameHeight\n";
+      echo "Visual bounds (x, y, width, height): $visualX, $visualY, $visualWidth, $visualHeight\n";
+  } finally {
+      $presentation->dispose();
+  }
+```
+
+Dezelfde [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) kan worden gebruikt om nabije vormen uit te lijnen langs de linker-, rechter-, boven- of onderkant; om voldoende ruimte te reserveren in een gegenereerde lay-out; of om inhoud buiten een toegestane regio te detecteren. Visual‑bounds zijn vooral nuttig voor SmartArt, tekstvakken, pijlen, afbeeldingen, geroteerde vormen en groepsvormen, waar het opgeslagen frame niet het volledige gerenderde resultaat weergeeft.
+
+Gebruik [Shape::getVisualBounds](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getVisualBounds) wanneer u coördinaten voor lay-out of validatie nodig hebt en geen bitmap nodig heeft. Gebruik [Shape::getImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/#getImage) wanneer u de vorm wilt renderen. Met [ShapeThumbnailBounds](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds::Shape` past de afbeelding aan op basis van de vormgrenzen, inclusief contourinstellingen, terwijl `ShapeThumbnailBounds::Appearance` de afbeelding aanpast op basis van de weergave van de vorm en het resultaat beperkt tot de dia‑grenzen. Daarentegen retourneert `Shape::getVisualBounds` alleen het berekende rechthoekige gebied en snijdt het niet bij tot de dia.
 
 ## **FAQ**
 
@@ -127,14 +170,14 @@ Deze voorbeeldcode is gebaseerd op de bovenstaande stappen:
 
 `Shape` gebruikt de geometrie van de vorm; `Appearance` houdt rekening met [visual effects](/slides/nl/php-java/shape-effect/) (schaduwen, gloed, enz.).
 
-**Wat gebeurt er als een vorm als verborgen gemarkeerd is? Wordt deze nog steeds gerenderd als miniatuur?**
+**Wat gebeurt er als een vorm als verborgen is gemarkeerd? Wordt er nog steeds een miniatuur gerenderd?**
 
-Een verborgen vorm blijft deel uitmaken van het model en kan worden gerenderd; de verborgen‑vlag beïnvloedt de weergave van de diavoorstelling maar voorkomt niet dat de afbeelding van de vorm wordt gegenereerd.
+Een verborgen vorm blijft deel van het model en kan worden gerenderd; de verborgen‑vlag beïnvloedt alleen de weergave van de diavoorstelling maar voorkomt niet dat de afbeelding van de vorm wordt gegenereerd.
 
-**Worden groepsvormen, diagrammen, SmartArt en andere complexe objecten ondersteund?**
+**Worden groepsvormen, grafieken, SmartArt en andere complexe objecten ondersteund?**
 
-Ja. Elk object dat wordt weergegeven als [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) (inclusief [GroupShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/) en [SmartArt](https://reference.aspose.com/slides/nl/php-java/aspose.slides/smartart/)) kan worden opgeslagen als een miniatuur of als SVG.
+Ja. Elk object dat wordt weergegeven als [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) (inclusief [GroupShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/) en [SmartArt](https://reference.aspose.com/slides/nl/php-java/aspose.slides/smartart/)) kan worden opgeslagen als miniatuur of als SVG.
 
-**Beïnvloeden systeem‑geïnstalleerde lettertypen de kwaliteit van miniaturen voor tekstvormen?**
+**Hebben systeem‑geïnstalleerde lettertypen invloed op de kwaliteit van miniaturen voor tekstvormen?**
 
-Ja. U moet [de vereiste lettertypen leveren](/slides/nl/php-java/custom-font/) (of [lettertype‑substituties configureren](/slides/nl/php-java/font-substitution/)) om ongewenste terugvallen en tekst‑herindelingen te voorkomen.
+Ja. U moet [de vereiste lettertypen beschikbaar stellen](/slides/nl/php-java/custom-font/) (of [lettertype‑substitutie configureren](/slides/nl/php-java/font-substitution/)) om ongewenste fallback‑ en tekst‑reflow‑problemen te voorkomen.

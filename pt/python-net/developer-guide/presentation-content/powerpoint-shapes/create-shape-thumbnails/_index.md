@@ -1,5 +1,5 @@
 ---
-title: Criar Miniaturas de Formas de Apresentação em Python
+title: Criar miniaturas de formas de apresentação em Python
 linktitle: Miniaturas de Formas
 type: docs
 weight: 70
@@ -9,25 +9,27 @@ keywords:
 - imagem de forma
 - renderizar forma
 - renderização de forma
+- limites visuais
+- limites de forma
 - PowerPoint
 - apresentação
 - Python
 - Aspose.Slides
-description: "Gere miniaturas de alta qualidade de formas a partir de slides PowerPoint e OpenDocument com Aspose.Slides para Python via .NET – crie e exporte miniaturas de apresentações facilmente."
+description: "Gere miniaturas de forma de alta qualidade a partir de slides PowerPoint e OpenDocument com Aspose.Slides for Python via .NET – crie e exporte miniaturas de apresentações facilmente."
 ---
 ## **Introdução**
 
 Aspose.Slides for Python via .NET é usado para criar arquivos de apresentação nos quais cada página é um slide. Você pode visualizar esses slides no Microsoft PowerPoint abrindo o arquivo de apresentação. No entanto, os desenvolvedores às vezes precisam visualizar imagens de formas separadamente em um visualizador de imagens. Nesses casos, o Aspose.Slides pode gerar imagens em miniatura para as formas dos slides. Este artigo explica como usar esse recurso.
 
-## **Gerar miniaturas de formas a partir de slides**
+## **Gerar Miniaturas de Formas a partir de Slides**
 
-Quando você precisa de uma visualização de um objeto específico em vez do slide inteiro, pode renderizar uma miniatura para uma forma individual. O Aspose.Slides permite exportar qualquer forma para uma imagem, facilitando a criação de visualizações leves, ícones ou recursos para processamento posterior.
+Quando você precisa de uma pré‑visualização de um objeto específico em vez de todo o slide, pode renderizar uma miniatura para uma forma individual. O Aspose.Slides permite exportar qualquer forma para uma imagem, facilitando a criação de pré‑visualizações leves, ícones ou recursos para processamento posterior.
 
 Para gerar uma miniatura a partir de qualquer forma:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 1. Obtenha uma referência a um slide pelo seu ID ou índice.
-1. Obtenha uma referência a uma forma nesse slide.
+1. Obtenha uma referência a uma forma naquele slide.
 1. Renderize a imagem em miniatura da forma.
 1. Salve a imagem em miniatura no formato desejado.
 
@@ -47,15 +49,15 @@ with slides.Presentation("hello_world.pptx") as presentation:
         thumbnail.save("shape_thumbnail.png", slides.ImageFormat.PNG)
 ```
 
-## **Gerar miniaturas com um fator de escala personalizado**
+## **Gerar Miniaturas com um Fator de Escala Personalizado**
 
-Esta seção mostra como gerar miniaturas de formas com um fator de escala definido pelo usuário no Aspose.Slides. Ao controlar a escala, você pode ajustar finamente o tamanho da miniatura para atender a visualizações, exportações ou telas de alta DPI.
+Esta seção mostra como gerar miniaturas de formas com um fator de escala definido pelo usuário no Aspose.Slides. Ao controlar a escala, você pode ajustar finamente o tamanho da miniatura para atender a pré‑visualizações, exportações ou telas de alta DPI.
 
 Para gerar uma miniatura para qualquer forma em um slide:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 1. Obtenha um slide pelo seu ID ou índice.
-1. Obtenha a forma alvo nesse slide.
+1. Obtenha a forma alvo naquele slide.
 1. Renderize a imagem em miniatura da forma com a escala especificada.
 1. Salve a imagem em miniatura no formato desejado.
 
@@ -78,15 +80,15 @@ with slides.Presentation("hello_world.pptx") as presentation:
         thumbnail.save("scaling_factor.png", slides.ImageFormat.PNG)
 ```
 
-## **Gerar miniaturas usando os limites de aparência de uma forma**
+## **Gerar Miniaturas Usando os Limites de Aparência de uma Forma**
 
-Esta seção mostra como gerar uma miniatura dentro dos limites de aparência de uma forma. Ela considera todos os efeitos da forma. A miniatura gerada é restrita pelos limites do slide.
+Esta seção mostra como gerar uma miniatura dentro dos limites de aparência de uma forma. Ela considera todos os efeitos da forma. A miniatura gerada é limitada pelos limites do slide.
 
 Para gerar uma miniatura de qualquer forma de slide dentro dos limites de sua aparência:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 1. Obtenha um slide pelo seu ID ou índice.
-1. Obtenha a forma alvo nesse slide.
+1. Obtenha a forma alvo naquele slide.
 1. Renderize a imagem em miniatura da forma com os limites especificados.
 1. Salve a imagem em miniatura no formato de imagem desejado.
 
@@ -108,9 +110,38 @@ with slides.Presentation("hello_world.pptx") as presentation:
         thumbnail.save("apperance_bounds.png", slides.ImageFormat.PNG)
 ```
 
-## **Perguntas frequentes**
+## **Obter os Limites Visuais Reais de uma Forma**
 
-**Quais formatos de imagem podem ser usados ao salvar miniaturas de formas?**
+As propriedades de quadro de uma [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) — `Shape.x`, `Shape.y`, `Shape.width` e `Shape.height` — descrevem o retângulo armazenado no modelo da apresentação. O conteúdo que é realmente renderizado pode se estender além desse quadro ou ocupar um retângulo alinhado aos eixos diferente. Rotação, contornos, pontas de flecha, layout e transbordamento de texto, geometria de SmartArt gerada e outros efeitos de renderização podem alterar a área ocupada.
+
+Use [Shape.get_visual_bounds](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/get_visual_bounds/) para calcular essa área ocupada sem criar uma imagem. O método retorna um retângulo de ponto flutuante nas coordenadas do slide. O retângulo retornado não é recortado ao slide, portanto suas coordenadas podem ser negativas quando o conteúdo se estende além da origem do slide.
+
+O exemplo a seguir obtém e compara os limites de quadro e os limites visuais:
+
+```py
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
+with slides.Presentation("example.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    visual_bounds = shape.get_visual_bounds()
+
+    frame_values = (shape.x, shape.y, shape.width, shape.height)
+    visual_values = (visual_bounds.x, visual_bounds.y, visual_bounds.width, visual_bounds.height)
+
+    print(f"Frame bounds (x, y, width, height): {frame_values}")
+    print(f"Visual bounds (x, y, width, height): {visual_values}")
+```
+
+O mesmo retângulo pode ser usado para alinhar formas próximas à sua borda `left`, `right`, `top` ou `bottom`; reservar espaço suficiente em um layout gerado; ou detectar conteúdo fora de uma região permitida. Os limites visuais são especialmente úteis para SmartArt, caixas de texto, setas, imagens, formas rotacionadas e formas agrupadas, onde o quadro armazenado pode não representar o resultado renderizado completo.
+
+Use [Shape.get_visual_bounds](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/get_visual_bounds/) quando precisar de coordenadas para layout ou validação e não precisar de um bitmap. Use [Shape.get_image](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/get_image/) quando precisar renderizar a forma. Com [ShapeThumbnailBounds](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds.SHAPE` dimensiona a imagem a partir dos limites da forma, incluindo configurações de contorno, enquanto `ShapeThumbnailBounds.APPEARANCE` a dimensiona a partir da aparência da forma e restringe o resultado aos limites do slide. Em contraste, `Shape.get_visual_bounds` retorna apenas o retângulo calculado e não o recorta ao slide.
+
+## **FAQ**
+
+**Quais formatos de imagem podem ser usados ao salvar miniaturas de forma?**
 
 [PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/pt/python-net/aspose.slides/imageformat/), e outros. As formas também podem ser [exportadas como SVG vetorial](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/write_as_svg/) salvando o conteúdo da forma como SVG.
 
@@ -122,10 +153,10 @@ with slides.Presentation("hello_world.pptx") as presentation:
 
 Uma forma oculta continua fazendo parte do modelo e pode ser renderizada; a flag oculta afeta a exibição da apresentação, mas não impede a geração da imagem da forma.
 
-**Grupos de formas, gráficos, SmartArt e outros objetos complexos são suportados?**
+**Formas agrupadas, gráficos, SmartArt e outros objetos complexos são suportados?**
 
-Sim. Qualquer objeto representado como [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) (incluindo [GroupShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/pt/python-net/aspose.slides.charts/chart/) e [SmartArt](https://reference.aspose.com/slides/pt/python-net/aspose.slides.smartart/smartart/)) pode ser salvo como miniatura ou como SVG.
+Sim. Qualquer objeto representado como [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) (incluindo [GroupShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/pt/python-net/aspose.slides.charts/chart/), e [SmartArt](https://reference.aspose.com/slides/pt/python-net/aspose.slides.smartart/smartart/)) pode ser salvo como miniatura ou como SVG.
 
 **As fontes instaladas no sistema afetam a qualidade das miniaturas de formas de texto?**
 
-Sim. Você deve [fornecer as fontes necessárias](/slides/pt/python-net/custom-font/) (ou [configurar substituições de fontes](/slides/pt/python-net/font-substitution/)) para evitar substituições indesejadas e reflow de texto.
+Sim. Você deve [fornecer as fontes necessárias](/slides/pt/python-net/custom-font/) (ou [configurar substituições de fonte](/slides/pt/python-net/font-substitution/)) para evitar substituições indesejadas e reajuste de texto.

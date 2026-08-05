@@ -1,49 +1,51 @@
 ---
-title: Buat Gambar Miniatur Bentuk Presentasi di Android
-linktitle: Miniatur Bentuk
+title: Membuat Thumbnail Bentuk Presentasi di Android
+linktitle: Thumbnail Bentuk
 type: docs
 weight: 70
 url: /id/androidjava/create-shape-thumbnails/
 keywords:
-- miniatur bentuk
+- thumbnail bentuk
 - gambar bentuk
 - render bentuk
 - rendering bentuk
+- batas visual
+- batas bentuk
 - PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Hasilkan miniatur bentuk berkualitas tinggi dari slide PowerPoint dengan Aspose.Slides untuk Android via Java – dengan mudah buat dan ekspor miniatur presentasi."
+description: "Hasilkan thumbnail bentuk berkualitas tinggi dari slide PowerPoint dengan Aspose.Slides untuk Android via Java - dengan mudah membuat dan mengekspor thumbnail presentasi."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides for Android via Java dapat digunakan untuk membuat file presentasi di mana setiap halaman sesuai dengan sebuah slide. Slide dapat dilihat dengan membuka file presentasi menggunakan Microsoft PowerPoint. Namun, terkadang pengembang perlu melihat gambar bentuk secara terpisah dalam penampil gambar. Dalam kasus seperti itu, Aspose.Slides for Android via Java membantu mereka menghasilkan gambar miniatur bentuk slide.
+Aspose.Slides for Android via Java dapat digunakan untuk membuat file presentasi di mana setiap halaman berkorespondensi dengan satu slide. Slide dapat dilihat dengan membuka file presentasi menggunakan Microsoft PowerPoint. Namun, kadang‑kadang pengembang perlu melihat gambar bentuk secara terpisah di penampil gambar. Dalam kasus tersebut, Aspose.Slides for Android via Java membantu mereka menghasilkan gambar thumbnail dari bentuk slide.
 
-Dalam topik ini, kami akan menunjukkan cara menghasilkan gambar miniatur slide dalam berbagai situasi:
+Dalam topik ini, kami akan menunjukkan cara menghasilkan thumbnail slide dalam berbagai situasi:
 
-- Menghasilkan gambar miniatur bentuk di dalam slide.
-- Menghasilkan gambar miniatur bentuk untuk bentuk slide dengan dimensi yang ditentukan pengguna.
-- Menghasilkan gambar miniatur bentuk dalam batas tampilan bentuk.
+- Menghasilkan thumbnail bentuk di dalam slide.
+- Menghasilkan thumbnail bentuk untuk bentuk slide dengan dimensi yang ditentukan pengguna.
+- Menghasilkan thumbnail bentuk dalam batas tampilan bentuk.
 
-## **Hasilkan Gambar Miniatur Bentuk dari Slide**
-Untuk menghasilkan gambar miniatur bentuk dari slide mana pun menggunakan Aspose.Slides for Android via Java, lakukan hal berikut:
+## **Menghasilkan Thumbnail Bentuk dari Slide**
+Untuk menghasilkan thumbnail bentuk dari slide mana pun menggunakan Aspose.Slides for Android via Java, lakukan hal berikut:
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
 1. Dapatkan referensi slide mana pun menggunakan ID atau indeksnya.
-1. Dapatkan [gambar miniatur bentuk](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IShape#getImage--) dari slide yang direferensikan pada skala default.
-1. Simpan gambar miniatur dalam format gambar pilihan Anda.
+1. [Dapatkan gambar thumbnail bentuk](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IShape#getImage--) dari slide yang direferensikan dengan skala default.
+1. Simpan gambar thumbnail dalam format gambar pilihan Anda.
 
-Contoh kode ini menunjukkan cara menghasilkan gambar miniatur bentuk dari slide:
+Contoh kode ini menunjukkan cara menghasilkan thumbnail bentuk dari slide:
 
 ```java
-// Instansiasi kelas Presentation yang mewakili file presentasi
+// Membuat instance kelas Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
-    // Buat gambar skala penuh
+    // Membuat gambar dengan skala penuh
     IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
     
-    // Simpan gambar ke disk dalam format PNG
+    // Menyimpan gambar ke disk dalam format PNG
     try {
           slideImage.save("output.png", ImageFormat.Png);
     } finally {
@@ -54,24 +56,24 @@ try {
 }
 ```
 
-## **Hasilkan Gambar Miniatur dengan Faktor Skala yang Ditentukan Pengguna**
-Untuk menghasilkan gambar miniatur bentuk dari slide menggunakan Aspose.Slides for Android via Java, lakukan hal berikut:
+## **Menghasilkan Thumbnail dengan Faktor Skala yang Didefinisikan Pengguna**
+Untuk menghasilkan thumbnail bentuk slide menggunakan Aspose.Slides for Android via Java, lakukan hal berikut:
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
 1. Dapatkan referensi slide mana pun menggunakan ID atau indeksnya.
-1. Dapatkan [gambar miniatur bentuk](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IShape#getImage-int-float-float-) dari slide yang direferensikan dengan dimensi yang ditentukan pengguna.
-1. Simpan gambar miniatur dalam format gambar pilihan Anda.
+1. [Dapatkan gambar thumbnail bentuk](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IShape#getImage-int-float-float-) dari slide yang direferensikan dengan dimensi yang ditentukan pengguna.
+1. Simpan gambar thumbnail dalam format gambar pilihan Anda.
 
-Contoh kode ini menunjukkan cara menghasilkan gambar miniatur bentuk berdasarkan faktor skala yang ditentukan:
+Contoh kode ini menunjukkan cara menghasilkan thumbnail bentuk berdasarkan faktor skala yang ditentukan:
 
 ```java
-// Instansiasi kelas Presentation yang mewakili file presentasi
+// Membuat instance kelas Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
-    // Buat gambar skala penuh
+    // Membuat gambar dengan skala penuh
     IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 1, 1);
 
-    // Simpan gambar ke disk dalam format PNG
+    // Menyimpan gambar ke disk dalam format PNG
     try {
           slideImage.save("output.png", ImageFormat.Png);
     } finally {
@@ -82,24 +84,24 @@ try {
 }
 ```
 
-## **Buat Gambar Miniatur Penampilan Bentuk Berbasis Batas**
-Metode ini untuk membuat gambar miniatur bentuk memungkinkan pengembang menghasilkan gambar miniatur dalam batas penampilan bentuk. Metode ini memperhitungkan semua efek bentuk. Gambar miniatur bentuk yang dihasilkan dibatasi oleh batas slide. Untuk menghasilkan gambar miniatur bentuk slide dalam batas penampilannya, lakukan hal berikut:
+## **Membuat Thumbnail Tampilan Bentuk Berdasarkan Batas**
+Metode pembuatan thumbnail bentuk ini memungkinkan pengembang untuk menghasilkan thumbnail dalam batas tampilan bentuk. Metode ini memperhitungkan semua efek bentuk. Thumbnail bentuk yang dihasilkan dibatasi oleh batas slide. Untuk menghasilkan thumbnail bentuk slide dalam batas tampilannya, lakukan hal berikut:
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
 1. Dapatkan referensi slide mana pun menggunakan ID atau indeksnya.
-1. Dapatkan gambar miniatur dari slide yang direferensikan dengan batas bentuk sebagai penampilan.
-1. Simpan gambar miniatur dalam format gambar pilihan Anda.
+1. Dapatkan gambar thumbnail dari slide yang direferensikan dengan batas bentuk sebagai tampilan.
+1. Simpan gambar thumbnail dalam format gambar pilihan Anda.
 
-Contoh kode ini didasarkan pada langkah-langkah di atas:
+Contoh kode berikut didasarkan pada langkah‑langkah di atas:
 
 ```java
-// Instansiasi kelas Presentation yang mewakili file presentasi
+// Membuat instance kelas Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
-    // Buat gambar skala penuh
+    // Membuat gambar dengan skala penuh
     IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
-    // Simpan gambar ke disk dalam format PNG
+    // Menyimpan gambar ke disk dalam format PNG
     try {
           slideImage.save("output.png", ImageFormat.Png);
     } finally {
@@ -110,24 +112,59 @@ try {
 }
 ```
 
-## **FAQ**
+## **Mendapatkan Batas Visual Aktual Sebuah Bentuk**
 
-**Format gambar apa yang dapat digunakan saat menyimpan gambar miniatur bentuk?**
+Properti bingkai dari [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/)—metode `getX()`, `getY()`, `getWidth()`, dan `getHeight()`—menjelaskan persegi panjang yang disimpan dalam model presentasi. Konten yang sebenarnya dirender dapat melampaui bingkai tersebut atau menempati persegi panjang berorientasi sumbu yang berbeda. Rotasi, outline, ujung panah, tata letak teks dan overflow, geometri SmartArt yang dihasilkan, serta efek rendering lainnya dapat mengubah area yang ditempati.
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imageformat/), dan lainnya. Bentuk juga dapat [diekspor sebagai SVG vektor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) dengan menyimpan konten bentuk sebagai SVG.
+Gunakan [Shape.getVisualBounds](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/#getVisualBounds--) untuk menghitung area yang ditempati tanpa membuat gambar. Metode ini mengembalikan objek [RectF](https://developer.android.com/reference/android/graphics/RectF) dalam koordinat slide. Persegi panjang yang dikembalikan tidak dipotong ke slide, sehingga koordinatnya dapat menjadi negatif ketika konten meluas di luar asal slide.
 
-**Apa perbedaan antara batas Shape dan Appearance saat merender gambar miniatur?**
+[Shape.getVisualBounds](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/#getVisualBounds--) saat ini belum dideklarasikan oleh antarmuka [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/). Oleh karena itu, pertahankan bentuk yang diambil dari koleksi bentuk slide sebagai nilai antarmuka dan lakukan cast hanya saat memanggil metode tersebut.
+
+Contoh berikut mengambil dan membandingkan batas bingkai serta batas visual:
+
+```java
+Presentation presentation = new Presentation("example.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    RectF visualBounds = ((Shape) shape).getVisualBounds();
+
+    float frameLeft = shape.getX();
+    float frameTop = shape.getY();
+    float frameRight = frameLeft + shape.getWidth();
+    float frameBottom = frameTop + shape.getHeight();
+    RectF frameBounds = new RectF(frameLeft, frameTop, frameRight, frameBottom);
+
+    System.out.println("Frame bounds: " + frameBounds);
+    System.out.println("Visual bounds: " + visualBounds);
+} finally {
+    presentation.dispose();
+}
+```
+
+[RectF](https://developer.android.com/reference/android/graphics/RectF) yang sama dapat digunakan untuk menyelaraskan bentuk‑bentuk tetangga ke tepi kiri, kanan, atas, atau bawahnya; menyediakan ruang yang cukup dalam tata letak yang dihasilkan; atau mendeteksi konten di luar wilayah yang diizinkan. Batas visual sangat berguna untuk SmartArt, kotak teks, panah, gambar, bentuk yang diputar, dan grup bentuk, di mana bingkai yang disimpan mungkin tidak merepresentasikan hasil render penuh.
+
+Gunakan [Shape.getVisualBounds](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/#getVisualBounds--) ketika Anda memerlukan koordinat untuk tata letak atau validasi dan tidak memerlukan bitmap. Gunakan [IShape.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#getImage--) ketika Anda perlu merender bentuk. Dengan [ShapeThumbnailBounds](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds.Shape` mengukur gambar dari batas bentuk, termasuk pengaturan outline, sementara `ShapeThumbnailBounds.Appearance` mengukurnya dari tampilan bentuk dan membatasi hasil ke batas slide. Sebaliknya, [Shape.getVisualBounds](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/#getVisualBounds--) hanya mengembalikan persegi panjang yang dihitung dan tidak memotongnya ke slide.
+
+## **Tanya Jawab**
+
+**Format gambar apa yang dapat digunakan saat menyimpan thumbnail bentuk?**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imageformat/), dan format lainnya. Bentuk juga dapat [diekspor sebagai vektor SVG](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) dengan menyimpan konten bentuk sebagai SVG.
+
+**Apa perbedaan antara batas Shape dan Appearance saat merender thumbnail?**
 
 `Shape` menggunakan geometri bentuk; `Appearance` memperhitungkan [efek visual](/slides/id/androidjava/shape-effect/) (bayangan, cahaya, dll).
 
-**Apa yang terjadi jika sebuah bentuk ditandai sebagai tersembunyi? Apakah masih akan dirender sebagai gambar miniatur?**
+**Apa yang terjadi jika sebuah bentuk ditandai sebagai tersembunyi? Apakah tetap akan dirender sebagai thumbnail?**
 
 Bentuk yang tersembunyi tetap menjadi bagian dari model dan dapat dirender; flag tersembunyi memengaruhi tampilan slideshow tetapi tidak mencegah pembuatan gambar bentuk.
 
 **Apakah bentuk grup, diagram, SmartArt, dan objek kompleks lainnya didukung?**
 
-Ya. Setiap objek yang direpresentasikan sebagai [Shape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/) (termasuk [GroupShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/chart/), dan [SmartArt](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/smartart/)) dapat disimpan sebagai gambar miniatur atau sebagai SVG.
+Ya. Objek apa pun yang direpresentasikan sebagai [Shape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/shape/) (termasuk [GroupShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/chart/), dan [SmartArt](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/smartart/)) dapat disimpan sebagai thumbnail atau sebagai SVG.
 
-**Apakah font yang terpasang di sistem memengaruhi kualitas gambar miniatur untuk bentuk teks?**
+**Apakah font yang diinstal pada sistem memengaruhi kualitas thumbnail untuk bentuk teks?**
 
-Ya. Anda harus [menyediakan font yang diperlukan](/slides/id/androidjava/custom-font/) (atau [mengonfigurasi substitusi font](/slides/id/androidjava/font-substitution/)) untuk menghindari fallback yang tidak diinginkan dan perubahan aliran teks.
+Ya. Anda harus [menyediakan font yang diperlukan](/slides/id/androidjava/custom-font/) (atau [mengonfigurasi substitusi font](/slides/id/androidjava/font-substitution/)) untuk menghindari fallback yang tidak diinginkan dan perubahan tata letak teks.
