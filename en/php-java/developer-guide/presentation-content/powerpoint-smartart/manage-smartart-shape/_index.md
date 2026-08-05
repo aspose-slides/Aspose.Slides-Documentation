@@ -65,7 +65,8 @@ The following code will be used to access the SmartArt shapes added in presentat
   $pres = new Presentation("AccessSmartArtShape.pptx");
   try {
     # Traverse through every shape inside first slide
-    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
+    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
+    foreach ($shapes as $shape) {
       # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Typecast shape to SmartArtEx
@@ -93,7 +94,8 @@ The following sample code will help to access the [SmartArt](https://reference.a
   $pres = new Presentation("AccessSmartArtShape.pptx");
   try {
     # Traverse through every shape inside first slide
-    foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
+    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
+    foreach ($shapes as $shape) {
       # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Typecast shape to SmartArtEx
@@ -129,7 +131,8 @@ In this example, we will learn to change the quick style for any SmartArt shape.
     # Get first slide
     $slide = $pres->getSlides()->get_Item(0);
     # Traverse through every shape inside first slide
-    foreach($slide->getShapes() as $shape) {
+    $shapes = $slide->getShapes();
+    foreach ($shapes as $shape) {
       # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Typecast shape to SmartArtEx
@@ -170,7 +173,8 @@ In this example, we will learn to change the color style for any SmartArt shape.
     # Get first slide
     $slide = $pres->getSlides()->get_Item(0);
     # Traverse through every shape inside first slide
-    foreach($slide->getShapes() as $shape) {
+    $shapes = $slide->getShapes();
+    foreach ($shapes as $shape) {
       # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
         # Typecast shape to SmartArtEx

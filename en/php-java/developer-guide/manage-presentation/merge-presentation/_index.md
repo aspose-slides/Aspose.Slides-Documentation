@@ -82,7 +82,8 @@ This PHP code shows you how to merge presentations:
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
+      $slides = $pres2->getSlides();
+      foreach($slides as $slide) {
         $pres1->getSlides()->addClone($slide);
       }
     } finally {
@@ -109,7 +110,8 @@ This code  demonstrates the described operation:
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
+      $slides = $pres2->getSlides();
+      foreach($slides as $slide) {
         $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
       }
     } finally {
@@ -152,8 +154,8 @@ function getTitleSlide(Presentation $presentation) {
 ```
 ```php
 $presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
+$presentation1 = new Presentation("presentation1.pptx");
+$presentation2 = new Presentation("presentation2.pptx");
 try {
     $presentation->getSlides()->removeAt(0);
     
@@ -167,7 +169,7 @@ try {
     if ($slide2 != null)
         $presentation->getSlides()->addClone($slide2);
 
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $presentation->save("combined.pptx", SaveFormat::Pptx);
 } finally {
     $presentation2->dispose();
     $presentation1->dispose();
@@ -184,7 +186,8 @@ This PHP code shows you how to combine slides from presentations while applying 
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
+      $slides = $pres2->getSlides();
+      foreach($slides as $slide) {
         $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
       }
     } finally {
@@ -218,7 +221,8 @@ This sample code demonstrates the described operation:
     $pres2 = new Presentation("pres2.pptx");
     try {
       $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
+      $slides = $pres2->getSlides();
+      foreach($slides as $slide) {
         $pres1->getSlides()->addClone($slide);
       }
     } finally {
@@ -243,7 +247,8 @@ This PHP code shows you how to merge a specific slide to a section in a presenta
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
+      $slides = $pres2->getSlides();
+      foreach($slides as $slide) {
         $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
       }
     } finally {

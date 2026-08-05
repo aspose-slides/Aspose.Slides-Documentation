@@ -68,14 +68,14 @@ This PHP code shows you how to set the prompt text in a placeholder:
   $pres = new Presentation("Presentation.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    # Iterates through the slide
-    foreach($slide->getSlide()->getShapes() as $shape) {
-      if (java_instanceof($shape->getPlaceholder()) != null && $shape, new JavaClass("com.aspose.slides.AutoShape")) {
+    # Iterates through the slide layout
+    foreach($slide->getLayoutSlide()->getShapes() as $shape) {
+      if (!java_is_null($shape->getPlaceholder()) && java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
         $text = "";
         # PowerPoint displays "Click to add title"
         if ($shape->getPlaceholder()->getType() == PlaceholderType::CenteredTitle) {
           $text = "Add Title";
-        } else // Adds subtitle
+        } else # Adds subtitle
         if ($shape->getPlaceholder()->getType() == PlaceholderType::Subtitle) {
           $text = "Add Subtitle";
         }
@@ -102,7 +102,7 @@ This PHP code shows you how to set the transparency for a picture background (in
   $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $operationCollection = $shape->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
   for($i = 0; $i < java_values($operationCollection->size()) ; $i++) {
-    if (java_instanceof($operationCollection->get_Item($i)), new JavaClass("com.aspose.slides.AlphaModulateFixed")) {
+    if (java_instanceof($operationCollection->get_Item($i), new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
       $alphaModulate = $operationCollection->get_Item($i);
       $currentValue = 100 - $alphaModulate->getAmount();
       echo("Current transparency value: " . $currentValue);

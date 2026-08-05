@@ -246,11 +246,14 @@ This PHP code shows you how to remove the hyperlink from a text in a presentatio
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    foreach($slide->getShapes() as $shape) {
+    $shapes = $slide->getShapes();
+    foreach ($shapes as $shape) {
       $autoShape = $shape;
       if (!java_is_null($autoShape)) {
-        foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-          foreach($paragraph->getPortions() as $portion) {
+        $paragraphs = $autoShape->getTextFrame()->getParagraphs();
+        foreach ($paragraphs as $paragraph) {
+          $portions = $paragraph->getPortions();
+          foreach ($portions as $portion) {
             $portion->getPortionFormat()->getHyperlinkManager()->removeHyperlinkClick();
           }
         }
@@ -272,7 +275,8 @@ This PHP code shows you how to remove the hyperlink from a shape in a presentati
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    foreach($slide->getShapes() as $shape) {
+    $shapes = $slide->getShapes();
+    foreach ($shapes as $shape) {
       $shape->getHyperlinkManager()->removeHyperlinkClick();
     }
     $pres->save("pres-removed-hyperlinks.pptx", SaveFormat::Pptx);

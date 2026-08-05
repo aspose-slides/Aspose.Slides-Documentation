@@ -125,8 +125,12 @@ require_once("lib/aspose.slides.php");
 
 use aspose\slides\License;
 
+$stream = new Java("java.io.FileInputStream", "Aspose.Slides.lic");
+
 $license = new License();
 $license->setLicense($stream);
+
+$stream->close();
 ?>
 ```
 

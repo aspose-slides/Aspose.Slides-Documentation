@@ -61,7 +61,7 @@ You can add one or several images on your computer onto a slide in a presentatio
   try {
     $slide = $pres->getSlides()->get_Item(0);
     $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
@@ -88,16 +88,15 @@ This sample code shows you how to add an image from the web to a slide :
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $imageUrl = new URL("[REPLACE WITH URL]");
+    $imageUrl = new Java("java.net.URL", "[REPLACE WITH URL]");
     $connection = $imageUrl->openConnection();
     $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
     $Array = new java_class("java.lang.reflect.Array");
-    $Byte = new JavaClass("java.lang.Byte");
+    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
     try {
       $buffer = $Array->newInstance($Byte, 1024);
-      $read;
-      while ($read = $inputStream->read($buffer, 0, $Array->getLength($buffer)) != -1) {
+      while (($read = java_values($inputStream->read($buffer, 0, $Array->getLength($buffer)))) != -1) {
         $outputStream->write($buffer, 0, $read);
       } 
       $outputStream->flush();
@@ -130,7 +129,7 @@ This Java sample code shows you how to add an image to a slide master:
     $slide = $pres->getSlides()->get_Item(0);
     $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
     $picture;
-    $image = Images->fromFile("image.png");
+    $image = Images::fromFile("image.png");
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
@@ -174,7 +173,7 @@ try {
 } finally {
     if (!java_is_null($dis)) $dis->close();
 }
-    $svgContent = new String($bytes);
+    $svgContent = new Java("java.lang.String", $bytes);
 
     $svgImage = new SvgImage($svgContent);
     $ppImage = $pres->getImages()->addImage($svgImage);
@@ -251,7 +250,7 @@ This sample code shows you how to perform the described task:
       $EmfSheetName = "test" . $sheet->getName() . " Page" . $j + 1 . ".out.emf";
       $sr->toImage($j, $EmfSheetName);
       $picture;
-      $image = Images->fromFile($EmfSheetName);
+      $image = Images::fromFile($EmfSheetName);
       try {
         $picture = $pres->getImages()->addImage($image);
       } finally {

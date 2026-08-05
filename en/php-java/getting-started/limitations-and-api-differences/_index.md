@@ -63,7 +63,7 @@ arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
 **Aspose.Slides for PHP via Java**
 
 ```php
-$arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
+$arc2->getLineFormat()->setDashStyle(slides\LineDashStyle::Solid);
 ```
 
 ### **Example**
@@ -138,8 +138,11 @@ The parameters and arguments they return and accept are wrappers on top of the J
 
 **A common mistake:**
 ``` php
-if ($node->isAssistant()) - wrong!
-if (java_values($node->isAssistant())) - correct!
+# Wrong - a Java Boolean is an object, so it is always truthy in PHP:
+#   if ($node->isAssistant()) { ... }
+
+# Correct - unwrap the Java value first:
+#   if (java_values($node->isAssistant())) { ... }
 ```
 
 #### **2. Extending Java Class and Instanceof Operator**
@@ -163,18 +166,23 @@ $IntegerArray[1] = 0;
 #### **4. A Java Array Length**
 
 ``` php
-$data->length; - does NOT work
+# Does NOT work - a Java array is not a PHP object and has no "length" property:
+#   $data->length;
 ```
 workaround
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
+$Integer = new JavaClass("java.lang.Integer");
+$data = $Array->newInstance($Integer, 2);
+
 $Array->getLength($data);
 ```
 
 #### **5. The Java Method Files.readAllBytes**
 
 ``` php
-$htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
+# Does NOT work - Files and Paths are Java classes and cannot be used like this in PHP:
+#   $htmlBytes = Files->readAllBytes(Paths->get("embedOle.html"));
 ```
 workaround
 ``` php
@@ -193,15 +201,22 @@ try {
 #### **6. The Java Method Files.write**
 
 ``` php
-Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - does NOT work
+# Does NOT work - Files is a Java class, and "new File($path)->toPath()" is not valid PHP:
+#   Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE);
 ```
 workaround
 ``` php
+$path = "font.ttf";
+
+$pres = new Presentation("Fonts.pptx");
+$fontData = $pres->getFontsManager()->getFontBytes($pres->getFontsManager()->getFonts()[0], FontStyleType::Regular);
+$pres->dispose();
+
 $fstr = new Java("java.io.FileOutputStream", $path);
 $Array = new java_class("java.lang.reflect.Array");
 try {
     $fstr->write($fontData, 0, $Array->getLength($fontData));
 } finally {
-	$fstr->close();
+    $fstr->close();
 }
 ```

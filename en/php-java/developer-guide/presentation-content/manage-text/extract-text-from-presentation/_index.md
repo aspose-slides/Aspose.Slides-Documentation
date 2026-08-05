@@ -122,9 +122,10 @@ try {
 The [PresentationFactory](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ```php
-PresentationText getPresentationText(String, int);
-PresentationText getPresentationText(InputStream, int);
-PresentationText getPresentationText(InputStream, int, LoadOptions);
+# The PresentationFactory class exposes these getPresentationText overloads:
+#     PresentationText getPresentationText(String path, int arrangingMode);
+#     PresentationText getPresentationText(InputStream stream, int arrangingMode);
+#     PresentationText getPresentationText(InputStream stream, int arrangingMode, LoadOptions loadOptions);
 ```
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/php-java/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:
