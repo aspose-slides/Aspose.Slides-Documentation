@@ -1,5 +1,5 @@
 ---
-title: JavaScript를 사용하여 프레젠테이션에서 차트 워크북 관리
+title: JavaScript를 사용한 프레젠테이션에서 차트 워크북 관리
 linktitle: 차트 워크북
 type: docs
 weight: 70
@@ -13,24 +13,27 @@ keywords:
 - 데이터 소스
 - 외부 워크북
 - 외부 데이터
+- 차트 캐시
+- 워크북 복구
 - PowerPoint
 - 프레젠테이션
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Java를 통해 Node.js용 Aspose.Slides를 발견하고, PowerPoint 및 OpenDocument 형식의 차트 워크북을 손쉽게 관리하여 프레젠테이션 데이터를 간소화하세요."
+description: "Java를 통해 Node.js용 Aspose.Slides를 발견하고, PowerPoint 및 OpenDocument 형식에서 차트 워크북을 손쉽게 관리하여 프레젠테이션 데이터를 효율화하십시오."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides에서 차트 워크북을 사용하는 방법을 설명합니다. 워크북 스트림을 통해 차트 데이터를 읽고 쓰는 방법, 워크북 셀을 차트 데이터 레이블로 사용하는 방법, 워크시트 컬렉션에 액세스하는 방법, 차트 값에 대한 데이터 원본 유형을 지정하는 방법을 보여줍니다.
+이 문서에서는 Aspose.Slides에서 차트 워크북을 사용하는 방법을 설명합니다. 워크북 스트림을 통해 차트 데이터를 읽고 쓰는 방법, 워크북 셀을 차트 데이터 레이블로 사용하는 방법, 워크시트 컬렉션에 액세스하는 방법 및 차트 값의 데이터 소스 유형을 지정하는 방법을 보여줍니다.
 
-또한 외부 워크북을 차트 데이터 원본으로 사용하는 방법도 다룹니다. 예제에서는 외부 워크북을 생성하고 할당하는 방법, 차트에 연결된 외부 워크북의 경로를 검색하는 방법, 워크북이 있을 때 차트 데이터를 편집하는 방법을 보여줍니다.
+또한 외부 워크북을 차트 데이터 소스로 사용하는 방법도 다룹니다. 예제에서는 외부 워크북을 생성하고 할당하는 방법, 차트에 연결된 외부 워크북의 경로를 가져오는 방법, 워크북을 사용할 수 있을 때 차트 데이터를 편집하는 방법을 보여줍니다.
 
-## **워크북에서 차트 데이터 읽고 쓰기**
+## **워크북에서 차트 데이터 읽기 및 쓰기**
 
-Aspose.Slides는 [readWorkbookStream](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) 및 [writeWorkbookStream](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) 메서드를 제공하여 차트 데이터 워크북( Aspose.Cells로 편집된 차트 데이터를 포함)을 읽고 쓸 수 있습니다. **Note** 차트 데이터는 동일한 방식으로 정리되어 있거나 원본과 유사한 구조를 가져야 합니다.
+Aspose.Slides는 차트 데이터 워크북( Aspose.Cells로 편집된 차트 데이터를 포함) 을 읽고 쓸 수 있는 [readWorkbookStream](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) 및 [writeWorkbookStream](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) 메서드를 제공합니다. **참고** 차트 데이터는 동일한 방식으로 정렬되거나 원본과 유사한 구조를 가져야 합니다.
 
-이 JavaScript 코드는 샘플 작업을 보여줍니다:
+다음 JavaScript 코드는 샘플 작업을 보여줍니다:
+
 ```javascript
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -50,13 +53,14 @@ try {
 ## **워크북 셀을 차트 데이터 레이블로 설정**
 
 1. [Presentation](https://apireference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 통해 슬라이드 참조를 얻습니다.
-1. 데이터를 포함한 버블 차트를 추가합니다.
+1. 인덱스를 통해 슬라이드 참조를 가져옵니다.
+1. 몇 가지 데이터가 포함된 버블 차트를 추가합니다.
 1. 차트 시리즈에 액세스합니다.
 1. 워크북 셀을 데이터 레이블로 설정합니다.
 1. 프레젠테이션을 저장합니다.
 
-이 JavaScript 코드는 워크북 셀을 차트 데이터 레이블로 설정하는 방법을 보여줍니다:
+다음 JavaScript 코드는 워크북 셀을 차트 데이터 레이블로 설정하는 방법을 보여줍니다:
+
 ```javascript
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
@@ -83,7 +87,8 @@ try {
 
 ## **워크시트 관리**
 
-이 JavaScript 코드는 [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) 메서드를 사용하여 워크시트 컬렉션에 액세스하는 작업을 보여줍니다:
+다음 JavaScript 코드는 [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) 메서드를 사용하여 워크시트 컬렉션에 액세스하는 작업을 보여줍니다:
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -99,9 +104,10 @@ try {
 }
 ```
 
-## **데이터 원본 유형 지정**
+## **데이터 소스 유형 지정**
 
-이 JavaScript 코드는 데이터 원본에 대한 유형을 지정하는 방법을 보여줍니다:
+다음 JavaScript 코드는 데이터 소스 유형을 지정하는 방법을 보여줍니다:
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -121,7 +127,8 @@ try {
 
 ## **지원되지 않는 내장 워크북 형식 감지**
 
-Aspose.Slides는 일부 차트에 포함될 수 있는 Excel 바이너리 워크북(.xlsb) 형식을 지원하지 않습니다. 지원되지 않는 형식을 감지하고 해당 차트를 건너뛰려면 [ChartData](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/)에서 `getEmbeddedWorkbookType` 메서드와 [WorkbookType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/workbooktype/) 열거형을 함께 사용할 수 있습니다.
+Aspose.Slides는 일부 차트에 포함될 수 있는 Excel 이진 워크북(.xlsb) 형식을 지원하지 않습니다. [ChartData](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/)의 `getEmbeddedWorkbookType` 메서드와 [WorkbookType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/workbooktype/) 열거형을 함께 사용하여 지원되지 않는 형식을 감지하고 해당 차트를 건너뛸 수 있습니다.
+
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
@@ -151,13 +158,14 @@ try {
 
 ## **외부 워크북**
 
-Aspose.Slides는 차트의 데이터 원본으로 외부 워크북을 지원합니다.
+Aspose.Slides는 차트의 데이터 소스로 외부 워크북을 지원합니다.
 
 ### **외부 워크북 만들기**
 
-**`readWorkbookStream`** 및 **`setExternalWorkbook`** 메서드를 사용하면 외부 워크북을 처음부터 만들거나 내부 워크북을 외부 워크북으로 전환할 수 있습니다.
+**`readWorkbookStream`** 및 **`setExternalWorkbook`** 메서드를 사용하면 처음부터 외부 워크북을 만들거나 내부 워크북을 외부로 전환할 수 있습니다.
 
-이 JavaScript 코드는 외부 워크북 생성 과정을 보여줍니다:
+다음 JavaScript 코드는 외부 워크북 생성 과정을 보여줍니다:
+
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
@@ -184,13 +192,14 @@ try {
 
 ### **외부 워크북 설정**
 
-**`setExternalWorkbook`** 메서드를 사용하면 외부 워크북을 차트의 데이터 원본으로 할당할 수 있습니다. 이 메서드는 외부 워크북의 경로가 이동된 경우 경로를 업데이트하는 데에도 사용할 수 있습니다.
+**`setExternalWorkbook`** 메서드를 사용하면 차트에 외부 워크북을 데이터 소스로 할당할 수 있습니다. 이 메서드는 외부 워크북이 이동된 경우 경로를 업데이트하는 데에도 사용할 수 있습니다.
 
-원격 위치나 리소스에 저장된 워크북의 데이터를 편집할 수는 없지만, 이러한 워크북을 외부 데이터 원본으로 사용할 수 있습니다. 외부 워크북에 대한 상대 경로가 제공되면 자동으로 전체 경로로 변환됩니다.
+원격 위치나 리소스에 저장된 워크북의 데이터를 편집할 수는 없지만, 여전히 외부 데이터 소스로 사용할 수 있습니다. 외부 워크북에 대해 상대 경로가 제공되면 자동으로 전체 경로로 변환됩니다.
 
-이 JavaScript 코드는 외부 워크북을 설정하는 방법을 보여줍니다:
+다음 JavaScript 코드는 외부 워크북을 설정하는 방법을 보여줍니다:
+
 ```javascript
-// Presentation 클래스 인스턴스를 생성합니다
+// Presentation 클래스의 인스턴스를 생성합니다
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
@@ -213,10 +222,11 @@ try {
 
 `setExternalWorkbook` 메서드 아래의 `ChartData` 매개변수는 Excel 워크북을 로드할지 여부를 지정하는 데 사용됩니다.
 
-* `ChartData` 값이 `false` 로 설정되면 워크북 경로만 업데이트됩니다—차트 데이터는 대상 워크북에서 로드되거나 업데이트되지 않습니다. 대상 워크북이 없거나 사용할 수 없는 경우 이 설정을 사용할 수 있습니다.
+* `ChartData` 값이 `false` 로 설정되면 워크북 경로만 업데이트됩니다—차트 데이터는 대상 워크북에서 로드되거나 업데이트되지 않습니다. 대상 워크북이 존재하지 않거나 사용할 수 없는 상황에서 이 설정을 사용할 수 있습니다.  
 * `ChartData` 값이 `true` 로 설정되면 차트 데이터가 대상 워크북에서 업데이트됩니다.
+
 ```javascript
-// Presentation 클래스 인스턴스를 생성합니다
+// Presentation 클래스의 인스턴스를 생성합니다
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
@@ -230,17 +240,18 @@ try {
 }
 ```
 
-### **차트 외부 데이터 원본 워크북 경로 가져오기**
+### **차트 외부 데이터 소스 워크북 경로 가져오기**
 
 1. [Presentation](https://apireference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 통해 슬라이드 참조를 얻습니다.
-1. 차트 모양에 대한 객체를 생성합니다.
-1. `ChartDataSourceType` 유형의 객체를 생성하여 차트의 데이터 원본을 나타냅니다.
-1. 소스 유형이 외부 워크북 데이터 원본 유형과 동일한지에 따라 관련 조건을 지정합니다.
+1. 인덱스를 통해 슬라이드 참조를 가져옵니다.
+1. 차트 쉐이프에 대한 객체를 생성합니다.
+1. 차트 데이터 소스를 나타내는 소스(`ChartDataSourceType`) 유형에 대한 객체를 생성합니다.
+1. 소스 유형이 외부 워크북 데이터 소스 유형과 동일한지에 따라 관련 조건을 지정합니다.
 
-이 JavaScript 코드는 작업을 보여줍니다:
+다음 JavaScript 코드는 해당 작업을 보여줍니다:
+
 ```javascript
-// Presentation 클래스 인스턴스를 생성합니다
+// Presentation 클래스의 인스턴스를 생성합니다
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var slide = pres.getSlides().get_Item(1);
@@ -260,9 +271,10 @@ try {
 
 ### **차트 데이터 편집**
 
-외부 워크북의 데이터를 내부 워크북의 내용을 변경하는 것과 동일한 방식으로 편집할 수 있습니다. 외부 워크북을 로드할 수 없을 때 예외가 발생합니다.
+외부 워크북의 데이터를 내부 워크북의 내용을 변경하는 것과 동일한 방식으로 편집할 수 있습니다. 외부 워크북을 로드할 수 없으면 예외가 발생합니다.
 
-이 JavaScript 코드는 설명된 프로세스의 구현입니다:
+다음 JavaScript 코드는 설명된 프로세스를 구현한 예시입니다:
+
 ```javascript
 // Presentation 클래스의 인스턴스를 생성합니다
 var pres = new aspose.slides.Presentation("chart.pptx");
@@ -278,28 +290,54 @@ try {
 }
 ```
 
+### **차트 캐시에서 워크북 복구**
+
+차트가 존재하지 않거나 사용할 수 없는 외부 워크북을 사용하고 있는 경우, Aspose.Slides는 프레젠테이션에 캐시된 데이터를 사용하여 차트 워크북을 복원할 수 있습니다. 프레젠테이션을 열기 전에 [LoadOptions](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/loadoptions/)을 생성하고, 이를 [SpreadsheetOptions](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/spreadsheetoptions/)으로 구성한 다음 `true` 로 [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache)를 호출합니다.
+
+다음 JavaScript 예제는 사용 불가능한 외부 워크북을 참조하는 차트를 포함한 프레젠테이션을 열고 [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook)를 통해 복구된 데이터에 액세스합니다:
+
+```javascript
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // 복구된 워크북 데이터를 여기서 읽거나 수정합니다.
+} finally {
+    presentation.dispose();
+}
+```
+
+외부 워크북을 사용할 수 없고 복구가 비활성화된 경우, Aspose.Slides는 예외를 발생시킵니다. 캐시된 차트 데이터를 사용해도 되는 경우에만 복구를 활성화하십시오. 캐시에는 프레젠테이션이 마지막으로 업데이트된 이후 외부 워크북에 적용된 변경 내용이 포함되지 않을 수 있습니다.
+
 ## **FAQ**
 
-**특정 차트가 외부 워크북에 연결되어 있는지 내장 워크북에 연결되어 있는지 확인할 수 있나요?**
+**특정 차트가 외부 워크북에 연결되어 있는지 또는 내장 워크북에 연결되어 있는지 확인할 수 있나요?**
 
-예. 차트에는 [데이터 원본 유형](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) 및 [외부 워크북 경로](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/)가 있습니다; 원본이 외부 워크북인 경우 전체 경로를 읽어 외부 파일이 사용되고 있는지 확인할 수 있습니다.
+예. 차트에는 [데이터 소스 유형](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) 및 [외부 워크북 경로](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) 가 있습니다; 소스가 외부 워크북인 경우 전체 경로를 읽어 외부 파일이 사용되고 있는지 확인할 수 있습니다.
 
 **외부 워크북에 대한 상대 경로가 지원되며, 어떻게 저장되나요?**
 
-예. 상대 경로를 지정하면 자동으로 절대 경로로 변환됩니다. 이는 프로젝트 이식성을 위해 편리하지만, 프레젠테이션이 PPTX 파일에 절대 경로를 저장한다는 점을 유의하세요.
+예. 상대 경로를 지정하면 자동으로 절대 경로로 변환됩니다. 이는 프로젝트 이동성을 높이는 데 편리하지만, PPTX 파일에 절대 경로가 저장된다는 점을 유의하십시오.
 
-**네트워크 리소스/공유에 위치한 워크북을 사용할 수 있나요?**
+**네트워크 리소스/공유에 있는 워크북을 사용할 수 있나요?**
 
-예, 이러한 워크북을 외부 데이터 원본으로 사용할 수 있습니다. 다만 Aspose.Slides에서 원격 워크북을 직접 편집하는 것은 지원되지 않으며, 소스용으로만 사용할 수 있습니다.
+예, 이러한 워크북을 외부 데이터 소스로 사용할 수 있습니다. 다만 Aspose.Slides에서 원격 워크북을 직접 편집하는 것은 지원되지 않으며, 소스로만 사용할 수 있습니다.
 
 **프레젠테이션을 저장할 때 Aspose.Slides가 외부 XLSX를 덮어쓰나요?**
 
-아니요. 프레젠테이션은 [외부 파일에 대한 링크](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/)를 저장하고 이를 데이터 읽기에 사용합니다. 프레젠테이션을 저장해도 외부 파일 자체는 수정되지 않습니다.
+아니오. 프레젠테이션은 [외부 파일에 대한 링크](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/)를 저장하고 해당 파일을 읽는 데만 사용합니다. 프레젠테이션을 저장해도 외부 파일 자체는 수정되지 않습니다.
 
-**외부 파일에 비밀번호가 걸려 있는 경우 어떻게 해야 하나요?**
+**외부 파일이 비밀번호로 보호된 경우 어떻게 해야 하나요?**
 
-Aspose.Slides는 연결 시 비밀번호를 받지 않습니다. 일반적인 방법은 미리 보호를 해제하거나 복호화된 복사본(예: [Aspose.Cells](/cells/nodejs-java/) 사용)을 준비하고 해당 복사본에 연결하는 것입니다.
+Aspose.Slides는 연결 시 비밀번호를 받지 않습니다. 일반적인 방법은 미리 보호를 해제하거나 [Aspose.Cells](/cells/nodejs-java/) 등을 사용해 복호화된 복사본을 만든 뒤 해당 복사본에 연결하는 것입니다.
 
 **여러 차트가 동일한 외부 워크북을 참조할 수 있나요?**
 
-예. 각 차트는 자체 링크를 저장합니다. 모두 동일한 파일을 가리키면 해당 파일을 업데이트할 때 다음에 데이터가 로드될 때 각 차트에 반영됩니다.
+예. 각 차트는 자체 링크를 저장합니다. 모두 같은 파일을 가리키면 해당 파일을 업데이트할 때 다음에 데이터를 로드하는 각 차트에 반영됩니다.

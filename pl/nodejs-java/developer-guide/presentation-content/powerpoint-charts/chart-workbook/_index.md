@@ -1,34 +1,36 @@
 ---
-title: Zarządzanie skoroszytami wykresów w prezentacjach przy użyciu JavaScript
-linktitle: Skoroszyt wykresu
+title: Zarządzanie zeszytami wykresów w prezentacjach przy użyciu JavaScript
+linktitle: Zeszyt wykresu
 type: docs
 weight: 70
 url: /pl/nodejs-java/chart-workbook/
 keywords:
-- skoroszyt wykresu
+- zeszyt wykresu
 - dane wykresu
-- komórka skoroszytu
+- komórka zeszytu
 - etykieta danych
 - arkusz
 - źródło danych
-- zewnętrzny skoroszyt
-- zewnętrzne dane
+- zewnętrzny zeszyt
+- dane zewnętrzne
+- pamięć podręczna wykresu
+- odzyskiwanie zeszytu
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Odkryj Aspose.Slides dla Node.js poprzez Java: łatwo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane swojej prezentacji."
+description: "Odkryj Aspose.Slides dla Node.js poprzez Java: bez wysiłku zarządzaj zeszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu przy użyciu strumieni skoroszytu, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
+Ten artykuł wyjaśnia, jak pracować z zeszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pomocą strumieni zeszytów, używać komórek zeszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
 
-Omówiono także pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady pokazują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
+Omówiono również pracę z zewnętrznymi zeszytami jako źródłami danych wykresu. Przykłady pokazują, jak utworzyć i przypisać zewnętrzny zeszyt, pobrać ścieżkę zewnętrznego zeszytu powiązanego z wykresem oraz edytować dane wykresu, gdy zeszyt jest dostępny.
 
-## **Odczytywanie i zapisywanie danych wykresu ze skoroszytu**
+## **Odczyt i zapis danych wykresu z zeszytu**
 
-Aspose.Slides udostępnia metody [readWorkbookStream](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) i [writeWorkbookStream](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-), które umożliwiają odczytywanie i zapisywanie skoroszytów danych wykresu (zawierających dane wykresu edytowane przy użyciu Aspose.Cells). **Uwaga**: dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+Aspose.Slides udostępnia metody [readWorkbookStream](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) i [writeWorkbookStream](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) pozwalające odczytywać i zapisywać zeszyty danych wykresu (zawierające dane wykresu edytowane przy użyciu Aspose.Cells). **Uwaga** że dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
 
 Ten kod JavaScript demonstruje przykładową operację:
 
@@ -48,16 +50,16 @@ try {
 }
 ```
 
-## **Ustawienie komórki WorkBook jako etykiety danych wykresu**
+## **Ustaw komórkę WorkBook jako etykietę danych wykresu**
 
 1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres bąbelkowy z pewnymi danymi.
-1. Uzyskaj dostęp do serii wykresu.
-1. Ustaw komórkę skoroszytu jako etykietę danych.
-1. Zapisz prezentację.
+2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres bąbelkowy z pewnymi danymi.
+4. Uzyskaj dostęp do serii wykresu.
+5. Ustaw komórkę zeszytu jako etykietę danych.
+6. Zapisz prezentację.
 
-Ten kod JavaScript pokazuje, jak ustawić komórkę skoroszytu jako etykietę danych wykresu:
+Ten kod JavaScript pokazuje, jak ustawić komórkę zeszytu jako etykietę danych wykresu:
 
 ```javascript
 var lbl0 = "Label 0 cell value";
@@ -102,7 +104,7 @@ try {
 }
 ```
 
-## **Określenie typu źródła danych**
+## **Określ typ źródła danych**
 
 Ten kod JavaScript pokazuje, jak określić typ dla źródła danych:
 
@@ -123,9 +125,9 @@ try {
 }
 ```
 
-## **Wykrywanie nieobsługiwanych wbudowanych formatów skoroszytu**
+## **Wykryj nieobsługiwane wbudowane formaty zeszytów**
 
-Aspose.Slides nie obsługuje binarnego formatu skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/) wraz z enumeracją [WorkbookType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/workbooktype/), aby wykrywać nieobsługiwane formaty i pomijać te wykresy.
+Aspose.Slides nie obsługuje binarnego formatu zeszytu Excel (.xlsb), który może być wbudowany w niektóre wykresy. Możesz użyć metody `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/) wraz z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/workbooktype/), aby wykrywać nieobsługiwane formaty i pomijać te wykresy.
 
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
@@ -143,24 +145,26 @@ try {
 
         if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Osadzony skoroszyt jest w formacie .xlsb, który nie jest obsługiwany.
+            // Wbudowany zeszyt jest w formacie .xlsb, który nie jest obsługiwany.
             continue;
         }
 
-        // Odczytaj lub zmodyfikuj dane skoroszytu wykresu tutaj.
+        // Odczytaj lub zmodyfikuj tutaj dane zeszytu wykresu.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Zewnętrzny skoroszyt**
+## **Zewnętrzny zeszyt**
 
-Aspose.Slides obsługuje zewnętrzne skoroszyty jako źródło danych dla wykresów.
+Aspose.Slides obsługuje zewnętrzne zeszyty jako źródło danych dla wykresów.
 
-### **Utworzenie zewnętrznego skoroszytu**
+### **Utwórz zewnętrzny zeszyt**
 
-Za pomocą metod **`readWorkbookStream`** i **`setExternalWorkbook`** możesz utworzyć zewnętrzny skoroszyt od podstaw lub uczynić istniejący wewnętrzny skoroszyt zewnętrznym.
+Korzystając z metod **`readWorkbookStream`** i **`setExternalWorkbook`**, możesz utworzyć zewnętrzny zeszyt od podstaw lub uczynić wewnętrzny zeszyt zewnętrznym.
+
+Ten kod JavaScript demonstruje proces tworzenia zewnętrznego zeszytu:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -186,13 +190,13 @@ try {
 }
 ```
 
-### **Ustawienie zewnętrznego skoroszytu**
+### **Ustaw zewnętrzny zeszyt**
 
-Za pomocą metody **`setExternalWorkbook`** możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metoda ta może być również użyta do aktualizacji ścieżki do zewnętrznego skoroszytu (jeśli został przeniesiony).
+Za pomocą metody **`setExternalWorkbook`** możesz przypisać zewnętrzny zeszyt do wykresu jako jego źródło danych. Metoda ta może być również użyta do aktualizacji ścieżki do zewnętrznego zeszytu (jeśli ten został przeniesiony).
 
-Mimo że nie możesz edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, nadal możesz używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podana jest względna ścieżka do zewnętrznego skoroszytu, zostaje ona automatycznie przekształcona na pełną ścieżkę.
+Chociaż nie możesz edytować danych w zeszytach przechowywanych w zdalnych lokalizacjach lub zasobach, nadal możesz używać takich zeszytów jako zewnętrznego źródła danych. Jeśli podana jest względna ścieżka do zewnętrznego zeszytu, zostaje ona automatycznie przekształcona na pełną ścieżkę.
 
-Ten kod JavaScript pokazuje, jak ustawić zewnętrzny skoroszyt:
+Ten kod JavaScript pokazuje, jak ustawić zewnętrzny zeszyt:
 
 ```javascript
 // Tworzy instancję klasy Presentation
@@ -216,10 +220,10 @@ try {
 }
 ```
 
-Parametr `ChartData` (w metodzie `setExternalWorkbook`) służy do określenia, czy skoroszyt Excel zostanie załadowany.
+Parametr `ChartData` (w metodzie `setExternalWorkbook`) służy do określenia, czy zeszyt Excel ma być wczytany.
 
-* Gdy wartość `ChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka do skoroszytu — dane wykresu nie będą ładowane ani aktualizowane z docelowego skoroszytu. Użyj tego ustawienia, gdy docelowy skoroszyt nie istnieje lub jest niedostępny.  
-* Gdy wartość `ChartData` jest ustawiona na `true`, dane wykresu są aktualizowane z docelowego skoroszytu.
+- Gdy wartość `ChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka zeszytu — dane wykresu nie będą wczytywane ani aktualizowane z docelowego zeszytu. Możesz użyć tego ustawienia w sytuacji, gdy docelowy zeszyt nie istnieje lub jest niedostępny.  
+- Gdy wartość `ChartData` jest ustawiona na `true`, dane wykresu są aktualizowane z docelowego zeszytu.
 
 ```javascript
 // Tworzy instancję klasy Presentation
@@ -236,13 +240,13 @@ try {
 }
 ```
 
-### **Pobranie ścieżki do zewnętrznego skoroszytu źródła danych wykresu**
+### **Uzyskaj ścieżkę zewnętrznego źródła danych wykresu**
 
 1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
-1. Utwórz obiekt dla kształtu wykresu.
-1. Utwórz obiekt typu źródła (`ChartDataSourceType`), które reprezentuje źródło danych wykresu.
-1. Określ odpowiedni warunek w zależności od tego, czy typ źródła jest taki sam jak typ zewnętrznego skoroszytu jako źródła danych.
+2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+3. Utwórz obiekt dla kształtu wykresu.
+4. Utwórz obiekt typu źródła (`ChartDataSourceType`), który reprezentuje źródło danych wykresu.
+5. Określ odpowiedni warunek, bazując na tym, że typ źródła jest taki sam jak typ źródła danych zewnętrznego zeszytu.
 
 Ten kod JavaScript demonstruje tę operację:
 
@@ -265,9 +269,9 @@ try {
 }
 ```
 
-### **Edycja danych wykresu**
+### **Edytuj dane wykresu**
 
-Możesz edytować dane w zewnętrznych skoroszytach tak samo, jak wprowadzane zmiany w zawartości skoroszytów wewnętrznych. Gdy zewnętrzny skoroszyt nie może być załadowany, zgłaszany jest wyjątek.
+Możesz edytować dane w zewnętrznych zeszytach w ten sam sposób, w jaki wprowadzasz zmiany w zawartości wewnętrznych zeszytów. Gdy zewnętrzny zeszyt nie może zostać wczytany, zostaje zgłoszony wyjątek.
 
 Ten kod JavaScript jest implementacją opisanego procesu:
 
@@ -286,28 +290,54 @@ try {
 }
 ```
 
+### **Odzyskaj zeszyt z pamięci podręcznej wykresu**
+
+Jeśli wykres używa zewnętrznego zeszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć zeszyt wykresu z danych zbuforowanych w prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/loadoptions/), skonfiguruj go przy użyciu [SpreadsheetOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/spreadsheetoptions/), i wywołaj [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) z wartością `true` przed otwarciem prezentacji.
+
+Poniższy przykład JavaScript otwiera prezentację, w której wykres odwołuje się do niedostępnego zewnętrznego zeszytu, i uzyskuje dostęp do odzyskanych danych za pośrednictwem [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
+```javascript
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Odczytaj lub zmodyfikuj tutaj odzyskane dane zeszytu.
+} finally {
+    presentation.dispose();
+}
+```
+
+Jeśli zewnętrzny zeszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides zgłasza wyjątek. Włącz odzyskiwanie tylko wtedy, gdy użycie danych wykresu z pamięci podręcznej jest akceptowalnym rozwiązaniem awaryjnym, ponieważ pamięć podręczna może nie zawierać zmian wprowadzonych w zewnętrznym zeszycie po ostatniej aktualizacji prezentacji.
+
 ## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest połączony z zewnętrznym czy osadzonym skoroszytem?**
+**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy wbudowanym zeszytem?**
 
-Tak. Wykres posiada [typ źródła danych](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) oraz [ścieżkę do zewnętrznego skoroszytu](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); jeśli źródłem jest zewnętrzny skoroszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
+Tak. Wykres posiada [typ źródła danych](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) oraz [ścieżkę do zewnętrznego zeszytu](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); jeśli źródłem jest zewnętrzny zeszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
 
-**Czy obsługiwane są względne ścieżki do zewnętrznych skoroszytów i jak są one przechowywane?**
+**Czy względne ścieżki do zewnętrznych zeszytów są obsługiwane i w jaki sposób są przechowywane?**
 
-Tak. Jeśli podasz względną ścieżkę, zostaje ona automatycznie przekształcona na ścieżkę bezwzględną. Ułatwia to przenoszenie projektu; jednak należy pamiętać, że prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX.
+Tak. Jeśli podasz względną ścieżkę, zostanie ona automatycznie przekształcona na ścieżkę bezwzględną. Jest to wygodne w kontekście przenośności projektu; jednak należy pamiętać, że prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX.
 
-**Czy mogę używać skoroszytów znajdujących się w zasobach/udziałach sieciowych?**
+**Czy mogę używać zeszytów znajdujących się na zasobach/udostępnieniach sieciowych?**
 
-Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja skoroszytów zdalnych bezpośrednio z Aspose.Slides nie jest obsługiwana — mogą być używane jedynie jako źródło.
+Tak, takie zeszyty mogą być używane jako zewnętrzne źródło danych. Jednak edytowanie zdalnych zeszytów bezpośrednio z poziomu Aspose.Slides nie jest obsługiwane — mogą być używane wyłącznie jako źródło.
 
-**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX podczas zapisywania prezentacji?**
+**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisywaniu prezentacji?**
 
-Nie. Prezentacja przechowuje [link do pliku zewnętrznego](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) i używa go do odczytu danych. Sam plik zewnętrzny nie jest modyfikowany podczas zapisywania prezentacji.
+Nie. Prezentacja przechowuje [odniesienie do zewnętrznego pliku](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) i używa go do odczytu danych. Sam zewnętrzny plik nie jest modyfikowany podczas zapisywania prezentacji.
 
-**Co zrobić, gdy zewnętrzny plik jest chroniony hasłem?**
+**Co zrobić, jeśli zewnętrzny plik jest chroniony hasłem?**
 
-Aspose.Slides nie akceptuje hasła podczas tworzenia linku. Typowym rozwiązaniem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](/cells/nodejs-java/)) i podlinkowanie do tej kopii.
+Aspose.Slides nie przyjmuje hasła podczas tworzenia odnośnika. Typowe rozwiązanie to usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](/cells/nodejs-java/)) i odwołanie się do tej kopii.
 
-**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**
+**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego zeszytu?**
 
-Tak. Każdy wykres przechowuje własny link. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym wczytaniu danych.
+Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.
