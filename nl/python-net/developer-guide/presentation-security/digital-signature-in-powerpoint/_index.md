@@ -1,5 +1,5 @@
 ---
-title: Digitale handtekeningen aan presentaties toevoegen met Python
+title: Digitale handtekeningen toevoegen aan presentaties in Python
 linktitle: Digitale handtekening
 type: docs
 weight: 10
@@ -9,81 +9,161 @@ keywords:
 - digitaal certificaat
 - certificaatautoriteit
 - PFX-certificaat
+- PKCS#12
+- handtekening valideren
 - PowerPoint
-- OpenDocument
-- presentatie
+- PPTX
+- presentatiebeveiliging
 - Python
 - Aspose.Slides
-description: "Leer hoe u PowerPoint- en OpenDocument-bestanden digitaal ondertekent met Aspose.Slides voor Python via .NET. Beveilig uw dia's in enkele seconden met duidelijke code-voorbeelden."
+description: "Leer hoe u bestaande PPTX-presentaties kunt ondertekenen met PFX-certificaten en Aspose.Slides voor Python via .NET kunt gebruiken om digitale handtekeningen te valideren of te verwijderen."
 ---
-## **Introductie**
+## **Overzicht**
 
-**Digital certificate** wordt gebruikt om een met wachtwoord beveiligde PowerPoint‑presentatie te maken, gemarkeerd als gemaakt door een bepaalde organisatie of persoon. Een digitaal certificaat kan verkregen worden door contact op te nemen met een geautoriseerde organisatie – een certificaatautoriteit. Nadat het digitale certificaat in het systeem is geïnstalleerd, kan het gebruikt worden om een digitale handtekening aan de presentatie toe te voegen via Bestand -> Info -> Presentatie beveiligen:
+Een digitale handtekening helpt een ontvanger bepalen wie een presentatie heeft ondertekend en of de ondertekende inhoud is gewijzigd. Drie verwante beveiligingsconcepten zijn hier belangrijk:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Een **digitaal certificaat** is een elektronische credentiaal die een identiteit koppelt aan een openbare sleutel. Een vertrouwde certificaatautoriteit (CA) kan een certificaat uitgeven, of een organisatie kan een zelfondertekend certificaat gebruiken voor interne workflows.
+- Een **digitale handtekening** wordt gemaakt van de presentatietekst en de privésleutel van de certificaathouder. De publieke sleutel van het certificaat kan vervolgens worden gebruikt om de handtekening te verifiëren. Een handtekening levert bewijs van herkomst en integriteit; ze versleutelt de presentatie niet.
+- **Wachtwoordbeveiliging** bepaalt of een gebruiker een presentatie kan openen of wijzigen. Het staat los van digitale ondertekening en wordt beschreven in [Password-Protected Presentations](/python-net/password-protected-presentation/).
 
-Een presentatie kan meer dan één digitale handtekening bevatten. Nadat de digitale handtekening is toegevoegd aan de presentatie, verschijnt er een speciaal bericht in PowerPoint:
+PowerPoint biedt het commando **Add a Digital Signature** onder **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Protect Presentation menu met Add a Digital Signature gemarkeerd](add-digital-signature-in-powerpoint.png)
 
-Om een presentatie te ondertekenen of de authenticiteit van presentatiehandtekeningen te controleren, biedt de **Aspose.Slides API** de [**DigitalSignature**](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/)‑klasse, de [**DigitalSignatureCollection**](https://reference.aspose.com/slides/nl/python-net/aspose.slides/DigitalSignatureCollection/)‑klasse en de eigenschap [**Presentation.digital_signatures**](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/digital_signatures/). Momenteel worden digitale handtekeningen alleen ondersteund voor het PPTX‑formaat.
+Nadat een ondertekende presentatie is geopend, kan PowerPoint een melding over de handtekeningstatus weergeven.
 
-## **Digitale handtekening toevoegen vanuit PFX‑certificaat**
+![PowerPoint-melding die stelt dat de presentatie geldige handtekeningen bevat](digital-signature-status-in-powerpoint.png)
 
-Het codevoorbeeld hieronder toont hoe een digitale handtekening toe te voegen vanuit een PFX‑certificaat:
+Aspose.Slides maakt handtekeningen beschikbaar via [Presentation.digital_signatures](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/digital_signatures/), een [DigitalSignatureCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignaturecollection/) waarvan de items [DigitalSignature](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/) objecten zijn. Een presentatie kan meerdere handtekeningen bevatten.
 
-1. Open het PFX‑bestand en geef het PFX‑wachtwoord door aan het [**DigitalSignature**](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/)‑object.
-2. Voeg de gemaakte handtekening toe aan het presentatie‑object.
+## **Begrijpen van PFX-certificaten en wachtwoorden**
 
-```py
+Een PFX‑bestand, ook wel een PKCS#12‑bestand genoemd en doorgaans met de extensie `.pfx` of `.p12`, kan een X.509‑certificaat, de privésleutel en de certificaatketen bevatten. De privésleutel maakt het mogelijk voor de houder om een handtekening te creëren. Een certificaat zonder toegankelijke privésleutel kan niet worden gebruikt om een presentatie te ondertekenen.
+
+Het PFX‑wachtwoord beschermt het certificaatpakket en de privésleutel. Het is **niet** een wachtwoord om de presentatie te openen of te bewerken. Commit geen PFX‑bestanden of hun wachtwoorden naar source control. In productie moet de toegang tot het certificaatbestand worden beperkt en moet het wachtwoord worden verkregen uit een geheimopslag of een andere beveiligde configuratiebron. De onderstaande voorbeelden gebruiken alleen een omgevingsvariabele om te voorkomen dat het wachtwoord in de code wordt ingebed.
+
+## **Digitale handtekening toevoegen aan een presentatie**
+
+Om een echt presentatie‑workflow te ondertekenen, laad een bestaand PPTX‑bestand, maak een [DigitalSignature](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/) aan van een PFX‑certificaat en het wachtwoord, voeg de handtekening toe aan de collectie van de presentatie, en sla op als een PPTX‑bestand.
+
+```python
+import os
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Maak DigitalSignature-object met PFX-bestand en PFX-wachtwoord
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+certificate_password = os.environ.get("PFX_PASSWORD")
+if certificate_password is None:
+    raise RuntimeError("Set the PFX_PASSWORD environment variable.")
 
-    # Voeg opmerking toe aan nieuwe digitale handtekening
-    signature.comments = "Aspose.Slides digital signing test."
+with slides.Presentation("InputPresentation.pptx") as presentation:
+    signature = slides.DigitalSignature("signing-certificate.pfx", certificate_password)
+    signature.comments = "Approved for release."
 
-    # Voeg digitale handtekening toe aan presentatie
-    pres.digital_signatures.add(signature)
-
-    # sla presentatie op
-    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
+    presentation.digital_signatures.add(signature)
+    presentation.save("InputPresentation-signed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Nu is het mogelijk om te controleren of de presentatie digitaal ondertekend is en niet is gewijzigd:
+Het opslaan van het resultaat onder een nieuwe naam behoudt het niet‑ondertekende bronbestand. De waarde van [DigitalSignature.comments](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/comments/) beschrijft het doel van de handtekening; het is geen beveiligingscontrole.
 
-```py
-# Open presentatie
-with slides.Presentation("SomePresentationSigned.pptx") as pres:
-    if len(pres.digital_signatures) > 0:
-        allSignaturesAreValid = True
+## **Digitale handtekeningen valideren**
 
-        print("Signatures used to sign the presentation: ")
-        # Controleer of alle digitale handtekeningen geldig zijn
-        for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
-            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
-        
+Wanneer je een ondertekend PPTX‑bestand laadt, inspecteer je elk item in [Presentation.digital_signatures](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/digital_signatures/). De eigenschap [DigitalSignature.is_valid](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/is_valid/) geeft aan of de ingebedde handtekening geldig is voor de huidige presentatietekst.
 
-        if allSignaturesAreValid:
-            print("Presentation is genuine, all signatures are valid.")
+```python
+import hashlib
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    signature_count = len(presentation.digital_signatures)
+
+    if signature_count == 0:
+        print("The presentation does not contain digital signatures.")
+    else:
+        all_signatures_are_valid = True
+
+        for signature in presentation.digital_signatures:
+            signature_status = "VALID" if signature.is_valid else "INVALID"
+            certificate_fingerprint = hashlib.sha256(signature.certificate).hexdigest().upper()
+            signing_time = signature.sign_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            print(
+                f"Certificate SHA-256: {certificate_fingerprint}, "
+                f"{signing_time} -- {signature_status}"
+            )
+
+            all_signatures_are_valid = (all_signatures_are_valid and signature.is_valid)
+
+        if all_signatures_are_valid:
+            print("All embedded signatures are valid for the current presentation.")
         else:
-            print("Presentation has been modified since signing.")
+            print("At least one embedded signature is invalid.")
 ```
+
+Een ongeldig resultaat betekent meestal dat de ondertekende presentatietekst of handtekeningsgegevens na ondertekening zijn gewijzigd, of dat het bestand beschadigd is. Het verwijderen van elke handtekening resulteert in een niet‑ondertekende presentatie, dus alleen de geldigheid van items controleren is niet voldoende: een beveiligingsgevoelige workflow moet ook verifiëren dat het verwachte aantal handtekeningen en de verwachte ondertekenaarsidentiteiten aanwezig zijn.
+
+De eigenschap [DigitalSignature.certificate](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/certificate/) levert de certificaatgegevens als een byte‑array. Het voorbeeld berekent de SHA‑256‑vingerafdruk zodat een applicatie deze kan vergelijken met de vingerafdruk van een verwacht ondertekenercertificaat.
+
+Dit geldigheidsresultaat mag niet worden behandeld als een volledige certificaat‑vertrouwensbeslissing. Afhankelijk van je beveiligingsbeleid moet je applicatie mogelijk ook de X.509‑certificaatketen opbouwen en valideren, de geldigheidsdatums en intrekkingsstatus van het certificaat controleren, het verwachte onderwerp of de vingerafdruk bevestigen, het sleutelgebruik verifiëren en een vertrouwde tijdstempel evalueren. De waarde [DigitalSignature.sign_time](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignature/sign_time/) op zichzelf is geen bewijs van een vertrouwde tijdstempelautoriteit.
+
+## **Digitale handtekeningen verwijderen**
+
+Het verwijderen van handtekeningen wijzigt de beveiligingsstatus van de presentatie. Het volgende voorbeeld laadt een ondertekend PPTX‑bestand, verwijdert alle handtekeningen met [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignaturecollection/clear/), en slaat een niet‑ondertekende kopie op.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    presentation.digital_signatures.clear()
+    presentation.save("InputPresentation-unsigned.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Om slechts één handtekening te verwijderen, roep je [DigitalSignatureCollection.remove_at](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignaturecollection/remove_at/) aan met de nul‑gebaseerde index. Sla op naar een nieuw bestand tenzij het overschrijven van het ondertekende origineel een expliciet onderdeel van je workflow is.
+
+## **Bewerkings- en formatoverwegingen**
+
+- Een handtekening maakt een presentatie niet alleen-lezen. Gebruikers en applicaties kunnen het bestand nog steeds bewerken, maar wijzigingen in ondertekende inhoud maken doorgaans de bestaande handtekening ongeldig.
+- Voltooi alle beoogde bewerkingen voordat je ondertekent. Als een presentatie moet worden gewijzigd, sla dan de herziene presentatie op en onderteken die revisie opnieuw.
+- Houd de uiteindelijke output in PPTX‑formaat. Het converteren van een ondertekende presentatie naar een ander formaat draagt de oorspronkelijke PPTX‑handtekening niet over als een geldige handtekening voor het geconverteerde bestand.
+- Beschouw de privésleutel van het certificaat als gevoelig. Iedereen die de privésleutel en het wachtwoord verkrijgt, kan mogelijk handtekeningen maken die lijken te komen van die certificaathouder.
+- Bewaar de niet‑ondertekende bron of een andere gecontroleerde kopie wanneer je document‑retentiebeleid dit vereist.
 
 ## **FAQ**
 
-**Kan ik bestaande handtekeningen uit een bestand verwijderen?**
+**Versleutelt een digitale handtekening de presentatie?**
 
-Ja. De collectie digitale handtekeningen ondersteunt het [verwijderen van individuele items](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignaturecollection/remove_at/) en het [volledig leegmaken](https://reference.aspose.com/slides/nl/python-net/aspose.slides/digitalsignaturecollection/clear/); nadat u het bestand heeft opgeslagen, zal de presentatie geen handtekeningen meer bevatten.
+Nee. Een digitale handtekening levert bewijs over herkomst en integriteit, maar de presentatie-inhoud blijft leesbaar tenzij aparte versleuteling wordt toegepast. Gebruik [password protection](/python-net/password-protected-presentation/) wanneer de toegang tot de inhoud beperkt moet worden.
 
-**Wordt het bestand 'alleen-lezen' na ondertekening?**
+**Is het PFX‑wachtwoord hetzelfde als een presentatie‑wachtwoord?**
 
-Nee. Een handtekening behoudt integriteit en auteurschap, maar blokkeert geen bewerkingen. Om bewerken te beperken, combineer dit met ["Alleen-lezen" of een wachtwoord](/slides/nl/python-net/password-protected-presentation/).
+Nee. Het PFX‑wachtwoord ontgrendelt de privésleutel die is opgeslagen in het certificaatpakket. Het regelt niet wie de PPTX‑file kan openen of bewerken.
 
-**Wordt de handtekening correct weergegeven in verschillende versies van PowerPoint?**
+**Kan ik een zelfondertekend certificaat gebruiken?**
 
-De handtekening is gemaakt voor de OOXML (PPTX)‑container. Moderne versies van PowerPoint die OOXML‑handtekeningen ondersteunen, geven de status van dergelijke handtekeningen correct weer.
+Technisch gezien kan een zelfondertekend certificaat worden gebruikt wanneer het een toegankelijke privésleutel omvat. Ontvangers zullen het echter niet automatisch vertrouwen, tenzij dat certificaat expliciet is toegevoegd aan hun vertrouwde omgeving. Publieke of cross‑organisatie workflows gebruiken doorgaans een certificaat uitgegeven door een vertrouwde CA.
+
+**Wat maakt een handtekening ongeldig?**
+
+Het wijzigen van de ondertekende presentatietekst of de handtekeningsgegevens na ondertekening kan de handtekening ongeldig maken. Bestandscorruptie kan ook leiden tot een mislukte validatie. Als alle handtekeningen worden verwijderd, is de presentatie niet ondertekend in plaats van een bestand met een ongeldige handtekening.
+
+**Betekent een geldige handtekening dat ik de ondertekenaar moet vertrouwen?**
+
+Niet op zichzelf. Handtekeningintegriteit en vertrouwen in de ondertekenaar zijn afzonderlijke beslissingen. Een productie‑validatiebeleid moet ook de certificaatketen, geldigheidsperiode, intrekkingsstatus, verwachte identiteit, sleutelgebruik en eventuele vereisten voor een vertrouwde tijdstempel controleren.
+
+**Wat gebeurt er wanneer het certificaat verloopt?**
+
+Het verlopen van het certificaat verandert de bytes van de presentatie niet, maar het beïnvloedt de beoordeling van het certificaatvertrouwen. Of een handtekening acceptabel blijft, hangt af van je beleid en of een geldig vertrouwde tijdstempel aantoont dat de ondertekening plaatsvond terwijl het certificaat nog geldig was. Vertrouw niet uitsluitend op de weergegeven ondertekenings‑tijd als een vertrouwde tijdstempel.
+
+**Kan een ondertekende presentatie nog steeds worden bewerkt?**
+
+Ja. Ondertekenen vergrendelt het bestand niet. Het bewerken van ondertekende inhoud maakt doorgaans de bestaande handtekening ongeldig, dus voltooi de presentatie eerst en onderteken de definitieve revisie.
+
+**Kan een presentatie meer dan één handtekening bevatten?**
+
+Ja. Voeg elke handtekening toe aan [Presentation.digital_signatures](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/digital_signatures/) voordat je opslaat. Tijdens validatie inspecteer je elke handtekening en bevestig je dat alle vereiste ondertekenaars aanwezig zijn.
+
+**Welke presentatie‑formaten ondersteunen deze bewerkingen?**
+
+Aspose.Slides ondersteunt de hier beschreven digitale‑handtekening‑bewerkingen alleen voor PPTX. PPT‑ en OpenDocument‑presentatieformaten worden niet ondersteund door deze API‑workflow.
+
+**Kan ik een handtekening verwijderen zonder de dia's te beïnvloeden?**
+
+Ja. Je kunt één handtekening verwijderen of de volledige collectie leegmaken en vervolgens de presentatie opslaan. De dia‑inhoud blijft beschikbaar, maar het opgeslagen bestand bevat niet langer het verwijderde handtekeningsbewijs.

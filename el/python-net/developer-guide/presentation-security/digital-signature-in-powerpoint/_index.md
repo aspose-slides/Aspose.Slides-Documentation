@@ -1,5 +1,5 @@
 ---
-title: Πρ��σθήκη Ψηφιακών Υπογραφών σε Παρουσιάσεις με Python
+title: Προσθήκη Ψηφιακών Υπογραφών σε Παρουσιάσεις με Python
 linktitle: Ψηφιακή Υπογραφή
 type: docs
 weight: 10
@@ -7,83 +7,163 @@ url: /el/python-net/digital-signature-in-powerpoint/
 keywords:
 - ψηφιακή υπογραφή
 - ψηφιακό πιστοποιητικό
-- αρχή πιστοποιήσεων
+- αρχή πιστοποίησης
 - πιστοποιητικό PFX
+- PKCS#12
+- επικύρωση υπογραφής
 - PowerPoint
-- OpenDocument
-- παρουσίαση
+- PPTX
+- ασφάλεια παρουσίασης
 - Python
 - Aspose.Slides
-description: "Μάθετε πώς να υπογράφετε ψηφιακά αρχεία PowerPoint & OpenDocument με το Aspose.Slides για Python μέσω .NET. Ασφαλίστε τις διαφάνειές σας σε δευτερόλεπτα με σαφή παραδείγματα κώδικα."
+description: "Μάθετε πώς να υπογράφετε υπάρχουσες παρουσιάσεις PPTX με πιστοποιητικά PFX και να χρησιμοποιείτε το Aspose.Slides για Python μέσω .NET για την επικύρωση ή την αφαίρεση ψηφιακών υπογραφών."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-**Ψηφιακό πιστοποιητικό** χρησιμοποιείται για τη δημιουργία μίας παρουσίασης PowerPoint προστατευμένης με κωδικό, η οποία σημειώνεται ως δημιουργημένη από συγκεκριμένη οργάνωση ή άτομο. Το ψηφιακό πιστοποιητικό μπορεί να ληφθεί επικοινωνώντας με μια εξουσιοδοτημένη οργάνωση – μια αρχή πιστοποιήσεων. Μετά την εγκατάσταση του ψηφιακού πιστοποιητικού στο σύστημα, μπορεί να χρησιμοποιηθεί για την προσθήκη ψηφιακής υπογραφής στην παρουσίαση μέσω File -> Info -> Protect Presentation:
+Μια ψηφιακή υπογραφή βοηθά το παραλήπτη να καθορίσει ποιος υπέγραψε μια παρουσίαση και αν το υπογεγραμμένο περιεχόμενο έχει αλλάξει. Τρία συναφή θέματα ασφαλείας είναι σημαντικά εδώ:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Ένα **ψηφιακό πιστοποιητικό** είναι ένα ηλεκτρονικό διαπιστευτήριο που συσχετίζει μια ταυτότητα με ένα δημόσιο κλειδί. Μια αξιόπιστη αρχή πιστοποίησης (CA) μπορεί να εκδώσει ένα πιστοποιητικό, ή ένας οργανισμός μπορεί να χρησιμοποιήσει ένα αυτο‑υπογεγραμμένο πιστοποιητικό για εσωτερικές ροές εργασίας.
+- Μια **ψηφιακή υπογραφή** δημιουργείται από το περιεχόμενο της παρουσίασης και το ιδιωτικό κλειδί του κατόχου του πιστοποιητικού. Το δημόσιο κλειδί του πιστοποιητικού μπορεί στη συνέχεια να χρησιμοποιηθεί για την επαλήθευση της υπογραφής. Μια υπογραφή παρέχει αποδεικτικά για την προέλευση και την ακεραιότητα· δεν κρυπτογραφεί την παρουσίαση.
+- **Προστασία κωδικού πρόσβασης** ελέγχει εάν ένας χρήστης μπορεί να ανοίξει ή να τροποποιήσει μια παρουσίαση. Είναι ξεχωριστή από την ψηφιακή υπογραφή και περιγράφεται στις [παραγωγές προστατευμένες με κωδικό πρόσβασης](/python-net/password-protected-presentation/).
 
-Η παρουσίαση μπορεί να περιέχει περισσότερες από μία ψηφιακές υπογραφές. Αφού προστεθεί η ψηφιακή υπογραφή στην παρουσίαση, ένα ειδικό μήνυμα θα εμφανιστεί στο PowerPoint:
+Το PowerPoint παρέχει τη λειτουργία **Προσθήκη ψηφιακής υπογραφής** στο μενού **Αρχείο > Πληροφορίες > Προστασία Παρουσίασης**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Μενού Προστασία Παρουσίασης του PowerPoint με την Προσθήκη ψηφιακής υπογραφής επισημασμένη](add-digital-signature-in-powerpoint.png)
 
-Για να υπογράψετε την παρουσίαση ή να ελέγξετε την αυθεντικότητα των υπογραφών της παρουσίασης, **Aspose.Slides API** παρέχει [**DigitalSignature**](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/) κλάση, [**DigitalSignatureCollection**](https://reference.aspose.com/slides/el/python-net/aspose.slides/DigitalSignatureCollection/) κλάση και [**Presentation.digital_signatures**](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/digital_signatures/) ιδιότητα. Προς το παρόν, οι ψηφιακές υπογραφές υποστηρίζονται μόνο για τη μορφή PPTX.
+Μετά το άνοιγμα μιας υπογεγραμμένης παρουσίασης, το PowerPoint μπορεί να εμφανίσει μια ειδοποίηση κατάστασης υπογραφής.
 
-## **Προσθήκη Ψηφιακής Υπογραφής από Πιστοποιητικό PFX**
+![Ειδοποίηση του PowerPoint που δηλώνει ότι η παρουσίαση περιέχει έγκυρες υπογραφές](digital-signature-status-in-powerpoint.png)
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να προσθέσετε ψηφιακή υπογραφή από ένα πιστοποιητικό PFX:
+Το Aspose.Slides εκθέτει τις υπογραφές μέσω του [Presentation.digital_signatures](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/digital_signatures/), ενός [DigitalSignatureCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignaturecollection/) των οποίων τα στοιχεία είναι αντικείμενα [DigitalSignature](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/). Μια παρουσίαση μπορεί να περιέχει πολλαπλές υπογραφές.
 
-1. Ανοίξτε το αρχείο PFX και περάστε τον κωδικό πρόσβασης PFX στο αντικείμενο [**DigitalSignature**](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/).
-1. Προσθέστε τη δημιουργημένη υπογραφή στο αντικείμενο παρουσίασης.
+## **Κατανόηση Πιστοποιητικών PFX και Κωδικών Πρόσβασης**
 
-```py
+Ένα αρχείο PFX, επίσης γνωστό ως αρχείο PKCS#12 και συνήθως με επέκταση `.pfx` ή `.p12`, μπορεί να περιέχει ένα πιστοποιητικό X.509, το ιδιωτικό του κλειδί και την αλυσίδα του πιστοποιητικού. Το ιδιωτικό κλειδί είναι αυτό που επιτρέπει στον κάτοχο να δημιουργήσει μια υπογραφή. Ένα πιστοποιητικό χωρίς προσβάσιμο ιδιωτικό κλειδί δεν μπορεί να χρησιμοποιηθεί για την υπογραφή μιας παρουσίασης.
+
+Ο κωδικός PFX προστατεύει το πακέτο του πιστοποιητικού και το ιδιωτικό κλειδί. Δεν είναι κωδικός για το άνοιγμα ή την επεξεργασία της παρουσίασης. Μην καταχωρίζετε αρχεία PFX ή τους κωδικούς τους στον έλεγχο πηγής. Σε παραγωγή, περιορίστε την πρόσβαση στο αρχείο πιστοποιητικού και λάβετε τον κωδικό του από ένα κατάστημα μυστικών ή άλλη προστατευμένη πηγή διαμόρφωσης. Τα παραδείγματα παρακάτω χρησιμοποιούν μια μεταβλητή περιβάλλοντος μόνο για να αποφύγουν την ενσωμάτωση του κωδικού στον κώδικα.
+
+## **Προσθήκη Ψηφιακής Υπογραφής σε Παρουσίαση**
+
+Για να υπογράψετε μια πραγματική ροή εργασίας παρουσίασης, φορτώστε ένα υπάρχον αρχείο PPTX, δημιουργήστε ένα [DigitalSignature](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/) από ένα πιστοποιητικό PFX και τον κωδικό του, προσθέστε την υπογραφή στη συλλογή της παρουσίασης και αποθηκεύστε σε αρχείο PPTX.
+
+```python
+import os
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Δημιουργία αντικειμένου DigitalSignature με αρχείο PFX και κωδικό PFX
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+certificate_password = os.environ.get("PFX_PASSWORD")
+if certificate_password is None:
+    raise RuntimeError("Set the PFX_PASSWORD environment variable.")
 
-    # Σχόλιο νέας ψηφιακής υπογραφής
-    signature.comments = "Aspose.Slides digital signing test."
+with slides.Presentation("InputPresentation.pptx") as presentation:
+    signature = slides.DigitalSignature("signing-certificate.pfx", certificate_password)
+    signature.comments = "Approved for release."
 
-    # Προσθήκη ψηφιακής υπογραφής στην παρουσίαση
-    pres.digital_signatures.add(signature)
-
-    # Αποθήκευση παρουσίασης
-    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
+    presentation.digital_signatures.add(signature)
+    presentation.save("InputPresentation-signed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Τώρα είναι δυνατόν να ελέγξετε εάν η παρουσίαση είχε ψηφιακή υπογραφή και δεν έχει τροποποιηθεί:
+Η αποθήκευση του αποτελέσματος με νέο όνομα διατηρεί το μη υπογεγραμμένο αρχείο προέλευσης. Η τιμή [DigitalSignature.comments](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/comments/) περιγράφει τον σκοπό της υπογραφής· δεν αποτελεί έλεγχο ασφαλείας.
 
-```py
-# Άνοιγμα παρουσίασης
-with slides.Presentation("SomePresentationSigned.pptx") as pres:
-    if len(pres.digital_signatures) > 0:
-        allSignaturesAreValid = True
+## **Επικύρωση Ψηφιακών Υπογραφών**
 
-        print("Signatures used to sign the presentation: ")
-        # Έλεγχος εάν όλες οι ψηφιακές υπογραφές είναι έγκυρες
-        for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
-            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
-        
+Κατά τη φόρτωση ενός υπογεγραμμένου αρχείου PPTX, εξετάστε κάθε στοιχείο στο [Presentation.digital_signatures](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/digital_signatures/). Η ιδιότητα [DigitalSignature.is_valid](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/is_valid/) υποδεικνύει αν η ενσωματωμένη υπογραφή είναι έγκυρη για το τρέχον περιεχόμενο της παρουσίασης.
 
-        if allSignaturesAreValid:
-            print("Presentation is genuine, all signatures are valid.")
+```python
+import hashlib
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    signature_count = len(presentation.digital_signatures)
+
+    if signature_count == 0:
+        print("The presentation does not contain digital signatures.")
+    else:
+        all_signatures_are_valid = True
+
+        for signature in presentation.digital_signatures:
+            signature_status = "VALID" if signature.is_valid else "INVALID"
+            certificate_fingerprint = hashlib.sha256(signature.certificate).hexdigest().upper()
+            signing_time = signature.sign_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            print(
+                f"Certificate SHA-256: {certificate_fingerprint}, "
+                f"{signing_time} -- {signature_status}"
+            )
+
+            all_signatures_are_valid = (all_signatures_are_valid and signature.is_valid)
+
+        if all_signatures_are_valid:
+            print("All embedded signatures are valid for the current presentation.")
         else:
-            print("Presentation has been modified since signing.")
+            print("At least one embedded signature is invalid.")
 ```
 
-## **Συχνές Ερωτήσεις**
+Ένα μη έγκυρο αποτέλεσμα συνήθως σημαίνει ότι το υπογεγραμμένο περιεχόμενο ή τα δεδομένα της υπογραφής άλλαξαν μετά την υπογραφή, ή ότι το αρχείο είναι κατεστραμμένο. Η αφαίρεση όλων των υπογραφών δημιουργεί μια μη υπογεγραμμένη παρουσίαση, επομένως ο μόνος έλεγχος της εγκυρότητας των στοιχείων δεν είναι αρκετός: μια ροή εργασίας ευαίσθητης ασφάλειας πρέπει επίσης να επαληθεύει ότι υπάρχει ο αναμενόμενος αριθμός υπογραφών και οι αναμενόμενες ταυτότητες των υπογραφόντων.
 
-**Μπορώ να αφαιρέσω υπάρχουσες υπογραφές από ένα αρχείο;**
+Η ιδιότητα [DigitalSignature.certificate](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/certificate/) παρέχει τα δεδομένα του πιστοποιητικού ως πίνακα byte. Το παράδειγμα υπολογίζει το αποτύπωμα SHA‑256 του ώστε μια εφαρμογή να μπορεί να το συγκρίνει με το αποτύπωμα ενός αναμενόμενου πιστοποιητικού υπογράφοντος.
 
-Ναι. Η συλλογή ψηφιακών υπογραφών υποστηρίζει το [removing individual items](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignaturecollection/remove_at/) και το [clearing it entirely](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignaturecollection/clear/); μετά την αποθήκευση του αρχείου, η παρουσίαση δεν θα έχει υπογραφές.
+Αυτό το αποτέλεσμα εγκυρότητας δεν πρέπει να θεωρείται απόφαση πλήρους εμπιστοσύνης του πιστοποιητικού. Ανάλογα με την πολιτική ασφαλείας σας, η εφαρμογή σας μπορεί επίσης να χρειάζεται να δημιουργήσει και να επικυρώσει την αλυσίδα πιστοποιητικών X.509, να ελέγξει τις ημερομηνίες ισχύος και την κατάσταση ανάκλησης, να επιβεβαιώσει το αναμενόμενο θέμα ή το αποτύπωμα, να επαληθεύσει τη χρήση του κλειδιού και να αξιολογήσει μια αξιόπιστη σφραγίδα χρόνου. Η τιμή [DigitalSignature.sign_time](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignature/sign_time/) από μόνη της δεν αποτελεί αποδεικτικό από αξιόπιστη αρχή σφραγίδας χρόνου.
 
-**Γίνεται το αρχείο "μόνο για ανάγνωση" μετά την υπογραφή;**
+## **Αφαίρεση Ψηφιακών Υπογραφών**
 
-Όχι. Μια υπογραφή διατηρεί την ακεραιότητα και τη συγγραφή αλλά δεν εμποδίζει τις επεξεργασίες. Για περιορισμό επεξεργασίας, συνδυάστε το με το ["Read-only" or a password](/slides/el/python-net/password-protected-presentation/).
+Η αφαίρεση υπογραφών αλλάζει την κατάσταση ασφαλείας της παρουσίασης. Το παρακάτω παράδειγμα φορτώνει ένα υπογεγραμμένο αρχείο PPTX, αφαιρεί όλες τις υπογραφές με το [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignaturecollection/clear/), και αποθηκεύει ένα αντίγραφο χωρίς υπογραφή.
 
-**Θα εμφανίζεται σωστά η υπογραφή σε διαφορετικές εκδόσεις του PowerPoint;**
+```python
+import aspose.slides as slides
 
-Η υπογραφή δημιουργείται για το κοντέινερ OOXML (PPTX). Σύγχρονες εκδόσεις του PowerPoint που υποστηρίζουν υπογραφές OOXML εμφανίζουν σωστά την κατάσταση αυτών των υπογραφών.
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    presentation.digital_signatures.clear()
+    presentation.save("InputPresentation-unsigned.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Για να αφαιρεθεί μόνο μία υπογραφή, καλέστε το [DigitalSignatureCollection.remove_at](https://reference.aspose.com/slides/el/python-net/aspose.slides/digitalsignaturecollection/remove_at/) με τον μηδενικό δείκτη της. Αποθηκεύστε σε νέο αρχείο εκτός εάν η αντικατάσταση του υπογεγραμμένου αρχικού αποτελεί ρητό μέρος της ροής εργασίας.
+
+## **Σκέψεις για Επεξεργασία και Μορφή**
+
+- Μια υπογραφή δεν κάνει την παρουσίαση μόνο για ανάγνωση. Οι χρήστες και οι εφαρμογές μπορούν ακόμη να επεξεργαστούν το αρχείο, αλλά οι αλλαγές στο υπογεγραμμένο περιεχόμενο συνήθως ακυρώνουν την υπάρχουσα υπογραφή.
+- Ολοκληρώστε όλες τις προβλεπόμενες επεξεργασίες πριν υπογράψετε. Αν πρέπει να αλλάξει η παρουσίαση, αποθηκεύστε την επικαιροποιημένη έκδοση και υπογράψτε ξανά αυτήν.
+- Διατηρήστε το τελικό αποτέλεσμα σε μορφή PPTX. Η μετατροπή μιας υπογεγραμμένης παρουσίασης σε άλλη μορφή δεν μεταφέρει την αρχική υπογραφή PPTX ως έγκυρη υπογραφή για το μετατρεπόμενο αρχείο.
+- Θεωρήστε το ιδιωτικό κλειδί του πιστοποιητικού ευαίσθητο. Όποιος αποκτήσει το ιδιωτικό κλειδί και τον κωδικό του μπορεί να δημιουργήσει υπογραφές που φαίνονται να προέρχονται από αυτόν τον κάτοχο του πιστοποιητικού.
+- Διατηρήστε το μη υπογεγραμμένο πηγαίο αρχείο ή άλλο ελεγχόμενο αντίγραφο όταν η πολιτική διατήρησης εγγράφων το απαιτεί.
+
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+
+**Κρυπτογραφεί η ψηφιακή υπογραφή την παρουσίαση;**
+
+Όχι. Μια ψηφιακή υπογραφή παρέχει αποδείξεις για την προέλευση και την ακεραιότητα, αλλά το περιεχόμενο της παρουσίασης παραμένει αναγνώσιμο εκτός αν εφαρμοστεί ξεχωριστή κρυπτογράφηση. Χρησιμοποιήστε την [προστασία κωδικού πρόσβασης](/python-net/password-protected-presentation/) όταν πρέπει να περιοριστεί η πρόσβαση στο περιεχόμενο.
+
+**Είναι ο κωδικός PFX ο ίδιος με τον κωδικό παρουσίασης;**
+
+Όχι. Ο κωδικός PFX ξεκλειδώνει το ιδιωτικό κλειδί που βρίσκεται στο πακέτο του πιστοποιητικού. Δεν ελέγχει ποιος μπορεί να ανοίξει ή να επεξεργαστεί το αρχείο PPTX.
+
+**Μπορώ να χρησιμοποιήσω αυτο‑υπογεγραμμένο πιστοποιητικό;**
+
+Τεχνικά, ένα αυτο‑υπογεγραμμένο πιστοποιητικό μπορεί να χρησιμοποιηθεί εφόσον περιλαμβάνει προσβάσιμο ιδιωτικό κλειδί. Οι παραλήπτες δεν θα το εμπιστευθούν αυτόματα, εκτός αν το πιστοποιητικό έχει προστεθεί ρητά στο αξιόπιστο περιβάλλον τους. Οι δημόσιες ή διαοργανωτικές ροές εργασίας συνήθως χρησιμοποιούν πιστοποιητικό που εκδόθηκε από αξιόπιστη CA.
+
+**Τι κάνει μια υπογραφή μη έγκυρη;**
+
+Η αλλαγή του υπογεγραμμένου περιεχομένου ή των δεδομένων της υπογραφής μετά την υπογραφή μπορεί να ακυρώσει την υπογραφή. Η φθορά του αρχείου μπορεί επίσης να προκαλέσει αποτυχία επικύρωσης. Αν όλες οι υπογραφές αφαιρεθούν, η παρουσίαση είναι μη υπογεγραμμένη αντί για αρχείο με μη έγκυρη υπογραφή.
+
+**Σημαίνει μια έγκυρη υπογραφή ότι πρέπει να εμπιστευτώ τον υπογράφοντα;**
+
+Όχι από μόνη της. Η ακεραιότητα της υπογραφής και η εμπιστοσύνη στον υπογράφοντα είναι ξεχωριστές αποφάσεις. Μια πολιτική παραγωγικού ελέγχου θα πρέπει επίσης να ελέγχει την αλυσίδα πιστοποιητικών, την περίοδο ισχύος, την κατάσταση ανάκλησης, την αναμενόμενη ταυτότητα, τη χρήση του κλειδιού και τυχόν απαιτήσεις αξιόπιστης σφραγίδας χρόνου.
+
+**Τι συμβαίνει όταν λήξει το πιστοποιητικό;**
+
+Η λήξη του πιστοποιητικού δεν τροποποιεί τα byte της παρουσίασης, αλλά επηρεάζει την αξιολόγηση εμπιστοσύνης του πιστοποιητικού. Το αν μια υπογραφή παραμένει αποδεκτή εξαρτάται από την πολιτική σας και αν μια έγκυρη αξιόπιστη σφραγίδα χρόνου αποδείχνει ότι η υπογραφή έγινε ενώ το πιστοποιητικό ήταν έγκυρο. Μην βασίζεστε μόνο στην εμφανιζόμενη ώρα υπογραφής ως αξιόπιστη σφραγίδα χρόνου.
+
+**Μπορεί μια υπογεγραμμένη παρουσίαση να επεξεργαστεί ακόμα;**
+
+Ναι. Η υπογραφή δεν κλειδώνει το αρχείο. Η επεξεργασία του υπογεγραμμένου περιεχομένου συνήθως ακυρώνει την υπάρχουσα υπογραφή, οπότε ολοκληρώστε την παρουσίαση πρώτα και υπογράψτε την τελική έκδοση.
+
+**Μπορεί μια παρουσίαση να περιέχει περισσότερες από μία υπογραφές;**
+
+Ναι. Προσθέστε κάθε υπογραφή στο [Presentation.digital_signatures](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/digital_signatures/) πριν αποθηκεύσετε. Κατά την επικύρωση, εξετάστε κάθε υπογραφή και βεβαιωθείτε ότι όλοι οι απαιτηθέντες υπογράφοντες είναι παρόντες.
+
+**Ποιες μορφές παρουσίασης υποστηρίζουν αυτές τις λειτουργίες;**
+
+Το Aspose.Slides υποστηρίζει τις λειτουργίες ψηφιακής υπογραφής που περιγράφονται εδώ μόνο για PPTX. Οι μορφές PPT και OpenDocument δεν υποστηρίζονται από αυτό το API.
+
+**Μπορώ να αφαιρέσω μια υπογραφή χωρίς να επηρεάσω τις διαφάνειες;**
+
+Ναι. Μπορείτε να αφαιρέσετε μία υπογραφή ή να διαγράψετε ολόκληρη τη συλλογή και στη συνέχεια να αποθηκεύσετε την παρουσίαση. Το περιεχόμενο των διαφανειών παραμένει διαθέσιμο, αλλά το αποθηκευμένο αρχείο δεν φέρει πλέον τα αποδεικτικά της αφαιρεθείσας υπογραφής.

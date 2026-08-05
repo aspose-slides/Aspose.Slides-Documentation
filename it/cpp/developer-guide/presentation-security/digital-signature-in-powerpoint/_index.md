@@ -9,91 +9,169 @@ keywords:
 - certificato digitale
 - autorità di certificazione
 - certificato PFX
+- PKCS#12
+- validare firma
 - PowerPoint
-- OpenDocument
-- presentazione
+- PPTX
+- sicurezza della presentazione
 - C++
 - Aspose.Slides
-description: "Scopri come firmare digitalmente file PowerPoint e OpenDocument con Aspose.Slides per C++. Proteggi le tue slide in pochi secondi con esempi di codice chiari."
+description: "Scopri come firmare presentazioni PPTX esistenti con certificati PFX e utilizzare Aspose.Slides per C++ per validare o rimuovere firme digitali."
 ---
-## **Introduzione**
+## **Panoramica**
 
-**Certificato digitale** è usato per creare una presentazione PowerPoint protetta da password, contrassegnata come creata da una specifica organizzazione o persona. Il certificato digitale può essere ottenuto contattando un'organizzazione autorizzata, un'autorità di certificazione. Dopo aver installato il certificato digitale nel sistema, può essere usato per aggiungere una firma digitale alla presentazione tramite File -> Info -> Proteggi presentazione:
+Una firma digitale aiuta il destinatario a determinare chi ha firmato una presentazione e se il contenuto firmato è stato modificato. Tre concetti di sicurezza correlati sono importanti qui:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Un **certificato digitale** è un documento elettronico che associa un'identità a una chiave pubblica. Un'autorità di certificazione (CA) affidabile può rilasciare un certificato, oppure un'organizzazione può usare un certificato auto-firmato per flussi di lavoro interni.
+- Una **firma digitale** viene creata dal contenuto della presentazione e dalla chiave privata del titolare del certificato. La chiave pubblica del certificato può quindi essere usata per verificare la firma. Una firma fornisce prova di origine e integrità; non crittografa la presentazione.
+- **Protezione con password** controlla se un utente può aprire o modificare una presentazione. È separata dalla firma digitale ed è descritta in [Presentazioni protette da password](/cpp/password-protected-presentation/).
 
-Una presentazione può contenere più di una firma digitale. Dopo che la firma digitale è stata aggiunta alla presentazione, verrà visualizzato un messaggio speciale in PowerPoint:
+PowerPoint fornisce il comando **Add a Digital Signature** sotto **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Menu Proteggi presentazione di PowerPoint con Aggiungi firma digitale evidenziata](add-digital-signature-in-powerpoint.png)
 
-Per firmare una presentazione o verificare l'autenticità delle firme della presentazione, **Aspose.Slides API** fornisce l'interfaccia [**IDigitalSignature**](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_digital_signature), l'interfaccia [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_digital_signature_collection) e il metodo [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_presentation#a6f78aff0f8ffa07ff67368fa003722b1). Attualmente, le firme digitali sono supportate solo per il formato PPTX.
+Dopo l'apertura di una presentazione firmata, PowerPoint può visualizzare una notifica sullo stato della firma.
 
-## **Aggiungere una firma digitale da un certificato PFX**
-Il campione di codice sottostante dimostra come aggiungere una firma digitale da un certificato PFX:
+![Notifica di PowerPoint che indica che la presentazione contiene firme valide](digital-signature-status-in-powerpoint.png)
 
-1. Apri il file PFX e passa la password PFX a [**DigitalSignature**](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.digital_signature)object.
-1. Aggiungi la firma creata all'oggetto presentazione.
+Aspose.Slides espone le firme attraverso [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentation/get_digitalsignatures/), che restituisce un [IDigitalSignatureCollection](https://reference.aspose.com/slides/it/cpp/aspose.slides/idigitalsignaturecollection/), i cui elementi implementano [IDigitalSignature](https://reference.aspose.com/slides/it/cpp/aspose.slides/idigitalsignature/). Una presentazione può contenere più firme.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+## **Comprendere i certificati PFX e le password**
 
-// Crea oggetto DigitalSignature con file PFX e password PFX 
-auto signature = System::MakeObject<DigitalSignature>(u"testsignature1.pfx", u"testpass1");
+Un file PFX, noto anche come file PKCS#12 e comunemente con estensione `.pfx` o `.p12`, può contenere un certificato X.509, la sua chiave privata e la catena di certificati. La chiave privata è ciò che consente al titolare di creare una firma. Un certificato senza una chiave privata accessibile non può essere usato per firmare una presentazione.
 
-// Commenta nuova firma digitale
-signature->set_Comments(u"Aspose.Slides digital signing test.");
+La password PFX protegge il pacchetto del certificato e la chiave privata. **Non** è una password per aprire o modificare la presentazione. Non eseguire il commit di file PFX o delle loro password nel controllo della versione. In produzione, limita l'accesso al file del certificato e ottieni la sua password da un secret store o un'altra fonte di configurazione protetta. Gli esempi seguenti usano una variabile d'ambiente solo per evitare di inserire la password nel codice.
 
-// Aggiungi firma digitale alla presentazione
-pres->get_DigitalSignatures()->Add(signature);
+## **Aggiungere una firma digitale a una presentazione**
 
-// Salva presentazione
-pres->Save(u"SomePresentationSigned.pptx", SaveFormat::Pptx);
+Per firmare una presentazione reale, carica un file PPTX esistente, crea un [DigitalSignature](https://reference.aspose.com/slides/it/cpp/aspose.slides/digitalsignature/) da un certificato PFX e dalla sua password, aggiungi la firma alla collezione della presentazione e salva in un file PPTX.
+
+```cpp
+auto certificatePassword = Environment::GetEnvironmentVariable(u"PFX_PASSWORD");
+if (certificatePassword.IsNullOrEmpty())
+{
+    throw InvalidOperationException(u"Set the PFX_PASSWORD environment variable.");
+}
+
+auto presentation = MakeObject<Presentation>(u"InputPresentation.pptx");
+
+auto signature = MakeObject<DigitalSignature>(u"signing-certificate.pfx", certificatePassword);
+signature->set_Comments(u"Approved for release.");
+
+presentation->get_DigitalSignatures()->Add(signature);
+presentation->Save(u"InputPresentation-signed.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-Ora è possibile verificare se la presentazione è stata firmata digitalmente e non è stata modificata:
+Salvare il risultato con un nuovo nome preserva il file sorgente non firmato. Il valore [IDigitalSignature::set_Comments](https://reference.aspose.com/slides/it/cpp/aspose.slides/idigitalsignature/set_comments/) descrive lo scopo della firma; non è un controllo di sicurezza.
 
-``` cpp
-// Apri presentazione
-auto pres = System::MakeObject<Presentation>(u"SomePresentationSigned.pptx");
+## **Convalidare le firme digitali**
 
-if (pres->get_DigitalSignatures()->get_Count() > 0)
+Quando carichi un file PPTX firmato, ispeziona ogni elemento restituito da [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentation/get_digitalsignatures/). Il metodo [IDigitalSignature::get_IsValid](https://reference.aspose.com/slides/it/cpp/aspose.slides/idigitalsignature/get_isvalid/) indica se la firma incorporata è valida per il contenuto attuale della presentazione.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+auto signatureCount = presentation->get_DigitalSignatures()->get_Count();
+
+if (signatureCount == 0)
+{
+    Console::WriteLine(u"The presentation does not contain digital signatures.");
+}
+else
 {
     bool allSignaturesAreValid = true;
 
-    Console::WriteLine(u"Signatures used to sign the presentation: ");
-
-    // Verifica se tutte le firme digitali sono valide
-    for (auto signature : pres->get_DigitalSignatures())
+    for (int signatureIndex = 0; signatureIndex < signatureCount; ++signatureIndex)
     {
-        Console::WriteLine(signature->get_Certificate()->get_SubjectName()->get_Name() 
-            + u", " 
-            + signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm") 
-            + u" -- " 
-            + (signature->get_IsValid() ? System::String(u"VALID") : System::String(u"INVALID")));
-        allSignaturesAreValid &= signature->get_IsValid();
+        auto signature = presentation->get_DigitalSignature(signatureIndex);
+        auto signatureIsValid = signature->get_IsValid();
+        auto signatureStatus = signatureIsValid ? u"VALID" : u"INVALID";
+        auto signerName = signature->get_Certificate()->get_SubjectName()->get_Name();
+        auto signingTime = signature->get_SignTime().ToString(u"yyyy-MM-dd HH:mm:ss");
+
+        Console::WriteLine(u"{0}, {1} -- {2}", signerName, signingTime, signatureStatus);
+
+        allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
     }
 
     if (allSignaturesAreValid)
     {
-        Console::WriteLine(u"Presentation is genuine, all signatures are valid.");
+        Console::WriteLine(u"All embedded signatures are valid for the current presentation.");
     }
     else
     {
-        Console::WriteLine(u"Presentation has been modified since signing.");
+        Console::WriteLine(u"At least one embedded signature is invalid.");
     }
 }
+
+presentation->Dispose();
 ```
+
+Un risultato non valido indica solitamente che il contenuto della presentazione firmata o i dati della firma sono stati modificati dopo la firma, oppure che il file è danneggiato. Rimuovere tutte le firme genera una presentazione non firmata, quindi verificare solo la validità degli elementi non è sufficiente: un flusso di lavoro sensibile alla sicurezza deve anche verificare che siano presenti il numero previsto di firme e le identità dei firmatari attese.
+
+Questo risultato di validità non dovrebbe essere considerato una decisione completa di fiducia nel certificato. A seconda della tua politica di sicurezza, l'applicazione potrebbe dover anche costruire e validare la catena di certificati X.509, verificare le date di validità e lo stato di revoca del certificato, confermare il soggetto o l'impronta attesi, controllare l'uso della chiave e valutare un timestamp affidabile. Il valore [IDigitalSignature::get_SignTime](https://reference.aspose.com/slides/it/cpp/aspose.slides/idigitalsignature/get_signtime/) da solo non è una prova da un'autorità di timestamp affidabile.
+
+## **Rimuovere le firme digitali**
+
+La rimozione delle firme modifica lo stato di sicurezza della presentazione. L'esempio seguente carica un file PPTX firmato, rimuove tutte le firme con [IDigitalSignatureCollection::Clear](https://reference.aspose.com/slides/it/cpp/aspose.slides/idigitalsignaturecollection/clear/), e salva una copia non firmata.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"InputPresentation-signed.pptx");
+
+presentation->get_DigitalSignatures()->Clear();
+presentation->Save(u"InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Per rimuovere una sola firma, chiama [IDigitalSignatureCollection::RemoveAt](https://reference.aspose.com/slides/it/cpp/aspose.slides/idigitalsignaturecollection/removeat/) con il suo indice basato su zero. Salva in un nuovo file a meno che la sovrascrittura dell'originale firmato non sia una parte esplicita del tuo flusso di lavoro.
+
+## **Considerazioni su modifica e formato**
+
+- Una firma non rende la presentazione di sola lettura. Utenti e applicazioni possono ancora modificare il file, ma le modifiche al contenuto firmato di solito invalidano la firma esistente.
+- Completa tutte le modifiche previste prima di firmare. Se una presentazione deve essere modificata, salva la presentazione revisionata e firma nuovamente quella revisione.
+- Mantieni l'output finale in formato PPTX. Convertire una presentazione firmata in un altro formato non trasferisce la firma PPTX originale come firma valida per il file convertito.
+- Considera la chiave privata del certificato come sensibile. Chiunque ottenga la chiave privata e la sua password potrebbe creare firme che sembrano provenire dal titolare del certificato.
+- Conserva il sorgente non firmato o un'altra copia controllata quando la tua politica di conservazione dei documenti lo richiede.
 
 ## **FAQ**
 
-**Posso rimuovere le firme esistenti da un file?**
+**Una firma digitale crittografa la presentazione?**
 
-Sì. La collezione di firme digitali supporta la [rimozione di elementi individuali](https://reference.aspose.com/slides/it/cpp/aspose.slides/digitalsignaturecollection/removeat/) e la [cancellazione completa](https://reference.aspose.com/slides/it/cpp/aspose.slides/digitalsignaturecollection/clear/); dopo aver salvato il file, la presentazione non avrà firme.
+No. Una firma digitale fornisce una prova sull'origine e sull'integrità, ma il contenuto della presentazione rimane leggibile a meno che non venga applicata una crittografia separata. Usa [protezione con password](/cpp/password-protected-presentation/) quando è necessario limitare l'accesso al contenuto.
 
-**Il file diventa "sola lettura" dopo la firma?**
+**La password PFX è la stessa della password della presentazione?**
 
-No. Una firma preserva l'integrità e l'autorialità ma non blocca le modifiche. Per limitare la modifica, combinatela con ["Read-only" o una password](/slides/it/cpp/password-protected-presentation/).
+No. La password PFX sblocca la chiave privata memorizzata nel pacchetto del certificato. Non controlla chi può aprire o modificare il file PPTX.
 
-**La firma verrà visualizzata correttamente in diverse versioni di PowerPoint?**
+**Posso usare un certificato auto-firmato?**
 
-La firma è creata per il contenitore OOXML (PPTX). Le versioni moderne di PowerPoint che supportano le firme OOXML visualizzano correttamente lo stato di tali firme.
+Tecnicamente, un certificato auto-firmato può essere usato se include una chiave privata accessibile. Tuttavia i destinatari non lo potranno automaticamente considerare attendibile, a meno che il certificato non sia stato aggiunto esplicitamente al loro ambiente di fiducia. I flussi di lavoro pubblici o inter-organizzativi tipicamente usano un certificato rilasciato da una CA affidabile.
+
+**Cosa rende una firma non valida?**
+
+Modificare il contenuto della presentazione firmata o i dati della firma dopo la firma può invalidare la firma. La corruzione del file può anche causare il fallimento della convalida. Se tutte le firme vengono rimosse, la presentazione è non firmata anziché contenere una firma non valida.
+
+**Una firma valida significa che devo fidarmi del firmatario?**
+
+Non da sola. L'integrità della firma e la fiducia nel firmatario sono decisioni separate. Una politica di convalida in produzione dovrebbe anche verificare la catena di certificati, il periodo di validità, lo stato di revoca, l'identità attesa, l'uso della chiave e eventuali requisiti di timestamp affidabili.
+
+**Cosa succede quando il certificato scade?**
+
+La scadenza del certificato non altera i byte della presentazione, ma influisce sulla valutazione della fiducia nel certificato. Se una firma rimane accettabile dipende dalla tua politica e dal fatto che un timestamp affidabile valido dimostri che la firma è avvenuta mentre il certificato era valido. Non fare affidamento solo sul tempo di firma visualizzato come timestamp affidabile.
+
+**Una presentazione firmata può ancora essere modificata?**
+
+Sì. La firma non blocca il file. Modificare il contenuto firmato di solito rende la firma esistente non valida, quindi completa prima la presentazione e firma la revisione finale.
+
+**Una presentazione può contenere più di una firma?**
+
+Sì. Aggiungi ogni firma alla collezione restituita da [IPresentation::get_DigitalSignatures](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentation/get_digitalsignatures/) prima di salvare. Durante la convalida, ispeziona ogni firma e conferma che tutti i firmatari richiesti siano presenti.
+
+**Quali formati di presentazione supportano queste operazioni?**
+
+Aspose.Slides supporta le operazioni di firma digitale descritte qui solo per PPTX. I formati di presentazione PPT e OpenDocument non sono supportati da questo flusso di lavoro API.
+
+**Posso rimuovere una firma senza influire sulle diapositive?**
+
+Sì. Puoi rimuovere una firma o svuotare l'intera collezione e poi salvare la presentazione. Il contenuto delle diapositive rimane disponibile, ma il file salvato non porta più la prova della firma rimossa.

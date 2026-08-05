@@ -1,5 +1,5 @@
 ---
-title: Digitális aláírások hozzáadása prezentációkhoz PHP-ben
+title: Digitális aláírások hozzáadása prezentációkhoz PHP-ban
 linktitle: Digitális aláírás
 type: docs
 weight: 10
@@ -9,86 +9,168 @@ keywords:
 - digitális tanúsítvány
 - tanúsítványkiadó
 - PFX tanúsítvány
+- PKCS#12
+- aláírás ellenőrzése
 - PowerPoint
-- OpenDocument
-- prezentáció
+- PPTX
+- prezentáció biztonság
 - PHP
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet digitálisan aláírni a PowerPoint és OpenDocument fájlokat az Aspose.Slides for PHP (Java-on keresztül) segítségével. Biztonságossá tegye diavetítéseit másodpercek alatt egyértelmű kódrészletekkel."
+description: "Ismerje meg, hogyan lehet aláírni meglévő PPTX prezentációkat PFX tanúsítványokkal, és az Aspose.Slides for PHP via Java segítségével ellenőrizni vagy eltávolítani a digitális aláírásokat."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-**Digitális tanúsítvány** a jelszóval védett powerpoint prezentáció létrehozásához használható, amelyet egy adott szervezet vagy személy készítettnek jelölnek. A digitális tanúsítványt egy hitelesített szervezet - egy tanúsítványkiadó felkeresésével lehet beszerezni. A digitális tanúsítvány telepítése után a rendszerben használható a prezentációhoz digitális aláírás hozzáadásához a File -> Info -> Protect Presentation menüpontban:
+A digitális aláírás segít a címzettnek meghatározni, ki írását aláírta egy prezentációnak, és hogy az aláírt tartalom megváltozott-e. Három kapcsolódó biztonsági fogalom fontos itt:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- A **digitális tanúsítvány** egy elektronikus igazolvány, amely egy személyazonosságot egy publikus kulccsal kapcsolja össze. Egy megbízható tanúsítványkiadó (CA) kiadhat tanúsítványt, vagy egy szervezet önaláírt tanúsítványt használhat belső munkafolyamatokhoz.
+- A **digitális aláírás** a prezentáció tartalmából és a tanúsítvány tulajdonosának privát kulcsából jön létre. A tanúsítvány publikus kulcsa ezután felhasználható az aláírás ellenőrzésére. Az aláírás bizonyítja a származást és az integritást; nem titkosítja a prezentációt.
+- **Jelszóvédelem** szabályozza, hogy a felhasználó megnyithatja vagy módosíthatja-e a prezentációt. Ez különálló a digitális aláírástól, és le van írva a [Password-Protected Presentations](/php-java/password-protected-presentation/) oldalon.
 
-A prezentáció több digitális aláírást is tartalmazhat. Miután a digitális aláírás hozzá lett adva a prezentációhoz, egy speciális üzenet jelenik meg a PowerPointban:
+A PowerPoint a **Add a Digital Signature** parancsot a **File > Info > Protect Presentation** menüpont alatt biztosítja.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint „Protect Presentation” menü, a „Add a Digital Signature” kiemelve](add-digital-signature-in-powerpoint.png)
 
-A prezentáció aláírásához vagy a prezentáció aláírásainak hitelességének ellenőrzéséhez az **Aspose.Slides API** a [**DigitalSignature**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/DigitalSignature) osztályt, a [**DigitalSignatureCollection**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/DigitalSignatureCollection) osztályt és a [**Presentation::getDigitalSignatures**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getDigitalSignatures) metódust biztosítja. Jelenleg a digitális aláírások csak a PPTX formátumhoz vannak támogatva.
+Aláírt prezentáció megnyitása után a PowerPoint megjeleníthet egy aláírási állapot értesítést.
 
-## **Digitális aláírás hozzáadása PFX tanúsítványból**
+![PowerPoint értesítés, amely közli, hogy a prezentáció érvényes aláírásokat tartalmaz](digital-signature-status-in-powerpoint.png)
 
-Az alábbi kódrészlet bemutatja, hogyan adhatunk digitális aláírást egy PFX tanúsítványból:
+Az Aspose.Slides az aláírásokat ezen keresztül teszi elérhetővé: [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getDigitalSignatures), amely egy [DigitalSignatureCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignaturecollection/) visszaad, amelynek elemei [DigitalSignature](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignature/) objektumok. Egy prezentáció több aláírást is tartalmazhat.
 
-1. Nyissa meg a PFX fájlt, és adja át a PFX jelszót a [**DigitalSignature**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/DigitalSignature) objektumnak.
-2. Adja hozzá a létrehozott aláírást a prezentáció objektumhoz.
+## **PFX tanúsítványok és jelszavak megértése**
 
-```php
-  # A prezentációs fájl megnyitása
-  $pres = new Presentation();
-  try {
-    # DigitalSignature objektum létrehozása PFX fájllal és PFX jelszóval
-    $signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-    # Új digitális aláírás megjegyzése
-    $signature->setComments("Aspose.Slides digital signing test.");
-    # Digitális aláírás hozzáadása a prezentációhoz
-    $pres->getDigitalSignatures()->add($signature);
-    # Prezentáció mentése
-    $pres->save("SomePresentationSigned.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+A PFX fájl, amelyet PKCS#12 fájlnak is neveznek, és általában `.pfx` vagy `.p12` kiterjesztéssel rendelkezik, tartalmazhat egy X.509 tanúsítványt, annak privát kulcsát és a tanúsítványláncot. A privát kulcs teszi lehetővé a tulajdonos számára az aláírás létrehozását. Egy tanúsítvány, amelyhez nincs hozzáférhető privát kulcs, nem használható a prezentáció aláírására.
 
-Most már ellenőrizhető, hogy a prezentáció digitálisan aláírt‑e, és nem módosult‑e:
+A PFX jelszó védi a tanúsítványcsomagot és a privát kulcsot. **Nem** a prezentáció megnyitásához vagy szerkesztéséhez szükséges jelszó. Ne kötelezd be PFX fájlokat vagy azok jelszavait a forráskód-kezelőbe. Éles környezetben korlátozd a tanúsítványfájl elérését, és a jelszót titkos tárolóból vagy más védett konfigurációs forrásból szerezd be. Az alábbi példák környezeti változót használnak, hogy elkerüljék a jelszó kódban való beágyazását.
+
+## **Digitális aláírás hozzáadása a prezentációhoz**
+
+A valódi prezentáció aláírási folyamatához tölts be egy meglévő PPTX fájlt, hozz létre egy [DigitalSignature](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignature/) objektumot egy PFX tanúsítvány és annak jelszava alapján, add hozzá az aláírást a prezentáció gyűjteményéhez, és mentsd el PPTX fájlként.
 
 ```php
-  # Prezentáció megnyitása
-  $pres = new Presentation("SomePresentationSigned.pptx");
-  try {
-    if (java_values($pres->getDigitalSignatures()->size()) > 0) {
-      $allSignaturesAreValid = true;
-      echo("Signatures used to sign the presentation: ");
-      # Ellenőrizze, hogy az összes digitális aláírás érvényes-e
-      foreach($pres->getDigitalSignatures() as $signature) {
-        echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
-        $allSignaturesAreValid &= $signature->isValid();
-      }
-      if ($allSignaturesAreValid) {
-        echo("Presentation is genuine, all signatures are valid.");
-      } else {
-        echo("Presentation has been modified since signing.");
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$certificatePassword = getenv("PFX_PASSWORD");
+if ($certificatePassword === false || $certificatePassword === "") {
+    throw new RuntimeException("Set the PFX_PASSWORD environment variable.");
+}
+
+$presentation = new Presentation("InputPresentation.pptx");
+try {
+    $signature = new DigitalSignature("signing-certificate.pfx", $certificatePassword);
+    $signature->setComments("Approved for release.");
+
+    $presentation->getDigitalSignatures()->add($signature);
+    $presentation->save("InputPresentation-signed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Az eredmény új néven történő mentése megőrzi az aláíratlan forrásfájlt. A [DigitalSignature::setComments](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignature/setcomments/) által beállított érték leírja az aláírás célját; ez nem biztonsági vezérlő.
+
+## **Digitális aláírások ellenőrzése**
+
+Amikor egy aláírt PPTX fájlt töltesz be, vizsgáld meg a [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getDigitalSignatures) által visszaadott összes elemet. A [DigitalSignature::isValid](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignature/isvalid/) metódus jelzi, hogy a beágyazott aláírás érvényes-e a jelenlegi prezentáció tartalmához.
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $signatures = $presentation->getDigitalSignatures();
+    $signatureCount = java_values($signatures->size());
+
+    if ($signatureCount === 0) {
+        echo "The presentation does not contain digital signatures." . PHP_EOL;
+    } else {
+        $allSignaturesAreValid = true;
+        $signTimeFormat = new Java("java.text.SimpleDateFormat", "yyyy-MM-dd HH:mm:ss");
+        $certificateFactoryClass = new JavaClass("java.security.cert.CertificateFactory");
+        $certificateFactory = $certificateFactoryClass->getInstance("X.509");
+
+        for ($index = 0; $index < $signatureCount; $index++) {
+            $signature = $signatures->get_Item($index);
+            $signatureIsValid = java_values($signature->isValid());
+            $signatureStatus = $signatureIsValid ? "VALID" : "INVALID";
+            $formattedSignTime = java_values($signTimeFormat->format($signature->getSignTime()));
+
+            $certificateData = $signature->getCertificate();
+            $certificateStream = new Java("java.io.ByteArrayInputStream", $certificateData);
+            try {
+                $certificate = $certificateFactory->generateCertificate($certificateStream);
+                $signerName = java_values($certificate->getSubjectX500Principal()->getName());
+            } finally {
+                $certificateStream->close();
+            }
+
+            echo $signerName . ", " . $formattedSignTime . " -- " . $signatureStatus . PHP_EOL;
+
+            $allSignaturesAreValid = $allSignaturesAreValid && $signatureIsValid;
+        }
+
+        if ($allSignaturesAreValid) {
+            echo "All embedded signatures are valid for the current presentation." . PHP_EOL;
+        } else {
+            echo "At least one embedded signature is invalid." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Az érvénytelen eredmény általában azt jelenti, hogy az aláírt prezentáció tartalma vagy az aláírás adatai a aláírás után megváltoztak, vagy hogy a fájl sérült. Minden aláírás eltávolítása aláíratlan prezentációt eredményez, így csak az elemek érvényességének ellenőrzése nem elegendő: egy biztonságérzékeny munkafolyamatnak továbbá ellenőriznie kell, hogy a kívánt számú aláírás és a várt aláírók azonosítói jelen vannak-e.
+
+Ezt az érvényességi eredményt nem szabad a tanúsítványteljes bizalom döntésének tekinteni. A biztonsági irányelvedtől függően az alkalmazásnak fel kell építenie és ellenőriznie kell az X.509 tanúsítványláncot, a tanúsítvány érvényesítési dátumait és visszavonási állapotát, megerősítenie a várt alanyt vagy ujjlenyomatot, ellenőriznie a kulcs használatát, és értékelnie a megbízható időbélyeget. A [DigitalSignature::getSignTime](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignature/getsigntime/) érték önmagában nem bizonyíték megbízható időbélyeg-kiadótól.
+
+## **Digitális aláírások eltávolítása**
+
+Az aláírások eltávolítása módosítja a prezentáció biztonsági állapotát. Az alábbi példa betölt egy aláírt PPTX fájlt, eltávolítja az összes aláírást a [DigitalSignatureCollection::clear](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignaturecollection/clear/) segítségével, és ment egy aláíratlan másolatot.
+
+```php
+$presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    $presentation->getDigitalSignatures()->clear();
+    $presentation->save("InputPresentation-unsigned.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Egyetlen aláírás eltávolításához hívd meg a [DigitalSignatureCollection::removeAt](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignaturecollection/removeat/) metódust a nulla alapú indexével. Ments egy új fájlt, hacsak a felülírása az aláírt eredetinek nem része a munkafolyamatodnak.
+
+## **Szerkesztés és formátumfontosságú szempontok**
+
+- Az aláírás nem teszi a prezentációt csak olvashatóvá. A felhasználók és alkalmazások továbbra is szerkeszthetik a fájlt, de a aláírt tartalom változtatása általában érvényteleníti a meglévő aláírást.
+- Végezd el az összes tervezett módosítást aláírás előtt. Ha a prezentációt módosítani kell, mentsd el a javított verziót, és aláírásra küldd azt a revíziót.
+- Tartsd meg a végleges kimenetet PPTX formátumban. Egy aláírt prezentáció más formátumba konvertálása nem viszi át az eredeti PPTX aláírást érvényes aláírásként a konvertált fájlra.
+- A tanúsítvány privát kulcsát tekintsd érzékeny adatnak. Bárki, aki megszerzi a privát kulcsot és jelszavát, képes aláírásokat létrehozni, amelyek úgy tűnnek, mintha a tanúsítvány tulajdonosától származnának.
+- Tartsd meg az aláíratlan forrást vagy egy másik ellenőrzött másolatot, ha a dokumentummegőrzési szabályzat ezt megköveteli.
 
 ## **GYIK**
 
-**Eltávolíthatok meglévő aláírásokat egy fájlból?**
+**A digitális aláírás titkosítja a prezentációt?**  
+Nem. A digitális aláírás bizonyítékot nyújt a származásra és az integritásra, de a prezentáció tartalma olvasható marad, hacsak külön titkosítás nem kerül alkalmazásra. Használd a [password protection](/php-java/password-protected-presentation/) lehetőséget, ha a tartalom hozzáférését korlátozni kell.
 
-Igen. A digitális aláírások gyűjteménye támogatja az [egyedi elemek eltávolítását](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignaturecollection/removeat/) és a [teljes törlést](https://reference.aspose.com/slides/hu/php-java/aspose.slides/digitalsignaturecollection/clear/); a fájl mentése után a prezentációnak nem lesz aláírása.
+**Ugyanaz a PFX jelszó, mint a prezentáció jelszava?**  
+Nem. A PFX jelszó feloldja a tanúsítványcsomagban tárolt privát kulcsot. Nem szabályozza, ki nyithatja meg vagy szerkesztheti a PPTX fájlt.
 
-**Válik a fájl aláírás után „csak olvashatóvá”?**
+**Használhatok önaláírt tanúsítványt?**  
+Technikailag egy önaláírt tanúsítvány használható, ha tartalmaz hozzáférhető privát kulcsot. A címzettek azonban nem fogják automatikusan megbízni, hacsak a tanúsítványt nem adták hozzá kifejezetten a megbízható környezetükhöz. A nyilvános vagy szervezetek közötti munkafolyamatok általában megbízható CA által kiadott tanúsítványt használnak.
 
-Nem. Az aláírás megőrzi a integritást és a szerzői jogot, de nem akadályozza a szerkesztést. A szerkesztés korlátozásához kombinálja azt a ["Read-only" vagy jelszó](/slides/hu/php-java/password-protected-presentation/) lehetőséggel.
+**Mi teszi érvénytelenül az aláírást?**  
+Az aláírt prezentáció tartalmának vagy az aláírás adatainak a aláírás után történő módosítása érvénytelenítheti az aláírást. A fájl sérülése is okozhat hibás ellenőrzést. Ha minden aláírás eltávolításra kerül, a prezentáció aláíratlan, nem pedig egy érvénytelen aláírást tartalmazó fájl.
 
-**Megjelenik‑e az aláírás helyesen a PowerPoint különböző verzióiban?**
+**Érvényes aláírás azt jelenti, hogy bízhatok az aláíróban?**  
+Nem önmagában. Az aláírás integritása és az aláíró megbízhatósága külön döntések. Egy termelési ellenőrzési szabályzatnak továbbá ellenőriznie kell a tanúsítványláncot, az érvényességi időszakot, a visszavonási állapotot, a várt személyazonosságot, a kulcs használatát, valamint a megbízható időbélyeg követelményeit.
 
-Az aláírás az OOXML (PPTX) konténerhez lett létrehozva. A modern PowerPoint verziók, amelyek támogatják az OOXML aláírásokat, helyesen jelenítik meg az ilyen aláírások állapotát.
+**Mi történik, ha a tanúsítvány lejár?**  
+A tanúsítvány lejárta nem módosítja a prezentáció bájtjait, de befolyásolja a tanúsítvány megbízhatóságának értékelését. Az, hogy egy aláírás továbbra is elfogadható-e, a szabályzatodtól és attól függ, hogy egy érvényes megbízható időbélyeg bizonyítja-e, hogy az aláírás a tanúsítvány érvényességi ideje alatt történt. Ne csak a megjelenített aláírási időre támaszkodj megbízható időbélyegként.
+
+**Szerkeszthető továbbra is egy aláírt prezentáció?**  
+Igen. Az aláírás nem zárolja a fájlt. A aláírt tartalom szerkesztése általában érvényteleníti a meglévő aláírást, ezért először fejezd be a prezentációt, majd írd alá a végső revíziót.
+
+**Tartalmazhat egy prezentáció több aláírást?**  
+Igen. Minden aláírást add hozzá a [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getDigitalSignatures) által visszaadott gyűjteményhez a mentés előtt. Érvényesítés során vizsgáld meg minden aláírást, és erősítsd meg, hogy minden szükséges aláíró jelen van.
+
+**Mely prezentációformátumok támogatják ezeket a műveleteket?**  
+Az Aspose.Slides csak a PPTX formátum esetén támogatja a leírt digitális aláírási műveleteket. A PPT és az OpenDocument prezentációs formátumok nem támogatottak ezen API munkafolyamat keretében.
+
+**Eltávolíthatok aláírást anélkül, hogy a diákra hatással lenne?**  
+Igen. Egy aláírást eltávolíthatsz vagy kiürítheted az egész gyűjteményt, majd elmentheted a prezentációt. A diák tartalma megmarad, de a mentett fájl már nem tartalmazza a eltávolított aláírás bizonyítékát.
