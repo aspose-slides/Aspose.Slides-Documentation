@@ -1,5 +1,5 @@
 ---
-title: Python के साथ प्रस्तुतियों में डिजिटल हस्ताक्षर जोड़ें
+title: Python में प्रस्तुतियों में डिजिटल हस्ताक्षर जोड़ें
 linktitle: डिजिटल हस्ताक्षर
 type: docs
 weight: 10
@@ -9,81 +9,161 @@ keywords:
 - डिजिटल प्रमाणपत्र
 - प्रमाणपत्र प्राधिकरण
 - PFX प्रमाणपत्र
+- PKCS#12
+- हस्ताक्षर सत्यापन
 - PowerPoint
-- OpenDocument
-- प्रस्तुति
+- PPTX
+- प्रस्तुतिकरण सुरक्षा
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के साथ PowerPoint और OpenDocument फाइलों को डिजिटल रूप से साइन करना सीखें। स्पष्ट कोड उदाहरणों के साथ सेकंडों में अपनी स्लाइड्स को सुरक्षित बनाएं।"
+description: "जाने कैसे मौजूदा PPTX प्रस्तुतियों पर PFX प्रमाणपत्रों के साथ हस्ताक्षर करें और .NET के माध्यम से Python के लिए Aspose.Slides का उपयोग करके डिजिटल हस्ताक्षरों को सत्यापित या हटाएँ।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-**डिजिटल प्रमाणपत्र** का उपयोग पासवर्ड‑सुरक्षित PowerPoint प्रस्तुति बनाने के लिए किया जाता है, जिसे किसी विशिष्ट संगठन या व्यक्ति द्वारा निर्मित के रूप में चिह्नित किया जाता है। डिजिटल प्रमाणपत्र को अधिकृत संगठन - एक प्रमाणपत्र प्राधिकारी - से संपर्क करके प्राप्त किया जा सकता है। सिस्टम में डिजिटल प्रमाणपत्र स्थापित करने के बाद, इसे फ़ाइल -> जानकारी -> प्रेज़ेंटेशन सुरक्षा के माध्यम से प्रस्तुति में डिजिटल हस्ताक्षर जोड़ने के लिए उपयोग किया जा सकता है:
+एक डिजिटल हस्ताक्षर प्राप्तकर्ता को यह निर्धारित करने में मदद करता है कि प्रस्तुतिकरण पर कौन ने हस्ताक्षर किया और क्या हस्ताक्षरित सामग्री बदल गई है। यहाँ तीन संबंधित सुरक्षा अवधारणाएँ महत्वपूर्ण हैं:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **डिजिटल प्रमाणपत्र** एक इलेक्ट्रॉनिक प्रमाण है जो एक पहचान को सार्वजनिक कुंजी से जोड़ता है। एक विश्वसनीय प्रमाणपत्र प्राधिकारी (CA) प्रमाणपत्र जारी कर सकता है, या कोई संगठन आंतरिक कार्यप्रवाह के लिए स्वयं-हस्ताक्षरित प्रमाणपत्र का उपयोग कर सकता है।
+- **डिजिटल हस्ताक्षर** प्रस्तुतिकरण सामग्री और प्रमाणपत्र धारक की निजी कुंजी से बनाया जाता है। प्रमाणपत्र की सार्वजनिक कुंजी के द्वारा हस्ताक्षर को सत्यापित किया जा सकता है। एक हस्ताक्षर स्रोत और अखंडता का प्रमाण देता है; यह प्रस्तुतिकरण को एन्क्रिप्ट नहीं करता।
+- **पासवर्ड सुरक्षा** नियंत्रित करती है कि उपयोगकर्ता प्रस्तुतिकरण को खोल सकता है या संशोधित कर सकता है। यह डिजिटल साइनिंग से अलग है और इसे [पासवर्ड-सुरक्षित प्रस्तुतियां](/python-net/password-protected-presentation/) में वर्णित किया गया है।
 
-प्रस्तुति में एक से अधिक डिजिटल हस्ताक्षर हो सकते हैं। डिजिटल हस्ताक्षर को प्रस्तुति में जोड़ने के बाद, PowerPoint में एक विशेष संदेश प्रदर्शित होगा:
+PowerPoint **Add a Digital Signature** कमांड **File > Info > Protect Presentation** के तहत प्रदान करता है।
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Protect Presentation मेनू जिसमें Add a Digital Signature हाइलाइट किया गया है](add-digital-signature-in-powerpoint.png)
 
-प्रस्तुति पर हस्ताक्षर करने या प्रस्तुति हस्ताक्षरों की प्रामाणिकता जाँचने के लिए, **Aspose.Slides API** प्रदान करता है [**DigitalSignature**](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/) क्लास, [**DigitalSignatureCollection**](https://reference.aspose.com/slides/hi/python-net/aspose.slides/DigitalSignatureCollection/) क्लास और [**Presentation.digital_signatures**](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/digital_signatures/) प्रॉपर्टी। वर्तमान में, डिजिटल हस्ताक्षर केवल PPTX प्रारूप के लिए समर्थित हैं।
+हस्ताक्षरित प्रस्तुतिकरण खोलने के बाद, PowerPoint एक हस्ताक्षर-स्थिति सूचना प्रदर्शित कर सकता है।
 
-## **PFX प्रमाणपत्र से डिजिटल हस्ताक्षर जोड़ें**
+![PowerPoint सूचना जो बताती है कि प्रस्तुतिकरण में मान्य हस्ताक्षर हैं](digital-signature-status-in-powerpoint.png)
 
-नीचे दिया गया कोड उदाहरण दिखाता है कि PFX प्रमाणपत्र से डिजिटल हस्ताक्षर कैसे जोड़ें:
+Aspose.Slides हस्ताक्षरों को [Presentation.digital_signatures](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/digital_signatures/) के माध्यम से उजागर करता है, जो एक [DigitalSignatureCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignaturecollection/) है, जिसकी वस्तुएँ [DigitalSignature](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/) ऑब्जेक्ट हैं। एक प्रस्तुतिकरण में कई हस्ताक्षर हो सकते हैं।
 
-1. PFX फ़ाइल खोलें और PFX पासवर्ड को [**DigitalSignature**](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/) ऑब्जेक्ट को पास करें।
-2. निर्मित हस्ताक्षर को प्रस्तुति ऑब्जेक्ट में जोड़ें।
+## **PFX प्रमाणपत्रों और पासवर्ड को समझें**
 
-```py
+एक PFX फ़ाइल, जिसे PKCS#12 फ़ाइल के रूप में भी जाना जाता है और सामान्यतः `.pfx` या `.p12` एक्सटेंशन दिया जाता है, इसमें X.509 प्रमाणपत्र, उसकी निजी कुंजी, और प्रमाणपत्र श्रृंखला हो सकती है। निजी कुंजी वह है जो धारक को हस्ताक्षर बनाने की अनुमति देती है। निजी कुंजी के बिना एक प्रमाणपत्र प्रस्तुतिकरण पर हस्ताक्षर करने के लिए उपयोग नहीं किया जा सकता।
+
+PFX पासवर्ड प्रमाणपत्र पैकेज और निजी कुंजी की सुरक्षा करता है। यह प्रस्तुतिकरण को खोलने या संपादित करने के लिए पासवर्ड **नहीं** है। PFX फ़ाइलों या उनके पासवर्ड को स्रोत नियंत्रण में कमिट न करें। उत्पादन में, प्रमाणपत्र फ़ाइल तक पहुँच को सीमित रखें और पासवर्ड को एक सीक्रेट स्टोर या अन्य सुरक्षित कॉन्फ़िगरेशन स्रोत से प्राप्त करें। नीचे के उदाहरण केवल पासवर्ड को कोड में एम्बेड करने से बचने के लिए एक पर्यावरण चर का उपयोग करते हैं।
+
+## **प्रस्तुतिकरण में डिजिटल हस्ताक्षर जोड़ें**
+
+वास्तविक प्रस्तुतिकरण कार्यप्रवाह को साइन करने के लिए, मौजूदा PPTX फ़ाइल लोड करें, PFX प्रमाणपत्र और उसके पासवर्ड से एक [DigitalSignature](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/) बनाएँ, हस्ताक्षर को प्रस्तुतिकरण के संग्रह में जोड़ें, और PPTX फ़ाइल के रूप में सहेजें।
+
+```python
+import os
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # PFX फ़ाइल और PFX पासवर्ड के साथ DigitalSignature ऑब्जेक्ट बनाएँ
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+certificate_password = os.environ.get("PFX_PASSWORD")
+if certificate_password is None:
+    raise RuntimeError("Set the PFX_PASSWORD environment variable.")
 
-    # नए डिजिटल हस्ताक्षर पर टिप्पणी करें
-    signature.comments = "Aspose.Slides digital signing test."
+with slides.Presentation("InputPresentation.pptx") as presentation:
+    signature = slides.DigitalSignature("signing-certificate.pfx", certificate_password)
+    signature.comments = "Approved for release."
 
-    # डिजिटल हस्ताक्षर को प्रस्तुति में जोड़ें
-    pres.digital_signatures.add(signature)
-
-    # प्रस्तुति को सहेजें
-    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
+    presentation.digital_signatures.add(signature)
+    presentation.save("InputPresentation-signed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-अब यह जांचना संभव है कि प्रस्तुति डिजिटल रूप से हस्ताक्षरित है और संशोधित नहीं हुई है:
+परिणाम को नए नाम से सहेजने से बिना हस्ताक्षर वाली स्रोत फ़ाइल सुरक्षित रहती है। [DigitalSignature.comments](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/comments/) मान हस्ताक्षर के उद्देश्य को वर्णित करता है; यह सुरक्षा नियंत्रण नहीं है।
 
-```py
-# प्रस्तुति खोलें
-with slides.Presentation("SomePresentationSigned.pptx") as pres:
-    if len(pres.digital_signatures) > 0:
-        allSignaturesAreValid = True
+## **डिजिटल हस्ताक्षरों को मान्य करें**
 
-        print("Signatures used to sign the presentation: ")
-        # सभी डिजिटल हस्ताक्षर वैध हैं या नहीं जाँचें
-        for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
-            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
-        
+जब आप एक हस्ताक्षरित PPTX फ़ाइल लोड करते हैं, तो [Presentation.digital_signatures](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/digital_signatures/) में प्रत्येक आइटम का निरीक्षण करें। [DigitalSignature.is_valid](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/is_valid/) प्रॉपर्टी यह दर्शाती है कि एम्बेडेड हस्ताक्षर वर्तमान प्रस्तुतिकरण सामग्री के लिए वैध है या नहीं।
 
-        if allSignaturesAreValid:
-            print("Presentation is genuine, all signatures are valid.")
+```python
+import hashlib
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    signature_count = len(presentation.digital_signatures)
+
+    if signature_count == 0:
+        print("The presentation does not contain digital signatures.")
+    else:
+        all_signatures_are_valid = True
+
+        for signature in presentation.digital_signatures:
+            signature_status = "VALID" if signature.is_valid else "INVALID"
+            certificate_fingerprint = hashlib.sha256(signature.certificate).hexdigest().upper()
+            signing_time = signature.sign_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            print(
+                f"Certificate SHA-256: {certificate_fingerprint}, "
+                f"{signing_time} -- {signature_status}"
+            )
+
+            all_signatures_are_valid = (all_signatures_are_valid and signature.is_valid)
+
+        if all_signatures_are_valid:
+            print("All embedded signatures are valid for the current presentation.")
         else:
-            print("Presentation has been modified since signing.")
+            print("At least one embedded signature is invalid.")
 ```
+
+एक अवैध परिणाम आमतौर पर यह意味 देता है कि हस्ताक्षरित प्रस्तुतिकरण सामग्री या हस्ताक्षर डेटा साइन करने के बाद बदल गया है, या फ़ाइल क्षतिग्रस्त है। सभी हस्ताक्षर हटाने से एक बिना हस्ताक्षर वाला प्रस्तुतिकरण बनता है, इसलिए केवल वस्तुओं की वैधता जाँचना पर्याप्त नहीं है: एक सुरक्षा-संवेदनशील कार्यप्रवाह को यह भी सत्यापित करना चाहिए कि अपेक्षित संख्या में हस्ताक्षर और अपेक्षित हस्ताक्षरकर्ता पहचान मौजूद हैं।
+
+[DigitalSignature.certificate](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/certificate/) प्रॉपर्टी प्रमाणपत्र डेटा को बाइट ऐरे के रूप में प्रदान करती है। उदाहरण उसका SHA-256 फ़िंगरप्रिंट गणना करता है ताकि कोई अनुप्रयोग इसे अपेक्षित हस्ताक्षरकर्ता प्रमाणपत्र के फ़िंगरप्रिंट से तुलना कर सके।
+
+इस वैधता परिणाम को पूर्ण प्रमाणपत्र-विश्वास निर्णय के रूप में नहीं माना जाना चाहिए। आपके सुरक्षा नीति के आधार पर, आपके अनुप्रयोग को X.509 प्रमाणपत्र श्रृखा बनाना और सत्यापित करना, प्रमाणपत्र वैधता तिथियों और रद्दीकरण स्थिति की जांच करना, अपेक्षित विषय या थंबप्रिंट की पुष्टि करना, कुंजी उपयोग को सत्यापित करना, और एक विश्वसनीय टाइमस्टैंप का मूल्यांकन करना भी आवश्यक हो सकता है। [DigitalSignature.sign_time](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignature/sign_time/) मान स्वयं में विश्वसनीय टाइमस्टैंप प्राधिकरण से प्रमाण नहीं है।
+
+## **डिजिटल हस्ताक्षर हटाएँ**
+
+हस्ताक्षर हटाने से प्रस्तुतिकरण की सुरक्षा स्थिति बदल जाती है। निम्न उदाहरण एक हस्ताक्षरित PPTX फ़ाइल लोड करता है, सभी हस्ताक्षर [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignaturecollection/clear/) से हटाता है, और एक बिना हस्ताक्षर की कॉपी सहेजता है।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    presentation.digital_signatures.clear()
+    presentation.save("InputPresentation-unsigned.pptx", slides.export.SaveFormat.PPTX)
+```
+
+केवल एक हस्ताक्षर हटाने के लिए, उसके शून्य-आधारित इंडेक्स के साथ [DigitalSignatureCollection.remove_at](https://reference.aspose.com/slides/hi/python-net/aspose.slides/digitalsignaturecollection/remove_at/) को कॉल करें। नई फ़ाइल में सहेजें जब तक कि हस्ताक्षरित मूल को अधिलेखित करना आपके कार्यप्रवाह का स्पष्ट भाग न हो।
+
+## **संपादन और स्वरूप विचार**
+
+- एक हस्ताक्षर प्रस्तुतिकरण को केवल-पढ़ने योग्य नहीं बनाता। उपयोगकर्ता और अनुप्रयोग अभी भी फ़ाइल को संपादित कर सकते हैं, लेकिन हस्ताक्षरित सामग्री में परिवर्तन आम तौर पर मौजूदा हस्ताक्षर को अमान्य कर देता है।
+- हस्ताक्षर करने से पहले सभी इच्छित संपादन पूर्ण करें। यदि प्रस्तुतिकरण को बदलना आवश्यक है, तो संशोधित प्रस्तुतिकरण को सहेजें और फिर उस संशोधन पर फिर से हस्ताक्षर करें।
+- अंतिम आउटपुट को PPTX स्वरूप में रखें। एक हस्ताक्षरित प्रस्तुतिकरण को किसी अन्य स्वरूप में बदलने से मूल PPTX हस्ताक्षर वैध हस्ताक्षर के रूप में परिवर्तित फ़ाइल में नहीं रहता।
+- प्रमाणपत्र की निजी कुंजी को संवेदनशील मानें। जो कोई भी निजी कुंजी और उसका पासवर्ड प्राप्त करता है, वह ऐसे हस्ताक्षर बना सकता है जो उस प्रमाणपत्र धारक से आए हुए प्रतीत हों।
+- जब आपके दस्तावेज़-रखरखाव नीति की आवश्यकता हो तो बिना हस्ताक्षर स्रोत या कोई अन्य नियंत्रित कॉपी सुरक्षित रखें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं फ़ाइल से मौजूदा हस्ताक्षर हटा सकता/सकती हूँ?**
+**क्या एक डिजिटल हस्ताक्षर प्रस्तुतिकरण को एन्क्रिप्ट करता है?**
 
-हाँ। डिजिटल हस्ताक्षर संग्रह व्यक्तिगत आइटम हटाने और पूरी तरह से साफ़ करने का समर्थन करता है; फ़ाइल सहेजने के बाद, प्रस्तुति में कोई हस्ताक्षर नहीं रहेगा।
+नहीं। एक डिजिटल हस्ताक्षर स्रोत और अखंडता का सबूत प्रदान करता है, लेकिन प्रस्तुतिकरण सामग्री पढ़ने योग्य रहती है जब तक कि अलग से एन्क्रिप्शन लागू न किया जाए। जब सामग्री तक पहुँच को सीमित करना आवश्यक हो, तो [पासवर्ड सुरक्षा](/python-net/password-protected-presentation/) का उपयोग करें।
 
-**क्या फ़ाइल पर हस्ताक्षर करने के बाद वह "रीड‑ऑनली" बन जाती है?**
+**क्या PFX पासवर्ड प्रस्तुतिकरण पासवर्ड के समान है?**
 
-नहीं। हस्ताक्षर समग्रता और लेखकत्व को बनाए रखता है लेकिन संपादन को ब्लॉक नहीं करता। संपादन को प्रतिबंधित करने के लिए, इसे ["Read-only" या पासवर्ड](/slides/hi/python-net/password-protected-presentation/) के साथ संयोजित करें।
+नहीं। PFX पासवर्ड प्रमाणपत्र पैकेज में संग्रहित निजी कुंजी को अनलॉक करता है। यह यह नियंत्रित नहीं करता कि कौन PPTX फ़ाइल को खोल सकता है या संपादित कर सकता है।
 
-**क्या विभिन्न PowerPoint संस्करणों में हस्ताक्षर सही ढंग से प्रदर्शित होगा?**
+**क्या मैं स्वयं-हस्ताक्षरित प्रमाणपत्र का उपयोग कर सकता हूँ?**
 
-हस्ताक्षर OOXML (PPTX) कंटेनर के लिए बनाया गया है। OOXML हस्ताक्षरों को समर्थन देने वाले आधुनिक PowerPoint संस्करण इन हस्ताक्षरों की स्थिति को सही ढंग से प्रदर्शित करते हैं।
+तकनीकी रूप से, एक स्वयं-हस्ताक्षरित प्रमाणपत्र का उपयोग किया जा सकता है जब उसमें एक सुलभ निजी कुंजी हो। हालांकि, प्राप्तकर्ता इसे स्वचालित रूप से नहीं भरोसा करेंगे, जब तक कि वह प्रमाणपत्र स्पष्ट रूप से उनके भरोसेमंद वातावरण में नहीं जोड़ा गया हो। सार्वजनिक या क्रॉस-ऑर्गेनाइज़ेशन कार्यप्रवाह सामान्यतः विश्वसनीय CA द्वारा जारी प्रमाणपत्र का उपयोग करते हैं।
+
+**हस्ताक्षर को अमान्य क्या बनाता है?**
+
+हस्ताक्षरित प्रस्तुतिकरण सामग्री या हस्ताक्षर डेटा को साइन करने के बाद बदलने से हस्ताक्षर अमान्य हो सकता है। फ़ाइल भ्रष्टाचार भी सत्यापन को विफल कर सकता है। यदि सभी हस्ताक्षर हटा दिए जाएँ, तो प्रस्तुतिकरण बिना हस्ताक्षर वाला हो जाता है, न कि एक अवैध हस्ताक्षर वाला फ़ाइल।
+
+**क्या एक वैध हस्ताक्षर का अर्थ है कि मुझे हस्ताक्षरकर्ता पर भरोसा करना चाहिए?**
+
+केवल इससे नहीं। हस्ताक्षर की अखंडता और हस्ताक्षरकर्ता का भरोसा अलग निर्णय हैं। एक उत्पादन सत्यापन नीति को प्रमाणपत्र श्रृंखला, वैधता अवधि, रद्दीकरण स्थिति, अपेक्षित पहचान, कुंजी उपयोग, और किसी भी विश्वसनीय टाइमस्टैंप आवश्यकताओं की भी जांच करनी चाहिए।
+
+**जब प्रमाणपत्र समाप्त हो जाता है तो क्या होता है?**
+
+प्रमाणपत्र की समाप्ति प्रस्तुतिकरण बाइट्स को नहीं बदलती, लेकिन यह प्रमाणपत्र-विश्वास मूल्यांकन को प्रभावित करती है। क्या हस्ताक्षर स्वीकार्य रहता है, यह आपकी नीति और इस बात पर निर्भर करता है कि क्या एक वैध विश्वसनीय टाइमस्टैंप यह साबित करता है कि हस्ताक्षर तब हुआ था जब प्रमाणपत्र वैध था। केवल प्रदर्शित हस्ताक्षर समय पर भरोसा न करें इसे विश्वसनीय टाइमस्टैंप मानने के लिए।
+
+**क्या एक हस्ताक्षरित प्रस्तुतिकरण को अभी भी संपादित किया जा सकता है?**
+
+हां। हस्ताक्षर फ़ाइल को लॉक नहीं करता। हस्ताक्षरित सामग्री को संपादित करने से आमतौर पर मौजूदा हस्ताक्षर अमान्य हो जाता है, इसलिए पहले प्रस्तुतिकरण समाप्त करें और अंतिम संशोधन पर हस्ताक्षर करें।
+
+**क्या एक प्रस्तुतिकरण में एक से अधिक हस्ताक्षर हो सकते हैं?**
+
+हां। सहेजने से पहले प्रत्येक हस्ताक्षर को [Presentation.digital_signatures](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/digital_signatures/) में जोड़ें। सत्यापन के दौरान, प्रत्येक हस्ताक्षर का निरीक्षण करें और पुष्टि करें कि सभी आवश्यक हस्ताक्षरकर्ता मौजूद हैं।
+
+**कौन से प्रस्तुतिकरण स्वरूप इन संचालन को समर्थन देते हैं?**
+
+Aspose.Slides यहाँ वर्णित डिजिटल-हस्ताक्षर संचालन को केवल PPTX के लिए समर्थन करता है। PPT और OpenDocument प्रस्तुतिकरण स्वरूप इस API कार्यप्रवाह द्वारा समर्थित नहीं हैं।
+
+**क्या मैं स्लाइड्स को प्रभावित किए बिना एक हस्ताक्षर हटा सकता हूँ?**
+
+हां। आप एक हस्ताक्षर हटा सकते हैं या पूरी संग्रह को साफ़ कर सकते हैं और फिर प्रस्तुतिकरण को सहेज सकते हैं। स्लाइड सामग्री उपलब्ध रहती है, लेकिन सहेजी गई फ़ाइल अब हटाए गए हस्ताक्षर का प्रमाण नहीं रखती।

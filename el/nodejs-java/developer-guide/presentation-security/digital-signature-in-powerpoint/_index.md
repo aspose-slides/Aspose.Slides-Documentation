@@ -1,5 +1,5 @@
 ---
-title: Προσθήκη ψηφιακών υπογραφών σε παρουσιάσεις με JavaScript
+title: Προσθήκη Ψηφιακών Υπογραφών σε Παρουσιάσεις με JavaScript
 linktitle: Ψηφιακή Υπογραφή
 type: docs
 weight: 10
@@ -7,91 +7,182 @@ url: /el/nodejs-java/digital-signature-in-powerpoint/
 keywords:
 - ψηφιακή υπογραφή
 - ψηφιακό πιστοποιητικό
-- αρχή πιστοποιητικών
+- αρχή πιστοποίησης
 - πιστοποιητικό PFX
+- PKCS#12
+- επικύρωση υπογραφής
 - PowerPoint
-- OpenDocument
-- παρουσίαση
+- PPTX
+- ασφάλεια παρουσίασης
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να υπογράφετε ψηφιακά αρχεία PowerPoint & OpenDocument με το Aspose.Slides για Node.js μέσω Java. Ασφαλίστε τις διαφάνειες σας σε δευτερόλεπτα με σαφή παραδείγματα κώδικα."
+description: "Μάθετε πώς να υπογράφετε υπάρχουσες παρουσιάσεις PPTX με πιστοποιητικά PFX και να χρησιμοποιείτε το Aspose.Slides για Node.js μέσω Java για την επικύρωση ή την αφαίρεση ψηφιακών υπογραφών."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-**Digital certificate** χρησιμοποιείται για τη δημιουργία μιας παρουσίασης PowerPoint προστατευμένης με κωδικό, που σημειώνεται ως δημιουργημένη από συγκεκριμένο οργανισμό ή άτομο. Digital certificate μπορεί να ληφθεί επικοινωνώντας με έναν εξουσιοδοτημένο οργανισμό - μια αρχή πιστοποιητικών. Μετά την εγκατάσταση του Digital certificate στο σύστημα, μπορεί να χρησιμοποιηθεί για να προσθέσετε ψηφιακή υπογραφή στην παρουσίαση μέσω Αρχείο -> Πληροφορίες -> Προστασία Παρουσίασης:
+Μια ψηφιακή υπογραφή βοηθά τον παραλήπτη να προσδιορίσει ποιος υπέγραψε μια παρουσίαση και αν το υπογεγραμμένο περιεχόμενο έχει αλλάξει. Τρία σχετιζόμενα θέματα ασφαλείας είναι σημαντικά εδώ:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Ένα **ψηφιακό πιστοποιητικό** είναι ένα ηλεκτρονικό διαπιστευτήριο που συσχετίζει μια ταυτότητα με ένα δημόσιο κλειδί. Μια αξιόπιστη αρχή πιστοποιητικών (CA) μπορεί να εκδώσει ένα πιστοποιητικό, ή ένας οργανισμός μπορεί να χρησιμοποιήσει ένα αυτό‑υπογεγραμμένο πιστοποιητικό για εσωτερικές διαδικασίες.
+- Μία **ψηφιακή υπογραφή** δημιουργείται από το περιεχόμενο της παρουσίασης και το ιδιωτικό κλειδί του κατόχου του πιστοποιητικού. Το δημόσιο κλειδί του πιστοποιητικού μπορεί στη συνέχεια να χρησιμοποιηθεί για την επαλήθευση της υπογραφής. Μια υπογραφή παρέχει απόδειξη προέλευσης και ακεραιότητας· δεν κρυπτογραφεί την παρουσίαση.
+- **Προστασία με κωδικό** ελέγχει αν ένας χρήστης μπορεί να ανοίξει ή να τροποποιήσει μια παρουσίαση. Είναι ξεχωριστή από την ψηφιακή υπογραφή και περιγράφεται στο [Password-Protected Presentations](/nodejs-java/password-protected-presentation/).
 
-Η παρουσίαση μπορεί να περιέχει περισσότερες από μία ψηφιακές υπογραφές. Αφού προστεθεί η ψηφιακή υπογραφή στην παρουσίαση, θα εμφανιστεί ένα ειδικό μήνυμα στο PowerPoint:
+PowerPoint παρέχει την εντολή **Add a Digital Signature** κάτω από **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Μενού Protect Presentation του PowerPoint με το Add a Digital Signature επισημασμένο](add-digital-signature-in-powerpoint.png)
 
-Για την υπογραφή της παρουσίασης ή τον έλεγχο της αυθεντικότητας των υπογραφών της παρουσίασης, **Aspose.Slides API** παρέχει την κλάση [**DigitalSignature**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/DigitalSignature), την κλάση [**DigitalSignatureCollection**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/DigitalSignatureCollection) και τη μέθοδο [**Presentation.getDigitalSignatures**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation#getDigitalSignatures--) . Προς το παρόν, οι ψηφιακές υπογραφές υποστηρίζονται μόνο για τη μορφή PPTX.
+Αφού ανοίξει μια υπογεγραμμένη παρουσίαση, το PowerPoint μπορεί να εμφανίσει μια ειδοποίηση κατάστασης υπογραφής.
 
-## **Προσθήκη ψηφιακής υπογραφής από πιστοποιητικό PFX**
+![Ειδοποίηση του PowerPoint που δηλώνει ότι η παρουσίαση περιέχει έγκυρες υπογραφές](digital-signature-status-in-powerpoint.png)
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να προσθέσετε ψηφιακή υπογραφή από ένα πιστοποιητικό PFX:
+Το Aspose.Slides εκθέτει τις υπογραφές μέσω του [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), το οποίο επιστρέφει ένα [DigitalSignatureCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignaturecollection/) που περιέχει αντικείμενα [DigitalSignature](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignature/). Μία παρουσίαση μπορεί να περιέχει πολλαπλές υπογραφές.
 
-1. Ανοίξτε το αρχείο PFX και περάστε τον κωδικό PFX στο αντικείμενο [**DigitalSignature**](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/DigitalSignature).
+## **Κατανόηση Πιστοποιητικών PFX και Κωδικών**
 
-1. Προσθέστε τη δημιουργημένη υπογραφή στο αντικείμενο παρουσίασης.
+Ένα αρχείο PFX, επίσης γνωστό ως αρχείο PKCS#12 και συνήθως με κατάληξη `.pfx` ή `.p12`, μπορεί να περιέχει ένα πιστοποιητικό X.509, το ιδιωτικό του κλειδί και την αλυσίδα του πιστοποιητικού. Το ιδιωτικό κλειδί είναι αυτό που επιτρέπει στον κάτοχο να δημιουργήσει μια υπογραφή. Ένα πιστοποιητικό χωρίς προσβάσιμο ιδιωτικό κλειδί δεν μπορεί να χρησιμοποιηθεί για την υπογραφή μιας παρουσίασης.
+
+Ο κωδικός PFX προστατεύει το πακέτο του πιστοποιητικού και το ιδιωτικό κλειδί. **Δεν είναι** κωδικός για το άνοιγμα ή την επεξεργασία της παρουσίασης. Μην ανεβάζετε αρχεία PFX ή τους κωδικούς τους σε σύστημα ελέγχου εκδόσεων. Σε παραγωγή, περιορίστε την πρόσβαση στο αρχείο του πιστοποιητικού και λάβετε τον κωδικό του από ένα κρυφό αποθετήριο ή άλλη προστατευμένη πηγή ρυθμίσεων. Τα παρακάτω παραδείγματα χρησιμοποιούν μια μεταβλητή περιβάλλοντος μόνο για να αποφύγουν την ενσωμάτωση του κωδικού στον κώδικα.
+
+## **Προσθήκη ψηφιακής υπογραφής σε μια παρουσίαση**
+
+Για να υπογράψετε μια πραγματική ροή εργασίας παρουσίασης, φορτώστε ένα υπάρχον αρχείο PPTX, δημιουργήστε ένα [DigitalSignature](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignature/) από ένα πιστοποιητικό PFX και τον κωδικό του, προσθέστε την υπογραφή στη συλλογή της παρουσίασης και αποθηκεύστε σε αρχείο PPTX.
 
 ```javascript
-// Άνοιγμα του αρχείου παρουσίασης
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const certificatePassword = process.env.PFX_PASSWORD;
+if (!certificatePassword) {
+    throw new Error("Set the PFX_PASSWORD environment variable.");
+}
+
+const presentation = new slides.Presentation("InputPresentation.pptx");
 try {
-    // Δημιουργία αντικειμένου DigitalSignature με αρχείο PFX και κωδικό PFX
-    var signature = new aspose.slides.DigitalSignature("testsignature1.pfx", "testpass1");
-    // Σχόλιο νέας ψηφιακής υπογραφής
-    signature.setComments("Aspose.Slides digital signing test.");
-    // Προσθήκη ψηφιακής υπογραφής στην παρουσίαση
-    pres.getDigitalSignatures().add(signature);
-    // Αποθήκευση παρουσίασης
-    pres.save("SomePresentationSigned.pptx", aspose.slides.SaveFormat.Pptx);
+    const signature = new slides.DigitalSignature("signing-certificate.pfx", certificatePassword);
+    signature.setComments("Approved for release.");
+
+    presentation.getDigitalSignatures().add(signature);
+    presentation.save("InputPresentation-signed.pptx", slides.SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Τώρα είναι δυνατόν να ελέγξετε εάν η παρουσίαση είχε ψηφιακά υπογραφεί και δεν έχει τροποποιηθεί:
+Η αποθήκευση του αποτελέσματος με νέο όνομα διατηρεί το μη υπογεγραμμένο αρχικό αρχείο. Η τιμή που ορίζεται από το [DigitalSignature.setComments](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignature/) περιγράφει το σκοπό της υπογραφής· δεν αποτελεί έλεγχο ασφαλείας.
+
+## **Επικύρωση ψηφιακών υπογραφών**
+
+Όταν φορτώνετε ένα υπογεγραμμένο αρχείο PPTX, εξετάστε κάθε στοιχείο που επιστρέφει το [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). Η μέθοδος [DigitalSignature.isValid](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignature/) δείχνει εάν η ενσωματωμένη υπογραφή είναι έγκυρη για το τρέχον περιεχόμενο της παρουσίασης.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί επίσης την κλάση Node.js `X509Certificate` για να διαβάσει το όνομα του υποκειμένου από κάθε ενσωματωμένο πιστοποιητικό.
 
 ```javascript
-// Άνοιγμα παρουσίασης
-var pres = new aspose.slides.Presentation("SomePresentationSigned.pptx");
+const { X509Certificate } = require("node:crypto");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("InputPresentation-signed.pptx");
 try {
-    if (pres.getDigitalSignatures().size() > 0) {
-        var allSignaturesAreValid = true;
-        console.log("Signatures used to sign the presentation: ");
-        // Έλεγχος αν όλες οι ψηφιακές υπογραφές είναι έγκυρες
-        for (let i = 0; i < pres.getDigitalSignatures().size(); i++) {
-        let signature = pres.getDigitalSignatures().get_Item(i);
-            console.log((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+    const signatures = presentation.getDigitalSignatures();
+    const signatureCount = signatures.size();
+
+    if (signatureCount === 0) {
+        console.log("The presentation does not contain digital signatures.");
+    } else {
+        let allSignaturesAreValid = true;
+
+        for (let index = 0; index < signatureCount; index++) {
+            const signature = signatures.get_Item(index);
+            const signatureIsValid = signature.isValid();
+            const signatureStatus = signatureIsValid ? "VALID" : "INVALID";
+            const signTime = signature.getSignTime().toString();
+
+            const certificateData = signature.getCertificate();
+            const certificate = new X509Certificate(Buffer.from(certificateData));
+            const signerName = certificate.subject;
+
+            console.log(`${signerName}, ${signTime} -- ${signatureStatus}`);
+
+            allSignaturesAreValid = allSignaturesAreValid && signatureIsValid;
         }
+
         if (allSignaturesAreValid) {
-            console.log("Presentation is genuine, all signatures are valid.");
+            console.log("All embedded signatures are valid for the current presentation.");
         } else {
-            console.log("Presentation has been modified since signing.");
+            console.log("At least one embedded signature is invalid.");
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+Ένα μη έγκυρο αποτέλεσμα συνήθως σημαίνει ότι το υπογεγραμμένο περιεχόμενο της παρουσίασης ή τα δεδομένα της υπογραφής άλλαξαν μετά την υπογραφή, ή ότι το αρχείο είναι κατεστραμμένο. Η αφαίρεση όλων των υπογραφών δημιουργεί μια μη υπογεγραμμένη παρουσίαση, επομένως ο έλεγχος μόνο της εγκυρότητας των στοιχείων δεν είναι αρκετός: μια ροή εργασίας ευαίσθητη στην ασφάλεια πρέπει επίσης να επαληθεύσει ότι ο αναμενόμενος αριθμός υπογραφών και οι αναμενόμενες ταυτότητες υπογράφοντων υπάρχουν.
 
-**Μπορώ να αφαιρέσω υπάρχουσες υπογραφές από ένα αρχείο;**
+Αυτό το αποτέλεσμα εγκυρότητας δεν πρέπει να θεωρείται πλήρης απόφαση εμπιστοσύνης στο πιστοποιητικό. Ανάλογα με την πολιτική ασφαλείας σας, η εφαρμογή σας μπορεί επίσης να χρειάζεται να δημιουργήσει και να επικυρώσει την αλυσίδα πιστοποιητικών X.509, να ελέγξει τις ημερομηνίες ισχύος του πιστοποιητικού και την κατάσταση ανάκλησής του, να επιβεβαιώσει το αναμενόμενο υποκείμενο ή το αποτύπωμα, να επαληθεύσει τη χρήση κλειδιού και να αξιολογήσει μια αξιόπιστη χρονική σφραγίδα. Η τιμή [DigitalSignature.getSignTime](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignature/) από μόνη της δεν αποτελεί απόδειξη από αξιόπιστο φορέα χρονικής σφραγίδας.
 
-Ναι. Η συλλογή ψηφιακών υπογραφών υποστηρίζει [αφαίρεση μεμονωμένων στοιχείων](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) και [εκκαθάριση της πλήρως](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignaturecollection/clear/)· μετά την αποθήκευση του αρχείου, η παρουσίαση δεν θα περιέχει καμία υπογραφή.
+## **Αφαίρεση ψηφιακών υπογραφών**
 
-**Γίνεται το αρχείο «μόνο για ανάγνωση» μετά την υπογραφή;**
+Η αφαίρεση υπογραφών αλλάζει την κατάσταση ασφαλείας της παρουσίασης. Το παρακάτω παράδειγμα φορτώνει ένα υπογεγραμμένο αρχείο PPTX, αφαιρεί όλες τις υπογραφές με το [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), και αποθηκεύει ένα μη υπογεγραμμένο αντίγραφο.
 
-Όχι. Μια υπογραφή διατηρεί την ακεραιότητα και τη συγγραφή, αλλά δεν εμποδίζει τις επεξεργασίες. Για να περιορίσετε την επεξεργασία, συνδυάστε την με την επιλογή [«Μόνο για ανάγνωση» ή κωδικό πρόσβασης](/slides/el/nodejs-java/password-protected-presentation/).
+```javascript
+const slides = require("aspose.slides.via.java");
 
-**Θα εμφανίζεται σωστά η υπογραφή σε διαφορετικές εκδόσεις του PowerPoint;**
+const presentation = new slides.Presentation("InputPresentation-signed.pptx");
+try {
+    presentation.getDigitalSignatures().clear();
+    presentation.save("InputPresentation-unsigned.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-Η υπογραφή δημιουργείται για το δοχείο OOXML (PPTX). Οι σύγχρονες εκδόσεις του PowerPoint που υποστηρίζουν υπογραφές OOXML εμφανίζουν σωστά την κατάσταση τέτοιων υπογραφών.
+Για να αφαιρέσετε μόνο μία υπογραφή, καλέστε το [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) με τον μηδενικό της δείκτη. Αποθηκεύστε σε νέο αρχείο, εκτός αν η αντικατάσταση του υπογεγραμμένου αρχικού αποτελεί σαφή μέρος της ροής εργασίας σας.
+
+## **Επεξεργασία και Σκέψεις για τη Μορφή**
+
+- Μια υπογραφή δεν καθιστά την παρουσίαση μόνο για ανάγνωση. Οι χρήστες και οι εφαρμογές μπορούν ακόμη να επεξεργαστούν το αρχείο, αλλά οι αλλαγές στο υπογεγραμμένο περιεχόμενο συνήθως ακυρώνουν την υπάρχουσα υπογραφή.
+- Ολοκληρώστε όλες τις προγραμματισμένες επεξεργασίες πριν υπογράψετε. Εάν η παρουσίαση πρέπει να τροποποιηθεί, αποθηκεύστε την αναθεωρημένη παρουσίαση και υπογράψτε ξανά αυτήν την έκδοση.
+- Διατηρήστε το τελικό αποτέλεσμα σε μορφή PPTX. Η μετατροπή μιας υπογεγραμμένης παρουσίασης σε άλλη μορφή δεν μεταφέρει την αρχική υπογραφή PPTX ως έγκυρη υπογραφή για το μετατρεπόμενο αρχείο.
+- Αντιμετωπίζετε το ιδιωτικό κλειδί του πιστοποιητικού ως ευαίσθητο. Οποιοσδήποτε αποκτήσει το ιδιωτικό κλειδί και τον κωδικό του μπορεί να δημιουργήσει υπογραφές που φαίνονται να προέρχονται από αυτόν τον κάτοχο του πιστοποιητικού.
+- Διατηρήστε το μη υπογεγραμμένο πηγαίο αρχείο ή άλλο ελεγχόμενο αντίγραφο όταν η πολιτική διατήρησης εγγράφων το απαιτεί.
+
+## **Συχνές Ερωτήσεις**
+
+**Κρυπτογραφεί η ψηφιακή υπογραφή την παρουσίαση;**
+
+Όχι. Μια ψηφιακή υπογραφή παρέχει αποδείξεις σχετικά με την προέλευση και την ακεραιότητα, αλλά το περιεχόμενο της παρουσίασης παραμένει αναγνώσιμο εκτός εάν εφαρμοστεί ξεχωριστή κρυπτογράφηση. Χρησιμοποιήστε την [password protection](/nodejs-java/password-protected-presentation/) όταν πρέπει να περιοριστεί η πρόσβαση στο περιεχόμενο.
+
+**Είναι ο κωδικός PFX ίδιος με τον κωδικό παρουσίασης;**
+
+Όχι. Ο κωδικός PFX ξεκλειδώνει το ιδιωτικό κλειδί που αποθηκεύεται στο πακέτο του πιστοποιητικού. Δεν ελέγχει ποιος μπορεί να ανοίξει ή να επεξεργαστεί το αρχείο PPTX.
+
+**Μπορώ να χρησιμοποιήσω ένα αυτό‑υπογεγραμμένο πιστοποιητικό;**
+
+Τεχνικά, ένα αυτό‑υπογεγραμμένο πιστοποιητικό μπορεί να χρησιμοποιηθεί εάν περιλαμβάνει προσβάσιμο ιδιωτικό κλειδί. Οι παραλήπτες δεν θα το εμπιστευτούν αυτόματα, εκτός εάν το πιστοποιητικό έχει προστεθεί ρητά στο αξιόπιστο περιβάλλον τους. Οι δημόσιες ή δια‑οργανισμικές διαδικασίες συνήθως χρησιμοποιούν πιστοποιητικό που εκδίδεται από μια αξιόπιστη CA.
+
+**Τι κάνει μια υπογραφή άκυρη;**
+
+Η αλλαγή του υπογεγραμμένου περιεχομένου της παρουσίασης ή των δεδομένων της υπογραφής μετά την υπογραφή μπορεί να ακυρώσει την υπογραφή. Η καταστροφή του αρχείου μπορεί επίσης να προκαλέσει αποτυχία επαλήθευσης. Εάν αφαιρεθούν όλες οι υπογραφές, η παρουσίαση είναι μη υπογεγραμμένη και όχι ένα αρχείο που περιέχει μια άκυρη υπογραφή.
+
+**Σημαίνει μια έγκυρη υπογραφή ότι πρέπει να εμπιστευτώ τον υπογράφοντα;**
+
+Όχι, από μόνο της. Η ακεραιότητα της υπογραφής και η εμπιστοσύνη στον υπογράφοντα είναι ξεχωριστές αποφάσεις. Μία πολιτική επικύρωσης στην παραγωγή πρέπει επίσης να ελέγχει την αλυσίδα πιστοποιητικών, την περίοδο ισχύος, την κατάσταση ανάκλησης, την αναμενόμενη ταυτότητα, τη χρήση κλειδιού και τυχόν απαιτήσεις αξιόπιστης χρονικής σφραγίδας.
+
+**Τι συμβαίνει όταν λήξει το πιστοποιητικό;**
+
+Η λήξη του πιστοποιητικού δεν αλλάζει τα bytes της παρουσίασης, αλλά επηρεάζει την αξιολόγηση εμπιστοσύνης του πιστοποιητικού. Το αν η υπογραφή παραμένει αποδεκτή εξαρτάται από την πολιτική σας και από το εάν μια έγκυρη αξιόπιστη χρονική σφραγίδα αποδεικνύει ότι η υπογραφή έγινε ενώ το πιστοποιητικό ήταν έγκυρο. Μην βασίζεστε μόνο στον εμφανιζόμενο χρόνο υπογραφής ως αξιόπιστη χρονική σφραγίδα.
+
+**Μπορεί μια υπογεγραμμένη παρουσίαση να επεξεργαστεί ακόμη;**
+
+Ναι. Η υπογραφή δεν κλειδώνει το αρχείο. Η επεξεργασία του υπογεγραμένου περιεχομένου συνήθως ακυρώνει την υπάρχουσα υπογραφή, επομένως ολοκληρώστε την παρουσίαση πρώτα και υπογράψτε την τελική έκδοση.
+
+**Μπορεί μια παρουσίαση να περιέχει περισσότερες από μία υπογραφές;**
+
+Ναι. Προσθέστε κάθε υπογραφή στη συλλογή που επιστρέφει το [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) πριν αποθηκεύσετε. Κατά την επικύρωση, εξετάστε κάθε υπογραφή και επιβεβαιώστε ότι όλοι οι απαιτούμενοι υπογράφοντες είναι παρόντες.
+
+**Ποιοι μορφότυποι παρουσίασης υποστηρίζουν αυτές τις λειτουργίες;**
+
+Το Aspose.Slides υποστηρίζει τις λειτουργίες ψηφιακής υπογραφής που περιγράφονται εδώ μόνο για PPTX. Οι μορφότυποι PPT και OpenDocument παρουσίασης δεν υποστηρίζονται από αυτή τη ροή εργασίας API.
+
+**Μπορώ να αφαιρέσω μια υπογραφή χωρίς να επηρεάσω τις διαφάνειες;**
+
+Ναι. Μπορείτε να αφαιρέσετε μία υπογραφή ή να εκκαθαρίσετε ολόκληρη τη συλλογή και στη συνέχεια να αποθηκεύσετε την παρουσίαση. Το περιεχόμενο των διαφανειών παραμένει διαθέσιμο, αλλά το αποθηκευμένο αρχείο δεν μεταφέρει πλέον την απόδειξη της αφαιρεθείσας υπογραφής.
