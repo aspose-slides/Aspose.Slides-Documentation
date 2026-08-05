@@ -324,6 +324,9 @@ If a chart uses an external workbook that is missing or unavailable, Aspose.Slid
 The following JavaScript example opens a presentation whose chart references an unavailable external workbook and accesses the recovered data through [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
