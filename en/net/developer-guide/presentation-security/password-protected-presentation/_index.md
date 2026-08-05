@@ -163,15 +163,48 @@ Typically, users struggle to retrieve the document properties of an encrypted or
 
 **Note:** By default, when Aspose.Slides encrypts a presentation, the presentation’s document properties are also password protected. If you need to make the document properties accessible even after encryption, Aspose.Slides allows you to do precisely that.
 
-If you want users to retain the ability to access the properties of an encrypted presentation, you can set the [EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) property to `true`. This sample code shows you how to encrypt a presentation while still providing users access to its document properties:
+If you want users to retain the ability to access the properties of an encrypted presentation, set the `EncryptDocumentProperties` property of [IProtectionManager](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/) to `false`. This sample code shows you how to encrypt a presentation while still providing users access to its document properties:
 
 ```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+using var presentation = new Presentation("pres.pptx");
+
+presentation.ProtectionManager.EncryptDocumentProperties = false;
+presentation.ProtectionManager.Encrypt("123123");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+```
+
+## **Load Only Document Properties from an Encrypted Presentation**
+
+To inspect the metadata of an encrypted presentation without loading its slides or other content, create a [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) object and set [OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) to `true`. In this mode, Aspose.Slides ignores the password and loads only the document properties that are publicly accessible.
+
+The following code example reads built-in and custom document properties through [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
+
+```c#
+var loadOptions = new LoadOptions
 {
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
+    OnlyLoadDocumentProperties = true
+};
+
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+var documentProperties = presentation.DocumentProperties;
+
+// Read built-in document properties.
+Console.WriteLine("Title: " + documentProperties.Title);
+Console.WriteLine("Author: " + documentProperties.Author);
+
+// Read custom document properties.
+var customPropertyCount = documentProperties.CountOfCustomProperties;
+
+for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+{
+    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
+    var propertyValue = documentProperties[propertyName];
+
+    Console.WriteLine(propertyName + ": " + propertyValue);
 }
 ```
+
+This workflow works only when the document properties were left unencrypted (public) when the presentation was encrypted. If the document properties are encrypted, setting `OnlyLoadDocumentProperties` to `true` causes an exception because the password is ignored in this mode. To access encrypted document properties or load the complete presentation, including its slides and other content, provide the correct `Password` value in [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/).
 
 ## **Check Whether a Presentation Is Password Protected**
 
@@ -244,14 +277,14 @@ It returns `true` if the presentation has been encrypted with the specified pass
 
 ## **FAQ**
 
-### What encryption methods are supported by Aspose.Slides?
+**What encryption methods are supported by Aspose.Slides?**
 
 Aspose.Slides supports modern encryption methods, including AES-based algorithms, ensuring a high level of data security for your presentations.
 
-### What happens if an incorrect password is entered when attempting to open a presentation?
+**What happens if an incorrect password is entered when attempting to open a presentation?**
 
 An exception is thrown if an incorrect password is used, alerting you that access to the presentation is denied. This helps prevent unauthorized access and protects the presentation content.
 
-### Are there any performance implications when working with password-protected presentations?
+**Are there any performance implications when working with password-protected presentations?**
 
 The encryption and decryption process may introduce a slight overhead during opening and saving operations. In most cases, this performance impact is minimal and does not significantly affect the overall processing time of your presentation tasks.

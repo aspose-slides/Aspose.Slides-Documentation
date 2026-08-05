@@ -174,21 +174,51 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
     pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Getting the Properties of an Encrypted Presentation**
+## **Get Properties of an Encrypted Presentation**
 
-Typically, users struggle to get the document properties of an encrypted or password-protected presentation. Aspose.Slides, however, offers a mechanism that allows you to password protect a presentation while retaining the means for users to access the properties of that presentation.
+Typically, users struggle to retrieve the document properties of an encrypted or password-protected presentation. However, Aspose.Slides offers a mechanism that allows you to password protect a presentation while still retaining the ability for users to access its properties.
 
-**Note** that when Aspose.Slides encrypts a presentation, the presentation’s document properties get password protected too by default. But if you need to make the presentation’s properties accessible (even after the presentation gets encrypted), Aspose.Slides allows you to do precisely that. 
+**Note:** By default, when Aspose.Slides encrypts a presentation, the presentation’s document properties are also password protected. If you need to make the document properties accessible even after encryption, Aspose.Slides allows you to do precisely that.
 
-If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [EncryptDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) property to `True`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
+If you want users to retain the ability to access the properties of an encrypted presentation, set the `encrypt_document_properties` property of [ProtectionManager](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) to `False`. This sample code shows you how to encrypt a presentation while still providing users access to its document properties:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt_document_properties = True
-    pres.protection_manager.encrypt("123123")
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt_document_properties = False
+    presentation.protection_manager.encrypt("123123")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Load Only Document Properties from an Encrypted Presentation**
+
+To inspect the metadata of an encrypted presentation without loading its slides or other content, create a [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) object and set [only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) to `True`. In this mode, Aspose.Slides ignores the password and loads only the document properties that are publicly accessible.
+
+The following code example reads built-in document properties and lists custom document properties through [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
+
+```py
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.only_load_document_properties = True
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    document_properties = presentation.document_properties
+
+    # Read built-in document properties.
+    print("Title: " + document_properties.title)
+    print("Author: " + document_properties.author)
+
+    # List custom document properties.
+    custom_property_count = document_properties.count_of_custom_properties
+
+    for property_index in range(custom_property_count):
+        property_name = document_properties.get_custom_property_name(property_index)
+        print(property_name)
+```
+
+This workflow works only when the document properties were left unencrypted (public) when the presentation was encrypted. If the document properties are encrypted, setting `only_load_document_properties` to `True` causes an exception because the password is ignored in this mode. To access encrypted document properties or load the complete presentation, including its slides and other content, provide the correct `password` value in [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/).
 
 ## **Checking whether a Presentation is Password Protected Before Loading it**
 
@@ -252,14 +282,14 @@ It returns `True` if the presentation has been encrypted with the specified pass
 
 ## **FAQ**
 
-### What encryption methods are supported by Aspose.Slides?
+**What encryption methods are supported by Aspose.Slides?**
 
 Aspose.Slides supports modern encryption methods, including AES-based algorithms, ensuring a high level of data security for your presentations.
 
-### What happens if an incorrect password is entered when attempting to open a presentation?
+**What happens if an incorrect password is entered when attempting to open a presentation?**
 
 An exception is thrown if an incorrect password is used, alerting you that access to the presentation is denied. This helps prevent unauthorized access and protects the presentation content.
 
-### Are there any performance implications when working with password-protected presentations?
+**Are there any performance implications when working with password-protected presentations?**
 
 The encryption and decryption process may introduce a slight overhead during opening and saving operations. In most cases, this performance impact is minimal and does not significantly affect the overall processing time of your presentation tasks.
