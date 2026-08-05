@@ -42,7 +42,7 @@ import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Loads a presentation
-with slides.Presentation(path + "Fonts.pptx") as presentation:
+with slides.Presentation("Fonts.pptx") as presentation:
     # Loads the source font that will be replaced
     sourceFont = slides.FontData("Arial")
 

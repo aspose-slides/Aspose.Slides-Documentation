@@ -26,7 +26,7 @@ description: "Discover how to use Aspose.Slides for Java to customize chart axes
 
 ## **Overview**
 
-This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and display a unit label on the value axis.
+This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and set the display unit of the value axis.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
@@ -44,6 +44,8 @@ Aspose.Slides for Java allows you to obtain the minimum and maximum values on a 
 This sample code—an implementation of the steps above—shows you how to get the required values in Java:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
@@ -52,8 +54,11 @@ try {
 	double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
 	double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
 
-	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+	double majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+	double minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+	int majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+	int minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
 
 	// Saves the presentation
 	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
@@ -68,9 +73,15 @@ Aspose.Slides allows you to quickly swap the data between axes—the data repres
 This Java code shows you how to perform the data swap task between axes on a chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+
+	// Loads the chart's default data into the workbook — switchRowColumn transposes the workbook,
+	// so it must be populated first
+	IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
 	//Switches rows and columns
 	chart.getChartData().switchRowColumn();
@@ -87,6 +98,8 @@ try {
 This Java code shows you how to hide the vertical axis for a line chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
@@ -103,6 +116,8 @@ try {
 This code shows you how to hide the horizontal axis for a line chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
@@ -119,6 +134,8 @@ try {
 Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in Java demonstrates the operation: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
 	IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -136,6 +153,9 @@ try {
 Aspose.Slides for Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
 
 ```java
+import com.aspose.slides.*;
+import java.util.GregorianCalendar;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 50, 50, 450, 300);
@@ -165,14 +185,20 @@ try {
 }
 ```
 ```java
-public static String convertToOADate(GregorianCalendar date) throws ParseException
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
+
+public static double convertToOADate(GregorianCalendar date) throws ParseException
 {
     double oaDate;
     SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
     java.util.Date baseDate = myFormat.parse("30 12 1899");
     Long days = TimeUnit.DAYS.convert(date.getTimeInMillis() - baseDate.getTime(), TimeUnit.MILLISECONDS);
     oaDate = (double) days + ((double) date.get(Calendar.HOUR_OF_DAY) / 24) + ((double) date.get(Calendar.MINUTE) / (60 * 24)) + ((double) date.get(Calendar.SECOND) / (60 * 24 * 60));
-    return String.valueOf(oaDate);
+    return oaDate;
 }
 ```
 
@@ -180,6 +206,8 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 Aspose.Slides for Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -198,6 +226,8 @@ try {
 Aspose.Slides for Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -210,10 +240,12 @@ try {
 }
 ```
 
-## **Enable the Display Unit Label on Chart Value Axis**
-Aspose.Slides for Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
+## **Set the Display Unit on a Chart Value Axis**
+Aspose.Slides for Java allows you to set the display unit of a chart value axis. The axis then scales its tick labels by that unit: with `DisplayUnitType.Millions`, an axis that runs to 60,000,000 is labeled 0 to 60. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);

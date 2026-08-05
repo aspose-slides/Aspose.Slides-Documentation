@@ -26,6 +26,10 @@ Demonstrates adding, reading, removing, and replying to modern comments using **
 Create a comment authored by a user and save the presentation.
 
 ```py
+import datetime
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
 def add_modern_comment():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -45,6 +49,8 @@ def add_modern_comment():
 Read a modern comment from an existing presentation.
 
 ```py
+import aspose.slides as slides
+
 def access_modern_comment():
     with slides.Presentation("modern_comment.pptx") as presentation:
         author = presentation.comment_authors[0]
@@ -60,6 +66,8 @@ def access_modern_comment():
 Remove a comment and save the updated file.
 
 ```py
+import aspose.slides as slides
+
 def remove_modern_comment():
     with slides.Presentation("modern_comment.pptx") as presentation:
         author = presentation.comment_authors[0]
@@ -76,6 +84,10 @@ def remove_modern_comment():
 Add replies to a parent modern comment.
 
 ```py
+import datetime
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
 def reply_to_modern_comment():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]

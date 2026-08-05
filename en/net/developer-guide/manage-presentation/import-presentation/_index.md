@@ -42,6 +42,9 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 This C# code demonstrates the PDF to PowerPoint operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     pres.Slides.AddFromPdf("InputPDF.pdf");
@@ -66,6 +69,9 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 This C# code demonstrates the HTML to PowerPoint operation: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     using (var htmlStream = File.OpenRead("page.html"))

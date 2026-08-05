@@ -23,9 +23,11 @@ Shows how to embed video frames and set playback options using **Aspose.Slides f
 
 ## **Add a Video Frame**
 
-Insert an empty video frame onto a slide.
+Insert a video frame linked to a video file.
 
 ```py
+import aspose.slides as slides
+
 def add_video():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -41,6 +43,8 @@ def add_video():
 Retrieve the first video frame added to a slide.
 
 ```py
+import aspose.slides as slides
+
 def access_video():
     with slides.Presentation("video.pptx") as presentation:
         slide = presentation.slides[0]
@@ -54,6 +58,8 @@ def access_video():
 Delete a video frame from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_video():
     with slides.Presentation("video.pptx") as presentation:
         slide = presentation.slides[0]
@@ -72,6 +78,8 @@ def remove_video():
 Configure the video to play automatically when the slide is displayed.
 
 ```py
+import aspose.slides as slides
+
 def set_video_playback():
     with slides.Presentation("video.pptx") as presentation:
         slide = presentation.slides[0]

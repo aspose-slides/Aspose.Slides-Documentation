@@ -30,6 +30,8 @@ In addition, the article demonstrates how to get the actual position of parent c
 Aspose.Slides for Java provides a simple API for getting these properties. Properties of [IAxis](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis) interface provide information about actual position of axis chart element ([IAxis.getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMaxValue--), [IAxis.getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinValue--), [IAxis.getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnit--), [IAxis.getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnit--), [IAxis.getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMajorUnitScale--), [IAxis.getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/IAxis#getActualMinorUnitScale--)). It is necessary to call method [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) previously to fill properties with actual values.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
@@ -49,6 +51,8 @@ try {
 Aspose.Slides for Java provides a simple API for getting these properties. Properties of [IActualLayout](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout) interface provide information about actual position of parent chart element ([IActualLayout.getActualX](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualX--), [IActualLayout.getActualY](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualY--), [IActualLayout.getActualWidth](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualWidth--), [IActualLayout.getActualHeight](https://reference.aspose.com/slides/java/com.aspose.slides/IActualLayout#getActualHeight--)). It is necessary to call method [IChart.validateChartLayout()](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#validateChartLayout--) previously to fill properties with actual values.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
@@ -67,6 +71,9 @@ try {
 This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Java you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -87,12 +94,14 @@ try {
     //Hiding MajorGridLines
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
+    // Keep only the first series. Removing from the end keeps the remaining indexes valid.
+    IChartSeriesCollection seriesCollection = chart.getChartData().getSeries();
+    while (seriesCollection.size() > 1)
     {
-        chart.getChartData().getSeries().removeAt(i);
+        seriesCollection.removeAt(seriesCollection.size() - 1);
     }
 
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeries series = seriesCollection.get_Item(0);
 
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);

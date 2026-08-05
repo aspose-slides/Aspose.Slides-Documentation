@@ -23,6 +23,18 @@ This article provides examples of accessing existing ink shapes and removing the
 Read the tags from the first ink shape on a slide.
 
 ```cpp
+#include <DOM/ICustomData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITagCollection.h>
+#include <DOM/Ink/IInk.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Ink;
+using namespace System;
+
 static void AccessInk()
 {
     auto presentation = MakeObject<Presentation>(u"ink.pptx");
@@ -49,6 +61,18 @@ static void AccessInk()
 Delete an ink shape from the slide if one exists.
 
 ```cpp
+#include <DOM/ICustomData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITagCollection.h>
+#include <DOM/Ink/IInk.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Ink;
+using namespace System;
+
 static void RemoveInk()
 {
     auto presentation = MakeObject<Presentation>(u"ink.pptx");

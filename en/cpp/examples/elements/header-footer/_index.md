@@ -22,6 +22,12 @@ This article demonstrates how to add footers and update date and time placeholde
 Add text to the footer area of a slide and make it visible.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddHeaderFooter()
 {
     auto presentation = MakeObject<Presentation>();
@@ -39,6 +45,12 @@ static void AddHeaderFooter()
 Modify the date and time placeholder on a slide.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void UpdateDateTime()
 {
     auto presentation = MakeObject<Presentation>();

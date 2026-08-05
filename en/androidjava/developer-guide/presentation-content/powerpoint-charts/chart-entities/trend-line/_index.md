@@ -44,6 +44,9 @@ Aspose.Slides for Android via Java provides a simple API for managing different 
 The following code is used to create a chart with Trend Lines.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -80,7 +83,7 @@ try {
     tredLinePol.setOrder((byte)3);
     
     // Adding Power trend line for chart series 3
-    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
+    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Power);
     tredLinePower.setTrendlineType(TrendlineType.Power);
     tredLinePower.setBackward(1);
     
@@ -104,6 +107,8 @@ Aspose.Slides for Android via Java provides a simple API to add custom lines in 
 The following code is used to create a chart with Custom Lines.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

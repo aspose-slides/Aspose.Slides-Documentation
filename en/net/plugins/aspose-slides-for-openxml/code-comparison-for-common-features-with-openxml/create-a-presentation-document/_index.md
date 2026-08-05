@@ -476,39 +476,24 @@ private static ThemePart CreateTheme(SlideMasterPart slideMasterPart1)
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- string FilePath = @"..\..\..\..\Sample Files\";
+string filePath = @"..\..\..\..\Sample Files\";
+string fileName = filePath + "Create a presentation document.pptx";
 
-string FileName = FilePath + "Create a presentation document.pptx";
-
-CreatePresentation(FileName);
-
-public static void CreatePresentation(string filepath)
-
+//Instantiate a Presentation object that represents a PPTX file
+using (Presentation pres = new Presentation())
 {
+    //Get the collection of slides
+    ISlideCollection slds = pres.Slides;
 
-    //Instantiate a Presentation object that represents a PPT file
+    //Add an empty slide to the collection
+    slds.AddEmptySlide(pres.LayoutSlides[0]);
 
-    using (Presentation pres = new Presentation())
-
-    {
-
-        //Instantiate SlideExCollection calss
-
-        ISlideCollection slds = pres.Slides;
-
-        //Add an empty slide to the SlidesEx collection
-
-        slds.AddEmptySlide(pres.LayoutSlides[0]);
-
-        //Save your presentation to a file
-
-        pres.Save(filepath,Aspose.Slides.Export.SaveFormat.Pptx);
-
-    }
-
+    //Save your presentation to a file
+    pres.Save(fileName, SaveFormat.Pptx);
 }
-
 ``` 
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

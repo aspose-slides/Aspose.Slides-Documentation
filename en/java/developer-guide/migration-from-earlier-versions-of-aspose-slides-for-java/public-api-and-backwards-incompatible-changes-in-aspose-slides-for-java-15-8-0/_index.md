@@ -28,6 +28,8 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 Specifies the size of the hole in a doughnut chart.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

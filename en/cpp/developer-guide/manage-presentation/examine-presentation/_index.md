@@ -37,6 +37,13 @@ Before working on a presentation, you may want to find out what format (PPT, PPT
 You can check a presentation's format without loading the presentation. See this C++ code:
 
 ``` cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 // PPTX
 Console::WriteLine(ObjectExt::ToString(info->get_LoadFormat()));
@@ -55,6 +62,14 @@ Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 This C++ code shows you how to get presentation properties (information about the presentation):
 
 ``` cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
 Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
@@ -74,6 +89,13 @@ Let's say we have a PowerPoint presentation with the document properties shown b
 This code example shows you how to edit some presentation properties:
 
 ```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/date_time.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto fileName = u"sample.pptx";
 
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);

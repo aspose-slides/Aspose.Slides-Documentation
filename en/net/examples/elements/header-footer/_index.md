@@ -26,6 +26,8 @@ This article demonstrates how to add footers and update date and time placeholde
 Add text to the footer area of a slide and make it visible.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddHeaderFooter()
 {
     using var presentation = new Presentation();
@@ -41,6 +43,8 @@ static void AddHeaderFooter()
 Modify the date and time placeholder on a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void UpdateDateTime()
 {
     using var presentation = new Presentation();

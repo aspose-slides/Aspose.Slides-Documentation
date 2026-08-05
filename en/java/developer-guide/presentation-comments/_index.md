@@ -47,6 +47,10 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for Java
 This Java code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -91,6 +95,8 @@ try {
 This Java code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation("Comments1.pptx");
 try {
@@ -116,6 +122,10 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 This Java code shows you how to add comments and get replies to them:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
 Presentation pres = new Presentation();
 try {
     // Adds a comment
@@ -183,6 +193,10 @@ In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/java/aspose-sli
 This Java code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
 Presentation pres = new Presentation();
 try {
     ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
@@ -201,6 +215,8 @@ try {
 This Java code shows you how to remove all comments and authors in a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("example.pptx");
 try {
     // Deletes all comments from the presentation
@@ -223,6 +239,11 @@ try {
 This Java code shows you how to delete specific comments on a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Date;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);

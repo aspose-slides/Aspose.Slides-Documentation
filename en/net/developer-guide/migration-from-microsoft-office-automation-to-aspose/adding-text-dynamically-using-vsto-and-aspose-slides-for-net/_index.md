@@ -79,6 +79,9 @@ The code snippets below use Aspose.Slides to create a presentation with a plain 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Create a presentation
 Presentation pres = new Presentation();
 
@@ -105,7 +108,7 @@ port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
 //Write the output to disk
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```
 
 

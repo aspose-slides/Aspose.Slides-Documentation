@@ -57,6 +57,9 @@ Property **AutoAdjust** specifies whether the size of the side content region sh
 An example is given below shows how can you access **ViewProperties.NormalViewProperties** properties for a presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx"))
 {
     pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
@@ -84,6 +87,9 @@ In order to set the view properties. Please follow the steps below:
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     // Setting the view properties of the presentation

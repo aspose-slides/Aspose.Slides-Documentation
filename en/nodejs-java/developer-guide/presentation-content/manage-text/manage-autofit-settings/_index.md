@@ -50,6 +50,10 @@ If you want the text in a box to always fit into that box after changes are made
 This JavaScript code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -59,7 +63,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Shape);
+    textFrameFormat.setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -79,6 +83,10 @@ If you want a textbox or shape to retain its dimensions no matter the changes ma
 This JavaScript code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -88,7 +96,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.None);
+    textFrameFormat.setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -108,6 +116,10 @@ If a text becomes too long for its box, through the **Shrink text on overflow** 
 This JavaScript code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -117,7 +129,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Normal);
+    textFrameFormat.setAutofitType(java.newByte(aspose.slides.TextAutofitType.Normal));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -139,6 +151,10 @@ If you want the text in a shape to get wrapped inside that shape when the text g
 This JavaScript code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -148,7 +164,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setWrapText(aspose.slides.NullableBool.True);
+    textFrameFormat.setWrapText(java.newByte(aspose.slides.NullableBool.True));
     pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

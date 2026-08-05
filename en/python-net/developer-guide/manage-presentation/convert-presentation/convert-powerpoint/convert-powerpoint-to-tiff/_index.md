@@ -131,7 +131,7 @@ with slides.Presentation("Presentation.pptx") as presentation:
         FORMAT_32BPP_ARGB   - 32 bits per pixel, ARGB.
     """
 
-    # Save the presentation as TIFF with the specified image size.
+    # Save the presentation as TIFF with the specified pixel format.
     presentation.save("Custom_Image_Pixel_Format.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 

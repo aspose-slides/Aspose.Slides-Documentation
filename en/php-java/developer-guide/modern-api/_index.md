@@ -82,18 +82,26 @@ In general, you will need to replace calls that use [BufferedImage](https://docs
 
 Legacy/deprecated API:
 ``` php
+$pres = new Presentation("pres.pptx");
+
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getThumbnail($dimension);
 $imageio = new Java("javax.imageio.ImageIO");
 $javafile = new Java("java.io.File", "image.png");
 $imageio->write($slideImage, "PNG", $javafile);
+
+$pres->dispose();
 ```
 Modern API:
 ``` php
+$pres = new Presentation("pres.pptx");
+
 $dimension = new Java("java.awt.Dimension", 1920, 1080);
 $slideImage = $pres->getSlides()->get_Item(0)->getImage($dimension);
 $slideImage->save("image.png", ImageFormat::Png);
 $slideImage->dispose();
+
+$pres->dispose();
 ```
 
 ### **Getting a Slide Thumbnail**

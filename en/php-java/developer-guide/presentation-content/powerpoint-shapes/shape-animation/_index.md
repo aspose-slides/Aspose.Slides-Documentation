@@ -73,11 +73,11 @@ This PHP code shows you how to apply the `Fade` effect to AutoShape and set the 
     # Gets the main sequence of the slide.
     $sequence = $sld->getTimeline()->getMainSequence();
     # Adds Fade animation effect to shape
-    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
+    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
     # Animates shape text by 1st level paragraphs
     $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
     # Save the PPTX file to disk
-    $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
+    $pres->save("AnimText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -108,7 +108,7 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
   try {
     # Load Image to be added in presentaiton image collection
     $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+    $image = Images::fromFile("aspose-logo.jpg");
     try {
       $picture = $pres->getImages()->addImage($image);
     } finally {
@@ -121,9 +121,9 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
     # Gets the main sequence of the slide.
     $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     # Adds Fly from Left animation effect to picture frame
-    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
+    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubtype::Left, EffectTriggerType::OnClick);
     # Save the PPTX file to disk
-    $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
+    $pres->save("AnimImage_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -154,17 +154,16 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
     $ashp->addTextFrame("Animated TextBox");
     # Adds the PathFootBall animation effect
-    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
+    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::AfterPrevious);
     # Creates some kind of "button".
     $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
     # Creates a sequence of effects for this button.
     $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
     # Creates a custom user path. Our object will be moved only after the button is clicked.
-    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
+    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
     # Adds commands for moving since created path is empty.
     $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
-    $pts = new Point2DFloat[1];
-    $pts[0] = new Point2DFloat(0.076, 0.59);
+    $pts = array(new Point2DFloat(0.076, 0.59));
     $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
     $pts[0] = new Point2DFloat(-0.076, -0.59);
     $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);

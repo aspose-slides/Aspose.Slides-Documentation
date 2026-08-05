@@ -14,6 +14,8 @@ To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 1. Save the thumbnail image in any desired image format.
 
 ``` csharp
+using Aspose.Slides;
+
 string filePath = @"..\..\..\Sample Files\";
 string srcFileName = filePath + "User Defined Thumbnail.pptx";
 string destFileName = filePath + "User Defined Thumbnail.jpg";

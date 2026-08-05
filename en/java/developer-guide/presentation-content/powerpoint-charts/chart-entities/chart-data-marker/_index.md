@@ -34,6 +34,11 @@ The markers can be set on chart data points inside particular series. In order t
 In the example given below, we have set the chart marker options on data points level.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Creating empty presentation
 Presentation pres = new Presentation();
 try {
@@ -85,7 +90,7 @@ try {
     series.getMarker().setSize(15);
     
     // Save presentation with chart
-    pres.save("ScatterChart.pptx", SaveFormat.Pptx);
+    pres.save("MarkOptions_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();

@@ -66,63 +66,42 @@ Both methods follow these steps:
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- static void AddTextBox()
-
+static void AddTextBox()
 {
-
 	//Create a presentation
-
-	Presentation pres = new Presentation();
-
 	//Blank slide is added by default, when you create
-
 	//presentation from default constructor
-
 	//So, we don't need to add any blank slide
+	using (Presentation pres = new Presentation())
+	{
+		ISlide sld = pres.Slides[0];
 
-	Slide sld = pres.GetSlideByPosition(1);
+		//Add a textbox
+		//To add it, we will first add a rectangle
+		IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 100, 400, 100);
 
-	//Get the font index for Arial
+		//Hide its line
+		shp.LineFormat.FillFormat.FillType = FillType.NoFill;
 
-	//It is always 0 if you create presentation from
+		//Then add a textframe inside it
+		ITextFrame tf = shp.AddTextFrame("");
 
-	//default constructor
+		//Set a text
+		tf.Text = "Text added dynamically";
 
-	int arialFontIndex = 0;
+		IPortion port = tf.Paragraphs[0].Portions[0];
 
-	//Add a textbox
+		port.PortionFormat.LatinFont = new FontData("Arial");
+		port.PortionFormat.FontBold = NullableBool.True;
+		port.PortionFormat.FontHeight = 32;
 
-	//To add it, we will first add a rectangle
-
-	Shape shp = sld.Shapes.AddRectangle(1200, 800, 3200, 370);
-
-	//Hide its line
-
-	shp.LineFormat.ShowLines = false;
-
-	//Then add a textframe inside it
-
-	TextFrame tf = shp.AddTextFrame("");
-
-	//Set a text
-
-	tf.Text = "Text added dynamically";
-
-	Portion port = tf.Paragraphs[0].Portions[0];
-
-	port.FontIndex = arialFontIndex;
-
-	port.FontBold = true;
-
-	port.FontHeight = 32;
-
-	//Write the output to disk
-
-	pres.Write("outAspose.ppt");
-
+		//Write the output to disk
+		pres.Save("outAspose.pptx", SaveFormat.Pptx);
+	}
 }
-
 ``` 
 ## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Adding.Text.Dynamically.Aspose.Slides.zip)

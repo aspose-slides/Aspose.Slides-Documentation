@@ -202,25 +202,34 @@ Read more: [**Tile Picture As Texture**](/slides/php-java/shape-formatting/#tile
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following PHP code shows you how to change the transparency for a slide background image:
 
 ```php
-$transparencyValue = 30; // For example.
+$presentation = new Presentation("ImageAsBackground.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-// Get the collection of picture transform operations.
-$imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
+    $transparencyValue = 30; // For example.
 
-// Find an existing fixed-percentage transparency effect.
-$transparencyOperation = null;
-foreach($imageTransform as $operation) {
-    if (java_instanceof($operation, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-        $transparencyOperation = $operation;
-        break;
+    // Get the collection of picture transform operations.
+    $imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
+
+    // Find an existing fixed-percentage transparency effect.
+    $transparencyOperation = null;
+    foreach($imageTransform as $operation) {
+        if (java_instanceof($operation, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
+            $transparencyOperation = $operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (java_is_null($transparencyOperation)) {
-    $imageTransform->addAlphaModulateFixedEffect(100 - $transparencyValue);
-} else {
-    $transparencyOperation->setAmount(100 - $transparencyValue);
+    // Set the new transparency value.
+    if (java_is_null($transparencyOperation)) {
+        $imageTransform->addAlphaModulateFixedEffect(100 - $transparencyValue);
+    } else {
+        $transparencyOperation->setAmount(100 - $transparencyValue);
+    }
+
+    $presentation->save("TransparentBackground.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
 }
 ```
 

@@ -26,6 +26,8 @@ In addition to the basic image export workflow, the article also addresses commo
 Aspose.Slides for Java provides support for extracting image of specific chart. Below sample example is given. 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);

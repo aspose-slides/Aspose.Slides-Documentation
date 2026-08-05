@@ -36,7 +36,7 @@ This section shows how to create a table from scratch in Aspose.Slides by adding
 4. Define an array of row heights.
 5. Add a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) to the slide.
 6. Iterate over each [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) and format its top, bottom, right, and left borders.
-7. Merge the first two cells in the table’s first row.
+7. Merge the cells of the first two rows and the first two columns into a single cell.
 8. Access the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) of a [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/).
 9. Add text to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 10. Save the modified presentation.
@@ -103,10 +103,21 @@ For example, in a table with 4 columns and 4 rows, the cells are numbered as fol
 The following Python example shows how to reference cells using this zero-based numbering:
 
 ```python
-for row_index in range(len(table.rows)):
-    for column_index in range(len(table.rows[row_index])):
-        cell = table.rows[row_index][column_index]
-        cell.text_frame.text = f"({column_index}, {row_index})"
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
+
+    # Add a table with 4 columns and 4 rows.
+    table = slide.shapes.add_table(100, 50, [50, 50, 50, 50], [30, 30, 30, 30])
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            cell.text_frame.text = f"({column_index}, {row_index})"
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Access an Existing Table**
@@ -154,13 +165,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Align Text in Tables**
 
-This section shows how to control text alignment inside table cells using Aspose.Slides. You’ll learn to set horizontal and vertical alignment for cells to keep your content clear and consistent.
+This section shows how to control text placement inside table cells using Aspose.Slides. You’ll learn to anchor the text vertically in a cell and change the direction in which the text runs.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get a reference to the slide by its index.
 3. Add a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object to the slide.
 4. Access a [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) object from the table.
-5. Align the text vertically.
+5. Center the text vertically in the cell and set the text direction.
 6. Save the modified presentation.
 
 The following Python example shows how to align the text in a table:

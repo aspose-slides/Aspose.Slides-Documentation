@@ -29,6 +29,10 @@ Aspose.Slides for .NET provides a simple API for setting these properties. This 
 1. Write the modified presentation to a PPTX file.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
            
@@ -69,9 +73,6 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-// Set OverLap value
-series.ParentSeriesGroup.Overlap = 100;         
 
 // Write presentation to disk
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);

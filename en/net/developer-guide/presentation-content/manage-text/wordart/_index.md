@@ -33,6 +33,8 @@ In this section, we will explore how to create a simple WordArt template and app
 First, we create simple text using the following C# code:
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -48,20 +50,41 @@ using (Presentation presentation = new Presentation())
 Now, we set the text’s font height to a larger value to make the effect more noticeable using the following code:
 
 ```cs
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    IPortion portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+    portion.Text = "Aspose.Slides";
+
     portion.PortionFormat.LatinFont = new FontData("Arial Black");
     portion.PortionFormat.FontHeight = 36;
+}
 ```
 
 Here, we apply the SmallGrid pattern fill to the text and add a black text border with a width of 1 using the following code:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    IPortion portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+    portion.Text = "Aspose.Slides";
+    portion.PortionFormat.LatinFont = new FontData("Arial Black");
+    portion.PortionFormat.FontHeight = 36;
+
     portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
     portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
     portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
     portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.SmallGrid;
-                
+
     portion.PortionFormat.LineFormat.FillFormat.FillType = FillType.Solid;
     portion.PortionFormat.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+}
 ```
 
 The resulting text:
@@ -79,6 +102,17 @@ Outer shadow effects help text stand out by adding a shadow behind its outline, 
 The following C# code snippet applies a shadow effect to the text created above.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    IPortion portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+    portion.Text = "Aspose.Slides";
+    portion.PortionFormat.LatinFont = new FontData("Arial Black");
+    portion.PortionFormat.FontHeight = 36;
+
     portion.PortionFormat.EffectFormat.EnableOuterShadowEffect();
     portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.Color = Color.Black;
     portion.PortionFormat.EffectFormat.OuterShadowEffect.ScaleHorizontal = 100;
@@ -89,6 +123,7 @@ The following C# code snippet applies a shadow effect to the text created above.
     portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewHorizontal = 20;
     portion.PortionFormat.EffectFormat.OuterShadowEffect.SkewVertical = 0;
     portion.PortionFormat.EffectFormat.OuterShadowEffect.ShadowColor.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.32f);
+}
 ```
 
 The resulting text:
@@ -109,17 +144,28 @@ In this section, we will explore how to apply reflection effects in your slides 
 Add a reflection effect to the text using this C# code example:
 
 ```cs
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    IPortion portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+    portion.Text = "Aspose.Slides";
+    portion.PortionFormat.LatinFont = new FontData("Arial Black");
+    portion.PortionFormat.FontHeight = 36;
+
     portion.PortionFormat.EffectFormat.EnableReflectionEffect();
-    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90; 
-    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100; 
+    portion.PortionFormat.EffectFormat.ReflectionEffect.BlurRadius = 0.5;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.Distance = 4.72;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.StartPosAlpha = 0f;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.EndPosAlpha = 60f;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.Direction = 90;
+    portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleHorizontal = 100;
     portion.PortionFormat.EffectFormat.ReflectionEffect.ScaleVertical = -100;
     portion.PortionFormat.EffectFormat.ReflectionEffect.StartReflectionOpacity = 60f;
     portion.PortionFormat.EffectFormat.ReflectionEffect.EndReflectionOpacity = 0.9f;
-    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;   
+    portion.PortionFormat.EffectFormat.ReflectionEffect.RectangleAlign = RectangleAlignment.BottomLeft;
+}
 ```
 
 The resulting text:
@@ -133,10 +179,21 @@ In this section, we will explore how to apply a glow effect to text using Aspose
 Apply a glow effect to the text to make it shine or stand out using the following code:
 
 ```cs
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    IPortion portion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+    portion.Text = "Aspose.Slides";
+    portion.PortionFormat.LatinFont = new FontData("Arial Black");
+    portion.PortionFormat.FontHeight = 36;
+
     portion.PortionFormat.EffectFormat.EnableGlowEffect();
     portion.PortionFormat.EffectFormat.GlowEffect.Color.R = 255;
     portion.PortionFormat.EffectFormat.GlowEffect.Color.ColorTransform.Add(ColorTransformOperation.SetAlpha, 0.54f);
     portion.PortionFormat.EffectFormat.GlowEffect.Radius = 7;
+}
 ```
 
 The resulting text:
@@ -150,7 +207,16 @@ In this section, we will explore how to use transformations in WordArt with Aspo
 Use the `Transform` property (which applies to the entire block of text) using the following code:
 
 ```cs
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.TextFrame;
+    textFrame.Text = "Aspose.Slides";
+
     textFrame.TextFrameFormat.Transform = TextShapeType.ArchUpPour;
+}
 ```
 
 The resulting text:
@@ -170,6 +236,14 @@ Creating realistic, eye-catching visuals can significantly enhance the impact of
 Use the following sample code to set a 3D effect to the shape:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    autoShape.TextFrame.Text = "Aspose.Slides";
+
     autoShape.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
     autoShape.ThreeDFormat.BevelBottom.Height = 10.5;
     autoShape.ThreeDFormat.BevelBottom.Width = 10.5;
@@ -193,6 +267,7 @@ Use the following sample code to set a 3D effect to the shape:
     autoShape.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+}
 ```
 
 The resulting shape:
@@ -202,6 +277,15 @@ The resulting shape:
 Use the following sample code to set a 3D effect to the text:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation())
+{
+    IAutoShape autoShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 200);
+    ITextFrame textFrame = autoShape.TextFrame;
+    textFrame.Text = "Aspose.Slides";
+
     textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.BevelType = BevelPresetType.Circle;
     textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Height = 3.5;
     textFrame.TextFrameFormat.ThreeDFormat.BevelBottom.Width = 3.5;
@@ -211,12 +295,12 @@ Use the following sample code to set a 3D effect to the text:
     textFrame.TextFrameFormat.ThreeDFormat.BevelTop.Width = 4;
 
     textFrame.TextFrameFormat.ThreeDFormat.ExtrusionColor.Color = Color.Orange;
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight= 6;
+    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 6;
 
     textFrame.TextFrameFormat.ThreeDFormat.ContourColor.Color = Color.DarkRed;
     textFrame.TextFrameFormat.ThreeDFormat.ContourWidth = 1.5;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Depth= 3;
+    textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
 
     textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
 
@@ -225,6 +309,7 @@ Use the following sample code to set a 3D effect to the text:
     textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
 
     textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+}
 ```
 
 The resulting text:

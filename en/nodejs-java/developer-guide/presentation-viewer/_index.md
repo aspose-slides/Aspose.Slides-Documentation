@@ -34,6 +34,10 @@ To generate an SVG image from a presentation slide with Aspose.Slides, please fo
 1. Save the slide as an SVG image to the file stream.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var slideIndex = 0;
 
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -51,6 +55,20 @@ presentation.dispose();
 Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `setId` method from [SvgShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+class CustomSvgShapeFormattingController {
+    constructor(shapeStartIndex = 0) {
+        this.m_shapeIndex = shapeStartIndex;
+    }
+
+    formatShape(svgShape, shape) {
+        svgShape.setId(`shape-${this.m_shapeIndex++}`);
+    }
+}
+
 var slideIndex = 0;
 
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -87,6 +105,9 @@ Aspose.Slides helps you generate thumbnail images of slides. To generate a thumb
 1. Save the thumbnail image in any desired image format.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const slideIndex = 0;
 const scaleX = 1;
 const scaleY = scaleX;
@@ -111,6 +132,10 @@ To create a slide thumbnail image with user defined dimensions, please follow th
 1. Save the thumbnail image in any desired image format.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var slideIndex = 0;
 var slideSize = java.newInstanceSync("java.awt.Dimension", 1200, 800);
 
@@ -136,6 +161,9 @@ To generate the thumbnail of a slide with speaker notes using Aspose.Slides, ple
 1. Save the thumbnail image in any desired image format.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var slideIndex = 0;
 
 var layoutingOptions = new aspose.slides.NotesCommentsLayoutingOptions();

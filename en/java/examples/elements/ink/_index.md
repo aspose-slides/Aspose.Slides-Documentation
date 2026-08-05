@@ -23,6 +23,8 @@ This article provides examples of accessing existing ink shapes and removing the
 Read the tags from the first ink shape on a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessInk() {
     Presentation presentation = new Presentation("ink.pptx");
     try {
@@ -48,6 +50,8 @@ static void accessInk() {
 Delete an ink shape from the slide if one exists.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeInk() {
     Presentation presentation = new Presentation("ink.pptx");
     try {

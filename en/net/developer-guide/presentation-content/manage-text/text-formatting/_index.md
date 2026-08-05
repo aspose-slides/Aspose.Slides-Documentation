@@ -46,6 +46,10 @@ Use the [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspos
 The code example below highlights all occurrences of the characters **"try"** and then highlights only the full word **"to"**.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     // Get the first shape from the first slide.
@@ -77,7 +81,12 @@ The [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/net/aspose.s
 The code example below highlights all words that contain **seven or more characters**:
 
 ```cs
-using (var presentation = new Presentation(folderPath + "sample.pptx"))
+using System.Drawing;
+using System.Text.RegularExpressions;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (var presentation = new Presentation("sample.pptx"))
 {
     var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 
@@ -86,7 +95,7 @@ using (var presentation = new Presentation(folderPath + "sample.pptx"))
     // Highlight all words with seven or more characters.
     shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
 
-    presentation.Save(folderPath + "highlighted_text_using_regex.pptx", SaveFormat.Pptx);
+    presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -101,6 +110,10 @@ Use [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/
 The following code example shows how to set the background color for the **entire paragraph**: 
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -120,6 +133,10 @@ The result:
 The code example below demonstrates how to set the background color for **text portions with a bold font**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -149,6 +166,9 @@ Use [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.
 The following code example shows how to align the paragraph to the **center**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -172,6 +192,10 @@ Text transparency is controlled through the alpha component of the color assigne
 The code example below shows how to apply transparency to the **entire paragraph**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -194,6 +218,10 @@ The result:
 The following code example shows how to apply transparency to **text portions with a bold font**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -226,6 +254,9 @@ Use [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.
 The following C# code shows how to expand the character spacing in the **entire paragraph**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -245,6 +276,9 @@ The result:
 The code example below shows how to expand the character spacing in **text portions with a bold font**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -274,6 +308,9 @@ In some cases, text rendered by Aspose.Slides may look slightly tighter than the
 To make the rendered output closer to PowerPoint in such cases, you can disable kerning for text portions that use the affected font. Set [IPortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) to a value significantly larger than the actual font size:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -308,6 +345,9 @@ Font properties can be set at the paragraph level through [IParagraphFormat.Defa
 The following code sets the font and text style for the entire paragraph: it applies font size, bold, italic, dotted underline, and the Times New Roman font to all portions in the paragraph.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -331,6 +371,9 @@ The result:
 The code example below applies similar properties to **text portions with a bold font**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -363,6 +406,9 @@ Use [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/
 The following code example sets the text orientation in the shape to `Vertical270`, which rotates the text **90 degrees counterclockwise**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -384,6 +430,9 @@ Use [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/asp
 The code example below rotates the text frame by 3 degrees clockwise within the shape: 
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -408,6 +457,9 @@ Aspose.Slides provides [IParagraphFormat.SpaceAfter](https://reference.aspose.co
 The following code example shows how to specify the line spacing within the paragraph:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -428,6 +480,9 @@ The result:
 [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) determines how text behaves when it exceeds the boundaries of its container. Use it to control whether the text shrinks, overflows, or resizes the shape automatically.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -443,6 +498,9 @@ using (var presentation = new Presentation("sample.pptx"))
 [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) defines how text is positioned vertically inside a shape, for example at the top, middle, or bottom.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -458,6 +516,9 @@ using (var presentation = new Presentation("sample.pptx"))
 Use [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) and [IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/) to configure tab stops in a paragraph.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -481,6 +542,9 @@ Aspose.Slides provides [IPortionFormat.LanguageId](https://reference.aspose.com/
 The following code example shows how to set the proofing language for a text portion:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -510,6 +574,8 @@ using (var presentation = new Presentation("presentation.pptx"))
 Use [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) to define the default language for text created while loading or creating a presentation.
 
 ```cs
+using Aspose.Slides;
+
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
 
@@ -534,6 +600,9 @@ To apply default text formatting at the presentation level, use [IPresentation.D
 The following code example shows how to set a default bold font with a 14 pt size for all text across slides in a new presentation.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     // Get the top level paragraph format.
@@ -560,6 +629,8 @@ Let’s say we have the following text box on the first slide of the sample2.ppt
 The code example below shows how to extract the text with the **All Caps** effect applied:
 
 ```cs
+using Aspose.Slides;
+
 using (var presentation = new Presentation("sample2.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];

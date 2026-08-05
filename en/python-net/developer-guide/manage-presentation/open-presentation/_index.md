@@ -54,6 +54,7 @@ load_options.password = "YOUR_PASSWORD"
 
 with slides.Presentation("sample.pptx", load_options) as presentation:
     # Perform operations on the decrypted presentation.
+    print(presentation.slides.length)
 ```
 
 ## **Open Large Presentations**
@@ -119,6 +120,7 @@ load_options.delete_embedded_binary_objects = True
 
 with slides.Presentation("malware.ppt", load_options) as presentation:
     # Perform operations on the presentation.
+    presentation.save("clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**

@@ -31,15 +31,18 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic,
 Notes of some specific slide could be removed as shown in the example below:
 
 ```c#
-// Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantiate a Presentation object that represents a presentation file
+Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Removing notes of first slide
 INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
 mgr.RemoveNotesSlide();
 
 // Save presentation to disk
-presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
+presentation.Save("RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
 ```
 
 
@@ -47,6 +50,9 @@ presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pp
 Notes of all the slides of a presentation could be removed as shown in the example below:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate a Presentation object that represents a presentation file 
 Presentation presentation = new Presentation("AccessSlides.pptx");
 
@@ -66,6 +72,8 @@ presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 NotesStyle property has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
 ```c#
+using Aspose.Slides;
+
 // Instantiate Presentation class that represents the presentation file
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {

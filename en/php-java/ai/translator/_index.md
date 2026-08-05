@@ -71,8 +71,13 @@ try {
 By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/php-java/aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself — primarily to configure essential settings like a proxy, or to use an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or a different [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance — you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/php-java/aspose.slides/openaiwebclient/).
 
 ```php
-// Assume you have a pre-configured HttpURLConnection instance (e.g., with custom timeouts, proxy settings, etc.)
-$urlConnection = $yourPreconfiguredConnection;
+// Create and pre-configure your own HttpURLConnection instance (custom timeouts, proxy settings, etc.).
+$url = new Java("java.net.URL", "https://api.openai.com/v1/chat/completions");
+$urlConnection = $url->openConnection();
+$urlConnection->setConnectTimeout(10000);
+$urlConnection->setReadTimeout(60000);
+
+// Pass the connection to the AI client.
 $aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, $urlConnection);
 ```
 

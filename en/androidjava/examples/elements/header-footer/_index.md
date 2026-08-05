@@ -23,6 +23,8 @@ This article demonstrates how to add footers and update date and time placeholde
 Add text to the footer area of a slide and make it visible.
 
 ```java
+import com.aspose.slides.*;
+
 static void addHeaderFooter() {
     Presentation presentation = new Presentation();
     try {
@@ -41,6 +43,8 @@ static void addHeaderFooter() {
 Modify the date and time placeholder on a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void updateDateTime() {
     Presentation presentation = new Presentation();
     try {

@@ -28,6 +28,9 @@ This article demonstrates how to create, modify, and manage master slides using 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
 static void AddMasterSlide()
 {
     using var presentation = new Presentation();
@@ -64,6 +67,8 @@ static void AddMasterSlide()
 You can access master slides using the `Presentation.Masters` collection. Here’s how to retrieve and work with them:
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessMasterSlide()
 {
     using var presentation = new Presentation();
@@ -81,6 +86,8 @@ static void AccessMasterSlide()
 Master slides can be removed either by index or by reference.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveMasterSlide()
 {
     using var presentation = new Presentation("sample.pptx");
@@ -99,6 +106,8 @@ static void RemoveMasterSlide()
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveUnusedMasterSlide()
 {
     using var presentation = new Presentation();

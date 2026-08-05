@@ -21,6 +21,8 @@ This article demonstrates how to add SmartArt graphics, access them, remove them
 Insert a SmartArt graphic using one of the built-in layouts.
 
 ```java
+import com.aspose.slides.*;
+
 static void addSmartArt() {
     Presentation presentation = new Presentation();
     try {
@@ -38,6 +40,8 @@ static void addSmartArt() {
 Retrieve the first SmartArt object on a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessSmartArt() {
     Presentation presentation = new Presentation();
     try {
@@ -63,6 +67,8 @@ static void accessSmartArt() {
 Delete a SmartArt shape from the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeSmartArt() {
     Presentation presentation = new Presentation();
     try {
@@ -82,6 +88,8 @@ static void removeSmartArt() {
 Update the layout type of an existing SmartArt graphic.
 
 ```java
+import com.aspose.slides.*;
+
 static void changeSmartArtLayout() {
     Presentation presentation = new Presentation();
     try {

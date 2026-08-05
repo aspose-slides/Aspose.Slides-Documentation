@@ -292,6 +292,9 @@ Using Aspose.Slides for .NET, the following steps are performed:
 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Step - 1: Create an excel chart using Aspose.Cells
 //--------------------------------------------------
 //Create a workbook
@@ -305,7 +308,10 @@ int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Step - 3: Get the image of the chart with Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
 //Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
 //Step - 4  AND 5
@@ -325,6 +331,10 @@ pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;

@@ -32,6 +32,8 @@ Aspose.Slides for .NET provides straightforward APIs for receiving warning callb
 **Custom Warning Callback Class:**
 
 ```c#
+using Aspose.Slides.Warnings;
+
 class FontWarningHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
@@ -53,6 +55,9 @@ class FontWarningHandler : IWarningCallback
 **Generate a Slide Thumbnail:**
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Set up a warning callback to handle font-related warnings during slide rendering.
 var options = new RenderingOptions();
 options.WarningCallback = new FontWarningHandler();
@@ -72,6 +77,9 @@ foreach (var slide in presentation.Slides)
 **Export to PDF Format:**
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Set up a warning callback to handle font-related warnings during PDF export.
 var options = new PdfOptions();
 options.WarningCallback = new FontWarningHandler();
@@ -88,6 +96,9 @@ presentation.Save(stream, SaveFormat.Pdf, options);
 **Export to HTML Format:**
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Set up a warning callback to handle font-related warnings during HTML export.
 var options = new HtmlOptions();
 options.WarningCallback = new FontWarningHandler();

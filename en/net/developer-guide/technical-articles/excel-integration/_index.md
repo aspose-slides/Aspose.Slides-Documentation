@@ -67,6 +67,10 @@ To get started, we need two things:
 ![PowerPoint template example](example1_image1.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Excel;
+using Aspose.Slides.Export;
+
 // Load the Excel workbook with employee data.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
@@ -116,6 +120,10 @@ In the second example, we simply copy data from an Excel table and display it on
 In this example, we reuse the same Excel workbook from the first example, which contains a simple employee table.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Excel;
+using Aspose.Slides.Export;
+
 // Load the Excel workbook containing the employee data.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
@@ -155,6 +163,10 @@ First, we add a Pie chart to the Excel workbook based on the employees table.
 ![Excel Chart example](example3_image0.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Import;
+
 // Create a new PowerPoint presentation.
 using Presentation presentation = new Presentation();
 
@@ -176,6 +188,11 @@ Let's imagine you have an Excel workbook full of charts and you need to import t
 The following code iterates through all worksheets in the source Excel file, extracts the charts from each worksheet, and adds each chart to a separate slide using a blank slide layout. In the resulting presentation, only the chart data will be embedded, not the entire workbook.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Excel;
+using Aspose.Slides.Export;
+using Aspose.Slides.Import;
+
 // Load the Excel workbook containing the employee data.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 
@@ -215,6 +232,10 @@ The source Excel worksheet contains a formatted table with employee data:
 ![Excel Table example](example4_image0.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Import;
+
 // Create a new PowerPoint presentation.
 using Presentation presentation = new Presentation();
 

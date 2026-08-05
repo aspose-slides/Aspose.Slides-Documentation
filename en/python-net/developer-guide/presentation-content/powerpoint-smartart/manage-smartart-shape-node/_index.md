@@ -26,7 +26,7 @@ description: "Manage SmartArt shape nodes in PPT, PPTX and ODP with Aspose.Slide
 
 SmartArt graphics in PowerPoint presentations are organized through nodes that contain text and define the structure of the diagram. Aspose.Slides allows you to work with these SmartArt nodes programmatically: add new nodes and child nodes, insert child nodes at a specific position, access existing nodes, and read their text, level, and position.
 
-This article explains how to manage SmartArt shape nodes. It shows how to remove nodes, work with child nodes by index or position, change an assistant node to a normal node, adjust the position, size, and rotation of SmartArt node shapes, set node fill formats, and generate a thumbnail image for a SmartArt child node.
+This article explains how to manage SmartArt shape nodes. It shows how to remove nodes, work with child nodes by index or position, change an assistant node to a normal node, adjust the position, size, and rotation of SmartArt node shapes, set node fill formats, and generate a thumbnail image for a SmartArt node.
 
 ## **Add SmartArt Node**
 Aspose.Slides for Python via .NET has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
@@ -45,7 +45,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "AddNodes.pptx") as pres:
+with slides.Presentation("AddNodes.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
 
@@ -128,7 +128,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "AccessSmartArt.pptx") as pres:
+with slides.Presentation("AccessSmartArt.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -162,7 +162,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "AccessChildNodes.pptx") as pres:
+with slides.Presentation("AccessChildNodes.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -232,7 +232,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "RemoveNode.pptx") as pres:
+with slides.Presentation("RemoveNode.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -259,8 +259,8 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
 - Select the SmartArt shape node at index 0.
-- Now, check if the selected SmartArt node has more than 2 child nodes.
-- Now, remove the node at Position 1 using RemoveNodeByPosition() method.
+- Now, check if the selected SmartArt node has at least 2 child nodes.
+- Now, remove the child node at position 1 using the remove_node() method.
 - Save the Presentation.
 
 ```py
@@ -269,7 +269,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Load the desired the presentation
-with slides.Presentation(path + "RemoveNodeSpecificPosition.pptx") as pres:             
+with slides.Presentation("RemoveNodeSpecificPosition.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -296,8 +296,8 @@ import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
-# Load the desired the presentation
-with slides.Presentation(path + "AccessChildNodes.pptx") as pres: 
+# Create a presentation
+with slides.Presentation() as pres:
 	smart = pres.slides[0].shapes.add_smart_art(20, 20, 600, 500, art.SmartArtLayoutType.ORGANIZATION_CHART)
 
 	# Move SmartArt shape to new position
@@ -343,7 +343,7 @@ import aspose.slides as slides
 import aspose.slides.smartart as art
 
 # Creating a presentation instance
-with slides.Presentation(path + "AssistantNode.pptx") as pres: 
+with slides.Presentation("AssistantNode.pptx") as pres:
     # Traverse through every shape inside first slide
     for shape in pres.slides[0].shapes:
         # Check if shape is of SmartArt type
@@ -397,8 +397,8 @@ with slides.Presentation() as presentation:
 
 
 
-## **Generate Thumbnail of SmartArt Child Node**
-Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
+## **Generate Thumbnail of SmartArt Node**
+Developers can generate a thumbnail of a node of a SmartArt by following the steps below:
 
 1. Instantiate `Presentation` class that represents the PPTX file.
 1. Add SmartArt.
@@ -406,7 +406,7 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 1. Get the thumbnail image.
 1. Save the thumbnail image in any desired image format.
 
-The example below generating a thumbnail of SmartArt child node
+The example below generates a thumbnail of the shape of a SmartArt node
 
 ```py
 import aspose.slides as slides
@@ -415,7 +415,7 @@ import aspose.slides.smartart as art
 # Instantiate Presentation class that represents the PPTX file 
 with slides.Presentation() as presentation: 
     # Add SmartArt 
-    smart = pres.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
+    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_CYCLE)
 
     # Obtain the reference of a node by using its Index  
     node = smart.nodes[1]

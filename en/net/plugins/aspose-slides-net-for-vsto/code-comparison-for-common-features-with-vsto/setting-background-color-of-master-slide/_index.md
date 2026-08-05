@@ -17,24 +17,23 @@ url: /net/setting-background-color-of-master-slide/
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- //Instantiate the Presentation class that represents the presentation file
-
-using (PresentationEx pres = new PresentationEx())
-
+//Instantiate the Presentation class that represents the presentation file
+using (Presentation pres = new Presentation())
 {
-
 	//Set the background color of the Master ISlide to Forest Green
+	pres.Masters[0].Background.Type = BackgroundType.OwnBackground;
 
-	pres.Masters[0].Background.Type = BackgroundTypeEx.OwnBackground;
-
-	pres.Masters[0].Background.FillFormat.FillType = FillTypeEx.Solid;
+	pres.Masters[0].Background.FillFormat.FillType = FillType.Solid;
 
 	pres.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
 	//Write the presentation to disk
-
 	pres.Save("Setting Background Color of Master Slide.pptx", SaveFormat.Pptx);
+}
 
 ``` 
 ## **Download Sample Code**

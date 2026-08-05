@@ -41,6 +41,8 @@ Aspose.Slides for Python does not provide a simple method to extract the entire 
 
 The following code example extracts the entire presentation slide background as an image.
 ```py
+import aspose.slides as slides
+
 slide_index = 0
 image_scale = 1
 

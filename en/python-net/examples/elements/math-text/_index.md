@@ -25,6 +25,8 @@ Illustrates working with mathematical text shapes and formatting equations using
 Create a math shape containing a fraction and the Pythagorean formula.
 
 ```py
+import aspose.slides as slides
+
 def add_math_text():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -58,6 +60,8 @@ def add_math_text():
 Locate a shape that contains a math paragraph on the slide.
 
 ```py
+import aspose.slides as slides
+
 def access_math_text():
     with slides.Presentation("math_text.pptx") as presentation:
         slide = presentation.slides[0]
@@ -82,6 +86,8 @@ def access_math_text():
 Delete a math shape from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_math_text():
     with slides.Presentation("math_text.pptx") as presentation:
         slide = presentation.slides[0]
@@ -99,6 +105,8 @@ def remove_math_text():
 Set font properties for a math portion.
 
 ```py
+import aspose.slides as slides
+
 def format_math_text():
     with slides.Presentation("math_text.pptx") as presentation:
         slide = presentation.slides[0]
@@ -106,7 +114,8 @@ def format_math_text():
         # Assuming the first shape is a shape with math text.
         math_shape = slide.shapes[0]
 
-        math_shape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 20
+        # Math runs take their size from the paragraph's default portion format.
+        math_shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 20
 
         presentation.save("math_text_formatted.pptx", slides.export.SaveFormat.PPTX)
 ```

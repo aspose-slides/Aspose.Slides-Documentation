@@ -50,6 +50,9 @@ By default, presentations created with Aspose.Slides use the standard 4:3 aspect
  This sample code shows you how to change the slide size in a presentation in JavaScript using Aspose.Slides:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(aspose.slides.SlideSizeType.OnScreen16x9, aspose.slides.SlideSizeScaleType.DoNotScale);
@@ -68,6 +71,9 @@ If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you 
 This sample code shows you how to use Aspose.Slides for Node.js via Java to specify a custom slide size for a presentation in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(780, 540, aspose.slides.SlideSizeScaleType.DoNotScale);// A4 paper size
@@ -100,6 +106,9 @@ Depending on what you intend to do or achieve, you can use any of these settings
 This sample code shows you how to use the `Maximize` setting when changing the size of a presentation’s slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(aspose.slides.SlideSizeType.Ledger, aspose.slides.SlideSizeScaleType.Maximize);

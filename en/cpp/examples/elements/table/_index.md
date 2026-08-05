@@ -21,6 +21,15 @@ Examples for adding tables, accessing them, removing them, and merging cells usi
 Create a simple table with two rows and two columns.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddTable()
 {
     auto presentation = MakeObject<Presentation>();
@@ -39,6 +48,16 @@ static void AddTable()
 Retrieve the first table shape on the slide.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <system/array.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessTable()
 {
     auto presentation = MakeObject<Presentation>();
@@ -68,6 +87,16 @@ static void AccessTable()
 Delete a table from a slide.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveTable()
 {
     auto presentation = MakeObject<Presentation>();
@@ -88,6 +117,16 @@ static void RemoveTable()
 Merge adjacent cells of a table into a single cell.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ITable.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void MergeTableCells()
 {
     auto presentation = MakeObject<Presentation>();

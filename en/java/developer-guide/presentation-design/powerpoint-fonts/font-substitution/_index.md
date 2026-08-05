@@ -40,6 +40,8 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 This Java code demonstrates the font substitution process:
 
 ```java
+import com.aspose.slides.*;
+
 // Loads a presentation
 Presentation pres = new Presentation("Fonts.pptx");
 try {

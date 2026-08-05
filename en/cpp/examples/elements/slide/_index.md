@@ -23,6 +23,15 @@ Each example below includes a brief explanation followed by a code snippet in C+
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddSlide()
 {
     auto presentation = MakeObject<Presentation>();
@@ -43,6 +52,15 @@ static void AddSlide()
 You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessSlide()
 {
     auto presentation = MakeObject<Presentation>();
@@ -68,6 +86,13 @@ static void AccessSlide()
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void CloneSlide()
 {
     auto presentation = MakeObject<Presentation>();
@@ -86,6 +111,13 @@ static void CloneSlide()
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void ReorderSlide()
 {
     auto presentation = MakeObject<Presentation>();
@@ -104,6 +136,15 @@ static void ReorderSlide()
 To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveSlide()
 {
     auto presentation = MakeObject<Presentation>();

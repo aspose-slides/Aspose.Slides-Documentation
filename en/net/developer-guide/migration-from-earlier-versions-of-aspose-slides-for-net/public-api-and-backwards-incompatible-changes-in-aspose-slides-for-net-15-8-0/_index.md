@@ -29,6 +29,10 @@ This page lists all [added](/slides/net/public-api-and-backwards-incompatible-ch
 Specifies the size of the hole in a doughnut chart.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 

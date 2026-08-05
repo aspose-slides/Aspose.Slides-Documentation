@@ -50,6 +50,9 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 This Java code shows you how to set the color for a brush:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -67,6 +70,10 @@ try {
 This Java code shows you how to set the size for a brush:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+import java.awt.geom.Dimension2D;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);

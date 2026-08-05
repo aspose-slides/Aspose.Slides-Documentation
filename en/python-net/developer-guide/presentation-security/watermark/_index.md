@@ -50,12 +50,14 @@ You can design the watermark in any way; however, there are usually common featu
 To add a text watermark in PPT, PPTX, or ODP, you can first add a shape to the slide, then add a text frame to this shape. The text frame is represented by the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) class. This type is not inherited from [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/), which has a wide set of properties for positioning the watermark in a flexible way. Therefore, the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) object is wrapped in an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) object. To add watermark text to the shape, use the [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str) method as shown below.
 
 ```py
+import aspose.slides as slides
+
 watermark_text = "CONFIDENTIAL"
 
-with Presentation() as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    watermark_shape = slide.shapes.add_auto_shape(ShapeType.RECTANGLE, 100, 100, 400, 40)
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
     watermark_frame = watermark_shape.add_text_frame(watermark_text)
 ```
 
@@ -68,12 +70,14 @@ with Presentation() as presentation:
 If you want to add a text watermark to the entire presentation (i.e., all slides at once), add it to the [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/). The rest of the logic is the same as when adding a watermark to a single slide — create an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) object and then add the watermark to it using the [add_text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/add_text_frame/#str) method.
 
 ```py
+import aspose.slides as slides
+
 watermark_text = "CONFIDENTIAL"
 
-with Presentation() as presentation:
+with slides.Presentation() as presentation:
     master_slide = presentation.masters[0]
 
-    watermark_shape = master_slide.shapes.add_auto_shape(ShapeType.RECTANGLE, 100, 100, 400, 40)
+    watermark_shape = master_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
     watermark_frame = watermark_shape.add_text_frame(watermark_text)
 ```
 
@@ -86,8 +90,14 @@ with Presentation() as presentation:
 By default, the rectangle shape is styled with fill and line colors. The following lines of code make the shape transparent.
 
 ```py
-watermark_shape.fill_format.fill_type = FillType.NO_FILL
-watermark_shape.line_format.fill_format.fill_type = FillType.NO_FILL
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+
+    watermark_shape.fill_format.fill_type = slides.FillType.NO_FILL
+    watermark_shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
 ```
 
 ### **Set the Font for a Text Watermark**
@@ -95,9 +105,16 @@ watermark_shape.line_format.fill_format.fill_type = FillType.NO_FILL
 You can change the font of the text watermark as shown below.
 
 ```py
-text_format = watermark_frame.paragraphs[0].paragraph_format.default_portion_format
-text_format.latin_font = FontData("Arial")
-text_format.font_height = 50
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+    watermark_frame = watermark_shape.add_text_frame("CONFIDENTIAL")
+
+    text_format = watermark_frame.paragraphs[0].paragraph_format.default_portion_format
+    text_format.latin_font = slides.FontData("Arial")
+    text_format.font_height = 50
 ```
 
 ### **Set the Watermark Text Color**
@@ -105,14 +122,22 @@ text_format.font_height = 50
 To set the color of the watermark text, use this code:
 
 ```py
+import aspose.slides as slides
+import aspose.pydrawing as drawing
+
 alpha = 150
 red = 200
 green = 200
 blue = 200
 
-fill_format = watermark_frame.paragraphs[0].paragraph_format.default_portion_format.fill_format
-fill_format.fill_type = FillType.SOLID
-fill_format.solid_fill_color.color = drawing.Color.from_argb(alpha, red, green, blue)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+    watermark_frame = watermark_shape.add_text_frame("CONFIDENTIAL")
+
+    fill_format = watermark_frame.paragraphs[0].paragraph_format.default_portion_format.fill_format
+    fill_format.fill_type = slides.FillType.SOLID
+    fill_format.solid_fill_color.color = drawing.Color.from_argb(alpha, red, green, blue)
 ```
 
 ### **Center a Text Watermark**
@@ -120,17 +145,23 @@ fill_format.solid_fill_color.color = drawing.Color.from_argb(alpha, red, green, 
 It is possible to center the watermark on a slide, and for that, you can do the following:
 
 ```py
-slide_size = presentation.slide_size.size
+import aspose.slides as slides
 
-watermark_width = 400
-watermark_height = 40
-watermark_x = (slide_size.width - watermark_width) / 2
-watermark_y = (slide_size.height - watermark_height) / 2
+watermark_text = "CONFIDENTIAL"
 
-watermark_shape = slide.shapes.add_auto_shape(
-    ShapeType.RECTANGLE, watermark_x, watermark_y, watermark_width, watermark_height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    slide_size = presentation.slide_size.size
 
-watermark_frame = watermark_shape.add_text_frame(watermark_text)
+    watermark_width = 400
+    watermark_height = 40
+    watermark_x = (slide_size.width - watermark_width) / 2
+    watermark_y = (slide_size.height - watermark_height) / 2
+
+    watermark_shape = slide.shapes.add_auto_shape(
+        slides.ShapeType.RECTANGLE, watermark_x, watermark_y, watermark_width, watermark_height)
+
+    watermark_frame = watermark_shape.add_text_frame(watermark_text)
 ```
 
 The image below shows the final result.
@@ -144,12 +175,18 @@ The image below shows the final result.
 To add an image watermark to a presentation slide, you can do the following:
 
 ```py
-with open("watermark.png", "rb") as image_stream:
-    image = presentation.images.add_image(image_stream.read())
+import aspose.slides as slides
 
-    watermark_shape.fill_format.fill_type = FillType.PICTURE
-    watermark_shape.fill_format.picture_fill_format.picture.image = image
-    watermark_shape.fill_format.picture_fill_format.picture_fill_mode = PictureFillMode.STRETCH
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+
+    with open("watermark.png", "rb") as image_stream:
+        image = presentation.images.add_image(image_stream.read())
+
+        watermark_shape.fill_format.fill_type = slides.FillType.PICTURE
+        watermark_shape.fill_format.picture_fill_format.picture.image = image
+        watermark_shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
 ```
 
 ## **Lock a Watermark from Editing**
@@ -157,12 +194,18 @@ with open("watermark.png", "rb") as image_stream:
 If it is necessary to prevent a watermark from being edited, use the [AutoShape.auto_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/auto_shape_lock/) property on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
 ```py
-# Lock the watermark shape from modifying
-watermark_shape.auto_shape_lock.select_locked = True
-watermark_shape.auto_shape_lock.size_locked = True
-watermark_shape.auto_shape_lock.text_locked = True
-watermark_shape.auto_shape_lock.position_locked = True
-watermark_shape.auto_shape_lock.grouping_locked = True
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+
+    # Lock the watermark shape from modifying
+    watermark_shape.auto_shape_lock.select_locked = True
+    watermark_shape.auto_shape_lock.size_locked = True
+    watermark_shape.auto_shape_lock.text_locked = True
+    watermark_shape.auto_shape_lock.position_locked = True
+    watermark_shape.auto_shape_lock.grouping_locked = True
 ```
 
 ## **Bring a Watermark to Front**
@@ -170,8 +213,14 @@ watermark_shape.auto_shape_lock.grouping_locked = True
 In Aspose.Slides, the Z-order of shapes can be set via the [ShapeCollection.reorder](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/reorder/#int-ishape) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
 ```py
-shape_count = len(slide.shapes)
-slide.shapes.reorder(shape_count - 1, watermark_shape)
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+
+    shape_count = len(slide.shapes)
+    slide.shapes.reorder(shape_count - 1, watermark_shape)
 ```
 
 ## **Set Watermark Rotation**
@@ -179,9 +228,18 @@ slide.shapes.reorder(shape_count - 1, watermark_shape)
 Here is a code example of how to adjust the rotation of the watermark so that it is positioned diagonally across the slide:
 
 ```py
-diagonal_angle = math.atan(slide_size.height / slide_size.width) * 180 / math.pi
+import math
 
-watermark_shape.rotation = float(diagonal_angle)
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    slide_size = presentation.slide_size.size
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+
+    diagonal_angle = math.atan(slide_size.height / slide_size.width) * 180 / math.pi
+
+    watermark_shape.rotation = float(diagonal_angle)
 ```
 
 ## **Set a Name for a Watermark**
@@ -189,7 +247,13 @@ watermark_shape.rotation = float(diagonal_angle)
 Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/) property:
 
 ```py
-watermark_shape.name = "watermark"
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    watermark_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 40)
+
+    watermark_shape.name = "watermark"
 ```
 
 ## **Remove a Watermark**
@@ -197,10 +261,15 @@ watermark_shape.name = "watermark"
 To remove the watermark shape, use the [AutoShape.name](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/name/) method to find it in the slide shapes. Then, pass the watermark shape into the [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/#ishape) method:
 
 ```py
-slide_shapes = list(slide.shapes)
-for shape in slide_shapes:
-    if shape.name == "watermark":
-        slide.shapes.remove(watermark_shape)
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    slide_shapes = list(slide.shapes)
+    for shape in slide_shapes:
+        if shape.name == "watermark":
+            slide.shapes.remove(shape)
 ```
 
 ## **A Live Example**

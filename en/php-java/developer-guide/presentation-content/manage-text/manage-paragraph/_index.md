@@ -543,12 +543,12 @@ try {
     $para2 = new Paragraph();
     $para2->getPortions()->add(new Portion("Sample text 2"));
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(48);
-    $portionFormat::setLatinFont(new FontData("Times New Roman"));
+    $portionFormat->setFontHeight(48);
+    $portionFormat->setLatinFont(new FontData("Times New Roman"));
     $para2->setEndParagraphPortionFormat($portionFormat);
     $shape->getTextFrame()->getParagraphs()->add($para1);
     $shape->getTextFrame()->getParagraphs()->add($para2);
-    $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat::Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
         $pres->dispose();
@@ -586,10 +586,10 @@ try {
     $ashape->addTextFrame("");
     # Clearing all paragraphs in added text frame
     $ashape->getTextFrame()->getParagraphs()->clear();
-    # Loading the HTML file using stream reader
-    $tr = new StreamReader("file.html");
-    # Adding text from HTML stream reader in text frame
-    $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
+    # Loading the HTML file
+    $htmlText = file_get_contents("file.html");
+    # Adding text from the HTML file in text frame
+    $ashape->getTextFrame()->getParagraphs()->addFromHtml($htmlText);
     # Saving Presentation
     $pres->save("output_out.pptx", SaveFormat::Pptx);
 } finally {
@@ -625,7 +625,7 @@ try {
     $ashape = $slide->getShapes()->get_Item($index);
     # Creating output HTML file
     $os = new Java("java.io.FileOutputStream", "output.html");
-    $writer = new OutputStreamWriter($os, "UTF-8");
+    $writer = new Java("java.io.OutputStreamWriter", $os, "UTF-8");
     # Extracting first paragraph as HTML
     # Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));

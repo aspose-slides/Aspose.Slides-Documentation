@@ -50,6 +50,9 @@ By default, presentations created with Aspose.Slides use the standard 4:3 aspect
 This example demonstrates changing a presentation's slide size with Aspose.Slides in C#:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 {
     pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
@@ -62,6 +65,9 @@ using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 Tailoring the slide size to your specific needs, such as for unique paper layouts or screen specifications, can be beneficial. Here's how to set a custom slide size with Aspose.Slides for .NET:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 paper size
@@ -80,6 +86,8 @@ Post-resizing, slide contents may distort. You can control how Aspose.Slides man
 Example of using `Maximize` setting for slide size adjustment:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
    pres.SlideSize.SetSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);

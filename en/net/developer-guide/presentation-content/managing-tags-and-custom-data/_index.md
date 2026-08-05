@@ -43,6 +43,8 @@ Tags are essentially string-key pair values.
 In slides, a tag corresponds to the IDocumentProperties.Keywords property. This sample code shows you how to get a tag’s value with Aspose.Slides for .NET for [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation):
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    string keywords = pres.DocumentProperties.Keywords;
@@ -61,6 +63,8 @@ If you need to classify some presentations based on a specific rule or property,
 This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) using Aspose.Slides for .NET:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    ITagCollection tags = pres.CustomData.Tags;
@@ -71,6 +75,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Tags also can be set for [Slide](https://reference.aspose.com/slides/net/aspose.slides/slide):
 
 ```csharp
+using Aspose.Slides;
+
 using(Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -81,6 +87,8 @@ using(Presentation pres = new Presentation())
 Or any individual [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape):
 
 ```csharp
+using Aspose.Slides;
+
 using(Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];

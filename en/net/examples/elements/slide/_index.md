@@ -30,6 +30,8 @@ Each example below includes a brief explanation followed by a code snippet in C#
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddSlide()
 {
     using var presentation = new Presentation();
@@ -52,6 +54,8 @@ static void AddSlide()
 You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessSlide()
 {
     // By default, a presentation is created with one empty slide.
@@ -76,6 +80,8 @@ static void AccessSlide()
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
 ```csharp
+using Aspose.Slides;
+
 static void CloneSlide()
 {
     // By default, the presentation contains one empty slide.
@@ -95,6 +101,8 @@ static void CloneSlide()
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
 ```csharp
+using Aspose.Slides;
+
 static void ReorderSlide()
 {
     using var presentation = new Presentation();
@@ -113,6 +121,8 @@ static void ReorderSlide()
 To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveSlide()
 {
     using var presentation = new Presentation();

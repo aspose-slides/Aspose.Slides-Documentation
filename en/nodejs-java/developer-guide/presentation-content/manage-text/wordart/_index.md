@@ -35,6 +35,9 @@ WordArt effects allow you to add visually appealing, stylized text to your Power
 First, we create a simple text using this JavaScript code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -51,9 +54,24 @@ try {
 Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
 ```javascript
-var fontData = new aspose.slides.FontData("Arial Black");
-portion.getPortionFormat().setLatinFont(fontData);
-portion.getPortionFormat().setFontHeight(36);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    var textFrame = autoShape.addTextFrame("Aspose.Slides");
+    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+
+    var fontData = new aspose.slides.FontData("Arial Black");
+    portion.getPortionFormat().setLatinFont(fontData);
+    portion.getPortionFormat().setFontHeight(36);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 **Using Microsoft PowerPoint**
@@ -73,12 +91,28 @@ These are some of the available parameters or options:
 Here, we apply the [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
 
 ```javascript
-portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    var textFrame = autoShape.addTextFrame("Aspose.Slides");
+    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
+    portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 The resulting text:
@@ -100,16 +134,32 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in JavaScript:
 
 ```javascript
-portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
-portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.32);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    var textFrame = autoShape.addTextFrame("Aspose.Slides");
+    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+
+    portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setScaleVertical(65);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setBlurRadius(4.73);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDirection(230);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setDistance(2);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewHorizontal(30);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().setSkewVertical(0);
+    portion.getPortionFormat().getEffectFormat().getOuterShadowEffect().getShadowColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.32);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 Aspose.Slides API supports three types of shadows: OuterShadow, InnerShadow, and PresetShadow. 
@@ -136,17 +186,32 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 We add display to the text through this code sample in JavaScript:
 
 ```javascript
-portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60.0);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9);
-portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(aspose.slides.RectangleAlignment.BottomLeft);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    var textFrame = autoShape.addTextFrame("Aspose.Slides");
+    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+
+    portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setBlurRadius(0.5);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDistance(4.72);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartPosAlpha(0.0);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndPosAlpha(60.0);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setDirection(90);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleHorizontal(100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setScaleVertical(-100);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setStartReflectionOpacity(60.0);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setEndReflectionOpacity(0.9);
+    portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleAlign(aspose.slides.RectangleAlignment.BottomLeft);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ### **Applying Glow Effect to Texts**
@@ -154,10 +219,25 @@ portion.getPortionFormat().getEffectFormat().getReflectionEffect().setRectangleA
 We apply the glow effect to the text to make it shine or stand out using this code:
 
 ```javascript
-portion.getPortionFormat().getEffectFormat().enableGlowEffect();
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
-portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    var textFrame = autoShape.addTextFrame("Aspose.Slides");
+    var portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+
+    portion.getPortionFormat().getEffectFormat().enableGlowEffect();
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().setR(255);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().getColor().getColorTransform().add(aspose.slides.ColorTransformOperation.SetAlpha, 0.54);
+    portion.getPortionFormat().getEffectFormat().getGlowEffect().setRadius(7);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 The result of the operation:
@@ -174,7 +254,22 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ```javascript
-textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    var textFrame = autoShape.addTextFrame("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 The result:
@@ -200,22 +295,37 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ```javascript
-autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
-autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
-autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
-autoShape.getThreeDFormat().getBevelTop().setWidth(11);
-autoShape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-autoShape.getThreeDFormat().setExtrusionHeight(6);
-autoShape.getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-autoShape.getThreeDFormat().setContourWidth(1.5);
-autoShape.getThreeDFormat().setDepth(3);
-autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    autoShape.addTextFrame("Aspose.Slides");
+
+    autoShape.getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelBottom().setHeight(10.5);
+    autoShape.getThreeDFormat().getBevelBottom().setWidth(10.5);
+    autoShape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    autoShape.getThreeDFormat().getBevelTop().setHeight(12.5);
+    autoShape.getThreeDFormat().getBevelTop().setWidth(11);
+    autoShape.getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    autoShape.getThreeDFormat().setExtrusionHeight(6);
+    autoShape.getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    autoShape.getThreeDFormat().setContourWidth(1.5);
+    autoShape.getThreeDFormat().setDepth(3);
+    autoShape.getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+    autoShape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    autoShape.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+    autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 The resulting text and its shape:
@@ -225,22 +335,37 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this JavaScript code:
 
 ```javascript
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
-textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
-textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
-textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
-textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
-textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    var textFrame = autoShape.addTextFrame("Aspose.Slides");
+
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setHeight(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setWidth(3.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setHeight(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getBevelTop().setWidth(4);
+    textFrame.getTextFrameFormat().getThreeDFormat().getExtrusionColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(6);
+    textFrame.getTextFrameFormat().getThreeDFormat().getContourColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    textFrame.getTextFrameFormat().getThreeDFormat().setContourWidth(1.5);
+    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
+    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
+    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.PerspectiveContrastingRightFacing);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 The result of the operation:
@@ -281,6 +406,10 @@ Aspose.Slides for Node.js via Java provides the [**OuterShadow**](https://refere
 This sample code in Java—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Get reference of the slide
@@ -297,7 +426,7 @@ try {
     shadow.setBlurRadius(4.0);
     shadow.setDirection(45);
     shadow.setDistance(3);
-    shadow.setRectangleAlign(aspose.slides.RectangleAlignment.TopLeft);
+    shadow.setRectangleAlign(java.newByte(aspose.slides.RectangleAlignment.TopLeft));
     shadow.getShadowColor().setPresetColor(aspose.slides.PresetColor.Black);
     // Write the presentation to disk
     pres.save("pres_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -321,9 +450,13 @@ Go through these steps:
 7. Set the Scheme Color.
 8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code (based on the steps above) shows you how to add a connector between two shapes in JavaScript:
+This sample code (based on the steps above) shows you how to apply the inner shadow effect to a text in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Get reference of the slide
@@ -343,7 +476,7 @@ try {
     ef.getInnerShadowEffect().setBlurRadius(8.0);
     ef.getInnerShadowEffect().setDirection(90.0);
     ef.getInnerShadowEffect().setDistance(6.0);
-    ef.getInnerShadowEffect().getShadowColor().setB(189);
+    ef.getInnerShadowEffect().getShadowColor().setB(java.newByte(189));
     // Set ColorType as Scheme
     ef.getInnerShadowEffect().getShadowColor().setColorType(aspose.slides.ColorType.Scheme);
     // Set Scheme Color

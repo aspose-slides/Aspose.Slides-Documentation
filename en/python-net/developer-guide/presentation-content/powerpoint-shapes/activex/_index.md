@@ -41,8 +41,9 @@ import aspose.slides as slides
 import aspose.pydrawing as draw
 import io
 
+import aspose.pydrawing as drawing
 # Accessing the presentation with  ActiveX controls
-with slides.Presentation(path + "ActiveX.pptm") as presentation:
+with slides.Presentation("ActiveX.pptm") as presentation:
     # Accessing the first slide in presentation
     slide = presentation.slides[0]
 
@@ -151,8 +152,8 @@ with slides.Presentation(path + "ActiveX.pptm") as presentation:
     
     # Moving ActiveX frames 100 points down
     for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
+        frame = ctl.frame
+        ctl.frame = slides.ShapeFrame(
             frame.x, 
             frame.y + 100, 
             frame.width, 
@@ -188,7 +189,7 @@ To add ActiveX Media Player control, please perform following steps:
 import aspose.slides as slides
 
 # Instantiate Presentation class that represents PPTX file
-with slides.Presentation(path + "template.pptx") as presentation:
+with slides.Presentation("template.pptx") as presentation:
 
     # Create empty presentation instance
     with slides.Presentation() as newPresentation:

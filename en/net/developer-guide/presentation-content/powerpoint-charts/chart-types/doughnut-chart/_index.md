@@ -33,6 +33,10 @@ In order to specify the size of the hole in a doughnut chart. Please follow the 
 In the example given below, we have set the size of the hole in a doughnut chart.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Create an instance of Presentation class
 Presentation presentation = new Presentation();
 

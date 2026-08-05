@@ -21,6 +21,8 @@ This article demonstrates how to add, access, remove, and configure ActiveX cont
 Insert a new ActiveX control and optionally set its properties.
 
 ```java
+import com.aspose.slides.*;
+
 static void addActiveX() {
     Presentation presentation = new Presentation();
     try {
@@ -44,6 +46,8 @@ static void addActiveX() {
 Read information from the first ActiveX control on the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessActiveX() {
     Presentation presentation = new Presentation("add_activex.pptm");
     try {
@@ -67,6 +71,8 @@ static void accessActiveX() {
 Delete an existing ActiveX control from the slide.
 
 ```java
+import com.aspose.slides.*;
+
 public static void removeActiveX() {
     Presentation presentation = new Presentation("add_activex.pptm");
     try {
@@ -89,6 +95,8 @@ public static void removeActiveX() {
 Add a control and configure several ActiveX properties.
 
 ```java
+import com.aspose.slides.*;
+
 public static void setActiveXProperties() {
     Presentation presentation = new Presentation();
     try {

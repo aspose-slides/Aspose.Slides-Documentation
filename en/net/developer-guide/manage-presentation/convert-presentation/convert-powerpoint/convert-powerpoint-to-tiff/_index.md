@@ -39,6 +39,9 @@ Using the [Save](https://reference.aspose.com/slides/net/aspose.slides/presentat
 This C# code demonstrates how to convert a PowerPoint presentation to TIFF:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
@@ -58,6 +61,9 @@ Let's say we have a "sample.pptx" file with the following slide:
 This C# code demonstrates how to convert the colored slide to a black-and-white TIFF:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 TiffOptions tiffOptions = new TiffOptions
 {
     CompressionType = TiffCompressionTypes.CCITT4,
@@ -81,6 +87,10 @@ If you require a TIFF image with specific dimensions, you can set your desired v
 This C# code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
@@ -124,6 +134,9 @@ Using the [PixelFormat](https://reference.aspose.com/slides/net/aspose.slides.ex
 This C# code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {

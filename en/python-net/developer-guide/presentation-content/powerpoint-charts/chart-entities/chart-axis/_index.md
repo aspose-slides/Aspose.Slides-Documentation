@@ -27,7 +27,7 @@ description: "Discover how to use Aspose.Slides for Python via .NET to customize
 
 ## **Overview**
 
-This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and display a unit label on the value axis.
+This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and set a display unit on the value axis.
 
 ## **Getting the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for Python via .NET allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
@@ -55,8 +55,11 @@ with slides.Presentation() as pres:
 	maxValue = chart.axes.vertical_axis.actual_max_value
 	minValue = chart.axes.vertical_axis.actual_min_value
 
-	majorUnit = chart.axes.horizontal_axis.actual_major_unit
-	minorUnit = chart.axes.horizontal_axis.actual_minor_unit
+	majorUnit = chart.axes.vertical_axis.actual_major_unit
+	minorUnit = chart.axes.vertical_axis.actual_minor_unit
+
+	majorUnitScale = chart.axes.vertical_axis.actual_major_unit_scale
+	minorUnitScale = chart.axes.vertical_axis.actual_minor_unit_scale
 	
 	# Saves the presentation
 	pres.save("ErrorBars_out.pptx", slides.export.SaveFormat.PPTX)
@@ -121,7 +124,7 @@ Using the **CategoryAxisType** property, you can specify your preferred category
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     chart = presentation.slides[0].shapes[0]
     chart.axes.horizontal_axis.category_axis_type = charts.CategoryAxisType.DATE
     chart.axes.horizontal_axis.is_automatic_major_unit = False
@@ -184,7 +187,7 @@ with slides.Presentation() as pres:
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
-Aspose.Slides for Python via .NET allows you to set the position axis in a category or value axis. This Python code shows how to perform the task:
+Aspose.Slides for Python via .NET allows you to set the position of a category axis relative to its tick marks. `axis_between_categories` is `True` by default, which draws the data points between the tick marks; setting it to `False` draws them directly on the tick marks. This Python code shows how to perform the task:
 
 ```py
 import aspose.slides.charts as charts
@@ -192,13 +195,13 @@ import aspose.slides as slides
 
 with slides.Presentation() as pres:
 	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
-	chart.axes.horizontal_axis.axis_between_categories = True
+	chart.axes.horizontal_axis.axis_between_categories = False
 
 	pres.save("AsposeScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Enabling the Display Unit label on Chart Value Axis**
-Aspose.Slides for Python via .NET allows you to configure a chart to show a unit label on its chart value axis. This Python code demonstrates the operation:
+## **Setting the Display Unit on a Chart Value Axis**
+Aspose.Slides for Python via .NET allows you to set a display unit on a chart value axis, so its labels are scaled by that unit—with `MILLIONS`, a value of 5,000,000 is labeled 5. The unit itself is not written next to the axis as a caption. This Python code demonstrates the operation:
 
 ```py
 import aspose.slides.charts as charts
@@ -216,6 +219,6 @@ with slides.Presentation() as pres:
 
 Axes provide a [crossing setting](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/): you can choose to cross at zero, at the maximum category/value, or at a specific numeric value. This is useful for shifting the X-axis up or down or for emphasizing a baseline.
 
-### How can I position tick labels relative to the axis (alongside, outside, inside)?
+### How can I position tick labels relative to the axis (next to it, high, low)?
 
-Set the [label position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) to "cross", "outside", or "inside". This affects readability and helps conserve space, especially on small charts.
+Set the [tick label position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) to `NEXT_TO`, `HIGH`, `LOW`, or `NONE`. This affects readability and helps conserve space, especially on small charts. The tick marks themselves are controlled separately by [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/), which takes `CROSS`, `INSIDE`, `OUTSIDE`, or `NONE`.

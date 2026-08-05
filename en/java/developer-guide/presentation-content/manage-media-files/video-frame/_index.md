@@ -44,6 +44,10 @@ If the video file you want to add to your slide is stored locally, you can creat
 This Java code shows you how to add a video stored locally to a presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation("pres.pptx");
 try {
@@ -66,6 +70,8 @@ try {
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) method:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	ISlide sld = pres.getSlides().get_Item(0);
@@ -89,19 +95,16 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 This Java code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+String videoID = "Tj75Arhq5ho";
+
 // Instantiates a Presentation object that represents a presentation file 
 Presentation pres = new Presentation();
 try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
     // Adds a videoFrame
     IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
@@ -109,16 +112,19 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 
     // Loads thumbnail
     String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
 
     try {
-        url = new URL(thumbnailUri);
+        URL url = new URL(thumbnailUri);
         videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
     } catch (MalformedURLException e) {
         e.printStackTrace();
     } catch (IOException e) {
         e.printStackTrace();
     }
+
+    pres.save("out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
@@ -139,6 +145,9 @@ To create a video frame and set its trim settings:
 The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream videoStream = new FileInputStream("video.mp4");
@@ -167,6 +176,8 @@ To inspect existing trim settings, load a presentation, find an [IVideoFrame](ht
 The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_trim.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -203,6 +214,10 @@ To add captions to a video frame:
 The following code shows you how to add captions to a video frame:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 try {
     byte[] videoData = Files.readAllBytes(Paths.get("video.mp4"));
@@ -234,6 +249,10 @@ To extract captions from a video frame:
 The following code shows you how to extract captions from a video frame:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -266,6 +285,8 @@ To remove captions from a video frame:
 The following code shows you how to remove all captions from a video frame:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("video_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -294,6 +315,10 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 This Java code shows you how to extract the video on a presentation slide:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 // Instantiates a Presentation object that represents a presentation file 
 Presentation pres = new Presentation("VideoSample.pptx");
 try {

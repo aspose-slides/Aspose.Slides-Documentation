@@ -24,12 +24,12 @@ This article shows how to work with a chart’s plot area in Aspose.Slides. It e
 It also demonstrates how to configure the plot area’s layout mode when the layout is set manually, using `LayoutTargetType` to define whether the plot area is calculated by its inner region or by its outer region together with axes and axis labels.
 
 ## **Get Width, Height of Chart Plot Area**
-Aspose.Slides for Python via .NET provides a simple API for . 
+Aspose.Slides for Python via .NET provides a simple API for reading the actual position and size of a chart plot area. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Access first slide.
 1. Add chart with default data.
-1. Call method IChart.ValidateChartLayout() before to get actual values.
+1. Call the chart's `validate_chart_layout()` method before reading the actual values.
 1. Gets actual X location (left) of the chart element relative to the left top corner of the chart.
 1. Gets actual top of the chart element relative to the left top corner of the chart.
 1. Gets actual width of the chart element.
@@ -58,8 +58,8 @@ with slides.Presentation() as pres:
 ## **Set Layout Mode of Chart Plot Area**
 Aspose.Slides for Python via .NET provides a simple API to set the layout mode of the chart plot area. Property **LayoutTargetType** has been added to **ChartPlotArea** and **IChartPlotArea** classes. If the layout of the plot area defined manually this property specifies whether to layout the plot area by its inside (not including axis and axis labels) or outside (including axis and axis labels). There are two possible values which are defined in **LayoutTargetType** enum.
 
-- **LayoutTargetType.Inner** - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
-- **LayoutTargetType.Outer** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
+- **LayoutTargetType.INNER** - specifies that the plot area size shall determine the size of the plot area, not including the tick marks and axis labels.
+- **LayoutTargetType.OUTER** - specifies that the plot area size shall determine the size of the plot area, the tick marks, and the axis labels.
 
 Sample code is given below.
 
@@ -76,7 +76,7 @@ with slides.Presentation() as presentation:
     chart.plot_area.as_i_layoutable.height = 0.7
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
 
-    presentation.save("SetLayoutMode_outer.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SetLayoutMode_inner.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**

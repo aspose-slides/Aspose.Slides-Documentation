@@ -50,6 +50,10 @@ The implementation of the above steps is given below. It takes an unadorned pres
 |**Figure: The same text with updated formatting**|
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate a Presentation object that represents a PPTX file
 var pres = new aspose.slides.Presentation("FontProperties.pptx");
 try {
@@ -73,11 +77,11 @@ try {
     port1.getPortionFormat().setLatinFont(fd1);
     port2.getPortionFormat().setLatinFont(fd2);
     // Set font to Bold
-    port1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    port2.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+    port1.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    port2.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
     // Set font to Italic
-    port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+    port1.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    port2.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
     // Set font color
     port1.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
@@ -119,6 +123,10 @@ The implementation of the above steps is given below.
 |**Figure: Text with some font properties set by Aspose.Slides for Node.js via Java**|
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate a Presentation object that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -136,11 +144,11 @@ try {
     // Set the Font for the Portion
     port.getPortionFormat().setLatinFont(new aspose.slides.FontData("Times New Roman"));
     // Set Bold property of the Font
-    port.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+    port.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
     // Set Italic property of the Font
-    port.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+    port.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
     // Set Underline property of the Font
-    port.getPortionFormat().setFontUnderline(aspose.slides.TextUnderlineType.Single);
+    port.getPortionFormat().setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Single));
     // Set the Height of the Font
     port.getPortionFormat().setFontHeight(25);
     // Set the color of the Font

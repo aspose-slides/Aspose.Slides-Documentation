@@ -22,7 +22,7 @@ This article explains how to work with chart data tables in Aspose.Slides. It sh
 It also includes brief answers to common questions about showing legend keys in a chart data table, preserving the data table during export, working with charts loaded from existing presentations or templates, and identifying charts where the data table is enabled.
 
 ## **Set Font Properties for a Chart Data Table**
-Aspose.Slides for .NET provides support for changing color of categories in a series color. 
+Aspose.Slides for .NET provides support for displaying a data table on a chart and setting the font properties of its text. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.
 1. Add chart on the slide.
@@ -33,6 +33,10 @@ Aspose.Slides for .NET provides support for changing color of categories in a se
  Below sample example is given. 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("test.pptx"))
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);

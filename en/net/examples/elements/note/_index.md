@@ -28,6 +28,8 @@ This article demonstrates how to add, read, remove, and update notes slides usin
 Create a notes slide and assign text to it.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddNote()
 {
     using var presentation = new Presentation();
@@ -43,6 +45,8 @@ static void AddNote()
 Read text from an existing notes slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessNote()
 {
     using var presentation = new Presentation();
@@ -59,6 +63,8 @@ static void AccessNote()
 Remove the notes slide associated with a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveNote()
 {
     using var presentation = new Presentation();
@@ -75,6 +81,8 @@ static void RemoveNote()
 Change the text of a notes slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void UpdateNoteText()
 {
     using var presentation = new Presentation();

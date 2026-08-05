@@ -35,6 +35,10 @@ The following sequence of steps is required to create and embed an Excel chart a
 The Java implementation of the above steps is as follows:
 
 ```java
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import java.io.ByteArrayOutputStream;
+
 // Create a workbook.
 Workbook workbook = new Workbook();
 
@@ -48,7 +52,7 @@ workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
 
 // Get the chart image and save it to a stream.
 com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
+printOptions.setImageType(com.aspose.cells.ImageType.PNG);
 ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
 workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
 
@@ -69,21 +73,31 @@ presentation.dispose();
 ```
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayInputStream;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
 {
     double oleHeight = presentation.getSlideSize().getSize().getHeight();
     double oleWidth = presentation.getSlideSize().getSize().getWidth();
  
-    // Create an EXCEL_97_TO_2003 LoadOptions object.
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
+    // Describe the workbook as embedded OLE data.
+    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookArray, "xls");
  
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
+    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, dataInfo);
     oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
 }
 ```
 
 ```java
+import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import java.lang.reflect.Array;
+
 static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
 {
     // An array of cell names.

@@ -37,25 +37,33 @@ Go through these steps:
 
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 2. Get the slide object from the [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) collection under the [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide) interface. 
-3. Use a [ISlide.GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) method to get the thumbnail for each slide. 
+3. Use the [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) method to render each slide at the scale you need. 
 4. Use the [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.ipresentation/save/methods/5) method to save the slide thumbnail to the PNG format. 
 
 This C# code shows you how to convert a PowerPoint presentation to PNG. Presentation object can load PPT, PPTX, ODP etc, then each slide in presentation object is converted to PNG format or other images format.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
     {
         ISlide slide = pres.Slides[index];
 
-        using (IImage image = slide.GetImage())
+        using (IImage image = slide.GetImage(1f, 1f))
         {
             image.Save($"slide_{index}.png", ImageFormat.Png);
         }
     }
 }
 ```
+
+{{% alert color="primary" %}} 
+
+**Note:** The scale arguments `1f, 1f` render each slide at its full size, so a 720×540 pt slide produces a 720×540 px image. The parameterless [GetImage()](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) overload returns a much smaller preview thumbnail instead.
+
+{{% /alert %}} 
 
 ## **Convert PowerPoint to PNG With Custom Dimensions**
 
@@ -64,6 +72,8 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in C# demonstrates the described operation:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     float scaleX = 2f;
@@ -87,6 +97,9 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Size size = new Size(960, 720);

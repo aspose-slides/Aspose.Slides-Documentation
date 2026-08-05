@@ -26,6 +26,9 @@ This guide explains how to add, access, and remove text boxes programmatically.
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
 ```py
+import aspose.pydrawing as drawing
+import aspose.slides as slides
+
 def add_text_box():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -52,9 +55,11 @@ def add_text_box():
 
 ## **Access Text Boxes by Content**
 
-To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
+To find all text boxes containing a specific keyword (e.g. "text"), iterate through the shapes and check their text:
 
 ```py
+import aspose.slides as slides
+
 def access_text_box():
     with slides.Presentation("text_box.pptx") as presentation:
         slide = presentation.slides[0]
@@ -62,7 +67,7 @@ def access_text_box():
         for shape in slide.shapes:
             # Only AutoShapes can contain editable text.
             if isinstance(shape, slides.AutoShape):
-                if "Slide" in shape.text_frame.text:
+                if "text" in shape.text_frame.text:
                     # Do something with the matching text box.
                     pass
 ```
@@ -72,14 +77,16 @@ def access_text_box():
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 
 ```py
+import aspose.slides as slides
+
 def remove_text_boxes():
     with slides.Presentation("text_box.pptx") as presentation:
         slide = presentation.slides[0]
 
-        # Find shapes to remove that are AutoShapes containing the word "Slide".
+        # Find shapes to remove that are AutoShapes containing the word "text".
         shapes_to_remove = [
             shape for shape in slide.shapes
-            if isinstance(shape, slides.AutoShape) and "Slide" in shape.text_frame.text
+            if isinstance(shape, slides.AutoShape) and "text" in shape.text_frame.text
         ]
 
         # Remove each matching shape from the slide.

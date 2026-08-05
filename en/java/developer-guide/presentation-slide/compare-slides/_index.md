@@ -25,6 +25,8 @@ Equals method has been added to [IBaseSlide](https://reference.aspose.com/slides
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation1 = new Presentation("AccessSlides.pptx");
 try {
     Presentation presentation2 = new Presentation("HelloWorld.pptx");

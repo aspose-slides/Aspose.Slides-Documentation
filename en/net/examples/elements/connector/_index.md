@@ -26,6 +26,8 @@ This article demonstrates how to connect shapes with connectors and change their
 Insert a connector shape between two points on the slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddConnector()
 {
     using var presentation = new Presentation();
@@ -40,6 +42,8 @@ static void AddConnector()
 Retrieve the first connector shape added to a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessConnector()
 {
     using var presentation = new Presentation();
@@ -56,6 +60,8 @@ static void AccessConnector()
 Delete a connector from the slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveConnector()
 {
     using var presentation = new Presentation();
@@ -72,6 +78,8 @@ static void RemoveConnector()
 Attach a connector to two shapes by assigning start and end targets.
 
 ```csharp
+using Aspose.Slides;
+
 static void ReconnectShapes()
 {
     using var presentation = new Presentation();

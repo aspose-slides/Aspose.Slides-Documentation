@@ -26,7 +26,7 @@ The article also provides a step-by-step example that shows how to create a new 
 ## **Installation**
 Previously, Aspose.Slides for Android via Java was distributed as a single ZIP file containing the JAR file, demos, and the product documentation. 
 
-1. If you want to use a version older than Aspose.Words for Android via Java 18.9, you need to unzip that version of Aspose.Slides.Android.zip into your preferred directory. 
+1. If you want to use a version older than Aspose.Slides for Android via Java 18.9, you need to unzip that version of Aspose.Slides.Android.zip into your preferred directory. 
 1. Add the extracted Jar file in your application by using the Build Path configuration. 
 ### **Add a Reference to Aspose.Slides for Android via Java Jar**
 1. Download the newest version of [Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/androidjava)
@@ -39,7 +39,7 @@ Previously, Aspose.Slides for Android via Java was distributed as a single ZIP 
 1. Add maven repository into your build.gradle. 
 1. Add [Aspose.Slides for Android via Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) JAR as a dependency.
 
-``` java
+``` groovy
 
  // 1. Add maven repository into your build.gradle 
 
@@ -123,32 +123,29 @@ In this section, you will learn how to get started with Aspose.Slides for Androi
 1. Navigate back to the code section of the app and add these imports: 
 
 ``` java
-
- import java.io.File;
+import java.io.File;
 
 import com.aspose.slides.IAutoShape;
-
 import com.aspose.slides.IParagraph;
-
 import com.aspose.slides.IPortion;
-
 import com.aspose.slides.ISlide;
-
 import com.aspose.slides.ITextFrame;
-
 import com.aspose.slides.Presentation;
-
 import com.aspose.slides.SaveFormat;
-
 import com.aspose.slides.ShapeType;
 
-import android.os.Environment; 
+import android.os.Environment;
 
 ```
 
 Now, insert this code in the body of the onCreate method to create a new Presentation from scratch using Aspose.Slides and save it to the SDCard in PPTX format.
 
 ``` java
+import com.aspose.slides.*;
+import java.io.File;
+
+import android.os.Environment;
+
 
  try
 

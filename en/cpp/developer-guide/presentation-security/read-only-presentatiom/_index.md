@@ -34,6 +34,12 @@ The Read-Only recommendation is a simple yet effective deterrent that discourage
 Aspose.Slides for C++ allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in C++ using Aspose.Slides:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 pres->get_ProtectionManager()->set_ReadOnlyRecommended(true);
 pres->Save(u"ReadOnlyPresentation.pptx", SaveFormat::Pptx);

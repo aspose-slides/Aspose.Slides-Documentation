@@ -14,62 +14,41 @@ Both the VSTO and Aspose.Slides methods take the following steps:
 - Save the presentation to disk.
 ## **VSTO**
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- //Open the presentation
+//Open the presentation
+using (Presentation pres = new Presentation("source.ppt"))
+{
+    //Access the first slide
+    ISlide slide = pres.Slides[0];
 
-Presentation pres = new Presentation("source.ppt");
+    //Access the third shape
+    IAutoShape shp = (IAutoShape)slide.Shapes[2];
 
-//Add Verdana font
+    //Change its text's font to Verdana and height to 32
+    IPortionFormat portionFormat = shp.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    portionFormat.LatinFont = new FontData("Verdana");
+    portionFormat.FontHeight = 32;
 
-FontEntity font = pres.Fonts[0];
+    //Bolden it
+    portionFormat.FontBold = NullableBool.True;
 
-FontEntity verdanaFont = new FontEntity(pres, font);
+    //Italicize it
+    portionFormat.FontItalic = NullableBool.True;
 
-verdanaFont.FontName = "Verdana";
+    //Change text color
+    portionFormat.FillFormat.FillType = FillType.Solid;
+    portionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
-int verdanaFontIndex = pres.Fonts.Add(verdanaFont);
+    //Change shape background color
+    shp.FillFormat.FillType = FillType.Solid;
+    shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//Access the first slide
-
-Slide slide = pres.GetSlideByPosition(1);
-
-//Access the third shape
-
-Shape shp = slide.Shapes[2];
-
-//Change its text's font to Verdana and height to 32
-
-TextFrame tf = shp.TextFrame;
-
-Paragraph para = tf.Paragraphs[0];
-
-Portion port = para.Portions[0];
-
-port.FontIndex = verdanaFontIndex;
-
-port.FontHeight = 32;
-
-//Bolden it
-
-port.FontBold = true;
-
-//Italicize it
-
-port.FontItalic = true;
-
-//Change text color
-
-port.FontColor = Color.FromArgb(0x33, 0x33, 0xCC);
-
-//Change shape background color
-
-shp.FillFormat.Type = FillType.Solid;
-
-shp.FillFormat.ForeColor = Color.FromArgb(0xCC, 0xCC, 0xFF);
-
-//Write the output to disk
-
-pres.Write("outAspose.ppt");
+    //Write the output to disk
+    pres.Save("outAspose.ppt", SaveFormat.Ppt);
+}
 
 ``` 
 ## **Aspose.Slides**

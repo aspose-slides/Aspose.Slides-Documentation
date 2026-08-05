@@ -51,6 +51,8 @@ You can design the watermark in any way; however, there are usually common featu
 To add a text watermark in PPT, PPTX, or ODP, you can first add a shape to the slide, then add a text frame to this shape. The text frame is represented by the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe) interface. This type is not inherited from [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), which has a wide set of properties for positioning the watermark in a flexible way. Therefore, the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe) object is wrapped in an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) object. To add watermark text to the shape, use the [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe) method as shown below.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
@@ -70,6 +72,8 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 If you want to add a text watermark to the entire presentation (i.e., all slides at once), add it to the [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/). The rest of the logic is the same as when adding a watermark to a single slide — create an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) object and then add the watermark to it using the [AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/methods/addtextframe) method.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
@@ -91,6 +95,12 @@ By default, the rectangle shape is styled with fill and line colors. This means 
 The following lines of code make the shape transparent by removing both its fill and border colors:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
@@ -102,6 +112,13 @@ Before applying the text watermark to your slide, it's important to customize it
 The code snippet below demonstrates how to adjust the watermark's font settings by selecting a specific Latin font and setting an appropriate font height:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
 textFormat.FontHeight = 50;
@@ -114,6 +131,14 @@ Before applying your watermark, it's essential to ensure that the text color is 
 To set the color of the watermark text, use the following code:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
@@ -128,6 +153,14 @@ Properly centering your text watermark can significantly enhance the overall aes
 The code snippet below demonstrates how to calculate the center position of a slide and place the text watermark accordingly:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+string watermarkText = "CONFIDENTIAL";
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 SizeF slideSize = presentation.SlideSize.Size;
 
 float watermarkWidth = 400;
@@ -152,6 +185,12 @@ The image below shows the final result.
 In many cases, an image watermark can provide a unique branding element or a more visually appealing alternative to a text watermark. Before adding the watermark, make sure that the image file is readily available (e.g., PNG for transparency). The following example demonstrates how to load an image from your file system, add it to the presentation, and then apply it as a watermark using the shape's fill properties.
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
 
@@ -165,6 +204,12 @@ watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.St
 If it is necessary to prevent a watermark from being edited, use the [IAutoShape.ShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/shapelock) property on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 // Lock the watermark shape from modifying.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
@@ -178,6 +223,12 @@ watermarkShape.ShapeLock.GroupingLocked = true;
 In Aspose.Slides, the Z-order of shapes can be set via the [IShapeCollection.Reorder](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/reorder/#reorder) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
@@ -187,6 +238,15 @@ slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 Adjusting the rotation of your watermark can significantly enhance the visual impact and subtlety of your presentation. A diagonal watermark, for example, can be less intrusive while still providing robust protection against unauthorized use. The following example calculates the appropriate angle based on the slide's dimensions so that the watermark is positioned diagonally across the slide. This dynamic calculation ensures the watermark remains effective regardless of varying slide sizes.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+SizeF slideSize = presentation.SlideSize.Size;
+
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
@@ -197,6 +257,12 @@ watermarkShape.Rotation = (float)diagonalAngle;
 Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name) property:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.Name = "watermark";
 ```
 
@@ -205,12 +271,17 @@ watermarkShape.Name = "watermark";
 To remove the watermark shape, use the [IAutoShape.Name](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/name) property to find it in the slide shapes. Then, pass the watermark shape into the [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) method:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
     if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
-        slide.Shapes.Remove(watermarkShape);
+        slide.Shapes.Remove(shape);
     }
 }
 ```

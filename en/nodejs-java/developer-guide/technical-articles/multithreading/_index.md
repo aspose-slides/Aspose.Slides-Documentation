@@ -32,6 +32,9 @@ It is **not** safe to load, save, and/or clone an instance of a [Presentation](h
 Let's say we want to convert all the slides from a PowerPoint presentation to PNG images in parallel. Since it is unsafe to use a single `Presentation` instance in multiple threads, we split the presentation slides into separate presentations and convert the slides to images in parallel, using each presentation in a separate thread. The following code example shows how to do this.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const inputFilePath = "sample.pptx";
 const outputFilePathTemplate = "slide_%d.png";
 const imageScale = 2;
@@ -52,7 +55,10 @@ const imageScale = 2;
 
         try {
             const slide = slidePresentation.getSlides().get_Item(0);
-            const image = slide.getImage(imageScale, imageScale);
+            // Render the slide on a background thread so the conversions actually run in parallel.
+            const image = await new Promise((resolve, reject) => {
+                slide.getImageAsync(imageScale, imageScale, (error, result) => error ? reject(error) : resolve(result));
+            });
             const imageFilePath = outputFilePathTemplate.replace("%d", slideIndex + 1);
 
             image.save(imageFilePath, aspose.slides.ImageFormat.Png);

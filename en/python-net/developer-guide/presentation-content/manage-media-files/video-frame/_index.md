@@ -46,7 +46,7 @@ This Python code shows you how to add a video stored locally to a presentation:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "pres.pptx") as pres:
+with slides.Presentation("pres.pptx") as pres:
     with open("Wildlife.mp4", "br") as fileStream:
         video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
 
@@ -54,7 +54,7 @@ with slides.Presentation(path + "pres.pptx") as pres:
         pres.slides[0].shapes.add_video_frame(10, 10, 150, 250, video)
 
         # Saves the presentation to disk
-        pres.save(path + "pres-with-video.pptx", slides.export.SaveFormat.PPTX)
+        pres.save("pres-with-video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Alternatively, you can add a video by passing its file path directly to the `add_video_frame(x, y, width, height, fname)`  method:
@@ -74,7 +74,7 @@ Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/off
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
 1. Get a slide's reference through its index. 
-1. Add a [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) object and pass the link to the video.
+1. Add a [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) object and pass the link to the video instead of a local file.
 1. Set a thumbnail for the video frame. 
 1. Save the presentation. 
 
@@ -96,7 +96,7 @@ def add_video_from_youyube(pres, videoId):
 
 
 with slides.Presentation() as pres:
-    add_video_from_youyube(pres, "s5JbfQZ5Cc0")
+    add_video_from_youyube(pres, "jNQXAC9IVRw")
     pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -259,13 +259,13 @@ This Python code shows you how to extract the video on a presentation slide:
 ```python
 import aspose.slides as slides
 
-# Instantiates a Presentation object that represents a presentation file 
-with slides.Presentation(path + "Video.pptx") as presentation:
+# Instantiates a Presentation object that represents a presentation file
+with slides.Presentation("Video.pptx") as presentation:
     for shape in presentation.slides[0].shapes:
         if type(shape) is slides.VideoFrame:
-            type = shape.embedded_video.content_type
+            content_type = shape.embedded_video.content_type
             buffer = shape.embedded_video.binary_data
-            with open("NewVideo_out." + type[type.rfind('/') + 1:len(type)], "wb") as stream:
+            with open("NewVideo_out." + content_type[content_type.rfind('/') + 1:], "wb") as stream:
                 stream.write(buffer)
 ```
 

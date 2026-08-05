@@ -33,37 +33,34 @@ In [Aspose.Slides 18.4](https://releases.aspose.com/slides/cpp/release-notes/201
 The following code snippet demonstrates interrupting a running task:
 
 ```cpp
-void Run(Action<SharedPtr<IInterruptionToken>> action, SharedPtr<IInterruptionToken> token)
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/smart_ptr.h>
+#include <system/threading/thread.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto tokenSource = MakeObject<InterruptionTokenSource>();
+SharedPtr<IInterruptionToken> token = tokenSource->get_Token();
+
+// The conversion runs in a separate thread so that it can be interrupted.
+auto threadFunction = Threading::ThreadStart([token]() -> void
 {
-    auto threadFunction = std::function<void()>([&action, &token]() -> void
-    {
-        action(token);
-    });
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
 
-    auto thread = System::MakeObject<Threading::Thread>(threadFunction);
-    thread->Start();
-}
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.ppt", Export::SaveFormat::Ppt);
+});
 
-void Run()
-{
-    String dataDir = GetDataPath();
+auto thread = MakeObject<Threading::Thread>(threadFunction);
+thread->Start();
 
-    auto function = std::function<void(SharedPtr<IInterruptionToken> token)> ([&dataDir](SharedPtr<IInterruptionToken> token) -> void
-    {
-        auto options = System::MakeObject<LoadOptions>();
-        options->set_InterruptionToken(token);
-
-        auto presentation = System::MakeObject<Presentation>(dataDir + u"sample.pptx", options);
-        presentation->Save(dataDir + u"sample.ppt", Export::SaveFormat::Ppt);
-    });
-
-    auto action = System::Action<SharedPtr<IInterruptionToken>>(function);
-    auto tokenSource = System::MakeObject<InterruptionTokenSource>();
-    
-    Run(action, tokenSource->get_Token()); // run the action in a separate thread
-    Threading::Thread::Sleep(10000);       // timeout
-    tokenSource->Interrupt();              // stop the conversion
-}
+Threading::Thread::Sleep(10000); // timeout
+tokenSource->Interrupt();        // stop the conversion
 ```
 
 ## **FAQ**

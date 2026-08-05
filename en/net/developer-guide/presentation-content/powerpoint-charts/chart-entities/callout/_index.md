@@ -24,6 +24,10 @@ This article explains how to work with callouts for chart data labels in Aspose.
 New property **ShowLabelAsDataCallout** has been added to **DataLabelFormat** class and **IDataLabelFormat** interface, which determines either specified chart's data label will be displayed as data callout or as data label. In the example given below, we have set the Callouts.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
@@ -40,6 +44,10 @@ using (Presentation presentation = new Presentation())
 Aspose.Slides for .NET provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 Presentation pres = new Presentation("testc.pptx");
 ISlide slide = pres.Slides[0];
 IChart chart = slide.Shapes.AddChart(ChartType.Doughnut, 10, 10, 500, 500, false);
@@ -84,9 +92,8 @@ while (categoryIndex < 15)
 			lbl.DataLabelFormat.ShowValue = false;
 			lbl.DataLabelFormat.ShowCategoryName = true;
 			lbl.DataLabelFormat.ShowSeriesName = false;
-			//lbl.DataLabelFormat.ShowLabelAsDataCallout = true;
+			lbl.DataLabelFormat.ShowLabelAsDataCallout = true;
 			lbl.DataLabelFormat.ShowLeaderLines = true;
-			lbl.DataLabelFormat.ShowLabelAsDataCallout = false;
 			chart.ValidateChartLayout();
 			lbl.AsILayoutable.X = (float)lbl.AsILayoutable.X + (float)0.5;
 			lbl.AsILayoutable.Y = (float)lbl.AsILayoutable.Y + (float)0.5;

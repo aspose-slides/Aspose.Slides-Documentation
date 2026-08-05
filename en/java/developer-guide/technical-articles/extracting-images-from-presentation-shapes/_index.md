@@ -230,6 +230,11 @@ private static String makeSafeFileNamePart(String value)
 Use this approach for pictures inserted as standalone objects. An [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) stores its picture in `getPictureFormat().getPicture().getImage()`, which returns an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) object.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -274,6 +279,10 @@ finally
 Shapes can use a picture as their fill. Check the shape's fill type first: if it is not [FillType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), there is no picture to extract from that fill. The example below handles [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) objects and saves each image as PNG through [IPPImage.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -320,6 +329,11 @@ finally
 An [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/) can have a substitute picture that PowerPoint uses as the object's preview on a slide. This image is available through `getSubstitutePictureFormat().getPicture().getImage()`. Extracting this picture gives you the preview image, not the embedded OLE package contents.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -368,6 +382,11 @@ finally
 An [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) can also store a preview image in `getPictureFormat().getPicture().getImage()`. This is the poster or thumbnail shown on the slide, not a frame decoded from the video stream.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -416,6 +435,11 @@ finally
 An [IAudioFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/) can store a thumbnail in `getPictureFormat().getPicture().getImage()`. This is the image shown for the audio object on the slide.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -464,6 +488,11 @@ finally
 [IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/izoomframe/) and [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/isectionzoomframe/) shapes can use custom images. Read `getZoomImage()` from the zoom frame.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -525,6 +554,11 @@ finally
 An [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/isummaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `getZoomImage()` method.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -579,6 +613,11 @@ finally
 An [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) is a shape. Images in a table are usually stored as picture fills in table cells.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -639,6 +678,11 @@ finally
 An [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) is a shape. The example below extracts an image from the chart area's picture fill.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -688,6 +732,11 @@ finally
 An [ISmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/) object is a shape. Depending on the SmartArt layout, images may be stored in node bullet fills or in the fill formats of node shapes.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -758,6 +807,11 @@ finally
 Grouped shapes contain their own shape collections. The shared `enumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");

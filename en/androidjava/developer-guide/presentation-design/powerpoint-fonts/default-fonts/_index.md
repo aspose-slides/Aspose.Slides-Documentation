@@ -40,6 +40,8 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```java
+import com.aspose.slides.*;
+
 // Use load options to define the default regualr and asian fonts
 LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
 loadOptions.setDefaultRegularFont("Wingdings");
@@ -62,7 +64,6 @@ try {
 
     // Generate XPS
     pres.save("output_out.xps", SaveFormat.Xps);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }

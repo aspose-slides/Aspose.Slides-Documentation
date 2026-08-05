@@ -39,6 +39,9 @@ Aspose.Slides allows you to replace a font this way:
 This JavaScript code demonstrates font replacement:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Loads a presentation
 var pres = new aspose.slides.Presentation("Fonts.pptx");
 try {

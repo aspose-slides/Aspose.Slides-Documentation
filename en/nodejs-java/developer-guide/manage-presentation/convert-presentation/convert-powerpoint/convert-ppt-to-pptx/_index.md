@@ -64,10 +64,13 @@ Aspose.Slides for Node.js via Java now facilitates the developers to access the 
 Aspose.Slides for Node.js via Java offers [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class that represents a **PPTX** presentation file. Presentation class can now also access **PPT** through Presentation when the object is instantiated. The following example shows how to convert a PPT presentation into PPTX Presentation.
 
 ```javascript
-// Instantiate a Presentation object that represents a PPTX file
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Instantiate a Presentation object that represents a PPT file
 var pres = new aspose.slides.Presentation("Aspose.ppt");
 try {
-    // Saving the PPTX presentation to PPTX format
+    // Saving the loaded presentation to PPTX format
     pres.save("ConvertedAspose.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

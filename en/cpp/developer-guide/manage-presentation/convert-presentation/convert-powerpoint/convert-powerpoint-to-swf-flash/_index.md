@@ -40,22 +40,28 @@ This article explains how to convert PowerPoint presentations to SWF by using As
 The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.swf_options) class and [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) class. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
 
 ``` cpp
-// The path to the documents directory.
-    System::String dataDir = GetDataPath();
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/SaveFormat.h>
+#include <Export/SwfOptions.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-    // Instantiate a Presentation object that represents a presentation file
-    auto presentation = System::MakeObject<Presentation>(dataDir + u"HelloWorld.pptx");
+// Instantiate a Presentation object that represents a presentation file
+auto presentation = System::MakeObject<Presentation>(u"HelloWorld.pptx");
 
-    auto swfOptions = System::MakeObject<SwfOptions>();
-    swfOptions->set_ViewerIncluded(false);
+auto swfOptions = System::MakeObject<SwfOptions>();
+swfOptions->set_ViewerIncluded(false);
 
-    auto notesOptions = swfOptions->get_NotesCommentsLayouting();
-    notesOptions->set_NotesPosition(NotesPositions::BottomFull);
+auto notesOptions = System::MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull);
+swfOptions->set_SlidesLayoutOptions(notesOptions);
 
-    // Saving presentation and notes pages
-    presentation->Save(dataDir + u"SaveAsSwf_out.swf", SaveFormat::Swf, swfOptions);
-    swfOptions->set_ViewerIncluded(true);
-    presentation->Save(dataDir + u"SaveNotes_out.swf", SaveFormat::Swf, swfOptions);
+// Saving presentation and notes pages
+presentation->Save(u"SaveAsSwf_out.swf", SaveFormat::Swf, swfOptions);
+swfOptions->set_ViewerIncluded(true);
+presentation->Save(u"SaveNotes_out.swf", SaveFormat::Swf, swfOptions);
 ```
 
 ## **FAQ**

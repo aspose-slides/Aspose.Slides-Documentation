@@ -67,6 +67,8 @@ To customize the appearance and structure of your slides, you may need to add ne
 The following Java code demonstrates how to add a slide layout to a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a PowerPoint file.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
@@ -126,6 +128,8 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
 The following Java code shows how to remove a layout slide from a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
     Compress.removeUnusedLayoutSlides(presentation);
@@ -158,6 +162,8 @@ This manager contains methods for the following placeholder types:
 The following Java code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Get the Blank layout slide.
@@ -199,6 +205,8 @@ In PowerPoint presentations, footer elements like date, slide number, and custom
 The following Java code shows how to set the visibility of a slide footer and perform related tasks:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Presentation.ppt");
 try {
     ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
@@ -238,6 +246,8 @@ try {
 The following Java code demonstrates this operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Presentation.ppt");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();

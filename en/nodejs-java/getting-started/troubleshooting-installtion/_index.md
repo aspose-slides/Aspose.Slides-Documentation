@@ -118,9 +118,14 @@ var presentation = new aspose.slides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
 presentation.save("lineShape.pptx", aspose.slides.SaveFormat.Pptx);
+presentation.dispose();
+
+// The JVM started by the java module keeps non-daemon threads running, so Node.js
+// does not exit on its own. Call process.exit to terminate the script.
+process.exit(0);
 ```
 
-Execute this file using the command `node index.js`.
+Execute this file using the command `node index.js`. If `lineShape.pptx` is created in the project root, the installation is working.
 
 ## **Additional Information**
 

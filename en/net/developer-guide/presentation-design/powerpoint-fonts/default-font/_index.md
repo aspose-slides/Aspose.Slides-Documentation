@@ -40,6 +40,9 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Use the load options to specify default regular and Asian fonts
 LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
 loadOptions.DefaultRegularFont = "Wingdings";

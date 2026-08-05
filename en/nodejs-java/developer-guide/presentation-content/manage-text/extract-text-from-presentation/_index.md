@@ -43,6 +43,9 @@ Aspose.Slides for Node.js via Java provides the [SlideUtil](https://reference.as
 The following code snippet extracts all the text from the first slide of the presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const slideIndex = 0;
 
 const presentation = new aspose.slides.Presentation("demo.pptx");
@@ -94,6 +97,9 @@ To scan text from the entire presentation, use the [getAllTextFrames](https://re
 The method returns an array of [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) objects, including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const presentation = new aspose.slides.Presentation("demo.pptx");
 try {
     const includeMasterSlides = true;
@@ -137,9 +143,9 @@ try {
 The [PresentationFactory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/) class also provides methods for extracting all text from presentations:
 
 ```javascript
-PresentationText getPresentationText(String file, int mode);
-PresentationText getPresentationText(InputStream stream, int mode);
-PresentationText getPresentationText(InputStream stream, int mode, LoadOptions options);
+// PresentationFactory.getInstance().getPresentationText(file, mode);
+// PresentationFactory.getInstance().getPresentationText(stream, mode);
+// PresentationFactory.getInstance().getPresentationText(stream, mode, loadOptions);
 ```
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:
@@ -157,6 +163,9 @@ The unarranged mode can be used when speed is critical; it's faster than the arr
 - Its `getCommentsText` method returns the text within comments associated with this slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const presentationPath = "presentation.ppt";
 const arrangingMode = aspose.slides.TextExtractionArrangingMode.Unarranged;
 const presentationText = aspose.slides.PresentationFactory.getInstance().getPresentationText(presentationPath, arrangingMode);

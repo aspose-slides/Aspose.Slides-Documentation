@@ -64,12 +64,11 @@ Aspose.Slides for Python via .NET provides a simple API for setting automatic pi
 1. Access first slide.
 1. Add chart with default data.
 1. Set chart Title.
-1. Set first series to Show Values.
 1. Set the index of chart data sheet.
 1. Getting the chart data worksheet.
 1. Delete default generated series and categories.
 1. Add new categories.
-1. Add new series.
+1. Add new series and set it to Show Values.
 
 Write the modified presentation to a PPTX file.
 
@@ -88,12 +87,9 @@ with slides.Presentation() as presentation:
 
 	# Setting chart Title
 	chart.chart_title.add_text_frame_for_overriding("Sample Title")
-	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = 1
+	chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
 	chart.chart_title.height = 20
 	chart.has_title = True
-
-	# Set first series to Show Values
-	chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
 	# Setting the index of chart data sheet
 	defaultWorksheetIndex = 0
@@ -112,6 +108,9 @@ with slides.Presentation() as presentation:
 
 	# Adding new series
 	series = chart.chart_data.series.add(fact.get_cell(0, 0, 1, "Series 1"), chart.type)
+
+	# Set the new series to Show Values
+	series.labels.default_data_label_format.show_value = True
 
 	# Now populating series data
 	series.data_points.add_data_point_for_pie_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))

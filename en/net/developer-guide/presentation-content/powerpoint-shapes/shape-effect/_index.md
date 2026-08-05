@@ -38,6 +38,10 @@ To apply a shadow effect to a shape in Aspose.Slides for .NET, you can easily ad
 This C# code shows how to apply the [outer shadow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) to a rectangle:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -60,6 +64,9 @@ To apply a reflection effect in Aspose.Slides for .NET, you can add a mirror-lik
 This C# code shows how to apply the [reflection effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) to a shape:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -83,6 +90,10 @@ To apply a glow effect to a shape in Aspose.Slides for .NET, you can add a soft,
 This C# code shows how to apply the [glow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) to a shape:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
@@ -104,6 +115,9 @@ To apply a soft edges effect in Aspose.Slides for .NET, you can create a smooth,
 This C# code shows how to apply the [soft edges](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) to a shape:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 

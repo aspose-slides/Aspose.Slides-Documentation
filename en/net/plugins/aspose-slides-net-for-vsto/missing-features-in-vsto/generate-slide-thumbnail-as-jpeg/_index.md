@@ -13,6 +13,8 @@ To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 - Save the thumbnail image in any desired image format.
 ## **Example**
 ```cs
+using Aspose.Slides;
+
 //Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 {

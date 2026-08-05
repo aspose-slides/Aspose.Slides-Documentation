@@ -42,6 +42,8 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/j
 This example demonstrates how to generate a presentation on the topic Aspose.Slides using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/).
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of OpenAIWebClient, the built-in implementation of the OpenAI web client.
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 try {
@@ -49,13 +51,13 @@ try {
     var aiAgent = new SlidesAIAgent(aiWebClient);
 
     // Define the instruction for generating the presentation.
-    var instruction = "Generate a presentation about Aspose.Slides for .NET, highlighting its capabilities and advantages over competitors.";
+    var instruction = "Generate a presentation about Aspose.Slides for Java, highlighting its capabilities and advantages over competitors.";
 
     // Generate a presentation with a medium amount of content based on the instruction.
     IPresentation presentation = aiAgent.generatePresentation(instruction, PresentationContentAmountType.Medium);
     try {
     // Save the generated presentation to the local disk as a PowerPoint (.pptx) file.
-    presentation.save("Aspose.Slides.NET.pptx", SaveFormat.Pptx);
+    presentation.save("Aspose.Slides.Java.pptx", SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -71,6 +73,13 @@ The following example demonstrates the overloads of the [generatePresentation](h
 By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself—for example, when using an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for improved resource management and performance—you can supply your own [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/).
 
 ```java
+import com.aspose.slides.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+// Create and configure the HttpURLConnection yourself.
+HttpURLConnection urlConnection = (HttpURLConnection) new URL("https://api.openai.com/v1/chat/completions").openConnection();
+
 // Pass the HttpURLConnection to the OpenAIWebClient constructor.
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId", urlConnection);
 try {
@@ -78,7 +87,7 @@ try {
     var aiAgent = new SlidesAIAgent(aiWebClient);
 
     // Define the instruction for generating the presentation.
-    var instruction = "Generate a presentation about Aspose.Slides for .NET, highlighting its capabilities and advantages over competitors.";
+    var instruction = "Generate a presentation about Aspose.Slides for Java, highlighting its capabilities and advantages over competitors.";
 
     // Load a master presentation from the local disk to use as the design template.
     Presentation masterPresentation = new Presentation("masterPresentation.pptx");
@@ -88,7 +97,7 @@ try {
 
     try {
         // Save the generated presentation as a PDF.
-        presentation.save("Aspose.Slides.NET.pdf", SaveFormat.Pdf);
+        presentation.save("Aspose.Slides.Java.pdf", SaveFormat.Pdf);
     } finally {
         presentation.dispose();
         masterPresentation.dispose();

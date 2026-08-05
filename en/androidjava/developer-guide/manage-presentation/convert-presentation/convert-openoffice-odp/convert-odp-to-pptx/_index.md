@@ -30,10 +30,12 @@ This article explains how to convert an ODP presentation to PPTX format using As
 Aspose.Slides for Android via Java offers [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class that represents a presentation file. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class can now also access ODP through [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#Presentation-java.lang.String-) constructor when the object is instantiated. The following example shows how to convert a ODP Presentation into PPTX Presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Open the ODP file
 Presentation pres = new Presentation("AccessOpenDoc.odp");
-try {}
-// Saving the ODP presentation to PPTX format
+try {
+    // Saving the ODP presentation to PPTX format
     pres.save("AccessOpenDoc_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();

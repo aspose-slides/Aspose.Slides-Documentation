@@ -21,6 +21,20 @@ This article demonstrates adding, reading, removing, and replying to modern comm
 Create a comment authored by a user and save the presentation.
 
 ```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static void AddModernComment()
 {
     auto presentation = MakeObject<Presentation>();
@@ -41,6 +55,17 @@ static void AddModernComment()
 Read a modern comment from an existing presentation.
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/IModernComment.h>
+#include <DOM/Presentation.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessModernComment()
 {
     auto presentation = MakeObject<Presentation>(u"modern_comment.pptx");
@@ -60,6 +85,15 @@ static void AccessModernComment()
 Remove a comment and save the updated file.
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 static void RemoveModernComment()
 {
     auto presentation = MakeObject<Presentation>(u"modern_comment.pptx");
@@ -78,6 +112,22 @@ static void RemoveModernComment()
 Add replies to a parent modern comment.
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IModernComment.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static void ReplyToModernComment()
 {
     auto presentation = MakeObject<Presentation>();

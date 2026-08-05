@@ -33,6 +33,11 @@ Fallback rules are runtime rendering settings. They do not modify the presentati
 Aspose.Slides supports [IFontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/ifontfallbackrule/) interface and [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 uint32_t startUnicodeIndex = 0x0B80;
 uint32_t endUnicodeIndex = 0x0BFF;
 

@@ -38,13 +38,15 @@ This topic will describe a simple technique to make it easier for developers to 
 After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Java and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [findShape](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("FindingShapeInSlide.pptx");
 try {
 
     ISlide slide = pres.getSlides().get_Item(0);
     // Alternative text of the shape to be found
-    IShape shape = findShape(slide, "Shape1");
+    IShape shape = SlideUtil.findShape(slide, "Shape1");
     if (shape != null)
     {
         System.out.println("Shape Name: " + shape.getName());
@@ -54,6 +56,8 @@ try {
 }
 ```
 ```java
+import com.aspose.slides.*;
+
 // Method implementation to find a shape in a slide using its alternative text
 public static IShape findShape(ISlide slide, String alttext)
 {
@@ -79,9 +83,11 @@ To clone a shape to a slide using Aspose.Slides for Java:
 1. Clone shapes from the source slide shape collection to the new slide.
 1. Save the modified presentation as a PPTX file.
 
-The example below adds a group shape to a slide.
+The example below clones three shapes from the first slide onto a new slide.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class
 Presentation pres = new Presentation("Source Frame.pptx");
 try {
@@ -105,11 +111,14 @@ Aspose.Slides for Java allows developers to remove any shape. To remove the shap
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Access the first slide.
+1. Add the shapes and set the AlternativeText on the one that has to be removed.
 1. Find the shape with specific AlternativeText.
 1. Remove the shape.
 1. Save file to disk.
 
 ```java
+import com.aspose.slides.*;
+
 // Create Presentation object
 Presentation pres = new Presentation();
 try {
@@ -117,15 +126,18 @@ try {
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Add autoshape of rectangle type
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
+    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
+    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
+    // Mark the shape that has to be removed
     String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
+    shp2.setAlternativeText(altText);
+
+    // Remove every shape carrying that alternative text (iterate backwards, the collection shrinks)
+    for (int i = sld.getShapes().size() - 1; i >= 0; i--)
     {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
+        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
+        if (altText.equals(ashp.getAlternativeText()))
         {
             sld.getShapes().remove(ashp);
         }
@@ -143,11 +155,14 @@ Aspose.Slides for Java allows developers to hide any shape. To hide the shape fr
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Access the first slide.
+1. Add the shapes and set the AlternativeText on the one that has to be hidden.
 1. Find the shape with specific AlternativeText.
 1. Hide the shape.
 1. Save file to disk.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
@@ -155,10 +170,14 @@ try {
     ISlide sld = pres.getSlides().get_Item(0);
 
     // Add autoshape of rectangle type
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
+    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
+    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
 
     String alttext = "User Defined";
+
+    // Mark the shape to be hidden
+    shp2.setAlternativeText(alttext);
+
     int iCount = sld.getShapes().size();
     for (int i = 0; i < iCount; i++)
     {
@@ -188,6 +207,8 @@ Aspose.Slides for Java allows developers to reorder the shapes. Reordering the s
 1. Save file to disk.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("ChangeShapeOrder.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -213,6 +234,8 @@ try {
 Aspose.Slides for Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Getting unique shape identifier in slide scope
@@ -240,6 +263,9 @@ To set the AlternateText of a shape, please follow the steps below:
 1. Save file to disk.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate Presentation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
@@ -274,6 +300,8 @@ Aspose.Slides for Java provides a simple API to access layout formats for a shap
 Below sample code is given.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
@@ -293,6 +321,10 @@ try {
 Now Aspose.Slides for Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) class and [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
 try {
     FileOutputStream stream = new FileOutputStream("SingleShape.svg");
@@ -315,6 +347,8 @@ Aspose.Slides allows to align shapes either relative to the slide margins or rel
 Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("example.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -330,7 +364,6 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
-}
 ```
 
 **Example 2**
@@ -338,6 +371,8 @@ try {
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("example.pptx");
 try {
     SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
@@ -359,6 +394,8 @@ Let’s say we have a sample.pptx file in which the first slide contains a singl
 The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -377,7 +414,7 @@ try {
     float width = shape.getFrame().getWidth();
     float height = shape.getFrame().getHeight();
     byte flipH = NullableBool.True; // Flip horizontally.
-    byte flipV = NullableBool.True; // Flip horizontally.
+    byte flipV = NullableBool.True; // Flip vertically.
     float rotation = shape.getFrame().getRotation();
 
     shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));

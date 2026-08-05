@@ -38,7 +38,7 @@ You can export presentations as plain Markdown, choose from multiple Markdown fl
 
 {{% alert color="warning" %}}
 
-PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to use `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also use the `setBasePath` where the images referenced in the markdown document will be saved.
+PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, set the export type to `MarkdownExportType.Visual` or `MarkdownExportType.Sequential` - the default `MarkdownExportType.TextOnly` value skips images. Use `setBasePath` to choose where the images referenced in the markdown document are saved; that folder must already exist, otherwise the save fails.
 
 {{% /alert %}}
 
@@ -50,6 +50,8 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 This Java code shows you how to convert PowerPoint to markdown:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.md", SaveFormat.Md);
@@ -65,6 +67,8 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This Java code shows you how to convert PowerPoint to CommonMark:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
@@ -86,6 +90,8 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.sl
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Java code shows you how to convert a presentation containing images to markdown:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
@@ -107,9 +113,11 @@ If you want the images to appear together in the resulting markdown, you have to
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
-    final String outPath = "c:/documents";
+    final String outPath = "output";
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
     markdownSaveOptions.setExportType(MarkdownExportType.Visual);
     markdownSaveOptions.setImagesSaveFolderName("md-images");

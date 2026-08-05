@@ -26,6 +26,9 @@ This article demonstrates how to create simple animations and manage their seque
 Create a rectangle shape and apply a fade effect triggered on click.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 static void AddAnimation()
 {
     using var presentation = new Presentation();
@@ -43,6 +46,9 @@ static void AddAnimation()
 Retrieve the first animation effect from the slide timeline.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 static void AccessAnimation()
 {
     using var presentation = new Presentation();
@@ -61,6 +67,9 @@ static void AccessAnimation()
 Remove an animation effect from the sequence.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 static void RemoveAnimation()
 {
     using var presentation = new Presentation();
@@ -79,6 +88,9 @@ static void RemoveAnimation()
 Add multiple effects and demonstrate the order in which animations occur.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 static void SequenceAnimations()
 {
     using var presentation = new Presentation();

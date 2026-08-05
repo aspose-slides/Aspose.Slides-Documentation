@@ -34,6 +34,8 @@ Local values can be defined or omitted at any level. When Aspose.Slides needs th
 The following example shows how to get effective values. It assumes that the first shape on the first slide is an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a text frame and at least one portion.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
@@ -64,6 +66,9 @@ Aspose.Slides allows you to get effective properties of a camera. The effective 
 The following code sample shows how to get effective properties for the camera. It assumes that the first shape on the first slide has 3D formatting.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -91,6 +96,9 @@ Aspose.Slides allows you to get effective properties of a light rig. The effecti
 The following code sample shows how to get effective properties for the light rig. It assumes that the first shape on the first slide has 3D formatting.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -116,6 +124,9 @@ Aspose.Slides allows you to get effective properties of a shape bevel. The effec
 The following code sample shows how to get effective properties for the top bevel of a shape. It assumes that the first shape on the first slide has 3D formatting.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -143,6 +154,9 @@ Using Aspose.Slides, you can get effective properties of a text frame. The retur
 The following code sample shows how to get effective text frame formatting properties. It assumes that the first shape on the first slide is an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a text frame.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -178,6 +192,9 @@ Using Aspose.Slides, you can get effective properties of a text style. The retur
 The following code sample shows how to get effective text style properties. It assumes that the first shape on the first slide is an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a text frame.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -209,6 +226,9 @@ try {
 Using Aspose.Slides, you can get the effective font height. The following code demonstrates how a portion's effective font height changes after local font height values are set at different presentation structure levels.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -289,6 +309,9 @@ Using Aspose.Slides, you can get effective fill formatting for different table p
 As a result, effective cell formatting properties are used to draw the table cell. The following code sample shows how to get effective fill formatting for different table parts. It assumes that the first shape on the first slide is a [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/).
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);

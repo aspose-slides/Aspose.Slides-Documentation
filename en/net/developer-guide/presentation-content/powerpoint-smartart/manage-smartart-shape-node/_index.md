@@ -41,6 +41,8 @@ Aspose.Slides for .NET has provided the simplest API to manage the SmartArt shap
 - Save the Presentation.
 
 ```c#
+using Aspose.Slides;
+
 // Load the desired the presentation
 Presentation pres = new Presentation("AddNodes.pptx");
 
@@ -87,6 +89,9 @@ In the following sample code we have explained how to add the child nodes belong
 - Save the Presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 // Creating a presentation instance
 Presentation pres = new Presentation();
 
@@ -128,25 +133,27 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
 - Access and display information like SmartArt Node position, level and Text.
 
   ```c#
+  using Aspose.Slides;
+
   // Load the desired the presentation
    Presentation pres = new Presentation("AccessSmartArt.pptx");
-  
+
   // Traverse through every shape inside first slide
   foreach (IShape shape in pres.Slides[0].Shapes)
   {
       // Check if shape is of SmartArt type
       if (shape is Aspose.Slides.SmartArt.SmartArt)
       {
-  
+
           // Typecast shape to SmartArt
           Aspose.Slides.SmartArt.SmartArt smart = (Aspose.Slides.SmartArt.SmartArt)shape;
-  
+
           // Traverse through all nodes inside SmartArt
           for (int i = 0; i < smart.AllNodes.Count; i++)
           {
               // Accessing SmartArt node at index i
               Aspose.Slides.SmartArt.SmartArtNode node = (Aspose.Slides.SmartArt.SmartArtNode)smart.AllNodes[i];
-  
+
               // Printing the SmartArt node parameters
               string outString = string.Format("i = {0}, Text = {1},  Level = {2}, Position = {3}", i, node.TextFrame.Text, node.Level, node.Position);
               Console.WriteLine(outString);
@@ -170,6 +177,8 @@ The following sample code will help to access the child nodes belonging to respe
 - Access and display information like Child Node position, level and Text.
 
 ```c#
+using Aspose.Slides;
+
 // Load the desired the presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 
@@ -219,6 +228,9 @@ In this example, we will learn to access the child nodes at some particular posi
 - Access and display information like Child Node position, level and Text.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 // Instantiate the presentation
 Presentation pres = new Presentation();
 
@@ -254,6 +266,9 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 - Now, remove the selected node using RemoveNode() method* Save the Presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 // Load the desired the presentation
 using (Presentation pres = new Presentation("RemoveNode.pptx"))
 {
@@ -300,6 +315,8 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 - Save the Presentation.
 
 ```c#
+using Aspose.Slides;
+
 // Load the desired the presentation             
 Presentation pres = new Presentation("RemoveNodeSpecificPosition.pptx");
 
@@ -337,6 +354,10 @@ pres.Save("RemoveSmartArtNodeByPosition_out.pptx", Aspose.Slides.Export.SaveForm
 Now Aspose.Slides for .NET support for setting SmartArtShape X and Y properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 // Load the desired the presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 
@@ -382,6 +403,8 @@ In the following sample code we will investigate how to identify Assistant Nodes
 - Save the Presentation.
 
 ```c#
+using Aspose.Slides;
+
 // Creating a presentation instance
 using (Presentation pres = new Presentation("AssistantNode.pptx"))
 {
@@ -426,6 +449,11 @@ Please follow the steps below:
 - Write the modified presentation as a PPTX file.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation())
 {
     // Accessing the slide
@@ -454,20 +482,23 @@ using (Presentation presentation = new Presentation())
 Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
 
 1. Instantiate `Presentation` class that represents the PPTX file.
-1. Add SmartArt.
-1. Obtain the reference of a node by using its Index
+1. Add SmartArt of a layout that has child nodes, such as StackedList.
+1. Obtain the reference of a child node by using its index.
 1. Get the thumbnail image.
 1. Save the thumbnail image in any desired image format.
 
 The example below generating a thumbnail of SmartArt child node
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    ISmartArt smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
-    ISmartArtNode node = smartArt.Nodes[1];
+    ISmartArt smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.StackedList);
+    ISmartArtNode node = smartArt.Nodes[0].ChildNodes[0];
 
     using (IImage image = node.Shapes[0].GetImage())
     {

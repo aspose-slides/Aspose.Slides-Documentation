@@ -45,6 +45,9 @@ If the video file you want to add to your slide is stored locally, you can creat
 This C# code shows you how to add a video stored locally to a presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class
 using (Presentation pres = new Presentation("pres.pptx"))
 {
@@ -64,6 +67,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Alternatively, you can add a video by passing its file path directly to the [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) method:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
@@ -84,6 +89,10 @@ Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/pow
 This C# code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
 ```c#
+using System.Net;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     // Instantiates a Presentation object that represents a presentation file 
@@ -126,6 +135,9 @@ To create a video frame and set its trim settings:
 The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var videoData = File.ReadAllBytes("video.mp4");
@@ -147,6 +159,8 @@ To inspect existing trim settings, load a presentation, find an [IVideoFrame](ht
 The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
 
 ```cs
+using Aspose.Slides;
+
 using var presentation = new Presentation("video_with_trim.pptx");
 
 var slide = presentation.Slides[0];
@@ -182,6 +196,9 @@ To add captions to a video frame:
 The following code shows you how to add captions to a video frame:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     byte[] videoData = File.ReadAllBytes("video.mp4");
@@ -211,6 +228,8 @@ To extract captions from a video frame:
 The following code shows you how to extract captions from a video frame:
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -243,6 +262,9 @@ To remove captions from a video frame:
 The following code shows you how to remove all captions from a video frame:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -268,6 +290,8 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 This C# code shows you how to extract the video on a presentation slide:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation object that represents a presentation file 
 Presentation presentation = new Presentation("Video.pptx");
 

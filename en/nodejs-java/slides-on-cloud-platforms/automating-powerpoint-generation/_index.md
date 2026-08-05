@@ -69,6 +69,10 @@ Ok, let’s walk through building a sample presentation using real-world content
 We'll begin by creating a new presentation and adding a title slide with a main heading and subtitle.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 
 let slide0 = presentation.getSlides().get_Item(0);
@@ -90,6 +94,12 @@ subtitleShape.getTextFrame().setText("Prepared for Executive Team");
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+
 let layoutSlide1 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide1 = presentation.getSlides().addEmptySlide(layoutSlide1);
 
@@ -123,6 +133,12 @@ series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex,
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+
 let layoutSlide2 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide2 = presentation.getSlides().addEmptySlide(layoutSlide2);
 
@@ -149,6 +165,10 @@ table.getColumns().get_Item(1).get_Item(4).getTextFrame().setText("87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createBulletParagraph(text) {
     let paragraph = new aspose.slides.Paragraph();
     paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
@@ -160,6 +180,22 @@ function createBulletParagraph(text) {
 }
 ```
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function createBulletParagraph(text) {
+    let paragraph = new aspose.slides.Paragraph();
+    paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    paragraph.getParagraphFormat().setIndent(15);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    paragraph.setText(text);
+    return paragraph;
+}
+
+let presentation = new aspose.slides.Presentation();
+
 let layoutSlide3 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide3 = presentation.getSlides().addEmptySlide(layoutSlide3);
 
@@ -178,10 +214,96 @@ bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Schedule fo
 
 ### **Save the Presentation**
 
-Finally, we save the presentation to disk:
+Each snippet above creates its own `Presentation` object so that it can be run on its own. Here we put the four steps together into a single presentation and save it to disk:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function createBulletParagraph(text) {
+    let paragraph = new aspose.slides.Paragraph();
+    paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    paragraph.getParagraphFormat().setIndent(15);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    paragraph.setText(text);
+    return paragraph;
+}
+
+let presentation = new aspose.slides.Presentation();
+
+// The title slide.
+let slide0 = presentation.getSlides().get_Item(0);
+slide0.setLayoutSlide(presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Title)));
+
+let titleShape = slide0.getShapes().get_Item(0);
+let subtitleShape = slide0.getShapes().get_Item(1);
+
+titleShape.getTextFrame().setText("Quarterly Business Review – Q1 2025");
+subtitleShape.getTextFrame().setText("Prepared for Executive Team");
+
+// The slide with the column chart.
+let layoutSlide1 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+let slide1 = presentation.getSlides().addEmptySlide(layoutSlide1);
+
+let chart = slide1.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 350, false);
+chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
+chart.setTitle(true);
+chart.getChartTitle().addTextFrameForOverriding("Data from January – March 2025");
+chart.getChartTitle().setOverlay(false);
+
+let workbook = chart.getChartData().getChartDataWorkbook();
+let worksheetIndex = 0;
+
+chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "North America"));
+chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Europe"));
+chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Asia Pacific"));
+chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Latin America"));
+chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 5, 0, "Middle East"));
+
+let series = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, 0, 1, "Sales ($K)"), chart.getType());
+series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 1, 1, 480));
+series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 2, 1, 365));
+series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 3, 1, 290));
+series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 4, 1, 150));
+series.getDataPoints().addDataPointForBarSeries(workbook.getCell(worksheetIndex, 5, 1, 120));
+
+// The slide with the table.
+let layoutSlide2 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+let slide2 = presentation.getSlides().addEmptySlide(layoutSlide2);
+
+let columnWidths = java.newArray("double", [200, 100]);
+let rowHeights = java.newArray("double", [40, 40, 40, 40, 40]);
+
+let table = slide2.getShapes().addTable(200, 200, columnWidths, rowHeights);
+table.getColumns().get_Item(0).get_Item(0).getTextFrame().setText("Metric");
+table.getColumns().get_Item(1).get_Item(0).getTextFrame().setText("Value");
+table.getColumns().get_Item(0).get_Item(1).getTextFrame().setText("Total Revenue");
+table.getColumns().get_Item(1).get_Item(1).getTextFrame().setText("$1.4M");
+table.getColumns().get_Item(0).get_Item(2).getTextFrame().setText("Gross Margin");
+table.getColumns().get_Item(1).get_Item(2).getTextFrame().setText("54%");
+table.getColumns().get_Item(0).get_Item(3).getTextFrame().setText("New Customers");
+table.getColumns().get_Item(1).get_Item(3).getTextFrame().setText("340");
+table.getColumns().get_Item(0).get_Item(4).getTextFrame().setText("Customer Retention");
+table.getColumns().get_Item(1).get_Item(4).getTextFrame().setText("87%");
+
+// The summary slide with bullet points.
+let layoutSlide3 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+let slide3 = presentation.getSlides().addEmptySlide(layoutSlide3);
+
+let bulletList = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 50, 600, 200);
+bulletList.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+bulletList.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+bulletList.getTextFrame().getParagraphs().clear();
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Strong performance in North America; growth opportunity in Asia Pacific"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Improve marketing outreach in underperforming regions"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Prepare new campaign strategy for Q2"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Schedule follow-up review in early July"));
+
 presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 ## **Conclusion**

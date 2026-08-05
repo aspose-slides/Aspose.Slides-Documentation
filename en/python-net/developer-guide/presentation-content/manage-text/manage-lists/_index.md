@@ -177,9 +177,9 @@ The result:
 
 ## **Create a Multilevel List**
 
-Use [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) to place list items on different levels. Level 0 is the top level, level 1 is nested below it, and so on.
+Use [ParagraphFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/depth/) to place list items on different levels. Level 0 is the top level, level 1 is nested below it, and so on. Depth controls indentation only; set [ParagraphFormat.bullet](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/bullet/) on each paragraph when the levels should also carry bullets.
 
-The following Python code shows how to create a multilevel bulleted list:
+The following Python code shows how to create a multilevel list:
 
 ```py
 import aspose.slides as slides

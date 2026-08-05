@@ -34,6 +34,8 @@ Local values can be defined or omitted at any level. When Aspose.Slides needs th
 The following example shows how to get effective values. It assumes that the first shape on the first slide is an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) with a text frame and at least one portion.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -60,6 +62,8 @@ Aspose.Slides allows you to get effective properties of a camera. The [ICameraEf
 The following code sample shows how to get effective properties for the camera. It assumes that the first shape on the first slide has 3D formatting.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -80,6 +84,8 @@ Aspose.Slides allows you to get effective properties of a light rig. The [ILight
 The following code sample shows how to get effective properties for the light rig. It assumes that the first shape on the first slide has 3D formatting.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -99,6 +105,8 @@ Aspose.Slides allows you to get effective properties of a shape bevel. The [ISha
 The following code sample shows how to get effective properties for the top bevel of a shape. It assumes that the first shape on the first slide has 3D formatting.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -119,6 +127,8 @@ Using Aspose.Slides, you can get effective properties of a text frame. The [ITex
 The following code sample shows how to get effective text frame formatting properties. It assumes that the first shape on the first slide is an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) with a text frame.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -144,6 +154,8 @@ Using Aspose.Slides, you can get effective properties of a text style. The [ITex
 The following code sample shows how to get effective text style properties. It assumes that the first shape on the first slide is an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) with a text frame.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -169,6 +181,9 @@ for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 Using Aspose.Slides, you can get the effective font height. The following code demonstrates how a portion's effective font height changes after local font height values are set at different presentation structure levels.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -233,6 +248,8 @@ Using Aspose.Slides, you can get effective fill formatting for different table p
 As a result, [ICellFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/icellformateffectivedata/) properties are used to draw the table cell. The following code sample shows how to get effective fill formatting for different table parts. It assumes that the first shape on the first slide is an [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/).
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];

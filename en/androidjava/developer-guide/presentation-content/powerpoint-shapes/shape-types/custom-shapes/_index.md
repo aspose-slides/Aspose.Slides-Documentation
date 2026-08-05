@@ -140,6 +140,8 @@ public void removeAt(int index);
 This Java code shows you how to add custom points to a shape:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
@@ -165,6 +167,8 @@ try {
 This Java code shows you how to remove points from a shape:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
@@ -190,6 +194,11 @@ try {
 This Java shows you how to create a custom shape:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
+
 List<Point2D.Float> points = new ArrayList<Point2D.Float>();
 
 float R = 100, r = 50;
@@ -242,6 +251,8 @@ try {
 This Java code shows you to create a composite custom shape:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
@@ -273,6 +284,9 @@ try {
 This Java code shows you how to create a custom shape with curved corners (inwards);
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -321,6 +335,8 @@ try {
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```java
+import com.aspose.slides.*;
+
 boolean isGeometryClosed(IGeometryShape geometryShape)
 {
     Boolean isClosed = null;
@@ -351,6 +367,12 @@ boolean isGeometryClosed(IGeometryShape geometryShape)
 This Java code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.font.GlyphVector;
+import java.awt.image.BufferedImage;
+
 Presentation pres = new Presentation();
 try {
     // Create new shape
@@ -362,7 +384,7 @@ try {
     originalPath.setFillMode(PathFillModeType.None);
 
     // Create new graphics path with text
-    Shape graphicsPath;
+    java.awt.Shape graphicsPath;
     Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
     BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);

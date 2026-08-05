@@ -39,7 +39,7 @@ You can export presentations as plain Markdown, choose from multiple Markdown fl
 
 {{% alert color="warning" %}} 
 
-PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to call `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.
+PowerPoint to markdown export is **without images** by default (the default export type is `MarkdownExportType.TextOnly`). If you want to export a PowerPoint document containing images, you need to call `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` or `markdownSaveOptions.setExportType(MarkdownExportType.Sequential)`. The images are written to the folder named by `setImagesSaveFolderName` ("Images" by default) inside `setBasePath`, which defaults to the current directory of the application.
 
 {{% /alert %}} 
 
@@ -51,6 +51,9 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 This JavaScript code shows you how to convert PowerPoint to markdown:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.save("pres.md", aspose.slides.SaveFormat.Md);
@@ -68,6 +71,9 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This JavaScript code shows you how to convert PowerPoint to CommonMark:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
@@ -91,6 +97,10 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This JavaScript code shows you how to convert a presentation containing images to markdown:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
@@ -111,12 +121,19 @@ try {
 
 If you want the images to appear together in the resulting markdown, you have to choose the visual option.   In this case, images will be saved to the current directory of the application (and a relative path will be built for them in the markdown document), or you can specify your preferred path and folder name.
 
+The folder passed to `setBasePath` must already exist — Aspose.Slides creates the images subfolder inside it, but not the base path itself.
+
 This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
-    final var outPath = "c:/documents";
+    const outPath = "output";
+    fs.mkdirSync(outPath, { recursive: true });
     var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
     markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Visual);
     markdownSaveOptions.setImagesSaveFolderName("md-images");

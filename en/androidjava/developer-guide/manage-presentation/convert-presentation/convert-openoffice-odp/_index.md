@@ -34,6 +34,8 @@ description: "Aspose.Slides for Android lets you convert ODP to PDF, HTML, and i
 For example, if you need to convert an ODP presentation to PDF, you can do it as follows:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = null;
 try {
     presentation = new Presentation("pres.odp");

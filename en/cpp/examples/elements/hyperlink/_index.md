@@ -21,6 +21,20 @@ This article demonstrates adding, accessing, removing, and updating hyperlinks o
 Create a rectangle shape with a hyperlink pointing to an external website.
 
 ```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddHyperlink()
 {
     auto presentation = MakeObject<Presentation>();
@@ -42,6 +56,20 @@ static void AddHyperlink()
 Read hyperlink information from a shape's text portion.
 
 ```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessHyperlink()
 {
     auto presentation = MakeObject<Presentation>();
@@ -65,6 +93,20 @@ static void AccessHyperlink()
 Clear the hyperlink from a shape's text.
 
 ```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveHyperlink()
 {
     auto presentation = MakeObject<Presentation>();
@@ -88,6 +130,21 @@ static void RemoveHyperlink()
 Change the target of an existing hyperlink. Use `HyperlinkManager` to modify text that already contains a hyperlink, which mimics how PowerPoint updates hyperlinks safely.
 
 ```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void UpdateHyperlink()
 {
     auto presentation = MakeObject<Presentation>();

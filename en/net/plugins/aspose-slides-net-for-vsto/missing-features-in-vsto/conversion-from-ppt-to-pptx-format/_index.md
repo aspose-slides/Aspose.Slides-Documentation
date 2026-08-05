@@ -28,6 +28,9 @@ SaveFormat is enumeration that can convert document in the extensions given belo
 Below is a code snippet that shows conversion from PPT to PPTX you can do it vice versa as well.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

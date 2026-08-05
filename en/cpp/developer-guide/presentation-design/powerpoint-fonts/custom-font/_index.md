@@ -49,7 +49,17 @@ Aspose.Slides allows you to load fonts used in a presentation without installing
 The following code example demonstrates the font loading process:
 
 ```cpp
+#include <DOM/Fonts/FontsLoader.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Define folders that contain custom font files.
+String externalFontFolder = u"assets/fonts";
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
 
 // Load custom fonts from the specified folders.
@@ -81,6 +91,9 @@ Aspose.Slides provides [FontsLoader::GetFontFolders()](https://reference.aspose.
 This C++ code shows you how to use [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) method:
 
 ``` cpp
+#include <DOM/Fonts/FontsLoader.h>
+using namespace Aspose::Slides;
+
 // This line outputs the folders that are checked for font files.
 // Those are folders added through the LoadExternalFonts method and system font folders.
 auto fontFolders = FontsLoader::GetFontFolders();
@@ -92,6 +105,15 @@ Aspose.Slides provides the [LoadOptions::set_DocumentLevelFontSources](https://r
 This C++  code shows you how to use the [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) property:
 
 ``` cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
 auto memoryFont2 = File::ReadAllBytes(u"customfonts\\CustomFont2.ttf");
 
@@ -111,6 +133,15 @@ Aspose.Slides provides the [FontsLoader::LoadExternalFont](https://reference.asp
 This C++ code demonstrates the byte array font loading process:
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 // The path to the documents directory
 const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
 const String templatePath = u"../templates/AccessSlides.pptx";

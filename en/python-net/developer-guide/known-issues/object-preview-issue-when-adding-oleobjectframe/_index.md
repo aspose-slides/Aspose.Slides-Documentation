@@ -53,21 +53,24 @@ Now, you may want to save your presentation to ensure the image for the OLE Obje
 If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the presentation in PowerPoint and then saving it, you can replace the message with your preferred preview image. These lines of code demonstrate the process:
 
 ```py
-with Presentation("embeddedOLE.pptx") as presentation:
+import aspose.slides as slides
+
+with slides.Presentation("embeddedOLE.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
 
     # Add an image to presentation resources.
-    with Images.from_file("myImage.png") as image:
+    with slides.Images.from_file("myImage.png") as image:
         ole_image = presentation.images.add_image(image)
 
-    # Set a title and the image for the OLE object preview.
-    ole_frame.substitute_picture_title = "My title"
+    # Set the image for the OLE object preview.
     ole_frame.substitute_picture_format.picture.image = ole_image
     ole_frame.is_object_icon = False
 
-    presentation.save("embeddedOLE-newImage.pptx", SaveFormat.PPTX)
+    presentation.save("embeddedOLE-newImage.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+`is_object_icon` must be `False` so that the picture is shown as the object preview rather than as an icon caption. `substitute_picture_title` is saved only for objects displayed as icons, so it is not used here.
 
 The slide containing the `OleObjectFrame` then changes to this:
 

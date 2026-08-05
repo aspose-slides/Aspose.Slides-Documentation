@@ -50,8 +50,11 @@ Aspose.Slides allows you to load fonts used in a presentation without installing
 The following code example demonstrates the font loading process:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Define folders that contain custom font files.
-string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
+string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
 
 // Load custom fonts from the specified folders.
 FontsLoader.LoadExternalFonts(fontFolders);
@@ -81,6 +84,8 @@ Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/
 This C# code shows you how to use [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/):
 
 ```c#
+using Aspose.Slides;
+
 // This line outputs the folders that are checked for font files.
 // Those are folders added through the LoadExternalFonts method and system font folders.
 string[] fontFolders = FontsLoader.GetFontFolders();
@@ -93,6 +98,8 @@ Aspose.Slides provides the [DocumentLevelFontSources](https://reference.aspose.c
 This C# code shows you how to use the [DocumentLevelFontSources](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/documentlevelfontsources/) property:
 
 ```c#
+using Aspose.Slides;
+
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
@@ -113,6 +120,8 @@ Aspose.Slides provides the [LoadExternalFont](https://reference.aspose.com/slide
 This C# code demonstrates the byte array font loading process: 
 
 ```c#
+using Aspose.Slides;
+
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNI.TTF"));

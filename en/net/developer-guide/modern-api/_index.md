@@ -58,6 +58,9 @@ Use `GetImage` to render a single slide or shape. Use `GetImages` to render seve
 A typical scenario of using the new API may look as follows:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
@@ -89,6 +92,8 @@ For ease of transition, the interface of the new [IImage](https://reference.aspo
 Legacy/deprecated API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].GetThumbnail().Save("slide1.png");
@@ -98,6 +103,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Modern API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].GetImage().Save("slide1.png");
@@ -109,6 +116,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Legacy/deprecated API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].Shapes[0].GetThumbnail().Save("shape.png");
@@ -118,6 +127,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Modern API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].Shapes[0].GetImage().Save("shape.png");
@@ -129,6 +140,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Legacy/deprecated API:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     var bitmaps = pres.GetThumbnails(new RenderingOptions(), new Size(1980, 1028));
@@ -153,6 +168,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Modern API:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     var images = pres.GetImages(new RenderingOptions(), new Size(1980, 1028));
@@ -179,6 +198,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Legacy/deprecated API:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
@@ -194,6 +216,8 @@ using (Presentation pres = new Presentation())
 Modern API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;

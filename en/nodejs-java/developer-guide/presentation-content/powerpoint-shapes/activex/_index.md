@@ -35,13 +35,16 @@ To add an ActiveX Media Player control, do this:
 This sample code, based on the steps above, shows to how to add Media Player ActiveX Control to a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create empty presentation instance
 var pres = new aspose.slides.Presentation();
 try {
     // Adding the Media Player ActiveX control
     pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
     // Access the Media Player ActiveX control and set the video path
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("java.net.URL", "Wildlife.wmv");
+    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
     // Save the Presentation
     pres.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -68,6 +71,11 @@ To manage a simple ActiveX control like a text box and simple command button on 
 This sample code, based on the steps above, shows how to manage a simple ActiveX control: 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const { Readable } = require("stream");
+
 const imageio = java.import("javax.imageio.ImageIO");
 // Accessing the presentation with ActiveX controls
 var pres = new aspose.slides.Presentation("ActiveX.pptm");
@@ -165,7 +173,7 @@ try {
 
 ## **FAQ**
 
-### Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Python runtime?
+### Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Node.js runtime?
 
 Yes. Aspose.Slides treats them as part of the presentation and can read/modify their properties and frames; executing the controls themselves is not required to preserve them.
 

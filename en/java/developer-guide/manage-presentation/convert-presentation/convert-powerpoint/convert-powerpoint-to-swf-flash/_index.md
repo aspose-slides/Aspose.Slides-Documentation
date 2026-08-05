@@ -40,12 +40,17 @@ This article explains how to convert PowerPoint presentations to SWF by using As
 The [save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class can be used to convert the whole presentation into **SWF** document. The following example shows how to convert a presentation into **SWF** document by using options provided by [**SWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/SwfOptions) class.You can also include comments in generated SWF using [**ISWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISwfOptions) class and [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Sample.pptx");
 try {
+    NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+    layoutingOptions.setNotesPosition(NotesPositions.BottomFull);
+
     SwfOptions swfOptions = new SwfOptions();
     swfOptions.setViewerIncluded(false);
-    swfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-    
+    swfOptions.setSlidesLayoutOptions(layoutingOptions);
+
     // Saving presentation
     pres.save("Sample.swf", SaveFormat.Swf, swfOptions);
 } finally {

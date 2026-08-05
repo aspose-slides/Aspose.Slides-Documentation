@@ -133,81 +133,59 @@ public static void GetSlideIdAndText(out string sldText, string docName, int ind
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using System;
+using Aspose.Slides;
 
- string FilePath = @"..\..\..\..\Sample Files\";
-
-string FileName = FilePath + "Get all the text in a slide.pptx";
-
-int numberOfSlides = CountSlides(FileName);
-
-System.Console.WriteLine("Number of slides = {0}", numberOfSlides);
-
-string slideText;
-
-for (int i = 0; i < numberOfSlides; i++)
-
+class Program
 {
-
-slideText = GetSlideText(FileName, i);
-
-System.Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
-
-}
-
-System.Console.ReadKey();
-
-public static int CountSlides(string presentationFile)
-
-{
-
-    //Instantiate PresentationEx class that represents PPTX
-
-    using (Presentation pres = new Presentation(presentationFile))
-
+    static void Main()
     {
+        string filePath = @"..\..\..\..\Sample Files\";
+        string fileName = filePath + "Get all the text in a slide.pptx";
 
-        return pres.Slides.Count;
+        int numberOfSlides = CountSlides(fileName);
+        Console.WriteLine("Number of slides = {0}", numberOfSlides);
 
+        for (int i = 0; i < numberOfSlides; i++)
+        {
+            string slideText = GetSlideText(fileName, i);
+            Console.WriteLine("Slide #{0} contains: {1}", i + 1, slideText);
+        }
     }
 
-}
-
-public static string GetSlideText(string docName, int index)
-
-{
-
-    string sldText = "";
-
-    //Instantiate PresentationEx class that represents PPTX
-
-    using (Presentation pres = new Presentation(docName))
-
+    static int CountSlides(string presentationFile)
     {
+        //Instantiate the Presentation class that represents a PPTX file
+        using (Presentation pres = new Presentation(presentationFile))
+        {
+            return pres.Slides.Count;
+        }
+    }
 
-        //Access the slide
+    static string GetSlideText(string docName, int index)
+    {
+        string sldText = "";
 
-        ISlide sld = pres.Slides[index];
+        //Instantiate the Presentation class that represents a PPTX file
+        using (Presentation pres = new Presentation(docName))
+        {
+            //Access the slide
+            ISlide sld = pres.Slides[index];
 
-        //Iterate through shapes to find the placeholder
-
-        foreach (Shape shp in sld.Shapes)
-
-            if (shp.Placeholder != null)
-
+            //Iterate through the shapes to find the placeholders
+            foreach (IShape shp in sld.Shapes)
             {
-
-                //get the text of each placeholder
-
-                sldText += ((AutoShape)shp).TextFrame.Text;
-
+                if (shp.Placeholder != null && shp is IAutoShape autoShape)
+                {
+                    //Get the text of each placeholder
+                    sldText += autoShape.TextFrame.Text;
+                }
             }
+        }
 
+        return sldText;
     }
-
-    return sldText;
-
 }
-
 ``` 
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

@@ -40,6 +40,19 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 This C++ code demonstrates the font substitution process:
 
 ```c++
+#include <DOM/FontSubstCondition.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Fonts/FontSubstRule.h>
+#include <DOM/Fonts/FontSubstRuleCollection.h>
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // The path to the documents directory.
 const String outPath = u"../out/RuleBasedFontsReplacement_out.pptx";
 const String templatePath = u"../templates/DefaultFonts.pptx";

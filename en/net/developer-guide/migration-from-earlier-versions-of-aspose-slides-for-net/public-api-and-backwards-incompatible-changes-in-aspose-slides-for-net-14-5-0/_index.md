@@ -52,92 +52,62 @@ This property allows developers to use the factory functionality without instant
 Restrictions have been added for using undefined values for IShape.Frame. Code that attempts to assign an undefined frame to IShape.Frame doesn't make sense in most case (particularly when the parent GroupShape is multiple nested into other {{GroupShape}}s). For example:
 
 ``` csharp
+using Aspose.Slides;
 
- IShape shape = ...;
+Presentation presentation = new Presentation();
+IShape shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
+// Throws ArgumentException: the frame values must be defined.
 shape.Frame = new ShapeFrame(float.NaN, float.NaN, float.NaN, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, float.NaN);
-
-
 ``` 
 
 or
 
 ``` csharp
+using Aspose.Slides;
 
- slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
+Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
 
+// Throws ArgumentException: x, y, width and height must be defined.
+slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
 ``` 
 
 Such code can lead to unclear situations. So restrictions have been added for using undefined values for IShape.Frame. Values of x, y, width, height, flipH, flipV and rotationAngle must be defined (and not set to float.NaN or NullableBool.NotDefined). The example code above now throws an ArgumentException exception.
 This applies to these use cases:
 
 ``` csharp
+using Aspose.Slides;
 
- IShape shape = ...;
+Presentation presentation = new Presentation();
+IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-shape.Frame = ...; // Cannot be undefined
+// The x, y, width and height parameters cannot be float.NaN, and flipH, flipV
+// cannot be NullableBool.NotDefined:
+IShape shape = shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+shape.Frame = new ShapeFrame(100, 100, 200, 100, NullableBool.False, NullableBool.False, 0);
 
-IShapeCollection shapes = ...;
-
-// x, y, width, height parameters cannot be float.NaN:
-
-{
-
-    shapes.AddAudioFrameCD(...);
-
-    shapes.AddAudioFrameEmbedded(...);
-
-    shapes.AddAudioFrameLinked(...);
-
-    shapes.AddAutoShape(...);
-
-    shapes.AddChart(...);
-
-    shapes.AddConnector(...);
-
-    shapes.AddOleObjectFrame(...);
-
-    shapes.AddPictureFrame(...);
-
-    shapes.AddSmartArt(...);
-
-    shapes.AddTable(...);
-
-    shapes.AddVideoFrame(...);
-
-    shapes.InsertAudioFrameEmbedded(...);
-
-    shapes.InsertAudioFrameLinked(...);
-
-    shapes.InsertAutoShape(...);
-
-    shapes.InsertChart(...);
-
-    shapes.InsertConnector(...);
-
-    shapes.InsertOleObjectFrame(...);
-
-    shapes.InsertPictureFrame(...);
-
-    shapes.InsertTable(...);
-
-    shapes.InsertVideoFrame(...);
-
-}
-
-
+// The same restriction applies to every method that creates a shape:
+// AddAudioFrameCD, AddAudioFrameEmbedded, AddAudioFrameLinked, AddAutoShape, AddChart,
+// AddConnector, AddOleObjectFrame, AddPictureFrame, AddSmartArt, AddTable, AddVideoFrame,
+// InsertAudioFrameEmbedded, InsertAudioFrameLinked, InsertAutoShape, InsertChart,
+// InsertConnector, InsertOleObjectFrame, InsertPictureFrame, InsertTable, InsertVideoFrame.
 ``` 
 
 But IShape.RawFrame frame properties can be undefined. This make sense when a shape is linked to a placeholder. Then the undefined shape frame values are overridden from the parent placeholder shape. If there is no parent placeholder shape, then that shape uses default values when it evaluates effective frame based on its IShape.RawFrame. The default values are 0 and NullableBool.False for x, y, width, height, flipH, flipV and rotationAngle. For example:
 
 ``` csharp
+using Aspose.Slides;
 
- IShape shape = ...; // shape is linked to placeholder
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    // The shape is linked to a placeholder
+    IShape shape = presentation.Slides[0].Shapes[0];
 
-shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
+    shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
 
-// now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
-
+    // now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
+}
 ``` 
 ### **Changed Properties**
 #### **Changed the Aspose.Slides.IShapeCollection.Parent Property Name and Type**

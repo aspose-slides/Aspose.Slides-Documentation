@@ -22,6 +22,8 @@ This article demonstrates how to create simple animations and manage their seque
 Create a rectangle shape and apply a fade effect triggered on click.
 
 ```java
+import com.aspose.slides.*;
+
 static void addAnimation() {
     Presentation presentation = new Presentation();
     try {
@@ -44,6 +46,8 @@ static void addAnimation() {
 Retrieve the first animation effect from the slide timeline.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessAnimation() {
     Presentation presentation = new Presentation();
     try {
@@ -66,6 +70,8 @@ static void accessAnimation() {
 Remove an animation effect from the sequence.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeAnimation() {
     Presentation presentation = new Presentation();
     try {
@@ -88,6 +94,8 @@ static void removeAnimation() {
 Add multiple effects and demonstrate the order in which animations occur.
 
 ```java
+import com.aspose.slides.*;
+
 static void sequenceAnimations() {
     Presentation presentation = new Presentation();
     try {

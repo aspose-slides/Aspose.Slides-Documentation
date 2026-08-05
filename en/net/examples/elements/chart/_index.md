@@ -26,6 +26,9 @@ Examples for adding, accessing, removing, and updating different chart types wit
 This method adds a simple area chart to the first slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 static void AddChart()
 {
     using var presentation = new Presentation();
@@ -41,6 +44,9 @@ static void AddChart()
 After creating a chart, you can retrieve it through the shape collection.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 static void AccessChart()
 {
     using var presentation = new Presentation();
@@ -58,6 +64,9 @@ static void AccessChart()
 The following code removes a chart from a slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 static void RemoveChart()
 {
     using var presentation = new Presentation();
@@ -75,6 +84,9 @@ static void RemoveChart()
 You can change chart properties such as the title.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 static void UpdateChartData()
 {
     using var presentation = new Presentation();

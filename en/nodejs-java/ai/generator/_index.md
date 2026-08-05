@@ -43,6 +43,9 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/n
 This example demonstrates how to generate a presentation on the topic Aspose.Slides using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/).
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of OpenAIWebClient, the built-in implementation of the OpenAI web client.
 var aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 try {
@@ -72,6 +75,14 @@ The following example demonstrates the overloads of the [generatePresentation](h
 By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself—for example, when using an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for improved resource management and performance—you can supply your own [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/).
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Create and manage an HttpURLConnection instance yourself.
+var url = java.newInstanceSync("java.net.URL", "https://api.openai.com/v1/chat/completions");
+var urlConnection = url.openConnection();
+
 // Pass the HttpURLConnection to the OpenAIWebClient constructor.
 var aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId", urlConnection);
 try {

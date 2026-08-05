@@ -30,6 +30,8 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```java
+import com.aspose.slides.*;
+
 // Load a presentation.
 Presentation presentation = new Presentation("sample.pptx");
 try {

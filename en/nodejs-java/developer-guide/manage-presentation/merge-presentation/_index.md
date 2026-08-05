@@ -69,6 +69,9 @@ Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/s
 This JavaScript code shows you how to merge presentations:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     let pres2 = new aspose.slides.Presentation("pres2.pptx");
@@ -97,13 +100,16 @@ Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https:/
 This code in JavaScript demonstrates the described operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     let pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
+            pres1.getSlides().addClone(slide, pres1.getMasters().get_Item(0), true);
         }
     } finally {
         if (pres2 != null) {
@@ -133,6 +139,9 @@ Merging specific slides from multiple presentations is useful for creating custo
 The following JavaScript code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function getTitleSlide(presentation) {
   for (let i = 0; i < presentation.getSlides().size(); i++) {
     let slide = presentation.getSlides().get_Item(i);
@@ -144,6 +153,19 @@ function getTitleSlide(presentation) {
 }
 ```
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+function getTitleSlide(presentation) {
+  for (let i = 0; i < presentation.getSlides().size(); i++) {
+    let slide = presentation.getSlides().get_Item(i);
+    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
+      return slide;
+    }
+  }
+  return null;
+}
+
 let presentation = new aspose.slides.Presentation();
 let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
 let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
@@ -173,13 +195,16 @@ try {
 This JavaScript code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     let pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+            pres1.getSlides().addClone(slide, pres1.getLayoutSlides().get_Item(0));
         }
     } finally {
         if (pres2 != null) {
@@ -207,6 +232,9 @@ To merge 2 presentations with different slide sizes, you have to resize one of t
 This sample code demonstrates the described operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     let pres2 = new aspose.slides.Presentation("pres2.pptx");
@@ -234,6 +262,9 @@ try {
 This JavaScript code shows you how to merge a specific slide to a section in a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     let pres2 = new aspose.slides.Presentation("pres2.pptx");

@@ -35,6 +35,12 @@ To open an existing presentation, instantiate the [Presentation](https://referen
 The following C++ example shows how to open a presentation and get its slide count:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Instantiate the Presentation class and pass a file path to its constructor.
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
@@ -49,6 +55,12 @@ presentation->Dispose();
 When you need to open a password-protected presentation, pass the password through the [set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) method of the [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) class to decrypt and load it. The following C++ code demonstrates this operation:
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_Password(u"YOUR_PASSWORD");
 
@@ -66,6 +78,19 @@ Aspose.Slides provides options—particularly the [get_BlobManagementOptions](ht
 The following C++ code demonstrates loading a large presentation (for example, 2 GB):
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IBlobManagementOptions.h>
+#include <PresentationLockingBehavior.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto filePath = u"LargePresentation.pptx";
 
 auto loadOptions = MakeObject<LoadOptions>();
@@ -107,6 +132,16 @@ When creating a presentation that contains large objects (video, audio, high-res
 Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/cpp/aspose.slides/iresourceloadingcallback/) interface that lets you manage external resources. The following C++ code shows how to use the `IResourceLoadingCallback` interface:
 
 ```cpp
+#include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
+#include <ResourceLoadingAction.h>
+#include <system/exceptions.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 class ImageLoadingHandler : public IResourceLoadingCallback
 {
 public:
@@ -140,6 +175,22 @@ public:
 ```
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
+#include <ResourceLoadingAction.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+// The resource loading callback implemented in the example above.
+class ImageLoadingHandler : public IResourceLoadingCallback
+{
+public:
+    ResourceLoadingAction ResourceLoading(SharedPtr<IResourceLoadingArgs> args) override;
+};
+
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
 
@@ -159,6 +210,12 @@ Using the [ILoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspo
 This method is useful for removing potentially malicious binary content. The following C++ code demonstrates how to load a presentation without any embedded binary content:
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_DeleteEmbeddedBinaryObjects(true);
 

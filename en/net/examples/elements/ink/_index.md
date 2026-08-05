@@ -26,6 +26,9 @@ This article provides examples of accessing existing ink shapes and removing the
 Read the tags from the first ink shape on a slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Ink;
+
 static void AccessInk()
 {
     using var presentation = new Presentation("ink.pptx");
@@ -48,6 +51,9 @@ static void AccessInk()
 Delete an ink shape from the slide if one exists.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Ink;
+
 static void RemoveInk()
 {
     using var presentation = new Presentation("ink.pptx");

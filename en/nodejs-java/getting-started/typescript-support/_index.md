@@ -40,7 +40,7 @@ The type definitions are automatically loaded via `package.json`:
 import * as AsposeSlides from 'aspose.slides.via.java';
 
 // No autocompletion or type checking
-const pres = new AsposeSlides.??? // Flying blind
+const pres = new AsposeSlides.Presentation(); // Flying blind: the editor cannot suggest members or check arguments
 ```
 
 ### **After (TypeScript)**

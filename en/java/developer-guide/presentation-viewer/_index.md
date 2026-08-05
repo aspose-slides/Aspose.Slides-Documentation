@@ -33,6 +33,9 @@ To generate an SVG image from a presentation slide with Aspose.Slides, please fo
 1. Save the slide as an SVG image to the file stream.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 int slideIndex = 0;
 
 Presentation presentation = new Presentation("sample.pptx");
@@ -50,21 +53,9 @@ presentation.dispose();
 Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `setId` method from [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```java
-int slideIndex = 0;
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
 
-Presentation presentation = new Presentation("sample.pptx");
-ISlide slide = presentation.getSlides().get_Item(slideIndex);
-
-SVGOptions svgOptions = new SVGOptions();
-svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
-
-FileOutputStream svgStream = new FileOutputStream("output.svg");
-slide.writeAsSvg(svgStream, svgOptions);
-svgStream.close();
-
-presentation.dispose();
-```
-```java
 class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
     private int m_shapeIndex;
 
@@ -80,6 +71,20 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
         svgShape.setId(String.format("shape-%d", m_shapeIndex++));
     }
 }
+
+int slideIndex = 0;
+
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
 
 ## **Create a Slide Thumbnail Image**
@@ -92,6 +97,8 @@ Aspose.Slides helps you generate thumbnail images of slides. To generate a thumb
 1. Save the thumbnail image in any desired image format.
 
 ```java
+import com.aspose.slides.*;
+
 int slideIndex = 0;
 float scaleX = 1;
 float scaleY = scaleX;
@@ -116,6 +123,9 @@ To create a slide thumbnail image with user defined dimensions, please follow th
 1. Save the thumbnail image in any desired image format.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 int slideIndex = 0;
 Dimension slideSize = new Dimension(1200, 800);
 
@@ -141,6 +151,8 @@ To generate the thumbnail of a slide with speaker notes using Aspose.Slides, ple
 1. Save the thumbnail image in any desired image format.
 
 ```java
+import com.aspose.slides.*;
+
 int slideIndex = 0;
 
 NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();

@@ -73,16 +73,18 @@ The following Python example shows how to add an image from a URL to a slide:
 
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # Download the raw image bytes.
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -182,6 +184,8 @@ Aspose.Slides for Python lets you insert Enhanced Metafile (EMF) images into pre
 The following Python example demonstrates this:
 
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -206,6 +210,8 @@ Follow these steps:
 1. Save the modified presentation as a PPTX file.
 
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()

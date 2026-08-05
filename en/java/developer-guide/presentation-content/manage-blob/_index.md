@@ -50,6 +50,10 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 This Java shows you how to add a large video file through the BLOB process to a presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 String pathToVeryLargeVideo = "veryLargeVideo.avi";
 
 // Creates a new presentation to which the video will be added
@@ -81,6 +85,12 @@ Aspose.Slides for Java allows you to export large files (in this case, an audio 
 This code in Java demonstrates the described operation:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 String hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
@@ -132,6 +142,10 @@ With methods from the [**IImageCollection**](https://reference.aspose.com/slides
 This Java code shows you how to add a large image through the BLOB process:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 String pathToLargeImage = "large_image.jpg";
 
 // creates a new presentation to which the image will be added.
@@ -140,7 +154,7 @@ try {
 	FileInputStream fileStream = new FileInputStream(pathToLargeImage);
 	try {
 		// Let's add the image to the presentation - we choose KeepLocked behavior because we do
-		// NOT intend to access the "largeImage.png" file.
+		// NOT intend to access the "large_image.jpg" file.
 		IPPImage img = pres.getImages().addImage(fileStream, LoadingStreamBehavior.KeepLocked);
 		pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, img);
 
@@ -163,6 +177,8 @@ Typically, to load a large presentation, computers require a lot of temporary me
 Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this Java code:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("large.pptx");
 try {
     pres.save("large.pdf", SaveFormat.Pdf);
@@ -178,6 +194,8 @@ But this method consumes around 1.6 GB of temporary memory.
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This Java code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
@@ -195,6 +213,8 @@ try {
 When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
@@ -212,6 +232,8 @@ When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a 
 When processing large presentations, ensure that the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance is properly disposed so that the memory it occupied is released. Call `dispose()` after you have finished using the presentation to free unmanaged resources.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("large.pptx");
 
 // ...process the presentation...

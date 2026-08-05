@@ -25,6 +25,8 @@ Examples for creating groups of shapes, accessing them, ungrouping, and removal 
 Create a group containing two basic shapes.
 
 ```py
+import aspose.slides as slides
+
 def add_group_shape():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -42,6 +44,8 @@ def add_group_shape():
 Retrieve the first group shape from a slide.
 
 ```py
+import aspose.slides as slides
+
 def access_group_shape():
     with slides.Presentation("group.pptx") as presentation:
         slide = presentation.slides[0]
@@ -59,6 +63,8 @@ def access_group_shape():
 Delete a group shape from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_group_shape():
     with slides.Presentation("group.pptx") as presentation:
         slide = presentation.slides[0]
@@ -77,6 +83,8 @@ def remove_group_shape():
 Move shapes out of a group container.
 
 ```py
+import aspose.slides as slides
+
 def ungroup_shapes():
     with slides.Presentation("group.pptx") as presentation:
         slide = presentation.slides[0]

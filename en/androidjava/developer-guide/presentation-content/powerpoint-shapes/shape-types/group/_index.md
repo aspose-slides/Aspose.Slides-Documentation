@@ -33,6 +33,8 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 The example below adds a group shape to a slide.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class
 Presentation pres = new Presentation();
 try {
@@ -73,6 +75,8 @@ This topic shows simple steps, complete with code examples, for adding a group s
 The example below accesses alternative text of group shape.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents PPTX file
 Presentation pres = new Presentation("AltText.pptx");
 try {

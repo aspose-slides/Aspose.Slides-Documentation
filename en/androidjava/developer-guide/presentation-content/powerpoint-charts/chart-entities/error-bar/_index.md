@@ -31,6 +31,8 @@ Aspose.Slides for Android via Java provides a simple API for managing error bar 
 1. Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -41,15 +43,15 @@ try {
     IErrorBarsFormat errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
     IErrorBarsFormat errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
 
-    errBarX.isVisible();
-    errBarY.isVisible();
+    errBarX.setVisible(true);
+    errBarY.setVisible(true);
     errBarX.setValueType((byte) ErrorBarValueType.Fixed);
     errBarX.setValue(0.1f);
     errBarY.setValueType((byte) ErrorBarValueType.Percentage);
     errBarY.setValue(5);
     errBarX.setType((byte) ErrorBarType.Plus);
     errBarY.getFormat().getLine().setWidth(2.0f);
-    errBarX.hasEndCap();
+    errBarX.setEndCap(true);
 
     // Saving presentation
     pres.save("ErrorBars.pptx", SaveFormat.Pptx);
@@ -70,6 +72,8 @@ Aspose.Slides for Android via Java provides a simple API for managing custom err
 1. Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -80,8 +84,8 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     IErrorBarsFormat errBarX = series.getErrorBarsXFormat();
     IErrorBarsFormat errBarY = series.getErrorBarsYFormat();
-    errBarX.isVisible();
-    errBarY.isVisible();
+    errBarX.setVisible(true);
+    errBarY.setVisible(true);
     errBarX.setValueType((byte) ErrorBarValueType.Custom);
     errBarY.setValueType((byte) ErrorBarValueType.Custom);
 

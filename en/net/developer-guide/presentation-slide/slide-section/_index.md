@@ -37,6 +37,9 @@ To add a section that will house slides in a presentation, Aspose.Slides for .NE
 This sample code shows you to create a section in a presentation in C#:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide defaultSlide = pres.Slides[0];
@@ -68,6 +71,8 @@ After you create a section in a PowerPoint presentation, you may decide to chang
 This sample code shows you how to change the name of a section in a presentation in C# using Aspose.Slides:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    ISection section = pres.Sections[0];

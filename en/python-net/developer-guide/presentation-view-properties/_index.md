@@ -57,7 +57,7 @@ An example is given below shows how can you access **ViewProperties.NormalViewPr
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
     pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
     pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
 
@@ -84,7 +84,7 @@ In the example given below, we have set the zoom value for slide view as well as
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+with slides.Presentation("AccessSlides.pptx") as presentation:
     # Setting the view properties of the presentation
     presentation.view_properties.slide_view_properties.scale = 100 # Zoom value in percentages for slide view
     presentation.view_properties.notes_view_properties.scale = 100 # Zoom value in percentages for notes view 

@@ -21,6 +21,8 @@ This article demonstrates how to connect shapes with connectors and change their
 Insert a connector shape between two points on the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void addConnector() {
     Presentation presentation = new Presentation();
     try {
@@ -38,6 +40,8 @@ static void addConnector() {
 Retrieve the first connector shape added to a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessConnector() {
     Presentation presentation = new Presentation();
     try {
@@ -64,6 +68,8 @@ static void accessConnector() {
 Delete a connector from the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeConnector() {
     Presentation presentation = new Presentation();
     try {
@@ -83,6 +89,8 @@ static void removeConnector() {
 Attach a connector to two shapes by assigning start and end targets.
 
 ```java
+import com.aspose.slides.*;
+
 static void reconnectShapes() {
     Presentation presentation = new Presentation();
     try {

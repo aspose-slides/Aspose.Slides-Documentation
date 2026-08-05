@@ -30,6 +30,10 @@ Aspose.Slides for Node.js via Java provides a simple API for setting these prope
 1. Write the modified presentation to a PPTX file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Access first slide
@@ -49,7 +53,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     // Set Rotation3D properties
     chart.getRotation3D().setRightAngleAxes(true);
-    chart.getRotation3D().setRotationX(40);
+    chart.getRotation3D().setRotationX(java.newByte(40));
     chart.getRotation3D().setRotationY(270);
     chart.getRotation3D().setDepthPercents(150);
     // Take second chart series
@@ -62,7 +66,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     // Set OverLap value
-    series.getParentSeriesGroup().setOverlap(100);
+    series.getParentSeriesGroup().setOverlap(java.newByte(100));
     // Write presentation to disk
     pres.save("Rotation3D_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

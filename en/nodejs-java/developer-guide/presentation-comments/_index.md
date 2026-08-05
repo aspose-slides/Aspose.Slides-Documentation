@@ -48,6 +48,10 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for Node
 This JavaScript code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -63,7 +67,7 @@ try {
     author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, java.newInstanceSync("java.util.Date"));
     // Accesses ISlide 1
     var slide = pres.getSlides().get_Item(0);
-    // When null is passed as an argument, comments from all authors are brought to the selected slide
+    // Gets this author's comments on the selected slide; pass null instead to get comments from all authors
     var Comments = slide.getSlideComments(author);
     // Accesses the comment at index 0 for slide 1
     var str = Comments[0].getText();
@@ -84,6 +88,9 @@ try {
 This JavaScript code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Comments1.pptx");
 try {
     for (let i = 0; i < pres.getCommentAuthors().size(); i++) {
@@ -107,6 +114,10 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 This JavaScript code shows you how to add comments and get replies to them:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds a comment
@@ -165,6 +176,10 @@ Aspose.Slides supports modern comments by the [ModernComment](https://reference.
 This JavaScript code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
@@ -184,6 +199,9 @@ try {
 This JavaScript code shows you how to remove all comments and authors in a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("example.pptx");
 try {
     // Deletes all comments from the presentation
@@ -206,6 +224,10 @@ try {
 This JavaScript code shows you how to delete specific comments on a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var slide = presentation.getSlides().get_Item(0);
@@ -214,19 +236,18 @@ try {
     author.getComments().addComment("comment 1", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.2), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
     author.getComments().addComment("comment 2", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.3), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
     // remove all comments that contain "comment 1" text
-    
-    
-    for (var i = 0; i < presentation.getCommentAuthors().length; i++) {
+    for (var i = 0; i < presentation.getCommentAuthors().size(); i++) {
         var commentAuthor = presentation.getCommentAuthors().get_Item(i);
         var toRemove = java.newInstanceSync("java.util.ArrayList");
-        for (let j = 0; j < slide.getSlideComments(commentAuthor).size(); j++) {
-            let comment = slide.getSlideComments(commentAuthor).get_Item(j);
+        var slideComments = slide.getSlideComments(commentAuthor);
+        for (let j = 0; j < slideComments.length; j++) {
+            let comment = slideComments[j];
             if (comment.getText() === "comment 1") {
                 toRemove.add(comment);
             }
         }
-        for (var i = 0; i < toRemove.length; i++) {
-            var comment = toRemove.get_Item(i);
+        for (var k = 0; k < toRemove.size(); k++) {
+            var comment = toRemove.get(k);
             commentAuthor.getComments().remove(comment);
         }
     }

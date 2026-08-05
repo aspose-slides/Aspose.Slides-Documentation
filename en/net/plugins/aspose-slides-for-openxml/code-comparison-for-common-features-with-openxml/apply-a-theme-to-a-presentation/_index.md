@@ -180,63 +180,41 @@ In order to apply theme we need to clone the slide with master, please follow th
 - Write the modified destination presentation file.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- string FilePath = @"..\..\..\..\Sample Files\";
-
+string FilePath = @"..\..\..\..\Sample Files\";
 string FileName = FilePath + "Apply Theme to Presentation.pptx";
-
 string ThemeFileName = FilePath + "Theme.pptx";
 
 ApplyThemeToPresentation(ThemeFileName, FileName);
 
-public static void ApplyThemeToPresentation(string presentationFile, string outputFile)
-
+static void ApplyThemeToPresentation(string presentationFile, string outputFile)
 {
-
     //Instantiate Presentation class to load the source presentation file
-
-    Presentation srcPres = new Presentation(presentationFile);
+    using Presentation srcPres = new Presentation(presentationFile);
 
     //Instantiate Presentation class for destination presentation (where slide is to be cloned)
-
-    Presentation destPres = new Presentation(outputFile);
+    using Presentation destPres = new Presentation(outputFile);
 
     //Instantiate ISlide from the collection of slides in source presentation along with
-
     //master slide
-
     ISlide SourceSlide = srcPres.Slides[0];
-
-    //Clone the desired master slide from the source presentation to the collection of masters in the
-
-    //destination presentation
-
-    IMasterSlideCollection masters = destPres.Masters;
-
     IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
     //Clone the desired master slide from the source presentation to the collection of masters in the
-
     //destination presentation
-
+    IMasterSlideCollection masters = destPres.Masters;
     IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
     //Clone the desired slide from the source presentation with the desired master to the end of the
-
     //collection of slides in the destination presentation
-
     ISlideCollection slds = destPres.Slides;
-
     slds.AddClone(SourceSlide, iSlide, true);
 
-    //Clone the desired master slide from the source presentation to the collection of masters in the//destination presentation
-
     //Save the destination presentation to disk
-
     destPres.Save(outputFile, SaveFormat.Pptx);
-
 }
-
 ``` 
 ## **Download Running Code Example**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

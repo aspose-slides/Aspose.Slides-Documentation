@@ -22,6 +22,10 @@ This article demonstrates how to embed audio frames and control playback with **
 The code example below adds an audio frame on a presentation slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addAudio() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -44,6 +48,10 @@ function addAudio() {
 This code retrieves the first audio frame on a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessAudio() {
     let presentation = new aspose.slides.Presentation("audio.pptx");
     try {
@@ -69,6 +77,9 @@ function accessAudio() {
 Delete a previously added audio frame.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeAudio() {
     let presentation = new aspose.slides.Presentation("audio.pptx");
     try {
@@ -92,6 +103,9 @@ function removeAudio() {
 Configure the audio frame to play automatically when the slide appears.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function setAudioPlayback() {
     let presentation = new aspose.slides.Presentation("audio.pptx");
     try {

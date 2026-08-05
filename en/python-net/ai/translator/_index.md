@@ -47,6 +47,8 @@ Note that the OpenAI API is a paid service, so you will need to create an accoun
 In this example, we translate a PowerPoint presentation into Japanese using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/python-net/aspose.slides.ai/openaiwebclient/) with a specified OpenAI [model](https://platform.openai.com/docs/models).
 
 ```py
+import aspose.slides as slides
+
 # Load a presentation to translate.
 with slides.Presentation("sample.pptx") as presentation:
 

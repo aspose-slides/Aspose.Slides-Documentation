@@ -185,45 +185,28 @@ public static void MoveSlide(PresentationDocument presentationDocument, int from
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
 
- string FilePath = @"..\..\..\..\Sample Files\";
-
+string FilePath = @"..\..\..\..\Sample Files\";
 string FileName = FilePath + "Move a slide to a new position.pptx";
 
-MoveSlide(FileName, 1, 2);
+int fromIndex = 1;
+int toIndex = 2;
 
-// Move a slide to a different position in the slide order in the presentation.
-
-public static void MoveSlide(string presentationFile, int from, int to)
-
+//Instantiate the Presentation class to load the source PPTX file
+using (Presentation pres = new Presentation(FileName))
 {
+    //Get the slide whose position is to be changed
+    ISlide sld = pres.Slides[fromIndex];
+    ISlide sld2 = pres.Slides[toIndex];
 
-    //Instantiate PresentationEx class to load the source PPTX file
+    //Set the new position for the slide
+    sld2.SlideNumber = fromIndex;
+    sld.SlideNumber = toIndex;
 
-    using (Presentation pres = new Presentation(presentationFile))
-
-    {
-
-        //Get the slide whose position is to be changed
-
-        ISlide sld = pres.Slides[from];
-
-        ISlide sld2 = pres.Slides[to];
-
-        //Set the new position for the slide
-
-        sld2.SlideNumber = from;
-
-        sld.SlideNumber = to;
-
-        //Write the PPTX to disk
-
-        pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
-
-    }
-
+    //Write the PPTX to disk
+    pres.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 }
-
 ``` 
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

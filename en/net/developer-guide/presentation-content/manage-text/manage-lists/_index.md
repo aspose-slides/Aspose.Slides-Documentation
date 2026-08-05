@@ -47,6 +47,10 @@ To create a bulleted list, add [IParagraph](https://reference.aspose.com/slides/
 The following C# code demonstrates how to create a bulleted list in a slide:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -88,6 +92,9 @@ Use numbered lists when the order of items matters. Set [IBulletFormat.Type](htt
 The following C# code shows how to create a numbered list in a slide:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -139,6 +146,9 @@ Let's say we have an "image.png":
 The following C# code shows how to create picture bullets in a slide:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -181,6 +191,9 @@ Use [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slid
 The following C# code shows how to create a multilevel bulleted list:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -223,6 +236,9 @@ To change list formatting in an existing presentation, access the target paragra
 The following C# code changes the first paragraph in a text frame to use a numbered list style:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("input.pptx");
 
 var slide = presentation.Slides[0];

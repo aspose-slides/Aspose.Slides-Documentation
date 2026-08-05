@@ -47,6 +47,9 @@ Use `getImage` to render a single slide or shape. Use `getImages` to render seve
 A typical scenario of using the new API may look as follows:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
@@ -81,6 +84,12 @@ In general, you will need to replace calls that use [BufferedImage](https://docs
 
 Legacy/deprecated API:
 ``` java
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1920, 1080));
 try {
     ImageIO.write(slideImage, "PNG", new File("image.png"));
@@ -90,11 +99,19 @@ try {
 ```
 Modern API:
 ``` java
-IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
+Presentation pres = new Presentation("pres.pptx");
 try {
-    slideImage.save("image.png", ImageFormat.Png);
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1920, 1080));
+    try {
+        slideImage.save("image.png", ImageFormat.Png);
+    } finally {
+        if (slideImage != null) slideImage.dispose();
+    }
 } finally {
-    if (slideImage != null) slideImage.dispose();
+    if (pres != null) pres.dispose();
 }
 ```
 
@@ -103,6 +120,12 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     BufferedImage slideImage = pres.getSlides().get_Item(0).getThumbnail();
@@ -119,6 +142,8 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IImage slideImage = pres.getSlides().get_Item(0).getImage();
@@ -137,6 +162,12 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     BufferedImage shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
@@ -153,6 +184,8 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IImage shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
@@ -171,6 +204,13 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     BufferedImage[] bitmaps = pres.getThumbnails(new RenderingOptions(), new Dimension(1980, 1028));
@@ -194,6 +234,9 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     IImage[] images = pres.getImages(new RenderingOptions(), new Dimension(1980, 1028));
@@ -222,6 +265,12 @@ try {
 Legacy/deprecated API:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage = null;
@@ -241,6 +290,8 @@ try {
 Modern API:
 
 ``` java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IPPImage ppImage;
@@ -281,7 +332,7 @@ try {
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
+| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |

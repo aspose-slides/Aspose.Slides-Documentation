@@ -48,6 +48,9 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 This JavaScript code shows you how to add a website hyperlink to a text:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -69,6 +72,9 @@ try {
 This sample code in JavaScript shows you how to add a website hyperlink to a shape:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50);
@@ -89,13 +95,16 @@ Aspose.Slides allows you to add hyperlinks to images, audio, and video files.
 This sample code shows you how to add a hyperlink to an **image**:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Adds image to presentation
     var picture;
     var image = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
         if (image != null) {
             image.dispose();
@@ -117,6 +126,10 @@ try {
 This sample code shows you how to add a hyperlink to an **audio file**:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var audio = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.mp3")));
@@ -135,9 +148,13 @@ try {
 This sample code shows you how to add a hyperlink to a **video**:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
-    var video = pres.getVideos().addVideo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "video.avi")));
+    var video = pres.getVideos().addVideo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "video.avi")), aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
     var videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
     videoFrame.setHyperlinkClick(new aspose.slides.Hyperlink("https://www.aspose.com/"));
     videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
@@ -163,6 +180,10 @@ Since hyperlinks allow you to add references to objects or places, you can use t
 This sample code shows you how to create a table of contents with hyperlinks:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var firstSlide = pres.getSlides().get_Item(0);
@@ -197,6 +218,10 @@ With the [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -224,7 +249,11 @@ try {
 This JavaScript code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```javascript
-var pres = new aspose.slides.Presentation("text.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
         let slide = pres.getSlides().get_Item(i);
@@ -239,15 +268,15 @@ try {
                     // Iterates through each portion in paragraph
                     for (let j1 = 0; j1 < paragraph.getPortions().getCount(); j1++) {
                         let portion = paragraph.getPortions().get_Item(j1)
-                        portion.setText(portion.getText().replace("years", "months"));// Changes text
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Changes formatting
+                        // Removes the hyperlink from the portion
+                        portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
                     }
                 }
             }
         }
     }
     // Saves modified presentation
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("pres-removed-hyperlinks.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -260,6 +289,9 @@ try {
 This JavaScript code shows you how to remove the hyperlink from a shape in a presentation slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -288,6 +320,9 @@ The [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hy
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);

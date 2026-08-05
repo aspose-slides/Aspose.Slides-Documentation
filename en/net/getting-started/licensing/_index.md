@@ -108,11 +108,14 @@ For example, you can change the license file name to *Aspose.Slides.lic.xml*. Th
 You can load a license from a stream. This C# code shows you how to apply a license from a stream:
 
 ``` csharp
-// Instantiates the License class 
+// Instantiates the License class
 Aspose.Slides.License license = new Aspose.Slides.License();
 
+// Opens the license file as a stream
+using FileStream licenseStream = File.OpenRead("Aspose.Slides.lic");
+
 // Sets the license through a stream
-license.SetLicense(myStream);
+license.SetLicense(licenseStream);
 ```
 
 ### **Embedded Resource**

@@ -70,7 +70,8 @@ with slides.Presentation() as presentation:
     # Accessing ISlide 1
     slide = presentation.slides[0]
 
-    # When null is passed as an argument, comments from all authors are brought to the selected slide
+    # Gets the comments added by this author on the selected slide.
+    # Pass None instead of an author to get the comments from all authors.
     comments = slide.get_slide_comments(author)
 
     # Accesses the comment at index 0 for slide 1
@@ -143,11 +144,10 @@ with slides.Presentation() as pres:
     for i in range(comments.length):
         comment = comments[i]
         while comment.parent_comment is not None:
-            print("\t")
+            print("\t", end="")
             comment = comment.parent_comment
 
         print(comments[i].author.name + " : " + comments[i].text)
-        print("\r\n")
 
     pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 

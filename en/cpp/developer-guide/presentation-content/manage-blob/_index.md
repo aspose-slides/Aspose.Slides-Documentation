@@ -44,6 +44,21 @@ Aspose.Slides for C++ allows you to use BLOBs for objects in a way that reduces 
 This C++ code shows you how to add a large video file through the BLOB process to a presentation:
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LoadingStreamBehavior.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 const String pathToVeryLargeVideo = u"veryLargeVideo.avi";
 
 // Creates a new presentation to which the video will be added
@@ -67,6 +82,18 @@ Aspose.Slides for C++ allows you to export large files (in this case, an audio o
 This code in C++ demonstrates the described operation:
 
 ```cpp
+#include <DOM/IVideo.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IBlobManagementOptions.h>
+#include <PresentationLockingBehavior.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 const String hugePresentationWithAudiosAndVideosFile = u"Large  Video File Test1.pptx";
 
 auto loadOptions = System::MakeObject<LoadOptions>();
@@ -110,6 +137,22 @@ With methods from the [**IImageCollection**](https://reference.aspose.com/slides
 This C++ code shows you how to add a large image through the BLOB process:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <LoadingStreamBehavior.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 const String pathToLargeImage = u"large_image.jpg";
 
 // creates a new presentation to which the image will be added.
@@ -133,6 +176,11 @@ Typically, to load a large presentation, computers require a lot of temporary me
 Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this C++ code:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"large.pptx");
 pres->Save(u"large.pdf", SaveFormat::Pdf);
 ```
@@ -144,6 +192,14 @@ But this method consumes around 1.6 GB of temporary memory.
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This C++ code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```cpp
+#include <DOM/BlobManagementOptions.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <PresentationLockingBehavior.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto blobManagementOptions = System::MakeObject<BlobManagementOptions>();
 blobManagementOptions->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 blobManagementOptions->set_IsTemporaryFilesAllowed(true);
@@ -160,6 +216,11 @@ pres->Save(u"large.pdf", SaveFormat::Pdf);
 When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
 
 ```cpp
+#include <DOM/BlobManagementOptions.h>
+#include <DOM/LoadOptions.h>
+#include <PresentationLockingBehavior.h>
+using namespace Aspose::Slides;
+
 auto blobManagementOptions = System::MakeObject<BlobManagementOptions>();
 blobManagementOptions->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 blobManagementOptions->set_IsTemporaryFilesAllowed(true);
@@ -180,6 +241,11 @@ When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a 
 When processing large presentations, ensure that the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance is properly disposed so that the memory it occupied is released. Call `Dispose()` after you have finished using the presentation to free unmanaged resources.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"large.pptx");
 
 // ...process the presentation...

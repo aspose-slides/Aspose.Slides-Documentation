@@ -42,6 +42,8 @@ You can convert a slide to a bitmap object and use it directly in your applicati
 This C# code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
     // Convert the first slide in the presentation to a bitmap.
@@ -60,6 +62,9 @@ You may need to get an image of a certain size. Using an overload from the [GetI
 This sample code demonstrates how to do this:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
 Size imageSize = new Size(1820, 1040);
 
 using (Presentation presentation = new Presentation("Presentation.pptx"))
@@ -84,6 +89,10 @@ With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net
 This C# code demonstrates how to convert a slide with notes and comments:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 float scaleX = 2;
 float scaleY = scaleX;
 
@@ -121,9 +130,13 @@ In any slide-to-image conversion process, the [NotesPosition](https://reference.
 
 The [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) interface provides greater control over the resulting TIFF image by allowing you to specify parameters such as size, resolution, color palette, and more.
 
-This C# code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
+This C# code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2880:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load a presentation file.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
@@ -155,6 +168,8 @@ Aspose.Slides allows you to convert all slides in a presentation to images, effe
 This sample code demonstrates how to convert all slides in a presentation to images in C#:
 
 ```cs
+using Aspose.Slides;
+
 float scaleX = 2;
 float scaleY = scaleX;
 

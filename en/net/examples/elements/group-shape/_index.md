@@ -26,6 +26,8 @@ Examples for creating groups of shapes, accessing them, ungrouping, and removal 
 Create a group containing two basic shapes.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddGroupShape()
 {
     using var presentation = new Presentation();
@@ -42,6 +44,8 @@ static void AddGroupShape()
 Retrieve the first group shape from a slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessGroupShape()
 {
     using var presentation = new Presentation();
@@ -59,6 +63,8 @@ static void AccessGroupShape()
 Delete a group shape from the slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveGroupShape()
 {
     using var presentation = new Presentation();
@@ -75,6 +81,8 @@ static void RemoveGroupShape()
 Move shapes out of a group container.
 
 ```csharp
+using Aspose.Slides;
+
 static void UngroupShapes()
 {
     using var presentation = new Presentation();

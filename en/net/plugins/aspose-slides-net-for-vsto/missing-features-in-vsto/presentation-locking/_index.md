@@ -35,134 +35,84 @@ As mentioned earlier, each shape class has an associated shape lock class for pr
 The code samples that follow apply protection to all shapes types in a presentation.
 
 ``` csharp
+using Aspose.Slides;
 
- //Instatiate Presentation class that represents a PPTX file
-
-PresentationEx pTemplate = new PresentationEx("Applying Protection.pptx");//Instatiate Presentation class that represents a PPTX file
-
-
-//ISlide object for accessing the slides in the presentation
-
-SlideEx slide = pTemplate.Slides[0];
-
-//IShape object for holding temporary shapes
-
-ShapeEx shape;
-
-//Traversing through all the slides in the presentation
-
-for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
-
+//Instatiate Presentation class that represents a PPTX file
+using (Presentation pTemplate = new Presentation("Applying Protection.pptx"))
 {
-
-	slide = pTemplate.Slides[slideCount];
-
-	//Travesing through all the shapes in the slides
-
-	for (int count = 0; count < slide.Shapes.Count; count++)
-
+	//Traversing through all the slides in the presentation
+	foreach (ISlide slide in pTemplate.Slides)
 	{
-
-		shape = slide.Shapes[count];
-
-		//if shape is autoshape
-
-		if (shape is AutoShapeEx)
-
+		//Travesing through all the shapes in the slides
+		foreach (IShape shape in slide.Shapes)
 		{
+			//if shape is autoshape
+			if (shape is IAutoShape)
+			{
+				//Type casting to Auto shape and  getting auto shape lock
+				IAutoShape Ashp = (IAutoShape)shape;
+				IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
 
-			//Type casting to Auto shape and  getting auto shape lock
+				//Applying shapes locks
+				AutoShapeLock.PositionLocked = true;
+				AutoShapeLock.SelectLocked = true;
+				AutoShapeLock.SizeLocked = true;
+			}
+			//if shape is group shape
+			else if (shape is IGroupShape)
+			{
+				//Type casting to group shape and  getting group shape lock
+				IGroupShape Group = (IGroupShape)shape;
+				IGroupShapeLock groupShapeLock = Group.ShapeLock;
 
-			AutoShapeEx Ashp = shape as AutoShapeEx;
+				//Applying shapes locks
+				groupShapeLock.GroupingLocked = true;
+				groupShapeLock.PositionLocked = true;
+				groupShapeLock.SelectLocked = true;
+				groupShapeLock.SizeLocked = true;
+			}
+			//if shape is a connector
+			else if (shape is IConnector)
+			{
+				//Type casting to connector shape and  getting connector shape lock
+				IConnector Conn = (IConnector)shape;
+				IConnectorLock ConnLock = Conn.ShapeLock;
 
-			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
+				//Applying shapes locks
+				ConnLock.PositionMove = true;
+				ConnLock.SelectLocked = true;
+				ConnLock.SizeLocked = true;
+			}
+			//if shape is picture frame
+			else if (shape is IPictureFrame)
+			{
+				//Type casting to picture frame shape and  getting picture frame shape lock
+				IPictureFrame Pic = (IPictureFrame)shape;
+				IPictureFrameLock PicLock = Pic.ShapeLock;
 
-			//Applying shapes locks
+				//Applying shapes locks
+				PicLock.PositionLocked = true;
+				PicLock.SelectLocked = true;
+				PicLock.SizeLocked = true;
+			}
+			//if shape is a graphical object: table, chart, OLE object frame
+			else if (shape is IGraphicalObject)
+			{
+				//Type casting to graphical object and getting graphical object lock
+				IGraphicalObject Gobj = (IGraphicalObject)shape;
+				IGraphicalObjectLock GobjLock = Gobj.ShapeLock;
 
-			AutoShapeLock.PositionLocked = true;
-
-			AutoShapeLock.SelectLocked = true;
-
-			AutoShapeLock.SizeLocked = true;
-
+				//Applying shapes locks
+				GobjLock.PositionLocked = true;
+				GobjLock.SelectLocked = true;
+				GobjLock.SizeLocked = true;
+			}
 		}
-
-		//if shape is group shape
-
-		else if (shape is GroupShapeEx)
-
-		{
-
-			//Type casting to group shape and  getting group shape lock
-
-			GroupShapeEx Group = shape as GroupShapeEx;
-
-			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
-
-			//Applying shapes locks
-
-			groupShapeLock.GroupingLocked = true;
-
-			groupShapeLock.PositionLocked = true;
-
-			groupShapeLock.SelectLocked = true;
-
-			groupShapeLock.SizeLocked = true;
-
-		}
-
-		//if shape is a connector
-
-		else if (shape is ConnectorEx)
-
-		{
-
-			//Type casting to connector shape and  getting connector shape lock
-
-			ConnectorEx Conn = shape as ConnectorEx;
-
-			ConnectorLockEx ConnLock = Conn.ShapeLock;
-
-			//Applying shapes locks
-
-			ConnLock.PositionMove = true;
-
-			ConnLock.SelectLocked = true;
-
-			ConnLock.SizeLocked = true;
-
-		}
-
-		//if shape is picture frame
-
-		else if (shape is PictureFrameEx)
-
-		{
-
-			//Type casting to picture frame shape and  getting picture frame shape lock
-
-			PictureFrameEx Pic = shape as PictureFrameEx;
-
-			PictureFrameLockEx PicLock = Pic.ShapeLock;
-
-			//Applying shapes locks
-
-			PicLock.PositionLocked = true;
-
-			PicLock.SelectLocked = true;
-
-			PicLock.SizeLocked = true;
-
-		}
-
 	}
 
+	//Saving the presentation file
+	pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
-
-//Saving the presentation file
-
-pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
 ``` 
 
 **Removing Protection**
@@ -170,133 +120,84 @@ pTemplate.Save("ProtectedSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 Protection applied using Aspose.Slides for .NET can only be removed with Aspose.Slides for .NET. To unlock a shape, set the value of the applied lock to false. The code sample that follows shows how to unlock shapes in a locked presentation.
 
 ``` csharp
+using Aspose.Slides;
 
- //Open the desired presentation
-
-PresentationEx pTemplate = new PresentationEx("ProtectedSample.pptx");
-
-//ISlide object for accessing the slides in the presentation
-
-SlideEx slide = pTemplate.Slides[0];
-
-//IShape object for holding temporary shapes
-
-ShapeEx shape;
-
-//Traversing through all the slides in presentation
-
-for (int slideCount = 0; slideCount < pTemplate.Slides.Count; slideCount++)
-
+//Open the desired presentation
+using (Presentation pTemplate = new Presentation("ProtectedSample.pptx"))
 {
-
-	slide = pTemplate.Slides[slideCount];
-
-	//Travesing through all the shapes in the slides
-
-	for (int count = 0; count < slide.Shapes.Count; count++)
-
+	//Traversing through all the slides in presentation
+	foreach (ISlide slide in pTemplate.Slides)
 	{
-
-		shape = slide.Shapes[count];
-
-		//if shape is autoshape
-
-		if (shape is AutoShapeEx)
-
+		//Travesing through all the shapes in the slides
+		foreach (IShape shape in slide.Shapes)
 		{
+			//if shape is autoshape
+			if (shape is IAutoShape)
+			{
+				//Type casting to Auto shape and  getting auto shape lock
+				IAutoShape Ashp = (IAutoShape)shape;
+				IAutoShapeLock AutoShapeLock = Ashp.ShapeLock;
 
-			//Type casting to Auto shape and  getting auto shape lock
+				//Applying shapes locks
+				AutoShapeLock.PositionLocked = false;
+				AutoShapeLock.SelectLocked = false;
+				AutoShapeLock.SizeLocked = false;
+			}
+			//if shape is group shape
+			else if (shape is IGroupShape)
+			{
+				//Type casting to group shape and  getting group shape lock
+				IGroupShape Group = (IGroupShape)shape;
+				IGroupShapeLock groupShapeLock = Group.ShapeLock;
 
-			AutoShapeEx Ashp = shape as AutoShapeEx;
+				//Applying shapes locks
+				groupShapeLock.GroupingLocked = false;
+				groupShapeLock.PositionLocked = false;
+				groupShapeLock.SelectLocked = false;
+				groupShapeLock.SizeLocked = false;
+			}
+			//if shape is Connector shape
+			else if (shape is IConnector)
+			{
+				//Type casting to connector shape and  getting connector shape lock
+				IConnector Conn = (IConnector)shape;
+				IConnectorLock ConnLock = Conn.ShapeLock;
 
-			AutoShapeLockEx AutoShapeLock = Ashp.ShapeLock;
+				//Applying shapes locks
+				ConnLock.PositionMove = false;
+				ConnLock.SelectLocked = false;
+				ConnLock.SizeLocked = false;
+			}
+			//if shape is picture frame
+			else if (shape is IPictureFrame)
+			{
+				//Type casting to pitcture frame shape and  getting picture frame shape lock
+				IPictureFrame Pic = (IPictureFrame)shape;
+				IPictureFrameLock PicLock = Pic.ShapeLock;
 
-			//Applying shapes locks
+				//Applying shapes locks
+				PicLock.PositionLocked = false;
+				PicLock.SelectLocked = false;
+				PicLock.SizeLocked = false;
+			}
+			//if shape is a graphical object: table, chart, OLE object frame
+			else if (shape is IGraphicalObject)
+			{
+				//Type casting to graphical object and getting graphical object lock
+				IGraphicalObject Gobj = (IGraphicalObject)shape;
+				IGraphicalObjectLock GobjLock = Gobj.ShapeLock;
 
-			AutoShapeLock.PositionLocked = false;
-
-			AutoShapeLock.SelectLocked = false;
-
-			AutoShapeLock.SizeLocked = false;
-
+				//Applying shapes locks
+				GobjLock.PositionLocked = false;
+				GobjLock.SelectLocked = false;
+				GobjLock.SizeLocked = false;
+			}
 		}
-
-		//if shape is group shape
-
-		else if (shape is GroupShapeEx)
-
-		{
-
-			//Type casting to group shape and  getting group shape lock
-
-			GroupShapeEx Group = shape as GroupShapeEx;
-
-			GroupShapeLockEx groupShapeLock = Group.ShapeLock;
-
-			//Applying shapes locks
-
-			groupShapeLock.GroupingLocked = false;
-
-			groupShapeLock.PositionLocked = false;
-
-			groupShapeLock.SelectLocked = false;
-
-			groupShapeLock.SizeLocked = false;
-
-		}
-
-		//if shape is Connector shape
-
-		else if (shape is ConnectorEx)
-
-		{
-
-			//Type casting to connector shape and  getting connector shape lock
-
-			ConnectorEx Conn = shape as ConnectorEx;
-
-			ConnectorLockEx ConnLock = Conn.ShapeLock;
-
-			//Applying shapes locks
-
-			ConnLock.PositionMove = false;
-
-			ConnLock.SelectLocked = false;
-
-			ConnLock.SizeLocked = false;
-
-		}
-
-		//if shape is picture frame
-
-		else if (shape is PictureFrameEx)
-
-		{
-
-			//Type casting to pitcture frame shape and  getting picture frame shape lock
-
-			PictureFrameEx Pic = shape as PictureFrameEx;
-
-			PictureFrameLockEx PicLock = Pic.ShapeLock;
-
-			//Applying shapes locks
-
-			PicLock.PositionLocked = false;
-
-			PicLock.SelectLocked = false;
-
-			PicLock.SizeLocked = false;
-
-		}
-
 	}
 
+	//Saving the presentation file
+	pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
-
-//Saving the presentation file
-
-pTemplate.Save("RemoveProtectionSample.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
 ``` 
 ## **Download Sample Code**
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Presentation%20Locking%20%28Aspose.Slides%29.zip)

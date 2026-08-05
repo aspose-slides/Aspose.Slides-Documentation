@@ -41,6 +41,9 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/java/com.
 This Java code shows you how to create a table in a presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates a Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -79,7 +82,7 @@ try {
         }
     }
     // Merges cells 1 & 2 of row 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
     // Adds some text to the merged cell
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
@@ -106,6 +109,9 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 This Java code shows you how to specify the numbering for cells in a table:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates a Presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -168,6 +174,8 @@ try {
 This Java code shows you how to access and work with an existing table:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates the Presentation class that represents a PPTX file
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
@@ -210,6 +218,9 @@ try {
 This Java code shows you how to align the text in a table:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -263,6 +274,8 @@ try {
 This Java code shows you how to apply your preferred formatting options to the text in a table:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation("simpletable.pptx");
 try {
@@ -296,10 +309,21 @@ try {
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.setStylePreset(TableStylePreset.DarkStyle1); // change the default style preset theme 
+
+    // Gets the style preset of the table
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // Applies the retrieved style preset to another table
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -313,6 +337,8 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 This Java code shows you how to lock the aspect ratio for a table:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);

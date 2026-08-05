@@ -65,18 +65,24 @@ The following Python example shows how to set the prompt text for a placeholder:
 import aspose.slides as slides
 
 with slides.Presentation("PromptText.pptx") as presentation:
-    slide = presentation.slides[0]
+    # The prompt texts belong to the layout, not to the slide.
+    layout = presentation.slides[0].layout_slide
 
-    # Iterate through shapes to find placeholders.
-    for shape in slide.slide.shapes:
+    # Iterate through the layout placeholders.
+    for shape in layout.shapes:
         if shape.placeholder is not None and type(shape) is slides.AutoShape:
             if shape.placeholder.type == slides.PlaceholderType.CENTERED_TITLE:
+                # PowerPoint displays "Click to add title".
                 text = "Add Title"
             elif shape.placeholder.type == slides.PlaceholderType.SUBTITLE:
+                # PowerPoint displays "Click to add subtitle".
                 text = "Add Subtitle"
+            else:
+                # Leave every other placeholder prompt as it is.
+                continue
 
             shape.text_frame.text = text
-            print(f"Placeholder with text: {text}")
+            print(f"Placeholder with prompt text: {text}")
 
     presentation.save("PromptText_out.pptx", slides.export.SaveFormat.PPTX)
 ```

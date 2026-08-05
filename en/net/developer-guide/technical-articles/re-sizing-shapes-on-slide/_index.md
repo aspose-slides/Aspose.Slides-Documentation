@@ -24,6 +24,9 @@ One of the most common questions from Aspose.Slides for .NET customers is how to
 To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load the presentation file.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
@@ -66,9 +69,12 @@ If a slide contains a table, the code above will not work correctly. In that cas
 
 {{% /alert %}}
 
-Use the following code on your end to resize slides that contain tables. For tables, setting the width or height is a special case: you must adjust individual row heights and column widths to change the table’s overall size.
+Use the following code on your end to resize slides that contain tables. For tables, scale the individual row heights and column widths instead of the shape’s width and height—applying both would scale the table twice and push it off the slide.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // Get the original slide size.
@@ -118,16 +124,9 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     {
         foreach (IShape shape in slide.Shapes)
         {
-            // Scale the shape size.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Scale the shape position.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
             if (shape is ITable)
             {
+                // Scale the table size through its rows and columns.
                 ITable table = (ITable)shape;
                 foreach (IRow row in table.Rows)
                 {
@@ -138,6 +137,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                     column.Width *= widthRatio;
                 }
             }
+            else
+            {
+                // Scale the shape size.
+                shape.Height *= heightRatio;
+                shape.Width *= widthRatio;
+            }
+
+            // Scale the shape position.
+            shape.Y *= heightRatio;
+            shape.X *= widthRatio;
         }
     }
 

@@ -48,6 +48,8 @@ Note that the OpenAI API is a paid service, so you will need to create an accoun
 In this example, we translate a PowerPoint presentation into Japanese using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/) with a specified OpenAI [model](https://platform.openai.com/docs/models).
 
 ```java
+import com.aspose.slides.*;
+
 // Load a presentation to translate.
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -72,9 +74,23 @@ try {
 By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself — primarily to configure essential settings like a proxy, or to use an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or a different [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance — you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/).
 
 ```java
-// Assume you have a pre-configured HttpURLConnection instance (e.g., with custom timeouts, proxy settings, etc.)
-HttpURLConnection urlConnection = yourPreconfiguredConnection;
-OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URI;
+
+try {
+    // Configure an HttpURLConnection instance yourself (e.g., with custom timeouts, proxy settings, etc.).
+    HttpURLConnection urlConnection = (HttpURLConnection) URI.create("https://api.openai.com/v1/chat/completions").toURL().openConnection();
+    urlConnection.setConnectTimeout(10000);
+    urlConnection.setReadTimeout(60000);
+
+    // Pass the connection to the OpenAIWebClient constructor.
+    OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
 ```
 
 ## **Key Benefits**

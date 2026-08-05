@@ -33,7 +33,7 @@ Notes of some specific slide could be removed as shown in the example below:
 import aspose.slides as slides
 
 # Instantiate a Presentation object that represents a presentation file 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+with slides.Presentation("AccessSlides.pptx") as presentation:
     # Removing notes of first slide
     mgr = presentation.slides[0].notes_slide_manager
     mgr.remove_notes_slide()
@@ -50,7 +50,7 @@ Notes of all the slides of a presentation could be removed as shown in the examp
 import aspose.slides as slides
 
 # Instantiate a Presentation object that represents a presentation file 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+with slides.Presentation("AccessSlides.pptx") as presentation:
     # Removing notes of all slides
     for i in range(len(presentation.slides)):
         mgr = presentation.slides[i].notes_slide_manager
@@ -67,7 +67,7 @@ The [notes_style](https://reference.aspose.com/slides/python-net/aspose.slides/m
 import aspose.slides as slides
 
 # Instantiate Presentation class that represents the presentation file
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+with slides.Presentation("AccessSlides.pptx") as presentation:
     notesMaster = presentation.master_notes_slide_manager.master_notes_slide
     if notesMaster != None:
         # Get MasterNotesSlide text style

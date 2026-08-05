@@ -157,6 +157,7 @@ The sample code below shows how to create a table of contents with hyperlinks:
 ```py
 import aspose.slides as slides
 
+import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     first_slide = presentation.slides[0]
     second_slide = presentation.slides.add_empty_slide(first_slide.layout_slide)
@@ -194,6 +195,7 @@ The following sample demonstrates how to add hyperlinks with different colors to
 ```py
 import aspose.slides as slides
 
+import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 

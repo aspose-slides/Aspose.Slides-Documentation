@@ -31,6 +31,8 @@ If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides
 This C# code shows you how to remove a slide through its reference:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation object that represents a presentation file
 using (Presentation pres = new Presentation("RemoveSlideUsingReference.pptx"))
 {
@@ -56,6 +58,8 @@ using (Presentation pres = new Presentation("RemoveSlideUsingReference.pptx"))
 This C# code shows you how to remove a slide through its index:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation object that represents a presentation file
 using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
 {
@@ -73,6 +77,9 @@ using (Presentation pres = new Presentation("RemoveSlideUsingIndex.pptx"))
 Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method (from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused layout slides. This C# code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(pres);
@@ -86,6 +93,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Aspose.Slides provides the [RemoveUnusedMasterSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) method (from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class) to allow you to delete unwanted and unused master slides. This C# code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(pres);

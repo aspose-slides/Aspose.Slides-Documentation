@@ -64,6 +64,8 @@ Aspose.Slides provides the [AddClone(ISlide)](https://reference.aspose.com/slide
 The following Java code shows how to merge presentations:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
@@ -84,11 +86,13 @@ Aspose.Slides provides the [AddClone(ISlide, IMasterSlide, boolean)](https://ref
 The following Java code demonstrates this operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
+        IMasterSlide masterSlide = presentation1.getMasters().get_Item(0);
         presentation1.getSlides().addClone(slide, masterSlide, true);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);
@@ -111,6 +115,8 @@ Merging specific slides from multiple presentations is useful for creating custo
 The following Java code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
@@ -135,6 +141,8 @@ try {
 }
 ```
 ```java
+import com.aspose.slides.*;
+
 static ISlide getTitleSlide(IPresentation presentation) {
     for (ISlide slide : presentation.getSlides()) {
         if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
@@ -152,13 +160,15 @@ To apply a different slide layout to the output slides during merging, use the [
 The following Java code shows how to combine slides from multiple presentations while applying your preferred slide layout, resulting in a single output presentation:
 
 ```java
+import com.aspose.slides.*;
+
 int layoutIndex = 0;
 
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
+        ILayoutSlide layoutSlide = presentation1.getLayoutSlides().get_Item(layoutIndex);
         presentation1.getSlides().addClone(slide, layoutSlide);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);
@@ -175,6 +185,9 @@ To merge two presentations with different slide sizes, you should resize one of 
 The following Java code demonstrates this operation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
@@ -201,6 +214,8 @@ Merging slides into a specific presentation section helps organize content and i
 The following Java code shows how to merge a specific slide into a section in a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 int sectionIndex = 0;
 
 Presentation presentation1 = new Presentation("presentation1.pptx");

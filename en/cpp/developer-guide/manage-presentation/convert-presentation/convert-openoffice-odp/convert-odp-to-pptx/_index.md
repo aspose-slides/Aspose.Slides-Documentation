@@ -30,8 +30,15 @@ This article explains how to convert an ODP presentation to PPTX format using As
 Aspose.Slides for .NET offers Presentation class that represents a presentation file. [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class can now also access ODP through Presentation constructor when the object is instantiated. The following example shows how to convert a ODP Presentation into PPTX Presentation.
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // The path to the documents directory.
-String dataDir = GetDataPath();
+String dataDir = u"../documents/";
 
 // Open the ODP file
 auto pres = System::MakeObject<Presentation>(dataDir + u"AccessOpenDoc.odp");

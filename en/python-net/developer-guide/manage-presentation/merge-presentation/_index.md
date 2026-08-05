@@ -111,6 +111,8 @@ Merging specific slides from multiple presentations is useful when creating cust
 The following Python example creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```py
+import aspose.slides as slides
+
 def get_title_slide(pres):
     for slide in pres.slides:
         if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
@@ -152,7 +154,7 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 
 {{% alert title="Note" color="warning" %}}
 
-You cannot directly merge presentations that have different slide sizes.
+Cloning a slide into a presentation with a different slide size does not raise an error, but it does not rescale the slide either: the cloned shapes keep their original coordinates and sizes, so content from a larger source slide overflows the destination slide.
 
 {{% /alert %}}
 

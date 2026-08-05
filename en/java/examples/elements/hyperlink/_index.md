@@ -21,6 +21,8 @@ This article demonstrates adding, accessing, removing, and updating hyperlinks o
 Create a rectangle shape with a hyperlink pointing to an external website.
 
 ```java
+import com.aspose.slides.*;
+
 static void addHyperlink() {
     Presentation presentation = new Presentation();
     try {
@@ -43,6 +45,8 @@ static void addHyperlink() {
 Read hyperlink information from a shape's text portion.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessHyperlink() {
     Presentation presentation = new Presentation();
     try {
@@ -67,6 +71,8 @@ static void accessHyperlink() {
 Clear the hyperlink from a shape's text.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeHyperlink() {
     Presentation presentation = new Presentation();
     try {
@@ -91,6 +97,8 @@ static void removeHyperlink() {
 Change the target of an existing hyperlink. Use `HyperlinkManager` to modify text that already contains a hyperlink, which mimics how PowerPoint updates hyperlinks safely.
 
 ```java
+import com.aspose.slides.*;
+
 static void updateHyperlink() {
     Presentation presentation = new Presentation();
     try {

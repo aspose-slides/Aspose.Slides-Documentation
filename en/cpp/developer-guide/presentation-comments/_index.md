@@ -47,6 +47,23 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for C++ 
 This C++ code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // Instantiates the Presentation class
 auto presentation = System::MakeObject<Presentation>();
 // Adds an empty slide
@@ -91,6 +108,19 @@ if (comments->GetLength(0) > 0)
 This C++ code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```cpp
+#include <DOM/Comment.h>
+#include <DOM/CommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Instantiates the Presentation class
 auto presentation = System::MakeObject<Presentation>(u"Comments1.pptx");
 
@@ -116,6 +146,22 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 This C++ code shows you how to add comments and get replies to them:
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 
 // Accesses ISlide 1
@@ -183,6 +229,19 @@ In [Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/cpp/aspose-slide
 This C++ code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
 ```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/date_time.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>();
 // Accesses ISlide 1
 auto slide1 = pres->get_Slides()->idx_get(0);
@@ -200,6 +259,11 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 This C++ code shows you how to remove all comments and authors in a presentation:
 
 ```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
@@ -223,18 +287,29 @@ presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 This C++ code shows you how to delete specific comments on a slide:
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/enumerator_adapter.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slides()->idx_get(0);
-        
+
 // add comments...
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
 author->get_Comments()->AddComment(u"comment 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
 author->get_Comments()->AddComment(u"comment 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
-        
+
 // remove all comments that contain "comment 1" text
 for (auto commentAuthor : presentation->get_CommentAuthors())
 {
@@ -251,9 +326,8 @@ for (auto commentAuthor : presentation->get_CommentAuthors())
         commentAuthor->get_Comments()->Remove(comment);
     }
 }
-        
-presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
+presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**

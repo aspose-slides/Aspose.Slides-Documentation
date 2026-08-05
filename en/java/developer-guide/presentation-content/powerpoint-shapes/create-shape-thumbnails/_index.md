@@ -39,6 +39,8 @@ To generate a shape thumbnail from any slide using Aspose.Slides for Java, do th
 This sample code shows you how to generate a shape thumbnail from a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
@@ -67,11 +69,13 @@ To generate the shape thumbnail of a slide using Aspose.Slides for Java, do this
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
-    // Create a full scale image
-    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 1, 1);
+    // Create an image scaled by a factor of 2 in both directions
+    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 2, 2);
 
     // Save the image to disk in PNG format
     try {
@@ -95,6 +99,8 @@ This method of creating thumbnails of shapes allows developers to generate a thu
 This sample code is based on the steps above:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation class that represents the presentation file
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
@@ -123,6 +129,9 @@ Use [Shape.getVisualBounds](https://reference.aspose.com/slides/java/com.aspose.
 The following example gets and compares the frame and visual bounds:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Rectangle2D;
+
 Presentation presentation = new Presentation("example.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);

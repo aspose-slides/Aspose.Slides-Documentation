@@ -26,6 +26,9 @@ This article explains how to get the bounds, size, and coordinates of paragraphs
 Use [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/getrect/) to get the bounding rectangle of a paragraph.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const presentation = new aspose.slides.Presentation("Shapes.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
@@ -44,6 +47,10 @@ To get the size and coordinates of a [Paragraph](https://reference.aspose.com/sl
 The following example gets paragraph bounds inside a table cell and draws rectangles on the slide to visualize those bounds:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("source.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);

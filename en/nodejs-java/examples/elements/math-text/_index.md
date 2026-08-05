@@ -22,6 +22,9 @@ This article demonstrates working with mathematical text shapes and formatting e
 Create a math shape containing a fraction and the Pythagorean formula.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addMathText() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -60,6 +63,10 @@ function addMathText() {
 Locate a shape that contains a math paragraph on the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessMathText() {
     let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
@@ -111,6 +118,9 @@ function accessMathText() {
 Delete a math shape from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeMathText() {
     let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
@@ -131,9 +141,12 @@ function removeMathText() {
 
 ## **Format Math Text**
 
-Set font properties for a math portion.
+Set font properties for a math paragraph.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function formatMathText() {
     let presentation = new aspose.slides.Presentation("math_text.pptx");
     try {
@@ -143,9 +156,9 @@ function formatMathText() {
         let mathShape = slide.getShapes().get_Item(0);
 
         let paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        let textPortion = paragraph.getPortions().get_Item(0);
 
-        textPortion.getPortionFormat().setFontHeight(20);
+        // Set the font size for the math paragraph.
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
 
         presentation.save("math_text_formatted.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

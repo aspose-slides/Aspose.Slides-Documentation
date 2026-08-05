@@ -22,13 +22,17 @@ This article demonstrates how to work with **Layout Slides** in Aspose.Slides fo
 You can create a custom layout slide to define reusable formatting.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addLayoutSlide() {
     let presentation = new aspose.slides.Presentation();
     try {
         let masterSlide = presentation.getMasters().get_Item(0);
 
-        // Create a layout slide with a blank layout type and a custom name.
-        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+        // Create a layout slide with a custom layout type and a custom name.
+        let layoutType = java.newByte(aspose.slides.SlideLayoutType.Custom);
         let layoutSlide = presentation.getLayoutSlides().add(masterSlide, layoutType, "Main layout");
 
         presentation.save("layout_slide.pptx", aspose.slides.SaveFormat.Pptx);
@@ -50,6 +54,10 @@ function addLayoutSlide() {
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessLayoutSlide() {
     let presentation = new aspose.slides.Presentation("layout_slide.pptx");
     try {
@@ -70,6 +78,10 @@ function accessLayoutSlide() {
 You can remove a specific layout slide if it's no longer needed.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function removeLayoutSlide() {
     let presentation = new aspose.slides.Presentation("layout_slide.pptx");
     try {
@@ -90,6 +102,9 @@ function removeLayoutSlide() {
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeUnusedLayoutSlides() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -108,6 +123,10 @@ function removeUnusedLayoutSlides() {
 You can duplicate a layout slide using the `addClone` method.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function cloneLayoutSlide() {
     let presentation = new aspose.slides.Presentation("layout_slide.pptx");
     try {

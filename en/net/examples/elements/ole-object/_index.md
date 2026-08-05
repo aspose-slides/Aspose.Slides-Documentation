@@ -26,6 +26,9 @@ This article demonstrates embedding a file as an OLE object and updating its dat
 Embed a PDF file into the presentation.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddOleObject()
 {
     using var presentation = new Presentation();
@@ -42,6 +45,9 @@ static void AddOleObject()
 Retrieve the first OLE object frame on a slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AccessOleObject()
 {
     using var presentation = new Presentation();
@@ -60,6 +66,9 @@ static void AccessOleObject()
 Delete an embedded OLE object from the slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void RemoveOleObject()
 {
     using var presentation = new Presentation();
@@ -78,6 +87,9 @@ static void RemoveOleObject()
 Replace the data embedded in an existing OLE object.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void UpdateOleObjectData()
 {
     using var presentation = new Presentation();

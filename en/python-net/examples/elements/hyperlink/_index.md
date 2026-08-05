@@ -25,6 +25,8 @@ Demonstrates adding, accessing, removing, and updating hyperlinks on shapes usin
 Create a rectangle shape with a hyperlink pointing to an external website.
 
 ```py
+import aspose.slides as slides
+
 def add_hyperlink():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -43,6 +45,8 @@ def add_hyperlink():
 Read hyperlink information from a shape's text portion.
 
 ```py
+import aspose.slides as slides
+
 def access_hyperlink():
     with slides.Presentation("hyperlink.pptx") as presentation:
         slide = presentation.slides[0]
@@ -57,6 +61,8 @@ def access_hyperlink():
 Clear the hyperlink from a shape's text.
 
 ```py
+import aspose.slides as slides
+
 def remove_hyperlink():
     with slides.Presentation("hyperlink.pptx") as presentation:
         slide = presentation.slides[0]
@@ -73,6 +79,8 @@ def remove_hyperlink():
 Change the target of an existing hyperlink. Use `HyperlinkManager` to modify text that already contains a hyperlink, which mimics how PowerPoint updates hyperlinks safely.
 
 ```py
+import aspose.slides as slides
+
 def update_hyperlink():
     with slides.Presentation("hyperlink.pptx") as presentation:
         slide = presentation.slides[0]

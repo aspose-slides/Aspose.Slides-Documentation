@@ -36,6 +36,9 @@ The following sequence of steps is required to create and embed an Excel chart a
 The C# implementation of the above steps is as follows:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
 // Step - 1: Create an Excel chart using Aspose.Cells.
 // ---------------------------------------------------
 // Create a workbook.
@@ -51,7 +54,10 @@ workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 
 // Step - 3: Get the image of the chart with Aspose.Cells.
 // -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
+MemoryStream chartImageStream = new MemoryStream();
+workbook.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap chartImage = new Bitmap(chartImageStream);
 // Save the workbook to a stream.
 MemoryStream workbookStream = workbook.SaveToStream();
 
@@ -131,6 +137,10 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows
 ```
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;

@@ -58,6 +58,8 @@ In the example below, a chart from an Excel file is embedded in a slide as an [O
 **Note:** The [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-net/aspose.slides.dom.ole/oleembeddeddatainfo/) constructor takes the embeddable object’s file extension as its second parameter. PowerPoint uses this extension to identify the file type and select the appropriate application to open the OLE object.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide_size = presentation.slide_size.size
     slide = presentation.slides[0]
@@ -80,6 +82,8 @@ Aspose.Slides for Python lets you add an [OleObjectFrame](https://reference.aspo
 The following Python example shows how to add an [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) linked to an Excel file on a slide:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -101,6 +105,8 @@ If an OLE object is already embedded in a slide, you can access it as follows:
 The example below accesses the OLE object frame—an embedded Excel chart—and retrieves its file data. In this example, we use a PPTX that has a single shape on the first slide.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -124,6 +130,8 @@ Aspose.Slides lets you access the properties of a linked OLE object frame.
 The Python example below checks whether an OLE object is linked and, if it is, retrieves the path to the linked file:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.ppt") as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes[0]
@@ -203,6 +211,8 @@ In addition to Excel charts, Aspose.Slides for Python lets you embed other file 
 This Python code shows how to embed HTML and ZIP files in a slide:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -230,6 +240,8 @@ When working with presentations, you may need to replace old OLE objects with ne
 This Python code shows how to set the embedded OLE object’s file type to `zip`:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
@@ -252,6 +264,8 @@ After you embed an OLE object, an icon-based preview is added automatically. Thi
 This Python code shows how to set the icon image and title for an embedded object:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
     ole_frame = slide.shapes[0]
@@ -273,7 +287,15 @@ with slides.Presentation("sample.pptx") as presentation:
 After you add a linked OLE object to a slide, PowerPoint may prompt you to update links when you open the presentation. Selecting Update Links can change the OLE object frame’s size and position because PowerPoint refreshes the preview with data from the linked object. To prevent PowerPoint from prompting you to update the object’s data, set the `update_automatic` property of the [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) class to `False`:
 
 ```py
-ole_frame.update_automatic = False
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    ole_frame = slide.shapes[0]
+
+    ole_frame.update_automatic = False
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Extract Embedded Files**
@@ -287,6 +309,8 @@ Aspose.Slides for Python lets you extract files embedded in slides as OLE object
 The following Python code shows how to extract files embedded in a slide as OLE objects:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 

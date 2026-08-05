@@ -36,6 +36,9 @@ To open an existing presentation, instantiate the [Presentation](https://referen
 The following JavaScript example shows how to open a presentation and get its slide count:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the Presentation class and pass a file path to its constructor.
 let presentation = new aspose.slides.Presentation("Sample.pptx");
 try {
@@ -51,6 +54,9 @@ try {
 When you need to open a password-protected presentation, pass the password through the [setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setPassword) method of the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) class to decrypt and load it. The following JavaScript code demonstrates this operation:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setPassword("YOUR_PASSWORD");
 
@@ -69,6 +75,10 @@ Aspose.Slides provides options—particularly the [getBlobManagementOptions](htt
 The following JavaScript code demonstrates loading a large presentation (for example, 2 GB):
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
 const filePath = "LargePresentation.pptx";
 
 let loadOptions = new aspose.slides.LoadOptions();
@@ -111,6 +121,11 @@ When creating a presentation that contains large objects (video, audio, high-res
 Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) interface that lets you manage external resources. The following JavaScript code shows how to use the `IResourceLoadingCallback` interface:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
   resourceLoading: function(args) {
         if (args.getOriginalUri().endsWith(".jpg")) {
@@ -131,9 +146,7 @@ const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCal
         return aspose.slides.ResourceLoadingAction.Skip;
       }
 });
-```
 
-```js
 let loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
 
@@ -153,6 +166,9 @@ Using the [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.
 This method is useful for removing potentially malicious binary content. The following JavaScript code demonstrates how to load a presentation without any embedded binary content:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 

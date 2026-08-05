@@ -22,7 +22,7 @@ description: "Render presentations with fallback fonts in Aspose.Slides for Node
 
 Aspose.Slides allows you to render presentations using fallback font rules. This article shows how to create a fallback font rules collection, modify its rules by removing or adding fallback fonts, and assign the collection using the `FontsManager.setFontFallBackRulesCollection` method.
 
-Once the fallback font rules collection is assigned to the presentation's `FontsManager`, the rules are applied during operations such as saving, rendering, and converting the presentation. The example demonstrates how to use the configured rules when rendering a slide thumbnail and saving it as a PNG image.
+Once the fallback font rules collection is assigned to the presentation's `FontsManager`, the rules are applied during operations such as saving, rendering, and converting the presentation. The example demonstrates how to use the configured rules when rendering a slide thumbnail and saving it as a JPEG image.
 
 ## **Render a Slide Using Fallback Font Rules**
 
@@ -34,12 +34,15 @@ The following example includes these steps:
 1. With [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager), these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create new instance of a rules collection
 var rulesList = new aspose.slides.FontFallBackRulesCollection();
 // create a number of rules
 rulesList.add(new aspose.slides.FontFallBackRule(0x400, 0x4ff, "Times New Roman"));
 for (let i = 0; i < rulesList.size(); i++) {
-    let fallBackRule = rulesList.get_Item(0);
+    let fallBackRule = rulesList.get_Item(i);
     // Trying to remove FallBack font "Tahoma" from loaded rules
     fallBackRule.remove("Tahoma");
     // And to update of rules for specified range

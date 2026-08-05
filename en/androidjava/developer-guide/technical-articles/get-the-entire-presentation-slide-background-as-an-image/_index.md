@@ -26,7 +26,7 @@ description: "Extract full slide backgrounds as images from PowerPoint and OpenD
 
 In PowerPoint presentations, a slide background may be formed from multiple elements, including the slide background image, presentation theme, color scheme, and objects placed on the master slide or layout slide.
 
-This article shows how to extract the entire slide background as an image using Aspose.Slides for .NET. Since there is no single method for this task, the approach involves cloning the selected slide into a temporary presentation, removing the slide shapes, and then converting the resulting slide background to an image.
+This article shows how to extract the entire slide background as an image using Aspose.Slides for Android via Java. Since there is no single method for this task, the approach involves cloning the selected slide into a temporary presentation, removing the slide shapes, and then converting the resulting slide background to an image.
 
 ## **Get the Entire Slide Background**
 
@@ -42,6 +42,9 @@ Aspose.Slides for Android via Java does not provide a simple method to extract t
 
 The following code example extracts the entire presentation slide background as an image.
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
 int slideIndex = 0;
 int imageScale = 1;
 

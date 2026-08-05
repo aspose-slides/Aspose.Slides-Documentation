@@ -58,11 +58,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 {{% alert color="primary" %}} 
 
-If a slide contains a table, the code above will not work correctly. In that case, each cell in the table must be resized.
+A table needs care: its overall size is the sum of its column widths and row heights, and assigning `width` or `height` to the table already redistributes the change across them. Scaling the table frame **and** its rows and columns applies each ratio twice, so the table ends up scaled by the square of the ratio.
 
 {{% /alert %}} 
 
-Use the following code on your end to resize slides that contain tables. For tables, setting the width or height is a special case: you must adjust individual row heights and column widths to change the table’s overall size.
+Use the following code on your end to resize slides that contain tables, and to scale the master and layout slides as well. For a table, skip the frame and adjust the individual row heights and column widths instead.
 
 ```py
 import aspose.slides as slides
@@ -104,19 +104,20 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Scale the shape size.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Scale the shape position.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
             if type(shape) is slides.Table:
+                # A table's size follows its rows and columns, so scale those instead of the frame.
                 for row in shape.rows:
                     row.minimal_height = row.minimal_height * height_ratio
                 for column in shape.columns:
                     column.width = column.width * width_ratio
+            else:
+                # Scale the shape size.
+                shape.height = shape.height * height_ratio
+                shape.width = shape.width * width_ratio
+
+            # Scale the shape position.
+            shape.y = shape.y * height_ratio
+            shape.x = shape.x * width_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```

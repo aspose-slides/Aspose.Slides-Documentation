@@ -42,6 +42,8 @@ Go through these steps:
 This Java code shows you how to convert a PowerPoint presentation to PNG:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     for (int index = 0; index < pres.getSlides().size(); index++)
@@ -59,13 +61,15 @@ try {
 }
 ```
 
-## **Convert PowerPoint to PNG with Custom Dimensions**
+## **Convert PowerPoint to PNG with a Custom Scale**
 
-If you want to obtain PNG files around a certain scale, you can set the values for `desiredX` and `desiredY`, which determine the dimensions of the resulting thumbnail. 
+If you want to obtain PNG files around a certain scale, call the `getImage(float scaleX, float scaleY)` overload. The arguments are scale factors applied to the slide size, so a slide of 720×540 points rendered with `scaleX = 2` and `scaleY = 2` produces a 1440×1080 pixel image. 
 
 This code in Java demonstrates the described operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     float scaleX = 2f;
@@ -87,11 +91,14 @@ try {
 
 ## **Convert PowerPoint to PNG with Custom Size**
 
-If you want to obtain PNG files around a certain size, you can pass your preferred `width` and `height` arguments for `ImageSize`. 
+If you want to obtain PNG files of a certain size, pass a `java.awt.Dimension` with your preferred width and height to the `getImage(Dimension size)` overload. The resulting image has exactly those pixel dimensions. 
 
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Dimension size = new Dimension(960, 720);

@@ -49,6 +49,8 @@ The PFX password protects the certificate package and private key. It is **not**
 To sign a real presentation workflow, load an existing PPTX file, create a [DigitalSignature](https://reference.aspose.com/slides/androidjava/com.aspose.slides/digitalsignature/) from a PFX certificate and its password, add the signature to the presentation's collection, and save to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 String certificatePassword = System.getenv("PFX_PASSWORD");
 if (certificatePassword == null || certificatePassword.isEmpty()) {
     throw new IllegalStateException("Set the PFX_PASSWORD environment variable.");
@@ -73,6 +75,8 @@ Saving the result under a new name preserves the unsigned source file. The value
 When you load a signed PPTX file, inspect every item returned by [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--). The [IDigitalSignature.isValid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idigitalsignature/#isValid--) method indicates whether the embedded signature is valid for the current presentation content.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("InputPresentation-signed.pptx");
 try {
     IDigitalSignatureCollection signatures = presentation.getDigitalSignatures();

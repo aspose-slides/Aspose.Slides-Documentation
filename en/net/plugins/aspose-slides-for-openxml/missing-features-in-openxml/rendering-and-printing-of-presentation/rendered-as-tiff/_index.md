@@ -14,6 +14,8 @@ This article explains how different tiff export options:
 The **Save** method exposed by **Presentation** class can be called by developers to convert the whole presentation into **TIFF** document. Further, TiffOptions class exposes ImageSize property enabling the developer to define the size of the image if required.
 
 ``` csharp
+using Aspose.Slides;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

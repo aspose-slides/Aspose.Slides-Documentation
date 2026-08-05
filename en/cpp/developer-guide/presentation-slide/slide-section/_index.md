@@ -36,6 +36,14 @@ To add a section that will house slides in a presentation, Aspose.Slides for C++
 This sample code shows you to create a section in a presentation in C++:
 
 ``` cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto defaultSlide = pres->get_Slides()->idx_get(0);
@@ -67,6 +75,11 @@ After you create a section in a PowerPoint presentation, you may decide to chang
 This sample code shows you how to change the name of a section in a presentation in C++ using Aspose.Slides:
 
 ``` cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto section = pres->get_Sections()->idx_get(0);
 section->set_Name(u"My section");

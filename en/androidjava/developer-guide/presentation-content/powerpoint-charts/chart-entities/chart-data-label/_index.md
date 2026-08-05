@@ -27,12 +27,17 @@ Data labels on a chart show details about the chart data series or individual da
 This Java code shows you how to set the data precision in a chart data label:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     
     chart.setDataTable(true);
     chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
+
+    // Shows the values as data labels so the number format is visible on the chart
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
 
     pres.save("output.pptx",SaveFormat.Pptx);
 } finally {
@@ -44,6 +49,8 @@ try {
 Aspose.Slides for Android via Java allows you to set percentage labels on displayed charts. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -71,7 +78,7 @@ try {
             dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
     
             IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
+            port.setText(String.format("%.2f %%", dataPontPercent));
             port.getPortionFormat().setFontHeight(8f);
             lbl.getTextFrameForOverriding().setText("");
             IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
@@ -96,6 +103,9 @@ try {
 This Java code shows you to set the percentage sign for a chart data label:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -163,6 +173,8 @@ try {
 This Java code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -189,6 +201,8 @@ When you create a chart that does not rely on any axis such as a pie chart, the 
 This Java code shows you how to adjust the label location on a pie chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);

@@ -101,6 +101,8 @@ To generate a thumbnail of a slide with speaker notes using Aspose.Slides, follo
 1. Save the thumbnail image in your preferred image format.
 
 ```py
+import aspose.slides as slides
+
 slide_index = 0
 
 layout_options = slides.export.NotesCommentsLayoutingOptions()

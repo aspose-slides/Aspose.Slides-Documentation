@@ -40,11 +40,17 @@ This article explains how to convert PowerPoint presentations to SWF by using As
 The [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class can be used to convert the whole presentation into **SWF** document. The following example shows how to convert a presentation into **SWF** document by using options provided by [**SWFOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SwfOptions) class.You can also include comments in generated SWF using [**SWFOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SwfOptions) class and [**NotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NotesCommentsLayoutingOptions) class.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Sample.pptx");
 try {
+    var notesCommentsLayouting = new aspose.slides.NotesCommentsLayoutingOptions();
+    notesCommentsLayouting.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+
     var swfOptions = new aspose.slides.SwfOptions();
     swfOptions.setViewerIncluded(false);
-    swfOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+    swfOptions.setSlidesLayoutOptions(notesCommentsLayouting);
     // Saving presentation
     pres.save("Sample.swf", aspose.slides.SaveFormat.Swf, swfOptions);
 } finally {
@@ -66,7 +72,7 @@ Use the [setCompressed](https://reference.aspose.com/slides/nodejs-java/aspose.s
 
 ### What is 'setViewerIncluded' for, and when should I use it?
 
-[setViewerIncluded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/setviewerincluded/) adds an embedded player UI (navigation controls, panels, search). Use it if you plan to use your own player or need a bare SWF frame without UI.
+[setViewerIncluded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/swfoptions/setviewerincluded/) adds an embedded player UI (navigation controls, panels, search) and is enabled by default. Pass `false` if you plan to use your own player or need a bare SWF frame without UI.
 
 ### What happens if a source font is missing on the export machine?
 

@@ -21,13 +21,32 @@ This article demonstrates working with mathematical text shapes and formatting e
 Create a math shape containing a fraction and the Pythagorean formula.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathFraction.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::MathText;
+using namespace System;
+
 static void AddMathText()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
     // Add a Math shape to the slide.
-    auto mathShape = slide->get_Shapes()->AddMathShape(0, 0, 720, 150);
+    auto mathShape = slide->get_Shapes()->AddMathShape(0.0f, 0.0f, 720.0f, 150.0f);
 
     // Access the math paragraph.
     auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
@@ -56,6 +75,27 @@ static void AddMathText()
 Locate a shape that contains a math paragraph on the slide.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathFraction.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::MathText;
+using namespace System;
+
 static void AccessMathText()
 {
     auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -111,12 +151,30 @@ static void AccessMathText()
 Delete a math shape from the slide.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathFraction.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::MathText;
+using namespace System;
+
 static void RemoveMathText()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    auto mathShape = slide->get_Shapes()->AddMathShape(50, 50, 100, 50);
+    auto mathShape = slide->get_Shapes()->AddMathShape(50.0f, 50.0f, 100.0f, 50.0f);
 
     auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
     auto textPortion = paragraph->get_Portion(0);
@@ -136,12 +194,31 @@ static void RemoveMathText()
 Set font properties for a math portion.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathFraction.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::MathText;
+using namespace System;
+
 static void FormatMathText()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    auto mathShape = slide->get_Shapes()->AddMathShape(50, 50, 100, 50);
+    auto mathShape = slide->get_Shapes()->AddMathShape(50.0f, 50.0f, 100.0f, 50.0f);
     auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
     auto textPortion = paragraph->get_Portion(0);
     auto mathParagraph = ExplicitCast<MathPortion>(textPortion)->get_MathParagraph();

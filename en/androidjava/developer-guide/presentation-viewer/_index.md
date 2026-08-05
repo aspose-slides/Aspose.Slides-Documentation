@@ -34,6 +34,9 @@ To generate an SVG image from a presentation slide with Aspose.Slides, please fo
 1. Save the slide as an SVG image to the file stream.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 int slideIndex = 0;
 
 Presentation presentation = new Presentation("sample.pptx");
@@ -51,6 +54,9 @@ presentation.dispose();
 Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `setId` method from [ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isvgshape/). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 int slideIndex = 0;
 
 Presentation presentation = new Presentation("sample.pptx");
@@ -66,6 +72,8 @@ svgStream.close();
 presentation.dispose();
 ```
 ```java
+import com.aspose.slides.*;
+
 class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
 {
     private int m_shapeIndex;
@@ -97,6 +105,8 @@ Aspose.Slides helps you generate thumbnail images of slides. To generate a thumb
 1. Save the thumbnail image in any desired image format.
 
 ```java
+import com.aspose.slides.*;
+
 int slideIndex = 0;
 float scaleX = 1;
 float scaleY = scaleX;
@@ -121,6 +131,9 @@ To create a slide thumbnail image with user defined dimensions, please follow th
 1. Save the thumbnail image in any desired image format.
 
 ```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
 int slideIndex = 0;
 Size slideSize = new Size(1200, 800);
 
@@ -146,6 +159,8 @@ To generate the thumbnail of a slide with speaker notes using Aspose.Slides, ple
 1. Save the thumbnail image in any desired image format.
 
 ```java
+import com.aspose.slides.*;
+
 int slideIndex = 0;
 
 NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();

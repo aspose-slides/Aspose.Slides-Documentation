@@ -72,6 +72,7 @@ This topic helps you to understand how to hide information from chart. Using Asp
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
+import aspose.pydrawing as draw
 with slides.Presentation() as pres:
     slide = pres.slides[0]
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 140, 118, 320, 370)
@@ -88,8 +89,9 @@ with slides.Presentation() as pres:
     # Hiding Legend
     chart.has_legend = False
 
-    # Hiding MajorGridLines
+    # Hiding MajorGridLines of both axes
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
+    chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     #for i in range(len(chart.chart_data.series)):
     #    chart.chart_data.series.remove_at(i)

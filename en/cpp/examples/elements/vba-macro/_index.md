@@ -22,6 +22,16 @@ This article demonstrates how to add, access, and remove VBA macros using **Aspo
 Create a presentation with a VBA project and a simple macro module.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <DOM/Vba/VbaProject.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 static void AddVbaMacro()
 {
     auto presentation = MakeObject<Presentation>();
@@ -40,6 +50,16 @@ static void AddVbaMacro()
 Retrieve the first module from the VBA project.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <DOM/Vba/VbaProject.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 static void AccessVbaMacro()
 {
     auto presentation = MakeObject<Presentation>();
@@ -60,6 +80,16 @@ static void AccessVbaMacro()
 Delete a module from the VBA project.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <DOM/Vba/VbaProject.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 static void RemoveVbaMacro()
 {
     auto presentation = MakeObject<Presentation>();

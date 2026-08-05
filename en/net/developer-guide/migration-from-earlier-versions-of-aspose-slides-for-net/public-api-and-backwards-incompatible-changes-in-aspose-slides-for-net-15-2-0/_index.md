@@ -38,6 +38,9 @@ PptXPptY value has been added to Aspose.Slides.Animation.PropertyType enumeratio
 GetAutomaticSeriesColor method returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
 
 

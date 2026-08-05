@@ -40,6 +40,10 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 The following JavaScript example shows how to set a blue solid color as the background for a normal slide:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of the Presentation class.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -70,6 +74,10 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 The following JavaScript example shows how to set a solid color (green) as the background for a master slide:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of the Presentation class.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -100,6 +108,10 @@ A gradient is a graphical effect created by a gradual change in color. When used
 The following JavaScript example shows how to set a gradient color as the background for a slide:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of the Presentation class.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -132,6 +144,10 @@ In addition to solid and gradient fills, Aspose.Slides allows you to use images 
 The following JavaScript example shows how to set an image as the background for a slide:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of the Presentation class.
 let presentation = new aspose.slides.Presentation();
 try {
@@ -160,6 +176,10 @@ try {
 The following code sample shows how to set the background fill type to a tiled picture and modify the tiling properties:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let firstSlide = presentation.getSlides().get_Item(0);
@@ -203,6 +223,13 @@ Read more: [**Tile Picture As Texture**](/slides/nodejs-java/shape-formatting/#t
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following JavaScript code shows you how to change the transparency for a slide background image:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("ImageAsBackground.pptx");
+let slide = presentation.getSlides().get_Item(0);
+
 var transparencyValue = 30; // For example.
 
 // Get the collection of picture transform operations.
@@ -224,6 +251,9 @@ if (transparencyOperation == null) {
 } else {
     transparencyOperation.setAmount(100 - transparencyValue);
 }
+
+presentation.save("BackgroundTransparency.pptx", aspose.slides.SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 ## **Get the Slide Background Value**
@@ -235,6 +265,9 @@ Using the [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.sli
 The following JavaScript example shows how to get a slide’s effective background value:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of the Presentation class.
 let presentation = new aspose.slides.Presentation("Sample.pptx");
 try {

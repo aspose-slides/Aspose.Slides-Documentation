@@ -22,6 +22,9 @@ This article demonstrates applying slide transition effects and timings with **A
 Apply a fade transition effect to the first slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addSlideTransition() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -42,6 +45,9 @@ function addSlideTransition() {
 Read the transition type currently assigned to a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessSlideTransition() {
     let presentation = new aspose.slides.Presentation("slide_transition.pptx");
     try {
@@ -60,6 +66,9 @@ function accessSlideTransition() {
 Clear any transition effect by setting the type to `None`.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeSlideTransition() {
     let presentation = new aspose.slides.Presentation("slide_transition.pptx");
     try {
@@ -80,6 +89,9 @@ function removeSlideTransition() {
 Specify how long the slide is displayed before advancing automatically.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function setTransitionDuration() {
     let presentation = new aspose.slides.Presentation();
     try {

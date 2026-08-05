@@ -34,6 +34,8 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 This Java code demonstrates a sample operation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -62,6 +64,8 @@ try {
 This Java code shows you to set a workbook cell as a chart data label:
 
 ```java
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
@@ -93,6 +97,8 @@ try {
 This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -109,6 +115,8 @@ try {
 This Java code shows you how to specify a type for a data source:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -131,6 +139,8 @@ try {
 Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `getEmbeddedWorkbookType` method on [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData) together with the [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/WorkbookType) enumeration to detect unsupported formats and skip those charts.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -167,6 +177,10 @@ Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you ca
 This Java code demonstrates the external workbook creation process:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -198,6 +212,8 @@ While you cannot edit the data in workbooks stored in remote locations or resour
 This Java code shows you how to set an external workbook:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -221,12 +237,14 @@ try {
 }
 ```
 
-The `ChartData` parameter (under the `setExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
+The second (`boolean`) parameter of the `setExternalWorkbook` method is used to specify whether an excel workbook will be loaded or not. 
 
-* When `ChartData` value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
-* When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
+* When its value is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable. 
+* When its value is set to `true` , the chart data gets updated from the target workbook.
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -252,6 +270,8 @@ try {
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -278,6 +298,8 @@ You can edit the data in external workbooks the same way you make changes to the
 This Java code is an implementation of the described process:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of tthe Presentation class
 Presentation pres = new Presentation("chart.pptx");
 try {

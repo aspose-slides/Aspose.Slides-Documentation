@@ -30,6 +30,8 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```js
+const asposeSlides = require("aspose.slides.via.java");
+
 // Load a presentation.
 let presentation = new asposeSlides.Presentation("sample.pptx");
 

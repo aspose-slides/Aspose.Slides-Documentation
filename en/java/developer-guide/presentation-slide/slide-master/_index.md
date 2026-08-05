@@ -55,6 +55,8 @@ In PowerPoint, you can open the Slide Master view from **View** > **Slide Master
 In Aspose.Slides, use the `getMasters()` collection to access master slides:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -71,6 +73,8 @@ try {
 You can also get the master slide used by a normal slide through its layout:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -106,6 +110,8 @@ When you add an image to a master slide, it appears on slides that use layouts f
 The following example adds a logo to the first master slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -144,6 +150,8 @@ In PowerPoint, placeholder commands are available in Slide Master view.
 To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -165,6 +173,9 @@ try {
 You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -189,7 +200,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0f, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
@@ -207,6 +218,9 @@ For more placeholder and text formatting options, see [Set Prompt Text in Placeh
 A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -229,6 +243,8 @@ For related topics, see [Presentation Background](/slides/java/presentation-back
 Use [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -253,6 +269,9 @@ A presentation can contain multiple master slides. This is useful when different
 The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -282,6 +301,8 @@ try {
 Master slides can be compared with the `equals` method inherited from [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -315,6 +336,8 @@ For more information, see [Compare Presentation Slides](/slides/java/compare-sli
 Use the `setLastView` method on [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -333,6 +356,8 @@ Presentations sometimes contain master slides that are no longer used by any nor
 Use `removeUnused` to remove unused masters from the `getMasters()` collection:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -345,6 +370,8 @@ try {
 You can also use the low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);

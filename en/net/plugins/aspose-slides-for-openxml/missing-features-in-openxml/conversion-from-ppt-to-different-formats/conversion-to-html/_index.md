@@ -8,6 +8,9 @@ url: /net/conversion-to-html/
 **HTML** is one of several widely used format for exchanging data. **Aspose.Slides for .NET** provides support for converting a presentation to HTML. Below is code snippet that shows you how.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

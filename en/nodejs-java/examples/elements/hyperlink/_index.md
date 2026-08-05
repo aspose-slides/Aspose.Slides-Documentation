@@ -22,6 +22,9 @@ This article demonstrates adding, accessing, removing, and updating hyperlinks o
 Create a rectangle shape with a hyperlink pointing to an external website.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addHyperlink() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -48,6 +51,9 @@ function addHyperlink() {
 Read hyperlink from a shape's text portion.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessHyperlink() {
     let presentation = new aspose.slides.Presentation("hyperlink.pptx");
     try {
@@ -71,6 +77,9 @@ function accessHyperlink() {
 Clear the hyperlink from a shape's text.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeHyperlink() {
     let presentation = new aspose.slides.Presentation("hyperlink.pptx");
     try {
@@ -96,6 +105,9 @@ function removeHyperlink() {
 Change the target of an existing hyperlink. Use `HyperlinkManager` to modify text that already contains a hyperlink, which mimics how PowerPoint updates hyperlinks safely.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateHyperlink() {
     let presentation = new aspose.slides.Presentation("hyperlink.pptx");
     try {

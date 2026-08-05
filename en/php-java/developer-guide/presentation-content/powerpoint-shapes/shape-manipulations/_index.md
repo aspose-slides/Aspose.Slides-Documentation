@@ -111,7 +111,7 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
     $iCount = $sld->getShapes()->size();
     for($i = 0; $i < java_values($iCount) ; $i++) {
       $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
+      if (java_values($ashp->getAlternativeText()) == $altText) {
         $sld->getShapes()->remove($ashp);
       }
     }
@@ -255,8 +255,10 @@ Below sample code is given.
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
+    $layoutSlides = $pres->getLayoutSlides();
+    foreach($layoutSlides as $layoutSlide) {
+      $layoutShapes = $layoutSlide->getShapes();
+      foreach($layoutShapes as $shape) {
         $fillFormats = $shape->getFillFormat();
         $lineFormats = $shape->getLineFormat();
       }

@@ -30,9 +30,12 @@ You can also manage headers and footers for handout and notes slides. This inclu
 
 ## **Manage Header and Footer Text**
 
-Notes of some specific slide could be updated as shown in the example below:
+The footer text of every slide and the header text of the notes master could be updated as shown in the example below:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load Presentation
 Presentation pres = new Presentation("headerTest.pptx");
 
@@ -48,12 +51,29 @@ if (null != masterNotesSlide)
 }
 
 // Save presentation
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+pres.Save("HeaderFooter.pptx", SaveFormat.Pptx);
+
+// Method to set Header/Footer Text
+static void UpdateHeaderFooterText(IBaseSlide master)
+{
+    foreach (IShape shape in master.Shapes)
+    {
+        if (shape.Placeholder != null)
+        {
+            if (shape.Placeholder.Type == PlaceholderType.Header)
+            {
+                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
+            }
+        }
+    }
+}
 ```
 
 
 
 ```c#
+using Aspose.Slides;
+
 // Method to set Header/Footer Text
 public static void UpdateHeaderFooterText(IBaseSlide master)
 {
@@ -89,6 +109,9 @@ Aspose.Slides for .NET supports Header and Footer in Handout and notes slides. P
 Code Snippet provided in the below Example.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("presentation.pptx"))
 {
 	// Change Header and Footer settings for notes master and all notes slides
@@ -128,10 +151,9 @@ using (Presentation presentation = new Presentation("presentation.pptx"))
 		headerFooterManager.SetFooterText("New footer text"); // set text to notes slide Footer placeholder
 		headerFooterManager.SetDateTimeText("New date and time text"); // set text to notes slide Date-time placeholder
 	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+
+	presentation.Save("testresult.pptx", SaveFormat.Pptx);
 }
-		
- }
 ```
 
 ## **FAQ**

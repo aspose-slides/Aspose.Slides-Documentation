@@ -37,7 +37,6 @@ In the example given below, we have set the chart marker options on data points 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 # Create an instance of Presentation class
 with slides.Presentation() as presentation:
@@ -58,14 +57,14 @@ with slides.Presentation() as presentation:
 
     # Add new series
     chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.type)
-            
-    # Set the picture
-    image1 = draw.Bitmap(path + "aspose-logo.jpg")
-    imgx1 = presentation.images.add_image(image1)
 
     # Set the picture
-    image2 = draw.Bitmap(path + "Tulips.jpg")
-    imgx2 = presentation.images.add_image(image2)
+    with slides.Images.from_file("aspose-logo.jpg") as image1:
+        imgx1 = presentation.images.add_image(image1)
+
+    # Set the picture
+    with slides.Images.from_file("Tulips.jpg") as image2:
+        imgx2 = presentation.images.add_image(image2)
 
     # Take first chart series
     series = chart.chart_data.series[0]

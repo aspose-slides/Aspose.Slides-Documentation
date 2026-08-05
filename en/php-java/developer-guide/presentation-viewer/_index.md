@@ -75,7 +75,7 @@ class CustomSvgShapeFormattingController {
     }
 
     public function formatShape($svgShape, $shape) {
-        $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
+        $svgShape->setId(sprintf("shape-%d", $this->m_shapeIndex++));
     }
 }
 ```

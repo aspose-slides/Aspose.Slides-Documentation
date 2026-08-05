@@ -103,49 +103,29 @@ using (PresentationDocument doc = PresentationDocument.Open(fileName, true))
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- string FilePath = @"..\..\..\..\Sample Files\";
-
-string FileName = FilePath + "Delete all the comments by an author.pptx";
-
+string filePath = @"..\..\..\..\Sample Files\";
+string fileName = filePath + "Delete all the comments by an author.pptx";
 string author = "MZ";
 
-DeleteCommentsByAuthorInPresentation(FileName, author);
-
-// Remove all the comments in the slides by a certain author.
-
-public static void DeleteCommentsByAuthorInPresentation(string fileName, string author)
-
+// Instantiate a Presentation object that represents a PPTX file
+using (Presentation pres = new Presentation(fileName))
 {
+    // Remove all the comments in the slides by a certain author.
+    ICommentAuthor[] authors = pres.CommentAuthors.FindByName(author);
 
-    if (String.IsNullOrEmpty(fileName) || String.IsNullOrEmpty(author))
-
-        throw new ArgumentNullException("File name or author name is NULL!");
-
-    //Instantiate a PresentationEx object that represents a PPTX file
-
-    using (Presentation pres = new Presentation(fileName))
-
+    foreach (ICommentAuthor commentAuthor in authors)
     {
-
-      ICommentAuthor[] authors=  pres.CommentAuthors.FindByName(author);
-
-      ICommentAuthor thisAuthor = authors[0];
-
-      for (int i = thisAuthor.Comments.Count - 1; i >= 0;i-- )
-
-      {
-
-          thisAuthor.Comments.RemoveAt(i);
-
-      }
-
-      pres.Save(fileName, Aspose.Slides.Export.SaveFormat.Pptx);  
-
+        for (int i = commentAuthor.Comments.Count - 1; i >= 0; i--)
+        {
+            commentAuthor.Comments.RemoveAt(i);
+        }
     }
 
-}    
-
+    pres.Save(fileName, SaveFormat.Pptx);
+}
 ``` 
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

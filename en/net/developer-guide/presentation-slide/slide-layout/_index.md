@@ -68,6 +68,9 @@ To customize the appearance and structure of your slides, you may need to add ne
 The following C# code demonstrates how to add a slide layout to a PowerPoint presentation:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PowerPoint file.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
@@ -129,6 +132,9 @@ Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.c
 The following C# code shows how to remove a layout slide from a PowerPoint presentation:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
     Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
@@ -159,6 +165,9 @@ This manager contains methods for the following placeholder types:
 The following C# code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     // Get the Blank layout slide.
@@ -198,6 +207,9 @@ In PowerPoint presentations, footer elements like date, slide number, and custom
 The following C# code shows how to set the visibility of a slide footer and perform related tasks:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Presentation.ppt"))
 {
     ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
@@ -220,7 +232,7 @@ using (Presentation presentation = new Presentation("Presentation.ppt"))
     headerFooterManager.SetFooterText("Footer text");
     headerFooterManager.SetDateTimeText("Date and time text");
 
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -238,6 +250,9 @@ using (Presentation presentation = new Presentation("Presentation.ppt"))
 The following C# code demonstrates this operation:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Presentation.ppt"))
 {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;

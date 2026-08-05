@@ -125,6 +125,19 @@ Below is the sample code is given.
 Now Aspose.Slides for C++ support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ``` cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/io/file_access.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 String outSvgFileName = u"SingleShape.svg";
 
 auto pres = System::MakeObject<Presentation>(u"TestExportShapeToSvg.pptx");
@@ -141,6 +154,16 @@ Aspose.Slides allows to align shapes either relative to the slide margins or rel
 Source code below aligns shapes with indices 1, 2 and 4 along the top border of the slide. 
 
 ``` cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapesAlignmentType.h>
+#include <Util/SlideUtil.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Util;
+using namespace System;
+
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"example.pptx");
 
 SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
@@ -161,8 +184,18 @@ System::MakeArray<int32_t>(
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
 ``` cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapesAlignmentType.h>
+#include <Util/SlideUtil.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Util;
+using namespace System;
+
 SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0));
 ```
 
 ## **Flip Properties**
@@ -178,6 +211,17 @@ Let’s say we have a sample.pptx file in which the first slide contains a singl
 The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 auto shape = presentation->get_Slide(0)->get_Shape(0);

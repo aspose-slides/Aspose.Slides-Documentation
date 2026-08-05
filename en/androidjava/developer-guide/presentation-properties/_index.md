@@ -34,7 +34,7 @@ Aspose.Slides allows you to work with presentation document properties through t
 
 {{% alert color="primary" %}} 
 
-Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for Android via Java x.x.x".
+Please note that the **Application** and **AppVersion** fields cannot be modified. Aspose.Slides rewrites them on every save, so a saved presentation always reports the Aspose.Slides product name and the version of the library that produced it. Any value passed to `setNameOfApplication` is discarded when the presentation is written.
 
 {{% /alert %}} 
 
@@ -65,6 +65,8 @@ Developers can use **IDocumentProperties** property exposed by [Presentation](ht
 These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents the presentation
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -96,6 +98,8 @@ try {
 Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for Android via Java.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Create a reference to IDocumentProperties object associated with Presentation
@@ -123,9 +127,11 @@ This example modifies the built-in properties of the presentation that can be vi
 
 ## **Add Custom Document Properties**
 
-Aspose.Slides for Android via Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+Aspose.Slides for Android via Java also allows developers to add the custom the values for presentation Document properties. The example below adds three custom properties, then looks up the name stored at index 2 and removes that property, so the saved presentation keeps two of them. Custom properties are indexed in alphabetical order, not in the order they were added.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Getting Document Properties
@@ -158,6 +164,8 @@ try {
 Aspose.Slides for Android via Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Create a reference to DocumentProperties object associated with Presentation
@@ -204,6 +212,8 @@ The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
 ```java
+import com.aspose.slides.*;
+
 // read the info of presentation
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
@@ -222,6 +232,8 @@ info.writeBindedPresentation("presentation.pptx");
 There is another way to use properties of a particular presentation as a template to update properties in other presentations:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -240,6 +252,8 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -251,7 +265,9 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 A new template can be created from scratch and then used to update multiple presentations:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -262,13 +278,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
@@ -280,10 +290,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 
 Aspose.Slides provides the LanguageId property (exposed by the PortionFormat class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-This Java code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+This Java code shows you how to set the proofing language for a PowerPoint:
 
 ```java
-Presentation pres = new Presentation(pptxFileName);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -312,6 +324,8 @@ try {
 This Java code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 

@@ -61,6 +61,8 @@ To get started, we need two things:
 ![PowerPoint template example](example1_image1.png)
 
 ```java
+import com.aspose.slides.*;
+
 // Load the Excel workbook with employee data.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
@@ -118,6 +120,8 @@ In the second example, we simply copy data from an Excel table and display it on
 In this example, we reuse the same Excel workbook from the first example, which contains a simple employee table.
 
 ```java
+import com.aspose.slides.*;
+
 // Load the Excel workbook containing the employee data.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
 int worksheetIndex = 0;
@@ -159,6 +163,8 @@ First, we add a Pie chart to the Excel workbook based on the employees table.
 ![Excel Chart example](example3_image0.png)
 
 ```java
+import com.aspose.slides.*;
+
 // Create a new PowerPoint presentation.
 Presentation presentation = new Presentation();
 try {
@@ -184,6 +190,11 @@ Let's imagine you have an Excel workbook full of charts and you need to import t
 The following code iterates through all worksheets in the source Excel file, extracts the charts from each worksheet, and adds each chart to a separate slide using a blank slide layout. In the resulting presentation, only the chart data will be embedded, not the entire workbook.
 
 ```java
+import com.aspose.slides.*;
+import com.aspose.slides.Collections.Generic.Dictionary;
+import com.aspose.slides.Collections.Generic.KeyValuePair;
+import java.util.List;
+
 // Load the Excel workbook containing the employee data.
 ExcelDataWorkbook workbook = new ExcelDataWorkbook("ExcelWithCharts.xlsx");
 

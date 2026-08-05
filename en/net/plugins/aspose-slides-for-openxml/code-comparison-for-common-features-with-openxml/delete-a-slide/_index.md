@@ -215,41 +215,30 @@ public static int CountSlides(PresentationDocument presentationDocument)
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- string FilePath = @"..\..\..\..\Sample Files\";
-
+string FilePath = @"..\..\..\..\Sample Files\";
 string FileName = FilePath + "Delete a slide.pptx";
 
 DeleteSlide(FileName, 1);
 
-public static void DeleteSlide(string presentationFile, int slideIndex)
-
+// Delete the slide with the specified index from the presentation.
+static void DeleteSlide(string presentationFile, int slideIndex)
 {
-
-    //Instantiate a PresentationEx object that represents a PPTX file
-
+    // Instantiate a Presentation object that represents a PPTX file
     using (Presentation pres = new Presentation(presentationFile))
-
     {
-
-        //Accessing a slide using its index in the slides collection
-
+        // Accessing a slide using its index in the slides collection
         ISlide slide = pres.Slides[slideIndex];
 
-
-        //Removing a slide using its reference
-
+        // Removing a slide using its reference
         pres.Slides.Remove(slide);
 
-
-        //Writing the presentation as a PPTX file
-
-        pres.Save(presentationFile,Aspose.Slides.Export.SaveFormat.Pptx);
-
+        // Writing the presentation as a PPTX file
+        pres.Save(presentationFile, SaveFormat.Pptx);
     }
-
 }
-
 ``` 
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

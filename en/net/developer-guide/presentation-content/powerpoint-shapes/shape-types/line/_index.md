@@ -38,6 +38,9 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate PresentationEx class that represents the PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -67,6 +70,10 @@ Aspose.Slides for .NET also allows developers to configure some properties of th
 - Write the modified presentation as a PPTX file.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate PresentationEx class that represents the PPTX file
 using (Presentation pres = new Presentation())
 {

@@ -42,7 +42,7 @@ The following code example demonstrates the font loading process:
 import aspose.slides as slides
 
 # Define folders that contain custom font files.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+font_folders = ["fonts", "external_fonts"]
 
 # Load custom fonts from the specified folders.
 slides.FontsLoader.load_external_fonts(font_folders)

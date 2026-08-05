@@ -30,6 +30,8 @@ You may want to try out our [free web application](https://products.aspose.app/s
 This sample code in C# shows you how to convert PPT to SVG using Aspose.Slides:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)

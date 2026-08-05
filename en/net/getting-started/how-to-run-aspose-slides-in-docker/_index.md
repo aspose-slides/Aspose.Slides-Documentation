@@ -52,21 +52,21 @@ This docker file contains instructions for building a container image with libgd
 
 Here's the docker file contents:
 
-``` csharp
+``` dockerfile
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build
 
-\# install libgdiplus
+# install libgdiplus
 
 RUN apt-get update -y && apt-get install -y apt-utils
 
 RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
 
-\# create mount points
+# create mount points
 
 VOLUME /slides-src
 
-\# build and test Aspose.Slides on start
+# build and test Aspose.Slides on start
 
 WORKDIR /slides-src
 
@@ -78,7 +78,7 @@ Let's review what each line of code in the docker file means:
 
 1. The container's image is based on the microsoft/dotnet:2.1-sdk-bionic image (the image already built by Microsoft and published on docker's [public hub](https://hub.docker.com/r/microsoft/dotnet/)). This image contains the already installed dotnet 2.1 SDK. Bionic suffix means that Ubuntu 18.04 (codename bionic) will be taken as a container's OS. By changing the suffix, it is possible to change the underlying OS (for example: stretch -- Debian 9, alpine -- Alpine Linux). In that case, the docker file content modification will be required (for example, changing 'apt-get' to 'yum').
 
-``` csharp
+``` dockerfile
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build:
 
@@ -86,7 +86,7 @@ Let's review what each line of code in the docker file means:
 
 1. Updates database of available packages and install apt-utils package.
 
-``` csharp
+``` dockerfile
 
  RUN apt-get update -y && apt-get install -y apt-utils
 
@@ -94,7 +94,7 @@ Let's review what each line of code in the docker file means:
 
 1. Installs 'libgdiplus' and 'libc6-dev' packages required by System.Drawing.Common library.
 
-``` csharp
+``` dockerfile
 
  RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
 
@@ -102,7 +102,7 @@ Let's review what each line of code in the docker file means:
 
 1. Declares /slides-src folder as a mounting point which we will be uses to provide access to slide-net sources folder on the host machine.
 
-``` csharp
+``` dockerfile
 
  VOLUME /slides-src
 
@@ -110,7 +110,7 @@ Let's review what each line of code in the docker file means:
 
 1. Sets slides-src as a working directory inside the container.
 
-``` csharp
+``` dockerfile
 
  WORKDIR /slides-src
 
@@ -118,7 +118,7 @@ Let's review what each line of code in the docker file means:
 
 1. Declares a default command which will be run on the container start in case if the explicit command is not specified.
 
-``` csharp
+``` dockerfile
 
  CMD ./build/netcore.linux.tests.sh
 
@@ -130,7 +130,7 @@ According to instructions in the docker file, the resulting container's image wi
 
 To build an image using this docker file, you have to go to slides-netuil docker folder and execute:
 
-``` csharp
+``` bash
 
  $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_apt_get_libgdiplus .
 
@@ -146,7 +146,7 @@ To build an image using this docker file, you have to go to slides-netuil docker
 
 The result of the execution should look like this:
 
-``` csharp
+```text
 
  Successfully built 62dd34ddc142
 
@@ -158,11 +158,11 @@ Successfully tagged ubuntu18_04_apt_get_libgdiplus:latest
 
 To ensure that the new image was added to the local images repository:
 
-``` csharp
+``` bash
 
  $ docker images
 
-\----
+----
 
 REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
 
@@ -174,7 +174,7 @@ ubuntu18_04_apt_get_libgdiplus   latest              62dd34ddc142        2 minut
 
 Once the image is ready, we can run it using this command:
 
-``` csharp
+``` bash
 
  $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest
 
@@ -192,7 +192,7 @@ Once the image is ready, we can run it using this command:
 
 The result of the command above will be an output of netcore.linux.tests.sh (since it was defined as a default command for the container):
 
-``` csharp
+```text
 
  Restoring packages for /slides-src/targets/.NETCore/tests/Aspose.Slides.FuncTests.NetCore/Aspose.Slides.FuncTests.NetCore.csproj...
 
@@ -224,7 +224,7 @@ From the result, it is clear that log files from Func and Regr tests were placed
 
 To override the default command of the container on a run, we could use this command:
 
-``` csharp
+``` bash
 
  $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest /bin/bash
 
@@ -239,11 +239,11 @@ At the moment, Ubuntu contains only version 4.2 of libgdiplus while version 5.6 
 
 Let's review the docker file content:
 
-``` csharp
+``` dockerfile
 
  FROM microsoft/dotnet:2.1-sdk-bionic AS build
 
-\# build latest stable libgdiplus
+# build latest stable libgdiplus
 
 RUN apt-get update -y
 
@@ -261,11 +261,11 @@ RUN make install
 
 RUN ln -s /usr/local/lib/libgdiplus.so /usr/lib/libgdiplus.so
 
-\# create mount points
+# create mount points
 
 VOLUME /slides-src
 
-\# build and test Aspose.Slides on start
+# build and test Aspose.Slides on start
 
 WORKDIR /slides-src
 
@@ -279,11 +279,11 @@ The only difference is the *build latest stable libgdiplus* section. This sect
 
 **Note**: Do not forget to use different image tags (name) for the resulting image on docker build and docker run commands:
 
-``` csharp
+``` bash
 
- $ docker build \-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus \-t ubuntu18_04_make_libgdiplus .
+ $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_make_libgdiplus .
 
-$ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_make_libgdiplus:latest
+$ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_make_libgdiplus:latest
 
 ```
 
@@ -296,7 +296,7 @@ $ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.too
 
 Unfortunately, Microsoft does not provide Windows Server Core image with the dotnet SDK installed, so we have to install it manually:
 
-``` csharp
+``` dockerfile
 
  # escape=
 
@@ -306,15 +306,7 @@ FROM microsoft/windowsservercore:1803 AS installer-env
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-\# escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#set powershell default executor
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# Retrieve .NET Core SDK
+# Retrieve .NET Core SDK
 
 ENV DOTNET_SDK_VERSION 2.1.301
 
@@ -340,7 +332,7 @@ RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.ne
 
 SHELL ["cmd", "/S", "/C"]
 
-\# In order to set system PATH, ContainerAdministrator must be used
+# In order to set system PATH, ContainerAdministrator must be used
 
 USER ContainerAdministrator
 
@@ -348,7 +340,7 @@ RUN setx /M PATH "%PATH%;c:/Program Files/dotnet"
 
 USER ContainerUser
 
-\# create mount points
+# create mount points
 
 VOLUME c:/slides-src
 
@@ -366,7 +358,7 @@ The resulting image will be built over microsoft/windowsservercore:1803 image pr
 
 Command to build the image:
 
-``` csharp
+``` bash
 
  docker build -f Dockerfile_WinServerCore -t winservercore_slides .
 
@@ -376,7 +368,7 @@ Command to build the image:
 
 Command to run the image:
 
-``` csharp
+``` bash
 
  docker run -it --cpu-count 3 --memory 8589934592 -v e:\Project\Aspose\slides-net:c:\slides-src winservercore_slides:latest
 
@@ -398,7 +390,7 @@ Because container running on Windows just doesn't require external.tool.server.
 
 The result of the command above should look like this:
 
-``` csharp
+```text
 
  NAnt 0.92 (Build 0.92.4543.0; release; 6/9/2012)
 

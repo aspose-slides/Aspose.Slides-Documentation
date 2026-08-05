@@ -50,6 +50,9 @@ Let's say we have a "speaker_notes.pptx" file with the following slide:
 The code snippet below demonstrates how to convert the presentation to a TIFF image in Notes Slide view using the [SlidesLayoutOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) property.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation("speaker_notes.pptx"))
 {

@@ -32,6 +32,9 @@ To export a presentation in Handout mode, set the `SlidesLayoutOptions` property
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load a presentation.
 using var presentation = new Presentation("sample.pptx");
 

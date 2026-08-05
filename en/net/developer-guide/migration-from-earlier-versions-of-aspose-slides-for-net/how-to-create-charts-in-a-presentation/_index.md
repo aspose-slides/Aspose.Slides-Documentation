@@ -29,6 +29,8 @@ A new [Aspose.Slides for .NET API](/slides/net/) has been released and now this 
 In order to use the legacy code developed with Aspose.Slides for .NET versions earlier to 13.x, you need to make some minor changes in your code and the code will work as earlier. All the classes that were present in old Aspose.Slides for .NET under Aspose.Slide and Aspose.Slides.Pptx namespaces are now merged in single Aspose.Slides namespace. Please take a look over the following simple code snippet for creating a normal chart from scratch in presentation using legacy Aspose.Slides API and follow the steps describing how to migrate to new merged API.
 ## **Legacy Aspose.Slides for .NET Approach**
 ```c#
+using System.Drawing;
+
 //Instantiate PresentationEx class that represents PPTX file
 using (PresentationEx pres = new PresentationEx())
 {
@@ -131,6 +133,11 @@ using (PresentationEx pres = new PresentationEx())
 
 ## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 //Instantiate Presentation class that represents PPTX file//Instantiate Presentation class that represents PPTX file
 Presentation pres = new Presentation();
 
@@ -147,9 +154,6 @@ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBoo
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//Set first series to Show Values
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
 //Setting the index of chart data sheet
 int defaultWorksheetIndex = 0;
 
@@ -165,6 +169,9 @@ s = chart.ChartData.Categories.Count;
 //Adding new series
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+
+//Set first series to Show Values
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 //Adding new categories
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
@@ -289,6 +296,10 @@ using (PresentationEx pres = new PresentationEx())
 
 ## **New Aspose.Slides for .NET 13.x Approach**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];

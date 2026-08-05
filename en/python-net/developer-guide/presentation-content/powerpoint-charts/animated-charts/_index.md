@@ -39,7 +39,7 @@ import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 # Instantiate Presentation class that represents a presentation file 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes
@@ -81,7 +81,7 @@ with slides.Presentation(path + "ExistingChart.pptx") as presentation:
 
 
 ## **Chart Category Animation**
-If you want to animate a chart series, write the code according to the steps listed below:
+If you want to animate a chart category, write the code according to the steps listed below:
 
 1. Load a presentation.
 1. Get reference of the chart object.
@@ -94,31 +94,41 @@ In the example given below, we animated chart category.
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes
     chart = shapes[0]
 
-    # Animate categories' elements
+    # Animate the categories
     slide.timeline.main_sequence.add_effect(chart, anim.EffectType.FADE, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 1, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 0, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 1, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 1, 1, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 1, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 1, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
+    slide.timeline.main_sequence.add_effect(chart,
+        anim.EffectChartMajorGroupingType.BY_CATEGORY, 0,
+        anim.EffectType.APPEAR,
+        anim.EffectSubtype.NONE,
+        anim.EffectTriggerType.AFTER_PREVIOUS)
 
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 0, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 1, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 2, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
-    slide.timeline.main_sequence.add_effect(chart, anim.EffectChartMinorGroupingType.BY_ELEMENT_IN_CATEGORY, 2, 3, anim.EffectType.APPEAR, anim.EffectSubtype.NONE, anim.EffectTriggerType.AFTER_PREVIOUS)
+    slide.timeline.main_sequence.add_effect(chart,
+        anim.EffectChartMajorGroupingType.BY_CATEGORY, 1,
+        anim.EffectType.APPEAR,
+        anim.EffectSubtype.NONE,
+        anim.EffectTriggerType.AFTER_PREVIOUS)
+
+    slide.timeline.main_sequence.add_effect(chart,
+        anim.EffectChartMajorGroupingType.BY_CATEGORY, 2,
+        anim.EffectType.APPEAR,
+        anim.EffectSubtype.NONE,
+        anim.EffectTriggerType.AFTER_PREVIOUS)
+
+    slide.timeline.main_sequence.add_effect(chart,
+        anim.EffectChartMajorGroupingType.BY_CATEGORY, 3,
+        anim.EffectType.APPEAR,
+        anim.EffectSubtype.NONE,
+        anim.EffectTriggerType.AFTER_PREVIOUS)
 
     # Write the presentation file to disk
-    presentation.save("AnimatingCategoriesElements_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AnimatingCategories_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -137,7 +147,7 @@ import aspose.slides.animation as anim;
 import aspose.slides as slides
 
 # Load a presentation
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes
@@ -180,7 +190,7 @@ In the example given below, we have animated categories elements.
 import aspose.slides.animation as anim;
 import aspose.slides as slides
 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
+with slides.Presentation("ExistingChart.pptx") as presentation:
     # Get reference of the chart object
     slide = presentation.slides[0]
     shapes = slide.shapes

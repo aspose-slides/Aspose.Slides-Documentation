@@ -52,6 +52,9 @@ Using Aspose.Slides, you can specify a custom line style for a shape. The follow
 The following code demonstrates how to format a rectangle `AutoShape`:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -61,7 +64,7 @@ try {
     // Add an auto shape of the Rectangle type.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Set the fill color for the rectangle shape.
+    // Remove the fill from the rectangle shape so only its lines are visible.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // Apply formatting to the rectangle's lines.
@@ -91,6 +94,8 @@ A sketch effect makes a shape line look hand-drawn. Use [IShape.getLineFormat](h
 The following Java code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -116,6 +121,8 @@ try {
 The value returned by [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/), access [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/), and read [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/). The effective value reflects the formatting that is actually applied after inheritance is resolved:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -147,6 +154,9 @@ By default, when PowerPoint joins two lines at an angle (such as at a shape’s 
 The following Java code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -212,6 +222,8 @@ Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 The following Java code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -263,6 +275,9 @@ Here's how to apply a pattern fill to a shape using Aspose.Slides:
 The following Java code demonstrates how to apply a pattern fill to a rectangle:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -315,6 +330,8 @@ Let's say we have a "lotus.png" file with the following picture:
 The following Java code demonstrates how to fill a shape with the picture:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -364,6 +381,8 @@ If you want to set a tiled picture as a texture and customize the tiling behavio
 The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -421,6 +440,9 @@ To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
 The following Java code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -463,6 +485,9 @@ Aspose.Slides lets you set the transparency level by adjusting the alpha value i
 The following Java code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -503,6 +528,8 @@ To rotate a shape on a slide, follow these steps:
 The following Java code demonstrates how to rotate a shape by 5 degrees:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
@@ -541,6 +568,9 @@ To add 3D bevel effects to a shape, follow these steps:
 The following Java code shows how to apply 3D bevel effects to a shape:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -589,6 +619,8 @@ To apply 3D rotation to a shape:
 The following Java code demonstrates how to apply 3D rotation effects to a shape:
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -618,6 +650,8 @@ The result:
 The following Java code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/) to their default settings:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {

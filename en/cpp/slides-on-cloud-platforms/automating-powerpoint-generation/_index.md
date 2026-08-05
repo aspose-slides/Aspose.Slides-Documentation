@@ -68,6 +68,16 @@ Ok, let’s walk through building a sample presentation using real-world content
 We'll begin by creating a new presentation and adding a title slide with a main heading and subtitle.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 auto slide0 = presentation->get_Slide(0);
@@ -89,6 +99,33 @@ subtitleShape->get_TextFrame()->set_Text(u"Prepared for Executive Team");
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
 auto layoutSlide1 = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 auto slide1 = presentation->get_Slides()->AddEmptySlide(layoutSlide1);
 
@@ -122,6 +159,23 @@ series->get_DataPoints()->AddDataPointForBarSeries(workbook->GetCell(worksheetIn
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
 auto layoutSlide2 = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 auto slide2 = presentation->get_Slides()->AddEmptySlide(layoutSlide2);
 
@@ -148,6 +202,22 @@ table->get_Column(1)->idx_get(4)->get_TextFrame()->set_Text(u"87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Paragraph.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 static SharedPtr<IParagraph> CreateBulletParagraph(String text) {
     auto paragraph = MakeObject<Paragraph>();
     paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
@@ -159,6 +229,31 @@ static SharedPtr<IParagraph> CreateBulletParagraph(String text) {
 }
 ```
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+// Defined in the previous step.
+SharedPtr<IParagraph> CreateBulletParagraph(String text);
+
+auto presentation = MakeObject<Presentation>();
+
 auto layoutSlide3 = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 auto slide3 = presentation->get_Slides()->AddEmptySlide(layoutSlide3);
 

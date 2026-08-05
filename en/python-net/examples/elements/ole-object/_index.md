@@ -25,6 +25,8 @@ Demonstrates embedding a file as an OLE object and updating its data using **Asp
 Embed a PDF file into the presentation.
 
 ```py
+import aspose.slides as slides
+
 def add_ole_object():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -44,6 +46,8 @@ def add_ole_object():
 Retrieve the first OLE object frame on a slide.
 
 ```py
+import aspose.slides as slides
+
 def access_ole_object():
     with slides.Presentation("ole_frame.pptx") as presentation:
         slide = presentation.slides[0]
@@ -57,6 +61,8 @@ def access_ole_object():
 Delete an embedded OLE object from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_ole_object():
     with slides.Presentation("ole_frame.pptx") as presentation:
         slide = presentation.slides[0]
@@ -74,6 +80,8 @@ def remove_ole_object():
 Replace the data embedded in an existing OLE object.
 
 ```py
+import aspose.slides as slides
+
 def update_ole_object_data():
     with slides.Presentation("ole_frame.pptx") as presentation:
         slide = presentation.slides[0]

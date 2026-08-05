@@ -41,6 +41,8 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 {{% /alert %}} 
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation object that represents a PPT file
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 try {

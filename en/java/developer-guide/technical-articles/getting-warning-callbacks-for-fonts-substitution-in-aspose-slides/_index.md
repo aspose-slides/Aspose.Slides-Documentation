@@ -31,6 +31,8 @@ Aspose.Slides for Java provides straightforward APIs for receiving warning callb
 **Custom Warning Callback Class:**
 
 ```java
+import com.aspose.slides.*;
+
 class FontWarningHandler implements IWarningCallback {
     public int warning(IWarningInfo warning) {
         if (warning.getWarningType() == WarningType.DataLoss) {
@@ -48,6 +50,17 @@ class FontWarningHandler implements IWarningCallback {
 **Generate a Slide Thumbnail:**
 
 ```java
+import com.aspose.slides.*;
+
+class FontWarningHandler implements IWarningCallback {
+    public int warning(IWarningInfo warning) {
+        if (warning.getWarningType() == WarningType.DataLoss) {
+            System.out.println(warning.getDescription());
+        }
+        return ReturnAction.Continue;
+    }
+}
+
 // Set up a warning callback to handle font-related warnings during slide rendering.
 RenderingOptions options = new RenderingOptions();
 options.setWarningCallback(new FontWarningHandler());
@@ -72,6 +85,18 @@ finally {
 **Export to PDF Format:**
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
+class FontWarningHandler implements IWarningCallback {
+    public int warning(IWarningInfo warning) {
+        if (warning.getWarningType() == WarningType.DataLoss) {
+            System.out.println(warning.getDescription());
+        }
+        return ReturnAction.Continue;
+    }
+}
+
 // Set up a warning callback to handle font-related warnings during PDF export.
 SaveOptions options = new PdfOptions();
 options.setWarningCallback(new FontWarningHandler());
@@ -92,6 +117,18 @@ finally {
 **Export to HTML Format:**
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
+class FontWarningHandler implements IWarningCallback {
+    public int warning(IWarningInfo warning) {
+        if (warning.getWarningType() == WarningType.DataLoss) {
+            System.out.println(warning.getDescription());
+        }
+        return ReturnAction.Continue;
+    }
+}
+
 // Set up a warning callback to handle font-related warnings during HTML export.
 SaveOptions options = new HtmlOptions();
 options.setWarningCallback(new FontWarningHandler());

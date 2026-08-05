@@ -34,12 +34,14 @@ The following example includes these steps:
 1. With [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```c#
+using Aspose.Slides;
+
 // Create new instance of a rules collection
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
 // create a number of rules
 rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
-//rulesList.Add(new FontFallBackRule(...));
+rulesList.Add(new FontFallBackRule(0x600, 0x6FF, "Tahoma, Arial"));
 
 foreach (IFontFallBackRule fallBackRule in rulesList)
 {
@@ -47,13 +49,13 @@ foreach (IFontFallBackRule fallBackRule in rulesList)
 	fallBackRule.Remove("Tahoma");
 
 	//And to update of rules for specified range
-	if ((fallBackRule.RangeEndIndex >= 0x4000) && (fallBackRule.RangeStartIndex < 0x5000))
+	if ((fallBackRule.RangeEndIndex >= 0x400) && (fallBackRule.RangeStartIndex < 0x500))
 		fallBackRule.AddFallBackFonts("Verdana");
 }
 
-//Also we can remove any existing rules from list
-if (rulesList.Count > 0)
-	rulesList.Remove(rulesList[0]);
+//Also we can remove any existing rules from list, keeping at least one rule to render with
+if (rulesList.Count > 1)
+	rulesList.Remove(rulesList[1]);
 
 using (Presentation pres = new Presentation("input.pptx"))
 {

@@ -27,6 +27,10 @@ This article demonstrates adding, reading, removing, and replying to modern comm
 Create a comment authored by a user and save the presentation.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static void AddModernComment()
 {
     using var presentation = new Presentation();
@@ -44,6 +48,8 @@ static void AddModernComment()
 Read a modern comment from an existing presentation.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessModernComment()
 {
     using var presentation = new Presentation("modern_comment.pptx");
@@ -59,6 +65,9 @@ static void AccessModernComment()
 Remove a comment and save the updated file.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static void RemoveModernComment()
 {
     using var presentation = new Presentation("modern_comment.pptx");
@@ -76,6 +85,10 @@ static void RemoveModernComment()
 Add replies to a parent modern comment.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static void ReplyToModernComment()
 {
     using var presentation = new Presentation();

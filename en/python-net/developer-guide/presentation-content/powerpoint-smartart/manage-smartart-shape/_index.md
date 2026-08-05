@@ -116,7 +116,7 @@ with slides.Presentation("SmartArt.pptx") as presentation:
             # Check the SmartArt style.
             if shape.quick_style == smartart.SmartArtQuickStyleType.SIMPLE_FILL:
                 # Change the SmartArt style.
-                smart.quick_style = smartart.SmartArtQuickStyleType.CARTOON
+                shape.quick_style = smartart.SmartArtQuickStyleType.CARTOON
     # Save the presentation.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```

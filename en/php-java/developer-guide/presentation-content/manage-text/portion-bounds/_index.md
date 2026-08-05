@@ -33,8 +33,10 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->get_Item(0);
 
-    foreach ($shape->getTextFrame()->getParagraphs() as $paragraph) {
-        foreach ($paragraph->getPortions() as $portion) {
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    foreach ($paragraphs as $paragraph) {
+        $portions = $paragraph->getPortions();
+        foreach ($portions as $portion) {
             $rectangle = $portion->getRect();
             $rectangleX = java_values($rectangle->getX());
             $rectangleY = java_values($rectangle->getY());
@@ -59,8 +61,10 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->get_Item(0);
 
-    foreach ($shape->getTextFrame()->getParagraphs() as $paragraph) {
-        foreach ($paragraph->getPortions() as $portion) {
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+    foreach ($paragraphs as $paragraph) {
+        $portions = $paragraph->getPortions();
+        foreach ($portions as $portion) {
             $point = $portion->getCoordinates();
             $pointX = java_values($point->getX());
             $pointY = java_values($point->getY());

@@ -54,7 +54,7 @@ Microsoft eventually implemented support for printing operations in PDF through 
 
 ## XPS Conversion with Aspose.Slides
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) for .NET, you can use the [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to convert the entire presentation into an XPS document. 
+In [**Aspose.Slides**](https://products.aspose.com/slides/python-net/) for Python via .NET, you can use the [**save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) method exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to convert the entire presentation into an XPS document. 
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 
@@ -85,7 +85,7 @@ import aspose.slides as slides
 # Instantiate a Presentation object that represents a presentation file
 pres = slides.Presentation("Convert_XPS_Options.pptx")
 
-# Instantiate the TiffOptions class
+# Instantiate the XpsOptions class
 options = slides.export.XpsOptions()
 
 # Save MetaFiles as PNG

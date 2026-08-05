@@ -23,6 +23,8 @@ One of the most common questions from Aspose.Slides for Java customers is how to
 To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
 
 ```java
+import com.aspose.slides.*;
+
 // Load the presentation file.
 Presentation presentation = new Presentation("sample.ppt");
 try {
@@ -63,13 +65,15 @@ finally {
 
 {{% alert color="primary" %}} 
 
-If a slide contains a table, the code above will not work correctly. In that case, each cell in the table must be resized.
+Tables need no special treatment: setting a table's width and height rescales its columns and rows proportionally, so scaling the row heights and column widths again would apply the ratio twice.
 
 {{% /alert %}} 
 
-Use the following code on your end to resize slides that contain tables. For tables, setting the width or height is a special case: you must adjust individual row heights and column widths to change the table’s overall size.
+The code above changes only the shapes on the slides. Master slides and layout slides keep their own shapes, so scale them as well when you want the whole presentation to follow the new slide size:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Get the original slide size.
@@ -120,17 +124,6 @@ try {
             // Scale the shape position.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -149,11 +142,11 @@ When resizing a slide, shapes retain their original position and size unless the
 
 ### Does the provided code work for all shape types?
 
-The basic example works for most shape types (text boxes, images, charts, etc.). However, for tables, you need to handle rows and columns separately, since the height and width of a table are determined by the dimensions of individual cells.
+Yes. Setting the height and width works for text boxes, images, charts, and tables alike.
 
 ### How do I resize tables when resizing a slide?
 
-You need to loop through all the rows and columns of the table and resize their height and width proportionally, as shown in the second code example.
+Scale the table shape itself, exactly like any other shape. Its rows and columns follow proportionally, so do not scale them again afterwards.
 
 ### Will this resizing work for master slides and layout slides?
 

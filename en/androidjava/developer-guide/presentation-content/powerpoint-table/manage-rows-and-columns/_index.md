@@ -41,6 +41,8 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 This Java code shows you how to set a table's first row as its header:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation("table.pptx");
 try {
@@ -84,6 +86,8 @@ try {
 This Java code shows you how to clone a PowerPoint table's row or column:
 
 ```java
+import com.aspose.slides.*;
+
  // Instantiates the Presentation class
 Presentation pres = new Presentation("Test.pptx");
 try {
@@ -142,6 +146,8 @@ try {
 This Java code shows you how to remove a row or column from a table:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -172,8 +178,10 @@ try {
 This Java code demonstrates the operation.
 
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Loads the presentation that contains the table
+Presentation pres = new Presentation("table.pptx");
 try {
     // Let's assume that the first shape on the first slide is a table
     ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
@@ -217,29 +225,31 @@ try {
 This Java code demonstrates the operation: 
 
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Loads the presentation that contains the table
+Presentation pres = new Presentation("table.pptx");
 try {
     // Let's assume that the first shape on the first slide is a table
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
     // Sets the first column cells' font height
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
+
     someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
 
     // Sets the first column cells' text alignment and right margin in one call
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
+
     someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
     // Sets the second column cells' text vertical type
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
+
     someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
     pres.save("result.pptx", SaveFormat.Pptx);
@@ -253,10 +263,17 @@ try {
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.setStylePreset(TableStylePreset.DarkStyle1); // change the default style preset theme
+
+    // Gets the style preset applied to the table, so it can be reused elsewhere
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset); // TableStylePreset.DarkStyle1
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();

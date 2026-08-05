@@ -33,6 +33,9 @@ To create a simple slide transition effect, follow the steps below:
 1. Write the modified presentation file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class to load the source presentation file
 var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
 try {
@@ -57,6 +60,9 @@ In the above section, we just applied a simple transition effect on the slide. N
 1. Write the modified presentation as a presentation file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents a presentation file
 var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
 try {
@@ -94,6 +100,9 @@ The Morph transition allows you to animate smooth movement from one slide to the
 The following code snippet shows you how to add a clone of the slide with some text to the presentation and set a transition of [morph type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TransitionType) to the second slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
@@ -123,6 +132,9 @@ TransitionMorphType enum has three members:
 The following code snippet shows you how to set morph transition to slide and change morph type:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
@@ -144,6 +156,9 @@ Aspose.Slides for Node.js via Java supports setting the transition effects like,
 In the example given below, we have set the transition effects.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
 try {

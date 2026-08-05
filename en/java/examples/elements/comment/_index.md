@@ -21,6 +21,9 @@ This article demonstrates adding, reading, removing, and replying to modern comm
 Create a comment authored by a user and save the presentation.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 static void addModernComment() {
     Presentation presentation = new Presentation();
     try {
@@ -42,6 +45,8 @@ static void addModernComment() {
 Read a modern comment from an existing presentation.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessModernComment() {
     Presentation presentation = new Presentation("modern_comment.pptx");
     try {
@@ -59,6 +64,8 @@ static void accessModernComment() {
 Remove a comment and save the updated file.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeModernComment() {
     Presentation presentation = new Presentation("modern_comment.pptx");
     try {
@@ -79,6 +86,9 @@ static void removeModernComment() {
 Add replies to a parent modern comment.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 static void replyToModernComment() {
     Presentation presentation = new Presentation();
     try {
@@ -88,10 +98,10 @@ static void replyToModernComment() {
 
         IModernComment parentComment = author.getComments().addModernComment(
                 "Parent comment", slide, null, new Point2D.Float(100, 100), new java.util.Date());
-        
+
         IModernComment reply1 = author.getComments().addModernComment(
                 "Reply 1", slide, null, new Point2D.Float(110, 100), new java.util.Date());
-        
+
         IModernComment reply2 = author.getComments().addModernComment(
                 "Reply 2", slide, null, new Point2D.Float(120, 100), new java.util.Date());
 

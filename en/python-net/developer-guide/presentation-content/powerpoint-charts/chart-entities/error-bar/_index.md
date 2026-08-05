@@ -21,7 +21,7 @@ This article explains how to work with error bars in presentation charts by usin
 It also demonstrates how to assign custom error bar values for individual data points in a series by using the corresponding data point collection. In addition, the article includes brief notes about how error bars behave during export, their compatibility with markers and data labels, and where to find the related API reference classes and enums.
 
 ## **Add Error Bar**
-Aspose.Slides for Python via .NET provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the **DataPoints** collection of series:
+Aspose.Slides for Python via .NET provides a simple API for managing error bar values. The sample code below applies when the value type is the same for the whole series—for example **FIXED** or **PERCENTAGE**. In that case a single amount is set through the **value** property of the error bars format. For per-point amounts, see [Add Custom Error Bar Value](#add-custom-error-bar-value) below.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Add a bubble chart on desired slide.

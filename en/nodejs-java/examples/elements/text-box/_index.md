@@ -24,6 +24,10 @@ This guide explains how to add, access, and remove text boxes programmatically.
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addTextBox() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -62,6 +66,10 @@ function addTextBox() {
 Retrieve the first text box from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessTextBox() {
     let presentation = new aspose.slides.Presentation("text_box.pptx");
     try {
@@ -86,6 +94,10 @@ function accessTextBox() {
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function removeTextBoxes() {
     let presentation = new aspose.slides.Presentation("text_box.pptx");
     try {
@@ -96,7 +108,7 @@ function removeTextBoxes() {
             let shape = slide.getShapes().get_Item(i);
             if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
                 let autoShape = shape;
-                if (autoShape.getTextFrame().getText().includes("Slide")) {
+                if (autoShape.getTextFrame().getText().includes("Some text")) {
                     shapesToRemove.push(shape);
                 }
             }

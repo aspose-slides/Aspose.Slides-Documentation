@@ -48,6 +48,9 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 This C# code shows you how to add a website hyperlink to a text:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -65,6 +68,9 @@ using (Presentation presentation = new Presentation())
 This sample code in C# shows you how to add a website hyperlink to a shape:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -83,6 +89,9 @@ Aspose.Slides allows you to add hyperlinks to images, audio, and video files.
 This sample code shows you how to add a hyperlink to an **image**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Adds image to presentation
@@ -100,6 +109,9 @@ using (Presentation pres = new Presentation())
  This sample code shows you how to add a hyperlink to an **audio file**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -115,6 +127,9 @@ using (Presentation pres = new Presentation())
  This sample code shows you how to add a hyperlink to a **video**:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -141,6 +156,10 @@ Since hyperlinks allow you to add references to objects or places, you can use t
 This sample code shows you how to create a table of contents with hyperlinks:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -176,6 +195,10 @@ With the [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihy
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -203,6 +226,9 @@ Aspose.Slides provides these properties to allow you emphasize a hyperlink with 
 This C# code shows you how to set the hyperlink that plays a sound and stop it with another hyperlink:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Adds new audio to the presentation audio collection
@@ -240,6 +266,8 @@ using (Presentation pres = new Presentation())
 This C# code shows you how to extract the sound used in an hyperlink:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
@@ -262,6 +290,9 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 This C# code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -289,6 +320,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 This C# code shows you how to remove the hyperlink from a shape in a presentation slide: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -312,6 +346,9 @@ The [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink)
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    

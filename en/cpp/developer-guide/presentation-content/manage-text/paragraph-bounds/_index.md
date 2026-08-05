@@ -25,6 +25,14 @@ This article explains how to get the bounds, size, and coordinates of paragraphs
 Use [IParagraph::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/getrect/) to get the bounding rectangle of a paragraph.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <drawing/rectangle_f.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"Shapes.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -41,6 +49,29 @@ To get the size and coordinates of an [IParagraph](https://reference.aspose.com/
 The following example gets paragraph bounds inside a table cell and draws rectangles on the slide to visualize those bounds:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <drawing/rectangle_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"source.pptx");
 auto slide = presentation->get_Slide(0);
 auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));

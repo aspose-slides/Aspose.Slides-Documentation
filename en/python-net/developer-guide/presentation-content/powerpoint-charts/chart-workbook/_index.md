@@ -172,7 +172,8 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chart.chart_data.set_external_workbook("external_workbook.xlsx")
+    # Pass False so only the path is stored: the target workbook does not have to exist yet.
+    chart.chart_data.set_external_workbook("external_workbook.xlsx", False)
 
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -180,7 +181,7 @@ with slides.Presentation() as presentation:
 The `update_chart_data` parameter of the [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) method specifies whether the Excel workbook will be loaded.
 
 - When `update_chart_data` is set to `False`, only the workbook path is updated; the chart data is not loaded or refreshed from the target workbook. Use this setting when the target workbook does not exist or is unavailable.
-- When `update_chart_data` is set to `True`, the chart data is loaded and updated from the target workbook.
+- When `update_chart_data` is set to `True` (the default), the chart data is loaded and updated from the target workbook. If that workbook cannot be opened, an exception with the message "External workbook is not available" is raised.
 
 ### **Create External Workbooks**
 
@@ -284,7 +285,7 @@ Yes, such workbooks can be used as an external data source. However, editing rem
 
 **Does Aspose.Slides overwrite the external XLSX when saving the presentation?**
 
-No. The presentation stores a [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) and uses it for reading data. The external file itself is not modified when the presentation is saved.
+Only if you edited the chart data. The presentation stores a [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) and uses it for reading data, so opening and saving a presentation leaves the workbook untouched. However, values you change through the chart data (see [Edit Chart Data](#edit-chart-data) above) are written back into the external workbook when the presentation is saved—work on a copy if the original must stay intact.
 
 **What should I do if the external file is password-protected?**
 

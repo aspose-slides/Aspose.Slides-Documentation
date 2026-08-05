@@ -39,29 +39,26 @@ The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.
 Example of usage:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
   ISmartArtNode node = smart.AllNodes[0];
 
-  foreach (SmartArtShape shape in node.Shapes)
-
+  foreach (ISmartArtShape shape in node.Shapes)
   {
-
     shape.FillFormat.FillType = FillType.Solid;
 
     shape.FillFormat.SolidFillColor.Color = Color.Red;
-
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
-
+  pres.Save("out.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 
 {{% /alert %}} 
@@ -73,29 +70,26 @@ The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspo
 **Note**: depending on the SmartArtLayoutType one SmartArtShape can be shared between several nodes.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
   ISmartArtNode node = smart.AllNodes[0];
 
-  foreach (SmartArtShape shape in node.Shapes)
-
+  foreach (ISmartArtShape shape in node.Shapes)
   {
-
     shape.FillFormat.FillType = FillType.Solid;
 
     shape.FillFormat.SolidFillColor.Color = Color.Red;
-
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
-
+  pres.Save("out.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 
 {{% /alert %}} 
@@ -111,13 +105,15 @@ These methods allow developers to save specified presentation slides to PDF, XPS
 Save(string fname, int[] slides, SaveFormat format);
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- Presentation presentation = new Presentation(presentationFileName);
+using (Presentation presentation = new Presentation("presentation.pptx"))
+{
+    int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
 
-int[] slides = new int[] { 2, 3, 5 }; //Array of slides positions
-
-presentation.Save(outFileName, slides, SaveFormat.Pdf);
-
+    presentation.Save("output.pdf", slides, SaveFormat.Pdf);
+}
 ``` 
 #### **Methods for Replacing Images Added to PPImage, IPPImage**
 New methods added:
@@ -127,31 +123,33 @@ New methods added:
 - IPPImage.ReplaceImage(IPPImage newImage)
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- Presentation presentation = new Presentation(presentation.pptx);
+using (Presentation presentation = new Presentation("presentation.pptx"))
+{
+    //First method
 
-//First method
+    byte[] data = File.ReadAllBytes("image0.jpeg");
 
-byte[] data = File.ReadAllBytes(image0.jpeg);
+    IPPImage oldImage = presentation.Images[0];
 
-IPPImage oldImage = presentation.Images[0];
+    oldImage.ReplaceImage(data);
 
-oldImage.ReplaceImage(data);
+    //Second method
 
-//Second method
+    IImage newImage = Images.FromFile("image1.png");
 
-Image newImage = Image.FromFile(image1.png);
+    oldImage = presentation.Images[1];
 
-oldImage = presentation.Images[1];
+    oldImage.ReplaceImage(newImage);
 
-oldImage.ReplaceImage(newImage);
+    //Third method
 
-//Third method
+    oldImage = presentation.Images[2];
 
-oldImage = presentation.Images[2];
+    oldImage.ReplaceImage(presentation.Images[3]);
 
-oldImage.ReplaceImage(presentation.Images[3]);
-
-presentation.Save(presentation_out.pptx, SaveFormat.Pptx);
-
+    presentation.Save("presentation_out.pptx", SaveFormat.Pptx);
+}
 ``` 

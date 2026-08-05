@@ -26,6 +26,9 @@ This article demonstrates working with mathematical text shapes and formatting e
 Create a math shape containing a fraction and the Pythagorean formula.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+
 static void AddMathText()
 {
     using var presentation = new Presentation();
@@ -58,6 +61,9 @@ static void AddMathText()
 Locate a shape that contains a math paragraph on the slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+
 static void AccessMathText()
 {
     using var presentation = new Presentation("sample.pptx");
@@ -88,6 +94,9 @@ static void AccessMathText()
 Delete a math shape from the slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+
 static void RemoveMathText()
 {
     using var presentation = new Presentation();
@@ -107,6 +116,9 @@ static void RemoveMathText()
 Set font properties for a math portion.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+
 static void FormatMathText()
 {
     using var presentation = new Presentation();

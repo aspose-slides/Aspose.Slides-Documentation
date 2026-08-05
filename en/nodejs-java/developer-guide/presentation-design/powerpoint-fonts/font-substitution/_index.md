@@ -41,6 +41,9 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 This JavaScript code demonstrates the font substitution process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Loads a presentation
 var pres = new aspose.slides.Presentation("Fonts.pptx");
 try {

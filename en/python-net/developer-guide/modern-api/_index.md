@@ -32,7 +32,7 @@ As of version 24.4, this public API is **deprecated** due to [changes](https://r
 
 To eliminate `aspose.pydrawing` from the public API, we introduced the **Modern API**. Methods that use `aspose.pydrawing.Image` and `aspose.pydrawing.Bitmap` are deprecated and should be replaced by their Modern API equivalents. Methods that use `aspose.pydrawing.Graphics` are deprecated and have no direct Modern API replacement.
 
-In current versions, treat the public API that depends on `aspose.pydrawing` as legacy/deprecated. Use the Modern API for new code and when migrating existing image-processing workflows.
+In current versions, the members that depend on `aspose.pydrawing` have already been removed from the public API, so calling them raises an `AttributeError` (or a `TypeError` for the affected overloads). The legacy snippets below are shown only to illustrate what to migrate from — use the Modern API for new code and when migrating existing image-processing workflows.
 
 ## **Modern API**
 
@@ -174,7 +174,7 @@ with slides.Presentation() as presentation:
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, pp_image)
 ```
 
-## **Methods and Properties to Be Removed and Their Modern Replacements**
+## **Removed Methods and Properties and Their Modern Replacements**
 
 ### **Presentation Class**
 
@@ -258,9 +258,9 @@ with slides.Presentation() as presentation:
 Methods that use `aspose.pydrawing.Graphics` are deprecated and have no direct Modern API replacement.
 
 Use the Modern API image-rendering methods instead of the API that renders to `aspose.pydrawing.Graphics`:
-- `aspose.pydrawing.Slide.render_to_graphics(options, graphics)`
-- `aspose.pydrawing.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
-- `aspose.pydrawing.Slide.render_to_graphics(options, graphics, rendering_size)`
+- `aspose.slides.Slide.render_to_graphics(options, graphics)`
+- `aspose.slides.Slide.render_to_graphics(options, graphics, scale_x, scale_y)`
+- `aspose.slides.Slide.render_to_graphics(options, graphics, rendering_size)`
 
 # **FAQ**
 

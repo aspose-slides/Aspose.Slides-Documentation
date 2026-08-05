@@ -104,6 +104,8 @@ with slides.Presentation() as presentation:
 For a stacked fraction, use `MathFractionTypes.BAR`:
 
 ```py
+import aspose.slides.mathtext as math
+
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
@@ -160,6 +162,8 @@ with slides.Presentation() as presentation:
 For a custom function name, make the function name the current element:
 
 ```py
+import aspose.slides.mathtext as math
+
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
@@ -197,6 +201,8 @@ N-ary operators are for large operators with optional limits. Simple operators s
 For an integral, use `integral`:
 
 ```py
+import aspose.slides.mathtext as math
+
 integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_box())
 integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
@@ -218,16 +224,18 @@ with slides.Presentation() as presentation:
     math_paragraph = math_shape.text_frame.paragraphs[0].portions[0].math_paragraph
 
     matrix = math.MathMatrix(2, 3)
-    matrix[0, 0] = math.MathematicalText("1")
-    matrix[0, 1] = math.MathematicalText("x")
-    matrix[1, 0] = math.MathematicalText("x")
-    matrix[1, 1] = math.MathematicalText("2")
-    matrix[1, 2] = math.MathematicalText("y")
 
-    math_paragraph.add(math.MathBlock(matrix))
+    # A matrix has no brackets of its own, so enclose it in parentheses.
+    math_paragraph.add(math.MathBlock(matrix.enclose("(", ")")))
 
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+{{% alert color="warning" %}}
+
+`MathMatrix` builds the row and column grid, sets the gaps between them, and aligns the columns, but Aspose.Slides for Python via .NET does not expose an accessor for an individual matrix cell. A matrix created in code therefore keeps empty cells; the cells of a matrix that comes from an existing presentation can be read with `get_children`. Use an equation array when you need to fill rows from code.
+
+{{% /alert %}}
 
 ## **Add Equation Arrays**
 

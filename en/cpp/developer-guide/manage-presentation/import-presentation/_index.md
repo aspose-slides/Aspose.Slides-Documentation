@@ -41,6 +41,12 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 This C++ code demonstrates the PDF to PowerPoint operation:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
     
 pres->get_Slides()->AddFromPdf(u"InputPDF.pdf");
@@ -64,6 +70,14 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 This C++ code demonstrates the HTML to PowerPoint operation:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>();
 
 {

@@ -34,6 +34,8 @@ All slides in a presentation are arranged numerically based on the slide positio
 The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) collection (collection of [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) objects). This C# code shows you how to access a slide through its index:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation object that represents a presentation file
 Presentation presentation = new Presentation("AccessSlides.pptx");
 
@@ -46,6 +48,8 @@ ISlide slide = presentation.Slides[0];
 Each slide in a presentation has a unique ID associated with it. You can use the [GetSlideById](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method (exposed by the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class) to target that ID. This C# code shows you how to provide a valid slide ID and access that slide through the [GetSlideById](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/getslidebyid) method:
 
 ```c#
+using Aspose.Slides;
+
 // Instantiates a Presentation object that represents a presentation file
 Presentation presentation = new Presentation("AccessSlides.pptx");
 
@@ -67,6 +71,9 @@ Aspose.Slides allow you to change a slide position. For example, you can specify
 This C# code demonstrates an operation in which the slide in position 1 is moved to position 2:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation object that represents a presentation file
 using (Presentation pres = new Presentation("ChangePosition.pptx"))
 {
@@ -95,6 +102,9 @@ Using the [FirstSlideNumber](https://reference.aspose.com/slides/net/aspose.slid
 This C# code demonstrates an operation where the first slide number is set to 10:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
@@ -112,6 +122,9 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);

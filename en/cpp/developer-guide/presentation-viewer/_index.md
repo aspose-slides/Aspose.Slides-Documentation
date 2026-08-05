@@ -33,6 +33,14 @@ To generate an SVG image from a presentation slide with Aspose.Slides, please fo
 1. Save the slide as an SVG image to the file stream.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto slideIndex = 0;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -50,6 +58,35 @@ presentation->Dispose();
 Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `set_Id` method from [ISvgShape](https://reference.aspose.com/slides/cpp/aspose.slides.export/isvgshape/). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/ISvgShape.h>
+#include <Export/ISvgShapeFormattingController.h>
+#include <Export/SVGOptions.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+class CustomSvgShapeFormattingController : public ISvgShapeFormattingController
+{
+private:
+    int m_shapeIndex;
+
+public:
+    CustomSvgShapeFormattingController(int shapeStartIndex = 0)
+    {
+        m_shapeIndex = shapeStartIndex;
+    }
+
+    void FormatShape(SharedPtr<ISvgShape> svgShape, SharedPtr<IShape> shape) override
+    {
+        svgShape->set_Id(String::Format(u"shape-{0}", m_shapeIndex++));
+    }
+};
+
 auto slideIndex = 0;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -65,6 +102,14 @@ svgStream->Dispose();
 presentation->Dispose();
 ```
 ```cpp
+#include <DOM/IShape.h>
+#include <Export/ISvgShape.h>
+#include <Export/ISvgShapeFormattingController.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 class CustomSvgShapeFormattingController : public ISvgShapeFormattingController
 {
 private:
@@ -93,6 +138,14 @@ Aspose.Slides helps you generate thumbnail images of slides. To generate a thumb
 1. Save the thumbnail image in any desired image format.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto slideIndex = 0;
 auto scaleX = 1;
 auto scaleY = scaleX;
@@ -117,8 +170,17 @@ To create a slide thumbnail image with user defined dimensions, please follow th
 1. Save the thumbnail image in any desired image format.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto slideIndex = 0;
-auto slideSize = Size(1200, 800);
+auto slideSize = System::Drawing::Size(1200, 800);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(slideIndex);
@@ -142,6 +204,18 @@ To generate the thumbnail of a slide with speaker notes using Aspose.Slides, ple
 1. Save the thumbnail image in any desired image format.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto slideIndex = 0;
 
 auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();

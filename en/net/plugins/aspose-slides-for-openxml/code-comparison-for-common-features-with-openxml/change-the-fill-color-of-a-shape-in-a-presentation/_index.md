@@ -92,6 +92,10 @@ We need to follow following steps to fill the shapes in presentation:
 - Write the modified presentation as a PPTX file.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  string FilePath = @"..\..\..\..\Sample Files\";
 

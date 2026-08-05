@@ -21,6 +21,16 @@ Examples for creating groups of shapes, accessing them, ungrouping, and removal 
 Create a group containing two basic shapes.
 
 ```cpp
+#include <DOM/IGroupShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddGroupShape()
 {
     auto presentation = MakeObject<Presentation>();
@@ -39,6 +49,17 @@ static void AddGroupShape()
 Retrieve the first group shape from a slide.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessGroupShape()
 {
     auto presentation = MakeObject<Presentation>();
@@ -66,6 +87,16 @@ static void AccessGroupShape()
 Delete a group shape from the slide.
 
 ```cpp
+#include <DOM/IGroupShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveGroupShape()
 {
     auto presentation = MakeObject<Presentation>();
@@ -84,6 +115,17 @@ static void RemoveGroupShape()
 Move shapes out of a group container.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void UngroupShapes()
 {
     auto presentation = MakeObject<Presentation>();

@@ -39,6 +39,9 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 The following Java example shows how to set a blue solid color as the background for a normal slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -69,12 +72,15 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 The following Java example shows how to set a solid color (green) as the background for a master slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Set the background color for the Master slide to Forest Green.
+    // Set the background color for the master slide to green.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -99,6 +105,9 @@ A gradient is a graphical effect created by a gradual change in color. When used
 The following Java example shows how to set a gradient color as the background for a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -107,7 +116,13 @@ try {
     // Apply a gradient effect to the background.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Add the gradient colors. Without gradient stops, the background falls back to a default black-to-white ramp.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Save the presentation to disk.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -131,6 +146,8 @@ In addition to solid and gradient fills, Aspose.Slides allows you to use images 
 The following Java example shows how to set an image as the background for a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation();
 try {
@@ -159,6 +176,8 @@ try {
 The following code sample shows how to set the background fill type to a tiled picture and modify the tiling properties:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -202,26 +221,37 @@ Read more: [**Tile Picture As Texture**](/slides/java/shape-formatting/#tile-pic
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following Java code shows you how to change the transparency for a slide background image:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // For example.
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Get the collection of picture transform operations.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Find an existing fixed-percentage transparency effect.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Set the new transparency value.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
@@ -234,6 +264,8 @@ Using the [BaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides
 The following Java example shows how to get a slide’s effective background value:
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of the Presentation class.
 Presentation presentation = new Presentation("Sample.pptx");
 try {

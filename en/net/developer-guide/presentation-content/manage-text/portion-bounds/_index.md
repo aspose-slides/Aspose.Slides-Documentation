@@ -29,6 +29,8 @@ This article shows how to get the bounding rectangle of a portion by using [IPor
 Use [IPortion.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iportion/getrect/) to retrieve the bounding rectangle of a text portion:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("Shapes.pptx");
 var slide = presentation.Slides[0];
 var shape = (IAutoShape)slide.Shapes[0];
@@ -48,6 +50,8 @@ foreach (var paragraph in shape.TextFrame.Paragraphs)
 Use [IPortion.GetCoordinates](https://reference.aspose.com/slides/net/aspose.slides/iportion/getcoordinates/) to retrieve the coordinates of the beginning of a text portion:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("Shapes.pptx");
 var slide = presentation.Slides[0];
 var shape = (IAutoShape)slide.Shapes[0];

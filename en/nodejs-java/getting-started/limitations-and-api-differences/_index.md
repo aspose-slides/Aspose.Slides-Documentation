@@ -25,7 +25,7 @@ The following list (with sample code segments) shows some differences between As
 
 **Aspose.Slides for Java**
 
-```javascript
+```java
 import com.aspose.slides.*;
 ```
 
@@ -41,13 +41,16 @@ aspose.slides = require("aspose.slides.via.java");
 
 **Aspose.Slides for Java**
 
-```javascript
+```java
 Presentation pres = new Presentation();
 ```
 
 **Aspose.Slides for Node.js via Java**
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 ```
 
@@ -55,7 +58,7 @@ var pres = new aspose.slides.Presentation();
 
 **Aspose.Slides for Java**
 
-```javascript
+```java
 InputStream inputstream = new FileInputStream("Pres1.pptx");
 Presentation pres = new Presentation(inputstream);
 pres.save("result.pptx", SaveFormat.Pptx);

@@ -38,6 +38,9 @@ To manage a simple ActiveX control like a text box and simple command button on 
 The code snippet below updates the ActiveX controls on the presentation slides to the slide as shown below.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 // Accessing the presentation with  ActiveX controls
 Presentation presentation = new Presentation("ActiveX.pptm");
 
@@ -82,7 +85,13 @@ if (control.Name == "TextBox1" && control.Properties != null)
     graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
     pen.Dispose();
     graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+
+    using (MemoryStream imageStream = new MemoryStream())
+    {
+        image.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+        imageStream.Position = 0;
+        control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(imageStream);
+    }
 }
 
 // changing Button caption
@@ -122,14 +131,20 @@ if (control.Name == "CommandButton1" && control.Properties != null)
     graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
     pen.Dispose();
     graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+
+    using (MemoryStream imageStream = new MemoryStream())
+    {
+        image.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+        imageStream.Position = 0;
+        control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(imageStream);
+    }
 }
 
 // Moving ActiveX frames 100 points down
-foreach (Control ctl in slide.Controls)
+foreach (IControl ctl in slide.Controls)
 {
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
+    IShapeFrame frame = ctl.Frame;
+    ctl.Frame = new ShapeFrame(
         frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
@@ -157,6 +172,8 @@ To add ActiveX Media Player control, please perform following steps:
 1. Save the presentation to a PPTX file.
 
 ```c#
+using Aspose.Slides;
+
 // Instantiate Presentation class that represents PPTX file
 Presentation presentation = new Presentation("template.pptx");
 

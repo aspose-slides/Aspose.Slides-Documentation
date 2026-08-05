@@ -22,6 +22,8 @@ Examples for creating groups of shapes, accessing them, ungrouping, and removal 
 Create a group containing two basic shapes.
 
 ```java
+import com.aspose.slides.*;
+
 static void addGroupShape() {
     Presentation presentation = new Presentation();
     try {
@@ -41,6 +43,8 @@ static void addGroupShape() {
 Retrieve the first group shape from a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessGroupShape() {
     Presentation presentation = new Presentation();
     try {
@@ -67,6 +71,8 @@ static void accessGroupShape() {
 Delete a group shape from the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeGroupShape() {
     Presentation presentation = new Presentation();
     try {
@@ -86,6 +92,8 @@ static void removeGroupShape() {
 Move shapes out of a group container.
 
 ```java
+import com.aspose.slides.*;
+
 static void ungroupShapes() {
     Presentation presentation = new Presentation();
     try {

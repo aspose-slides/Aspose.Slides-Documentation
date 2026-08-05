@@ -25,6 +25,9 @@ This article explains how to work with callouts for chart data labels in Aspose.
 New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DataLabelFormat#getShowLabelAsDataCallout--) and [**setShowLabelAsDataCallout()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DataLabelFormat#setShowLabelAsDataCallout-boolean-) have been added to [DataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat) class and [DataLabelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat) class. These methods determine either specified chart's data label will be displayed as data callout or as data label.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 500, 400);
@@ -44,6 +47,10 @@ try {
 Aspose.Slides for Node.js via Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -56,7 +63,7 @@ try {
     while (seriesIndex < 15) {
         var series = chart.getChartData().getSeries().add(workBook.getCell(0, 0, seriesIndex + 1, "SERIES " + seriesIndex), chart.getType());
         series.setExplosion(0);
-        series.getParentSeriesGroup().setDoughnutHoleSize(20);
+        series.getParentSeriesGroup().setDoughnutHoleSize(java.newByte(20));
         series.getParentSeriesGroup().setFirstSliceAngle(351);
         seriesIndex++;
     }
@@ -71,12 +78,12 @@ try {
             dataPoint.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             dataPoint.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
             dataPoint.getFormat().getLine().setWidth(1);
-            dataPoint.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-            dataPoint.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Solid);
+            dataPoint.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+            dataPoint.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
             if (i == (chart.getChartData().getSeries().size() - 1)) {
                 var lbl = dataPoint.getLabel();
-                lbl.getTextFormat().getTextBlockFormat().setAutofitType(aspose.slides.TextAutofitType.Shape);
-                lbl.getDataLabelFormat().getTextFormat().getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+                lbl.getTextFormat().getTextBlockFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
+                lbl.getDataLabelFormat().getTextFormat().getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
                 lbl.getDataLabelFormat().getTextFormat().getPortionFormat().setLatinFont(new aspose.slides.FontData("DINPro-Bold"));
                 lbl.getDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
                 lbl.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -88,8 +95,8 @@ try {
                 lbl.getDataLabelFormat().setShowLeaderLines(true);
                 lbl.getDataLabelFormat().setShowLabelAsDataCallout(false);
                 chart.validateChartLayout();
-                lbl.setX(lbl.getX() + 0.5);
-                lbl.setY(lbl.getY() + 0.5);
+                lbl.setX(java.newFloat(lbl.getX() + 0.5));
+                lbl.setY(java.newFloat(lbl.getY() + 0.5));
             }
             i++;
         }

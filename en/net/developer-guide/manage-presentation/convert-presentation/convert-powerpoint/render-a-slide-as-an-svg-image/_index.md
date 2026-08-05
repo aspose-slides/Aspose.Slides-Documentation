@@ -74,6 +74,8 @@ You may want to try out our [free web application](https://products.aspose.app/s
 This sample code in C# shows you how to convert PowerPoint to SVG using Aspose.Slides: 
 
 ``` csharp
+using Aspose.Slides;
+
 // Presentation object can load PowerPoint formats like PPT, PPTX, ODP etc.
 using (Presentation pres = new Presentation("pres.pptx"))
 {

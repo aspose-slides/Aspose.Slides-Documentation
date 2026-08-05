@@ -32,6 +32,8 @@ This method is not only for specific series but for all series of the parent ser
 - Use IChartSeriesGroup.getOverlap() and setOverlap(byte) methods to manage the value.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -41,7 +43,7 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
@@ -50,16 +52,20 @@ if (series.get_Item(0).getOverlap() == 0) {
 This method of creating shape thumbnails allows developers to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by the slide bounds.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
 ### **Added the VbaProject Class and IVbaProject Interface, Changed the Presentation.getVbaProject() and setVbaProject(VbaProject) Methods**
 A new feature allows developers to create and edit VBA projects in a presentation.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -97,6 +103,6 @@ pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
+pres.save("test.pptm", SaveFormat.Pptm);
 
 ```

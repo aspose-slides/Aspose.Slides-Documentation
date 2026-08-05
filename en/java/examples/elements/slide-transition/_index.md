@@ -21,6 +21,8 @@ This article demonstrates applying slide transition effects and timings with **A
 Apply a fade transition effect to the first slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void addSlideTransition() {
     Presentation presentation = new Presentation();
     try {
@@ -39,6 +41,8 @@ static void addSlideTransition() {
 Read the transition type currently assigned to a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessSlideTransition() {
     Presentation presentation = new Presentation();
     try {
@@ -59,6 +63,8 @@ static void accessSlideTransition() {
 Clear any transition effect by setting the type to `None`.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeSlideTransition() {
     Presentation presentation = new Presentation();
     try {
@@ -79,6 +85,8 @@ static void removeSlideTransition() {
 Specify how long the slide is displayed before advancing automatically.
 
 ```java
+import com.aspose.slides.*;
+
 static void setTransitionDuration() {
     Presentation presentation = new Presentation();
     try {

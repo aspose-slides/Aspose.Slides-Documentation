@@ -22,6 +22,8 @@ Examples for managing presentation sections—add, access, remove, and rename th
 Create a section that starts at a specific slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void addSection() {
     Presentation presentation = new Presentation();
     try {
@@ -40,6 +42,8 @@ static void addSection() {
 Read section information from a presentation.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessSection() {
     Presentation presentation = new Presentation();
     try {
@@ -61,6 +65,8 @@ static void accessSection() {
 Delete a previously added section.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeSection() {
     Presentation presentation = new Presentation();
     try {
@@ -81,6 +87,8 @@ static void removeSection() {
 Change the name of an existing section.
 
 ```java
+import com.aspose.slides.*;
+
 static void renameSection() {
     Presentation presentation = new Presentation();
     try {

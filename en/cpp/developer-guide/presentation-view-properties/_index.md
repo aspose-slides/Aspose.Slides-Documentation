@@ -56,6 +56,15 @@ Property **AutoAdjust** specifies whether the size of the side content region sh
 An example is given below shows how can you access **ViewProperties.NormalViewProperties** properties for a presentation.
 
 ``` cpp
+#include <DOM/INormalViewProperties.h>
+#include <DOM/INormalViewRestoredProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <DOM/SplitterBarStateType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"demo.pptx");
 pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
 pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
@@ -81,6 +90,13 @@ In order to set the view properties. Please follow the steps below:
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ``` cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
 // Setting the view properties of the presentation

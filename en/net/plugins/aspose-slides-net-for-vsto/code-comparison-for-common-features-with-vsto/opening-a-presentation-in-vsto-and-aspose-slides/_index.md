@@ -20,6 +20,8 @@ Below is the code snippet for opening presentation:
 Aspose.Slides for .NET provides **Presentation** class that is used to open an existing presentation. It offers few overloaded constructors and we can make use of one of the suitable constructors of **Presentation** class to create its object based on an existing presentation.In the example given below, we have passed the name of the presentation file (to be opened) to the constructor of Presentation class. After the file is opened, we get the total number of slides present in the presentation to print on the screen.
 
 ``` csharp
+using Aspose.Slides;
+
 
   string FileName = "Open Presentation.pptx";
 

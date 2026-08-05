@@ -41,6 +41,8 @@ This section demonstrates how to create a chart in a Microsoft PowerPoint presen
 1. Close the Microsoft Excel and PowerPoint instances.
 
 ```c#
+using System.Drawing;
+
 EnsurePowerPointIsRunning(true, true);
 
 // Instantiate a slide object.
@@ -199,6 +201,11 @@ The following example shows how to create a simple chart in a PowerPoint present
 1. Save the presentation in PPTX format.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Create an empty presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -228,6 +235,7 @@ using (Presentation presentation = new Presentation())
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
     // Modify the chart series values.
+    chartData.Series[0].DataPoints.Clear();
     chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 1000));
     chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2500));
     chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 4000));

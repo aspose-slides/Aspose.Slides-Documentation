@@ -49,6 +49,8 @@ Here are the steps to convert PPT/PPTX to JPG:
 {{% /alert %}} 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
     for (ISlide sld : pres.getSlides()) {
@@ -72,6 +74,8 @@ try {
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) methods:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
     // Defines dimensions
@@ -103,10 +107,15 @@ try {
 Aspose.Slides for Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("presentation.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomTruncated);
+    notesOptions.setCommentsPosition(CommentsPositions.Right);
+    notesOptions.setCommentsAreaWidth(200);
 
     IRenderingOptions opts = new RenderingOptions();
     opts.setSlidesLayoutOptions(notesOptions);

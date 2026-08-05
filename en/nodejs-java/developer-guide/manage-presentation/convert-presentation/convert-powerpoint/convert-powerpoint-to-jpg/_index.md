@@ -49,6 +49,10 @@ Here are the steps to convert PPT/PPTX to JPG:
 {{% /alert %}} 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
 try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
@@ -75,6 +79,10 @@ try {
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**Slide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-float-float-) methods:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
 try {
     // Defines dimensions
@@ -86,7 +94,7 @@ try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
         let sld = pres.getSlides().get_Item(i);
         // Creates a full scale image
-        var slideImage = sld.getImage(ScaleX, ScaleY);
+        var slideImage = sld.getImage(java.newFloat(ScaleX), java.newFloat(ScaleY));
         // Saves the image to disk in JPEG format
         try {
             slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), aspose.slides.ImageFormat.Jpeg);
@@ -107,10 +115,17 @@ try {
 Aspose.Slides for Node.js via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("presentation.pptx");
 try {
     var notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+    // Without a comments position, the rendered image contains the notes only.
+    notesOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+    notesOptions.setCommentsAreaWidth(200);
     var opts = new aspose.slides.RenderingOptions();
     opts.setSlidesLayoutOptions(notesOptions);
     for (let i = 0; i < pres.getSlides().size(); i++) {

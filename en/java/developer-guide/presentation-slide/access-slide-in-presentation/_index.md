@@ -33,6 +33,8 @@ All slides in a presentation are arranged numerically based on the slide positio
 The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) objects). This Java code shows you how to access a slide through its index: 
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -48,6 +50,8 @@ try {
 Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class) to target that ID. This Java code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -73,6 +77,8 @@ Aspose.Slides allow you to change a slide position. For example, you can specify
 This Java code demonstrates an operation in which the slide in position 1 is moved to position 2: 
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -104,6 +110,8 @@ Using the [setFirstSlideNumber](https://reference.aspose.com/slides/java/com.asp
 This Java code demonstrates an operation where the first slide number is set to 10: 
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation object that represents a presentation file
 Presentation pres = new Presentation("HelloWorld.pptx");
 try {
@@ -123,6 +131,8 @@ try {
 If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);

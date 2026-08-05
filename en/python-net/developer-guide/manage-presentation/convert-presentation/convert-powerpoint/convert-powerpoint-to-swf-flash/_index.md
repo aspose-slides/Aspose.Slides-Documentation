@@ -32,16 +32,20 @@ The [save](https://reference.aspose.com/slides/python-net/aspose.slides/present
 import aspose.slides as slides
 
 # Instantiate a Presentation object that represents a presentation file
-presentation = slides.Presentation("pres.pptx")
+with slides.Presentation("pres.pptx") as presentation:
 
-swfOptions = slides.export.SwfOptions()
-swfOptions.viewer_included = False
-swfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+    swfOptions = slides.export.SwfOptions()
+    swfOptions.viewer_included = False
 
-# Saving presentation and notes pages
-presentation.save("SaveAsSwf_out.swf", slides.export.SaveFormat.SWF, swfOptions)
-swfOptions.viewer_included = True
-presentation.save("SaveNotes_out.swf", slides.export.SaveFormat.SWF, swfOptions)
+    # Saving the presentation
+    presentation.save("SaveAsSwf_out.swf", slides.export.SaveFormat.SWF, swfOptions)
+
+    # Saving the presentation with the notes pages
+    notesOptions = slides.export.NotesCommentsLayoutingOptions()
+    notesOptions.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+    swfOptions.slides_layout_options = notesOptions
+
+    presentation.save("SaveNotes_out.swf", slides.export.SaveFormat.SWF, swfOptions)
 ```
 
 ## **FAQ**

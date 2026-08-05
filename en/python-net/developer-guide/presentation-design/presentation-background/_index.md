@@ -97,6 +97,7 @@ A gradient is a graphical effect created by a gradual change in color. When used
 The following Python example shows how to set a gradient color as the background for a slide:
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Create an instance of the Presentation class.
@@ -106,7 +107,12 @@ with slides.Presentation() as presentation:
     # Apply a gradient effect to the background.
     slide.background.type = slides.BackgroundType.OWN_BACKGROUND
     slide.background.fill_format.fill_type = slides.FillType.GRADIENT
-    slide.background.fill_format.gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
+
+    # Define the gradient colors.
+    gradient_format = slide.background.fill_format.gradient_format
+    gradient_format.gradient_stops.add(0, draw.Color.blue)
+    gradient_format.gradient_stops.add(1, draw.Color.light_blue)
+    gradient_format.tile_flip = slides.TileFlip.FLIP_BOTH
 
     # Save the presentation to disk.
     presentation.save("GradientBackground.pptx", slides.export.SaveFormat.PPTX)
@@ -193,24 +199,31 @@ Read more: [**Tile Picture As Texture**](/slides/python-net/shape-formatting/#ti
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following Python code shows you how to change the transparency for a slide background image:
 
 ```python
-transparency_value = 30  # For example.
+import aspose.slides as slides
 
-# Get the collection of picture transform operations.
-image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
+with slides.Presentation("ImageAsBackground.pptx") as presentation:
+    slide = presentation.slides[0]
 
-transparency_operation = None
+    transparency_value = 30  # For example.
 
-# Find an existing fixed-percentage transparency effect.
-for operation in image_transform:
-    if type(operation) is slides.AlphaModulateFixed:
-        transparency_operation = operation
-        break
+    # Get the collection of picture transform operations.
+    image_transform = slide.background.fill_format.picture_fill_format.picture.image_transform
 
-# Set the new transparency value.
-if transparency_operation is None:
-    image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
-else:
-    transparency_operation.amount = 100 - transparency_value
+    transparency_operation = None
+
+    # Find an existing fixed-percentage transparency effect.
+    for operation in image_transform:
+        if type(operation) is slides.effects.AlphaModulateFixed:
+            transparency_operation = operation
+            break
+
+    # Set the new transparency value.
+    if transparency_operation is None:
+        image_transform.add_alpha_modulate_fixed_effect(100 - transparency_value)
+    else:
+        transparency_operation.amount = 100 - transparency_value
+
+    presentation.save("TransparentBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Get the Slide Background Value**

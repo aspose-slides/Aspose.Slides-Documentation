@@ -32,6 +32,8 @@ To create a simple slide transition effect, follow the steps below:
 1. Write the modified presentation file.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class to load the source presentation file
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
@@ -58,6 +60,8 @@ In the above section, we just applied a simple transition effect on the slide. N
 1. Write the modified presentation as a presentation file.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("BetterSlideTransitions.pptx");
 try {
@@ -101,6 +105,8 @@ The Morph transition allows you to animate smooth movement from one slide to the
 The following code snippet shows you how to add a clone of the slide with some text to the presentation and set a transition of [morph type](https://reference.aspose.com/slides/java/com.aspose.slides/TransitionType) to the second slide.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -135,6 +141,8 @@ TransitionMorphType enum has three members:
 The following code snippet shows you how to set morph transition to slide and change morph type:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
@@ -156,6 +164,8 @@ Aspose.Slides for Java supports setting the transition effects like, from black,
 In the example given below, we have set the transition effects.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {

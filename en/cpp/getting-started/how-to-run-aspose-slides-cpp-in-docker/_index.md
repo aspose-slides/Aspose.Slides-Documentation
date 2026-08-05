@@ -114,7 +114,7 @@ RUN apt-get install -y msttcorefonts \
 
 3. Declaring the /slides-cpp folder as a mounting point to provide access to the slides-cpp sources folder on the host machine; Building and running examples:
 
-``` cpp
+``` dockerfile
 VOLUME /slides-cpp
 WORKDIR /slides-cpp/sample/
 
