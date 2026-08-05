@@ -74,6 +74,8 @@ When converting a presentation to XPS, you have to save the presentation using e
 This sample code in Java shows you how to convert a presentation to an XPS document using standard settings:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation object that represents a presentation file
 Presentation pres = new Presentation("Convert_XPS.pptx");
 try {
@@ -89,10 +91,12 @@ try {
 This sample code shows you how to convert a presentation to an XPS document using custom settings in Java:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate a Presentation object that represents a presentation file
 Presentation pres = new Presentation("Convert_XPS_Options.pptx");
 try {
-    // Instantiate the TiffOptions class
+    // Instantiate the XpsOptions class
     XpsOptions options = new XpsOptions();
 
     // Save MetaFiles as PNG

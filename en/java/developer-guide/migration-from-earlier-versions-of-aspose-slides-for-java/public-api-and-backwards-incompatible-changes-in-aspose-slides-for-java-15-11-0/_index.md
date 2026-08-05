@@ -60,13 +60,16 @@ New methods getFirstSlideNumber() and setFirstSlideNumber() allow to get or to s
 When a new first slide number value is specified all slide numbers are recalculated.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(path);
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    int firstSlideNumber = pres.getFirstSlideNumber();
 
-int firstSlideNumber = pres.getFirstSlideNumber();
+    pres.setFirstSlideNumber(10);
 
-pres.setFirstSlideNumber(10);
-
-pres.save(newPath, SaveFormat.Pptx);
-
+    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

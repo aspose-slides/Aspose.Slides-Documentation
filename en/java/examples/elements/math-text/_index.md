@@ -21,6 +21,8 @@ This article demonstrates working with mathematical text shapes and formatting e
 Create a math shape containing a fraction and the Pythagorean formula.
 
 ```java
+import com.aspose.slides.*;
+
 static void addMathText() {
     Presentation presentation = new Presentation();
     try {
@@ -57,6 +59,8 @@ static void addMathText() {
 Locate a shape that contains a math paragraph on the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessMathText() {
     Presentation presentation = new Presentation("sample.pptx");
     try {
@@ -108,6 +112,8 @@ static void accessMathText() {
 Delete a math shape from the slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeMathText() {
     Presentation presentation = new Presentation();
     try {
@@ -134,6 +140,8 @@ static void removeMathText() {
 Set font properties for a math portion.
 
 ```java
+import com.aspose.slides.*;
+
 static void formatMathText() {
     Presentation presentation = new Presentation();
     try {

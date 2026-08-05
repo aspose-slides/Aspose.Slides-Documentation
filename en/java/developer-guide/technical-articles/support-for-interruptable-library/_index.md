@@ -33,6 +33,8 @@ In [Aspose.Slides 18.4](https://releases.aspose.com/slides/java/release-notes/20
 The following code snippet demonstrates interrupting a running task:
 
 ```java
+import com.aspose.slides.*;
+
 final InterruptionTokenSource tokenSource = new InterruptionTokenSource();
 
 Runnable interruption = new Runnable() {

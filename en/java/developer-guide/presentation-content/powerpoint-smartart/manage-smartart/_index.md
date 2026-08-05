@@ -27,6 +27,8 @@ SmartArt is a PowerPoint diagram made from nodes, node shapes, and a layout. Wit
 A SmartArt node can contain one or more shapes. To read the visible text, iterate through [ISmartArt.getAllNodes](https://reference.aspose.com/slides/java/com.aspose.slides/ismartart/#getAllNodes--), then read the [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) returned by [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartshape/#getTextFrame--).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -53,6 +55,8 @@ try {
 The SmartArt layout controls how nodes are arranged and connected. The following example creates a SmartArt object with the [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType) `BasicBlockList` value, changes it to the `BasicProcess` value, and saves the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
@@ -73,6 +77,8 @@ try {
 The following example adds a node to a SmartArt object that uses the [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType) `RadialCycle` value and checks the node's hidden state.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
@@ -98,6 +104,8 @@ For SmartArt diagrams that use an organization chart layout, [ISmartArtNode.getO
 The following example creates an organization chart and sets the layout for the first node to the [OrganizationChartLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/OrganizationChartLayoutType) `LeftHanging` value.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
@@ -117,6 +125,8 @@ try {
 A picture organization chart is a SmartArt layout designed for hierarchy diagrams that include image placeholders. Use the [SmartArtLayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType) `PictureOrganizationChart` value when adding the SmartArt object to a slide.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISmartArt smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(

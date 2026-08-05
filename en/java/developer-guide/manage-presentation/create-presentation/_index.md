@@ -38,6 +38,8 @@ Creating a PowerPoint file from scratch in Aspose.Slides for Java is as direct a
 In the example below, a cloud shape is added to the first slide of the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {

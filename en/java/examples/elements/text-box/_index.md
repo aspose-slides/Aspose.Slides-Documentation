@@ -23,6 +23,9 @@ This guide explains how to add, access, and remove text boxes programmatically.
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 public static void addTextBox() {
     Presentation presentation = new Presentation();
     try {
@@ -56,6 +59,8 @@ public static void addTextBox() {
 To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
 
 ```java
+import com.aspose.slides.*;
+
 public static void accessTextBox() {
     Presentation presentation = new Presentation();
     try {
@@ -81,6 +86,10 @@ public static void accessTextBox() {
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 
 ```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public static void removeTextBox() {
     Presentation presentation = new Presentation();
     try {

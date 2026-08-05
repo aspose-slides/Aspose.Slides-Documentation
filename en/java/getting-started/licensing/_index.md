@@ -124,10 +124,12 @@ If you use Aspose.Slides for PHP via Java, you can set a license through a PHP/J
 To check whether a license has been set properly, you can validate it. This Java code shows you how to validate a license:
 
 ```java
+import com.aspose.slides.*;
+
 License license = new License();
 license.setLicense("Aspose.Slides.Java.lic");
 
-if (License.isLicensed()) 
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }

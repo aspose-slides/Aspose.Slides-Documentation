@@ -78,6 +78,9 @@ _Code Steps:_
 This Java code shows you how to create a normal chart:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates a presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -91,10 +94,7 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    
-    // Sets the first series to show values
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setTitle(true);
     
     // Sets the index for the chart data sheet
     int defaultWorksheetIndex = 0;
@@ -187,6 +187,8 @@ You may want to use a scattered chart when
 This Java code shows you how to create a scattered charts with a different series of markers: 
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -274,6 +276,9 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 This Java code shows you how to create a pie chart:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates a presentation class that represents a PPTX file
 Presentation pres = new Presentation();
 try {
@@ -288,9 +293,6 @@ try {
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // Sets the first series to show values
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
     // Sets the index for the chart data sheet
     int defaultWorksheetIndex = 0;
@@ -388,15 +390,13 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.Line`).
-1. Access the chart data IChartDataWorkbook.
-1. Clear the default series and categories.
-1. Add new series and categories.
-1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
 This Java code shows you how to create a line chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -410,11 +410,20 @@ try {
 By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
@@ -438,6 +447,8 @@ Tree map charts are best used for sales data when you want to show the relative 
 This Java code shows you how to create a tree map chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -509,6 +520,8 @@ try {
 Sample Java code used to create a stock chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -580,6 +593,8 @@ try {
 This Java code shows you how to create a box and whisker chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -632,6 +647,8 @@ try {
 The Java code shows you how to create a funnel chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -678,6 +695,8 @@ try {
 This Java code shows you how to create a sunburst chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -745,6 +764,8 @@ try {
 This Java code shows you how to create an histogram chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -762,7 +783,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -784,6 +805,8 @@ try {
 This Java code shows you how to create an radar chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -811,6 +834,8 @@ try {
 This Java code shows you how to create a multicategory chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -868,6 +893,8 @@ A map chart is a visualization of an area containing data. Map charts are best u
 This Java code shows you how to create a map chart:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -886,6 +913,9 @@ A combination chart (or combo chart) combines two or more chart types in a singl
 The following Java code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -1047,12 +1077,15 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 This Java code shows you how to update a chart:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Opens the presentation that contains the chart to update
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Access first slideMarker
+    // Access first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Get chart with default data
+    // Get the chart from the slide
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
     // Setting the index of chart data sheet
@@ -1116,7 +1149,10 @@ To set the data range for a chart, do this:
 This Java code shows you how to set the data range for a chart:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Opens the presentation that contains the chart
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1135,6 +1171,8 @@ When you use a default marker in charts, each chart series get different default
 This Java code shows you how to set a chart series market automatically:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);

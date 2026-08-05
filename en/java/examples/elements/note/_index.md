@@ -21,6 +21,8 @@ This article demonstrates how to add, read, remove, and update notes slides usin
 Create a notes slide and assign text to it.
 
 ```java
+import com.aspose.slides.*;
+
 static void addNote() {
     Presentation presentation = new Presentation();
     try {
@@ -39,6 +41,8 @@ static void addNote() {
 Read text from an existing notes slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessNote() {
     Presentation presentation = new Presentation();
     try {
@@ -58,6 +62,8 @@ static void accessNote() {
 Remove the notes slide associated with a slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeNote() {
     Presentation presentation = new Presentation();
     try {
@@ -77,6 +83,8 @@ static void removeNote() {
 Change the text of a notes slide.
 
 ```java
+import com.aspose.slides.*;
+
 static void updateNoteText() {
     Presentation presentation = new Presentation();
     try {

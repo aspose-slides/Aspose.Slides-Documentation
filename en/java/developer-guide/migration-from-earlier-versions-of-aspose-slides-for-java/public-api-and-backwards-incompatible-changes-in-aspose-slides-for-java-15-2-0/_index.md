@@ -45,6 +45,8 @@ getAutomaticSeriesColor() method returns an automatic color of series based on s
 ﻿
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

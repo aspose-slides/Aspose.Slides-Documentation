@@ -32,6 +32,8 @@ This method returns an automatic color of data point based on series index, data
 Methods getPixelFormat(), setPixelFormat(/ImagePixelFormat/int) have been added to com.aspose.slides.ITiffOptions and com.aspose.slides.TiffOptions for specifying pixel format for the generated TIFF images.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("demo.pptx");
 

@@ -33,9 +33,11 @@ If you want to animate a chart series, write the code according to the steps lis
 1. Animate the series.
 1. Write the presentation file to disk.
 
-In the example given below, we animated chart series.
+In the example given below, we animated chart series. The chart in the example file has three series, so one effect is added for each index from 0 to 2. Aspose.Slides does not check the index against the chart data, and an effect added for a series that does not exist is written to the file but animates nothing—keep the index below the number of series in your own chart.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
@@ -60,10 +62,6 @@ try {
             EffectChartMajorGroupingType.BySeries, 2,
             EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    ((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-            EffectChartMajorGroupingType.BySeries, 3,
-            EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     // Write the modified presentation to disk
     pres.save("AnimatingSeries_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -72,7 +70,7 @@ try {
 ```
 
 ## **Chart Category Animation**
-If you want to animate a chart series, write the code according to the steps listed below:
+If you want to animate a chart category, write the code according to the steps listed below:
 
 1. Load a presentation.
 1. Get reference of the chart object.
@@ -82,6 +80,8 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart category.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
@@ -125,6 +125,8 @@ If you want to animate series elements, write the code according to the steps li
 In the example given below, we have animated series' elements.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {
@@ -181,6 +183,8 @@ If you want to animate categories elements, write the code according to the step
 In the example given below, we have animated categories elements.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Presentation class that represents a presentation file
 Presentation pres = new Presentation("ExistingChart.pptx");
 try {

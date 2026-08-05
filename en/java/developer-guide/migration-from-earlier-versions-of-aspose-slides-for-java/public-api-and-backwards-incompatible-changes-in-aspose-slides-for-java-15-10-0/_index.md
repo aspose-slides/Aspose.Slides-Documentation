@@ -44,11 +44,15 @@ by categories elements
 
 The two new enums EffectChartMajorGroupingType and EffectChartMinorGroupingType related to the chart's elements animation were introduced.
 
-To add a series animation to the chart the following code may be used:
+To add a series animation to the chart the following code may be used. The chart in the example file has three series, so one effect is added for each index from 0 to 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -80,12 +84,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -99,8 +97,12 @@ try {
 Categories animation:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -153,8 +155,12 @@ try
 Series elements animation:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -255,8 +261,12 @@ try
 Categories elements animation:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -358,13 +368,15 @@ The new public class com.aspose.slides.VideoPlayerHtmlController has been added.
 
 VideoPlayerHtmlController contructors accepts the following parameters:
 
-path: The path where video and audio files will be generated
+path: The path where video and audio files will be generated (the folder must already exist)
 fileName: The name of the HTML file
 baseUri: The base URI which will be used to generate links
 
 Usage example:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -372,7 +384,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

@@ -31,6 +31,12 @@ It is **not** safe to load, save, and/or clone an instance of a [Presentation](h
 Let's say we want to convert all the slides from a PowerPoint presentation to PNG images in parallel. Since it is unsafe to use a single `Presentation` instance in multiple threads, we split the presentation slides into separate presentations and convert the slides to images in parallel, using each presentation in a separate thread. The following code example shows how to do this.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
 String inputFilePath = "sample.pptx";
 String outputFilePathTemplate = "slide_%d.png";
 final float imageScale = 2;

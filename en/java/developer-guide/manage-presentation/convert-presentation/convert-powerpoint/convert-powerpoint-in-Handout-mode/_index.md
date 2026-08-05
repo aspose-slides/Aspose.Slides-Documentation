@@ -31,6 +31,8 @@ To export a presentation in Handout mode, set the `setSlidesLayoutOptions` metho
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```java
+import com.aspose.slides.*;
+
 // Load a presentation.
 Presentation presentation = new Presentation("sample.pptx");
 try {

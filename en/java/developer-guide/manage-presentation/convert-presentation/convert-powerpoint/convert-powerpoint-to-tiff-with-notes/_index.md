@@ -49,6 +49,8 @@ Let's say we have a "speaker_notes.pptx" file with the following slide:
 The code snippet below demonstrates how to convert the presentation to a TIFF image in Notes Slide view using the [setSlidesLayoutOptions](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) method.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {

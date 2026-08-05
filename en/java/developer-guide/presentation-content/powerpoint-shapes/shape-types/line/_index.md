@@ -38,6 +38,8 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate PresentationEx class that represents the PPTX file
 Presentation pres = new Presentation();
 try {
@@ -69,6 +71,8 @@ Aspose.Slides for Java also allows developers to configure some properties of th
 - Write the modified presentation as a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate PresentationEx class that represents the PPTX file
 Presentation pres = new Presentation();
 try {
@@ -91,7 +95,7 @@ try {
     shp.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
 
     shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Maroon));
+    shp.getLineFormat().getFillFormat().getSolidFillColor().setPresetColor(PresetColor.Maroon);
 
     // Write the PPTX to Disk
     pres.save("LineShape.pptx", SaveFormat.Pptx);

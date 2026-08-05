@@ -60,6 +60,10 @@ You may want to try out our [free web application](https://products.aspose.app/s
 This sample code in Java shows you how to convert PPT to SVG using Aspose.Slides:
 
 ``` java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     for (int index = 0; index < pres.getSlides().size(); index++)

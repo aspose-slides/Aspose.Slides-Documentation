@@ -28,9 +28,11 @@ Aspose.Slides allows you to manage header and footer settings in PowerPoint pres
 You can also manage headers and footers for handout and notes slides. This includes changing the visibility and text of header, footer, slide number, and date-time placeholders for the notes master, all child notes slides, or an individual notes slide.
 
 ## **Manage Headers and Footers in a Presentation**
-Notes of some specific slide could be removed as shown in example below:
+The footer text of every slide and the header text of the master notes slide can be set as shown in the example below:
 
 ```java
+import com.aspose.slides.*;
+
 // Load Presentation
 Presentation pres = new Presentation("headerTest.pptx");
 try {
@@ -42,7 +44,17 @@ try {
     IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (null != masterNotesSlide)
     {
-        updateHeaderFooterText(masterNotesSlide);
+        // Set Header/Footer text
+        for (IShape shape : masterNotesSlide.getShapes())
+        {
+            if (shape.getPlaceholder() != null)
+            {
+                if (shape.getPlaceholder().getType() == PlaceholderType.Header)
+                {
+                    ((IAutoShape)shape).getTextFrame().setText("HI there new header");
+                }
+            }
+        }
     }
 
     // Save presentation
@@ -51,27 +63,11 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-```java
-// Method to set Header/Footer Text
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
-}
-```
 
 ## **Manage Headers and Footers on Handout and Notes Slides**
 Aspose.Slides for Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
-- Load a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) containing a video.
+- Load a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) containing notes slides.
 - Change Header and Footer settings for notes master and all notes slides.
 - Set master notes slide and all child Footer placeholders visible.
 - Set master notes slide and all child Date and time placeholders visible.
@@ -84,6 +80,8 @@ Aspose.Slides for Java supports Header and Footer in Handout and notes slides. P
 Code Snippet provided in below Example.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("presentation.pptx");
 try {
     // Change Header and Footer settings for notes master and all notes slides
@@ -92,8 +90,8 @@ try {
     {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // make the master notes slide and all child Footer placeholders visible
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // make the master notes slide and all child Header placeholders visible
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // make the master notes slide and all child Header placeholders visible
+        headerFooterManager.setFooterAndChildFootersVisibility(true); // make the master notes slide and all child Footer placeholders visible
         headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // make the master notes slide and all child SlideNumber placeholders visible
         headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // make the master notes slide and all child Date and time placeholders visible
 

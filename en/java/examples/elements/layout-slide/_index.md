@@ -21,6 +21,8 @@ This article demonstrates how to work with **Layout Slides** in Aspose.Slides fo
 You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
 
 ```java
+import com.aspose.slides.*;
+
 static void addLayoutSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -54,6 +56,8 @@ static void addLayoutSlide() {
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```java
+import com.aspose.slides.*;
+
 static void accessLayoutSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -73,6 +77,8 @@ static void accessLayoutSlide() {
 You can remove a specific layout slide if it's no longer needed.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeLayoutSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -90,6 +96,8 @@ static void removeLayoutSlide() {
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeUnusedLayoutSlides() {
     Presentation presentation = new Presentation();
     try {
@@ -106,6 +114,8 @@ static void removeUnusedLayoutSlides() {
 You can duplicate a layout slide using the `addClone` method.
 
 ```java
+import com.aspose.slides.*;
+
 static void cloneLayoutSlides() {
     Presentation presentation = new Presentation();
     try {

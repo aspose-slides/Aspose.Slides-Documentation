@@ -38,6 +38,8 @@ Aspose.Slides allows you to replace a font this way:
 This Java code demonstrates font replacement:
 
 ```java
+import com.aspose.slides.*;
+
 // Loads a presentation
 Presentation pres = new Presentation("Fonts.pptx");
 try {

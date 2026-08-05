@@ -21,6 +21,11 @@ This article demonstrates embedding a file as an OLE object and updating its dat
 Embed a PDF file into the presentation.
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 static void addOleObject() throws IOException {
     Presentation presentation = new Presentation();
     try {
@@ -40,6 +45,11 @@ static void addOleObject() throws IOException {
 Retrieve the first OLE object frame on a slide.
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 static void accessOleObject() throws IOException {
     Presentation presentation = new Presentation();
     try {
@@ -67,6 +77,11 @@ static void accessOleObject() throws IOException {
 Delete an embedded OLE object from the slide.
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 static void removeOleObject() throws IOException {
     Presentation presentation = new Presentation();
     try {
@@ -88,6 +103,11 @@ static void removeOleObject() throws IOException {
 Replace the data embedded in an existing OLE object.
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 static void updateOleObjectData() throws IOException {
     Presentation presentation = new Presentation();
     try {

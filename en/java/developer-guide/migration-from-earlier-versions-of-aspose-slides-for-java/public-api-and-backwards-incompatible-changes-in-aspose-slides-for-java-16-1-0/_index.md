@@ -31,6 +31,8 @@ Methods getRotationAngle() and setRotationAngle() have been added to interfaces 
 They provide access to the custom rotation that is being applied to the text within the bounding box.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

@@ -62,6 +62,8 @@ Aspose.Slides for Java allows you to apply animation to the text in a shape.
 This Java code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a presentation class that represents a presentation file.
 Presentation pres = new Presentation();
 try {
@@ -83,7 +85,7 @@ try {
     effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
 
     // Save the PPTX file to disk
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+    pres.save("AnimText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -107,6 +109,8 @@ Besides applying animations to text, you can also apply animations to a single [
 This Java code shows you how to apply the `Fly` effect to a picture frame:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a presentation class that represents a presentation file.
 Presentation pres = new Presentation();
 try {
@@ -129,8 +133,7 @@ try {
     IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Save the PPTX file to disk
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    pres.save("AnimImage_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -150,6 +153,9 @@ try {
 This Java code shows you how to apply the `PathFootball` (path football) effect to a shape:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 // Instantiate a Presentation class that represents a PPTX file.
 Presentation pres = new Presentation();
 try {
@@ -198,6 +204,8 @@ The following examples show you how to use the `getEffectsByShape` method from t
 Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("AnimExample_out.pptx");
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -237,6 +245,8 @@ And finally, the **Fly In** effect is applied to the footer placeholder on the *
 The following sample code shows you how to use the `getBasePlaceholder` method from the [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) interface to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -254,13 +264,20 @@ IShape masterShape = layoutShape.getBasePlaceholder();
 IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
 
 System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
+for (IEffect[] effects : new IEffect[][] { masterShapeEffects, layoutShapeEffects, shapeEffects }) {
+    for (IEffect effect : effects) {
+        String typeName = EffectType.getName(EffectType.class, effect.getType());
+        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+
+        System.out.println(typeName + " " + subtypeName);
+    }
+}
 
 presentation.dispose();
 ```
 ```java
+import com.aspose.slides.*;
+
 static void printEffects(IEffect[] effects)
 {
     for (IEffect effect : effects)
@@ -304,6 +321,8 @@ This is how you change the Effect Timing properties:
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a presentation class that represents a presentation file.
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
@@ -341,6 +360,10 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 This Java code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
     // Adds audio to presentation audio collection
@@ -384,6 +407,8 @@ try {
 This Java code shows you how to extract the sound embedded in an animation effect:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a presentation class that represents a presentation file.
 Presentation presentation = new Presentation("EffectSound.pptx");
 try {
@@ -425,6 +450,9 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
 This Java code shows you how to change an after animation effect:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiates a presentation class that represents a presentation file
 Presentation pres = new Presentation("AnimImage_out.pptx");
 try {
@@ -466,8 +494,10 @@ This is how you can change the Effect Animate text properties:
 This Java code demonstrates the operation:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a presentation class that represents a presentation file.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
+Presentation pres = new Presentation("AnimText_out.pptx");
 try {
     ISlide firstSlide = pres.getSlides().get_Item(0);
 

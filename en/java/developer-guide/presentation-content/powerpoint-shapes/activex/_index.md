@@ -34,6 +34,8 @@ To add an ActiveX Media Player control, do this:
 This sample code, based on the steps above, shows to how to add Media Player ActiveX Control to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Create empty presentation instance
 Presentation pres = new Presentation();
 try {
@@ -72,6 +74,14 @@ To manage a simple ActiveX control like a text box and simple command button on 
 This sample code, based on the steps above, shows how to manage a simple ActiveX control: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 // Accessing the presentation with ActiveX controls
 Presentation pres = new Presentation("ActiveX.pptm");
 try {

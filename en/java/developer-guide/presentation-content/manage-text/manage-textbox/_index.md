@@ -49,6 +49,8 @@ To create a textbox on a slide, go through these steps:
 This Java code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates Presentation
 Presentation pres = new Presentation();
 try {
@@ -89,6 +91,8 @@ Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/java/
 This Java code shows you how to check whether a shape was created as a text box: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ForEach.shape(presentation, (shape, slide, index) -> {
@@ -105,6 +109,8 @@ try {
 Note that if you simply add an autoshape using the `addAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) interface, the `isTextBox` method of the autoshape will return `false`. However, after you add text to the autoshape using the `addTextFrame` method or the `setText` method, the `isTextBox` property returns `true`.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -136,6 +142,8 @@ Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/jav
 This code in Java demonstrates the described operation: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Gets the first slide in the presentation
@@ -173,11 +181,13 @@ Aspose.Slides for Java provides the [ColumnCount](https://reference.aspose.com/s
 This Java code shows you how to add a column inside a text frame:
 
 ```java
+import com.aspose.slides.*;
+
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
 try {
     IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
+    ITextFrameFormat format = shape1.getTextFrame().getTextFrameFormat();
 
     format.setColumnCount(2);
     shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
@@ -188,9 +198,9 @@ try {
 
     Presentation test = new Presentation(outPptxFileName);
     try {
-        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(Double.NaN == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        IAutoShape autoShape = (IAutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0);
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test != null) test.dispose();
     }
@@ -200,9 +210,9 @@ try {
 
     Presentation test1 = new Presentation(outPptxFileName);
     try {
-        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        IAutoShape autoShape = (IAutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0);
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test1 != null) test1.dispose();
     }
@@ -213,9 +223,9 @@ try {
 
     Presentation test2 = new Presentation(outPptxFileName);
     try {
-        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        IAutoShape autoShape = (IAutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0);
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test2 != null) test2.dispose();
     }
@@ -231,6 +241,8 @@ Aspose.Slides allows you to change or update the text contained in a text box or
 This Java code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("text.pptx");
 try {
     for (ISlide slide : pres.getSlides())
@@ -276,6 +288,8 @@ You can insert a link inside a text box. When the text box is clicked, users are
 This Java code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation class that represents a PPTX
 Presentation pres = new Presentation();
 try {

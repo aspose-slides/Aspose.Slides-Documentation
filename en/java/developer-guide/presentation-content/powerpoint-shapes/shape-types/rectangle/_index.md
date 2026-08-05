@@ -34,13 +34,15 @@ To add a simple rectangle to a selected slide of the presentation, please follow
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate Prseetation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
     // Get the first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Add AutoShape of ellipse type
+    // Add AutoShape of rectangle type
     IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
     // Write the PPTX file to disk
@@ -65,20 +67,23 @@ To add a formatted rectangle to a slide, please follow the steps below:
 The above steps are implemented in the example given below.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantiate Prseetation class that represents the PPTX
 Presentation pres = new Presentation();
 try {
     // Get the first slide
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Add AutoShape of ellipse type
+    // Add AutoShape of rectangle type
     IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 50);
 
-    // Apply some formatting to ellipse shape
+    // Apply some formatting to the rectangle shape
     shp.getFillFormat().setFillType(FillType.Solid);
     shp.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    // Apply some formatting to the line of Ellipse
+    // Apply some formatting to the line of the rectangle
     shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shp.getLineFormat().setWidth(5);
