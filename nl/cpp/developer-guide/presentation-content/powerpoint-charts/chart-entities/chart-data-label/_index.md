@@ -1,56 +1,56 @@
 ---
-title: Beheer diagramgegevenslabels in presentaties met С++
+title: Beheer grafiekgegevensetiketten in presentaties met C++
 linktitle: Gegevenslabel
 type: docs
 url: /nl/cpp/chart-data-label/
 keywords:
-- diagram
+- grafiek
 - gegevenslabel
 - gegevensprecisie
 - percentage
 - labelafstand
-- labellocatie
+- labelpositie
 - PowerPoint
 - presentatie
-- С++
+- C++
 - Aspose.Slides
-description: "Leer hoe u diagramgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor С++ voor meer boeiende dia's."
+description: "Leer hoe u grafiekgegevensetiketten kunt toevoegen en opmaken in PowerPoint‑presentaties met Aspose.Slides voor C++ voor meer pakkende dia's."
 ---
-## **Inleiding**
+## **Introductie**
 
-Gegevenslabels op een diagram tonen details over de gegevensreeksen van het diagram of individuele gegevenspunten. Ze stellen lezers in staat om snel gegevensreeksen te identificeren en maken diagrammen bovendien beter begrijpelijk.
+Gegevensetiketten op een diagram tonen details over de gegevensreeks van het diagram of individuele gegevenspunten. Ze stellen lezers in staat om snel de gegevensreeksen te identificeren en ze maken diagrammen ook beter begrijpbaar.
 
-## **Precisie van gegevens instellen in diagramlabels**
+## **Gegevensprecisie instellen in diagramgegevensetiketten**
 
-Deze C++‑code laat zien hoe u de precisie van gegevens instelt in een diagramlabel:
+Deze C++-code laat zien hoe je de gegevensprecisie instelt in een diagramgegevensetiket:
 
 ```c++
 	// Het pad naar de documentmap
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Instantieert een Presentation‑klasse die een PPTX‑bestand representeert
+	// Instantieert een Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Haal de eerste dia op
+	// Haalt de eerste dia op
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Voegt een diagram toe met standaardgegevens
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Stelt getalnotatie voor de reeks in
+	// Stelt het getalformaat van de serie in
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// Schrijft het presentatiebestand naar schijf
+	// Schrijft het presentatie‑bestand naar schijf
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Percentages weergeven als labels**
 
-Aspose.Slides for C++ maakt het mogelijk om percentage‑labels in weergegeven diagrammen in te stellen. Deze C++‑code demonstreert de werking:
+## **Percentage weergeven als etiketten**
+Aspose.Slides for C++ stelt je in staat om percentage‑etiketten op weergegeven diagrammen in te stellen. Deze C++-code demonstreert de werking:
 
 ```c++
-	// Het pad naar de documentmap
+	// Het pad naar de documentenmap
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
 
 	// Maakt een instantie van de Presentation‑klasse
@@ -102,18 +102,18 @@ Aspose.Slides for C++ maakt het mogelijk om percentage‑labels in weergegeven d
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Het procentteken instellen met diagramlabels**
 
-Deze C++‑code laat zien hoe u het procentteken instelt voor een diagramlabel:
+## **Het procentteken instellen bij diagramgegevensetiketten**
+Deze C++-code laat zien hoe je het procentteken instelt voor een diagramgegevensetiket:
 
 ```c++
-	// Het pad naar de documentmap.
+	// Het pad naar de documentenmap.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
 	// Maakt een instantie van de Presentation‑klasse
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Haalt een referentie naar een dia op via de index
+	// Haalt een dia‑referentie op via de index
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Maakt het PercentsStackedColumn‑diagram op een dia
@@ -127,7 +127,7 @@ Deze C++‑code laat zien hoe u het procentteken instelt voor een diagramlabel:
 	// Stelt de index van het diagramgegevensblad in
 	int defaultWorksheetIndex = 0;
 
-	// Haalt het werkblad met diagramgegevens op
+	// Haalt het diagramgegevenswerkblad op
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -141,13 +141,13 @@ Deze C++‑code laat zien hoe u het procentteken instelt voor een diagramlabel:
 
 	// Neemt de eerste diagramreeks
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// Vult de gegevens van de reeks
+	// Vult de reeksggevens
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// Stelt de vulkleur voor de reeks in
+	// Stelt de vulkleur in voor de reeks
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
@@ -162,13 +162,13 @@ Deze C++‑code laat zien hoe u het procentteken instelt voor een diagramlabel:
 
 	// Neemt de tweede diagramreeks
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// Vult de gegevens van de reeks
+	// Vult de reeksggevens
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// Stelt de vulkleur voor de reeks in
+	// Stelt de vulkleur in voor de reeks
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
@@ -181,44 +181,43 @@ Deze C++‑code laat zien hoe u het procentteken instelt voor een diagramlabel:
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// Schrijft het presentatiebestand naar schijf
+	// Schrijft het presentiebestand naar schijf
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
-## **Labelafstand tot as instellen**
 
-Deze C++‑code laat zien hoe u de labelafstand tot een categorische as instelt wanneer u werkt met een diagram dat vanuit assen is getekend:
+## **Labelafstand van as instellen**
+Deze C++-code laat zien hoe je de labelafstand van een categorisatieas instelt wanneer je werkt met een diagram dat op assen is getekend:
 
 ```c++
-	// Het pad naar de documentmap
+	// Het pad naar de documentenmap
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
 
-	// Maakt een instantie van de Presentation-klasse
+	// Maakt een instantie van de Presentation‑klasse
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Haalt een referentie naar de dia op
+	// Haalt een dia‑referentie op
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Maakt een diagram op de dia
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Haalt de collectie van diagramreeksen op
+	// Haalt de reeksverzameling van het diagram op
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// Stelt de labelafstand vanaf een as in
+	// Stelt de labelafstand van een as in
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// Schrijft het presentatiebestand naar schijf
+	// Schrijft het presentiebestand naar schijf
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Labelpositie aanpassen**
 
-Wanneer u een diagram maakt dat niet op een as steunt, zoals een cirkeldiagram, kunnen de gegevenslabels van het diagram te dicht bij de rand komen te liggen. In dat geval moet u de positie van het label aanpassen zodat de verbindingslijnen duidelijk worden weergegeven.
+Wanneer je een diagram maakt dat niet afhankelijk is van een as, zoals een taartdiagram, kunnen de gegevensetiketten van het diagram te dicht bij de rand komen te liggen. In dat geval moet je de positie van het gegevensetiket aanpassen zodat de verbindingslijnen duidelijk zichtbaar zijn.
 
-Deze C++‑code laat zien hoe u de labelpositie aanpast op een cirkeldiagram:
+Deze C++-code laat zien hoe je de labelpositie op een taartdiagram aanpast:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -241,14 +240,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Hoe kan ik voorkomen dat gegevenslabels overlappen in dichtbevolkte diagrammen?**
+**Hoe kan ik voorkomen dat gegevensetiketten overlappen op dichte diagrammen?**
 
-Combineer automatische labelplaatsing, verbindingslijnen en een verkleinde lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon labels alleen voor extreme/sleutelpunten.
+Combineer automatische labelplaatsing, verbindingslijnen en een verkleinde lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon alleen etiketten voor uiterste/sleutelpunten.
 
-**Hoe kan ik labels uitschakelen voor uitsluitend nul-, negatieve of lege waarden?**
+**Hoe kan ik etiketten uitschakelen alleen voor nul-, negatieve of lege waarden?**
 
-Filter gegevenspunten voordat u de labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
+Filter gegevenspunten voordat je etiketten inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
 **Hoe kan ik een consistente labelstijl garanderen bij het exporteren naar PDF/afbeeldingen?**
 
-Stel expliciet lettertypen (familie, grootte) in en controleer dat het lettertype beschikbaar is aan de renderzijde om een fallback te vermijden.
+Stel expliciet lettertypen (familie, grootte) in en controleer of het lettertype beschikbaar is aan de renderkant om een fallback te voorkomen.

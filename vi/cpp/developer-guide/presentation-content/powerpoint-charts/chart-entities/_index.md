@@ -1,6 +1,6 @@
 ---
-title: Tùy chỉnh các thực thể biểu đồ trong C++
-linktitle: Thực thể biểu đồ
+title: Tùy chỉnh các thực thể biểu đồ trong bài thuyết trình bằng C++
+linktitle: Thực Thể Biểu Đồ
 type: docs
 weight: 30
 url: /vi/cpp/chart-entities/
@@ -13,11 +13,11 @@ keywords:
 - chú giải
 - vùng vẽ
 - dòng dữ liệu
-- cột lỗi
+- thanh lỗi
 - đường xu hướng
 - PowerPoint
 - bài thuyết trình
 - C++
 - Aspose.Slides
-description: "Hiểu các thực thể biểu đồ trong Aspose.Slides cho C++ và học cách quản lý các chuỗi, danh mục, điểm dữ liệu và trục trong PowerPoint PPT và PPTX bằng C++."
+description: "Hiểu các thực thể biểu đồ trong Aspose.Slides cho C++ và học cách quản lý các dòng dữ liệu, danh mục, điểm dữ liệu và trục trong PowerPoint PPT và PPTX bằng C++."
 ---

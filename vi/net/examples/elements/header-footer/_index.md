@@ -1,24 +1,26 @@
 ---
-title: Đầu và Chân trang
+title: Tiêu đề và Chân trang
 type: docs
 weight: 220
 url: /vi/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- đầu và chân trang
-- thêm đầu và chân trang
-- cập nhật đầu và chân trang
-- ví dụ mã
-- PowerPoint
-- OpenDocument
-- bài thuyết trình
-- .NET
-- C#
-- Aspose.Slides
-description: "Kiểm soát tiêu đề và chân trang của slide bằng Aspose.Slides cho .NET: thêm ngày, số slide và văn bản tùy chỉnh trong PPT, PPTX và ODP với các ví dụ C#."
+  - tiêu đề và chân trang
+  - thêm tiêu đề và chân trang
+  - cập nhật tiêu đề và chân trang
+  - ví dụ mã
+  - PowerPoint
+  - OpenDocument
+  - bản trình chiếu
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Kiểm soát tiêu đề và chân trang của slide với Aspose.Slides cho .NET: thêm ngày, số slide và văn bản tùy chỉnh trong PPT, PPTX và ODP với các ví dụ C#."
 ---
-Bài viết này trình bày cách thêm chân trang và cập nhật các placeholder ngày giờ bằng **Aspose.Slides for .NET**.
+Bài viết này trình bày cách thêm chân trang và cập nhật các trình giữ chỗ ngày giờ bằng **Aspose.Slides for .NET**.
 
-## **Thêm Chân Trang**
+## **Thêm chân trang**
 
 Thêm văn bản vào khu vực chân trang của một slide và hiển thị nó.
 
@@ -33,9 +35,9 @@ static void AddHeaderFooter()
 }
 ```
 
-## **Cập Nhật Ngày và Giờ**
+## **Cập nhật ngày và giờ**
 
-Sửa đổi placeholder ngày và giờ trên một slide.
+Chỉnh sửa trình giữ chỗ ngày và giờ trên một slide.
 
 ```csharp
 static void UpdateDateTime()

@@ -1,45 +1,45 @@
 ---
-title: Csavart diagramok testreszabása előadásokban С++ használatával
-linktitle: Csavart diagram
+title: Gyűrűdiagramok testreszabása prezentációkban C++ használatával
+linktitle: Gyűrűdiagram
 type: docs
 weight: 30
 url: /hu/cpp/doughnut-chart/
 keywords:
-- csavart diagram
+- gyűrűdiagram
 - középső rés
-- lyukméret
+- lyuk mérete
 - PowerPoint
 - prezentáció
-- С++
+- C++
 - Aspose.Slides
-description: "Fedezze fel, hogyan hozhat létre és testreszabhat csavart diagramokat az Aspose.Slides С++ változatában, támogatva a PowerPoint formátumokat dinamikus előadásokhoz."
+description: "Ismerje meg, hogyan hozhat létre és testreszabhat gyűrűdiagramokat az Aspose.Slides for C++-ban, támogatva a PowerPoint formátumokat dinamikus prezentációkhoz."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan dolgozhatunk csavart diagrammal az Aspose.Slides‑ben a diagram diára helyezésével, a középső lyuk méretének beállításával, és a bemutató mentésével. A `set_DoughnutHoleSize` metódusra összpontosít, és bemutatja a diagram típus testreszabásához szükséges alapvető lépéseket a kódban.
+Ez a cikk bemutatja, hogyan dolgozhatunk gyűrűdiagrammal az Aspose.Slides-ban a diagram diára helyezésével, a középső lyuk méretének beállításával és a prezentáció mentésével. A `set_DoughnutHoleSize` metódusra összpontosít, és bemutatja a kódon belül ennek a diagramtípusnak az egyéni testreszabásához szükséges alapvető lépéseket.
 
-## **A csavart diagram középső lyukának meghatározása**
-A csavart diagram lyukméretének megadásához kövesse az alábbi lépéseket:
+## **Gyűrűdiagram középső lyukának megadása**
+A gyűrűdiagram lyukjának méretének megadásához kövesse az alábbi lépéseket:
 
-- Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztálypéldányt.
-- Adjon csavart diagramot a diára.
-- Állítsa be a csavart diagram lyukjának méretét.
-- Írja ki a bemutatót a lemezre.
+- Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályt.
+- Adjon hozzá gyűrűdiagramot a diára.
+- Adja meg a gyűrűdiagram lyukjának méretét.
+- Írja a prezentációt a lemezre.
 
-Az alább bemutatott példában beállítottuk a csavart diagram lyukjának méretét.
+Az alább bemutatott példában beállítottuk a gyűrűdiagram lyukjának méretét.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-DoughnutChartHole-DoughnutChartHole.cpp" >}}
 
 ## **GYIK**
 
-**Létrehozhatok többszintű csavart több gyűrűvel?**
+**Létrehozhatok több szintű gyűrűdiagramot több gyűrűvel?**
 
-Igen. Több sorozatot adhat egyetlen csavart diagramhoz – minden sorozat egy külön gyűrűvé válik. A gyűrűk sorrendje a sorozatok kollekcióban felvett sorrendjét követi.
+Igen. Több sorozatot adhat egyetlen gyűrűdiagramhoz – minden sorozat külön gyűrűvé válik. A gyűrűk sorrendje a sorozatok gyűjteményben való sorrendjétől függ.
 
-**Támogatott-e a „robbanó” csavart (különálló szeletek)?**
+**Támogatott a „szétrobbanó” gyűrűdiagram (különálló szeletek)?**
 
-Igen. Létezik egy *Exploded Doughnut* [diagramtípus](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/charttype/), valamint egy robbanási tulajdonság az adatpontokon; egyes szeleteket így szét lehet választani.
+Igen. Létezik egy Exploded Doughnut [chart type](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/charttype/) típus, és egy robbanás tulajdonság az adatpontokon; egyes szeleteket szétvághat.
 
-**Hogyan szerezhetek képet a csavart diagramról (PNG/SVG) egy jelentéshez?**
+**Hogyan szerezhetek képet egy gyűrűdiagramról (PNG/SVG) jelentéshez?**
 
-A diagram egy alakzat; renderelhető egy [raster kép](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/getimage/) formájában, vagy exportálható egy [SVG kép](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/writeassvg/) formátumba.
+A diagram egy alakzat; renderelhető egy [raster image](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/getimage/) vagy exportálható egy [SVG image](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/writeassvg/) képként.

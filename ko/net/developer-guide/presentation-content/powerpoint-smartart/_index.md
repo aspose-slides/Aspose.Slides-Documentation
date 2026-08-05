@@ -4,6 +4,8 @@ linktitle: PowerPoint SmartArt
 type: docs
 weight: 100
 url: /ko/net/powerpoint-smartart/
+aliases:
+  - /net/examples/elements/smartart/
 keywords:
 - SmartArt
 - SmartArt 관리
@@ -14,5 +16,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides API를 사용하여 .NET에서 PowerPoint SmartArt를 만들고 편집하는 방법을 배웁니다: 레이아웃, 노드, 스타일, 단계별 예제로 슬라이드를 빠르게 자동화합니다."
+description: "Aspose.Slides API를 사용하여 .NET에서 PowerPoint SmartArt를 만들고 편집하는 방법을 배우세요: 레이아웃, 노드, 스타일, 슬라이드를 빠르게 자동화하는 단계별 예제."
 ---

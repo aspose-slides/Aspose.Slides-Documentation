@@ -4,18 +4,20 @@ linktitle: Převod PowerPoint
 type: docs
 weight: 20
 url: /cs/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
 - převod PowerPoint
 - převod prezentace
 - převod snímku
 - převod PPT
 - převod PPTX
-- exportovat PowerPoint
-- exportovat prezentaci
-- exportovat snímek
-- exportovat PPT
-- exportovat PPTX
+- export PowerPoint
+- export prezentace
+- export snímku
+- export PPT
+- export PPTX
 - PHP
 - Aspose.Slides
-description: "Převod prezentací PowerPoint do jiných formátů pomocí Aspose.Slides pro PHP přes Java. Rychlá, přesná a plynulá konverze PPT a PPTX."
+description: "Převádějte prezentace PowerPoint do jiných formátů pomocí Aspose.Slides pro PHP přes Java. Rychlý, přesný a bezproblémový převod PPT a PPTX."
 ---

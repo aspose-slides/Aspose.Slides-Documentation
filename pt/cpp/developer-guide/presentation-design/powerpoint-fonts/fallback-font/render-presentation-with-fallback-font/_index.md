@@ -14,7 +14,7 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Renderizar apresentações com fontes de fallback no Aspose.Slides para C++ – mantenha o texto consistente em PPT, PPTX e ODP com exemplos de código C++ passo a passo."
+description: "Renderizar apresentações com fontes de fallback no Aspose.Slides para C++ – mantenha o texto consistente entre PPT, PPTX e ODP com exemplos de código C++ passo a passo."
 ---
 ## **Visão geral**
 
@@ -22,14 +22,14 @@ Aspose.Slides permite renderizar apresentações usando regras de fontes de fall
 
 Depois que a coleção de regras de fontes de fallback é atribuída ao `FontsManager` da apresentação, as regras são aplicadas durante operações como salvar, renderizar e converter a apresentação. O exemplo demonstra como usar as regras configuradas ao renderizar uma miniatura de slide e salvá‑la como imagem PNG.
 
-## **Renderizar um slide usando regras de fontes de fallback**
+## **Renderizar um slide usando regras de fonte de fallback**
 
 O exemplo a seguir inclui estas etapas:
 
-1. Criamos a [coleção de regras de fontes de fallback](/slides/pt/cpp/create-fallback-fonts-collection/).
-2. [Remove()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontfallbackrule/remove/) uma regra de fonte de fallback e [AddFallBackFonts()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) para outra regra.
-3. Passe a coleção de regras para o método [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
-4. Com o método [Presentation::Save()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/save/) podemos salvar a apresentação no mesmo formato ou em outro. Depois que a coleção de regras de fontes de fallback é definida no FontsManager, essas regras são aplicadas durante qualquer operação na apresentação: salvar, renderizar, converter, etc.
+1. Nós [criar coleção de regras de fontes de fallback](/slides/pt/cpp/create-fallback-fonts-collection/).
+1. [Remove()] (https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontfallbackrule/remove/) uma regra de fonte de fallback e [AddFallBackFonts()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) a outra regra.
+1. Passe a coleção de regras para o método [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
+1. Com o método [Presentation::Save()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/save/) podemos salvar a apresentação no mesmo formato ou em outro. Após a coleção de regras de fontes de fallback ser definida no FontsManager, essas regras são aplicadas durante quaisquer operações sobre a apresentação: salvar, renderizar, converter, etc.
 
 ``` cpp
 // Criar nova instância de uma coleção de regras
@@ -69,6 +69,7 @@ image->Dispose();
 
 pres->Dispose();
 ```
+
 
 {{% alert color="primary" %}} 
 Saiba mais sobre como [Converter slides do PowerPoint para PNG em C++](/slides/pt/cpp/convert-powerpoint-to-png/).

@@ -1,5 +1,5 @@
 ---
-title: Προσαρμογή Σημείων Δεδομένων σε Διαγράμματα Treemap και Sunburst με τη χρήση С++
+title: Προσαρμογή Σημείων Δεδομένων σε Διαγράμματα Treemap και Sunburst με C++
 linktitle: Σημεία Δεδομένων σε Διαγράμματα Treemap και Sunburst
 type: docs
 url: /el/cpp/data-points-of-treemap-and-sunburst-chart/
@@ -8,21 +8,23 @@ keywords:
 - διάγραμμα sunburst
 - σημείο δεδομένων
 - χρώμα ετικέτας
-- χρώμα κλαδιού
+- χρώμα κλάδου
 - PowerPoint
 - παρουσίαση
-- С++
+- C++
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε σημεία δεδομένων σε διαγράμματα treemap και sunburst με το Aspose.Slides για С++, συμβατό με μορφές PowerPoint."
+description: "Μάθετε πώς να διαχειρίζεστε τα σημεία δεδομένων σε διαγράμματα treemap και sunburst με το Aspose.Slides για C++, συμβατό με τις μορφές του PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Μεταξύ άλλων τύπων διαγραμμάτων PowerPoint, υπάρχουν δύο «ιεραρχικοί» τύποι – το **Treemap** και το **Sunburst** διάγραμμα (γνωστό επίσης ως Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph ή Multi Level Pie Chart). Αυτά τα διαγράμματα εμφανίζουν ιεραρχικά δεδομένα οργανωμένα ως δέντρο – από τα φύλλα μέχρι την κορυφή του κλαδιού. Τα φύλλα ορίζονται από τα σημεία δεδομένων της σειράς, και κάθε επόμενο ένθετο επίπεδο ομαδοποίησης ορίζεται από την αντίστοιχη κατηγορία. Το Aspose.Slides for C++ επιτρέπει τη μορφοποίηση των σημείων δεδομένων του Διαγράμματος Sunburst και του Treemap σε C++.
+Μεταξύ άλλων τύπων διαγραμμάτων PowerPoint, υπάρχουν δύο «ιεραρχικοί» τύποι – **Treemap** και **Sunburst** διάγραμμα (γνωστό και ως Graph Sunburst, Διάγραμμα Sunburst, Διάγραμμα Ακτινών, Διάγραμμα Ακτινικού ή Πολυεπίπεδο Διάγραμμα Πίτας). Αυτά τα διαγράμματα εμφανίζουν ιεραρχικά δεδομένα οργανωμένα ως δέντρο – από τα φύλλα μέχρι την κορυφή του κλαδιού. Τα φύλλα ορίζονται από τα σημεία δεδομένων της σειράς, και κάθε επόμενο ενσωματωμένο επίπεδο ομαδοποίησης ορίζεται από την αντίστοιχη κατηγορία. Aspose.Slides for C++ επιτρέπει τη μορφοποίηση σημείων δεδομένων του Διαγράμματος Sunburst και του Treemap σε C++.
 
-Ακολουθεί ένα Διάγραμμα Sunburst, όπου τα δεδομένα στη στήλη Series1 ορίζουν τους κόμβους φύλλων, ενώ άλλα κελιά ορίζουν ιεραρχικά σημεία δεδομένων:
+Ακολουθεί ένα Διάγραμμα Sunburst, όπου τα δεδομένα στη στήλη Series1 ορίζουν τους κόμβους φύλλων, ενώ οι άλλες στήλες ορίζουν ιεραρχικά σημεία δεδομένων:
+
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-Ας ξεκινήσουμε με την προσθήκη ενός νέου διαγράμματος Sunburst στην παρουσίαση:
+Ας ξεκινήσουμε προσθέτοντας ένα νέο διάγραμμα Sunburst στην παρουσίαση:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
@@ -30,25 +32,29 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 {{% alert color="primary" title="Δείτε επίσης" %}} 
-- [**Δημιουργία διαγράμματος Sunburst**](/slides/el/cpp/create-chart/#create-sunburst-chart)
+- [**Δημιουργία Διαγράμματος Sunburst**](/slides/el/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
-Αν υπάρχει ανάγκη μορφοποίησης σημείων δεδομένων του διαγράμματος, πρέπει να χρησιμοποιήσουμε τα παρακάτω:
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/) κλάσεις και η μέθοδος [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) παρέχουν πρόσβαση στη μορφοποίηση σημείων δεδομένων των διαγραμμάτων Treemap και Sunburst.
+Εάν χρειάζεται μορφοποίηση των σημείων δεδομένων του διαγράμματος, πρέπει να χρησιμοποιήσουμε τα εξής:
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) χρησιμοποιείται για την πρόσβαση σε κατηγορίες πολλαπλών επιπέδων – αντιπροσωπεύει το κοντέινερ των αντικειμένων [**IChartDataPointLevel**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/). Βασικά είναι ένας wrapper για το [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartcategorylevelsmanager/), με τις ιδιότητες που προστίθενται ειδικά για σημεία δεδομένων. Η κλάση [**IChartDataPointLevel**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/) έχει δύο μεθόδους: [**get_Format()**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) και [**get_Label()**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) που παρέχουν πρόσβαση στις αντίστοιχες ρυθμίσεις.
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/) κλάσεις και [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) μέθοδος παρέχουν πρόσβαση για μορφοποίηση σημείων δεδομένων των Treemap και Sunburst διαγραμμάτων.
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) χρησιμοποιείται για πρόσβαση σε πολλαπλών επιπέδων κατηγορίες – αντιπροσωπεύει το κοντέινερ των αντικειμένων [**IChartDataPointLevel**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/). 
+Βασικά είναι ένας wrapper για [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) με τις ιδιότητες που προστέθηκαν ειδικά για σημεία δεδομένων. 
+Η κλάση [**IChartDataPointLevel**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/) έχει δύο μεθόδους: [**get_Format()**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) και [**get_Label()**](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) που παρέχουν πρόσβαση στις αντίστοιχες ρυθμίσεις.
 
-## **Εμφάνιση τιμής σημείου δεδομένων**
+## **Εμφάνιση Τιμής Σημείου Δεδομένων**
 Εμφάνιση τιμής του σημείου δεδομένων "Leaf 4":
+
 ``` cpp
 auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
 dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_DataLabelFormat()->set_ShowValue(true);
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+## **Ορισμός Ετικέτας και Χρώματος Σημείου Δεδομένων**
+Ορίστε την ετικέτα δεδομένων "Branch 1" να εμφανίζει το όνομα της σειράς ("Series1") αντί για το όνομα της κατηγορίας. Στη συνέχεια ορίστε το χρώμα κειμένου σε κίτρινο:
 
-## **Ορισμός ετικέτας και χρώματος σημείου δεδομένων**
-Ορίστε την ετικέτα δεδομένων του "Branch 1" ώστε να εμφανίζει το όνομα της σειράς ("Series1") αντί του ονόματος της κατηγορίας. Στη συνέχεια ορίστε το χρώμα κειμένου σε κίτρινο:
 ``` cpp
 auto branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
 branch1Label->get_DataLabelFormat()->set_ShowCategoryName(false);
@@ -59,9 +65,10 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 ```
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+## **Ορισμός Χρώματος Κλάδου Σημείου Δεδομένων**
 
-## **Ορισμός χρώματος κλαδιού σημείου δεδομένων**
-Αλλαγή χρώματος του κλαδιού "Stem 4":
+Αλλαγή χρώματος του κλαδίου "Stem 4":
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
@@ -78,14 +85,18 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να αλλάξω τη σειρά (ταξινόμηση) των τμημάτων σε Sunburst/Treemap;**  
-Όχι. Το PowerPoint ταξινομεί αυτόματα τα τμήματα (συνήθως κατά φθίνουσες τιμές, δεξιόστροφα). Το Aspose.Slides αντικατοπτρίζει αυτή τη συμπεριφορά: δεν μπορείτε να αλλάξετε τη σειρά απευθείας· πρέπει να το κάνετε προεπεξεργάζοντας τα δεδομένα.
+**Μπορώ να αλλάξω τη σειρά (ταξινόμηση) των τμημάτων σε Sunburst/Treemap;**
 
-**Πώς επηρεάζει το θέμα της παρουσίασης τα χρώματα των τμημάτων και των ετικετών;**  
-Τα χρώματα του διαγράμματος κληρονομούν το [θέμα/παλέτα](/slides/el/cpp/presentation-theme/) της παρουσίασης, εκτός εάν ορίσετε ρητά γεμίσεις/γραμματοσειρές. Για συνεπή αποτελέσματα, κλειδώστε σταθερές γεμίσεις και μορφοποίηση κειμένου στα απαιτούμενα επίπεδα.
+Όχι. Το PowerPoint ταξινομεί τα τμήματα αυτόματα (συνήθως κατά φθίνουσες τιμές, δεξιόστροφα). Το Aspose.Slides ακολουθεί αυτή τη συμπεριφορά: δεν μπορείτε να αλλάξετε τη σειρά απευθείας· πρέπει να το πετύχετε προεπεξεργάζοντας τα δεδομένα.
 
-**Θα διατηρήσει η εξαγωγή σε PDF/PNG τα προσαρμοσμένα χρώματα κλαδιών και τις ρυθμίσεις ετικετών;**  
-Ναι. Κατά την εξαγωγή της παρουσίασης, οι ρυθμίσεις του διαγράμματος (γεμίσεις, ετικέτες) διατηρούνται στα αρχεία εξόδου επειδή το Aspose.Slides αποδίδει το διάγραμμα με την εφαρμοσμένη μορφοποίηση.
+**Πώς επηρεάζει το θέμα της παρουσίασης τα χρώματα των τμημάτων και των ετικετών;**
 
-**Μπορώ να υπολογίσω τις πραγματικές συντεταγμένες μιας ετικέτας/στοιχείου για προσαρμοσμένη τοποθέτηση επικάλυψης πάνω στο διάγραμμα;**  
-Ναι. Μετά την επικύρωση της διάταξης του διαγράμματος, είναι διαθέσιμες οι πραγματικές τιμές X και Y για τα στοιχεία (π.χ., ένα [DataLabel](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/datalabel/)), κάτι που βοηθά στην ακριβή τοποθέτηση των επικαλύψεων.
+Τα χρώματα του διαγράμματος κληρονομούν το [theme/palette](/slides/el/cpp/presentation-theme/) της παρουσίασης εκτός εάν ορίσετε ρητά γεμίσματα/γραμματοσειρές. Για συνεπή αποτελέσματα, κλειδώστε σε συμπαγή γεμίσματα και μορφοποίηση κειμένου στα απαιτούμενα επίπεδα.
+
+**Θα διατηρήσει η εξαγωγή σε PDF/PNG τα προσαρμοσμένα χρώματα κλάδου και τις ρυθμίσεις ετικετών;**
+
+Ναι. Κατά την εξαγωγή της παρουσίασης, οι ρυθμίσεις του διαγράμματος (γεμίσματα, ετικέτες) διατηρούνται στα μορφότυπα εξόδου επειδή το Aspose.Slides αποδίδει το διάγραμμα με την εφαρμοσμένη μορφοποίηση.
+
+**Μπορώ να υπολογίσω τις πραγματικές συντεταγμένες μιας ετικέτας/στοιχείου για την προσαρμοσμένη τοποθέτηση επικάλυψης πάνω στο διάγραμμα;**
+
+Ναι. Μετά την επαλήθευση της διάταξης του διαγράμματος, τα πραγματικά X και Y είναι διαθέσιμα για τα στοιχεία (π.χ., ένα [DataLabel](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/datalabel/)), κάτι που βοηθά στην ακριβή τοποθέτηση επικάλυψεων.

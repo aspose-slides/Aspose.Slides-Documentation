@@ -16,29 +16,34 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Настройте шрифты в слайдах PowerPoint с помощью Aspose.Slides для C++, чтобы ваши презентации выглядели чётко и одинаково на любом устройстве."
+description: "Настраивайте шрифты в слайдах PowerPoint с помощью Aspose.Slides для C++, чтобы ваши презентации оставались четкими и одинаковыми на любом устройстве."
 ---
+## **Обзор**
+
+Aspose.Slides позволяет использовать пользовательские шрифты в презентациях без их установки в операционной системе. Вы можете загружать шрифты из пользовательских папок, предоставлять шрифты для конкретной презентации через источники шрифтов уровня документа или загружать внешние шрифты непосредственно из бинарных данных.
+
+Загруженные шрифты используются при рендеринге или экспорте презентации, например в PDF, изображения и другие поддерживаемые форматы. Это помогает сохранять единообразный вывод презентаций в разных средах. В статье также объясняется, как проверить папки шрифтов, используемые Aspose.Slides, и как очистить кеш шрифтов после работы с внешними шрифтами.
+
+Регистрация пользовательских шрифтов для рендеринга отличается от встраивания шрифтов в файл PPTX. Если шрифт должен быть сохранён внутри самой презентации, используйте функции встраивания шрифтов явно.
 
 {{% alert color="primary" %}} 
+Aspose Slides позволяет загружать эти шрифты с помощью [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/loadexternalfonts/):
 
-Aspose Slides позволяет загружать эти шрифты с помощью [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/):
-
-* TrueType (.ttf) и TrueType Collection (.ttc) шрифты. См. [TrueType](https://en.wikipedia.org/wiki/TrueType).
-
-* OpenType (.otf) шрифты. См. [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
+* TrueType (.ttf) и TrueType Collection (.ttc) шрифты. Смотрите [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* OpenType (.otf) шрифты. Смотрите [OpenType](https://en.wikipedia.org/wiki/OpenType).
 {{% /alert %}}
 
 ## **Загрузка пользовательских шрифтов**
 
-Aspose.Slides позволяет загружать шрифты, используемые в презентации, без их установки в системе. Это влияет на экспорт — такие форматы, как PDF, изображения и другие поддерживаемые форматы — поэтому полученные документы выглядят одинаково в разных окружениях. Шрифты загружаются из пользовательских каталогов.
+Aspose.Slides позволяет загружать шрифты, используемые в презентации, без их установки в системе. Это влияет на вывод при экспорте — например в PDF, изображения и другие поддерживаемые форматы — поэтому полученные документы выглядят одинаково в разных средах. Шрифты загружаются из пользовательских каталогов.
 
-1. Укажите одну или несколько папок, содержащих файлы шрифтов.
-2. Вызовите статический метод [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/) для загрузки шрифтов из этих папок.
-3. Загрузите и отрендерите/экспортируйте презентацию.
-4. Вызовите [FontsLoader.clearCache](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/clearcache/) для очистки кэша шрифтов.
+1. Укажите одну или несколько папок, содержащих файлы шрифтов.  
+2. Вызовите статический метод [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/loadexternalfonts/) для загрузки шрифтов из этих папок.  
+3. Загрузите и отрендерите/экспортируйте презентацию.  
+4. Вызовите [FontsLoader.clearCache](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/clearcache/) для очистки кеша шрифтов.
 
-Ниже приведён пример кода, демонстрирующего процесс загрузки шрифтов:
+Ниже приведён пример кода, демонстрирующий процесс загрузки шрифтов:
+
 ```cpp
 // Определите папки, содержащие пользовательские файлы шрифтов.
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
@@ -48,40 +53,40 @@ FontsLoader::LoadExternalFonts(fontFolders);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Отрендерите/экспортируйте презентацию (например, в PDF, изображения или другие форматы), используя загруженные шрифты.
+// Выполните рендеринг/экспорт презентации (например, в PDF, изображения или другие форматы), используя загруженные шрифты.
 presentation->Save(u"output.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 
-// Очистите кэш шрифтов после завершения работы.
+// Очистите кеш шрифтов после завершения работы.
 FontsLoader::ClearCache();
 ```
 
-
-{{% alert color="info" title="Note" %}}
-
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/) добавляет дополнительные папки в пути поиска шрифтов, но не меняет порядок инициализации шрифтов.
+{{% alert color="info" title="Примечание" %}}
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/loadexternalfonts/) добавляет дополнительные папки в пути поиска шрифтов, но не изменяет порядок инициализации шрифтов.  
 Шрифты инициализируются в следующем порядке:
 
-1. Путь к шрифтам по умолчанию операционной системы.
-1. Пути, загруженные через [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/).
-
+1. Путь к шрифтам операционной системы по умолчанию.  
+1. Пути, загруженные через [FontsLoader](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/).
 {{%/alert %}}
 
 ## **Получить пользовательские папки шрифтов**
-Aspose.Slides предоставляет [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) для получения папок шрифтов. Этот метод возвращает папки, добавленные через метод `LoadExternalFonts`, а также системные папки шрифтов.
 
-Этот C++ код показывает, как использовать метод [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/):
+Aspose.Slides предоставляет [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/getfontfolders/) для поиска папок шрифтов. Этот метод возвращает папки, добавленные через метод `LoadExternalFonts`, а также системные папки шрифтов.
+
+Ниже показан пример C++ кода, использующего метод [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/getfontfolders/):
+
 ``` cpp
-// Эта строка выводит папки, которые проверяются на наличие файлов шрифтов.
+// Эта строка выводит папки, проверяемые на наличие файлов шрифтов.
 // Это папки, добавленные через метод LoadExternalFonts, и системные папки шрифтов.
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
+## **Указание пользовательских шрифтов, используемых в презентации**
 
-## **Указать пользовательские шрифты, используемые в презентации**
-Aspose.Slides предоставляет свойство [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) для указания внешних шрифтов, которые будут использоваться в презентации.
+Aspose.Slides предоставляет свойство [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/ru/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) для указания внешних шрифтов, которые будут использоваться в презентации.
 
-Этот C++ код показывает, как использовать свойство [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/):
+Ниже показан пример C++ кода, использующего свойство [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/ru/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/):
+
 ``` cpp
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
 auto memoryFont2 = File::ReadAllBytes(u"customfonts\\CustomFont2.ttf");
@@ -92,15 +97,16 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<A
 {
     auto presentation = System::MakeObject<Presentation>(u"MyPresentation.pptx", loadOptions);
     //работа с презентацией
-    //CustomFont1, CustomFont2, а также шрифты из папок assets\fonts & global\fonts и их подпапок доступны презентации
+    //CustomFont1, CustomFont2, а также шрифты из папок assets\fonts & global\fonts и их подпапок доступны для презентации
 }
 ```
 
+## **Управление шрифтами внешне**
 
-## **Управление шрифтами извне**
-Aspose.Slides предоставляет метод [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfont/) для загрузки внешних шрифтов в массив байтов.
+Aspose.Slides предоставляет метод [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsloader/loadexternalfont/) для загрузки внешних шрифтов в массив байтов.
 
-Этот C++ код демонстрирует процесс загрузки шрифта в массив байтов:
+Ниже показан пример C++ кода, демонстрирующего процесс загрузки шрифта в массив байтов:
+
 ```cpp
 // Путь к каталогу документов
 const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
@@ -117,25 +123,24 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(memoryfontsLocation
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOptions);
 ```
 
-
 ## **Часто задаваемые вопросы**
 
 **Влияют ли пользовательские шрифты на экспорт во все форматы (PDF, PNG, SVG, HTML)?**
 
 Да. Подключённые шрифты используются рендерером во всех форматах экспорта.
 
-**Встраиваются ли пользовательские шрифты автоматически в конечный PPTX?**
+**Встраиваются ли пользовательские шрифты автоматически в полученный PPTX?**
 
-Нет. Регистрация шрифта для рендеринга не равна его встраиванию в PPTX. Если нужен шрифт внутри файла презентации, используйте явные [возможности встраивания](/slides/ru/cpp/embedded-font/).
+Нет. Регистрация шрифта для рендеринга не равна его встраиванию в PPTX. Если необходимо, чтобы шрифт находился внутри файла презентации, используйте явные [возможности встраивания](/slides/ru/cpp/embedded-font/).
 
-**Можно ли контролировать поведение fallback, когда у пользовательского шрифта отсутствуют некоторые глифы?**
+**Можно ли управлять поведением fallback, когда у пользовательского шрифта отсутствуют некоторые глифы?**
 
-Да. Настройте [замену шрифтов](/slides/ru/cpp/font-substitution/), [правила замены](/slides/ru/cpp/font-replacement/) и [наборы fallback](/slides/ru/cpp/fallback-font/), чтобы точно определить, какой шрифт использовать при отсутствии запрашиваемого глифа.
+Да. Настройте [замену шрифтов](/slides/ru/cpp/font-substitution/), [правила замены](/slides/ru/cpp/font-replacement/) и [наборы резервных шрифтов](/slides/ru/cpp/fallback-font/), чтобы точно определить, какой шрифт будет использоваться, если нужный глиф отсутствует.
 
-**Можно ли использовать шрифты в контейнерах Linux/Docker без их установки в системе?**
+**Можно ли использовать шрифты в контейнерах Linux/Docker без их системной установки?**
 
-Да. Указывайте свои папки со шрифтами или загружайте шрифты из массивов байтов. Это устраняет любую зависимость от системных каталогов шрифтов в образе контейнера.
+Да. Укажите свои собственные папки шрифтов или загружайте шрифты из массивов байтов. Это устраняет любую зависимость от системных каталогов шрифтов в образе контейнера.
 
-**Что насчёт лицензирования — можно ли встраивать любой пользовательский шрифт без ограничений?**
+**А как насчёт лицензирования — можно ли встраивать любые пользовательские шрифты без ограничений?**
 
-Вы отвечаете за соблюдение лицензий на шрифты. Условия различаются; некоторые лицензии запрещают встраивание или коммерческое использование. Всегда проверяйте EULA шрифта перед распространением результатов.
+Вы несёте ответственность за соблюдение лицензий шрифтов. Условия различаются; некоторые лицензии запрещают встраивание или коммерческое использование. Всегда проверяйте EULA шрифта перед распространением результатов.

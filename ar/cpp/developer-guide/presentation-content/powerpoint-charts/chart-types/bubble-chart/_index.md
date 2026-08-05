@@ -9,29 +9,37 @@ keywords:
 - تحجيم الحجم
 - تمثيل الحجم
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - C++
 - Aspose.Slides
-description: "أنشئ وقم بتخصيص مخططات الفقاعات القوية في PowerPoint باستخدام Aspose.Slides لـ C++ لتحسين تصور البيانات بسهولة."
+description: "إنشاء وتخصيص مخططات فقاعات قوية في PowerPoint باستخدام Aspose.Slides للغة C++ لتعزيز تصور البيانات بسهولة."
 ---
+## **نظرة عامة**
+
+توضح هذه المقالة كيفية العمل مع مخططات الفقاعات في Aspose.Slides. تغطي خيارين مخصصين محددين: تعديل حجم الفقاعات عبر طريقة `set_BubbleSizeScale` والتحكم في طريقة تمثيل قيم حجم الفقاعات عبر طريقة `set_BubbleSizeRepresentation`.
+
+توضح الأمثلة كيفية إنشاء مخطط فقاعات، وضبط تحجيم حجمه، وتغيير تمثيل حجم الفقاعة لاستخدام العرض. تتضمن المقالة أيضًا قسم أسئلة شائعة قصير يوضح دعم نوع المخطط “Bubble with 3-D”، ويشير إلى أن حدود المخطط العملية تعتمد على الأداء وإصدار PowerPoint المستهدف، ويشرح أن التصدير يحافظ على مظهر المخطط عبر محرك عرض Aspose.Slides.
 
 ## **تحجيم حجم مخطط الفقاعات**
-توفر Aspose.Slides لـ C++ دعمًا لتحجيم حجم مخطط الفقاعات. في Aspose.Slides لـ **C++** تمت إضافة الخصائص **IChartSeries.BubbleSizeScale** و **IChartSeriesGroup.BubbleSizeScale**. مثال توضيحي أدناه.
+يوفر Aspose.Slides for C++ دعمًا لتحجيم حجم مخطط الفقاعات. في Aspose.Slides for **C++** تم إضافة خاصيتي **IChartSeries.BubbleSizeScale** و**IChartSeriesGroup.BubbleSizeScale**. المثال التالي موضح أدناه.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingBubbleChartScaling-SettingBubbleChartScaling.cpp" >}}
 
 ## **تمثيل البيانات كأحجام مخطط الفقاعات**
-تم إضافة الطريقة الجديدة **get_BubbleSizeRepresentation()** إلى الفئات **IChartSeries** و **ChartSeries**. تحدد **BubbleSizeRepresentation** كيفية تمثيل قيم حجم الفقاعات في مخطط الفقاعات. القيم الممكنة هي: **BubbleSizeRepresentationType.Area** و **BubbleSizeRepresentationType.Width**. بناءً على ذلك، تمت إضافة تعداد **BubbleSizeRepresentationType** لتحديد الطرق الممكنة لتمثيل البيانات كأحجام مخطط الفقاعات. مثال الشيفرة موجود أدناه.
+تم إضافة طريقة **get_BubbleSizeRepresentation()** إلى الفئتين **IChartSeries** و**ChartSeries**. تحدد **BubbleSizeRepresentation** كيفية تمثيل قيم حجم الفقاعة في مخطط الفقاعات. القيم الممكنة هي: **BubbleSizeRepresentationType.Area** و**BubbleSizeRepresentationType.Width**. بناءً على ذلك، تمت إضافة تعداد **BubbleSizeRepresentationType** لتحديد الطرق الممكنة لتمثيل البيانات كأحجام مخطط الفقاعات. الكود التالي يوضح ذلك.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SupportOfBubbleSizeRepresentation-SupportOfBubbleSizeRepresentation.cpp" >}}
 
 ## **الأسئلة الشائعة**
 
-**هل يتم دعم "مخطط الفقاعات بتأثير ثلاثي الأبعاد"، وكيف يختلف عن المخطط العادي؟**
-نعم. هناك نوع مخطط منفصل يدعى "Bubble with 3-D". يطبق تنسيقًا ثلاثي الأبعاد على الفقاعات لكنه لا يضيف محورًا إضافيًا؛ تظل البيانات X-Y-S (الحجم). يتوفر هذا النوع في تعداد [chart type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
+**هل يدعم “مخطط الفقاعات مع تأثير ثلاثي الأبعاد” وكيف يختلف عن المخطط العادي؟**
+
+نعم. هناك نوع مخطط منفصل يُدعى “Bubble with 3-D”. يضيف نمطًا ثلاثيًا للأبعاد إلى الفقاعات دون إضافة محور إضافي؛ تظل البيانات X‑Y‑S (الحجم). النوع متاح في تعداد [نوع المخطط](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/charttype/) .
 
 **هل هناك حد لعدد السلاسل والنقاط في مخطط الفقاعات؟**
-لا يوجد حد ثابت على مستوى API؛ يتم تحديد القيود بناءً على الأداء وإصدار PowerPoint المستهدف. يُنصح بالحفاظ على عدد النقاط معقولًا لضمان قابلية القراءة وسرعة العرض.
 
-**كيف سيؤثر التصدير على مظهر مخطط الفقاعات (PDF، الصور)؟**
-يحافظ التصدير إلى الصيغ المدعومة على مظهر المخطط؛ يتم إجراء العرض بواسطة محرك Aspose.Slides. بالنسبة للصيغ النقطية/المتجهة، تُطبق قواعد العرض العامة للرسومات البيانية (الدقة، إلغاء التنعيم)، لذا يُنصح باختيار DPI كافٍ للطباعة.
+لا يوجد حد ثابت على مستوى API؛ يتم تحديد القيود بناءً على الأداء وإصدار PowerPoint المستهدف. يُنصح بالحفاظ على عدد النقاط معقولًا لتحسين قابلية القراءة وسرعة العرض.
+
+**كيف سيؤثر التصدير على مظهر مخطط الفقاعات (PDF، صور)؟**
+
+يحافظ التصدير إلى الصيغ المدعومة على مظهر المخطط؛ يتم الرسم بواسطة محرك Aspose.Slides. بالنسبة إلى الصيغ النقطية/الشرحية، تُطبق قواعد الرسم العامة للمخططات (الدقة، مكافحة التعرج)، لذا يُفضَّل اختيار DPI كافٍ للطباعة.

@@ -3,6 +3,8 @@ title: 備註
 type: docs
 weight: 240
 url: /zh-hant/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/備註/
 keywords:
 - 備註
 - 新增備註投影片
@@ -16,13 +18,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 處理投影片備註：新增、讀取、編輯，並以清晰的 C# 範例匯出 PPT、PPTX 和 ODP 格式的演講者備註。"
+description: "在 Aspose.Slides for .NET 中處理投影片備註：使用清晰的 C# 範例，新增、讀取、編輯及匯出 PPT、PPTX 與 ODP 的講者備註。"
 ---
-本文示範如何使用 **Aspose.Slides for .NET** 新增、讀取、移除與更新備註投影片。
+本文示範如何使用 **Aspose.Slides for .NET** 新增、閱讀、移除及更新備註投影片。
 
 ## **新增備註投影片**
-
-建立備註投影片並為其指定文字。
+建立備註投影片並為其指派文字。
 
 ```csharp
 static void AddNote()
@@ -36,7 +37,6 @@ static void AddNote()
 ```
 
 ## **存取備註投影片**
-
 從現有的備註投影片讀取文字。
 
 ```csharp
@@ -52,7 +52,6 @@ static void AccessNote()
 ```
 
 ## **移除備註投影片**
-
 移除與投影片關聯的備註投影片。
 
 ```csharp
@@ -68,7 +67,6 @@ static void RemoveNote()
 ```
 
 ## **更新備註文字**
-
 變更備註投影片的文字。
 
 ```csharp

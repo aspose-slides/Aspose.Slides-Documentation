@@ -3,6 +3,8 @@ title: Catatan
 type: docs
 weight: 240
 url: /id/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - catatan
 - menambahkan slide catatan
@@ -22,7 +24,7 @@ Artikel ini menunjukkan cara menambahkan, membaca, menghapus, dan memperbarui sl
 
 ## **Menambahkan Slide Catatan**
 
-Buat slide catatan dan tetapkan teks ke dalamnya.
+Buat slide catatan dan beri teks padanya.
 
 ```csharp
 static void AddNote()
@@ -69,7 +71,7 @@ static void RemoveNote()
 
 ## **Memperbarui Teks Catatan**
 
-Ubah teks pada slide catatan.
+Ubah teks slide catatan.
 
 ```csharp
 static void UpdateNoteText()

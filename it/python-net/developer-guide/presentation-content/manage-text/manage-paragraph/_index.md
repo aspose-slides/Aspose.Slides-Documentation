@@ -1,42 +1,45 @@
 ---
 title: Gestire i paragrafi di testo PowerPoint in Python
-linktitle: Gestisci paragrafo
+linktitle: Gestire paragrafo
 type: docs
 weight: 40
 url: /it/python-net/manage-paragraph/
+aliases:
+  - /python-net/paragraph/
+  - /python-net/portion/
 keywords:
-- aggiungi testo
-- aggiungi paragrafo
-- gestisci testo
-- gestisci paragrafo
-- gestisci punto elenco
+- aggiungere testo
+- aggiungere paragrafo
+- gestire testo
+- gestire paragrafo
+- gestire punto elenco
 - rientro paragrafo
 - rientro sospeso
 - punto elenco paragrafo
 - elenco numerato
 - elenco puntato
 - proprietà paragrafo
-- importa HTML
-- testo in HTML
-- paragrafo in HTML
-- paragrafo in immagine
-- testo in immagine
-- esporta paragrafo
+- importare HTML
+- testo a HTML
+- paragrafo a HTML
+- paragrafo a immagine
+- testo a immagine
+- esportare paragrafo
 - PowerPoint
 - presentazione
 - Python
 - Aspose.Slides
-description: "Padroneggia la formattazione dei paragrafi con Aspose.Slides per Python via .NET—ottimizza allineamento, spaziatura e stile nelle presentazioni PowerPoint e OpenDocument in Python per coinvolgere gli spettatori."
+description: "Padroneggia la formattazione dei paragrafi con Aspose.Slides per Python via .NET — ottimizza allineamento, spaziatura e stile nelle presentazioni PowerPoint e OpenDocument in Python per coinvolgere gli spettatori."
 ---
 ## **Introduzione**
 
 Aspose.Slides fornisce le classi necessarie per lavorare con il testo di PowerPoint in Python.
 
-* Aspose.Slides fornisce la classe [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) per creare oggetti di riquadro di testo. Un oggetto `TextFrame` può contenere uno o più paragrafi (ogni paragrafo è separato da un ritorno a capo).
-* Aspose.Slides fornisce la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) per creare oggetti paragrafo. Un oggetto `Paragraph` può contenere una o più porzioni di testo.
-* Aspose.Slides fornisce la classe [Portion](https://reference.aspose.com/slides/it/python-net/aspose.slides/portion/) per creare oggetti porzione di testo e specificare le loro proprietà di formattazione.
+* Aspose.Slides fornisce la classe [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) per creare oggetti di riquadri di testo. Un oggetto `TextFrame` può contenere uno o più paragrafi (ogni paragrafo è separato da un ritorno a capo).
+* Aspose.Slides fornisce la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) per creare oggetti paragrafo. Un oggetto `Paragraph` può contenere una o più parti di testo.
+* Aspose.Slides fornisce la classe [Portion](https://reference.aspose.com/slides/it/python-net/aspose.slides/portion/) per creare oggetti di porzione di testo e specificarne le proprietà di formattazione.
 
-Un oggetto `Paragraph` può gestire testo con diverse proprietà di formattazione tramite i suoi oggetti `Portion` sottostanti.
+Un oggetto `Paragraph` può gestire testo con diverse proprietà di formattazione tramite le sue sottostanti oggetti `Portion`.
 
 ## **Aggiungere più paragrafi contenenti più porzioni**
 
@@ -45,32 +48,30 @@ Questi passaggi mostrano come aggiungere un riquadro di testo che contiene tre p
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
 1. Ottieni un riferimento alla diapositiva di destinazione tramite il suo indice.
 1. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) rettangolare alla diapositiva.
-1. Ottieni il [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) associato alla [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
-1. Crea due oggetti [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e aggiungili alla raccolta di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) (insieme al paragrafo predefinito, questo porta a tre paragrafi).
-1. Per ciascun paragrafo, crea tre oggetti [Portion](https://reference.aspose.com/slides/it/python-net/aspose.slides/portion/) e aggiungili alla raccolta di porzioni di quel paragrafo.
-1. Imposta il testo per ciascuna porzione.
-1. Applica la formattazione desiderata a ogni porzione di testo usando le proprietà esposte da [Portion](https://reference.aspose.com/slides/it/python-net/aspose.slides/portion/).
+1. Recupera il [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) associato all'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
+1. Crea due oggetti [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e aggiungili alla collezione di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) (insieme al paragrafo predefinito, otterrai tre paragrafi).
+1. Per ogni paragrafo, crea tre oggetti [Portion](https://reference.aspose.com/slides/it/python-net/aspose.slides/portion/) e aggiungili alla collezione di porzioni di quel paragrafo.
+1. Imposta il testo per ogni porzione.
+1. Applica la formattazione desiderata a ciascuna porzione di testo utilizzando le proprietà esposte da [Portion](https://reference.aspose.com/slides/it/python-net/aspose.slides/portion/).
 1. Salva la presentazione modificata.
-
-Il seguente codice Python implementa questi passaggi:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Istanziate la classe Presentation per creare un nuovo file PPTX.
+# Istanzia la classe Presentation per creare un nuovo file PPTX.
 with slides.Presentation() as presentation:
 
-    # Accedete alla prima diapositiva.
+    # Accedi alla prima diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungete una AutoShape rettangolare.
+    # Aggiungi un'AutoShape rettangolare.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
 
-    # Accedete al TextFrame dell'AutoShape.
+    # Accedi al TextFrame dell'AutoShape.
     text_frame = shape.text_frame
 
-    # Create paragrafi e porzioni; la formattazione viene applicata di seguito.
+    # Crea paragrafi e porzioni; la formattazione viene applicata di seguito.
     paragraph0 = text_frame.paragraphs[0]
     portion01 = slides.Portion()
     portion02 = slides.Portion()
@@ -119,20 +120,18 @@ Le liste puntate ti aiutano a organizzare e presentare le informazioni rapidamen
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
 1. Accedi alla diapositiva di destinazione tramite il suo indice.
-1. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+1. Aggiungi un'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
 1. Accedi al [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) della forma.
 1. Rimuovi il paragrafo predefinito dal [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Crea il primo paragrafo usando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/).
-1. Imposta il tipo di punto elenco del paragrafo su `SYMBOL` e specifica il carattere del punto elenco.
+1. Crea il primo paragrafo utilizzando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/).
+1. Imposta il tipo di punto elenco del paragrafo a `SYMBOL` e specifica il carattere del punto.
 1. Imposta il testo del paragrafo.
-1. Imposta il rientro del punto elenco per il paragrafo.
-1. Imposta il colore del punto elenco.
-1. Imposta la dimensione (altezza) del punto elenco.
-1. Aggiungi il paragrafo alla raccolta di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Aggiungi un secondo paragrafo e ripeti i passaggi 7–12.
+1. Imposta l'indentazione del punto per il paragrafo.
+1. Imposta il colore del punto.
+1. Imposta la dimensione (altezza) del punto.
+1. Aggiungi il paragrafo alla collezione di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
+1. Aggiungi un secondo paragrafo e ripeti i passaggi da 7 a 12.
 1. Salva la presentazione.
-
-Questo codice Python mostra come aggiungere paragrafi puntati:
 
 ```python
 import aspose.slides as slides
@@ -163,15 +162,15 @@ with slides.Presentation() as presentation:
     # Imposta il testo del paragrafo.
     paragraph.text = "Welcome to Aspose.Slides"
 
-    # Imposta il rientro del punto elenco.
+    # Imposta l'indentazione del punto.
     paragraph.paragraph_format.indent = 25
 
-    # Imposta il colore del punto elenco.
+    # Imposta il colore del punto.
     paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph.paragraph_format.bullet.color.color = draw.Color.black
     paragraph.paragraph_format.bullet.is_bullet_hard_color = 1 
 
-    # Imposta l'altezza del punto elenco.
+    # Imposta l'altezza del punto.
     paragraph.paragraph_format.bullet.height = 100
 
     # Aggiungi il paragrafo al riquadro di testo.
@@ -187,15 +186,15 @@ with slides.Presentation() as presentation:
     # Imposta il testo del paragrafo.
     paragraph2.text = "This is numbered bullet"
 
-    # Imposta il rientro del punto elenco.
+    # Imposta l'indentazione del punto.
     paragraph2.paragraph_format.indent = 25
 
-    # Imposta il colore del punto elenco.
+    # Imposta il colore del punto.
     paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph2.paragraph_format.bullet.color.color = draw.Color.black
     paragraph2.paragraph_format.bullet.is_bullet_hard_color = 1
 
-    # Imposta l'altezza del punto elenco.
+    # Imposta l'altezza del punto.
     paragraph2.paragraph_format.bullet.height = 100
 
     # Aggiungi il paragrafo al riquadro di testo.
@@ -205,27 +204,25 @@ with slides.Presentation() as presentation:
     presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gestire i punti elenco con immagini**
+## **Gestire punti elenco con immagini**
 
-Le liste puntate ti aiutano a organizzare e presentare le informazioni rapidamente ed efficientemente. I punti elenco con immagine sono facili da leggere e comprendere.
+Le liste puntate ti aiutano a organizzare e presentare le informazioni rapidamente ed efficientemente. I punti elenco con immagini sono facili da leggere e comprendere.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
 1. Accedi alla diapositiva di destinazione tramite il suo indice.
-1. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+1. Aggiungi un'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
 1. Accedi al [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) della forma.
 1. Rimuovi il paragrafo predefinito dal [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Crea il primo paragrafo usando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/).
-1. Carica un'immagine in un [PPImage](https://reference.aspose.com/slides/it/python-net/aspose.slides/ppimage/).
-1. Imposta il tipo di punto elenco su [PPImage](https://reference.aspose.com/slides/it/python-net/aspose.slides/ppimage/) e assegna l'immagine.
+1. Crea il primo paragrafo utilizzando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/).
+1. Carica un'immagine in un oggetto [PPImage](https://reference.aspose.com/slides/it/python-net/aspose.slides/ppimage/).
+1. Imposta il tipo di punto elenco a [PPImage](https://reference.aspose.com/slides/it/python-net/aspose.slides/ppimage/) e assegna l'immagine.
 1. Imposta il testo del paragrafo.
-1. Imposta il rientro del paragrafo per il punto elenco.
-1. Imposta il colore del punto elenco.
-1. Imposta l'altezza del punto elenco.
-1. Aggiungi il nuovo paragrafo alla raccolta di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Aggiungi un secondo paragrafo e ripeti i passaggi 8–12.
+1. Imposta l'indentazione del paragrafo per il punto.
+1. Imposta il colore del punto.
+1. Imposta l'altezza del punto.
+1. Aggiungi il nuovo paragrafo alla collezione di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
+1. Aggiungi un secondo paragrafo e ripeti i passaggi da 8 a 12.
 1. Salva la presentazione.
-
-Questo codice Python mostra come aggiungere e gestire i punti elenco con immagini:
 
 ```python
 import aspose.slides as slides
@@ -257,7 +254,7 @@ with slides.Presentation() as presentation:
     paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
     paragraph.paragraph_format.bullet.picture.image = pp_image
 
-    # Imposta l'altezza del punto elenco.
+    # Imposta l'altezza del punto.
     paragraph.paragraph_format.bullet.height = 100
 
     # Aggiungi il paragrafo al riquadro di testo.
@@ -269,23 +266,21 @@ with slides.Presentation() as presentation:
     presentation.save("picture_bullets_out.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **Gestire i punti elenco multilivello**
+## **Gestire punti elenco a più livelli**
 
-Le liste puntate ti aiutano a organizzare e presentare le informazioni rapidamente ed efficientemente. I punti elenco multilivello sono facili da leggere e comprendere.
+Le liste puntate ti aiutano a organizzare e presentare le informazioni rapidamente ed efficientemente. I punti elenco a più livelli sono facili da leggere e comprendere.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
 1. Accedi alla diapositiva di destinazione tramite il suo indice.
-1. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Accedi al [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) dell'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
+1. Aggiungi un'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+1. Accedi al [TextFrame] dell'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
 1. Rimuovi il paragrafo predefinito dal [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Crea il primo paragrafo usando la classe [Paragraph] e imposta la sua profondità a 0.
-1. Crea il secondo paragrafo usando la classe [Paragraph] e imposta la sua profondità a 1.
-1. Crea il terzo paragrafo usando la classe [Paragraph] e imposta la sua profondità a 2.
-1. Crea il quarto paragrafo usando la classe [Paragraph] e imposta la sua profondità a 3.
-1. Aggiungi i nuovi paragrafi alla raccolta di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
+1. Crea il primo paragrafo utilizzando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e imposta la sua profondità a 0.
+1. Crea il secondo paragrafo utilizzando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e imposta la sua profondità a 1.
+1. Crea il terzo paragrafo utilizzando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e imposta la sua profondità a 2.
+1. Crea il quarto paragrafo utilizzando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e imposta la sua profondità a 3.
+1. Aggiungi i nuovi paragrafi alla collezione di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
 1. Salva la presentazione.
-
-Il seguente codice Python mostra come aggiungere e gestire i punti elenco multilivello:
 
 ```python
 import aspose.slides as slides
@@ -303,7 +298,7 @@ with slides.Presentation() as presentation:
     # Accedi al TextFrame dell'AutoShape creata.
     text_frame = auto_shape.text_frame
     
-    # Pulisci il paragrafo predefinito.
+    # Cancella il paragrafo predefinito.
     text_frame.paragraphs.clear()
 
     # Aggiungi il primo paragrafo.
@@ -346,7 +341,7 @@ with slides.Presentation() as presentation:
     # Imposta il livello del punto elenco.
     paragraph4.paragraph_format.depth = 3
 
-    # Aggiungi i paragrafi alla raccolta.
+    # Aggiungi i paragrafi alla collezione.
     text_frame.paragraphs.add(paragraph1)
     text_frame.paragraphs.add(paragraph2)
     text_frame.paragraphs.add(paragraph3)
@@ -356,22 +351,20 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gestire i paragrafi con elenchi numerati personalizzati**
+## **Gestire paragrafi con elenchi numerati personalizzati**
 
-La classe [BulletFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/) fornisce la proprietà `numbered_bullet_start_with` (e altre) per controllare la numerazione e la formattazione personalizzate dei paragrafi.
+La classe [BulletFormat] fornisce la proprietà `numbered_bullet_start_with` (e altre) per controllare la numerazione e la formattazione personalizzate dei paragrafi.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
 1. Accedi alla diapositiva che conterrà i paragrafi.
-1. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+1. Aggiungi un'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
 1. Accedi al [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) della forma.
 1. Rimuovi il paragrafo predefinito dal [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Crea il primo [Paragraph] e imposta `numbered_bullet_start_with` a 2.
-1. Crea il secondo [Paragraph] e imposta `numbered_bullet_start_with` a 3.
-1. Crea il terzo [Paragraph] e imposta `numbered_bullet_start_with` a 7.
-1. Aggiungi i paragrafi alla raccolta del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
+1. Crea il primo [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e imposta `numbered_bullet_start_with` a 2.
+1. Crea il secondo [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e imposta `numbered_bullet_start_with` a 3.
+1. Crea il terzo [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) e imposta `numbered_bullet_start_with` a 7.
+1. Aggiungi i paragrafi alla collezione del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
 1. Salva la presentazione.
-
-Il seguente codice Python dimostra come aggiungere e gestire paragrafi con numerazione e formattazione personalizzate.
 
 ```python
 import aspose.slides as slides
@@ -414,23 +407,21 @@ with slides.Presentation() as presentation:
     presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Impostare il rientro della prima riga per un paragrafo**
+## **Impostare l'indentazione della prima riga per un paragrafo**
 
-Usa la proprietà [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) per controllare il rientro della prima riga di un paragrafo. Questa proprietà sposta solo la prima riga rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima riga verso destra, mentre le linee rimanenti rimangono allineate al corpo del paragrafo.
+Usa la proprietà [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) per controllare l'indentazione della prima riga di un paragrafo. Questa proprietà sposta solo la prima riga rispetto al margine sinistro del paragrafo. Un valore positivo sposta la prima riga verso destra, mentre le righe rimanenti rimangono allineate al corpo del paragrafo.
 
-Usa [ParagraphFormat.margin_left](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/margin_left/) quando è necessario spostare l'intero paragrafo. Usa [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) quando è necessario spostare solo la prima riga.
+Usa [ParagraphFormat.margin_left](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/margin_left/) quando devi spostare l'intero paragrafo. Usa [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) quando devi spostare solo la prima riga.
 
-L'esempio seguente crea diversi paragrafi e applica valori diversi di `indent` per dimostrare come il rientro della prima riga influisce sul layout del paragrafo.
+L'esempio seguente crea diversi paragrafi e applica valori `indent` differenti per dimostrare come l'indentazione della prima riga influisce sul layout del paragrafo.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
 2. Accedi alla diapositiva di destinazione.
 3. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) rettangolare alla diapositiva.
 4. Aggiungi un [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) vuoto alla forma e rimuovi il paragrafo predefinito.
-5. Crea diversi paragrafi e imposta valori diversi di [indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) per ciascuno.
+5. Crea diversi paragrafi e imposta valori [indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) differenti per ciascuno.
 6. Aggiungi i paragrafi al riquadro di testo.
 7. Salva la presentazione modificata.
-
-Questo codice mostra come impostare il rientro di un paragrafo:
 
 ```py
 import aspose.slides as slides
@@ -476,28 +467,24 @@ with slides.Presentation() as presentation:
     presentation.save("paragraph_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato:
+![Indentazione della prima riga dei paragrafi](first_line_indent.png)
 
-![Il rientro della prima riga dei paragrafi](first_line_indent.png)
+## **Impostare l'indentazione sospesa per un paragrafo**
 
-## **Impostare il rientro sospeso per un paragrafo**
+Un'indentazione sospesa è un layout di paragrafo in cui la prima riga inizia a sinistra delle righe successive. In Aspose.Slides, crei questo effetto con la proprietà [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/). Imposta `indent` a un valore negativo per spostare la prima riga a sinistra rispetto al corpo del paragrafo.
 
-Un rientro sospeso è un layout di paragrafo in cui la prima riga inizia a sinistra delle righe rimanenti. In Aspose.Slides, crei questo effetto con la proprietà [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/). Imposta `indent` a un valore negativo per spostare la prima riga a sinistra rispetto al corpo del paragrafo.
+In pratica, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/margin_left/) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) definisce la posizione della prima riga rispetto a quel margine. Per creare un'indentazione sospesa, imposta un valore positivo per `margin_left` e un valore negativo per `indent`.
 
-In pratica, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/margin_left/) definisce la posizione sinistra del corpo del paragrafo, e [ParagraphFormat.indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) definisce la posizione della prima riga rispetto a quel margine. Per creare un rientro sospeso, imposta un valore positivo per `margin_left` e un valore negativo per `indent`.
-
-Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le linee a capo devono allinearsi sotto il corpo del paragrafo anziché sotto il primo carattere della prima riga.
+Questa formattazione è utile per bibliografie, riferimenti, voci di glossario e altri paragrafi in cui le righe a capo devono allinearsi sotto il corpo del paragrafo anziché sotto il primo carattere della prima riga.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
 2. Accedi alla diapositiva di destinazione.
 3. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) rettangolare alla diapositiva.
 4. Aggiungi un [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) vuoto alla forma e rimuovi il paragrafo predefinito.
 5. Crea paragrafi e imposta un valore positivo di [margin_left](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/margin_left/) per ciascun paragrafo.
-6. Imposta un valore negativo di [indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) per creare l'effetto di rientro sospeso.
+6. Imposta un valore negativo di [indent](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/indent/) per creare l'effetto di indentazione sospesa.
 7. Aggiungi i paragrafi al riquadro di testo.
 8. Salva la presentazione modificata.
-
-Questo codice mostra come impostare un rientro sospeso per un paragrafo:
 
 ```py
 with slides.Presentation() as presentation:
@@ -532,23 +519,19 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato:
-
-![Il rientro sospeso dei paragrafi](hanging_indent.png)
+![Indentazione sospesa dei paragrafi](hanging_indent.png)
 
 ## **Gestire il formato della porzione di fine paragrafo**
 
-Quando è necessario controllare lo stile della "fine" di un paragrafo (la formattazione applicata dopo l'ultima porzione di testo), usa la proprietà `end_paragraph_portion_format`. L'esempio seguente applica un carattere Times New Roman più grande alla fine del secondo paragrafo.
+Quando devi controllare lo stile della "fine" di un paragrafo (la formattazione applicata dopo l'ultima porzione di testo), usa la proprietà `end_paragraph_portion_format`. L'esempio seguente applica un carattere Times New Roman più grande alla fine del secondo paragrafo.
 
-1. Crea o apri un file [Presentation].
-1. Ottieni la diapositiva di destinazione per indice.
-1. Aggiungi un [AutoShape] rettangolare alla diapositiva.
-1. Usa il [TextFrame] della forma e crea due paragrafi.
-1. Crea un [PortionFormat] impostato a Times New Roman 48 pt e applicalo come formato di porzione di fine paragrafo del paragrafo.
-1. Assegnalo al `end_paragraph_portion_format` del paragrafo (si applica alla fine del secondo paragrafo).
-1. Salva la presentazione modificata come file PPTX.
-
-Questo codice Python mostra come impostare la formattazione di fine paragrafo per il secondo paragrafo:
+1. Crea o apri un file [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottieni la diapositiva di destinazione tramite l'indice.
+3. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) rettangolare alla diapositiva.
+4. Usa il [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) della forma e crea due paragrafi.
+5. Crea un [PortionFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/portionformat/) impostato a Times New Roman 48 pt e applicalo come formato di fine porzione del paragrafo.
+6. Assegna questa impostazione alla proprietà `end_paragraph_portion_format` del paragrafo (si applica alla fine del secondo paragrafo).
+7. Scrivi la presentazione modificata in un file PPTX.
 
 ```python
 import aspose.slides as slides
@@ -575,24 +558,22 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Importare testo HTML nei paragrafi**
 
-Aspose.Slides fornisce un supporto migliorato per l'importazione di testo HTML nei paragrafi.
+Aspose.Slides fornisce un supporto avanzato per importare testo HTML nei paragrafi.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Accedi alla diapositiva di destinazione tramite il suo indice.
-1. Aggiungi una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Accedi al [TextFrame] dell'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
-1. Rimuovi il paragrafo predefinito dal [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Leggi il file HTML sorgente.
-1. Crea il primo paragrafo usando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/).
-1. Aggiungi il contenuto HTML alla raccolta di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
-1. Salva la presentazione modificata.
-
-Il seguente codice Python implementa questi passaggi per importare testo HTML nei paragrafi:
+2. Accedi alla diapositiva di destinazione tramite il suo indice.
+3. Aggiungi un'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Accedi al [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) dell'[AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
+5. Rimuovi il paragrafo predefinito dal [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
+6. Leggi il file HTML di origine.
+7. Crea il primo paragrafo utilizzando la classe [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/).
+8. Aggiungi il contenuto HTML alla collezione di paragrafi del [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/).
+9. Salva la presentazione modificata.
 
 ```python
 import aspose.slides as slides
 
-# Crea un'istanza vuota di Presentation.
+# Crea un'istanza di Presentation vuota.
 with slides.Presentation() as presentation:
 
     # Accedi alla prima diapositiva della presentazione.
@@ -604,7 +585,7 @@ with slides.Presentation() as presentation:
     # Aggiungi un'AutoShape per contenere il contenuto HTML.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
 
-    # Pulisci tutti i paragrafi nel riquadro di testo aggiunto.
+    # Cancella tutti i paragrafi nel riquadro di testo aggiunto.
     shape.text_frame.paragraphs.clear()
 
     # Carica il file HTML.
@@ -618,21 +599,19 @@ with slides.Presentation() as presentation:
 
 ## **Esportare il testo del paragrafo in HTML**
 
-Aspose.Slides fornisce un supporto migliorato per l'esportazione di testo in HTML.
+Aspose.Slides fornisce un supporto avanzato per esportare il testo in HTML.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) e carica la presentazione di destinazione.
-1. Accedi alla diapositiva desiderata tramite il suo indice.
-1. Seleziona la forma che contiene il testo da esportare.
-1. Accedi al [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) della forma.
-1. Apri uno stream di file per scrivere l'output HTML.
-1. Specifica l'indice di partenza ed esporta i paragrafi richiesti.
-
-Questo esempio Python mostra come esportare il testo del paragrafo in HTML.
+2. Accedi alla diapositiva desiderata tramite il suo indice.
+3. Seleziona la forma che contiene il testo da esportare.
+4. Accedi al [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) della forma.
+5. Apri uno stream di file per scrivere l'output HTML.
+6. Specifica l'indice di partenza ed esporta i paragrafi richiesti.
 
 ```python
 import aspose.slides as slides
 
-# Carica il file di presentazione.
+# Carica il file della presentazione.
 with slides.Presentation("exporting_HTML_text.pptx") as presentation:
     # Accedi alla prima diapositiva della presentazione.
     slide = presentation.slides[0]
@@ -644,13 +623,13 @@ with slides.Presentation("exporting_HTML_text.pptx") as presentation:
     shape = slide.shapes[index]
 
     with open("output.html", "w") as html_stream:
-        # Scrivi i dati del paragrafo in HTML fornendo l'indice di partenza del paragrafo e il numero totale di paragrafi da esportare.
+        # Scrivi i dati dei paragrafi in HTML fornendo l'indice del paragrafo iniziale e il numero totale di paragrafi da esportare.
         html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
 ```
 
 ## **Salvare un paragrafo come immagine**
 
-In questa sezione esploreremo due esempi che dimostrano come salvare un paragrafo di testo, rappresentato dalla classe [Paragraph], come immagine. Entrambi gli esempi includono l'ottenimento dell'immagine di una forma contenente il paragrafo usando i metodi `get_image` della classe [Shape], il calcolo dei limiti del paragrafo all'interno della forma e l'esportazione come immagine bitmap. Questi approcci consentono di estrarre parti specifiche del testo dalle presentazioni PowerPoint e salvarle come immagini separate, utile per ulteriori utilizzi in vari scenari.
+Nella presente sezione, esploreremo due esempi che dimostrano come salvare un paragrafo di testo, rappresentato dalla classe [Paragraph], come immagine. Entrambi gli esempi includono l'ottenimento dell'immagine di una forma contenente il paragrafo utilizzando i metodi `get_image` della classe [Shape], il calcolo dei limiti del paragrafo all'interno della forma e l'esportazione come immagine bitmap. Questi approcci consentono di estrarre parti specifiche del testo da presentazioni PowerPoint e salvarle come immagini separate, utili per ulteriori utilizzi in vari scenari.
 
 Supponiamo di avere un file di presentazione chiamato sample.pptx con una diapositiva, in cui la prima forma è una casella di testo contenente tre paragrafi.
 
@@ -658,7 +637,7 @@ Supponiamo di avere un file di presentazione chiamato sample.pptx con una diapos
 
 **Esempio 1**
 
-In questo esempio, otteniamo il secondo paragrafo come immagine. Per farlo, estraiamo l'immagine della forma dalla prima diapositiva della presentazione e calcoliamo i limiti del secondo paragrafo nel riquadro di testo della forma. Il paragrafo viene quindi ridisegnato su una nuova immagine bitmap, che viene salvata in formato PNG. Questo metodo è particolarmente utile quando è necessario salvare un paragrafo specifico come immagine separata preservando le dimensioni e la formattazione esatte del testo.
+In questo esempio, otteniamo il secondo paragrafo come immagine. Per fare ciò, estraiamo l'immagine della forma dalla prima diapositiva della presentazione e poi calcoliamo i limiti del secondo paragrafo nel riquadro di testo della forma. Il paragrafo viene quindi ridisegnato su una nuova immagine bitmap, che viene salvata in formato PNG. Questo metodo è particolarmente utile quando è necessario salvare un paragrafo specifico come immagine separata preservando le dimensioni e la formattazione esatte del testo.
 
 ```py
 import aspose.slides as slides
@@ -678,11 +657,11 @@ with slides.Presentation("sample.pptx") as presentation:
     shape_image_stream.seek(0)
     shape_bitmap = Image.open(shape_image_stream)
 
-    # Calcola i confini del secondo paragrafo.
+    # Calcola i limiti del secondo paragrafo.
     second_paragraph = first_shape.text_frame.paragraphs[1]
     paragraph_rectangle = second_paragraph.get_rect()
 
-    # Calcola le coordinate e le dimensioni dell'immagine di output (dimensione minima - 1x1 pixel).
+    # Calcola le coordinate e le dimensioni per l'immagine di output (dimensione minima - 1x1 pixel).
     image_left = math.floor(paragraph_rectangle.x)
     image_top = math.floor(paragraph_rectangle.y)
     image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
@@ -694,13 +673,11 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph_bitmap.save("paragraph.png")
 ```
 
-Il risultato:
-
 ![L'immagine del paragrafo](paragraph_to_image_output.png)
 
 **Esempio 2**
 
-In questo esempio, estendiamo l'approccio precedente aggiungendo fattori di scala all'immagine del paragrafo. La forma viene estratta dalla presentazione e salvata come immagine con un fattore di scala di `2`. Ciò consente un'output a risoluzione più alta quando si esporta il paragrafo. I limiti del paragrafo vengono quindi calcolati considerando la scala. La scalatura può essere particolarmente utile quando è necessaria un'immagine più dettagliata, ad esempio per l'uso in materiali stampati di alta qualità.
+In questo esempio, estendiamo l'approccio precedente aggiungendo fattori di scala all'immagine del paragrafo. La forma viene estratta dalla presentazione e salvata come immagine con un fattore di scala di `2`. Ciò consente un output a risoluzione più alta durante l'esportazione del paragrafo. I limiti del paragrafo vengono quindi calcolati tenendo conto della scala. La scalatura può essere particolarmente utile quando è necessaria un'immagine più dettagliata, ad esempio per l'uso in materiali stampati di alta qualità.
 
 ```py
 import aspose.slides as slides
@@ -723,7 +700,7 @@ with slides.Presentation("sample.pptx") as presentation:
     shape_image_stream.seek(0)
     shape_bitmap = Image.open(shape_image_stream)
 
-    # Calcola i confini del secondo paragrafo.
+    # Calcola i limiti del secondo paragrafo.
     second_paragraph = first_shape.text_frame.paragraphs[1]
     paragraph_rectangle = second_paragraph.get_rect()
     paragraph_rectangle.x *= image_scale_x
@@ -731,7 +708,7 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph_rectangle.width *= image_scale_x
     paragraph_rectangle.height *= image_scale_y
 
-    # Calcola le coordinate e le dimensioni dell'immagine di output (dimensione minima - 1x1 pixel).
+    # Calcola le coordinate e le dimensioni per l'immagine di output (dimensione minima - 1x1 pixel).
     image_left = math.floor(paragraph_rectangle.x)
     image_top = math.floor(paragraph_rectangle.y)
     image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
@@ -747,16 +724,16 @@ with slides.Presentation("sample.pptx") as presentation:
 
 **Posso disabilitare completamente l'andare a capo all'interno di un TextFrame?**
 
-Sì. Usa l'impostazione di wrapping del TextFrame ([wrap_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframeformat/wrap_text/)) per disattivare il wrapping in modo che le linee non vengano spezzate ai bordi del riquadro.
+Sì. Usa l'impostazione di avvolgimento del TextFrame ([wrap_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframeformat/wrap_text/)) per disattivare l'andare a capo in modo che le linee non si interrompano ai bordi del riquadro.
 
 **Come posso ottenere i limiti esatti sulla diapositiva di un paragrafo specifico?**
 
-Puoi recuperare il rettangolo di delimitazione del paragrafo (e persino di una singola porzione) per conoscere la sua posizione e dimensione precise sulla diapositiva.
+Puoi recuperare il rettangolo di delimitazione del paragrafo (e anche di una singola porzione) per conoscere la sua posizione e dimensione precise sulla diapositiva.
 
 **Dove è controllato l'allineamento del paragrafo (sinistra/destra/centrato/giustificato)?**
 
-[Alignment](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/alignment/) è un'impostazione a livello di paragrafo in [ParagraphFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/); si applica all'intero paragrafo indipendentemente dalla formattazione delle singole porzioni.
+[Alignment](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/alignment/) è un'impostazione a livello di paragrafo in [ParagraphFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/); si applica all'intero paragrafo indipendentemente dalla formattazione di singole porzioni.
 
-**Posso impostare una lingua di controllo ortografico per solo una parte di un paragrafo (ad esempio, una parola)?**
+**Posso impostare una lingua di correzione ortografica solo per una parte di un paragrafo (ad esempio, una parola)?**
 
 Sì. La lingua è impostata a livello di porzione ([PortionFormat.language_id](https://reference.aspose.com/slides/it/python-net/aspose.slides/portionformat/language_id/)), quindi più lingue possono coesistere all'interno di un singolo paragrafo.

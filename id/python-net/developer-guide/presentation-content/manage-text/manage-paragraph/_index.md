@@ -4,6 +4,9 @@ linktitle: Kelola Paragraf
 type: docs
 weight: 40
 url: /id/python-net/manage-paragraph/
+aliases:
+  - /python-net/paragraph/
+  - /python-net/portion/
 keywords:
 - tambahkan teks
 - tambahkan paragraf
@@ -11,7 +14,7 @@ keywords:
 - kelola paragraf
 - kelola bullet
 - indentasi paragraf
-- indentasi gantung
+- indentasi menggantung
 - bullet paragraf
 - daftar bernomor
 - daftar bullet
@@ -26,51 +29,49 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Kuasai pemformatan paragraf dengan Aspose.Slides untuk Python melalui .NET—optimalkan perataan, spasi & gaya dalam presentasi PowerPoint dan OpenDocument di Python untuk menarik perhatian penonton."
+description: "Kuasi pemformatan paragraf dengan Aspose.Slides untuk Python via .NET—optimalkan perataan, spasi & gaya dalam presentasi PowerPoint dan OpenDocument di Python untuk menarik perhatian pemirsa."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides menyediakan kelas-kelas yang Anda perlukan untuk bekerja dengan teks PowerPoint di Python.
+Aspose.Slides menyediakan kelas yang Anda perlukan untuk bekerja dengan teks PowerPoint di Python.
 
-* Aspose.Slides menyediakan kelas [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) untuk membuat objek bingkai teks. Sebuah objek `TextFrame` dapat berisi satu atau beberapa paragraf (setiap paragraf dipisahkan oleh penanda baris baru).
-* Aspose.Slides menyediakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) untuk membuat objek paragraf. Sebuah objek `Paragraph` dapat berisi satu atau beberapa bagian teks.
-* Aspose.Slides menyediakan kelas [Portion](https://reference.aspose.com/slides/id/python-net/aspose.slides/portion/) untuk membuat objek bagian teks dan menentukan properti pemformatannya.
+* Aspose.Slides menyediakan kelas [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) untuk membuat objek bingkai teks. Sebuah objek `TextFrame` dapat berisi satu atau lebih paragraf (setiap paragraf dipisahkan dengan karakter kembali ke baris).
+* Aspose.Slides menyediakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) untuk membuat objek paragraf. Sebuah objek `Paragraph` dapat berisi satu atau lebih portion teks.
+* Aspose.Slides menyediakan kelas [Portion](https://reference.aspose.com/slides/id/python-net/aspose.slides/portion/) untuk membuat objek portion teks dan menentukan properti pemformatannya.
 
 Objek `Paragraph` dapat menangani teks dengan properti pemformatan yang berbeda melalui objek `Portion` yang mendasarinya.
 
-## **Menambahkan Beberapa Paragraf yang Mengandung Beberapa Bagian**
+## **Menambahkan Beberapa Paragraf yang Mengandung Beberapa Portion**
 
-Langkah‑langkah berikut menunjukkan cara menambahkan sebuah bingkai teks yang berisi tiga paragraf, masing‑masing dengan tiga bagian:
+Langkah-langkah ini menunjukkan cara menambahkan bingkai teks yang berisi tiga paragraf, masing-masing dengan tiga portion:
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide target berdasarkan indeksnya.
 1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
 1. Dapatkan [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) yang terkait dengan [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/).
-1. Buat dua objek [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan tambahkan ke koleksi paragraf [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) (bersama dengan paragraf default, ini menghasilkan tiga paragraf).
-1. Untuk setiap paragraf, buat tiga objek [Portion](https://reference.aspose.com/slides/id/python-net/aspose.slides/portion/) dan tambahkan ke koleksi bagian paragraf tersebut.
-1. Tetapkan teks untuk setiap bagian.
-1. Terapkan pemformatan yang diinginkan ke setiap bagian teks menggunakan properti yang disediakan oleh [Portion](https://reference.aspose.com/slides/id/python-net/aspose.slides/portion/).
+1. Buat dua objek [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan tambahkan ke koleksi paragraf dari [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) (bersama dengan paragraf default, menghasilkan tiga paragraf).
+1. Untuk setiap paragraf, buat tiga objek [Portion](https://reference.aspose.com/slides/id/python-net/aspose.slides/portion/) dan tambahkan ke koleksi portion paragraf tersebut.
+1. Setel teks untuk setiap portion.
+1. Terapkan pemformatan yang diinginkan pada setiap portion teks menggunakan properti yang disediakan oleh [Portion](https://reference.aspose.com/slides/id/python-net/aspose.slides/portion/).
 1. Simpan presentasi yang telah dimodifikasi.
-
-Kode Python berikut mengimplementasikan langkah‑langkah tersebut:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instansiasi kelas Presentation untuk membuat file PPTX baru.
+# Buat instance kelas Presentation untuk membuat file PPTX baru.
 with slides.Presentation() as presentation:
 
     # Akses slide pertama.
     slide = presentation.slides[0]
 
-    # Tambahkan AutoShape berbentuk persegi panjang.
+    # Tambahkan AutoShape persegi panjang.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
 
-    # Akses TextFrame milik AutoShape.
+    # Akses TextFrame AutoShape.
     text_frame = shape.text_frame
 
-    # Buat paragraf dan bagian; pemformatan diterapkan di bawah.
+    # Buat paragraf dan portion; pemformatan diterapkan di bawah.
     paragraph0 = text_frame.paragraphs[0]
     portion01 = slides.Portion()
     portion02 = slides.Portion()
@@ -109,45 +110,43 @@ with slides.Presentation() as presentation:
                 text_frame.paragraphs[i].portions[j].portion_format.font_italic = 1
                 text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
 
-    # Simpan PPTX ke disk.
+    # Simpan file PPTX ke disk.
     presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Mengelola Bullet Paragraf**
+## **Kelola Bullet Paragraf**
 
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Paragraf ber‑bullet biasanya lebih mudah dibaca dan dipahami.
+Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Paragraf berbulu (bullet) biasanya lebih mudah dibaca dan dipahami.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 1. Akses slide target berdasarkan indeksnya.
 1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) ke slide.
-1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) pada shape tersebut.
+1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) milik shape.
 1. Hapus paragraf default dari [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Buat paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/).
-1. Atur tipe bullet paragraf menjadi `SYMBOL` dan tentukan karakter bullet.
-1. Tetapkan teks paragraf.
-1. Atur indent bullet untuk paragraf.
-1. Atur warna bullet.
-1. Atur ukuran bullet (tinggi).
+1. Setel tipe bullet paragraf menjadi `SYMBOL` dan tentukan karakter bullet.
+1. Setel teks paragraf.
+1. Setel indent bullet untuk paragraf.
+1. Setel warna bullet.
+1. Setel ukuran bullet (tinggi).
 1. Tambahkan paragraf ke koleksi paragraf [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Tambahkan paragraf kedua dan ulangi langkah 7–12.
 1. Simpan presentasi.
-
-Kode Python berikut menunjukkan cara menambahkan paragraf ber‑bullet:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Buat instansi presentasi.
+# Buat instance presentasi.
 with slides.Presentation() as presentation:
 
     # Akses slide pertama.
     slide = presentation.slides[0]
 
-    # Tambah dan akses AutoShape.
+    # Tambahkan dan akses AutoShape.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Akses teks frame dari AutoShape yang dibuat.
+    # Akses bingkai teks AutoShape yang dibuat.
     text_frame = shape.text_frame
 
     # Hapus paragraf default.
@@ -156,7 +155,7 @@ with slides.Presentation() as presentation:
     # Buat paragraf.
     paragraph = slides.Paragraph()
 
-    # Atur gaya bullet paragraf dan simbol.
+    # Atur gaya bullet paragraf dan simbolnya.
     paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph.paragraph_format.bullet.char = chr(8226)
 
@@ -174,13 +173,13 @@ with slides.Presentation() as presentation:
     # Atur tinggi bullet.
     paragraph.paragraph_format.bullet.height = 100
 
-    # Tambahkan paragraf ke teks frame.
+    # Tambahkan paragraf ke bingkai teks.
     text_frame.paragraphs.add(paragraph)
 
     # Buat paragraf kedua.
     paragraph2 = slides.Paragraph()
 
-    # Atur jenis dan gaya bullet paragraf.
+    # Atur tipe dan gaya bullet paragraf.
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
     paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
 
@@ -198,34 +197,32 @@ with slides.Presentation() as presentation:
     # Atur tinggi bullet.
     paragraph2.paragraph_format.bullet.height = 100
 
-    # Tambahkan paragraf ke teks frame.
+    # Tambahkan paragraf ke bingkai teks.
     text_frame.paragraphs.add(paragraph2)
 
     # Simpan presentasi sebagai file PPTX.
     presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Mengelola Bullet Gambar**
+## **Kelola Bullet Gambar**
 
 Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Bullet gambar mudah dibaca dan dipahami.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 1. Akses slide target berdasarkan indeksnya.
 1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) ke slide.
-1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) pada shape tersebut.
+1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) milik shape.
 1. Hapus paragraf default dari [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Buat paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/).
-1. Muat sebuah gambar ke dalam [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/).
-1. Atur tipe bullet menjadi [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) dan tetapkan gambar.
-1. Tetapkan teks paragraf.
-1. Atur indent paragraf untuk bullet.
-1. Atur warna bullet.
-1. Atur tinggi bullet.
+1. Muat gambar ke dalam sebuah [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/).
+1. Setel tipe bullet menjadi [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) dan tetapkan gambar.
+1. Setel teks paragraf.
+1. Setel indent paragraf untuk bullet.
+1. Setel warna bullet.
+1. Setel tinggi bullet.
 1. Tambahkan paragraf baru ke koleksi paragraf [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Tambahkan paragraf kedua dan ulangi langkah 8–12.
 1. Simpan presentasi.
-
-Kode Python berikut menunjukkan cara menambahkan dan mengelola bullet gambar:
 
 ```python
 import aspose.slides as slides
@@ -240,10 +237,10 @@ with slides.Presentation() as presentation:
     image = draw.Bitmap("bullets.png")
     pp_image = presentation.images.add_image(image)
 
-    # Tambah dan akses AutoShape.
+    # Tambahkan dan akses AutoShape.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Akses TextFrame dari AutoShape yang dibuat.
+    # Akses TextFrame AutoShape yang dibuat.
     text_frame = auto_shape.text_frame
 
     # Hapus paragraf default.
@@ -253,14 +250,14 @@ with slides.Presentation() as presentation:
     paragraph = slides.Paragraph()
     paragraph.text = "Welcome to Aspose.Slides"
 
-    # Atur jenis bullet paragraf menjadi Gambar dan tetapkan gambar.
+    # Atur tipe bullet paragraf menjadi Picture dan tetapkan gambar.
     paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
     paragraph.paragraph_format.bullet.picture.image = pp_image
 
     # Atur tinggi bullet.
     paragraph.paragraph_format.bullet.height = 100
 
-    # Tambahkan paragraf ke teks frame.
+    # Tambahkan paragraf ke bingkai teks.
     text_frame.paragraphs.add(paragraph)
 
     # Simpan presentasi sebagai file PPTX.
@@ -269,29 +266,27 @@ with slides.Presentation() as presentation:
     presentation.save("picture_bullets_out.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **Mengelola Bullet Multilevel**
+## **Kelola Bullet Bertingkat**
 
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Bullet multilevel mudah dibaca dan dipahami.
+Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Bullet bertingkat mudah dibaca dan dipahami.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 1. Akses slide target berdasarkan indeksnya.
 1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) ke slide.
-1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) pada [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/).
+1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) milik [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/).
 1. Hapus paragraf default dari [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
-1. Buat paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan atur depth menjadi 0.
-1. Buat paragraf kedua menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan atur depth menjadi 1.
-1. Buat paragraf ketiga menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan atur depth menjadi 2.
-1. Buat paragraf keempat menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan atur depth menjadi 3.
-1. Tambahkan paragraf baru ke koleksi paragraf [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
+1. Buat paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan setel depth‑nya ke 0.
+1. Buat paragraf kedua menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan setel depth‑nya ke 1.
+1. Buat paragraf ketiga menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan setel depth‑nya ke 2.
+1. Buat paragraf keempat menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) dan setel depth‑nya ke 3.
+1. Tambahkan paragraf‑paragraf baru ke koleksi paragraf [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Simpan presentasi.
-
-Kode Python berikut menunjukkan cara menambahkan dan mengelola bullet multilevel:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Buat instansi presentasi.
+# Buat instance presentasi.
 with slides.Presentation() as presentation:
 
     # Akses slide pertama.
@@ -300,10 +295,10 @@ with slides.Presentation() as presentation:
     # Tambahkan AutoShape.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Akses TextFrame dari AutoShape yang dibuat.
+    # Akses TextFrame AutoShape yang dibuat.
     text_frame = auto_shape.text_frame
     
-    # Hapus paragraf default.
+    # Bersihkan paragraf default.
     text_frame.paragraphs.clear()
 
     # Tambahkan paragraf pertama.
@@ -356,22 +351,20 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Mengelola Paragraf dengan Daftar Bernomor Kustom**
+## **Kelola Paragraf dengan Daftar Nomor Kustom**
 
-Kelas [BulletFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/) menyediakan properti `numbered_bullet_start_with` (dan lainnya) untuk mengontrol penomoran kustom serta pemformatan paragraf.
+Kelas [BulletFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/bulletformat/) menyediakan properti `numbered_bullet_start_with` (dan lainnya) untuk mengontrol penomoran dan pemformatan kustom pada paragraf.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 1. Akses slide yang akan berisi paragraf‑paragraf.
 1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) ke slide.
-1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) pada shape tersebut.
+1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) milik shape.
 1. Hapus paragraf default dari [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
-1. Buat [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) pertama dan atur `numbered_bullet_start_with` menjadi 2.
-1. Buat [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) kedua dan atur `numbered_bullet_start_with` menjadi 3.
-1. Buat [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) ketiga dan atur `numbered_bullet_start_with` menjadi 7.
+1. Buat [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) pertama dan setel `numbered_bullet_start_with` ke 2.
+1. Buat [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) kedua dan setel `numbered_bullet_start_with` ke 3.
+1. Buat [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/) ketiga dan setel `numbered_bullet_start_with` ke 7.
 1. Tambahkan paragraf‑paragraf ke koleksi [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Simpan presentasi.
-
-Kode Python berikut mendemonstrasikan cara menambahkan dan mengelola paragraf dengan penomoran serta pemformatan kustom.
 
 ```python
 import aspose.slides as slides
@@ -381,7 +374,7 @@ with slides.Presentation() as presentation:
     # Tambahkan dan akses AutoShape.
     shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Akses TextFrame dari AutoShape yang dibuat.
+    # Akses TextFrame AutoShape yang dibuat.
     text_frame = shape.text_frame
 
     # Hapus paragraf default yang ada.
@@ -414,23 +407,21 @@ with slides.Presentation() as presentation:
     presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Atur Indent Baris Pertama untuk Paragraf**
+## **Setel Indent Baris Pertama untuk Paragraf**
 
-Gunakan properti [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) untuk mengontrol indent baris pertama suatu paragraf. Properti ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sedangkan baris lainnya tetap sejajar dengan isi paragraf.
+Gunakan properti [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) untuk mengontrol indent baris pertama paragraf. Properti ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris berikutnya tetap sejajar dengan badan paragraf.
 
-Gunakan [ParagraphFormat.margin_left](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/margin_left/) bila Anda perlu memindahkan seluruh paragraf. Gunakan [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) bila Anda hanya ingin memindahkan baris pertama.
+Gunakan [ParagraphFormat.margin_left](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/margin_left/) ketika Anda perlu memindahkan seluruh paragraf. Gunakan [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) ketika Anda hanya perlu memindahkan baris pertama.
 
-Contoh berikut membuat beberapa paragraf dan menerapkan nilai `indent` yang berbeda untuk menunjukkan pengaruh indent baris pertama pada tata letak paragraf.
+Contoh di bawah membuat beberapa paragraf dan menerapkan nilai `indent` yang berbeda untuk mendemonstrasikan pengaruh indent baris pertama terhadap tata letak paragraf.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 2. Akses slide target.
 3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
 4. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) kosong ke shape dan hapus paragraf default.
-5. Buat beberapa paragraf dan atur nilai [indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) yang berbeda untuk masing‑masing.
+5. Buat beberapa paragraf dan setel nilai [indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) yang berbeda untuk masing‑masing.
 6. Tambahkan paragraf‑paragraf ke bingkai teks.
 7. Simpan presentasi yang telah dimodifikasi.
-
-Kode ini menunjukkan cara mengatur indent paragraf:
 
 ```py
 import aspose.slides as slides
@@ -476,28 +467,26 @@ with slides.Presentation() as presentation:
     presentation.save("paragraph_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Hasil:
+Hasilnya:
 
-![Indent baris pertama dari paragraf](first_line_indent.png)
+![Indent baris pertama paragraf](first_line_indent.png)
 
-## **Atur Indent Gantung untuk Paragraf**
+## **Setel Indent Menggantung untuk Paragraf**
 
-Indent gantung adalah tata letak paragraf dimana baris pertama dimulai lebih ke kiri dibandingkan dengan baris‑baris berikutnya. Di Aspose.Slides, efek ini dibuat dengan properti [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/). Atur `indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap isi paragraf.
+Indent menggantung adalah tata letak paragraf di mana baris pertama dimulai lebih ke kiri dibandingkan baris‑baris berikutnya. Di Aspose.Slides, Anda membuat efek ini dengan properti [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/). Setel `indent` ke nilai negatif untuk menggeser baris pertama ke kiri relatif terhadap badan paragraf.
 
-Secara praktis, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/margin_left/) menentukan posisi kiri isi paragraf, dan [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent gantung, setel nilai `margin_left` positif dan nilai `indent` negatif.
+Secara praktik, [ParagraphFormat.margin_left](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/margin_left/) menentukan posisi kiri badan paragraf, dan [ParagraphFormat.indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, setel nilai `margin_left` positif dan nilai `indent` negatif.
 
-Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain dimana baris‑baris yang dibungkus harus sejajar di bawah isi paragraf, bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris terbungkus harus sejajar di bawah badan paragraf, bukan di bawah karakter pertama baris pertama.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 2. Akses slide target.
 3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
 4. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) kosong ke shape dan hapus paragraf default.
-5. Buat paragraf‑paragraf dan atur nilai [margin_left](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/margin_left/) positif untuk masing‑masing.
-6. Atur nilai [indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) negatif untuk menciptakan efek indent gantung.
+5. Buat paragraf‑paragraf dan setel nilai [margin_left](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/margin_left/) positif untuk masing‑masing.
+6. Setel nilai [indent](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/indent/) negatif untuk menciptakan efek indent menggantung.
 7. Tambahkan paragraf‑paragraf ke bingkai teks.
 8. Simpan presentasi yang telah dimodifikasi.
-
-Kode ini menunjukkan cara mengatur indent gantung untuk paragraf:
 
 ```py
 with slides.Presentation() as presentation:
@@ -532,23 +521,21 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Hasil:
+Hasilnya:
 
-![Indent gantung dari paragraf](hanging_indent.png)
+![Indent menggantung paragraf](hanging_indent.png)
 
-## **Kelola Format Bagian Akhir Paragraf**
+## **Kelola Format Portion Akhir Paragraf**
 
-Ketika Anda perlu mengontrol gaya “akhir” sebuah paragraf (pemformatan yang diterapkan setelah bagian teks terakhir), gunakan properti `end_paragraph_portion_format`. Contoh di bawah menerapkan font Times New Roman ukuran lebih besar pada akhir paragraf kedua.
+Ketika Anda perlu mengontrol gaya “akhir” paragraf (pemformatan yang diterapkan setelah portion teks terakhir), gunakan properti `end_paragraph_portion_format`. Contoh di bawah menerapkan font Times New Roman berukuran lebih besar pada akhir paragraf kedua.
 
 1. Buat atau buka file [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 1. Dapatkan slide target berdasarkan indeks.
 1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) persegi panjang ke slide.
-1. Gunakan [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) pada shape dan buat dua paragraf.
-1. Buat sebuah [PortionFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/portionformat/) dengan ukuran 48 pt Times New Roman dan terapkan sebagai format bagian akhir paragraf.
-1. Tetapkan ke `end_paragraph_portion_format` paragraf (berlaku pada akhir paragraf kedua).
+1. Gunakan [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) shape dan buat dua paragraf.
+1. Buat sebuah [PortionFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/portionformat/) dengan ukuran 48‑pt Times New Roman dan terapkan sebagai format portion akhir paragraf.
+1. Tetapkan ke properti `end_paragraph_portion_format` paragraf (berlaku pada akhir paragraf kedua).
 1. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Python berikut menunjukkan cara mengatur format akhir paragraf untuk paragraf kedua:
 
 ```python
 import aspose.slides as slides
@@ -575,24 +562,22 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Impor Teks HTML ke dalam Paragraf**
 
-Aspose.Slides menyediakan dukungan yang ditingkatkan untuk mengimpor teks HTML ke dalam paragraf.
+Aspose.Slides menyediakan dukungan tingkat lanjut untuk mengimpor teks HTML ke dalam paragraf.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 1. Akses slide target berdasarkan indeksnya.
 1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) ke slide.
-1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) pada [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/).
+1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) milik [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/).
 1. Hapus paragraf default dari [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Baca file HTML sumber.
 1. Buat paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/).
 1. Tambahkan konten HTML ke koleksi paragraf [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/).
 1. Simpan presentasi yang telah dimodifikasi.
 
-Kode Python berikut mengimplementasikan langkah‑langkah tersebut untuk mengimpor teks HTML ke dalam paragraf.
-
 ```python
 import aspose.slides as slides
 
-# Buat instansi Presentation kosong.
+# Buat instance Presentation kosong.
 with slides.Presentation() as presentation:
 
     # Akses slide pertama dari presentasi.
@@ -604,12 +589,12 @@ with slides.Presentation() as presentation:
     # Tambahkan AutoShape untuk menampung konten HTML.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
 
-    # Hapus semua paragraf di text frame yang ditambahkan.
+    # Bersihkan semua paragraf di bingkai teks yang ditambahkan.
     shape.text_frame.paragraphs.clear()
 
     # Muat file HTML.
     with open("file.html", "rt") as html_stream:
-        # Tambahkan teks dari file HTML ke text frame.
+        # Tambahkan teks dari file HTML ke bingkai teks.
         shape.text_frame.paragraphs.add_from_html(html_stream.read())
 
     # Simpan presentasi.
@@ -618,16 +603,14 @@ with slides.Presentation() as presentation:
 
 ## **Ekspor Teks Paragraf ke HTML**
 
-Aspose.Slides menyediakan dukungan yang ditingkatkan untuk mengekspor teks ke HTML.
+Aspose.Slides menyediakan dukungan tingkat lanjut untuk mengekspor teks ke HTML.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) dan muat presentasi target.
-1. Akses slide yang diinginkan berdasarkan indeksnya.
+1. Akses slide yang diinginkan berdasarkan indeks.
 1. Pilih shape yang berisi teks yang akan diekspor.
-1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) pada shape tersebut.
+1. Akses [TextFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/) shape.
 1. Buka aliran file untuk menulis output HTML.
-1. Tentukan indeks mulai dan ekspor paragraf‑paragraf yang diperlukan.
-
-Contoh Python ini menunjukkan cara mengekspor teks paragraf ke HTML.
+1. Tentukan indeks mulai dan ekspor paragraf yang diperlukan.
 
 ```python
 import aspose.slides as slides
@@ -644,21 +627,21 @@ with slides.Presentation("exporting_HTML_text.pptx") as presentation:
     shape = slide.shapes[index]
 
     with open("output.html", "w") as html_stream:
-        # Tulis data paragraf ke HTML dengan memberikan indeks paragraf mulai dan total jumlah paragraf yang akan diekspor.
+        # Tulis data paragraf ke HTML dengan memberikan indeks paragraf awal dan total jumlah paragraf yang akan diekspor.
         html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
 ```
 
 ## **Simpan Paragraf sebagai Gambar**
 
-Di bagian ini, kami akan mengeksplorasi dua contoh yang menunjukkan cara menyimpan sebuah paragraf teks, yang direpresentasikan oleh kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/), sebagai gambar. Kedua contoh mencakup memperoleh gambar shape yang berisi paragraf menggunakan metode `get_image` dari kelas [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/), menghitung batas paragraf di dalam shape, dan mengekspornya sebagai gambar bitmap. Pendekatan ini memungkinkan Anda mengekstrak bagian‑bagian tertentu dari teks presentasi PowerPoint dan menyimpannya sebagai gambar terpisah, yang dapat berguna untuk penggunaan lebih lanjut dalam berbagai skenario.
+Pada bagian ini, kami akan mengeksplorasi dua contoh yang menunjukkan cara menyimpan paragraf teks, yang direpresentasikan oleh kelas [Paragraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraph/), sebagai gambar. Kedua contoh mencakup memperoleh gambar shape yang berisi paragraf menggunakan metode `get_image` dari kelas [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/), menghitung batas paragraf di dalam shape, dan mengekspornya sebagai gambar bitmap. Pendekatan ini memungkinkan Anda mengekstrak bagian tertentu dari teks dalam presentasi PowerPoint dan menyimpannya sebagai gambar terpisah, yang dapat berguna untuk penggunaan lebih lanjut dalam berbagai skenario.
 
-Anggap kami memiliki file presentasi bernama sample.pptx dengan satu slide, di mana shape pertama adalah kotak teks yang berisi tiga paragraf.
+Misalkan kami memiliki file presentasi bernama sample.pptx dengan satu slide, di mana shape pertama adalah kotak teks yang berisi tiga paragraf.
 
 ![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
 **Contoh 1**
 
-Pada contoh ini, kami memperoleh paragraf kedua sebagai gambar. Untuk melakukannya, kami mengekstrak gambar shape dari slide pertama presentasi, lalu menghitung batas paragraf kedua dalam bingkai teks shape. Paragraf tersebut kemudian digambar ulang ke gambar bitmap baru, yang disimpan dalam format PNG. Metode ini sangat berguna ketika Anda perlu menyimpan paragraf tertentu sebagai gambar terpisah sambil mempertahankan dimensi dan pemformatan teks yang tepat.
+Pada contoh ini, kami memperoleh paragraf kedua sebagai gambar. Untuk melakukannya, kami mengekstrak gambar shape dari slide pertama presentasi, kemudian menghitung batas paragraf kedua dalam bingkai teks shape. Paragraf tersebut kemudian digambar ulang ke dalam gambar bitmap baru, yang disimpan dalam format PNG. Metode ini sangat berguna ketika Anda perlu menyimpan paragraf tertentu sebagai gambar terpisah sambil mempertahankan dimensi dan pemformatan teks yang tepat.
 
 ```py
 import aspose.slides as slides
@@ -669,7 +652,7 @@ from PIL import Image
 with slides.Presentation("sample.pptx") as presentation:
     first_shape = presentation.slides[0].shapes[0]
 
-    # Simpan shape di memori sebagai bitmap.
+    # Simpan shape dalam memori sebagai bitmap.
     with first_shape.get_image() as shape_image:
         shape_image_stream = io.BytesIO()
         shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
@@ -694,13 +677,13 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph_bitmap.save("paragraph.png")
 ```
 
-Hasil:
+Hasilnya:
 
 ![Gambar paragraf](paragraph_to_image_output.png)
 
 **Contoh 2**
 
-Pada contoh ini, kami memperluas pendekatan sebelumnya dengan menambahkan faktor skala pada gambar paragraf. Shape diekstrak dari presentasi dan disimpan sebagai gambar dengan faktor skala `2`. Ini memungkinkan keluaran resolusi lebih tinggi saat mengekspor paragraf. Batas paragraf kemudian dihitung dengan memperhitungkan skala. Skalasi dapat sangat berguna ketika diperlukan gambar yang lebih detail, misalnya untuk penggunaan dalam materi cetak berkualitas tinggi.
+Pada contoh ini, kami memperluas pendekatan sebelumnya dengan menambahkan faktor skala pada gambar paragraf. Shape diekstrak dari presentasi dan disimpan sebagai gambar dengan faktor skala `2`. Ini memungkinkan output beresolusi lebih tinggi saat mengekspor paragraf. Batas paragraf kemudian dihitung dengan mempertimbangkan skala. Skala dapat sangat berguna ketika diperlukan gambar yang lebih detail, misalnya untuk materi cetak berkualitas tinggi.
 
 ```py
 import aspose.slides as slides
@@ -714,7 +697,7 @@ image_scale_y = image_scale_x
 with slides.Presentation("sample.pptx") as presentation:
     first_shape = presentation.slides[0].shapes[0]
 
-    # Simpan shape di memori sebagai bitmap.
+    # Simpan shape dalam memori sebagai bitmap.
     with first_shape.get_image(slides.ShapeThumbnailBounds.SHAPE, image_scale_x, image_scale_y) as shape_image:
         shape_image_stream = io.BytesIO()
         shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
@@ -747,16 +730,16 @@ with slides.Presentation("sample.pptx") as presentation:
 
 **Apakah saya dapat sepenuhnya menonaktifkan pembungkusan baris di dalam sebuah TextFrame?**
 
-Ya. Gunakan pengaturan pembungkusan TextFrame ([wrap_text](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/wrap_text/)) untuk mematikan pembungkusan sehingga baris tidak akan terputus di tepi frame.
+Ya. Gunakan pengaturan pembungkusan TextFrame ([wrap_text](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/wrap_text/)) untuk mematikan pembungkusan sehingga baris tidak terpotong di tepi frame.
 
 **Bagaimana cara mendapatkan batas tepat pada slide untuk paragraf tertentu?**
 
-Anda dapat mengambil kotak pembatas (bounding rectangle) paragraf (bahkan bagian tunggal) untuk mengetahui posisi dan ukuran yang tepat pada slide.
+Anda dapat mengambil persegi batas paragraf (bahkan untuk satu portion) untuk mengetahui posisi dan ukuran tepatnya pada slide.
 
-**Di mana kontrol penyelarasan paragraf (kiri/kanan/tengah/justify) berada?**
+**Di mana pengaturan perataan paragraf (kiri/kanan/tengah/justify) dikontrol?**
 
-[Alignment](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/alignment/) adalah pengaturan tingkat paragraf di [ParagraphFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/); ia berlaku untuk seluruh paragraf terlepas dari pemformatan bagian individual.
+[Alignment](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/alignment/) adalah pengaturan tingkat paragraf di [ParagraphFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/paragraphformat/); itu berlaku untuk seluruh paragraf terlepas dari pemformatan masing‑masing portion.
 
-**Apakah saya dapat mengatur bahasa pemeriksa ejaan hanya untuk bagian tertentu dari sebuah paragraf (misalnya satu kata)?**
+**Apakah saya dapat mengatur bahasa pemeriksa ejaan hanya untuk bagian paragraf (misalnya satu kata)?**
 
-Ya. Bahasa diatur pada tingkat bagian ([PortionFormat.language_id](https://reference.aspose.com/slides/id/python-net/aspose.slides/portionformat/language_id/)), sehingga beberapa bahasa dapat hidup berdampingan dalam satu paragraf.
+Ya. Bahasa diatur pada tingkat portion ([PortionFormat.language_id](https://reference.aspose.com/slides/id/python-net/aspose.slides/portionformat/language_id/)), sehingga beberapa bahasa dapat hidup berdampingan dalam satu paragraf.

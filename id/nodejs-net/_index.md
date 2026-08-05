@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides untuk Node.js via .NET
-second_title: "Aspose.Slides untuk Node.js via .NET Dokumentasi"
+second_title: Aspose.Slides untuk Node.js
 description: Aspose.Slides untuk Node.js via .NET menyediakan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio dan video ke slide, meninjau slide, mengekspor slide ke format SVG, PDF, dan lainnya.
 type: docs
 weight: 47
@@ -15,9 +15,9 @@ is_root: true
 
 Aspose.Slides untuk Node.js via .NET adalah pustaka kelas yang memungkinkan aplikasi Anda membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®.
 
-Aspose.Slides untuk Node.js via .NET adalah komponen pertama dan satu-satunya yang menyediakan fungsionalitas untuk mengelola dokumen PowerPoint®.
+Aspose.Slides untuk Node.js via .NET adalah komponen pertama dan satu-satunya yang menyediakan fungsi untuk mengelola dokumen PowerPoint®.
 
-Aspose.Slides untuk Node.js via .NET menyediakan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio dan video ke slide, meninjau slide, mengekspor slide ke format SVG, PDF, dan lainnya.
+Aspose.Slides untuk Node.js via .NET menyediakan banyak fitur penting seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio dan video ke slide, meninjau slide, mengekspor slide ke format SVG, PDF, dan lainnya.
 
 {{% /alert %}}
 
@@ -25,15 +25,15 @@ Aspose.Slides untuk Node.js via .NET menyediakan banyak fitur utama seperti meng
 
 {{% alert color="primary" %}}
 
-Aspose.Slides untuk Node.js via .NET dipindahkan dari Aspose.Slides untuk .NET, sehingga Anda dapat menggunakan dokumentasi dan referensi API tersebut.
+Aspose.Slides untuk Node.js via .NET dipindahkan dari Aspose.Slides untuk .NET, jadi Anda dapat menggunakan dokumentasi dan referensi API yang terakhir.
 
 {{% /alert %}}
 
-Berikut adalah tautan ke sumber daya yang berguna:
+Berikut ini tautan ke sumber daya yang berguna:
 
 - [Dokumentasi Online Aspose.Slides untuk Node.js via .NET](/slides/id/net/developer-guide/)
 - [Fitur Aspose.Slides untuk Node.js via .NET](/slides/id/nodejs-net/features-overview/)
-- [Batasan dan Perbedaan API Aspose.Slides untuk Node.js via .NET](/slides/id/nodejs-net/limitations-and-api-differences/)
+- [Keterbatasan dan Perbedaan API Aspose.Slides untuk Node.js via .NET](/slides/id/nodejs-net/limitations-and-api-differences/)
 - [Catatan Rilis Aspose.Slides untuk Node.js via .NET](https://releases.aspose.com/slides/id/nodejs-net/release-notes/)
 - [Halaman Produk Aspose.Slides untuk Node.js via .NET](https://products.aspose.com/slides/id/nodejs-net/)
 - [Unduh Paket Aspose.Slides untuk Node.js via .NET](https://releases.aspose.com/slides/id/nodejs-net/)

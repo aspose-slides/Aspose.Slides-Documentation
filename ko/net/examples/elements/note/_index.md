@@ -3,10 +3,12 @@ title: 노트
 type: docs
 weight: 240
 url: /ko/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - 노트
 - 노트 슬라이드 추가
-- 노트 슬라이드 액세스
+- 노트 슬라이드 접근
 - 노트 슬라이드 제거
 - 노트 텍스트 업데이트
 - 코드 예제
@@ -16,13 +18,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET에서 슬라이드 노트를 작업합니다: PPT, PPTX 및 ODP에서 스피커 노트를 추가, 읽기, 편집 및 내보내기를 명확한 C# 예제를 사용하여 수행합니다."
+description: "Aspose.Slides for .NET에서 슬라이드 노트를 사용하세요: PPT, PPTX 및 ODP에서 스피커 노트를 추가, 읽기, 편집 및 내보내기를 명확한 C# 예제로 제공합니다."
 ---
-이 문서에서는 **Aspose.Slides for .NET**을 사용하여 노트 슬라이드를 추가, 읽기, 삭제 및 업데이트하는 방법을 보여줍니다.
+이 문서는 **Aspose.Slides for .NET**을 사용하여 노트 슬라이드를 추가, 읽기, 제거 및 업데이트하는 방법을 보여줍니다.
 
 ## **노트 슬라이드 추가**
 
-노트 슬라이드를 만들고 텍스트를 할당합니다.
+노트 슬라이드를 생성하고 텍스트를 할당합니다.
 
 ```csharp
 static void AddNote()
@@ -35,7 +37,7 @@ static void AddNote()
 }
 ```
 
-## **노트 슬라이드 액세스**
+## **노트 슬라이드 접근**
 
 기존 노트 슬라이드에서 텍스트를 읽습니다.
 
@@ -53,7 +55,7 @@ static void AccessNote()
 
 ## **노트 슬라이드 제거**
 
-슬라이드에 연결된 노트 슬라이드를 제거합니다.
+슬라이드와 연결된 노트 슬라이드를 제거합니다.
 
 ```csharp
 static void RemoveNote()

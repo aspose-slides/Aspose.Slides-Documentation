@@ -9,36 +9,35 @@ keywords:
 - обычный шрифт
 - нормальный шрифт
 - азиатский шрифт
-- Экспорт PDF
-- Экспорт XPS
-- Экспорт изображений
+- экспорт в PDF
+- экспорт в XPS
+- экспорт изображений
 - PowerPoint
 - OpenDocument
 - презентация
 - C++
 - Aspose.Slides
-description: "Установите шрифты по умолчанию в Aspose.Slides для C++, чтобы обеспечить корректную конвертацию PowerPoint (PPT, PPTX) и OpenDocument (ODP) в PDF, XPS и изображения."
+description: "Установите шрифты по умолчанию в Aspose.Slides для C++, чтобы обеспечить корректное преобразование PowerPoint (PPT, PPTX) и OpenDocument (ODP) в PDF, XPS и изображения."
 ---
+## **Обзор**
 
-## **Установить шрифт по умолчанию**
-Using Aspose.Slides for C++ you can set the default font in PowerPoint presentations. A new method [set_DefaultRegularFont()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options/#a9df129ea6e65c8196e08173799a10492) has been added to [**SaveOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.save_options/) class. It allows to set the default font used instead of all missing fonts during saving presentations to different formats without reloading the presentations .
+Aspose.Slides позволяет задавать шрифты по умолчанию, которые используются при рендеринге презентации. Это полезно при создании миниатюр слайдов или экспорте презентации в такие форматы, как PDF и XPS. Шрифты по умолчанию настраиваются через `LoadOptions` до загрузки презентации.
 
-The code snippet below demonstrates saving presentation to [HTML](https://docs.fileformat.com/web/html/) and [PDF](https://docs.fileformat.com/pdf/) with different default regular font.
+Метод `set_DefaultRegularFont` определяет шрифт по умолчанию для обычного текста, а `set_DefaultAsianFont` — для азиатского текста. После установки этих параметров презентацию можно загрузить и отрисовать с использованием указанных шрифтов.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetDefaultFont-SetDefaultFont.cpp" >}}
+## **Использование шрифтов по умолчанию при рендеринге презентации**
+Aspose.Slides позволяет задать шрифт по умолчанию для рендеринга презентации в PDF, XPS или миниатюры. В этой статье показано, как определить DefaultRegularFont и DefaultAsianFont для использования в качестве шрифтов по умолчанию. Пожалуйста, выполните следующие шаги для загрузки шрифтов из внешних каталогов с помощью API Aspose.Slides для C++:
 
-## **Использовать шрифты по умолчанию при визуализации презентации**
-Aspose.Slides lets you set the default font fore rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular
-Font and DefaultAsian Font for use as default fonts. Please follow the steps below to loading fonts from external directories by using Aspose.Slides for C++ API:
+1. Создайте экземпляр LoadOptions.  
+1. Установите DefaultRegularFont в требуемый шрифт. В следующем примере я использовал Wingdings.  
+1. Установите DefaultAsianFont в требуемый шрифт. В примере я также использовал Wingdings.  
+1. Загрузите презентацию, используя Presentation и указав параметры загрузки.  
+1. Теперь сгенерируйте миниатюру слайда, PDF и XPS, чтобы проверить результат.
 
-1. Создайте экземпляр LoadOptions.
-1. Установите DefaultRegularFont в нужный вам шрифт. В следующем примере я использовал Wingdings.
-1. Установите DefaultAsianFont в нужный вам шрифт. В следующем образце я использовал Wingdings.
-1. Загрузите презентацию, используя Presentation и задав параметры загрузки.
-1. Теперь сгенерируйте миниатюру слайда, PDF и XPS, чтобы проверить результаты.
+Реализация вышеописанного приведена ниже.
 
 ```cpp
-// Используйте параметры загрузки, чтобы указать шрифты по умолчанию: обычный и азиатский
+// Используйте параметры загрузки для указания шрифтов по умолчанию для обычного и азиатского текста
 auto loadOptions = MakeObject<LoadOptions>(LoadFormat::Auto);
 loadOptions->set_DefaultRegularFont(u"Wingdings");
 loadOptions->set_DefaultAsianFont(u"Wingdings");
@@ -55,25 +54,24 @@ pptx->Save(u"DefaultFonts_out.xps", SaveFormat::Xps);
 pptx->Dispose();
 ```
 
-
 ## **FAQ**
 
 **Что именно влияют DefaultRegularFont и DefaultAsianFont — только экспорт или также миниатюры, PDF, XPS, HTML и SVG?**
 
-Они участвуют в конвейере визуализации для всех поддерживаемых выводов. Это включает миниатюры слайдов, [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/ru/cpp/convert-powerpoint-to-xps/), [растровые изображения](/slides/ru/cpp/convert-powerpoint-to-png/), [HTML](/slides/ru/cpp/convert-powerpoint-to-html/), и [SVG](/slides/ru/cpp/render-a-slide-as-an-svg-image/), потому что Aspose.Slides использует одинаковую логику размещения и разрешения глифов для этих целей.
+Они участвуют в конвейере рендеринга для всех поддерживаемых выводов. Это включает миниатюры слайдов, [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/ru/cpp/convert-powerpoint-to-xps/), [растровые изображения](/slides/ru/cpp/convert-powerpoint-to-png/), [HTML](/slides/ru/cpp/convert-powerpoint-to-html/), и [SVG](/slides/ru/cpp/render-a-slide-as-an-svg-image/), потому что Aspose.Slides использует одинаковую логику размещения и разрешения глифов для этих целей.
 
-**Применяются ли шрифты по умолчанию при простом чтении и сохранении PPTX без любой визуализации?**
+**Применяются ли шрифты по умолчанию при простом чтении и сохранении PPTX без рендеринга?**
 
-Нет. Шрифты по умолчанию важны, когда текст необходимо измерять и отрисовывать. Простое открытие и сохранение презентации не меняет сохранённые наборы шрифтов и структуру файла. Шрифты по умолчанию вступают в действие при операциях, которые визуализируют или переразмещают текст.
+Нет. Шрифты по умолчанию важны, когда текст необходимо измерять и рисовать. Простое открытие‑сохранение презентации не меняет сохранённые наборы шрифтов и структуру файла. Шрифты по умолчанию вступают в действие во время операций, которые рендерят или переразмещают текст.
 
 **Если я добавлю свои папки со шрифтами или предоставлю шрифты из памяти, будут ли они учитываться при выборе шрифтов по умолчанию?**
 
-Да. [Custom font sources](/slides/ru/cpp/custom-font/) расширяют каталог доступных семейств и глифов, которые может использовать движок. Шрифты по умолчанию и любые [fallback rules](/slides/ru/cpp/fallback-font/) будут сначала искать в этих источниках, обеспечивая более надёжное покрытие на серверах и в контейнерах.
+Да. [Пользовательские источники шрифтов](/slides/ru/cpp/custom-font/) расширяют каталог доступных семейств и глифов, которые может использовать движок. Шрифты по умолчанию и любые [правила резервирования](/slides/ru/cpp/fallback-font/) будут сначала обращаться к этим источникам, обеспечивая более надёжное покрытие на серверах и в контейнерах.
 
-**Будут ли шрифты по умолчанию влиять на метрику текста (кернинг, advance) и, следовательно, на переносы строк и обтекание?**
+**Повлияют ли шрифты по умолчанию на метрику текста (кернинг, ширину) и, соответственно, на разрывы строк и переносы?**
 
-Да. Смена шрифта меняет метрику глифов и может изменить переносы строк, обтекание и разбивку страниц при визуализации. Для стабильности компоновки [embed the original fonts](/slides/ru/cpp/embedded-font/) или выбирайте метрично совместимые семейства по умолчанию и запасные.
+Да. Смена шрифта меняет метрики глифов и может изменять разрывы строк, переносы и разбиение на страницы во время рендеринга. Для стабильности разметки рекомендуется [встраивать оригинальные шрифты](/slides/ru/cpp/embedded-font/) или выбирать метрично совместимые семейства по умолчанию и резервные шрифты.
 
-**Есть ли смысл задавать шрифты по умолчанию, если все шрифты, используемые в презентации, встроены?**
+**Есть ли смысл задавать шрифты по умолчанию, если все шрифты в презентации встроены?**
 
-Часто это не требуется, поскольку [embedded fonts](/slides/ru/cpp/embedded-font/) уже обеспечивают согласованный внешний вид. Шрифты по умолчанию всё равно полезны как запасной вариант для символов, не покрытых встроенным набором, или когда файл сочетает встроенный и не встроенный текст.
+Часто это не требуется, потому что [встроенные шрифты](/slides/ru/cpp/embedded-font/) уже гарантируют единообразный вид. Шрифты по умолчанию всё же могут служить страховкой для символов, не покрытых встроенным набором, или когда файл сочетает встроенный и не встроенный текст.

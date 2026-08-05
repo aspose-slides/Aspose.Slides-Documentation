@@ -1,14 +1,14 @@
 ---
-title: PowerPoint prezentációk konvertálása Szórólap módban JavaScript használatával
-linktitle: Szórólap mód
+title: PowerPoint prezentációk konvertálása kézibevezetés módban JavaScript használatával
+linktitle: Kézibevezetés mód
 type: docs
 weight: 150
-url: /hu/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /hu/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
-- PowerPoint konvertálás
-- prezentáció konvertálása
-- szórólap mód
-- szórólap
+- PowerPoint átalakítása
+- prezentáció átalakítása
+- kézibevezetés mód
+- kézibevezetés
 - PPT
 - PPTX
 - PowerPoint
@@ -16,51 +16,51 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Prezentációk konvertálása szórólapokká. Diák száma oldalanként beállítása, jegyzetek megtartása, export PDF vagy képek formátumba az Aspose.Slides for Node.js használatával, mintakóddal. Próbálja ki ingyen."
+description: "Konvertálja a prezentációkat kézibevezetéssé. Állítsa be a dia számát oldalanként, tartsa meg a jegyzeteket, exportáljon PDF-be vagy képekbe az Aspose.Slides for Node.js segítségével, mintakóddal. Próbálja ki ingyen."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides lehetővé teszi a prezentációk különböző formátumokra történő konvertálását, beleértve a szórólapok létrehozását nyomtatáshoz Szórólap módon. Ez a mód lehetővé teszi, hogy konfigurálja, hogyan jelenjenek meg több dia egyetlen oldalon, ami konferenciákon, szemináriumokon és egyéb eseményeken hasznos. A mód engedélyezhető a `setSlidesLayoutOptions` metódus beállításával a [PdfOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/htmloptions/) és a [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) osztályokban.
+Aspose.Slides lehetővé teszi a prezentációk különböző formátumokba történő konvertálását, többek között a kézibevevők létrehozását nyomtatáshoz Kézibevezetés módban. Ez a mód lehetővé teszi, hogy beállítsa, hány dia jelenik meg egy oldalon, ami konferenciák, szemináriumok és egyéb események esetén hasznos. Ezt a módot a `setSlidesLayoutOptions` metódus beállításával aktiválhatja a [PdfOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/htmloptions/) és [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) osztályokban.
 
-## **Szórólap mód exportálása**
+## **Kézibevezetés módú exportálás**
 
-A Szórólap mód konfigurálásához használja a [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/handoutlayoutingoptions/) objektumot, amely meghatározza, hány dia kerül egy oldalra és egyéb megjelenítési paramétereket.
+A Kézibevezetés mód konfigurálásához használja a [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/handoutlayoutingoptions/) objektumot, amely meghatározza, hány dia helyezhető egy oldalra, valamint egyéb megjelenítési paramétereket.
 
-Az alábbiakban egy kódrészlet látható, amely bemutatja, hogyan lehet egy prezentációt PDF-re konvertálni Szórólap módban.
+Az alábbiakban egy kódrészlet látható, amely bemutatja, hogyan konvertálhat egy prezentációt PDF-re Kézibevezetés módban.
 
 ```js
-// Prezentáció betöltése.
+// Töltsön be egy prezentációt.
 let presentation = new asposeSlides.Presentation("sample.pptx");
 
-// Exportálási beállítások megadása.
+// Set the export options.
 let slidesLayoutOptions = new asposeSlides.HandoutLayoutingOptions();
 slidesLayoutOptions.setHandout(asposeSlides.HandoutType.Handouts4Horizontal);  // 4 dia egy oldalon vízszintesen
-slidesLayoutOptions.setPrintSlideNumbers(true);                                // dia számlálók nyomtatása
-slidesLayoutOptions.setPrintFrameSlide(true);                                  // keret nyomtatása a diák köré
+slidesLayoutOptions.setPrintSlideNumbers(true);                                // diák számának nyomtatása
+slidesLayoutOptions.setPrintFrameSlide(true);                                  // keret nyomtatása a diák körül
 slidesLayoutOptions.setPrintComments(false);                                   // nincs megjegyzés
 
 let pdfOptions = new asposeSlides.PdfOptions();
 pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-// Prezentáció exportálása PDF-be a kiválasztott elrendezéssel.
+// Export the presentation to PDF with the chosen layout.
 presentation.save("output.pdf", asposeSlides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
 {{% alert color="warning" %}} 
-Ne feledje, hogy a `setSlidesLayoutOptions` metódus csak bizonyos kimeneti formátumok esetén érhető el, például PDF, HTML, TIFF, illetve képként történő rendereléskor.
+Ne feledje, hogy a `setSlidesLayoutOptions` metódus csak bizonyos kimeneti formátumoknál érhető el, például PDF, HTML, TIFF, és képek renderelésekor.
 {{% /alert %}} 
 
 ## **GYIK**
 
-**Mi a maximális dia bélyegkép száma oldalanként a Szórólap módban?**
+**Mi a maximális dia bélyegkép száma oldalanként a Kézibevezetés módban?**
 
-Az Aspose.Slides [presets](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/handouttype/) legfeljebb 9 bélyegképet támogat oldalanként, vízszintes vagy függőleges elrendezéssel: 1, 2, 3, 4 (vízszintes/függőleges), 6 (vízszintes/függőleges) és 9 (vízszintes/függőleges).
+Az Aspose.Slides támogatja a [presets](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/handouttype/) legfeljebb 9 bélyegképet oldalanként vízszintes vagy függőleges sorrendben: 1, 2, 3, 4 (vízszintes/függőleges), 6 (vízszintes/függőleges) és 9 (vízszintes/függőleges).
 
-**Definiálhatok egy egyéni rácsot, például 5 vagy 8 diát oldalanként?**
+**Definiálhatok egy egyedi rácsot, például 5 vagy 8 diát oldalanként?**
 
-Nem. A bélyegképek számát és sorrendjét szigorúan a [HandoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/handouttype/) felsorolás határozza meg; tetszőleges elrendezések nem támogatottak.
+Nem. A bélyegképek száma és sorrendje szigorúan a [HandoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/handouttype/) felsorolás által van szabályozva; tetszőleges elrendezések nem támogatottak.
 
-**Tudok rejtett diákot is belefoglalni a Szórólap kimenetbe?**
+**Tartalmazhatok rejtett diákat a Kézibevezetés kimenetben?**
 
-Igen. Használja a `setShowHiddenSlides` metódust a célformátum exportbeállításaiban, például a [PdfOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/htmloptions/) vagy [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) esetén.
+Igen. Használja a `setShowHiddenSlides` metódust a célformátum exportbeállításaiban, például a [PdfOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/htmloptions/) vagy a [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) esetén.

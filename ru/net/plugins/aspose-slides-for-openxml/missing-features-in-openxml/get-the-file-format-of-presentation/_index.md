@@ -4,15 +4,14 @@ type: docs
 weight: 50
 url: /ru/net/get-the-file-format-of-presentation/
 aliases:
-  - /ru/net/presentation-format/
+  - /net/presentation-format/
 ---
-
-Чтобы получить формат файла, выполните следующие шаги:
+Чтобы получить формат файла, выполните следующие действия:
 
 - Создайте экземпляр класса **IPresentationInfo**
 - Получите информацию о презентации
 
-В приведённом ниже примере мы получаем формат файла.
+В приведённом ниже примере мы получили формат файла.
 ## **Пример**
 ``` csharp
 
@@ -47,7 +46,7 @@ switch (info.LoadFormat)
 
 }
 
-``` 
+```
 ## **Скачать пример кода**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **Скачать работающий пример**

@@ -1,5 +1,5 @@
 ---
-title: Anpassa diagramdatatabeller i presentationer med С++
+title: Anpassa diagramdatatabeller i presentationer med C++
 linktitle: Datatabell
 type: docs
 url: /sv/cpp/chart-data-table/
@@ -9,24 +9,24 @@ keywords:
 - teckensnittsegenskaper
 - PowerPoint
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Anpassa diagramdatatabeller i С++ för PPT och PPTX med Aspose.Slides för att öka effektiviteten och attraktiviteten i presentationer."
+description: "Anpassa diagramdatatabeller i C++ för PPT och PPTX med Aspose.Slides för att öka effektiviteten och attraktiviteten i presentationer."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man arbetar med diagramdatatabeller i Aspose.Slides. Den visar hur man visar en datatabell för ett diagram och anpassar dess textformatering genom att ange teckensnittsegenskaper såsom fet stil och teckenhöjd. Exemplet demonstrerar hur man laddar en presentation, lägger till ett diagram, aktiverar diagrammets datatabell, tillämpar teckensnittinställningar och sparar den uppdaterade presentationen.
+Den här artikeln förklarar hur man arbetar med diagramdatatabeller i Aspose.Slides. Den visar hur man visar en datatabell för ett diagram och anpassar dess textformatering genom att ställa in teckensnittsegenskaper som fet stil och teckenhöjd. Exemplet demonstrerar hur man laddar en presentation, lägger till ett diagram, aktiverar diagrammets datatabell, tillämpar teckensnittinställningar och sparar den uppdaterade presentationen.
 
 ## **Ange teckensnittsegenskaper för en diagramdatatabell**
 Aspose.Slides för C++ tillåter att ändra teckensnittsegenskaper för en diagramdatatabell.  
 
 1. Instansiera [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) klassobjekt.  
 1. Lägg till ett diagram på bilden.  
-1. Ange diagramtabell.  
-1. Ange teckenhöjd.  
-1. Spara den modifierade presentationen.  
+1. Ställ in diagrammets tabell.  
+1. Ställ in teckenhöjd.  
+1. Spara den ändrade presentationen.  
 
-Nedan följer ett exempel.  
+Nedan ges ett exempel.  
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -41,20 +41,20 @@ chart->get_ChartDataTable()->get_TextFormat()->get_PortionFormat()->set_FontHeig
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag visa små legendar-nycklar bredvid värdena i diagrammets datatabell?**
+**Kan jag visa små förklaringsnycklar bredvid värdena i diagrammets datatabell?**
 
 Ja. Datatabellen stöder [legend keys](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/datatable/set_showlegendkey/), och du kan slå på eller av dem.
 
-**Kommer datatabellen att bevaras vid export av presentationen till PDF, HTML eller bilder?**
+**Kommer datatabellen att bevaras när presentationen exporteras till PDF, HTML eller bilder?**
 
-Ja. Aspose.Slides renderar diagrammet som en del av bilden, så den exporterade [PDF](/slides/sv/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/sv/cpp/convert-powerpoint-to-html/)/[image](/slides/sv/cpp/convert-powerpoint-to-png/) innehåller diagrammet med dess datatabell.
+Ja. Aspose.Slides renderar diagrammet som en del av bilden, så den exporterade [PDF](/slides/sv/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/sv/cpp/convert-powerpoint-to-html/)/[image](/slides/sv/cpp/convert-powerpoint-to-png/) inkluderar diagrammet med dess datatabell.
 
 **Stöds datatabeller för diagram som kommer från en mallfil?**
 
-Ja. För alla diagram som laddas från en befintlig presentation eller mall kan du kontrollera och ändra om en datatabell [is shown](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chart/set_hasdatatable/) med diagrammets egenskaper.
+Ja. För alla diagram som laddas från en befintlig presentation eller mall kan du kontrollera och ändra om en datatabell [visas](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chart/set_hasdatatable/) genom att använda diagrammets egenskaper.
 
 **Hur kan jag snabbt hitta vilka diagram i en fil som har datatabellen aktiverad?**
 
-Inspektera varje diagrams egenskap som indikerar om datatabellen [is shown](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chart/get_hasdatatable/) och gå igenom bilderna för att identifiera de diagram där den är aktiverad.
+Inspektera varje diagrams egenskap som anger om datatabellen [visas](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chart/get_hasdatatable/) och iterera genom bilderna för att identifiera diagrammen där den är aktiverad.

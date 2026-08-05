@@ -10,7 +10,7 @@ keywords:
 - Präsentationsfunktionen
 - Folienfunktionen
 - Grafikfunktionen
-- Multimedia-Funktionen
+- Multimediafunktionen
 - Tabellenfunktionen
 - Textfunktionen
 - Erweiterte Funktionen
@@ -20,97 +20,99 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ermöglicht das Erstellen, Bearbeiten und Konvertieren von PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen ohne Microsoft Office."
+description: "Aspose.Slides für C++ ermöglicht das Erstellen, Bearbeiten und Konvertieren von PowerPoint- (PPT, PPTX) und OpenDocument- (ODP) Präsentationen ohne Microsoft Office."
 ---
 ![todo:image_alt_text](product-overview_1.png)
 
-## **Willkommen bei Aspose.Slides for C++!**
+## **Willkommen bei Aspose.Slides für C++!**
 
-Aspose.Slides for C++ ist eine Microsoft PowerPoint®‑Verwaltungs‑API, die es C++‑Anwendungen ermöglicht, PowerPoint®‑Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides for C++ ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®‑Dokumenten bereitstellt. Aspose.Slides for C++ bietet zahlreiche wichtige Funktionen wie die Verwaltung von Text, Formen, Tabellen & Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien nach SVG, PDF und mehr.
+Aspose.Slides for C++ ist eine Microsoft PowerPoint®-Verwaltungs-API, die es C++‑Anwendungen ermöglicht, PowerPoint®‑Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides for C++ ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®‑Dokumenten bereitstellt. Aspose.Slides for C++ bietet viele wichtige Funktionen wie die Verwaltung von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio‑ und Video‑Inhalten zu Folien, die Vorschau von Folien, das Exportieren von Folien in SVG, PDF‑Formate und mehr.
 
 ## **Produktbeschreibung**
-Aspose.Slides for C++ wird mit nativem C++ entwickelt. Derzeit ist es für die Windows‑x64‑Umgebung kompiliert, künftig wird es auch für Linux kompiliert werden.
 
-Aspose.Slides for C++ kann PowerPoint‑Dateien aus verschiedenen Quellen öffnen und ermöglicht es Ihnen, Ihre Präsentationen auf vielfältige Weise zu speichern. Zum Beispiel können Sie Ihre Präsentation nicht nur im PPT‑Format, sondern auch im PDF‑Format speichern. Darüber hinaus können Sie Ihre Folien auch als Bilder speichern. Aspose.Slides for C++ bietet Ihnen fast alle Funktionen, die Sie in Microsoft PowerPoint finden. Die Vielseitigkeit von Aspose.Slides for C++ besteht darin, dass Sie nicht nur Tabellen und verschiedene Arten von Formen zu Ihren Folien hinzufügen können, sondern auch verschiedene Arten von Frames (also Text‑, Audio‑ und Video‑Frames).
+Aspose.Slides for C++ wird mit nativem C++ entwickelt. Derzeit wird es für die Windows‑x64‑Umgebung kompiliert, künftig wird es auch für Linux kompiliert.
 
-## **Umfangreiche Funktionssammlung**
-Die Funktionen von Aspose.Slides for C++ lassen sich in folgende Bereiche gliedern:
+Aspose.Slides for C++ kann nicht nur PowerPoint‑Dateien aus verschiedenen Quellen öffnen, sondern ermöglicht es Ihnen auch, Präsentationen auf vielfältige Weise zu speichern. Beispielsweise können Sie Ihre Präsentation nicht nur im PPT‑Format, sondern auch im PDF‑Format speichern. Darüber hinaus können Sie Ihre Folien als Bilder speichern. Aspose.Slides for C++ bietet Ihnen fast alle Funktionen, die Sie in Microsoft PowerPoint finden. Die Vielseitigkeit von Aspose.Slides for C++ besteht darin, dass Sie nicht nur Tabellen und verschiedene Formen zu Ihren Folien hinzufügen können, sondern auch unterschiedliche Rahmen (also Text‑, Audio‑ und Video‑Frames).
+
+## **Umfangreicher Funktionsumfang**
+
+Die Funktionen von Aspose.Slides for C++ lassen sich in die folgenden Bereiche unterteilen:
 
 1. Präsentationsfunktionen.
 1. Folienfunktionen.
 1. Grafik‑ und Multimedia‑Funktionen.
-1. Tabellen‑Funktionen
-1. Text‑ & Absatz‑Funktionen
+1. Tabellenfunktionen
+1. Text‑ & Absatzfunktionen
 1. Erweiterte Funktionen
 
 ### **Präsentationsfunktionen**
-- Öffnen von Microsoft PowerPoint‑Präsentationen aus verschiedenen Quellen.
-- Speichern von Präsentationen in unterschiedlichen Microsoft PowerPoint‑Formaten.
-- Erstellen von Präsentationen von Grund auf.
-- Konvertieren von Präsentationen in PDF‑Dokumente ohne Verwendung anderer Komponenten.
-- Lesen oder Ändern von Dokumenteneigenschaften einer Präsentation.
-- Anwenden von Schutz auf Präsentationen.
-- Exportieren von Präsentationen nach PDF.
-- Exportieren von Präsentationen nach XPS.
-- Exportieren von Präsentationen nach SWF.
-- Exportieren von Präsentationen nach PDF‑Notizen.
-- Exportieren von Präsentationen nach HTML.
+- Microsoft PowerPoint‑Präsentationen aus verschiedenen Quellen öffnen.
+- Präsentationen in verschiedenen Microsoft PowerPoint‑Formaten speichern.
+- Präsentationen von Grund auf neu erstellen.
+- Präsentationen in PDF‑Dokumente konvertieren, ohne eine andere Komponente zu verwenden.
+- Dokumenteigenschaften einer Präsentation lesen oder ändern.
+- Schutz für die Präsentation anwenden.
+- Präsentation nach PDF exportieren.
+- Präsentation nach XPS exportieren.
+- Präsentation nach SWF exportieren.
+- Präsentation mit Notizen nach PDF exportieren.
+- Präsentation nach HTML exportieren.
 
 ### **Folienfunktionen**
-- Erstellen neuer Folien von Grund auf und Hinzufügen zu Präsentationen.
-- Zugriff auf jede Folie über deren Position in einer Präsentation.
-- Kopieren oder Klonen von Folien in dieselbe oder eine andere Präsentation.
-- Bearbeiten und Löschen von Folien.
-- Kopieren von Master‑Folien zusammen mit den Folien automatisch.
-- Vorschau von Folien.
-- Abrufen oder Festlegen des Namens einer Folie.
-- Speichern von Folien als Bilder.
-- Exportieren von Folien in das SVG‑Format.
-- Arbeiten mit vielen Mastern in Präsentationen.
-- Füllen des Folienhintergrunds mit jedem unterstützten Stil.
-- Hinzufügen neuer oder Verwalten von Folien‑Notizen.
-- Dynamisches Setzen neuer Folien‑Master und -Stile.
-- Hinzufügen oder Ändern von Folienübergängen.
-- Hinzufügen von Morph‑Übergängen.
+- Neue Folien von Grund auf neu erstellen und zu Präsentationen hinzufügen.
+- Auf jede Folie anhand ihrer Position in einer Präsentation zugreifen.
+- Folien in dieselbe oder eine andere Präsentation kopieren oder duplizieren.
+- Folien bearbeiten und löschen.
+- Masterfolien zusammen mit Folien automatisch kopieren.
+- Folien in der Vorschau anzeigen.
+- Den Namen einer Folie abrufen oder festlegen.
+- Folien als Bilder speichern.
+- Folien in das SVG‑Format exportieren.
+- Mit mehreren Masterfolien in Präsentationen arbeiten.
+- Folienhintergrund mit einem unterstützten Stil füllen.
+- Neue Foliennotizen hinzufügen oder vorhandene verwalten.
+- Neue Folienmaster und -stile dynamisch festlegen.
+- Bildschirmpräsentationsübergänge hinzufügen oder ändern.
+- Morph‑Übergänge hinzufügen
 
 ### **Grafik‑ & Multimedia‑Funktionen**
-- Erstellen oder Verwalten von Formen wie Linien, Rechtecken, Ellipsen und Polylinien.
-- Verwalten von Linienstilen in Formen.
-- Abrufen des Alternativtexts einer Form.
-- Drehen oder Spiegeln von Formen.
-- Füllen von Formen in verschiedenen Stilen, z. B. einfarbig, Farbverlauf, Muster, Textur und Bild.
-- Verwendung von 48 vordefinierten Mustern und 24 Texturen.
-- Zuweisen von Links zu Formen.
-- Lesen, Ändern oder Hinzufügen neuer Animationseffekte zu Folien und Formen.
-- Hinzufügen neuer Bilder zu Präsentationen oder Verwalten vorhandener Bilder.
-- Hinzufügen neuer Bild‑Bullets zur Präsentation oder Verwalten vorhandener Bullets.
-- Hinzufügen neuer Audio‑Frames zur Präsentation oder Verwalten vorhandener Audio‑Frames.
-- Hinzufügen neuer Video‑Frames zur Präsentation oder Verwalten vorhandener Video‑Frames.
+- Formen wie Linien, Rechtecke, Ellipsen und Polylinien erstellen oder verwalten.
+- Linienstile in Formen verwalten.
+- Alternativtext einer Form abrufen.
+- Formen drehen oder spiegeln.
+- Formen mit verschiedenen Stilen füllen, z. B. einfarbig, Verlauf, Muster, Textur oder Bild.
+- Alle 48 vordefinierten Muster und 24 Texturen verwenden.
+- Formen Links zuweisen.
+- Animations‑Effekte für Folien und Formen lesen, ändern oder neue hinzufügen.
+- Neue Bilder zu Präsentationen hinzufügen oder vorhandene verwalten.
+- Neue Bild‑Aufzählungszeichen zur Präsentation hinzufügen oder vorhandene verwalten.
+- Neue Audio‑Frames zu den Präsentationen hinzufügen oder vorhandene verwalten.
+- Neue Video‑Frames zu den Präsentationen hinzufügen oder vorhandene verwalten.
 
-### **Tabellen‑Funktionen**
-- Erstellen von Tabellen von Grund auf und Hinzufügen zu Folien.
-- Ändern der Größe und Position von Tabellen.
-- Zugriff auf jede Zelle einer Tabelle.
-- Ändern von Format und Rahmen einer Zelle.
-- Ändern der Größe von Spalten und Zeilen.
-- Hinzufügen und Löschen von Spalten und Zeilen.
-- Festlegen von Rahmenbreite und -farbe für die gesamte Tabelle.
+### **Tabellenfunktionen**
+- Tabellen von Grund auf neu erstellen und zu Folien hinzufügen.
+- Tabellen in Größe ändern und verschieben.
+- Auf jede Zelle einer Tabelle zugreifen.
+- Format und Rahmen einer Zelle ändern.
+- Spalten und Zeilen in der Größe ändern.
+- Spalten und Zeilen hinzufügen und löschen.
+- Randbreite und -farbe für die gesamte Tabelle festlegen.
 
-### **Text‑ & Absatz‑Funktionen**
-- Abrufen und Festlegen von Text in Text‑Platzhaltern und Text‑Frames.
-- Abrufen des Typs eines Platzhalters.
-- Ändern der Textformatierung in einem Text‑Frame.
-- Hinzufügen neuer oder Verwalten vorhandener Schriftarten, die in einer Präsentation verwendet werden.
-- Ändern von Text und Textformatierung.
-- Erstellen oder Verwalten von Links im Text.
-- Unterstützung von Tabs und effektiven Tabs.
-- Hinzufügen neuer Text‑Frames zu fast jedem Formtyp.
-- Zugriff auf und Ändern von Rand‑ und Textumbruch‑Einstellungen von Text‑Frames.
-- Zugriff auf und Ändern von Absatzeinrückungen.
+### **Text‑ & Absatzfunktionen**
+- Text in Textplatzhaltern und Text‑Frames abrufen und festlegen.
+- Typ eines Platzhalters ermitteln.
+- Textformatierung in einem Text‑Frame ändern.
+- Neue Schriftarten hinzufügen oder vorhandene in einer Präsentation verwalten.
+- Text und Textformatierung ändern.
+- Links zum Text erstellen oder verwalten.
+- Tabs und effektive Tabs unterstützen.
+- Neue Text‑Frames zu fast allen Formtypen hinzufügen.
+- Ränder und Textumbruch‑Einstellungen von Text‑Frames abrufen und ändern.
+- Absatzeinrückungen abrufen und ändern.
 
 ### **Erweiterte Funktionen**
-- Zugriff auf OLE‑Objekte, die in Präsentationen eingebettet sind.
-- Sperren von Präsentationen.
+- Auf in Präsentationen eingebettete OLE‑Objekte zugreifen.
+- Präsentationen sperren.
 
 ## **Unterstützte Plattformen**
 - Windows x64/x86 (Microsoft Visual Studio 2017 oder neuer).
@@ -118,7 +120,71 @@ Die Funktionen von Aspose.Slides for C++ lassen sich in folgende Bereiche gliede
 - macOS (Xcode 13.4 oder neuer).
 
 ## **Technischer Support**
-Aspose bietet unbegrenzten kostenlosen technischen Support für alle seine Produkte. Der Support steht allen Nutzern, einschließlich der Evaluierung, zur Verfügung. Wenn Sie Hilfe zu Aspose.Slides for C++ benötigen, beachten Sie Folgendes:
+Aspose bietet unbegrenzten kostenlosen technischen Support für alle seine Produkte. Der Support steht allen Benutzern zur Verfügung, einschließlich Testversionen. Wenn Sie Hilfe zu Aspose.Slides for C++ benötigen, beachten Sie Folgendes:
 
-- Der wichtigste Support‑Kanal ist das [Aspose. Forum](https://forum.aspose.com/). Stellen Sie Ihre Frage im [Aspose.Slides‑Forum](https://forum.aspose.com/c/slides/de/11) und Sie erhalten innerhalb weniger Stunden eine Antwort. Die Fragen werden direkt vom Aspose.Slides‑Support‑Team beantwortet.
-- Bitte beachten Sie, dass Aspose
+- Der wichtigste Support-Kanal ist das[Aspose. Forums](https://forum.aspose.com/). Stellen Sie Ihre Frage im[Aspose.Slides‑Forum](https://forum.aspose.com/c/slides/de/11) und Sie erhalten innerhalb weniger Stunden eine Antwort. Die Fragen werden direkt vom Aspose.Slides‑Support‑Team beantwortet.
+- Bitte beachten Sie, dass Aspose keinen technischen Support per Telefon anbietet. Telefonischer Support ist nur für Verkaufs‑ und Kaufanfragen verfügbar.
+- Wenn Sie auf eine Antwort im Forum warten, berücksichtigen Sie bitte die Zeitzonen‑Unterschiede.
+
+Wenn Sie ein Problem mit Aspose.Slides for C++ haben, befolgen Sie diese einfachen Schritte, um sicherzustellen, dass es auf effizienteste Weise gelöst wird:
+
+- Stellen Sie sicher, dass Sie die neueste Version von Aspose.Slides for C++ verwenden, bevor Sie das Problem melden; siehe[Aspose.Slides Download](https://downloads.aspose.com/slides/de/cpp), um die aktuelle Version zu erfahren.
+- Durchsuchen Sie die Foren, diese Dokumentation und die API‑Referenz, bevor Sie das Problem melden; vielleicht wurde Ihre Frage bereits beantwortet.
+- Wenn Sie ein Problem melden, fügen Sie bitte das Originaldokument und ggf. einen Code‑Auszug bei, der das Problem verursacht. Müssen Sie mehrere Dateien anhängen, komprimieren Sie diese zu einer ZIP‑Datei. Das Anhängen Ihrer Dokumente im Aspose‑Forum ist sicher, da nur Sie und die Aspose‑Entwickler Zugriff auf die angehängten Dateien haben.
+- Bitte melden Sie jeweils nur ein Problem pro Thread. Wenn Sie ein weiteres Problem haben, öffnen Sie dafür einen separaten Thread.
+
+Die folgende Tabelle listet wichtige technische Ressourcen zu Aspose.Slides for C++ auf.
+
+|**Ressource**|**Beschreibung**|
+| :- | :- |
+|[Aspose.Slides für C++ Startseite](https://products.aspose.com/slides/de/cpp/)|Produkt-Startseite.|
+|[Aspose.Slides‑Blog](https://blog.aspose.com/category/slides/de/)|Regelmäßig prüfen für Informationen zu neuen Versionen und nützlichen Tipps zu Aspose.Slides.|
+|[Aspose.Slides für C++ Download](https://downloads.aspose.com/slides/de/cpp)|Alle neuen und alten Produktveröffentlichungen werden für Kundenreferenz bereitgehalten.|
+|[Aspose.Slides Support‑Forum](https://forum.aspose.com/c/slides/de/11)|Stellen Sie hier Ihre Fragen und Probleme für eine schnelle Lösung.|
+|[Aspose.Slides für C++ Produktdokumentation](/slides/de/cpp/)|Vollständige Online‑Dokumentation, die diese Dokumentation sowie die Aspose.Slides‑API‑Referenz enthält.|
+
+## **FAQ**
+
+**Unterstützt es PDF‑Konformitätsstufen für Archivierung und Barrierefreiheit (PDF/A und PDF/UA)?**
+
+Ja. Sie können mit PDF/A‑2a/2b/2u, PDF/A‑3a/3b sowie PDF/UA speichern, indem Sie die[PDF‑Export‑Optionen](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/pdfoptions/) konfigurieren.
+
+**Gibt es einen Schriftarten‑Ersatzmechanismus und Unterstützung für benutzerdefinierte Schriften, um eine korrekte Darstellung sicherzustellen?**
+
+Ja. Die Bibliothek ermöglicht das[Load custom fonts](/slides/de/cpp/custom-font/) und das[Define fallback rules](/slides/de/cpp/fallback-font/), sodass fehlende Glyphen bei Konvertierung und Darstellung zuverlässig ersetzt werden.
+
+**Kann ich erkennen, ob eine Datei passwortgeschützt ist, ohne sie vollständig zu öffnen?**
+
+Ja. Sie können eine Präsentation[Inspect a presentation](/slides/de/cpp/examine-presentation/) untersuchen, um festzustellen, ob sie ein Passwort benötigt, bevor das komplette Dokument geladen wird.
+
+**Ist Microsoft PowerPoint für die Verarbeitung und Konvertierung erforderlich?**
+
+Nein. Aspose.Slides ist eine eigenständige Engine; PowerPoint wird auf Server oder Workstation nicht benötigt.
+
+**Ist es sicher, Präsentationen aus mehreren Threads zu verarbeiten?**
+
+Ja, Sie können verschiedene Dokumente parallel in separaten Threads verarbeiten; vermeiden Sie jedoch die gleichzeitige Verwendung derselben Präsentationsinstanz[Across threads](/slides/de/cpp/multithreading/).
+
+**Werden Makros beibehalten und kann ich VBA in PPTM/PPSM‑Dateien verwalten?**
+
+Ja. Präsentationen mit Makros[Are supported](/slides/de/cpp/presentation-via-vba/), und Sie können die VBA‑Projekte in diesen Dateien[Inspect and manage VBA projects](https://reference.aspose.com/slides/de/cpp/aspose.slides.vba/) untersuchen und verwalten.
+
+**Kann ich PDF‑ oder HTML‑Inhalte zurück in PowerPoint‑Folien konvertieren?**
+
+Ja. Sie können[Import PDF pages or HTML content](/slides/de/cpp/import-presentation/) importieren, um Folien in einer Präsentation zu erstellen oder zu befüllen.
+
+**Wird der XPS‑Export unterstützt und kann ich die Qualität und den Inhalt der XPS‑Ausgabe steuern?**
+
+Ja. Der[Export to XPS](/slides/de/cpp/convert-powerpoint-to-xps/) ist verfügbar, und[Save options](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/xpsoptions/) ermöglichen die Feinabstimmung von Ausgabequalität und enthaltenen Inhalten.
+
+**Kann ich Folien in Bilder konvertieren und die Ausgabequalität steuern?**
+
+Ja. Folien können in[Rendered to PNG, JPEG, GIF, BMP, TIFF](/slides/de/cpp/convert-powerpoint-to-png/) und weitere Formate gerendert werden, wobei Sie Größe und Qualität feinabstimmen können.
+
+**Werden mathematische Formeln unterstützt (MathML/MathText) und können sie exportiert werden?**
+
+Ja. Sie können[Create and edit mathematical text](/slides/de/cpp/powerpoint-math-equations/) erstellen und bearbeiten sowie[Export equations](/slides/de/cpp/exporting-math-equations/) exportieren, auch nach MathML.
+
+**Wie geht die Bibliothek mit Verschlüsselung und Passwörtern um (öffnen, setzen, entfernen)?**
+
+[Sie unterstützt](/slides/de/cpp/password-protected-presentation/) das Öffnen verschlüsselter Präsentationen, das Setzen oder Entfernen von Passwörtern zum Öffnen und Ändern sowie das Prüfen des Schutzstatus einer Datei.

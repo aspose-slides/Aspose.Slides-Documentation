@@ -1,10 +1,10 @@
 ---
-title: Správa řad grafu v prezentacích pomocí C++
+title: Správa datových sérií grafu v prezentacích pomocí C++
 linktitle: Datové řady
 type: docs
 url: /cs/cpp/chart-series/
 keywords:
-- řada grafu
+- série grafu
 - překrytí řady
 - barva řady
 - barva kategorie
@@ -15,11 +15,11 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se, jak spravovat řady grafu v C++ pro PowerPoint (PPT/PPTX) pomocí praktických ukázek kódu a osvědčených postupů pro vylepšení vašich datových prezentací."
+description: "Zjistěte, jak spravovat řady grafu v C++ pro PowerPoint (PPT/PPTX) pomocí praktických ukázek kódu a osvědčených postupů pro vylepšení vašich datových prezentací."
 ---
 ## **Přehled**
 
-Tento článek popisuje roli [ChartSeries](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartseries/) v Aspose.Slides, zaměřuje se na to, jak jsou data strukturována a vizualizována v prezentacích. Tyto objekty poskytují základní prvky, které definují jednotlivé sady datových bodů, kategorie a parametry vzhledu v grafu. Prací s [ChartSeries](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chartseries/), mohou vývojáři bezproblémově integrovat podkladové zdroje dat a udržovat úplnou kontrolu nad tím, jak je informace zobrazena, což vede k dynamickým, na datech založeným prezentacím, které jasně předávají poznatky a analýzu.
+Tento článek popisuje roli [ChartSeries](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts.chartseries/) v Aspose.Slides, zaměřuje se na to, jak jsou data strukturována a vizualizována v prezentacích. Tyto objekty poskytují základní prvky, které definují jednotlivé sady datových bodů, kategorie a parametry vzhledu v grafu. Prací s [ChartSeries](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts.chartseries/) mohou vývojáři snadno integrovat podkladové datové zdroje a mít plnou kontrolu nad tím, jak jsou informace zobrazeny, což vede k dynamickým, daty řízeným prezentacím, které jasně předávají postřehy a analýzy.
 
 Řada je řádek nebo sloupec čísel vykreslených v grafu.
 
@@ -27,17 +27,17 @@ Tento článek popisuje roli [ChartSeries](https://reference.aspose.com/slides/c
 
 ## **Nastavení překrytí datové řady**
 
-Pomocí metody [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) můžete určit, jak moc mají sloupce a pruhy překrývat v 2D grafu (rozsah: -100 až 100). Tato vlastnost se vztahuje na všechny řady rodičovské skupiny řad: jedná se o projekci odpovídající vlastnosti skupiny.
+S metodou [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) můžete určit, jak moc mají pruhy a sloupce překrývat v 2D grafu (rozsah: -100 až 100). Tato vlastnost se vztahuje na všechny řady v nadřazené skupině řad: jedná se o projekci odpovídající vlastnosti skupiny.
 
-Použijte metodu `get_ParentSeriesGroup()::set_Overlap()` k nastavení požadované hodnoty pro `Overlap`.
+Použijte metodu `get_ParentSeriesGroup()::set_Overlap()` k nastavení preferované hodnoty pro `Overlap`.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-1. Přidejte seskupený sloupcový graf na snímek.
+1. Přidejte na snímek seskupený sloupcový graf.
 1. Získejte první řadu grafu.
-1. Získejte `ParentSeriesGroup` řady grafu a nastavte požadovanou hodnotu překrytí pro řadu.
+1. Získejte `ParentSeriesGroup` řady grafu a nastavte preferovanou hodnotu překrytí pro řadu.
 1. Zapište upravenou prezentaci do souboru PPTX.
 
-Tento C++ kód ukazuje, jak nastavit překrytí pro řadu grafu:
+Tento kód v C++ ukazuje, jak nastavit překrytí pro řadu grafu:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -52,13 +52,13 @@ if (series->idx_get(0)->get_Overlap() == 0)
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
-// Uloží soubor prezentace na disk
+// Zapíše soubor prezentace na disk
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Změna barvy datové řady**
 
-Aspose.Slides pro C++ umožňuje změnit barvu řady tímto způsobem:
+Aspose.Slides pro C++ vám umožňuje změnit barvu řady tímto způsobem:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
 1. Přidejte graf na snímek.
@@ -66,7 +66,7 @@ Aspose.Slides pro C++ umožňuje změnit barvu řady tímto způsobem:
 1. Nastavte požadovaný typ výplně a barvu výplně.
 1. Uložte upravenou prezentaci.
 
-Tento C++ kód ukazuje, jak změnit barvu řady:
+Tento kód v C++ ukazuje, jak změnit barvu řady:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -84,7 +84,7 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **Změna barvy kategorie datové řady**
 
-Aspose.Slides pro C++ umožňuje změnit barvu kategorie řady tímto způsobem:
+Aspose.Slides pro C++ vám umožňuje změnit barvu kategorie řady tímto způsobem:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
 1. Přidejte graf na snímek.
@@ -92,7 +92,7 @@ Aspose.Slides pro C++ umožňuje změnit barvu kategorie řady tímto způsobem:
 1. Nastavte požadovaný typ výplně a barvu výplně.
 1. Uložte upravenou prezentaci.
 
-Tento C++ kód ukazuje, jak změnit barvu kategorie řady:
+Tento kód v C++ ukazuje, jak změnit barvu kategorie řady:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -110,14 +110,14 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 Ve výchozím nastavení jsou názvy legendy pro graf obsahem buněk nad každým sloupcem nebo řádkem dat.
 
-V našem příkladu (vzorek obrázku),
+V našem příkladu (ukázkový obrázek),
 
-* sloupce jsou *Series 1, Series 2* a *Series 3*;
-* řádky jsou *Category 1, Category 2, Category 3* a *Category 4*.
+* sloupce jsou *Series 1, Series 2,* a *Series 3*;
+* řádky jsou *Category 1, Category 2, Category 3,* a *Category 4.*
 
-Aspose.Slides pro C++ umožňuje aktualizovat nebo změnit název řady v datech grafu a v legendě.
+Aspose.Slides pro C++ vám umožňuje aktualizovat nebo změnit název řady v datech grafu a v legendě.
 
-Tento C++ kód ukazuje, jak změnit název řady v datech grafu `ChartDataWorkbook`:
+Tento kód v C++ ukazuje, jak změnit název řady v datech grafu `ChartDataWorkbook`:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -131,7 +131,7 @@ seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-Tento C++ kód ukazuje, jak změnit název řady v legendě pomocí `Series`:
+Tento kód v C++ ukazuje, jak změnit název řady v legendě pomocí`Series`:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -149,12 +149,12 @@ name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 Aspose.Slides pro C++ umožňuje nastavit automatickou barvu výplně pro řady grafu v oblasti vykreslování tímto způsobem:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
+1. Získejte referenci na snímek podle jeho indexu.
 1. Přidejte graf s výchozími daty podle požadovaného typu (v níže uvedeném příkladu jsme použili `ChartType::ClusteredColumn`).
 1. Získejte řadu grafu a nastavte barvu výplně na Automatic.
 1. Uložte prezentaci do souboru PPTX.
 
-Tento C++ kód ukazuje, jak nastavit automatickou barvu výplně pro řadu grafu:
+Tento kód v C++ ukazuje, jak nastavit automatickou barvu výplně pro řadu grafu:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -173,17 +173,17 @@ for (const auto& series : chart->get_ChartData()->get_Series())
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Nastavení invertované barvy výplně řady**
+## **Nastavení invertované barvy výplně datové řady**
 
 Aspose.Slides umožňuje nastavit invertovanou barvu výplně pro řady grafu v oblasti vykreslování tímto způsobem:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
+1. Získejte referenci na snímek podle jeho indexu.
 1. Přidejte graf s výchozími daty podle požadovaného typu (v níže uvedeném příkladu jsme použili `ChartType::ClusteredColumn`).
 1. Získejte řadu grafu a nastavte barvu výplně na invert.
 1. Uložte prezentaci do souboru PPTX.
 
-Tento C++ kód demonstruje operaci:
+Tento kód v C++ demonstruje operaci:
 
 ```cpp
 Color inverColor = Color::get_Red();
@@ -204,7 +204,7 @@ chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<Strin
 chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Vezme první řadu grafu a naplní její data řady.
+// Vezme první řadu grafu a naplní její data.
 auto series = chartData->get_Series()->idx_get(0);
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
@@ -219,9 +219,9 @@ pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 
 ## **Nastavení invertované barvy výplně pro řadu grafu**
 
-Aspose.Slides umožňuje nastavit invertace pomocí metod `IChartDataPoint::set_InvertIfNegative()` a `ChartDataPoint.set_InvertIfNegative()`. Když je invertace nastavena pomocí těchto metod, datový bod invertuje své barvy, pokud získá zápornou hodnotu.
+Aspose.Slides vám umožňuje nastavit invertování pomocí metod `IChartDataPoint::set_InvertIfNegative()` a `ChartDataPoint.set_InvertIfNegative()`. Když je invertování nastaveno pomocí těchto metod, datový bod invertuje své barvy, pokud získá zápornou hodnotu.
 
-Tento C++ kód demonstruje operaci:
+Tento kód v C++ demonstruje operaci:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -247,16 +247,16 @@ pres->Save(u"out.pptx", SaveFormat::Pptx);
 
 ## **Vymazání konkrétních hodnot datových bodů**
 
-Aspose.Slides pro C++ umožňuje vymazat data `DataPoints` pro konkrétní řadu grafu tímto způsobem:
+Aspose.Slides pro C++ vám umožňuje vymazat data `DataPoints` pro konkrétní řadu grafu tímto způsobem:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Získejte odkaz na graf podle jeho indexu.
-4. Procházejte všechny `DataPoints` grafu a nastavte `XValue` a `YValue` na null.
+2. Získejte referenci na snímek pomocí jeho indexu.
+3. Získejte referenci na graf pomocí jeho indexu.
+4. Projděte všechny `DataPoints` grafu a nastavte `XValue` a `YValue` na null.
 5. Vymažte všechny `DataPoints` pro konkrétní řadu grafu.
 6. Zapište upravenou prezentaci do souboru PPTX.
 
-Tento C++ kód demonstruje operaci:
+Tento kód v C++ demonstruje operaci:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
@@ -276,9 +276,9 @@ dataPoints->Clear();
 pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 ```
 
-## **Nastavení šířky mezery řady**
+## **Nastavení šířky mezery datové řady**
 
-Aspose.Slides pro C++ umožňuje nastavit šířku mezery řady pomocí metody **`set_GapWidth()`** tímto způsobem:
+Aspose.Slides pro C++ umožňuje nastavit šířku mezery řady pomocí metody **`set_GapWidth()`** následujícím způsobem:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
 1. Získejte první snímek.
@@ -287,13 +287,13 @@ Aspose.Slides pro C++ umožňuje nastavit šířku mezery řady pomocí metody *
 1. Nastavte vlastnost `GapWidth`.
 1. Zapište upravenou prezentaci do souboru PPTX.
 
-Tento C++ kód ukazuje, jak nastavit šířku mezery řady:
+Tento kód v C++ ukazuje, jak nastavit šířku mezery řady:
 
 ```cpp
-// Vytvoří prázdnou prezentaci 
+// Vytvoří prázdnou prezentaci
 auto presentation = System::MakeObject<Presentation>();
 
-// Přistupuje k prvnímu snímku prezentace
+// Získá první snímek prezentace
 auto slide = presentation->get_Slides()->idx_get(0);
 
 // Přidá graf s výchozími daty
@@ -314,7 +314,7 @@ chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Vezme druhou řadu grafu
+// Vybere druhou řadu grafu
 auto series = chart->get_ChartData()->get_Series()->idx_get(1);
 auto dataPoints = series->get_DataPoints();
 
@@ -337,8 +337,8 @@ presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 
 **Existuje limit na počet řad, které může jeden graf obsahovat?**
 
-Aspose.Slides nekladí pevný limit na počet řad, které přidáte. Praktické omezení stanoví čitelnost grafu a dostupná paměť ve vaší aplikaci.
+Aspose.Slides neukládá žádný pevný limit na počet řad, které můžete přidat. Praktický limit je dán čitelností grafu a množstvím paměti dostupné vaší aplikaci.
 
-**Co když jsou sloupce v rámci clusteru příliš blízko u sebe nebo naopak příliš daleko?**
+**Co když jsou sloupce v rámci clustera příliš blízko u sebe nebo naopak příliš daleko?**
 
-Upravte nastavení šířky mezery pro tuto řadu (nebo její rodičovskou skupinu řad). Zvýšením hodnoty se zvětší prostor mezi sloupci, snížením se sloupce přiblíží.
+Upravte nastavení šířky mezery pro tuto řadu (nebo její nadřazenou skupinu řad). Zvýšením hodnoty zvětšíte vzdálenost mezi sloupci, snížením ji přiblížíte.

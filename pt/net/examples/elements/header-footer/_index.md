@@ -1,8 +1,10 @@
 ---
-title: "Cabeçalho e Rodapé"
+title: Cabeçalho e Rodapé
 type: docs
 weight: 220
 url: /pt/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - cabeçalho rodapé
 - adicionar cabeçalho rodapé
@@ -14,13 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Controle cabeçalhos e rodapés de slides com Aspose.Slides for .NET: adicione datas, números de slide e texto personalizado em PPT, PPTX e ODP com exemplos em C#."
+description: "Controle cabeçalhos e rodapés de slides com Aspose.Slides para .NET: adicione datas, números de slide e texto personalizado em PPT, PPTX e ODP com exemplos em C#."
 ---
 Este artigo demonstra como adicionar rodapés e atualizar marcadores de data e hora usando **Aspose.Slides for .NET**.
 
 ## **Adicionar um Rodapé**
 
-Adicione texto à área de rodapé de um slide e torne-o visível.
+Adicione texto à área de rodapé de um slide e torne‑o visível.
 
 ```csharp
 static void AddHeaderFooter()

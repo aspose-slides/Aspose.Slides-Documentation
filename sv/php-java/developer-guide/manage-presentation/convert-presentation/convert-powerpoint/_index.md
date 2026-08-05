@@ -4,6 +4,8 @@ linktitle: Konvertera PowerPoint
 type: docs
 weight: 20
 url: /sv/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
 - konvertera PowerPoint
 - konvertera presentation

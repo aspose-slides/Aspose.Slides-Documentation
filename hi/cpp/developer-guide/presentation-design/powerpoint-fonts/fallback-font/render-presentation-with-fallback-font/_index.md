@@ -1,33 +1,35 @@
 ---
-title: फ़ॉलबैक फ़ॉन्ट के साथ C++ में प्रस्तुतियों को रेंडर करें
+title: फ़ॉलबैक फ़ॉन्ट्स के साथ C++ में प्रस्तुतियों को रेंडर करें
 linktitle: प्रस्तुतियों को रेंडर करें
 type: docs
 weight: 30
 url: /hi/cpp/render-presentation-with-fallback-font/
 keywords:
 - फ़ॉलबैक फ़ॉन्ट
-- PowerPoint रेंडर करें
-- प्रस्तुति रेंडर करें
-- स्लाइड रेंडर करें
+- PowerPoint रेंडर
+- प्रस्तुति रेंडर
+- स्लाइड रेंडर
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides के लिए C++ में फ़ॉलबैक फ़ॉन्ट के साथ प्रस्तुतियों को रेंडर करें – PPT, PPTX और ODP में टेक्स्ट को संगत रखें, चरण-दर-चरण C++ कोड नमूनों के साथ।"
+description: "Aspose.Slides के लिए C++ में फ़ॉलबैक फ़ॉन्ट्स के साथ प्रस्तुतियों को रेंडर करें – PPT, PPTX और ODP में टेक्स्ट को सुसंगत रखें, चरण-दर-चरण C++ कोड नमूनों के साथ।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides आपको फॉलबैक फ़ॉन्ट नियमों का उपयोग करके प्रस्तुतियों को रेंडर करने की अनुमति देता है। यह लेख दिखाता है कि फॉलबैक फ़ॉन्ट नियमों का संग्रह कैसे बनाया जाए, नियमों को फ़ॉन्ट हटाकर या जोड़कर कैसे संशोधित किया जाए, और `FontsManager::set_FontFallBackRulesCollection` मेथड का उपयोग करके संग्रह को कैसे असाइन किया जाए।
+Aspose.Slides आपको फॉलबैक फ़ॉन्ट नियमों का उपयोग करके प्रस्तुतियों को रेंडर करने की अनुमति देता है। यह लेख दर्शाता है कि फॉलबैक फ़ॉन्ट नियमों का संग्रह कैसे बनाया जाए, नियमों को फॉलबैक फ़ॉन्ट हटाकर या जोड़कर कैसे संशोधित किया जाए, और `FontsManager::set_FontFallBackRulesCollection` मेथड का उपयोग करके संग्रह को कैसे असाइन किया जाए।
 
-एक बार फॉलबैक फ़ॉन्ट नियमों का संग्रह प्रस्तुति के `FontsManager` को असाइन हो जाने पर, नियम सहेजने, रेंडर करने और प्रस्तुति को कनवर्ट करने जैसी ऑपरेशनों के दौरान लागू हो जाते हैं। यह उदाहरण दिखाता है कि स्लाइड थंबनेल को रेंडर करते समय और उसे PNG छवि के रूप में सहेजते समय कॉन्फ़िगर किए गए नियमों का कैसे उपयोग किया जाए।
+एक बार फॉलबैक फ़ॉन्ट नियमों का संग्रह प्रस्तुति के `FontsManager` को असाइन हो जाने के बाद, नियमों को सहेजने, रेंडर करने और प्रस्तुति को परिवर्तित करने जैसी प्रक्रियाओं के दौरान लागू किया जाता है। यह उदाहरण दिखाता है कि स्लाइड थंबनेल को रेंडर करते समय और उसे PNG छवि के रूप में सहेजते समय कॉन्फ़िगर किए गए नियमों का कैसे उपयोग किया जाता है।
 
-## **फ़ॉल्बैक फ़ॉन्ट नियमों का उपयोग करके स्लाइड रेंडर करें**
+## **फ़ॉल्बैक फ़ॉन्ट नियमों का उपयोग करके स्लाइड रेंडर करना**
 
-1. हम [फ़ॉलबैक फ़ॉन्ट नियमों का संग्रह बनाते हैं](/slides/hi/cpp/create-fallback-fonts-collection/)।
-2. एक फ़ॉलबैक फ़ॉन्ट नियम को [Remove()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontfallbackrule/remove/) हटाएँ और किसी अन्य नियम में [AddFallBackFonts()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) जोड़ें।
-3. नियमों के संग्रह को [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) मेथड को पास करें।
-4. [Presentation::Save()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड के साथ हम प्रस्तुति को उसी फ़ॉर्मेट में या किसी अन्य फ़ॉर्मेट में सहेज सकते हैं। फॉलबैक फ़ॉन्ट नियमों का संग्रह FontsManager में सेट होने के बाद, ये नियम प्रस्तुति पर की जाने वाली सभी ऑपरेशनों के दौरान लागू होते हैं: सहेजना, रेंडर करना, कनवर्ट करना, आदि।
+निम्नलिखित उदाहरण में ये चरण शामिल हैं:
+
+1. We [फ़ॉलबैक फ़ॉन्ट नियमों का संग्रह बनाएँ](/slides/hi/cpp/create-fallback-fonts-collection/).
+1. [Remove()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontfallbackrule/remove/) एक फ़ॉलबैक फ़ॉन्ट नियम को हटाएँ और [AddFallBackFonts()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) किसी अन्य नियम में जोड़ें।
+1. नियमों के संग्रह को [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) मेथड को पास करें।
+1. [Presentation::Save()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड का उपयोग करके हम प्रस्तुति को उसी फॉर्मेट में सहेज सकते हैं, या किसी अन्य फॉर्मेट में सहेज सकते हैं। फ़ॉलबैक फ़ॉन्ट नियमों का संग्रह FontsManager को सेट होने के बाद, ये नियम प्रस्तुति पर किए जाने वाले किसी भी ऑपरेशन के दौरान लागू होते हैं: सहेजना, रेंडर करना, परिवर्तित करना, आदि।
 
 ``` cpp
 // नियम संग्रह का नया उदाहरण बनाएं
@@ -39,7 +41,7 @@ rulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x400), static
 
 for (const auto& fallBackRule : rulesList)
 {
-	// लोड किए गए नियमों से फ़ॉलबैक फ़ॉन्ट "Tahoma" हटाने का प्रयास
+	// लोड किए गए नियमों से फॉलबैक फ़ॉन्ट "Tahoma" को हटाने का प्रयास
 	fallBackRule->Remove(u"Tahoma");
 
 	// और निर्दिष्ट रेंज के लिए नियमों को अपडेट करना
@@ -50,17 +52,17 @@ for (const auto& fallBackRule : rulesList)
 	}
 }
 
-// हम सूची से कोई भी मौजूदा नियम हटा सकते हैं
+// हम सूची से किसी भी मौजूदा नियम को भी हटा सकते हैं
 if (rulesList->get_Count() > 0)
 {
 	rulesList->Remove(rulesList->idx_get(0));
 }
 
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
-// उपयोग के लिए तैयार नियम सूची असाइन कर रहे हैं
+// उपयोग के लिए तैयार नियम सूची को असाइन करना
 pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
-// इनिशियलाइज़्ड नियम संग्रह का उपयोग करके थंबनेल रेंडर करना और PNG में सहेजना
+// आरंभ किए गए नियम संग्रह का उपयोग करके थंबनेल रेंडर करना और PNG में सहेजना
 auto image = pres->get_Slide(0)->GetImage(1.f, 1.f);
 image->Save(u"Slide_0.png", ImageFormat::Png);
 image->Dispose();
@@ -68,6 +70,7 @@ image->Dispose();
 pres->Dispose();
 ```
 
+
 {{% alert color="primary" %}} 
-C++ में PowerPoint स्लाइड्स को PNG में कैसे कनवर्ट करें, इस बारे में और पढ़ें: [C++ में PowerPoint स्लाइड्स को PNG में कनवर्ट करें](/slides/hi/cpp/convert-powerpoint-to-png/)।
+और अधिक जानें कि C++ में [PowerPoint स्लाइड को PNG में कैसे परिवर्तित करें](/slides/hi/cpp/convert-powerpoint-to-png/)। 
 {{% /alert %}}

@@ -39,11 +39,11 @@ keywords:
 - Aspose.Slides
 description: "Temukan semua format file yang dapat dibuka, disimpan, dan dikonversi oleh Aspose.Slides untuk C++ — termasuk PPT, PPTX, dan ODP — dengan catatan dukungan impor/ekspor yang jelas."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Aspose.Slides mendukung file presentasi dari Microsoft PowerPoint 97 hingga Office 365, termasuk Microsoft PowerPoint untuk Mac. Artikel ini mencantumkan versi PowerPoint yang didukung oleh perpustakaan dan menyediakan tabel format file yang dapat dimuat, disimpan, atau keduanya.
+Aspose.Slides mendukung file presentasi dari Microsoft PowerPoint 97 hingga Office 365, termasuk Microsoft PowerPoint untuk Mac. Artikel ini mencantumkan versi PowerPoint yang didukung oleh perpustakaan serta menyediakan tabel format file yang dapat dimuat, disimpan, atau keduanya.
 
-Artikel ini juga menjawab pertanyaan umum tentang kepatuhan PDF, penyematan font, file yang dilindungi kata sandi, font khusus, fallback font, dan opsi ekspor XPS.
+Artikel ini juga menjawab pertanyaan umum tentang kepatuhan PDF, penyisipan font, file yang dilindungi kata sandi, font khusus, fallback font, dan opsi ekspor XPS.
 
 ## **Versi Microsoft PowerPoint yang Didukung**
 - Microsoft PowerPoint 97
@@ -55,39 +55,39 @@ Artikel ini juga menjawab pertanyaan umum tentang kepatuhan PDF, penyematan font
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
+- Microsoft PowerPoint untuk MAC
 - Office 365
 
 ## **Format File yang Didukung**
-Tabel ini berisi format file yang Aspose.Slides untuk С++ dapat memuat dan menyimpan:
+Tabel ini berisi format file yang dapat dimuat dan disimpan oleh Aspose.Slides untuk C++:
 
 |**Format**|**Deskripsi**|**Muat**|**Simpan**|**Catatan**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentasi PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POT](https://docs.fileformat.com/presentation/pot/)|Templat PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Tayangan PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentasi PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTX](https://docs.fileformat.com/presentation/potx/)|Templat PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|Tayangan PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Presentasi PowerPoint dengan Makro|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Tayangan PowerPoint dengan Makro|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTM](https://docs.fileformat.com/presentation/potm/)|Templat PowerPoint dengan Makro|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|Presentasi OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[OTP](https://docs.fileformat.com/presentation/otp/)|Templat Presentasi OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format||{{< emoticons/tick >}}||
-|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format||{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification||{{< emoticons/tick >}}||
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group||{{< emoticons/tick >}}||
-|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics||{{< emoticons/tick >}}||
-|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format||{{< emoticons/tick >}}||
-|[BMP](https://docs.fileformat.com/image/bmp/)|Device Independent Bitmap||{{< emoticons/tick >}}||
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics||{{< emoticons/tick >}}||
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language||{{< emoticons/tick >}}||
-|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown||{{< emoticons/tick >}}|
-|[XML](https://docs.fileformat.com/web/xml/)|Presentasi XML PowerPoint||{{< emoticons/tick >}}|
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Presentasi PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POT](https://docs.fileformat.com/presentation/pot/)|Templat PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPS](https://docs.fileformat.com/presentation/pps/)|Tampilan PowerPoint 97-2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Presentasi PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTX](https://docs.fileformat.com/presentation/potx/)|Templat PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Tampilan PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Presentasi PowerPoint dengan Makro|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Tampilan PowerPoint dengan Makro|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[POTM](https://docs.fileformat.com/presentation/potm/)|Templat PowerPoint dengan Makro|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|Presentasi OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[OTP](https://docs.fileformat.com/presentation/otp/)|Templat Presentasi OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Format File Gambar Tag| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|Format Metafile Ditingkatkan| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Format Dokumen Portabel|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Spesifikasi Kertas XML| |{{< emoticons/tick >}}| |
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|Kelompok Ahli Fotografi Bersama| |{{< emoticons/tick >}}| |
+|[PNG](https://docs.fileformat.com/image/png/)|Grafik Jaringan Portabel| |{{< emoticons/tick >}}| |
+|[GIF](https://docs.fileformat.com/image/gif/)|Format Pertukaran Grafik| |{{< emoticons/tick >}}| |
+|[BMP](https://docs.fileformat.com/image/bmp/)|Bitmap Tidak Bergantung Perangkat| |{{< emoticons/tick >}}| |
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Grafik Vektor Skalabel| |{{< emoticons/tick >}}| |
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Format Web Kecil| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|Bahasa Markup Hiperteks|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
+|[XAML](https://docs.fileformat.com/web/xaml/)|Bahasa Markup Aplikasi Dapat Diperluas| |{{< emoticons/tick >}}| |
+|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
+|[XML](https://docs.fileformat.com/web/xml/)|Presentasi XML PowerPoint| |{{< emoticons/tick >}}| |
 
 ## **FAQ**
 
@@ -95,18 +95,18 @@ Tabel ini berisi format file yang Aspose.Slides untuk С++ dapat memuat dan meny
 
 Ya. Aspose.Slides mendukung ekspor ke PDF dengan tingkat kepatuhan seperti PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, serta PDF/UA melalui pengaturan [compliance](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/set_compliance/) dalam [PDF export options](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/).
 
-**Apakah perpustakaan mendukung penyematan font saat mengekspor ke PDF, dengan kontrol detail terhadap apa yang disematkan?**
+**Apakah perpustakaan mendukung penyisipan font saat mengekspor ke PDF, dengan kontrol detail atas apa yang disisipkan?**
 
-Ya. Anda dapat mengontrol apakah font disematkan sepenuhnya atau hanya subset (glyph yang digunakan), menentukan bagaimana font sistem umum diperlakukan, dan mengkonfigurasi perilaku untuk teks ASCII melalui [PDF export options](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/).
+Ya. Anda dapat mengontrol apakah font disisipkan secara penuh atau hanya subset (hanya glif yang digunakan), menentukan bagaimana font sistem umum diperlakukan, dan mengonfigurasi perilaku untuk teks ASCII melalui [PDF export options](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pdfoptions/).
 
-**Apakah saya dapat mendeteksi apakah sebuah file dilindungi kata sandi sebelum memuatnya?**
+**Apakah saya dapat mendeteksi apakah sebuah file dilindungi kata sandi sebelum benar‑benar memuatnya?**
 
-Ya. Dengan menggunakan [factory-based inspection API](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentationfactory/), Anda dapat memeriksa file presentasi untuk menentukan apakah file tersebut dilindungi kata sandi tanpa harus membuka seluruhnya.
+Ya. Menggunakan [factory-based inspection API](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentationfactory/), Anda dapat memeriksa file presentasi untuk menentukan apakah file tersebut dilindungi kata sandi tanpa harus membuka secara penuh.
 
 **Apakah ada mekanisme fallback font dan dukungan untuk font khusus?**
 
-Ya. Perpustakaan mendukung [loading](/slides/id/cpp/custom-font/) dan [embedding](/slides/id/cpp/embedded-font/) font khusus serta menyediakan aturan [fallback font](/slides/id/cpp/fallback-font/) untuk mencegah glyph yang hilang selama render dan konversi.
+Ya. Perpustakaan mendukung [loading](/slides/id/cpp/custom-font/) dan [embedding](/slides/id/cpp/embedded-font/) font khusus serta menyediakan [fallback rules](/slides/id/cpp/fallback-font/) untuk mencegah hilangnya glif selama proses perenderan dan konversi.
 
 **Apakah saya dapat mengekspor slide ke XPS, dan apakah ada opsi untuk menyesuaikan output XPS?**
 
-Ya. [Export to XPS](/slides/id/cpp/convert-powerpoint-to-xps/) didukung, dan Anda dapat menyesuaikan [save options](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/xpsoptions/) yang relevan untuk mengontrol kualitas output serta konten dokumen XPS.
+Ya. [Export to XPS](/slides/id/cpp/convert-powerpoint-to-xps/) didukung, dan Anda dapat menyesuaikan [save options](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/xpsoptions/) yang relevan untuk mengontrol kualitas output serta isi dokumen XPS.

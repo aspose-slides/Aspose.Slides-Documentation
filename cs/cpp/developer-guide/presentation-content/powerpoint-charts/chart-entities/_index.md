@@ -5,15 +5,15 @@ type: docs
 weight: 30
 url: /cs/cpp/chart-entities/
 keywords:
-- vysvětlovací bublina
+- popisek
 - osa
 - popisek dat
-- datová značka
+- značka dat
 - datová tabulka
 - legenda
-- plocha grafu
-- datové řady
-- chybová lišta
+- oblast grafu
+- datová řada
+- chybový pruh
 - trendová čára
 - PowerPoint
 - prezentace

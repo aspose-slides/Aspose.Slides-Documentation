@@ -4,26 +4,28 @@ linktitle: PowerPoint do PDF
 type: docs
 weight: 40
 url: /cs/python-net/convert-powerpoint-to-pdf/
+aliases:
+  - /python-net/convert-to-pdf/
 keywords:
-- převést PowerPoint
-- prezentace
-- PowerPoint do PDF
-- PPT do PDF
-- PPTX do PDF
-- uložit PowerPoint jako PDF
-- PDF/A1a
-- PDF/A1b
-- PDF/UA
-- Python
-- Aspose.Slides for Python
-description: "Podrobný průvodce převodem PPT, PPTX a ODP na vysoce kvalitní PDF splňující WCAG v Pythonu s Aspose.Slides — zahrnuje ochranu heslem, výběr snímků a kontrolu kvality obrázků."
+  - převod PowerPoint
+  - prezentace
+  - PowerPoint do PDF
+  - PPT do PDF
+  - PPTX do PDF
+  - uložit PowerPoint jako PDF
+  - PDF/A1a
+  - PDF/A1b
+  - PDF/UA
+  - Python
+  - Aspose.Slides pro Python
+description: "Podrobný průvodce převodem PPT, PPTX a ODP na vysoce kvalitní PDF splňující WCAG v Pythonu s Aspose.Slides – zahrnuje ochranu heslem, výběr snímků a řízení kvality obrázků."
 showReadingTime: true
 ---
 ## **Přehled**
 
-Převod prezentací PowerPoint (PPT, PPTX, ODP) do formátu PDF v Pythonu nabízí několik výhod, včetně zajištění kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, využít různé možnosti pro řízení kvality obrázků, zahrnout skryté snímky, chránit PDF dokumenty heslem, detekovat náhrady fontů, vybrat konkrétní snímky pro převod a použít normy pro soulad výstupních dokumentů.
+Převod prezentací PowerPoint (PPT, PPTX, ODP) do formátu PDF v Pythonu nabízí několik výhod, včetně zajištění kompatibility napříč různými zařízeními a zachování rozložení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, využít různé možnosti pro řízení kvality obrázků, zahrnout skryté snímky, chránit PDF heslem, detekovat náhrady písem, vybrat konkrétní snímky pro převod a použít standardy souladu na výstupní dokumenty.
 
-## **Převody PowerPoint na PDF**
+## **Převody PowerPoint do PDF**
 
 Pomocí Aspose.Slides můžete převést prezentace v těchto formátech do PDF:
 
@@ -31,52 +33,50 @@ Pomocí Aspose.Slides můžete převést prezentace v těchto formátech do PDF:
 * **PPTX**
 * **ODP**
 
-Chcete‑li převést prezentaci do PDF v Pythonu, stačí předat název souboru jako argument ve třídě [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/) a poté prezentaci uložit jako PDF pomocí metody [Save](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/#methods). Třída [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/) poskytuje metodu [Save](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/#methods), která se typicky používá k převodu prezentace do PDF.
+Pro převod prezentace do PDF v Pythonu stačí předat název souboru jako argument do třídy [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/) a poté uložit prezentaci jako PDF pomocí metody [Save](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/#methods). Třída [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/) poskytuje metodu [Save](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/#methods), která se typicky používá k převodu prezentace do PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides pro Python přímo zapisuje informace o API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides pro Python vyplní pole Application hodnotou '*Aspose.Slides*' a pole PDF Producer hodnotou ve formátu '*Aspose.Slides v XX.XX*'. **Poznámka** že nemůžete Aspose.Slides pro Python instruovat, aby tuto informaci ve výstupních dokumentech změnil nebo odstranil.
+Aspose.Slides pro Python přímo zapisuje informace o API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides pro Python vyplní pole Application hodnotou '*Aspose.Slides*' a pole PDF Producer hodnotou ve formátu '*Aspose.Slides v XX.XX*'. **Poznámka** že nelze Aspose.Slides pro Python instruovat, aby tuto informaci ve výstupních dokumentech změnil nebo odstranil.
 
 {{% /alert %}}
 
-Aspose.Slides vám umožňuje převést:
+Aspose.Slides umožňuje převést:
 
 * Celé prezentace do PDF
-* Konkrétní snímky v prezentaci do PDF
+* Vybrané snímky v prezentaci do PDF
 
-Aspose.Slides exportuje prezentace do PDF, což zajišťuje, že obsah výsledných PDF úzce odpovídá původním prezentacím. Prvky a atributy jsou během převodu vykresleny přesně, včetně:
+Aspose.Slides exportuje prezentace do PDF, čímž zajišťuje, že obsah výsledných PDF úzce odpovídá originálním prezentacím. Prvky a atributy jsou v převodu vykresleny přesně, včetně:
 
 * Obrázky
 * Textová pole a tvary
 * Formátování textu
 * Formátování odstavců
-* Hypertextové odkazy
+* Hyperlinky
 * Záhlaví a zápatí
 * Odrážky
 * Tabulky
 
 ## **Převod PowerPoint do PDF**
 
-Standardní operace převodu PowerPoint do PDF je prováděna s výchozími možnostmi. V tomto případě se Aspose.Slides pokusí převést poskytnutou prezentaci do PDF s optimálním nastavením při maximální úrovni kvality. Tento Python kód vám ukazuje, jak převést PowerPoint do PDF:
+Standardní operace převodu PowerPoint do PDF je prováděna s výchozími možnostmi. V tomto případě se Aspose.Slides snaží převést poskytnutou prezentaci do PDF pomocí optimálního nastavení na nejvyšší úrovni kvality. Tento Python kód vám ukazuje, jak převést PowerPoint do PDF:
 
-_*Kroky: Převody PowerPoint na PDF v Pythonu*_
+*Steps: PowerPoint to PDF Conversions in Python*
 
-Následující ukázkový kód vysvětluje tyto převody pomocí Pythonu přes .NET
-- <a name="python-net-powerpoint-to-pdf"><strong>Kroky: Převod PowerPoint do PDF pomocí Pythonu přes .NET</strong></a>
-- <a name="python-net-ppt-to-pdf"><strong>Kroky: Převod PPT do PDF pomocí Pythonu přes .NET</strong></a>
-- <a name="python-net-pptx-to-pdf"><strong>Kroky: Převod PPTX do PDF pomocí Pythonu přes .NET</strong></a>
-- <a name="python-net-odp-to-pdf"><strong>Kroky: Převod ODP do PDF pomocí Pythonu přes .NET</strong></a>
-- <a name="python-net-odp-to-pdf"><strong>Kroky: Převod PPS do PDF pomocí Pythonu přes .NET</strong></a>
+- <a name="python-net-powerpoint-to-pdf"><strong>Steps: Convert PowerPoint to PDF using Python via .NET</strong></a>
+- <a name="python-net-ppt-to-pdf"><strong>Steps: Convert PPT to PDF using Python via .NET</strong></a>
+- <a name="python-net-pptx-to-pdf"><strong>Steps: Convert PPTX to PDF using Python via .NET</strong></a>
+- <a name="python-net-odp-to-pdf"><strong>Steps: Convert ODP to PDF using Python via .NET</strong></a>
+- <a name="python-net-odp-to-pdf"><strong>Steps: Convert PPS to PDF using Python via .NET</strong></a>
 
-_Kroky kódu:_
+**Kroky v kódu:**
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) a poskytněte jí soubor PowerPoint.
-  * Rozšíření _.ppt_ pro načtení souboru **PPT** ve třídě _Presentation_.
-  * Rozšíření _.pptx_ pro načtení souboru **PPTX** ve třídě _Presentation_.
-  * Rozšíření _.odp_ pro načtení souboru **ODP** ve třídě _Presentation_.
-  * Rozšíření _.pps_ pro načtení souboru **PPS** ve třídě _Presentation_.
+- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) a předávejte jí soubor PowerPoint.
+  * Přípona _.ppt_ pro načtení souboru **PPT** do třídy _Presentation_.
+  * Přípona _.pptx_ pro načtení souboru **PPTX** do třídy _Presentation_.
+  * Přípona _.odp_ pro načtení souboru **ODP** do třídy _Presentation_.
+  * Příloha _.pps_ pro načtení souboru **PPS** do třídy _Presentation_.
 - Uložte _Presentation_ do formátu **PDF** voláním metody **Save** a použitím výčtu **SaveFormat.PDF**.
-  
 
 ```python
 import aspose.slides as slides
@@ -90,19 +90,19 @@ presentation.save("PPT-to-PDF.pdf", slides.export.SaveFormat.PDF)
 
 {{%  alert  color="primary"  %}} 
 
-Aspose poskytuje bezplatný online [**PowerPoint do PDF převodník**](https://products.aspose.app/slides/cs/conversion/ppt-to-pdf), který ukazuje proces převodu prezentace do PDF. Pro živou implementaci popsaného postupu můžete vyzkoušet převodník.
+Aspose poskytuje bezplatný online [**PowerPoint to PDF converter**](https://products.aspose.app/slides/cs/conversion/ppt-to-pdf), který ukazuje proces převodu prezentace do PDF. Pro živou implementaci popsaného postupu můžete provést test s tímto převodníkem.
 
 {{% /alert %}}
 
 ## **Převod PowerPoint do PDF s možnostmi**
 
-Aspose.Slides poskytuje vlastní možnosti — vlastnosti ve třídě [PdfOptions](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides.export/pdfoptions/) — které vám umožní přizpůsobit PDF (vytvořené během převodu), uzamknout PDF heslem nebo dokonce určit, jak má probíhat proces převodu.
+Aspose.Slides poskytuje vlastní možnosti — vlastnosti ve třídě [PdfOptions](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides.export/pdfoptions/) — které vám umožní přizpůsobit PDF (vytvořené převodovým procesem), zabezpečit PDF heslem nebo dokonce specifikovat, jak má převod probíhat.
 
 ### **Převod PowerPoint do PDF s vlastními možnostmi**
 
-Pomocí vlastních možností převodu můžete nastavit preferované nastavení kvality rastrových obrázků, určit, jak mají být zpracovávány metafily, nastavit úroveň komprese textu, DPI pro obrázky atd. 
+Pomocí vlastních možností převodu můžete nastavit preferované nastavení kvality rastrových obrázků, určit, jak mají být zpracovány metafily, nastavit úroveň komprese textu, DPI pro obrázky atd.
 
-Ukázkový kód níže demonstruje operaci, při níž je prezentace PowerPoint převedena do PDF s několika vlastními možnostmi:
+Níže uvedený příklad kódu demonstruje operaci, při které je PowerPoint prezentace převedena do PDF s několika vlastními možnostmi:
 
 ```python
 import aspose.slides as slides
@@ -110,13 +110,13 @@ import aspose.slides as slides
 # Vytvoří instanci třídy PdfOptions
 pdf_options = slides.export.PdfOptions()
 
-# Nastaví kvalitu pro JPG obrázky
+# Nastaví kvalitu JPG obrázků
 pdf_options.jpeg_quality = 90
 
 # Nastaví DPI pro obrázky
 pdf_options.sufficient_resolution = 300
 
-# Nastaví chování metafilů
+# Nastaví chování metafilek
 pdf_options.save_metafiles_as_png = True
 
 # Nastaví úroveň komprese textu pro textový obsah
@@ -133,9 +133,9 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
 
 ### **Převod PowerPoint do PDF se skrytými snímky**
 
-Pokud prezentace obsahuje skryté snímky, můžete použít vlastní možnost — vlastnost `show_hidden_slides` ze třídy [PdfOptions](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides.export/pdfoptions/) — která instruuje Aspose.Slides zahrnout skryté snímky jako stránky do výsledného PDF.
+Pokud prezentace obsahuje skryté snímky, můžete použít vlastní možnost — vlastnost `show_hidden_slides` ze třídy [PdfOptions](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides.export/pdfoptions/) — která instruuje Aspose.Slides zahrnout skryté snímky jako stránky ve výsledném PDF.
 
-Tento Python kód ukazuje, jak převést prezentaci PowerPoint do PDF se zahrnutými skrytými snímky:
+Tento Python kód vám ukazuje, jak převést PowerPoint prezentaci do PDF se zahrnutými skrytými snímky:
 
 ```python
 import aspose.slides as slides
@@ -155,7 +155,7 @@ presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOpti
 
 ### **Převod PowerPoint do PDF chráněného heslem**
 
-Tento Python kód ukazuje, jak převést PowerPoint do PDF chráněného heslem (pomocí parametrů ochrany ze třídy [PdfOptions](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides.export/pdfoptions/)):
+Tento Python kód vám ukazuje, jak převést PowerPoint do PDF chráněného heslem (použitím parametrů ochrany ze třídy [PdfOptions](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides.export/pdfoptions/)):
 
 ```python
 import aspose.slides as slides
@@ -166,7 +166,7 @@ presentation = slides.Presentation("PowerPoint.pptx")
 # Vytvoří instanci třídy PdfOptions
 pdfOptions = slides.export.PdfOptions()
 
-# Nastaví heslo PDF a oprávnění k přístupu
+# Nastaví heslo PDF a přístupová oprávnění
 pdfOptions.password = "password"
 pdfOptions.access_permissions = slides.export.PdfAccessPermissions.PRINT_DOCUMENT | slides.export.PdfAccessPermissions.HIGH_QUALITY_PRINT
 
@@ -174,9 +174,9 @@ pdfOptions.access_permissions = slides.export.PdfAccessPermissions.PRINT_DOCUMEN
 presentation.save("PPTX-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
-## **Převod vybraných snímků v PowerPointu do PDF**
+## **Převod vybraných snímků v PowerPoint do PDF**
 
-Tento Python kód ukazuje, jak převést konkrétní snímky v prezentaci PowerPoint do PDF:
+Tento Python kód vám ukazuje, jak převést konkrétní snímky v PowerPoint prezentaci do PDF:
 
 ```python
 import aspose.slides as slides
@@ -191,9 +191,9 @@ slides_array = [ 1, 3 ]
 presentation.save("PPTX-to-PDF.pdf", slides_array, slides.export.SaveFormat.PDF)
 ```
 
-## **Převod PowerPoint do PDF s vlastní velikostí snímku**
+## **Převod PowerPoint do PDF s vlastním rozměrem snímku**
 
-Tento Python kód ukazuje, jak převést PowerPoint, jehož velikost snímku je nastavena, do PDF:
+Tento Python kód vám ukazuje, jak převést PowerPoint, jehož velikost snímku je specifikována, do PDF:
 
 ```python
 import aspose.slides as slides
@@ -210,17 +210,17 @@ with slides.Presentation("SelectedSlides.pptx") as presentation:
         # Nastaví vlastní velikost snímku.
         resized_presentation.slide_size.set_size(slide_width, slide_height, slides.SlideSizeScaleType.ENSURE_FIT)
 
-        # Klonuje první snímek z původní prezentace.
+        # Zklonuje první snímek z originální prezentace.
         slide = presentation.slides[0]
         resized_presentation.slides.insert_clone(0, slide)
 
-        # Uloží prezentaci s upravenou velikostí do PDF s poznámkami.
+        # Uloží změněnou velikost prezentace do PDF s poznámkami.
         resized_presentation.save("PDF_with_notes.pdf", slides.export.SaveFormat.PDF)
 ```
 
 ## **Převod PowerPoint do PDF v zobrazení poznámek ke snímkům**
 
-Tento Python kód ukazuje, jak převést PowerPoint do PDF s poznámkami:
+Tento Python kód vám ukazuje, jak převést PowerPoint do PDF poznámek:
 
 ```python
 import aspose.slides as slides
@@ -235,11 +235,11 @@ pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPosition
 presentation.Save("Pdf_Notes_out.tiff", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
-## **Přístupnost a normy souladnosti pro PDF**
+## **Přístupnost a standardy souladu pro PDF**
 
-Aspose.Slides vám umožňuje použít postup převodu, který vyhovuje [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat dokument PowerPoint do PDF pomocí některé z těchto norem souladnosti: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
+Aspose.Slides vám umožňuje použít převodní postup, který splňuje [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat PowerPoint dokument do PDF pomocí libovolného z těchto standardů souladu: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
 
-Tento Python kód demonstruje operaci převodu PowerPoint do PDF, při níž jsou získány více PDF na základě různých norem souladnosti:
+Tento Python kód demonstruje operaci převodu PowerPoint do PDF, při které jsou získány různé PDF na základě různých standardů souladu:
 
 ```python
 import aspose.slides as slides
@@ -260,11 +260,11 @@ pres.save("pres-ua-compliance.pdf", slides.export.SaveFormat.PDF, options)
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides podpora pro operace převodu PDF rozšiřuje možnost převádět PDF do nejpopulárnějších formátů souborů. Můžete provést převody [PDF na HTML](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-html/), [PDF na obrázek](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-image/), [PDF na JPG](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-jpg/), a [PDF na PNG](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-png/) . Ostatní převody PDF do specializovaných formátů — [PDF na SVG](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-svg/), [PDF na TIFF](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-tiff/), a [PDF na XML](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-xml/) — jsou také podporovány.
+Podpora Aspose.Slides pro operace převodu PDF se rozšiřuje tak, že umožňuje převádět PDF do nejoblíbenějších formátů souborů. Můžete provést převody [PDF to HTML](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-jpg/), a [PDF to PNG](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-png/). Další převody PDF do specializovaných formátů — [PDF to SVG](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-tiff/), a [PDF to XML](https://products.aspose.com/slides/cs/python-net/conversion/pdf-to-xml/) — jsou také podporovány.
 
 {{% /alert %}}
 
-> **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou jako jsou SmartArt, grafy a vzorce jako s jednou figurou. Jednotlivé elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytován pouze pro celou figuru.
+> **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou, jako jsou SmartArt, grafy a vzorce, jako s jedním obrázkem. Jednotlivé elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytnut pouze pro celý obrázek.
 
 ## **Často kladené otázky**
 
@@ -274,34 +274,34 @@ Ne, Aspose.Slides pro Python automaticky zahrnuje informace o API a číslo verz
 
 **Jak zahrnout pouze konkrétní snímky do převodu PDF?**
 
-Můžete specifikovat indexy snímků, které chcete převést, tím že předáte pole pozic snímků metodě `save`.
+Můžete specifikovat indexy snímků, které chcete převést, tím, že předáte pole pozic snímků metodě `save`.
 
-**Je možné během převodu PDF chránit heslem?**
+**Je možné během převodu PDF nastavit ochranu heslem?**
 
-Ano, můžete nastavit heslo a definovat přístupová oprávnění pomocí třídy `PdfOptions` před uložením prezentace jako PDF.
+Ano, můžete nastavit heslo a definovat oprávnění přístupu pomocí třídy `PdfOptions` před uložením prezentace jako PDF.
 
 **Podporuje Aspose.Slides převod PDF do jiných formátů?**
 
-Ano, Aspose.Slides podporuje převod PDF do formátů jako HTML, obrazových formátů (JPG, PNG), SVG, TIFF a XML.
+Ano, Aspose.Slides podporuje převod PDF do formátů jako HTML, obrázkové formáty (JPG, PNG), SVG, TIFF a XML.
 
-**Jak zajistím, aby moje PDF splňovalo standardy přístupnosti?**
+**Jak zajistit, aby mé PDF splňovalo standardy přístupnosti?**
 
-Nastavte vlastnost `compliance` v `PdfOptions` na standardy jako `PDF_A1A`, `PDF_A1B` nebo `PDF_UA`, aby bylo zajištěno splnění směrnic přístupnosti.
+Nastavte vlastnost `compliance` v `PdfOptions` na standardy jako `PDF_A1A`, `PDF_A1B` nebo `PDF_UA`, aby PDF odpovídalo směrnicím přístupnosti.
 
 **Mohu zahrnout skryté snímky do výstupu PDF?**
 
 Ano, nastavením vlastnosti `show_hidden_slides` v `PdfOptions` na `True` budou skryté snímky zahrnuty do PDF.
 
-**Jak během převodu nastavit kvalitu a rozlišení obrázků?**
+**Jak upravit kvalitu a rozlišení obrázků během převodu?**
 
 Použijte vlastnosti `jpeg_quality` a `sufficient_resolution` v `PdfOptions` pro řízení kvality a rozlišení obrázků ve výsledném PDF.
 
-**Zvládá Aspose.Slides automaticky náhrady fontů?**
+**Zpracovává Aspose.Slides automaticky náhrady písem?**
 
-Aspose.Slides detekuje náhrady fontů během převodu a můžete je zpracovat pomocí vlastnosti `warning_callback` ve `SaveOptions` (v současné době omezené).
+Aspose.Slides detekuje náhrady písem během převodu a můžete je zpracovat pomocí vlastnosti `warning_callback` v `SaveOptions` (v současnosti omezené).
 
 ## **Další zdroje**
 
-- [Dokumentace Aspose.Slides pro .NET](https://docs.aspose.com/slides/cs/python-net/)
-- [Reference API Aspose.Slides](https://reference.aspose.com/slides/cs/python-net/)
-- [Bezplatné online převodníky Aspose](https://products.aspose.app/slides/cs/conversion)
+- [Aspose.Slides pro .NET Documentation](https://docs.aspose.com/slides/cs/python-net/)
+- [Aspose.Slides API Reference](https://reference.aspose.com/slides/cs/python-net/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/cs/conversion)

@@ -1,5 +1,5 @@
 ---
-title: Ekspor Persamaan Matematika dari Presentasi dalam С++
+title: Ekspor Persamaan Matematika dari Presentasi dalam C++
 linktitle: Ekspor Persamaan
 type: docs
 weight: 30
@@ -10,23 +10,25 @@ keywords:
 - LaTeX
 - PowerPoint
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Buka ekspor mulus persamaan matematika dari PowerPoint ke MathML menggunakan Aspose.Slides untuk С++ — pertahankan format dan tingkatkan kompatibilitas."
+description: "Buka ekspor persamaan matematika yang mulus dari PowerPoint ke MathML menggunakan Aspose.Slides untuk C++ — pertahankan format dan tingkatkan kompatibilitas."
 ---
 ## **Pendahuluan**
 
 Aspose.Slides untuk C++ memungkinkan Anda mengekspor persamaan matematika dari presentasi. Misalnya, Anda mungkin perlu mengekstrak persamaan matematika pada slide (dari presentasi tertentu) dan menggunakannya di program atau platform lain. 
 
 {{% alert color="primary" %}} 
+
 Anda dapat mengekspor persamaan ke MathML, format atau standar populer untuk persamaan matematika dan konten serupa yang terlihat di web dan banyak aplikasi. 
+
 {{% /alert %}}
 
 ## **Simpan Persamaan Matematika sebagai MathML**
 
-Meskipun manusia dengan mudah menulis kode untuk beberapa format persamaan seperti LaTeX, mereka kesulitan menulis kode untuk MathML karena format tersebut dimaksudkan untuk dihasilkan secara otomatis oleh aplikasi. Program dapat membaca dan mengurai MathML dengan mudah karena kodenya berada dalam XML, sehingga MathML biasanya digunakan sebagai format output dan pencetakan di banyak bidang. 
+Meskipun manusia dapat menulis kode untuk beberapa format persamaan seperti LaTeX dengan mudah, mereka kesulitan menulis kode untuk MathML karena format tersebut dimaksudkan untuk dihasilkan secara otomatis oleh aplikasi. Program dapat membaca dan mengurai MathML dengan mudah karena kodenya berbentuk XML, sehingga MathML umum dipakai sebagai format keluaran dan pencetakan di banyak bidang. 
 
-Kode contoh ini menunjukkan cara mengekspor persamaan matematika dari presentasi ke MathML:
+Contoh kode ini menunjukkan cara mengekspor persamaan matematika dari presentasi ke MathML:
 
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -53,20 +55,20 @@ mathParagraph->WriteAsMathMl(stream);
 
 **Apa yang sebenarnya diekspor ke MathML—sebuah paragraf atau blok formula individu?**
 
-Anda dapat mengekspor baik seluruh paragraf matematika ([MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/)) maupun blok individual ([MathBlock](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathblock/)) ke MathML. Kedua tipe menyediakan metode untuk menulis ke MathML.
+Anda dapat mengekspor seluruh paragraf matematika ([MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/)) atau blok individu ([MathBlock](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathblock/)) ke MathML. Kedua tipe menyediakan metode untuk menulis ke MathML.
 
 **Bagaimana saya dapat mengetahui bahwa sebuah objek pada slide adalah formula matematika bukan teks biasa atau gambar?**
 
-Sebuah formula berada di dalam [MathPortion](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathportion/) dan memiliki [MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/). Gambar dan bagian teks biasa tanpa [MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/) tidak dapat diekspor sebagai formula.
+Sebuah formula berada dalam [MathPortion](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathportion/) dan memiliki [MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/). Gambar dan potongan teks biasa tanpa [MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/) tidak dapat diekspor sebagai formula.
 
 **Dari mana MathML berasal dalam sebuah presentasi—apakah khusus PowerPoint atau standar?**
 
-Ekspor menargetkan MathML standar (XML). Aspose menggunakan Presentation MathML—subet presentasi dari standar—yang banyak digunakan di berbagai aplikasi dan web.
+Ekspor menargetkan MathML standar (XML). Aspose menggunakan Presentation MathML—subset presentasi dari standar—yang banyak dipakai di berbagai aplikasi dan di web.
 
 **Apakah mengekspor formula di dalam tabel, SmartArt, grup, dll., didukung?**
 
-Ya, jika objek-objek tersebut berisi bagian teks dengan [MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/) (yaitu formula PowerPoint yang asli), maka akan diekspor. Jika sebuah formula disematkan sebagai gambar, maka tidak.
+Ya, jika objek tersebut berisi potongan teks dengan [MathParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.mathtext/mathparagraph/) (yaitu formula PowerPoint yang sah), maka akan diekspor. Jika formula disisipkan sebagai gambar, tidak akan diekspor.
 
 **Apakah mengekspor ke MathML mengubah presentasi asli?**
 
-Tidak. Menulis MathML adalah serialisasi konten formula; tidak mengubah file presentasi.
+Tidak. Menulis MathML merupakan proses serialisasi konten formula; tidak mengubah file presentasi.

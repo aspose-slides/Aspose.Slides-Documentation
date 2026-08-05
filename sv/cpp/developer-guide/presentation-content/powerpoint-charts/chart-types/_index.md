@@ -16,5 +16,5 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Utforska alla diagramtyper du kan skapa eller redigera med Aspose.Slides för C++ – snabba, kod-först-guider för PowerPoint-presentationer."
+description: "Utforska alla diagramtyper du kan skapa eller redigera med Aspose.Slides för C++ – snabba, kodförst-guider för PowerPoint-presentationer."
 ---

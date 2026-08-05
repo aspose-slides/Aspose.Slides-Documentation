@@ -1,50 +1,54 @@
 ---
-title: Aspose.Slides لـ .NET 6 متعدد المنصات (حزمة ZIP)
+title: "Aspose.Slides لـ .NET 6 متعدد المنصات (حزمة ZIP)"
 type: docs
 weight: 237
 url: /ar/net/slides-for-net-6-cross-platform-zip-package/
+aliases:
+  - /net/slides-for-net-6-cross-platform/
 keywords:
-- متعدد المنصات
-- .NET 6
-- GLIBC
-- csproj
-- مسار الهدف
-- مكتبة تعتمد
-- Aspose.Slides.dll
-- System.Drawing.Common
-- تعارض الأسماء
-- اسم مستعار خارجي
-- CS0433
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- .NET
-- C#
-- Aspose.Slides
-description: "استخدم Aspose.Slides لـ .NET 6 لبناء تطبيقات C# متعددة المنصات على Windows و Linux و macOS لإنشاء وتحرير وتحويل ملفات PowerPoint PPT و PPTX و ODP."
+  - متعدد المنصات
+  - .NET 6
+  - GLIBC
+  - csproj
+  - مسار الهدف
+  - مكتبة تابعة
+  - Aspose.Slides.dll
+  - System.Drawing.Common
+  - تعارض الأسماء
+  - اسم مستعار خارجي
+  - CS0433
+  - PowerPoint
+  - OpenDocument
+  - عرض تقديمي
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "استخدم Aspose.Slides لـ .NET 6 لبناء تطبيقات C# متعددة المنصات على أنظمة Windows وLinux وmacOS تقوم بإنشاء وتعديل وتحويل ملفات PowerPoint بصيغ PPT وPPTX وODP."
 ---
+## **نظرة عامة**
+
+تشرح هذه المقالة طريقة استخدام Aspose.Slides for .NET 6 Cross-Platform من حزمة ZIP. وتصف كيفية تنزيل الحزمة، فك ملفات المجلد `net6.0/crossplatform`، إضافة مرجع إلى `Aspose.Slides.dll`، وتكوين ملف المشروع بحيث تُنسخ المكتبات التابعة المطلوبة إلى دليل إخراج التطبيق.
+
+كما تصف المقالة محتويات حزمة cross‑platform، بما في ذلك التجميع الأساسي Aspose.Slides .NET ومكتبات نظام الرسوميات الخاصة بالمنصات لنظام Windows وLinux وmacOS.
 
 {{% alert title="Note" color="primary" %}}
-
-Aspose.Slides for .NET 6 Cross-Platform متاح أيضاً من [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform).
-
+Aspose.Slides for .NET 6 Cross-Platform متوفر أيضًا عبر [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform).
 {{% /alert %}}
 
-## **استخدام Aspose.Slides عبر المنصة من حزمة ZIP**
+## **استخدام Aspose.Slides Cross‑Platform من حزمة ZIP**
 
-1. قم بتنزيل حزمة ZIP لأحدث نسخة من Aspose.Slides من [Release Page](https://releases.aspose.com/slides/net/).
-
-2. افك ضغط الملفات من *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* وضعها في المجلد الذي سيتم استخدامه كاعتمادات في مشروعك.
-
-3. أضف مرجعاً إلى Aspose.Slides.dll.
+1. تنزيل حزمة ZIP لأحدث نسخة من Aspose.Slides من [صفحة الإصدار](https://releases.aspose.com/slides/ar/net/).  
+2. فك الملفات من *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* ووضعها في المجلد الذي سيُستخدم للاعتمادات في مشروعك.  
+3. إضافة مرجع إلى Aspose.Slides.dll.
 
    ![add-project-reference-visual-studio](add-project-reference-visual-studio.png)
 
-   في مثالنا (فيما يلي)، المكتبات موجودة في مجلد المشروع على هذا المسار: *ConsoleApp\libs\Aspose.Slides\net6.0\crossplatform\...*
+   في مثالنا (أدناه) توجد المكتبات في مجلد المشروع على هذا المسار: *ConsoleApp\libs\Aspose.Slides\net6.0\crossplatform\...*
 
    ![browse-console-app](browse-console-app.jpg)
 
-4. ضع الملفات المتبقية (التي تعتمد عليها Aspose.Slides) في دليل الإخراج عن طريق إضافة التعليمات إلى ملف مشروع csproj بهذه الطريقة:
+4. وضع الملفات المتبقية (التي تعتمد عليها Aspose.Slides) في دليل الإخراج بإضافة تعليمات إلى ملف المشروع csproj بهذه الطريقة:
+
 ```xml
 <ItemGroup>
 
@@ -81,45 +85,40 @@ Aspose.Slides for .NET 6 Cross-Platform متاح أيضاً من [NuGet](https:/
 </ItemGroup>
 ```
 
+5. الانتباه إلى `TargetPath`.
 
-5. انتبه إلى `TargetPath`.
-
-   بشكل افتراضي، ينسخ `<CopyToOutputDirectory>` الملفات مع الحفاظ على مسارها النسبي، لكننا نحتاج إلى أن تذهب المكتبات التابعة إلى نفس المجلد الذي يتم فيه إنشاء الإخراج (موقع Aspose.Slides.dll).
+   بشكل افتراضي، `<CopyToOutputDirectory>` ينسخ الملفات مع الحفاظ على مسارها النسبي، لكننا نحتاج إلى أن تُنسَخ المكتبات التابعة إلى نفس المجلد الذي يُولد فيه الإخراج (موقع Aspose.Slides.dll).
 
 ## **ملاحظات**
 
-### **نظام الرسومات المملوك**
+### **نظام الرسوميات المملوك**
 
-| Aspose.Slides.dll                                          | المجمع الرئيسي لـ .NET المسؤول عن جميع منطق Aspose.Slides |
-| ---------------------------------------------------------- | ------------------------------------------------------------ |
-| aspose.slides.drawing.capi_vc14x64.dll                     | اعتماد: تنفيذ نظام الرسومات لمنصة Win x64                    |
-| aspose.slides.drawing.capi_vc14x86.dll                     | اعتماد: تنفيذ نظام الرسومات لمنصة Win x64                    |
-| libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | اعتماد: تنفيذ نظام الرسومات لنظام Linux (x86/x64)          |
-| libaspose.slides.drawing.capi_appleclang_x86_64.dylib      | اعتماد: تنفيذ نظام الرسومات لنظام macOS AMD64 (x86-64/x64) |
-| libaspose.slides.drawing.capi_appleclang_arm64.dylib       | اعتماد: تنفيذ نظام الرسومات لنظام macOS ARM64 (AArch64)    |
+Aspose.Slides cross‑platform هو مجموعة من المكتبات:
 
-Aspose.Slides.dll يستخدم المكتبة التي يتطلبها النظام الذي يعمل عليه. عادةً ما تكون المكتبات موجودة في نفس موقع Aspose.Slides.dll في أي نظام ملفات.
+| Aspose.Slides.dll                                          | التجميع الأساسي .NET المسؤول عن جميع منطق Aspose.Slides |
+| ---------------------------------------------------------- | -------------------------------------------------------- |
+| aspose.slides.drawing.capi_vc14x64.dll                     | اعتماد: تنفيذ نظام الرسوميات لنظام Win x64               |
+| aspose.slides.drawing.capi_vc14x86.dll                     | اعتماد: تنفيذ نظام الرسوميات لنظام Win x64               |
+| libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | اعتماد: تنفيذ نظام الرسوميات لنظام Linux (x86/x64)      |
+| libaspose.slides.drawing.capi_appleclang_x86_64.dylib      | اعتماد: تنفيذ نظام الرسوميات لنظام macOS AMD64 (x86-64/x64) |
+| libaspose.slides.drawing.capi_appleclang_arm64.dylib       | اعتماد: تنفيذ نظام الرسوميات لنظام macOS ARM64 (AArch64) |
+
+يستخدم Aspose.Slides.dll المكتبة المطلوبة من النظام الذي يعمل عليه. عادةً ما تكون المكتبات موجودة في نفس موقع Aspose.Slides.dll في أي نظام ملفات.
 
 ### **هيكل حزمة ZIP**
 
 تحتوي حزمة ZIP على بنية المجلدات التالية:
 
-  Aspose.Slides
+Aspose.Slides
+├─── net6.0
+│  ├─── crossplatform
+│  └─── default
+├─── net20
+├─── net462
+└─── netstandard2.0
 
-  ├─── net6.0
+* كل مجلد يحتوي على تجميعات للإصدار .NET المقابل. هناك نسختان لـ net6.0: default وcrossplatform. الأخيرة تحتوي على Aspose.Slides.dll متعدد المنصات وجميع تبعياته. يمكن استخدام المحتويات المفكوكة لهذا المجلد كإضافة اعتماد في مشروع لتطوير متعدد المنصات وحالات استخدام أخرى لـ Aspose.Slides.
 
-  │  ├─── crossplatform
-
-  │  └─── default
-
-  ├─── net20
-
-  ├─── net462
-
-  └─── netstandard2.0
-
-* يحتوي كل مجلد على مجمعات للإصدار .NET المقابل. هناك نسختان لـ net6.0: default و crossplatform. الأخيرة تحتوي على Aspose.Slides.dll متعدد المنصات وجميع تبعياته. يمكن استخدام محتويات هذا المجلد غير المضغوطة كإضافة اعتماد في مشروع للتطوير متعدد المنصات وحالات استعمال أخرى لـ Aspose.Slides.
-
-## **أنظر أيضاً**
+## **انظر أيضاً**
 
 - [متطلبات النظام](/slides/ar/net/system-requirements/)

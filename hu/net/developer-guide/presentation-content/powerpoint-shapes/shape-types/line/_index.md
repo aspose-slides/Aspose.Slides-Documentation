@@ -1,81 +1,81 @@
 ---
-title: Vonal alakzatok hozzáadása prezentációkhoz .NET-ben
+title: Vonal alakzatok hozzáadása a bemutatókhoz .NET-ben
 linktitle: Vonal
 type: docs
 weight: 50
-url: /hu/net/Line/
+url: /hu/net/line/
 keywords:
 - vonal
 - vonal létrehozása
 - vonal hozzáadása
 - egyszerű vonal
-- vonal beállítása
+- vonal konfigurálása
 - vonal testreszabása
 - szaggatott stílus
 - nyílfej
 - PowerPoint
-- prezentáció
+- bemutató
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg a vonalformázás manipulálását PowerPoint prezentációkban az Aspose.Slides for .NET használatával. Fedezze fel a tulajdonságokat, metódusokat és példákat."
+description: "Ismerje meg a vonalformázás kezelését PowerPoint bemutatókban az Aspose.Slides for .NET segítségével. Fedezze fel a tulajdonságokat, metódusokat és példákat."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy programozott módon vonal alakzatokat adjon hozzá a PowerPoint diákhoz. Ez a cikk bemutatja, hogyan hozhat létre egyszerű vonalat, és hogyan szabhatja testre a vonalat úgy, hogy nyílként jelenjen meg.
+Az Aspose.Slides lehetővé teszi, hogy programozottan vonal alakzatokat adjunk hozzá a PowerPoint diákhoz. Ez a cikk bemutatja, hogyan hozhatunk létre egy egyszerű vonalat, és hogyan testreszabhatunk egy vonalat, hogy nyílként jelenjen meg.
 
-Megtanulja, hogyan adjon hozzá vonal alakzatot egy diához, hogyan állítsa be a megjelenését, és hogyan mentse a frissített prezentációt. A példák a gyakorlati vonalformázási beállításokra összpontosítanak, például a stílusra, szélességre, vonalstílusra, nyílfej beállításokra és kitöltőszínre.
+Megtanulja, hogyan adjon vonal alakzatot egy diára, hogyan állítsa be a vizuális megjelenését, és hogyan mentse el a módosított bemutatót. A példák a gyakorlati vonalformázási beállításokra koncentrálnak, mint például stílus, szélesség, vonalminta, nyílfej beállítások és kitöltőszín.
 
 ## **Egyszerű vonal létrehozása**
-Egyszerű vonal hozzáadásához a prezentáció kiválasztott diájához, kövesse az alábbi lépéseket:
+Egyszerű, sima vonal hozzáadásához a bemutató kiválasztott diájához kövesse az alábbi lépéseket:
 
-- Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-- Szerezze be a dia referenciáját az Index használatával.
-- Adjon hozzá egy vonal típusú AutoShape-et a Shapes objektum által biztosított [AddAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/methods/addautoshape/index) metódussal.
-- Mentse a módosított prezentációt PPTX fájlként.
+- Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)class‑ból.
+- Szerezze meg a dia referenciáját az Index használatával.
+- Adjon hozzá egy Line típusú AutoShape‑et a Shapes objektum által kínált [AddAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/methods/addautoshape/index) metódussal.
+- Írja a módosított bemutatót PPTX fájlként.
 
-Az alább bemutatott példában egy vonalat adtunk hozzá a prezentáció első diájához.
+Az alábbi példában egy vonalat adtunk hozzá a bemutató első diájához.
 
 ```c#
-// Példányosítsa a PresentationEx osztályt, amely a PPTX fájlt képviseli
+// Példányosítja a PresentationEx osztályt, amely a PPTX fájlt képviseli
 using (Presentation pres = new Presentation())
 {
-    // Szerezze meg az első diát
+    // Lekéri az első diát
     ISlide sld = pres.Slides[0];
 
-    // Adjon hozzá egy vonal típusú autoshape-et
+    // Hozzáad egy vonal típusú AutoShape-et
     sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    //Write a PPTX-et a lemezre
+    //Írja a PPTX fájlt a lemezre
     pres.Save("LineShape1_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Nyíl alakú vonal létrehozása**
-Az Aspose.Slides for .NET lehetővé teszi a fejlesztők számára, hogy néhány vonal tulajdonságát beállítsák, így az vonzóbbá válik. Próbáljuk meg néhány vonal tulajdonságát úgy konfigurálni, hogy nyílként jelenjen meg. Kövesse az alábbi lépéseket:
+Az Aspose.Slides for .NET lehetővé teszi a fejlesztők számára, hogy a vonal néhány tulajdonságát úgy állítsák be, hogy vonzóbbá váljon. Próbáljuk meg beállítani néhány tulajdonságot, hogy a vonal nyílnak tűnjön. Kövesse az alábbi lépéseket:
 
-- Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)class[](http://www.aspose.com/api/net/slides/hu/aspose.slides/)[](http://www.aspose.com/api/net/slides/hu/aspose.slides/).
-- Szerezze be a dia referenciáját az Index használatával.
-- Adjon hozzá egy vonal típusú AutoShape-et a Shapes objektum által biztosított AddAutoShape metódussal.
-- Állítsa be a vonal stílusát az Aspose.Slides for .NET által kínált stílusok egyikére.
-- Állítsa be a vonal szélességét.
-- Állítsa be a vonal [Dash Style](https://reference.aspose.com/slides/hu/net/aspose.slides/linedashstyle) értékét az Aspose.Slides for .NET által kínált stílusok egyikére.
-- Állítsa be a vonal kezdőpontjának [Arrow Head Style](https://reference.aspose.com/slides/hu/net/aspose.slides/linearrowheadstyle) és hosszát.
-- Állítsa be a vonal végpontjának Arrow Head Style és hosszát.
-- Mentse a módosított prezentációt PPTX fájlként.
+- Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)class‑ból[](http://www.aspose.com/api/net/slides/hu/aspose.slides/)[](http://www.aspose.com/api/net/slides/hu/aspose.slides/).
+- Szerezze meg a dia referenciáját az Index használatával.
+- Adjon hozzá egy Line típusú AutoShape‑et az AddAutoShape metódussal a Shapes objektumon keresztül.
+- Állítsa be a vonal Stílusát az Aspose.Slides for .NET által kínált egyik stílusra.
+- Állítsa be a vonal Szélességét.
+- Állítsa be a vonal [Dash Style](https://reference.aspose.com/slides/hu/net/aspose.slides/linedashstyle)‑ját az Aspose.Slides for .NET által kínált egyik mintára.
+- Állítsa be a [Arrow Head Style](https://reference.aspose.com/slides/hu/net/aspose.slides/linearrowheadstyle)‑t és a vonal kezdőpontjának hosszát.
+- Állítsa be a nyílfej Stílusát és a vonal végpontjának hosszát.
+- Írja a módosított bemutatót PPTX fájlként.
 
 ```c#
-// Példányosítsa a PresentationEx osztályt, amely a PPTX fájlt képviseli
+ // Példányosítja a PresentationEx osztályt, amely a PPTX fájlt képviseli
 using (Presentation pres = new Presentation())
 {
 
-    // Szerezze meg az első diát
+    // Lekéri az első diát
     ISlide sld = pres.Slides[0];
 
-    // Adjon hozzá egy vonal típusú autoshape-et
+    // Hozzáad egy vonal típusú autoshape-et
     IAutoShape shp = sld.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // Alkalmazzon némi formázást a vonalon
+    // Alkalmaz néhány formázást a vonalon
     shp.LineFormat.Style = LineStyle.ThickBetweenThin;
     shp.LineFormat.Width = 10;
 
@@ -90,21 +90,21 @@ using (Presentation pres = new Presentation())
     shp.LineFormat.FillFormat.FillType = FillType.Solid;
     shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Maroon;
 
-    //    //Írja a PPTX-et a lemezre
+    //Kiírja a PPTX fájlt a lemezre
     pres.Save("LineShape2_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **GYIK**
 
-**Átalakíthatom a normál vonalat csatlakozóvá, hogy „rákapcsolódjon” az alakzatokhoz?**
+**Átalakíthatom a szabályos vonalat kapcsolóvá, hogy „rákapcsolódjon” az alakzatokra?**
 
-Nem. A normál vonal (egy [AutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) típusa [Line](https://reference.aspose.com/slides/hu/net/aspose.slides/shapetype/)) nem válik automatikusan csatlakozóvá. Ahhoz, hogy rákapcsolódjon az alakzatokra, használja a dedikált [Connector](https://reference.aspose.com/slides/hu/net/aspose.slides/connector/) típust és a kapcsolódáshoz szükséges [corresponding APIs](/slides/hu/net/connector/) linkeket.
+Nem. Egy szabályos vonal (egy [AutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) a [Line](https://reference.aspose.com/slides/hu/net/aspose.slides/shapetype/) típusú) nem válik automatikusan kapcsolóvá. Ahhoz, hogy rákapcsolódjon az alakzatokra, használja a dedikált [Connector](https://reference.aspose.com/slides/hu/net/aspose.slides/connector/) típust és a [megfelelő API‑kat](/slides/hu/net/connector/) a kapcsolatokhoz.
 
-**Mit tegyek, ha egy vonal tulajdonságai a témából öröklődnek, és nehéz meghatározni a végleges értékeket?**
+**Mit tegyek, ha egy vonal tulajdonságai a témából származnak, és nehéz meghatározni a végleges értékeket?**
 
-[Olvassa el a hatékony tulajdonságokat](/slides/hu/net/shape-effective-properties/) az [ILineFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilinefillformateffectivedata/) interfészeken keresztül – ezek már figyelembe veszik az öröklődést és a téma stílusait.
+Olvassa el a [hatékony tulajdonságokat](/slides/hu/net/shape-effective-properties/) az [ILineFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilinefillformateffectivedata/) interfészeken keresztül – ezek már figyelembe veszik az öröklődést és a téma stílusait.
 
-**Zárolhatom a vonalat szerkesztés (mozgás, átméretezés) ellen?**
+**Zárolhatom a vonalat a szerkesztés (mozgatás, átméretezés) ellen?**
 
-Igen. Az alakzatok [lock objects](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/autoshapelock/) biztosítanak, amelyek lehetővé teszik a [szerkesztési műveletek letiltása](/slides/hu/net/applying-protection-to-presentation/).
+Igen. Az alakzatok [lock objektumokat](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/autoshapelock/) biztosítanak, amelyekkel letilthatók a [szerkesztési műveletek](/slides/hu/net/applying-protection-to-presentation/).

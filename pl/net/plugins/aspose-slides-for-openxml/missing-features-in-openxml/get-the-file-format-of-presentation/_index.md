@@ -1,15 +1,17 @@
 ---
-title: Uzyskaj format pliku prezentacji
+title: Pobierz format pliku prezentacji
 type: docs
 weight: 50
 url: /pl/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/presentation-format/
 ---
-Aby uzyskać format pliku, proszę postępować zgodnie z poniższymi krokami:
+Aby uzyskać format pliku, proszę wykonać poniższe kroki:
 
 - Utwórz instancję klasy **IPresentationInfo**
 - Pobierz informacje o prezentacji
 
-W poniższym przykładzie uzyskano format pliku.
+W poniższym przykładzie uzyskaliśmy format pliku.
 ## **Przykład**
 ``` csharp
 
@@ -43,9 +45,8 @@ switch (info.LoadFormat)
         }
 
 }
-
 ``` 
 ## **Pobierz przykładowy kod**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **Pobierz działający przykład**
-- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
+- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

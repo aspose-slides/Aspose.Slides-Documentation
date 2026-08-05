@@ -1,13 +1,15 @@
 ---
-title: إدارة القوائم النقطية والمرقّمة في العروض التقديمية بلغة Python
+title: إدارة القوائم النقطية والمرقمة في العروض التقديمية باستخدام بايثون
 linktitle: إدارة القوائم
 type: docs
 weight: 70
 url: /ar/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - رصاصة
 - قائمة نقطية
-- قائمة مرقّمة
+- قائمة مرقمة
 - رصاصة رمزية
 - رصاصة صورة
 - رصاصة مخصصة
@@ -20,27 +22,27 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتنسيق القوائم النقطية، والقوائم المصورة، والقوائم متعددة المستويات، والقوائم المرقّمة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Python عبر .NET."
+description: "تعرف على كيفية إنشاء وتنسيق القوائم النقطية، والقوائم بالصور، والقوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لبايثون عبر .NET."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Python عبر .NET يتيح لك إنشاء وتنسيق القوائم النقطية والمرقمة في عروض PowerPoint وOpenDocument. عنصر القائمة هو فقرة تُتحكم إعدادات الرصاصة الخاصة به من خلال تنسيق الفقرة.
+Aspose.Slides for Python via .NET يتيح لك إنشاء وتنسيق القوائم النقطية والمرقمة في عروض PowerPoint و OpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات الرصاصة الخاصة به من خلال تنسيق الفقرة.
 
-استخدم خاصية [Paragraph.paragraph_format](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/paragraph_format/) للوصول إلى إعدادات القائمة على مستوى الفقرة. نقطة الدخول الرئيسية هي [ParagraphFormat.bullet](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/bullet/)، التي تُعيد كائنًا من نوع [BulletFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/). باستخدام هذا الكائن، يمكنك ضبط نوع الرصاصة، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
+استخدم الخاصية [Paragraph.paragraph_format](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/paragraph_format/) للوصول إلى إعدادات القائمة على مستوى الفقرة. نقطة الدخول الرئيسية هي [ParagraphFormat.bullet](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/bullet/)، التي تُعيد كائنًا من نوع [BulletFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/). باستخدام هذا الكائن، يمكنك تعيين نوع الرصاصة، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
 
-تُظهر هذه المقالة كيفية:
+هذا المقال يوضح كيفية:
 
 - إنشاء قائمة نقطية برمز مخصص
-- إنشاء رصاصة صورة
-- إنشاء قائمة متعددة المستويات عبر ضبط عمق الفقرة
-- إنشاء قائمة مرقّمة
+- إنشاء رصاصة بصورة
+- إنشاء قائمة متعددة المستويات عن طريق ضبط عمق الفقرة
+- إنشاء قائمة مرقمة
 - فحص وتغيير تنسيق القوائم في عرض تقديمي موجود
 
 ## **إنشاء قائمة نقطية**
 
-لإنشاء قائمة نقطية، أضف كائنات [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) واضبط [BulletFormat.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/type/) إلى [BulletType.SYMBOL](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bullettype/). يمكنك بعد ذلك ضبط [BulletFormat.char](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/char/)، و[BulletFormat.color](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/color/)، و[BulletFormat.height](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/height/) للتحكم في مظهر الرصاصة.
+لإنشاء قائمة نقطية، أضف كائنات [Paragraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraph/) إلى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) واضبط [BulletFormat.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/type/) إلى [BulletType.SYMBOL](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bullettype/). يمكنك بعد ذلك ضبط [BulletFormat.char](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/char/)، [BulletFormat.color](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/color/)، و[BulletFormat.height](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/height/) للتحكم في مظهر الرصاصة.
 
-الكود التالي بلغة Python يوضح كيفية إنشاء قائمة نقطية في شريحة:
+الكود التالي في Python يوضح كيفية إنشاء قائمة نقطية في شريحة:
 
 ```py
 import aspose.slides as slides
@@ -76,13 +78,13 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![الرّموز النقطية](symbol_bullets.png)
+![الرموز النقطية](symbol_bullets.png)
 
-## **إنشاء قائمة مرقّمة**
+## **إنشاء قائمة مرقمة**
 
-استخدم القوائم المرقّمة عندما يكون ترتيب العناصر مهمًا. اضبط [BulletFormat.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/type/) إلى [BulletType.NUMBERED](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bullettype/). يمكنك أيضًا اختيار تنسيق ترقيم عبر [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/numbered_bullet_style/) أو ضبط [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) عندما يجب أن تبدأ القائمة من قيمة غير 1.
+استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. اضبط [BulletFormat.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/type/) إلى [BulletType.NUMBERED](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bullettype/). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/numbered_bullet_style/) أو ضبط [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) عندما يجب أن تبدأ القائمة من قيمة غير 1.
 
-الكود التالي بلغة Python يوضح كيفية إنشاء قائمة مرقّمة في شريحة:
+الكود التالي في Python يوضح كيفية إنشاء قائمة مرقمة في شريحة:
 
 ```py
 import aspose.slides as slides
@@ -116,21 +118,21 @@ with slides.Presentation() as presentation:
 
 ![الرموز المرقمة](numbered_bullets.png)
 
-## **إنشاء رصاصة صورة**
+## **إنشاء رصاصة بصورة**
 
-Aspose.Slides يتيح لك استبدال رمز الرصاصة العادي بصورة. تعمل رصاصات الصور بشكل أفضل مع صور بسيطة تظل قابلة للقراءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
+Aspose.Slides يسمح لك باستبدال رمز الرصاصة العادي بصورة. رصاصة الصورة تعمل بشكل أفضل مع الصور البسيطة التي تظل قابلة للقراءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
 
 {{% alert color="primary" %}}
-من المثالي، إذا كنت تخطط لاستبدال رمز الرصاصة العادي بصورة، أن تختار رسمًا بسيطًا بخلفية شفافة. تُعد هذه الصور مناسبة كرموز رصاصات مخصصة.
+من الناحية المثالية، إذا كنت تخطط لاستبدال رمز الرصاصة العادي بصورة، فمن الأفضل اختيار رسم بسيط بخلفية شفافة. هذه الصور تعمل جيدًا كرموز رصاصات مخصصة.
 {{% /alert %}}
 
-لإنشاء رصاصة صورة، أضف صورة إلى [Presentation.images](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/images/) وعيّن كائن الصورة المرجع إلى [BulletFormat.picture](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/picture/). اضبط [BulletFormat.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/type/) إلى [BulletType.PICTURE](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bullettype/) قبل إسناد الصورة.
+لإنشاء رصاصة بصورة، أضف صورة إلى [Presentation.images](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/images/) وقم بتعيين كائن الصورة المرجعي إلى [BulletFormat.picture](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/picture/). اضبط [BulletFormat.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bulletformat/type/) إلى [BulletType.PICTURE](https://reference.aspose.com/slides/ar/python-net/aspose.slides/bullettype/) قبل تعيين الصورة.
 
 لنفترض أن لدينا ملف "image.png":
 
 ![صورة للرصاصات](picture_for_bullets.png)
 
-الكود التالي بلغة Python يوضح كيفية إنشاء رصاصات صورة في شريحة:
+الكود التالي في Python يوضح كيفية إنشاء رصاصات صورة في شريحة:
 
 ```py
 import aspose.slides as slides
@@ -166,13 +168,11 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![الرصاصات المصورة](picture_bullets.png)
+![رصاصات الصور](picture_bullets.png)
 
 ## **إنشاء قائمة متعددة المستويات**
 
-استخدم [ParagraphFormat.depth](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/depth/) لوضع عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى العلوي، المستوى 1 متداخل تحته، وهكذا.
-
-الكود التالي بلغة Python يوضح كيفية إنشاء قائمة نقطية متعددة المستويات:
+استخدم [ParagraphFormat.depth](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/depth/) لوضع عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى الأعلى، المستوى 1 هو متداخل تحته، وهكذا.
 
 ```py
 import aspose.slides as slides
@@ -209,13 +209,11 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![القائمة المتعددة المستويات](multilevel_list.png)
+![القائمة متعددة المستويات](multilevel_list.png)
 
 ## **تغيير قائمة موجودة**
 
-لتغيير تنسيق القائمة في عرض تقديمي موجود، احصل على الفقرة المستهدفة وقم بتحديث إعدادات [ParagraphFormat.bullet](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/bullet/). يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
-
-الكود التالي بلغة Python يُغيّر الفقرة الأولى في إطار نص ليستخدم نمط قائمة مرقّمة:
+لتغيير تنسيق القائمة في عرض تقديمي موجود، قم بالوصول إلى الفقرة المستهدفة وتحديث إعدادات [ParagraphFormat.bullet](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/bullet/). يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
 
 ```py
 import aspose.slides as slides
@@ -236,14 +234,14 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **الأسئلة الشائعة**
 
-**هل يمكن تصدير القوائم النقطية والمرقّمة إلى PDF أو صور؟**
+**هل يمكن تصدير القوائم النقطية والمرقمة إلى PDF أو صور؟**
 
-نعم. Aspose.Slides يحافظ على تنسيق القوائم عندما يدعم التنسيق الهدف تخطيط النص وميزات الرصاصة المقابلة.
+نعم. Aspose.Slides يحافظ على تنسيق القوائم عندما يدعم التنسيق المستهدف تخطيط النص والميزات المرتبطة بالرصاصات.
 
-**هل يمكن تعديل القوائم في العروض التقديمية الموجودة؟**
+**هل يمكنني تعديل القوائم في العروض التقديمية الموجودة؟**
 
-نعم. حمّل العرض التقديمي، وصل إلى الفقرة المستهدفة، افحص أو حدّث إعدادات [ParagraphFormat.bullet](https://reference.aspose.com/slides/ar/python-net/aspose.slides/paragraphformat/bullet/) الخاصة بها، ثم احفظ العرض التقديمي.
+نعم. احمِل العرض التقديمي، وادخل إلى الفقرة المستهدفة، افحص أو حدث إعدادات [ParagraphFormat.bullet]، ثم احفظ العرض التقديمي.
 
-**هل يمكن أن تحتوي القوائم على نص غير لاتيني؟**
+**هل يمكن للقوائم احتواء نص غير لاتيني؟**
 
 نعم. يمكن أن يحتوي نص عنصر القائمة على أحرف Unicode، لذا يمكنك إنشاء قوائم في عروض تقديمية متعددة اللغات. تأكد من أن الخطوط المستخدمة في العرض تدعم الأحرف التي تحتاجها.

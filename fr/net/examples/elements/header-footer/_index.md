@@ -3,8 +3,10 @@ title: En-tête et pied de page
 type: docs
 weight: 220
 url: /fr/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- en-tête et pied de page
+- en-tête pied de page
 - ajouter en-tête et pied de page
 - mettre à jour en-tête et pied de page
 - exemple de code
@@ -14,12 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Contrôlez les en-têtes et pieds de page des diapositives avec Aspose.Slides pour .NET: ajoutez des dates, des numéros de diapositive et du texte personnalisé dans PPT, PPTX et ODP avec des exemples C#."
+description: "Contrôlez les en-têtes et pieds de page des diapositives avec Aspose.Slides for .NET : ajoutez des dates, des numéros de diapositive et du texte personnalisé dans PPT, PPTX et ODP avec des exemples C#."
 ---
 Cet article montre comment ajouter des pieds de page et mettre à jour les espaces réservés de date et d'heure en utilisant **Aspose.Slides for .NET**.
 
 ## **Ajouter un pied de page**
-Ajoutez du texte dans la zone de pied de page d'une diapositive et rendez-le visible.
+
+Ajoutez du texte à la zone de pied de page d’une diapositive et rendez‑le visible.
 
 ```csharp
 static void AddHeaderFooter()
@@ -33,7 +36,8 @@ static void AddHeaderFooter()
 ```
 
 ## **Mettre à jour la date et l'heure**
-Modifiez l'espace réservé de date et d'heure sur une diapositive.
+
+Modifiez l’espace réservé de date et d’heure sur une diapositive.
 
 ```csharp
 static void UpdateDateTime()

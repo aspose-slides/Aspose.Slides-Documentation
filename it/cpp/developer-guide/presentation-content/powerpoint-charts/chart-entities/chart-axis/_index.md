@@ -1,5 +1,5 @@
 ---
-title: Personalizza gli assi dei grafici nelle presentazioni con C++
+title: Personalizza gli assi del grafico nelle presentazioni utilizzando C++
 linktitle: Asse del grafico
 type: docs
 url: /it/cpp/chart-axis/
@@ -21,26 +21,26 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Scopri come utilizzare Aspose.Slides per C++ per personalizzare gli assi dei grafici nelle presentazioni PowerPoint per report e visualizzazioni."
+description: "Scopri come utilizzare Aspose.Slides per C++ per personalizzare gli assi del grafico nelle presentazioni PowerPoint per report e visualizzazioni."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come personalizzare gli assi dei grafici in Aspose.Slides. Mostra come ottenere i valori effettivi degli assi, scambiare i dati tra gli assi, nascondere l'asse verticale o orizzontale per i grafici a linee, modificare il tipo di asse delle categorie, impostare il formato data per i valori dell'asse delle categorie, ruotare il titolo di un asse, impostare la posizione dell'asse e visualizzare un'etichetta di unità sull'asse dei valori.
+Questo articolo spiega come personalizzare gli assi del grafico in Aspose.Slides. Mostra come ottenere i valori effettivi degli assi, scambiare i dati tra gli assi, nascondere l'asse verticale o orizzontale per i grafici a linee, modificare il tipo di asse di categoria, impostare il formato data per i valori dell'asse di categoria, ruotare il titolo di un asse, impostare la posizione dell'asse e visualizzare un'etichetta di unità sull'asse dei valori.
 
 ## **Ottenere i valori massimi sull'asse verticale**
 Aspose.Slides per C++ consente di ottenere i valori minimo e massimo su un asse verticale. Segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
-2. Accedi alla prima diapositiva.
-3. Aggiungi un grafico con i dati predefiniti.
-4. Ottieni il valore massimo effettivo sull'asse.
-5. Ottieni il valore minimo effettivo sull'asse.
-6. Ottieni l'unità principale effettiva dell'asse.
-7. Ottieni l'unità secondaria effettiva dell'asse.
-8. Ottieni la scala dell'unità principale effettiva dell'asse.
-9. Ottieni la scala dell'unità secondaria effettiva dell'asse.
+1. Crea un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation).
+1. Accedi alla prima diapositiva.
+1. Aggiungi un grafico con dati predefiniti.
+1. Ottieni il valore massimo effettivo sull'asse.
+1. Ottieni il valore minimo effettivo sull'asse.
+1. Ottieni l'unità maggiore effettiva dell'asse.
+1. Ottieni l'unità minore effettiva dell'asse.
+1. Ottieni la scala dell'unità maggiore effettiva dell'asse.
+1. Ottieni la scala dell'unità minore effettiva dell'asse.
 
-Questo codice di esempio — un'implementazione dei passaggi precedenti — mostra come ottenere i valori richiesti in C++:
+Questo esempio di codice—un'implementazione dei passaggi precedenti—mostra come ottenere i valori richiesti in C++:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -61,9 +61,9 @@ pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Scambiare i dati tra gli assi**
-Aspose.Slides consente di scambiare rapidamente i dati tra gli assi — i dati rappresentati sull'asse verticale (asse y) vengono spostati sull'asse orizzontale (asse x) e viceversa.
+Aspose.Slides consente di scambiare rapidamente i dati tra gli assi: i dati rappresentati sull'asse verticale (y) vengono spostati sull'asse orizzontale (x) e viceversa.
 
-Questo codice C++ mostra come eseguire l'operazione di scambio dei dati tra gli assi in un grafico:
+Questo codice C++ mostra come eseguire lo scambio di dati tra gli assi di un grafico:
 
 ``` cpp
 // Crea una presentazione vuota
@@ -104,9 +104,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Modificare un asse delle categorie**
+## **Modificare un asse di categoria**
 
-Utilizzando il metodo **set_CategoryAxisType()**, è possibile specificare il tipo di asse delle categorie desiderato (**date** o **text**). Questo codice in C++ dimostra l'operazione:
+Utilizzando il metodo **set_CategoryAxisType()**, è possibile specificare il tipo di asse di categoria preferito (**date** o **text**). Questo codice C++ dimostra l'operazione:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -121,8 +121,8 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Impostare il formato data per i valori dell'asse delle categorie**
-Aspose.Slides per C++ consente di impostare il formato data per un valore dell'asse delle categorie. L'operazione è dimostrata in questo codice C++:
+## **Impostare il formato data per i valori dell'asse di categoria**
+Aspose.Slides per C++ consente di impostare il formato data per un valore dell'asse di categoria. L'operazione è dimostrata in questo codice C++:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -169,8 +169,8 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Impostare la posizione dell'asse su un asse delle categorie o dei valori**
-Aspose.Slides per C++ consente di impostare la posizione dell'asse su un asse delle categorie o dei valori. Questo codice C++ mostra come eseguire l'operazione:
+## **Impostare la posizione dell'asse su un asse di categoria o di valore**
+Aspose.Slides per C++ consente di impostare la posizione dell'asse in un asse di categoria o di valore. Questo codice C++ mostra come eseguire l'operazione:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -181,8 +181,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Abilitare la visualizzazione dell'etichetta di unità su un asse dei valori del grafico**
-Aspose.Slides per C++ consente di configurare un grafico per mostrare un'etichetta di unità sul suo asse dei valori. Questo codice C++ dimostra l'operazione:
+## **Abilitare la visualizzazione dell'etichetta di unità su un asse di valore del grafico**
+Aspose.Slides per C++ consente di configurare un grafico per mostrare un'etichetta di unità sul suo asse di valore. Questo codice C++ dimostra l'operazione:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -197,8 +197,8 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 **Come impostare il valore al quale un asse incrocia l'altro (incrocio degli assi)?**
 
-Le assi offrono una [impostazione di incrocio](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/axis/set_crosstype/): è possibile scegliere di incrociare a zero, al valore massimo della categoria/valore, o a un valore numerico specifico. Questo è utile per spostare l'asse X verso l'alto o verso il basso o per evidenziare una linea di base.
+Gli assi forniscono un'[impostazione di attraversamento](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/axis/set_crosstype/)': è possibile scegliere di incrociare a zero, al valore massimo di categoria/valore o a un valore numerico specifico. Questo è utile per spostare l'asse X verso l'alto o verso il basso o per evidenziare una linea di base.
 
-**Come posizionare le etichette di graduazione rispetto all'asse (accanto, fuori, dentro)?**
+**Come posizionare le etichette dei tic rispetto all'asse (accanto, fuori, dentro)?**
 
-Imposta la [posizione dell'etichetta](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/axis/set_majortickmark/) su "cross", "outside" o "inside". Questo influisce sulla leggibilità e aiuta a risparmiare spazio, specialmente sui grafici di piccole dimensioni.
+Imposta la [posizione dell'etichetta](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/axis/set_majortickmark/) su "cross", "outside" o "inside". Questo influisce sulla leggibilità e aiuta a risparmiare spazio, soprattutto su grafici piccoli.

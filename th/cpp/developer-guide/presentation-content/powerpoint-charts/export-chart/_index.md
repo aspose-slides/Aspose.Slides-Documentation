@@ -13,14 +13,14 @@ keywords:
 - การนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีส่งออกแผนภูมิการนำเสนอด้วย Aspose.Slides สำหรับ C++ ที่รองรับรูปแบบ PPT และ PPTX และทำให้การรายงานเป็นกระบวนการที่ราบรื่นในทุกเวิร์กโฟลว์"
+description: "เรียนรู้วิธีส่งออกแผนภูมิการนำเสนอด้วย Aspose.Slides สำหรับ C++ รองรับรูปแบบไฟล์ PPT และ PPTX และทำให้การรายงานเป็นกระบวนการที่ราบรื่นในทุกเวิร์กโฟลว์"
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณส่งออกแผนภูมิจากการนำเสนอเป็นรูปภาพ บทความนี้แสดงวิธีการดึงรูปภาพจากแผนภูมิและบันทึกไว้ ซึ่งเป็นประโยชน์เมื่อคุณต้องการนำภาพแผนภูมิกลับใช้ภายนอกการนำเสนอ PowerPoint
+Aspose.Slides ช่วยให้คุณส่งออกแผนภูมิจากงานนำเสนอเป็นภาพ บทความนี้แสดงวิธีดึงภาพจากแผนภูมิและบันทึกไว้ ซึ่งมีประโยชน์เมื่อคุณต้องการนำภาพแผนภูมิไปใช้ซ้ำนอกงานนำเสนอ PowerPoint
 
-## **รับรูปภาพแผนภูมิ**
-Aspose.Slides for C++ ให้การสนับสนุนการสกัดรูปภาพของแผนภูมิเฉพาะ ตัวอย่างต่อไปนี้แสดงให้เห็น
+## **รับภาพแผนภูมิ**
+Aspose.Slides for C++ มีการสนับสนุนการสกัดภาพของแผนภูมิที่ระบุ ตัวอย่างด้านล่างแสดงให้ดู
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"test.pptx");
@@ -35,19 +35,24 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถส่งออกแผนภูมิเป็นเวกเตอร์ (SVG) แทนรูปภาพแรสเตอร์ได้หรือไม่?**  
-ได้. แผนภูมิเป็นรูปร่างและเนื้อหาของมันสามารถบันทึกเป็น SVG โดยใช้ [shape-to-SVG saving method](https://reference.aspose.com/slides/th/cpp/aspose.slides/shape/writeassvg/).
+**Can I export a chart as a vector (SVG) instead of a raster image?**
 
-**ฉันจะตั้งขนาดที่แน่นอนของแผนภูมิที่ส่งออกเป็นพิกเซลได้อย่างไร?**  
-ใช้ overload ของการเรนเดอร์รูปภาพที่ให้คุณระบุขนาดหรือสเกล—ไลบรารีสนับสนุนการเรนเดอร์อ็อบเจ็กต์ด้วยมิติ/สเกลที่กำหนด
+ใช่ แผนภูมิเป็นรูปทรงและเนื้อหาของมันสามารถบันทึกเป็น SVG ได้โดยใช้ [shape-to-SVG saving method](https://reference.aspose.com/slides/th/cpp/aspose.slides/shape/writeassvg/).
 
-**ควรทำอย่างไรหากฟอนต์ในป้ายรายการและคำอธิบายแสดงผลผิดหลังการส่งออก?**  
-[โหลดฟอนต์ที่จำเป็น](/slides/th/cpp/custom-font/) ผ่าน [FontsLoader](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsloader/) เพื่อให้การเรนเดอร์แผนภูมิรักษาเมตริกและลักษณะข้อความ
+**How can I set the exact size of the exported chart in pixels?**
 
-**การส่งออกเคารพธีม สไตล์ และเอฟเฟกต์ของ PowerPoint หรือไม่?**  
-ใช่. ตัวเรนเดอร์ของ Aspose.Slides ปฏิบัติตามการจัดรูปแบบของการนำเสนอ (ธีม, สไตล์, การเติม, เอฟเฟกต์) ดังนั้นลักษณะของแผนภูมิจึงถูกเก็บไว้
+ใช้ฟังก์ชัน image-rendering overloads ที่ให้คุณระบุขนาดหรือสเกล—ไลบรารีรองรับการเรนเดอร์อ็อบเจ็กต์ด้วยมิติหรือสเกลที่กำหนด
 
-**ฉันจะหาความสามารถในการเรนเดอร์/ส่งออกที่มีอยู่นอกเหนือจากรูปภาพแผนภูมิได้จากที่ไหน?**  
-ดูส่วนการส่งออกของ [API](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/)/[documentation](/slides/th/cpp/convert-powerpoint/) สำหรับเป้าหมายการออกผล ([PDF](/slides/th/cpp/convert-powerpoint-to-pdf/), [SVG](/slides/th/cpp/render-a-slide-as-an-svg-image/), [XPS](/slides/th/cpp/convert-powerpoint-to-xps/), [HTML](/slides/th/cpp/convert-powerpoint-to-html/), เป็นต้น) และตัวเลือกการเรนเดอร์ที่เกี่ยวข้อง
+**What should I do if fonts in labels and the legend look wrong after export?**
+
+[โหลดฟอนต์ที่ต้องการ](/slides/th/cpp/custom-font/) ผ่าน [FontsLoader](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsloader/) เพื่อให้การเรนเดอร์แผนภูมิรักษาเมตริกซ์และลักษณะของข้อความ
+
+**Does export honor the PowerPoint theme, styles, and effects?**
+
+ใช่ เรเดอร์ของ Aspose.Slides ปฏิบัติตามการฟอร์แมตของงานนำเสนอ (ธีม, สไตล์, การเติมสี, เอฟเฟกต์) ดังนั้นลักษณะของแผนภูมิจะถูกเก็บไว้
+
+**Where can I find available rendering/export capabilities beyond chart images?**
+
+ดูส่วนการส่งออกของ [API](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/)/[documentation](/slides/th/cpp/convert-powerpoint/) เพื่อดูเป้าหมายการส่งออก ([PDF](/slides/th/cpp/convert-powerpoint-to-pdf/), [SVG](/slides/th/cpp/render-a-slide-as-an-svg-image/), [XPS](/slides/th/cpp/convert-powerpoint-to-xps/), [HTML](/slides/th/cpp/convert-powerpoint-to-html/), ฯลฯ) และตัวเลือกการเรนเดอร์ที่เกี่ยวข้อง

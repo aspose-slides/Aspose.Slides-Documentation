@@ -1,11 +1,11 @@
 ---
-title: C++ 프레젠테이션에서 대체 글꼴 관리
-linktitle: 대체 글꼴
+title: C++에서 프레젠테이션용 폴백 글꼴 관리
+linktitle: 폴백 글꼴
 type: docs
 weight: 50
 url: /ko/cpp/fallback-font/
 keywords:
-- 대체 글꼴
+- 폴백 글꼴
 - 사용 가능한 글꼴
 - 글리프 교체
 - 글꼴 지정
@@ -15,33 +15,33 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++가 원본 글꼴을 사용할 수 없을 때 PowerPoint 및 OpenDocument 프레젠테이션에서 텍스트를 읽을 수 있도록 대체 글꼴을 사용하는 방법을 확인하십시오."
+description: "Aspose.Slides for C++가 원본 글꼴을 사용할 수 없을 때 PowerPoint 및 OpenDocument 프레젠테이션에서 텍스트 가독성을 유지하기 위해 폴백 글꼴을 어떻게 사용하는지 확인하세요."
 ---
 ## **Introduction**
 
-Fallback 글꼴은 텍스트에 지정된 글꼴이 시스템에 존재하지만 필요한 글리프를 포함하지 않을 때 사용됩니다. 이 경우 Aspose.Slides는 지정된 대체 글꼴 중 하나를 사용하여 누락된 글리프를 대체할 수 있습니다.
+Fallback fonts는 텍스트에 지정된 글꼴이 시스템에 존재하지만 필요한 글리프가 없을 때 사용됩니다. 이 경우 Aspose.Slides는 지정된 폴백 글꼴 중 하나를 사용하여 누락된 글리프를 대체할 수 있습니다.
 
 ## **Fallback Font**
-Fallback 글꼴은 텍스트에 지정된 글꼴이 시스템에 존재하지만 해당 글꼴에 필요한 글리프가 없을 때 사용됩니다. 이 경우 지정된 대체 글꼴 중 하나를 사용하여 글리프를 교체할 수 있습니다.
+Fallback font는 텍스트에 지정된 글꼴이 시스템에 존재하지만 해당 글꼴에 필요한 글리프가 없을 때 사용됩니다. 이 경우 지정된 폴백 글꼴 중 하나를 사용하여 글리프를 교체할 수 있습니다.
 
-Aspose.Slides는 대체 글꼴을 만들고, 이를 대체 글꼴 컬렉션에 추가하며, 특정 프레젠테이션에 대체 글꼴 컬렉션을 설정하고, 프레젠테이션에서 대체 글꼴을 제거하고, 대체 글꼴을 적용할 규칙을 지정하는 등 다양한 기능을 제공합니다.
+Aspose.Slides는 폴백 글꼴을 생성하고, 이를 폴백 글꼴 컬렉션에 추가하며, 특정 프레젠테이션에 폴백 글꼴 컬렉션을 설정하고, 프레젠테이션에서 폴백 글꼴을 제거하고, 폴백 글꼴을 적용할 규칙을 지정하는 등의 기능을 제공합니다.
 
-이러한 기능을 익히려면 다음 링크를 사용하십시오:
+이 기능들을 익히려면 다음 링크를 이용하십시오:
 
-- [Fallback 글꼴 만들기](/slides/ko/cpp/create-fallback-font)
-- [Fallback 글꼴 컬렉션 만들기](/slides/ko/cpp/create-fallback-fonts-collection)
-- [Fallback 글꼴을 사용한 프레젠테이션 렌더링](/slides/ko/cpp/render-presentation-with-fallback-font)
+- [폴백 글꼴 만들기](/slides/ko/cpp/create-fallback-font)
+- [폴백 글꼴 컬렉션 만들기](/slides/ko/cpp/create-fallback-fonts-collection)
+- [폴백 글꼴을 사용한 프레젠테이션 렌더링](/slides/ko/cpp/render-presentation-with-fallback-font)
 
 ## **FAQ**
 
-**Fallback 글꼴은 폰트 대체와 어떻게 다릅니까?**
+**Fallback fonts와 font substitution은 어떻게 다릅니까?**
 
-Fallback은 기본 글꼴에 특정 글리프가 없을 때 문자별 또는 유니코드 범위별로 적용되어 누락된 문자만 채웁니다. [대체](/slides/ko/cpp/font-substitution/)는 전체 실행이나 텍스트 부분에 대해 누락되었거나 사용할 수 없는 글꼴을 다른 글꼴로 교체합니다. 두 기능을 함께 사용할 수 있지만 적용 범위와 선택 논리는 다릅니다.
+Fallback은 기본 글꼴에 특정 글리프가 없을 때 문자 단위 혹은 유니코드 범위별로 적용되어 누락된 문자만 채웁니다. [Substitution](/slides/ko/cpp/font-substitution/)은 전체 실행(run)이나 텍스트 구간에서 누락되었거나 사용할 수 없는 글꼴을 다른 글꼴로 교체합니다. 두 기능을 함께 사용할 수 있지만 적용 범위와 선택 로직이 다릅니다.
 
 **Fallback 설정이 프레젠테이션 파일에 저장됩니까?**
 
-아니요. Fallback 구성은 라이브러리에서 처리/렌더링 시점에 존재하며 PPTX 파일에 직렬화되지 않습니다. 프레젠테이션은 사용자의 fallback 규칙을 저장하지 않습니다.
+아니요. 폴백 구성은 라이브러리에서 처리/렌더링 시점에만 존재하며 PPTX 파일에 직렬화되지 않습니다. 프레젠테이션 파일 자체에 폴백 규칙이 저장되지 않습니다.
 
 **Fallback이 PowerPoint 객체(SmartArt, 차트, WordArt)로 만든 요소에 영향을 줍니까?**
 
-예. 이러한 객체 내부의 텍스트도 동일한 렌더링 파이프라인을 통과하므로 일반 텍스트와 동일한 fallback 규칙이 적용됩니다.
+예. 이러한 객체 안의 텍스트도 동일한 렌더링 파이프라인을 거치므로 일반 텍스트와 동일한 폴백 규칙이 적용됩니다.

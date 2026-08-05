@@ -1,47 +1,45 @@
 ---
-title: Prezentációk renderelése fallback betűtípusokkal C++-ban
-linktitle: Prezentációk renderelése
+title: Bemutatók renderelése helyettesítő betűtípusokkal C++-ban
+linktitle: Bemutatók renderelése
 type: docs
 weight: 30
 url: /hu/cpp/render-presentation-with-fallback-font/
 keywords:
-- fallback betűtípus
+- helyettesítő betűtípus
 - PowerPoint renderelése
-- prezentáció renderelése
+- bemutató renderelése
 - dia renderelése
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - C++
 - Aspose.Slides
-description: "Prezentációk renderelése fallback betűtípusokkal az Aspose.Slides C++-hoz – biztosítsa a szöveg konzisztenciáját a PPT, PPTX és ODP formátumok között lépésről lépésre C++ kódmintákkal."
+description: "Rendereljen bemutatókat helyettesítő betűtípusokkal az Aspose.Slides C++ verziójában – tartsa egységesen a szöveget PPT, PPTX és ODP között lépésről lépésre C++ kódmintákkal."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy a prezentációkat fallback betűtípus szabályok segítségével rendereljük. Ez a cikk bemutatja, hogyan hozhatunk létre egy fallback betűtípus szabályok gyűjteményét, hogyan módosíthatjuk szabályait eltávolítással vagy új fallback betűtípusok hozzáadásával, valamint hogyan rendeljük hozzá a gyűjteményt a `FontsManager::set_FontFallBackRulesCollection` metódussal.
+Az Aspose.Slides lehetővé teszi a bemutatók megjelenítését helyettesítő betűtípus szabályok használatával. Ez a cikk bemutatja, hogyan hozhat létre egy helyettesítő betűtípus szabályok gyűjteményt, módosíthatja annak szabályait betűtípusok eltávolításával vagy hozzáadásával, és hogyan rendeli hozzá a gyűjteményt a `FontsManager::set_FontFallBackRulesCollection` metódussal.
 
-Miután a fallback betűtípus szabályok gyűjteménye hozzárendelésre került a prezentáció `FontsManager`-éhez, a szabályok a mentés, renderelés és konvertálás során alkalmazásra kerülnek. A példa bemutatja, hogyan használhatók a konfigurált szabályok egy diakép bélyegképének renderelésénél és PNG képként történő mentésénél.
+Miután a helyettesítő betűtípus szabályok gyűjteménye hozzárendelésre került a bemutató `FontsManager`‑hez, a szabályok alkalmazásra kerülnek olyan műveletek során, mint a mentés, a megjelenítés és a bemutató átalakítása. A példa bemutatja, hogyan használhatók a beállított szabályok dia bélyegképének megjelenítésekor, és annak PNG képként való mentésekor.
 
-## **Dia renderelése fallback betűtípus szabályokkal**
+## **Dia megjelenítése helyettesítő betűtípus szabályokkal**
 
-A következő példa ezeket a lépéseket tartalmazza:
-
-1. [Létrehozzuk a fallback betűtípus szabályok gyűjteményét](/slides/hu/cpp/create-fallback-fonts-collection/).
-2. [Remove()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/remove/) egy fallback betűtípus szabályt, és [AddFallBackFonts()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) egy másik szabályhoz.
+1. [Létrehozzuk a helyettesítő betűtípus szabályok gyűjteményét](/slides/hu/cpp/create-fallback-fonts-collection/).
+2. [Remove()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/remove/) egy helyettesítő betűtípus szabályt, és [AddFallBackFonts()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) egy másik szabályhoz.
 3. A szabályok gyűjteményét átadjuk a [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) metódusnak.
-4. A [Presentation::Save()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/save/) metódussal menthetjük a prezentációt ugyanabban a formátumban, vagy egy másikban. Miután a fallback betűtípus szabályok gyűjteménye beállításra került a FontsManagerben, ezek a szabályok minden prezentációval végzett művelet során alkalmazásra kerülnek: mentés, renderelés, konvertálás stb.
+4. [Presentation::Save()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/save/) metódussal menthetjük a bemutatót ugyanabban a formátumban, vagy másik formátumban. Miután a helyettesítő betűtípus szabályok gyűjteményét beállítottuk a FontsManager‑ben, ezek a szabályok minden bemutatóval végzett művelet során alkalmazásra kerülnek: mentés, megjelenítés, átalakítás stb.
 
 ``` cpp
 // Új példány létrehozása egy szabálygyűjteményből
 auto rulesList = MakeObject<FontFallBackRulesCollection>();
 
-// Számos szabály létrehozása
+// Szabályok létrehozása
 rulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x400), static_cast<uint32_t>(0x4FF), u"Times New Roman"));
 //rulesList.Add(new FontFallBackRule(...));
 
 for (const auto& fallBackRule : rulesList)
 {
-	// Megpróbáljuk eltávolítani a "Tahoma" fallback betűtípust a betöltött szabályokból
+	// Megpróbáljuk eltávolítani a "Tahoma" helyettesítő betűtípust a betöltött szabályokból
 	fallBackRule->Remove(u"Tahoma");
 
 	// És a szabályok frissítése a megadott tartományra
@@ -52,14 +50,14 @@ for (const auto& fallBackRule : rulesList)
 	}
 }
 
-// Továbbá eltávolíthatunk bármely meglévő szabályt a listáról
+// Ezenkívül eltávolíthatunk bármely meglévő szabályt a listáról
 if (rulesList->get_Count() > 0)
 {
 	rulesList->Remove(rulesList->idx_get(0));
 }
 
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
-// Előkészített szabálylistát rendelünk hozzárendeléshez
+// Felkészített szabálylistát rendelünk hozzárendeléshez
 pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
 // Bélyegkép renderelése a inicializált szabálygyűjtemény használatával és mentése PNG-be
@@ -71,5 +69,5 @@ pres->Dispose();
 ```
 
 {{% alert color="primary" %}} 
-Olvasson többet arról, hogyan [PowerPoint diák PNG-re konvertálása C++-ban](/slides/hu/cpp/convert-powerpoint-to-png/).
+Olvasson tovább arról, hogyan [Konvertálja a PowerPoint diákat PNG-re C++-ban](/slides/hu/cpp/convert-powerpoint-to-png/).
 {{% /alert %}}

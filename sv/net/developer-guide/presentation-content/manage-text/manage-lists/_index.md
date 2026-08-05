@@ -4,6 +4,8 @@ linktitle: Hantera listor
 type: docs
 weight: 70
 url: /sv/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
 - punkt
 - punktlista
@@ -13,8 +15,8 @@ keywords:
 - anpassad punkt
 - flernivålista
 - skapa punkt
-- lägg till punkt
-- lägg till lista
+- lägga till punkt
+- lägga till lista
 - PowerPoint
 - OpenDocument
 - presentation
@@ -25,23 +27,23 @@ description: "Lär dig hur du skapar och formaterar punkt-, bild-, flernivå- oc
 ---
 ## **Översikt**
 
-Aspose.Slides för .NET låter dig skapa och formatera punkt- och numrerade listor i PowerPoint- och OpenDocument-presentationer. Ett listobjekt är ett stycke vars punktegenskaper styrs via dess styckeformat.
+Aspose.Slides för .NET låter dig skapa och formatera punkt- och numrerade listor i PowerPoint- och OpenDocument-presentationer. Ett listobjekt är ett stycke vars punktinställningar styrs via dess styckeformat.
 
-Använd egenskapen [IParagraph.ParagraphFormat] för att komma åt listinställningar på styckennivå. Huvudingången är [IParagraphFormat.Bullet], som returnerar ett [IBulletFormat]-objekt. Med detta objekt kan du ställa in punkttyp, symbol, bild, färg, storlek, numreringsstil och startnummer.
+Använd egenskapen [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraph/paragraphformat/) för att komma åt listinställningar på styckennivå. Huvudingångspunkten är [IParagraphFormat.Bullet](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/bullet/), som returnerar ett [IBulletFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/)‑objekt. Med detta objekt kan du ange punktens typ, symbol, bild, färg, storlek, numreringsstil och startnummer.
 
-Denna artikel visar hur du:
+Den här artikeln visar hur du:
 
 - skapar en punktlista med en anpassad symbol
 - skapar en bildpunkt
-- skapar en flernivålista genom att ange styckets djup
+- skapar en flernivålista genom att ange styckedjup
 - skapar en numrerad lista
 - inspekterar och ändrar listformatering i en befintlig presentation
 
 ## **Skapa en punktlista**
 
-För att skapa en punktlista, lägg till [IParagraph]-objekt i ett [ITextFrame] och sätt [IBulletFormat.Type] till [BulletType.Symbol]. Du kan sedan sätta [IBulletFormat.Char], [IBulletFormat.Color] och [IBulletFormat.Height] för att styra punktens utseende.
+För att skapa en punktlista, lägg till [IParagraph](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraph/)‑objekt i ett [ITextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/) och sätt [IBulletFormat.Type](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/type/) till [BulletType.Symbol](https://reference.aspose.com/slides/sv/net/aspose.slides/bullettype/). Du kan sedan ange [IBulletFormat.Char](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/color/) och [IBulletFormat.Height](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/height/) för att styra punktens utseende.
 
-Följande C#-kod demonstrerar hur man skapar en punktlista i en bild:
+Följande C#‑kod demonstrerar hur du skapar en punktlista i en bild:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -80,9 +82,9 @@ Resultatet:
 
 ## **Skapa en numrerad lista**
 
-Använd numrerade listor när ordningen på objekten är viktig. Sätt [IBulletFormat.Type] till [BulletType.Numbered]. Du kan också välja ett nummerformat med [IBulletFormat.NumberedBulletStyle] eller sätta [IBulletFormat.NumberedBulletStartWith] när listan ska starta från ett annat värde än 1.
+Använd numrerade listor när ordningen på objekt är viktig. Sätt [IBulletFormat.Type](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/type/) till [BulletType.Numbered](https://reference.aspose.com/slides/sv/net/aspose.slides/bullettype/). Du kan också välja ett numreringsformat med [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/numberedbulletstyle/) eller sätta [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/numberedbulletstartwith/) när listan ska börja från ett annat värde än 1.
 
-Följande C#-kod visar hur man skapar en numrerad lista i en bild:
+Följande C#‑kod visar hur du skapar en numrerad lista i en bild:
 
 ```csharp
 using var presentation = new Presentation();
@@ -117,21 +119,19 @@ Resultatet:
 
 ## **Skapa en bildpunkt**
 
-Aspose.Slides låter dig ersätta en vanlig punkt med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, till exempel ikoner eller små transparenta PNG-filer.
+Aspose.Slides låter dig ersätta en vanlig punktsymbol med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, såsom ikoner eller små transparenta PNG‑filer.
 
 {{% alert color="primary" %}}
-Idealiskt, om du planerar att ersätta den vanliga punkt-symbolen med en bild, är det bäst att välja en enkel grafik med transparent bakgrund. Sådana bilder fungerar bra som anpassade punktsymboler.
-
-Kom ihåg att bilden kommer att skalas ner till en mycket liten storlek. Av den anledningen rekommenderar vi starkt att välja en bild som förblir tydlig och visuellt effektiv när den används som punkt i en lista.
+Idealiskt, om du planerar att ersätta den vanliga punktsymbolen med en bild, är det bäst att välja en enkel grafik med transparent bakgrund. Sådana bilder fungerar bra som anpassade punktsymboler.
 {{% /alert %}}
 
-För att skapa en bildpunkt, lägg till en bild i [Presentation.Images] och tilldela det returnerade bildobjektet till [IBulletFormat.Picture]. Sätt [IBulletFormat.Type] till [BulletType.Picture] innan du tilldelar bilden.
+För att skapa en bildpunkt, lägg till en bild i [Presentation.Images](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/images/) och tilldela det returnerade bildobjektet till [IBulletFormat.Picture](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/picture/). Sätt [IBulletFormat.Type](https://reference.aspose.com/slides/sv/net/aspose.slides/ibulletformat/type/) till [BulletType.Picture](https://reference.aspose.com/slides/sv/net/aspose.slides/bullettype/) innan du tilldelar bilden.
 
 Låt oss säga att vi har en "image.png":
 
 ![En bild för punkterna](picture_for_bullets.png)
 
-Följande C#-kod visar hur man skapar bildpunkter i en bild:
+Följande C#‑kod visar hur du skapar bildpunkter i en bild:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -171,9 +171,9 @@ Resultatet:
 
 ## **Skapa en flernivålista**
 
-Använd [IParagraphFormat.Depth] för att placera listobjekt på olika nivåer. Nivå 0 är den översta nivån, nivå 1 är nästlad under den, och så vidare.
+Använd [IParagraphFormat.Depth](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/depth/) för att placera listobjekt på olika nivåer. Nivå 0 är översta nivån, nivå 1 ligger inbäddad under den, och så vidare.
 
-Följande C#-kod visar hur man skapar en flernivå punktlista:
+Följande C#‑kod visar hur du skapar en flernivåpunktlista:
 
 ```csharp
 using var presentation = new Presentation();
@@ -213,9 +213,9 @@ Resultatet:
 
 ## **Ändra en befintlig lista**
 
-För att ändra listformatering i en befintlig presentation, hämta målstycket och uppdatera dess [IParagraphFormat.Bullet]-inställningar. Samma egenskaper som används för att skapa listor kan också användas för att inspektera eller ändra listor som lästs in från en PPT-, PPTX- eller ODP-fil.
+För att ändra listformatering i en befintlig presentation, hämta målstycket och uppdatera dess [IParagraphFormat.Bullet](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/bullet/)‑inställningar. Samma egenskaper som används för att skapa listor kan användas för att inspektera eller ändra listor som lästs in från en PPT-, PPTX- eller ODP‑fil.
 
-Följande C#-kod ändrar det första stycket i en textram till att använda en numrerad liststil:
+Följande C#‑kod ändrar det första stycket i en textram till att använda en numrerad liststil:
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -241,8 +241,8 @@ Ja. Aspose.Slides bevarar listformatering när målformatet stöder motsvarande 
 
 **Kan jag redigera listor i befintliga presentationer?**
 
-Ja. Läs in presentationen, hämta målstycket, inspektera eller uppdatera dess [IParagraphFormat.Bullet]-inställningar och spara presentationen.
+Ja. Ladda presentationen, hämta målstycket, inspektera eller uppdatera dess [IParagraphFormat.Bullet](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraphformat/bullet/)‑inställningar och spara presentationen.
 
 **Kan listor innehålla icke-latinsk text?**
 
-Ja. Text i listobjekt kan innehålla Unicode-tecken, så du kan skapa listor i flerspråkiga presentationer. Se till att de teckensnitt som används i presentationen stöder de tecken du behöver.
+Ja. Text i listobjekt kan innehålla Unicode‑tecken, så du kan skapa listor i flerspråkiga presentationer. Se till att de fonter som används i presentationen stödjer de tecken du behöver.

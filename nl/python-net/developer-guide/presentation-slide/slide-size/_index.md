@@ -19,33 +19,33 @@ keywords:
 - volledige dia
 - schermtype
 - niet schalen
-- passend maken
+- passen waarborgen
 - maximaliseren
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-descriptions: "Leer hoe u snel dia's kunt aanpassen in PPT-, PPTX- en ODP-bestanden met Python en Aspose.Slides, en presentaties optimaliseert voor elk scherm zonder kwaliteitsverlies."
+description: "Leer hoe u snel dia's kunt herschalen in PPT-, PPTX- en ODP-bestanden met Python en Aspose.Slides, en presentaties optimaliseert voor elk scherm zonder kwaliteitsverlies."
 ---
-## **Inleiding**
+## **Introductie**
 
-Aspose.Slides biedt uitgebreide hulpmiddelen om de dia‑grootte en beeldverhouding in PowerPoint‑presentaties aan te passen, wat cruciaal is zowel voor afdrukken als weergave op het scherm. 
+Aspose.Slides biedt uitgebreide hulpmiddelen om de dia‑grootte en beeldverhouding in PowerPoint‑presentaties aan te passen, wat essentieel is voor zowel afdrukken als weergave op scherm.
 
 Populaire dia‑groottes en verhoudingen:
 
-- **Standaard (4:3‑beeldverhouding)**: Ideaal voor oudere schermen en apparaten.
-- **Breedbeeld (16:9‑beeldverhouding)**: Aanbevolen voor moderne projectoren en displays.
+- **Standaard (4:3 beeldverhouding)**: Ideaal voor oudere schermen en apparaten.
+- **Breedbeeld (16:9 beeldverhouding)**: Aanbevolen voor moderne projectoren en displays.
 
-Zorg voor consistentie in uw presentatie, want één dia‑grootte en beeldverhouding geldt voor alle dia's. Voor optimale resultaten stelt u de afmetingen van de dia's in aan het begin van het maakproces van uw presentatie om complicaties te voorkomen.
+Zorg voor consistentie in de hele presentatie, want één dia‑grootte en beeldverhouding wordt op alle dia’s toegepast. Voor optimale resultaten stel je de dia‑afmetingen in aan het begin van het aanmaakproces van je presentatie om complicaties te voorkomen.
 
 {{% alert color="primary" %}} 
-Standaard gebruiken presentaties die met Aspose.Slides zijn gemaakt de standaard 4:3‑beeldverhouding.
+Standaard gebruiken presentaties die met Aspose.Slides zijn gemaakt de 4:3‑beeldverhouding.
 {{% /alert %}}
 
-## **Dia‑grootte wijzigen in een presentatie**
+## **Diaformaat wijzigen in een presentatie**
 
-Deze voorbeeldcode laat zien hoe u de dia‑grootte in een presentatie wijzigt met Python en Aspose.Slides:
+Deze voorbeeldcode laat zien hoe je het diaformaat in een presentatie wijzigt in Python met Aspose.Slides:
 
 ```py
 import aspose.slides as slides
@@ -57,9 +57,9 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
 
 ## **Aangepaste dia‑groottes specificeren**
 
-Als de gebruikelijke dia‑groottes (4:3 en 16:9) niet geschikt zijn voor uw werk, kunt u ervoor kiezen een specifieke of unieke dia‑grootte te gebruiken. Bijvoorbeeld, wanneer u van plan bent volledige dia's af te drukken op een aangepaste paginalay-out of uw presentatie wilt weergeven op bepaalde schermtypes, heeft u waarschijnlijk baat bij het gebruiken van een aangepaste groottinstelling voor uw presentatie. 
+Als de gangbare dia‑groottes (4:3 en 16:9) niet geschikt zijn voor jouw werk, kun je kiezen voor een specifieke of unieke dia‑grootte. Bijvoorbeeld wanneer je volledige dia’s wilt afdrukken op een aangepast paginalay‑out of wanneer je de presentatie wilt tonen op bepaalde schermtypen, profiteer je van een aangepaste grootte‑instelling voor je presentatie.
 
-Deze voorbeeldcode laat zien hoe u Aspose.Slides voor Python via .NET gebruikt om een aangepaste dia‑grootte voor een presentatie in Python op te geven:
+Deze voorbeeldcode laat zien hoe je Aspose.Slides voor Python via .NET gebruikt om een aangepaste dia‑grootte voor een presentatie in Python te definiëren:
 
 ```py
 import aspose.slides as slides
@@ -69,25 +69,25 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
     pres.save("pres-a4-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Dia‑inhoud behandelen na het wijzigen van de grootte**
+## **Dia‑inhoud afhandelen na het herschalen**
 
-Nadat u de dia‑grootte van een presentatie hebt gewijzigd, kan de inhoud van de dia's (bijvoorbeeld afbeeldingen of objecten) vervormd raken. Standaard worden objecten automatisch aangepast zodat ze passen bij de nieuwe dia‑grootte. Bij het wijzigen van de dia‑grootte kunt u echter een instelling opgeven die bepaalt hoe Aspose.Slides met de inhoud van de dia's omgaat.
+Nadat je het diaformaat van een presentatie hebt gewijzigd, kan de inhoud van de dia’s (bijvoorbeeld afbeeldingen of objecten) vervormd raken. Standaard worden de objecten automatisch aangepast aan de nieuwe dia‑grootte. Wanneer je echter de dia‑grootte van een presentatie wijzigt, kun je een instelling specificeren die bepaalt hoe Aspose.Slides met de inhoud op de dia’s omgaat.
 
-Afhankelijk van wat u wilt bereiken, kunt u een van deze instellingen gebruiken:
+Afhankelijk van wat je wilt bereiken, kun je een van de volgende instellingen gebruiken:
 
 - `DO_NOT_SCALE`
 
-  Als u de objecten op de dia's NIET wilt laten schalen, gebruikt u deze instelling.
+  Als je **NIET** wilt dat de objecten op de dia’s worden geschaald, gebruik dan deze instelling.
 
 - `ENSURE_FIT`
 
-  Als u wilt schalen naar een kleinere dia‑grootte en u wilt dat Aspose.Slides de objecten verkleint zodat ze allemaal op de dia passen (zodat u geen inhoud verliest), gebruikt u deze instelling.
+  Als je naar een kleinere dia‑grootte wilt schalen en je wilt dat Aspose.Slides de objecten verkleint zodat ze allemaal op de dia passen (zodat je geen inhoud verliest), gebruik dan deze instelling.
 
 - `MAXIMIZE`
 
-  Als u wilt schalen naar een grotere dia‑grootte en u wilt dat Aspose.Slides de objecten vergroot zodat ze proportioneel zijn aan de nieuwe dia‑grootte, gebruikt u deze instelling.
+  Als je naar een grotere dia‑grootte wilt schalen en je wilt dat Aspose.Slides de objecten vergroot zodat ze evenredig blijven met de nieuwe dia‑grootte, gebruik dan deze instelling.
 
-Deze voorbeeldcode toont hoe u de instelling `MAXIMIZE` gebruikt bij het wijzigen van de grootte van een dia in een presentatie:
+Deze voorbeeldcode laat zien hoe je de `MAXIMIZE`‑instelling gebruikt bij het wijzigen van de grootte van de dia’s van een presentatie:
 
 ```py
 import aspose.slides as slides
@@ -98,18 +98,18 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
 
 ## **FAQ**
 
-**Kan ik een aangepaste dia‑grootte instellen met een andere eenheid dan inches (bijvoorbeeld punten of millimeters)?**
+**Kan ik een aangepaste dia‑grootte instellen met andere eenheden dan inches (bijvoorbeeld punten of millimeters)?**
 
-Ja. Aspose.Slides gebruikt intern punten, waarbij 1 punt gelijk is aan 1/72 inch. U kunt elke eenheid (zoals millimeters of centimeters) omrekenen naar punten en de omgezette waarden gebruiken om de breedte en hoogte van de dia te definiëren.
+Ja. Aspose.Slides werkt intern met punten, waarbij 1 punt gelijk is aan 1/72 van een inch. Je kunt elke eenheid (zoals millimeters of centimeters) omrekenen naar punten en de omgezette waarden gebruiken om de dia‑breedte en -hoogte te definiëren.
 
 **Zal een zeer grote aangepaste dia‑grootte de prestaties en het geheugenverbruik tijdens het renderen beïnvloeden?**
 
-Ja. Grotere dia‑afmetingen (in punten) gecombineerd met een hogere renderingschaal zorgen voor een hoger geheugenverbruik en langere verwerkingstijden. Streef naar een praktische dia‑grootte en pas de renderingschaal alleen aan wanneer dat nodig is om de gewenste uitvoerkwaliteit te bereiken.
+Ja. Grotere dia‑afmetingen (in punten) in combinatie met een hogere render‑schaal leiden tot meer geheugengebruik en langere verwerkingstijden. Streef naar een praktische dia‑grootte en pas de render‑schaal alleen aan wanneer dat nodig is om de gewenste uitvoerkwaliteit te behalen.
 
-**Kan ik één niet‑standaard dia‑grootte definiëren en vervolgens dia's van presentaties met verschillende groottes samenvoegen?**
+**Kan ik één niet‑standaard dia‑grootte definiëren en vervolgens dia’s uit presentaties met verschillende groottes samenvoegen?**
 
-U kunt geen [presentaties samenvoegen](/slides/nl/python-net/merge-presentation/) wanneer ze verschillende dia‑groottes hebben — eerst past u één presentatie aan zodat deze overeenkomt met de andere. Bij het wijzigen van de dia‑grootte kunt u kiezen hoe bestaande inhoud wordt behandeld via de optie [SlideSizeScaleType](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesizescaletype/). Nadat de groottes zijn afgestemd, kunt u dia's samenvoegen met behoud van de opmaak.
+Je kunt geen presentaties [presentaties samenvoegen](/slides/nl/python-net/merge-presentation/) terwijl ze verschillende dia‑groottes hebben — pas eerst één presentatie aan zodat deze overeenkomt met de andere. Bij het wijzigen van de dia‑grootte kun je kiezen hoe bestaande inhoud wordt afgehandeld via de [SlideSizeScaleType](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesizescaletype/)‑optie. Nadat de groottes zijn afgestemd, kun je dia’s samenvoegen terwijl de opmaak behouden blijft.
 
-**Kan ik miniaturen genereren voor individuele vormen of specifieke gebieden van een dia, en houden deze rekening met de nieuwe dia‑grootte?**
+**Kan ik miniaturen genereren voor individuele vormen of specifieke regio’s van een dia, en respecteren deze de nieuwe dia‑grootte?**
 
-Ja. Aspose.Slides kan miniaturen renderen voor [complete dia's](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/get_image/) evenals voor [geselecteerde vormen](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/get_image/). De resulterende afbeeldingen weerspiegelen de huidige dia‑grootte en beeldverhouding, waardoor een consistente compositie en geometrie wordt gegarandeerd.
+Ja. Aspose.Slides kan miniaturen renderen voor [gehele dia’s](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/get_image/) evenals voor [geselecteerde vormen](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/get_image/). De resulterende afbeeldingen weerspiegelen de huidige dia‑grootte en beeldverhouding, zodat het kaderen en de geometrie consistent blijven.

@@ -1,5 +1,5 @@
 ---
-title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอโดยใช้ С++
+title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอโดยใช้ C++
 linktitle: ป้ายข้อมูล
 type: docs
 url: /th/cpp/chart-data-label/
@@ -9,16 +9,16 @@ keywords:
 - ความแม่นยำของข้อมูล
 - เปอร์เซ็นต์
 - ระยะห่างของป้าย
-- ตำแหน่งป้าย
+- ตำแหน่งของป้าย
 - PowerPoint
-- งานนำเสนอ
-- С++
+- การนำเสนอ
+- C++
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ С++ เพื่อสร้างสไลด์ที่น่าสนใจมากขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ C++ เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น"
 ---
-## **บทนำ**
+## **แนะนำ**
 
-ป้ายข้อมูลบนแผนภูมิแสดงรายละเอียดของชุดข้อมูลแผนภูมิหรือจุดข้อมูลแต่ละจุด โดยช่วยให้ผู้อ่านระบุชุดข้อมูลได้อย่างรวดเร็วและทำให้แผนภูมิที่อ่านเข้าใจง่ายขึ้น
+ป้ายข้อมูลบนแผนภูมิแสดงรายละเอียดเกี่ยวกับชุดข้อมูลของแผนภูมิหรือจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุชุดข้อมูลได้อย่างรวดเร็วและทำให้แผนภูมิเข้าใจง่ายขึ้น
 
 ## **ตั้งค่าความแม่นยำของข้อมูลในป้ายข้อมูลของแผนภูมิ**
 
@@ -28,26 +28,27 @@ description: "เรียนรู้วิธีเพิ่มและจั
 	// เส้นทางไปยังไดเรกทอรีเอกสาร
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
+	// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// ดึงสไลด์แรก
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// เพิ่มแผนภูมิพร้อมข้อมูลค่าเริ่มต้น
+	// เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้น
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
 	// ตั้งค่ารูปแบบตัวเลขของชุดข้อมูล
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// เขียนไฟล์งานนำเสนอไปยังดิสก์
+	// เขียนไฟล์งานนำเสนอลงดิสก์
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-Aspose.Slides for C++ อนุญาตให้คุณตั้งค่าป้ายเปอร์เซ็นต์บนแผนภูมิที่แสดง โค้ด C++ นี้แสดงการดำเนินการ:
+Aspose.Slides for C++ อนุญาตให้คุณตั้งค่าป้ายเปอร์เซ็นต์บนแผนภูมิที่แสดง โค้ด C++ นี้สาธิตการทำงาน:
 
 ```c++
 	// เส้นทางไปยังไดเรกทอรีเอกสาร
@@ -102,7 +103,8 @@ Aspose.Slides for C++ อนุญาตให้คุณตั้งค่า�
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **ตั้งสัญลักษณ์เปอร์เซ็นต์ในป้ายข้อมูลของแผนภูมิ**
+
+## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายข้อมูลของแผนภูมิ**
 
 โค้ด C++ นี้แสดงวิธีตั้งสัญลักษณ์เปอร์เซ็นต์สำหรับป้ายข้อมูลของแผนภูมิ:
 
@@ -113,7 +115,7 @@ Aspose.Slides for C++ อนุญาตให้คุณตั้งค่า�
 	// สร้างอินสแตนซ์ของคลาส Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน
+	// ดึงอ้างอิงสไลด์โดยใช้ดัชนี
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// สร้างแผนภูมิ PercentsStackedColumn บนสไลด์
@@ -124,14 +126,14 @@ Aspose.Slides for C++ อนุญาตให้คุณตั้งค่า�
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
 
-	// ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ
+	// ตั้งดัชนีของแผ่นข้อมูลแผนภูมิ
 	int defaultWorksheetIndex = 0;
 
-	// ดึงแผ่นข้อมูลแผนภูมิ
+	// ดึงแผ่นงานข้อมูลแผนภูมิ
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// ลบชุดข้อมูลที่สร้างโดยค่าเริ่มต้น 
+	// ลบชุดข้อมูลที่สร้างโดยอัตโนมัติ 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -141,7 +143,7 @@ Aspose.Slides for C++ อนุญาตให้คุณตั้งค่า�
 
 	// รับชุดข้อมูลแผนภูมิแรก
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// เติมข้อมูลให้ชุดข้อมูล
+	// ใส่ข้อมูลให้ชุดข้อมูล
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
@@ -162,7 +164,7 @@ Aspose.Slides for C++ อนุญาตให้คุณตั้งค่า�
 
 	// รับชุดข้อมูลแผนภูมิที่สอง
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// เติมข้อมูลให้ชุดข้อมูล
+	// ใส่ข้อมูลให้ชุดข้อมูล
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
@@ -181,10 +183,11 @@ Aspose.Slides for C++ อนุญาตให้คุณตั้งค่า�
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// เขียนไฟล์งานนำเสนอไปยังดิสก์
+	// บันทึกไฟล์งานนำเสนอลงดิสก์
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
+
 
 ## **ตั้งระยะห่างของป้ายจากแกน**
 
@@ -197,26 +200,26 @@ Aspose.Slides for C++ อนุญาตให้คุณตั้งค่า�
 	// สร้างอินสแตนซ์ของคลาส Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// ดึงอ้างอิงของสไลด์
+	// ดึงอ้างอิงสไลด์
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// สร้างแผนภูมิบนสไลด์
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// ดึงชุดข้อมูลของแผนภูมิ
+	// ดึงคอลเลกชันชุดข้อมูลของแผนภูมิ
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
 	// ตั้งค่าระยะห่างของป้ายจากแกน
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// เขียนไฟล์งานนำเสนอไปยังดิสก์
+	// บันทึกไฟล์งานนำเสนอลงดิสก์
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **ปรับตำแหน่งป้าย**
 
-เมื่อคุณสร้างแผนภูมิที่ไม่ต้องอาศัยแกนใด ๆ เช่น แผนภูมิวงกลม ป้ายข้อมูลของแผนภูมิอาจอยู่ใกล้ขอบมากเกินไป ในกรณีเช่นนั้น คุณต้องปรับตำแหน่งของป้ายข้อมูลเพื่อให้เส้นนำแสดงอย่างชัดเจน
+เมื่อคุณสร้างแผนภูมิที่ไม่พึ่งพาแกนใด ๆ เช่น แผนภูมิวงกลม ป้ายข้อมูลของแผนภูมิอาจอยู่ใกล้ขอบมากเกินไป ในกรณีเช่นนี้ คุณต้องปรับตำแหน่งของป้ายข้อมูลเพื่อให้เส้นเชื่อมแสดงได้อย่างชัดเจน
 
 โค้ด C++ นี้แสดงวิธีปรับตำแหน่งป้ายบนแผนภูมิวงกลม:
 
@@ -241,14 +244,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิที่หนาแน่นได้อย่างไร?**
+**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันบนแผนภูมิที่แน่นได้อย่างไร?**
 
-ใช้การจัดวางป้ายอัตโนมัติ, เส้นนำ, และลดขนาดฟอนต์ร่วมกัน; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะจุดสุดหรือจุดสำคัญเท่านั้น.
+ผสานการวางป้ายอัตโนมัติ, เส้นเชื่อม, และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนฟิลด์บางอย่าง (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะจุดที่สำคัญ/ขอบเขตเท่านั้น
 
-**ฉันจะปิดการใช้งานป้ายเฉพาะค่าศูนย์, ค่าติดลบ หรือค่าว่างได้อย่างไร?**
+**ฉันจะปิดการแสดงป้ายสำหรับค่าศูนย์ ค่าติดลบ หรือค่าที่ว่างเปล่าได้อย่างไร?**
 
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าติดลบ หรือค่าที่หายไปตามกฎที่กำหนด.
+กรองจุดข้อมูลก่อนเปิดใช้ป้ายและปิดการแสดงสำหรับค่าที่เป็น 0, ค่าเป็นลบ, หรือค่าที่ขาดหายตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**
+**ฉันจะทำให้สไตล์ป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**
 
-กำหนดฟอนต์ (ประเภท, ขนาด) อย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่บนฝ่ายเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง.
+ตั้งค่าฟอนต์ (ครอบครัว, ขนาด) อย่างชัดเจนและตรวจสอบว่าฟอนต์พร้อมใช้งานบนด้านการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

@@ -1,71 +1,71 @@
 ---
-title: PHP में PowerPoint टेक्स्ट पैराग्राफ प्रबंधित करें
-linktitle: पैराग्राफ प्रबंधित करें
+title: PHP में PowerPoint टेक्स्ट पैराग्राफ़ का प्रबंधन
+linktitle: पैराग्राफ़ का प्रबंधन
 type: docs
 weight: 40
 url: /hi/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
 keywords:
 - टेक्स्ट जोड़ें
-- पैराग्राफ जोड़ें
+- पैराग्राफ़ जोड़ें
 - टेक्स्ट प्रबंधित करें
-- पैराग्राफ प्रबंधित करें
+- पैराग्राफ़ प्रबंधित करें
 - बुलेट प्रबंधित करें
-- पैराग्राफ इंडेंट
+- पैराग्राफ़ इंडेंट
 - हैंगिंग इंडेंट
-- पैराग्राफ बुलेट
-- नंबरेड सूची
+- पैराग्राफ़ बुलेट
+- क्रमांकित सूची
 - बुलेटेड सूची
-- पैराग्राफ प्रॉपर्टीज़
+- पैराग्राफ़ गुण
 - HTML आयात
 - टेक्स्ट से HTML
-- पैराग्राफ से HTML
-- पैराग्राफ से इमेज
-- टेक्स्ट से इमेज
-- पैराग्राफ निर्यात
+- पैराग्राफ़ से HTML
+- पैराग्राफ़ से छवि
+- टेक्स्ट से छवि
+- पैराग्राफ़ निर्यात
 - PowerPoint
 - OpenDocument
-- प्रेजेंटेशन
+- प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides के साथ PHP के लिए Java के माध्यम से पैराग्राफ फॉर्मेटिंग को मास्टर करें — PPT, PPTX और ODP प्रस्तुतियों में अलाइनमेंट, स्पेसिंग और स्टाइल को अनुकूलित करें।"
+description: "Aspose.Slides for PHP via Java के साथ पैराग्राफ़ फ़ॉर्मेटिंग में माहिर बनें — PPT, PPTX, और ODP प्रस्तुतियों में संरेखण, अंतराल और शैली को अनुकूलित करें।"
 ---
 ## **परिचय**
 
-Aspose.Slides उन सभी क्लासों को प्रदान करता है जिनकी आपको PowerPoint टेक्स्ट, पैराग्राफ और पोर्शन के साथ काम करने के लिए आवश्यकता है।
+Aspose.Slides उन सभी क्लासों को प्रदान करता है जो आपको PowerPoint टेक्स्ट, पैराग्राफ और पोर्शन के साथ काम करने के लिए आवश्यक हैं।
 
 * Aspose.Slides [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) क्लास प्रदान करता है जिससे आप पैराग्राफ को दर्शाने वाले ऑब्जेक्ट जोड़ सकते हैं। एक `TextFame` ऑब्जेक्ट में एक या कई पैराग्राफ हो सकते हैं (प्रत्येक पैराग्राफ कैरिज रिटर्न द्वारा बनाया जाता है)।
-* Aspose.Slides [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास प्रदान करता है जिससे आप पोर्शन को दर्शाने वाले ऑब्जेक्ट जोड़ सकते हैं। एक `Paragraph` ऑब्जेक्ट में एक या कई पोर्शन हो सकते हैं (पोर्शन ऑब्जेक्ट्स का संग्रह)।
-* Aspose.Slides [Portion](https://reference.aspose.com/slides/hi/php-java/aspose.slides/portion/) क्लास प्रदान करता है जिससे आप टेक्स्ट और उनके फॉर्मेटिंग प्रॉपर्टीज़ को दर्शाने वाले ऑब्जेक्ट जोड़ सकते हैं।
+* Aspose.Slides [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास प्रदान करता है जिससे आप पोर्शन को दर्शाने वाले ऑब्जेक्ट जोड़ सकते हैं। एक `Paragraph` ऑब्जेक्ट में एक या कई पोर्शन (पोर्शन ऑब्जेक्ट का संग्रह) हो सकते हैं।
+* Aspose.Slides [Portion](https://reference.aspose.com/slides/hi/php-java/aspose.slides/portion/) क्लास प्रदान करता है जिससे आप टेक्स्ट और उनके फॉर्मेटिंग गुणों को दर्शाने वाले ऑब्जेक्ट जोड़ सकते हैं।
 
-एक `Paragraph` ऑब्जेक्ट अपने अंतर्निहित `Portion` ऑब्जेक्ट्स के माध्यम से विभिन्न फॉर्मेटिंग प्रॉपर्टीज़ वाले टेक्स्ट को संभालने में सक्षम होता है।
+एक `Paragraph` ऑब्जेक्ट अपने अंतर्निहित `Portion` ऑब्जेक्ट्स के माध्यम से विभिन्न फॉर्मेटिंग गुणों वाले टेक्स्ट को संभाल सकता है।
 
-## **एकाधिक भागों वाले कई पैराग्राफ जोड़ें**
+## **एकाधिक पैराग्राफ़ जोड़ें जिनमें कई पोर्शन हों**
 
-इन चरणों में दिखाया गया है कि 3 पैराग्राफ और प्रत्येक पैराग्राफ में 3 पोर्शन वाले टेक्स्ट फ्रेम को कैसे जोड़ा जाए:
+इन चरणों में दिखाया गया है कि कैसे 3 पैराग्राफ़ वाला टेक्स्ट फ़्रेम जोड़ें और प्रत्येक पैराग्राफ़ में 3 पोर्शन हों:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक Rectangle [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) से जुड़े ITextFrame को प्राप्त करें।
-5. दो [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) ऑब्जेक्ट बनाकर उन्हें [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) की पैराग्राफ कलेक्शन में जोड़ें।
-6. प्रत्येक नए `Paragraph` (डिफ़ॉल्ट Paragraph के लिए दो Portion) के लिए तीन [Portion](https://reference.aspose.com/slides/hi/php-java/aspose.slides/portion/) ऑब्जेक्ट बनाएं और प्रत्येक `Portion` को संबंधित `Paragraph` की पोर्शन कलेक्शन में जोड़ें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. स्लाइड के इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
+4. [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) से जुड़ा ITextFrame प्राप्त करें।
+5. दो [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) ऑब्जेक्ट बनाएं और उन्हें [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) की पैराग्राफ़ कलेक्शन में जोड़ें।
+6. प्रत्येक नए `Paragraph` के लिए तीन [Portion](https://reference.aspose.com/slides/hi/php-java/aspose.slides/portion/) ऑब्जेक्ट बनाएं (डिफ़ॉल्ट Paragraph के लिए दो Portion ऑब्जेक्ट) और प्रत्येक `Portion` ऑब्जेक्ट को संबंधित `Paragraph` की पोर्शन कलेक्शन में जोड़ें।
 7. प्रत्येक पोर्शन के लिए कुछ टेक्स्ट सेट करें।
-8. `Portion` ऑब्जेक्ट द्वारा प्रदान की गई फॉर्मेटिंग प्रॉपर्टीज़ का उपयोग करके प्रत्येक पोर्शन पर वांछित फॉर्मेटिंग लागू करें।
-9. संशोधित प्रस्तुति को सहेजें।
-
-यह PHP कोड पैराग्राफ़ों में पोर्शन जोड़ने के चरणों को लागू करता है:
+8. `Portion` ऑब्जेक्ट द्वारा प्रदान किए गए फॉर्मेटिंग गुणों का उपयोग करके प्रत्येक पोर्शन पर अपनी पसंदीदा फॉर्मेटिंग लागू करें।
+9. संशोधित प्रेजेंटेशन को सहेजें।
 
 ```php
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाएं
+# एक Presentation क्लास का इंस्टेंस बनाएं जो PPTX फ़ाइल का प्रतिनिधित्व करता है
 $pres = new Presentation();
 try {
-    # पहली स्लाइड तक पहुंचें
+    # पहली स्लाइड तक पहुँच रहे हैं
     $slide = $pres->getSlides()->get_Item(0);
     # Rectangle प्रकार का AutoShape जोड़ें
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # AutoShape का TextFrame प्राप्त करें
+    # AutoShape का TextFrame एक्सेस करें
     $tf = $ashp->getTextFrame();
-    # विभिन्न टेक्स्ट फ़ॉर्मेट वाले Paragraphs और Portions बनाएँ
+    # विभिन्न टेक्स्ट फ़ॉर्मेट वाले पैराग्राफ़ और पोर्शन बनाएं
     $para0 = $tf->getParagraphs()->get_Item(0);
     $port01 = new Portion();
     $port02 = new Portion();
@@ -113,75 +113,73 @@ try {
 }
 ```
 
-## **पैराग्राफ बुलेट्स का प्रबंधन**
+## **पैराग्राफ बुलेट्स को प्रबंधित करें**
 
-बुलेट सूची आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित करने और प्रस्तुत करने में मदद करती है। बुलेटेड पैराग्राफ़ पढ़ने और समझने में हमेशा आसान होते हैं।
+बुलेट सूची आपको जानकारी को शीघ्र और कुशलता से व्यवस्थित व प्रस्तुत करने में मदद करती है। बुलेटेड पैराग्राफ़ हमेशा पढ़ने और समझने में आसान होते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. स्लाइड के इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
 3. चयनित स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. ऑटोषेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को एक्सेस करें।
-5. `TextFrame` में मौजूद डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएं।
-7. पैराग्राफ के लिए बुलेट `Type` को `Symbol` सेट करें और बुलेट कैरेक्टर निर्धारित करें।
-8. पैराग्राफ का `Text` सेट करें।
-9. बुलेट के लिए पैराग्राफ `Indent` सेट करें।
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) तक पहुँचें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ़ उदाहरण बनाएँ।
+7. पैराग्राफ़ के लिए बुलेट `Type` को `Symbol` सेट करें और बुलेट कैरेक्टर निर्धारित करें।
+8. पैराग्राफ़ का `Text` सेट करें।
+9. बुलेट के लिए पैराग्राफ़ `Indent` सेट करें।
 10. बुलेट के लिए एक रंग सेट करें।
 11. बुलेट की ऊँचाई सेट करें।
-12. नए पैराग्राफ को `TextFrame` की पैराग्राफ कलेक्शन में जोड़ें।
-13. दूसरा पैराग्राफ जोड़ें और चरण 7 से 13 दोहराएँ।
-14. प्रस्तुति को सहेजें।
-
-यह PHP कोड दिखाता है कि बुलेट पैराग्राफ़ कैसे जोड़ा जाता है:
+12. नए पैराग्राफ़ को `TextFrame` पैराग्राफ़ कलेक्शन में जोड़ें।
+13. दूसरा पैराग्राफ़ जोड़ें और चरण 7‑13 में दिए गए प्रक्रिया को दोहराएँ।
+14. प्रेजेंटेशन को सहेजें।
 
 ```php
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करता है
+# एक Presentation क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
 $pres = new Presentation();
 try {
-    # पहली स्लाइड तक पहुंचता है
+    # पहली स्लाइड तक पहुँचता है
     $slide = $pres->getSlides()->get_Item(0);
     # AutoShape जोड़ता और एक्सेस करता है
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # AutoShape के टेक्स्ट फ्रेम को एक्सेस करता है
+    # autoshape का टेक्स्ट फ़्रेम एक्सेस करता है
     $txtFrm = $aShp->getTextFrame();
-    # डिफ़ॉल्ट पैराग्राफ को हटाता है
+    # डिफ़ॉल्ट पैराग्राफ़ को हटाता है
     $txtFrm->getParagraphs()->removeAt(0);
-    # एक पैराग्राफ बनाता है
+    # एक पैराग्राफ़ बनाता है
     $para = new Paragraph();
-    # पैराग्राफ बुलेट शैली और प्रतीक सेट करता है
+    # पैराग्राफ़ बुलेट शैली और प्रतीक सेट करता है
     $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para->getParagraphFormat()->getBullet()->setChar(8226);
-    # पैराग्राफ टेक्स्ट सेट करता है
+    # पैराग्राफ़ का टेक्स्ट सेट करता है
     $para->setText("Welcome to Aspose.Slides");
     # बुलेट इंडेंट सेट करता है
     $para->getParagraphFormat()->setIndent(25);
     # बुलेट रंग सेट करता है
     $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// IsBulletHardColor को true सेट करें ताकि अपना बुलेट रंग उपयोग किया जा सके
+    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// IsBulletHardColor को true सेट करें ताकि अपनी बुलेट रंग उपयोग हो
 
-    # बुलेट ऊँचाई सेट करता है
+    # बुलेट की ऊँचाई सेट करता है
     $para->getParagraphFormat()->getBullet()->setHeight(100);
-    # पैराग्राफ को टेक्स्ट फ्रेम में जोड़ता है
+    # पैराग्राफ़ को टेक्स्ट फ़्रेम में जोड़ता है
     $txtFrm->getParagraphs()->add($para);
-    # दूसरा पैराग्राफ बनाता है
+    # दूसरा पैराग्राफ़ बनाता है
     $para2 = new Paragraph();
-    # पैराग्राफ बुलेट प्रकार और शैली सेट करता है
+    # पैराग्राफ़ बुलेट प्रकार और शैली सेट करता है
     $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
-    # पैराग्राफ टेक्स्ट जोड़ता है
+    # पैराग्राफ़ टेक्स्ट जोड़ता है
     $para2->setText("This is numbered bullet");
     # बुलेट इंडेंट सेट करता है
     $para2->getParagraphFormat()->setIndent(25);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// IsBulletHardColor को true सेट करें ताकि अपना बुलेट रंग उपयोग किया जा सके
+    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// IsBulletHardColor को true सेट करें ताकि अपनी बुलेट रंग उपयोग हो
 
-    # बुलेट ऊँचाई सेट करता है
+    # बुलेट की ऊँचाई सेट करता है
     $para2->getParagraphFormat()->getBullet()->setHeight(100);
-    # पैराग्राफ को टेक्स्ट फ्रेम में जोड़ता है
+    # पैराग्राफ़ को टेक्स्ट फ़्रेम में जोड़ता है
     $txtFrm->getParagraphs()->add($para2);
-    # संशोधित प्रस्तुति को सहेजता है
+    # संशोधित प्रेजेंटेशन को सहेजता है
     $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -190,35 +188,33 @@ try {
 }
 ```
 
-## **चित्र बुलेट्स का प्रबंधन**
+## **चित्र बुलेट्स को प्रबंधित करें**
 
-बुलेट सूची आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित करने और प्रस्तुत करने में मदद करती है। चित्र पैराग्राफ़ पढ़ने और समझने में आसान होते हैं।
+बुलेट सूची आपको जानकारी को शीघ्र और कुशलता से व्यवस्थित व प्रस्तुत करने में मदद करती है। चित्र पैराग्राफ़ पढ़ने और समझने में आसान होते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. स्लाइड के इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
 3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. ऑटोषेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को एक्सेस करें।
-5. `TextFrame` में मौजूद डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएं।
-7. [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) में इमेज लोड करें।
-8. बुलेट प्रकार को [Picture](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bullettype/#Picture) सेट करें और इमेज निर्दिष्ट करें।
-9. पैराग्राफ `Text` सेट करें।
-10. बुलेट के लिए पैराग्राफ `Indent` सेट करें।
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) तक पहुँचें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ़ उदाहरण बनाएँ।
+7. [PPImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ppimage/) में छवि लोड करें।
+8. बुलेट प्रकार को [Picture](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bullettype/#Picture) पर सेट करें और छवि निर्धारित करें।
+9. पैराग्राफ़ `Text` सेट करें।
+10. बुलेट के लिए पैराग्राफ़ `Indent` सेट करें।
 11. बुलेट के लिए एक रंग सेट करें।
 12. बुलेट की ऊँचाई सेट करें।
-13. नए पैराग्राफ को `TextFrame` की पैराग्राफ कलेक्शन में जोड़ें।
-14. दूसरा पैराग्राफ जोड़ें और पिछले चरणों के आधार पर प्रक्रिया दोहराएँ।
-15. संशोधित प्रस्तुति को सहेजें।
-
-यह PHP कोड दिखाता है कि चित्र बुलेट कैसे जोड़ें और प्रबंधित करें:
+13. नए पैराग्राफ़ को `TextFrame` पैराग्राफ़ कलेक्शन में जोड़ें।
+14. दूसरा पैराग्राफ़ जोड़ें और पिछली चरणों के आधार पर प्रक्रिया दोहराएँ।
+15. संशोधित प्रेजेंटेशन को सहेजें।
 
 ```php
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करता है
+# एक Presentation क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
 $presentation = new Presentation();
 try {
-    # पहली स्लाइड तक पहुंचता है
+    # पहली स्लाइड तक पहुँचता है
     $slide = $presentation->getSlides()->get_Item(0);
-    # बुलेट्स के लिए इमेज को इंस्टैंसिएट करता है
+    # बुलेट्स के लिए इमेज का इंस्टेंस बनाता है
     $picture;
     $image = Images->fromFile("bullets.png");
     try {
@@ -230,23 +226,23 @@ try {
     }
     # AutoShape जोड़ता और एक्सेस करता है
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # AutoShape के टेक्स्टफ़्रेम को एक्सेस करता है
+    # AutoShape के टेक्स्टफ़्रेम तक पहुँचता है
     $textFrame = $autoShape->getTextFrame();
-    # डिफ़ॉल्ट पैराग्राफ को हटाता है
+    # डिफ़ॉल्ट पैराग्राफ़ को हटाता है
     $textFrame->getParagraphs()->removeAt(0);
-    # नया पैराग्राफ बनाता है
+    # एक नया पैराग्राफ़ बनाता है
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
-    # पैराग्राफ बुलेट शैली और इमेज सेट करता है
+    # पैराग्राफ़ बुलेट शैली और इमेज सेट करता है
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
     $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # बुलेट ऊँचाई सेट करता है
+    # बुलेट की ऊँचाई सेट करता है
     $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
-    # पैराग्राफ को टेक्स्टफ़्रेम में जोड़ता है
+    # पैराग्राफ़ को टेक्स्ट फ़्रेम में जोड़ता है
     $textFrame->getParagraphs()->add($paragraph);
-    # प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखता है
+    # प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजता है
     $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-    # प्रेजेंटेशन को PPT फ़ाइल के रूप में लिखता है
+    # प्रेजेंटेशन को PPT फ़ाइल के रूप में सहेजता है
     $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
 } catch (JavaException $e) {
 } finally {
@@ -256,37 +252,35 @@ try {
 }
 ```
 
-## **बहु-स्तरीय बुलेट्स का प्रबंधन**
+## **बहुस्तरीय बुलेट्स को प्रबंधित करें**
 
-बुलेट सूची आपको जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित करने और प्रस्तुत करने में मदद करती है। बहु-स्तरीय बुलेट्स पढ़ने और समझने में आसान होते हैं।
+बुलेट सूची आपको जानकारी को शीघ्र और कुशलता से व्यवस्थित व प्रस्तुत करने में मदद करती है। बहुस्तरीय बुलेट्स पढ़ने और समझने में आसान होते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. स्लाइड के इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
 3. नई स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. ऑटोषेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को एक्सेस करें।
-5. `TextFrame` में मौजूद डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाकर उसकी गहराई 0 सेट करें।
-7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ बनाकर गहराई 1 सेट करें।
-8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ बनाकर गहराई 2 सेट करें।
-9. `Paragraph` क्लास के माध्यम से चौथा पैराग्राफ बनाकर गहराई 3 सेट करें।
-10. नए पैराग्राफ को `TextFrame` की पैराग्राफ कलेक्शन में जोड़ें।
-11. संशोधित प्रस्तुति को सहेजें।
-
-यह PHP कोड दिखाता है कि बहु-स्तरीय बुलेट कैसे जोड़ें और प्रबंधित करें:
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) तक पहुँचें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ़ बनाएं और गहराई को 0 पर सेट करें।
+7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ़ बनाएं और गहराई को 1 पर सेट करें।
+8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ़ बनाएं और गहराई को 2 पर सेट करें।
+9. `Paragraph` क्लास के माध्यम से चौथा पैराग्राफ़ बनाएं और गहराई को 3 पर सेट करें।
+10. नए पैराग्राफ़ को `TextFrame` पैराग्राफ़ कलेक्शन में जोड़ें।
+11. संशोधित प्रेजेंटेशन को सहेजें।
 
 ```php
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करता है
+# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
 $pres = new Presentation();
 try {
-    # पहली स्लाइड तक पहुंचता है
+    # पहली स्लाइड तक पहुँचता है
     $slide = $pres->getSlides()->get_Item(0);
     # AutoShape जोड़ता और एक्सेस करता है
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # बनाए गए AutoShape के टेक्स्ट फ्रेम को एक्सेस करता है
+    # बनाए गए AutoShape के टेक्स्ट फ़्रेम तक पहुँचता है
     $text = $aShp->addTextFrame("");
-    # डिफ़ॉल्ट पैराग्राफ को साफ़ करता है
+    # डिफ़ॉल्ट पैराग्राफ़ को साफ़ करता है
     $text->getParagraphs()->clear();
-    # पहला पैराग्राफ जोड़ता है
+    # पहला पैराग्राफ़ जोड़ता है
     $para1 = new Paragraph();
     $para1->setText("Content");
     $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
@@ -295,7 +289,7 @@ try {
     $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     # बुलेट स्तर सेट करता है
     $para1->getParagraphFormat()->setDepth(0);
-    # दूसरा पैराग्राफ जोड़ता है
+    # दूसरा पैराग्राफ़ जोड़ता है
     $para2 = new Paragraph();
     $para2->setText("Second Level");
     $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
@@ -304,7 +298,7 @@ try {
     $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     # बुलेट स्तर सेट करता है
     $para2->getParagraphFormat()->setDepth(1);
-    # तीसरा पैराग्राफ जोड़ता है
+    # तीसरा पैराग्राफ़ जोड़ता है
     $para3 = new Paragraph();
     $para3->setText("Third Level");
     $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
@@ -313,21 +307,21 @@ try {
     $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     # बुलेट स्तर सेट करता है
     $para3->getParagraphFormat()->setDepth(2);
-    # चौथा पैराग्राफ जोड़ता है
+    # चौथा पैराग्राफ़ जोड़ता है
     $para4 = new Paragraph();
     $para4->setText("Fourth Level");
     $para4->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para4->getParagraphFormat()->getBullet()->setChar('-);
+    $para4->getParagraphFormat()->getBullet()->setChar('-');
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     # बुलेट स्तर सेट करता है
     $para4->getParagraphFormat()->setDepth(3);
-    # पैराग्राफ को कलेक्शन में जोड़ता है
+    # पैराग्राफ़ को कलेक्शन में जोड़ता है
     $text->getParagraphs()->add($para1);
     $text->getParagraphs()->add($para2);
     $text->getParagraphs()->add($para3);
     $text->getParagraphs()->add($para4);
-    # प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखता है
+    # प्रस्तुतिकरण को PPTX फ़ाइल के रूप में लिखता है
     $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -336,30 +330,28 @@ try {
 }
 ```
 
-## **कस्टम क्रमांकित सूची के साथ पैराग्राफ प्रबंधित करें**
+## **कस्टम क्रमांकित सूची के साथ पैराग्राफ को प्रबंधित करें**
 
-[BulletFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bulletformat/) क्लास [setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) जैसे मेथड प्रदान करती है जो आपको कस्टम नंबरिंग या फॉर्मेटिंग के साथ पैराग्राफ प्रबंधित करने की सुविधा देता है।
+[BulletFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bulletformat/) क्लास [setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) जैसे मेथड प्रदान करता है जो आपको कस्टम नंबरिंग या फॉर्मेटिंग के साथ पैराग्राफ को प्रबंधित करने की अनुमति देता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. पैराग्राफ वाला स्लाइड एक्सेस करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. पैराग्राफ़ वाले स्लाइड तक पहुँचें।
 3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. ऑटोषेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को एक्सेस करें।
-5. `TextFrame` में मौजूद डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ बनाकर [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) को 2 सेट करें।
-7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ बनाकर `NumberedBulletStartWith` को 3 सेट करें।
-8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ बनाकर `NumberedBulletStartWith` को 7 सेट करें।
-9. नए पैराग्राफ को `TextFrame` की पैराग्राफ कलेक्शन में जोड़ें।
-10. संशोधित प्रस्तुति को सहेजें।
-
-यह PHP कोड दिखाता है कि कस्टम नंबरिंग या फॉर्मेटिंग के साथ पैराग्राफ कैसे जोड़ें और प्रबंधित करें:
+4. ऑटोशेप के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) तक पहुँचें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ़ बनाएं और [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) को 2 पर सेट करें।
+7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ़ बनाएं और `NumberedBulletStartWith` को 3 पर सेट करें।
+8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ़ बनाएं और `NumberedBulletStartWith` को 7 पर सेट करें।
+9. नए पैराग्राफ़ को `TextFrame` पैराग्राफ़ कलेक्शन में जोड़ें।
+10. संशोधित प्रेजेंटेशन को सहेजें।
 
 ```php
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # बनाए गए ऑटोषेप के टेक्स्ट फ्रेम को एक्सेस करता है
+    # बनाए गए autoshape के टेक्स्ट फ्रेम तक पहुँचता है
     $textFrame = $shape->getTextFrame();
-    # डिफ़ॉल्ट मौजूद पैराग्राफ को हटाता है
+    # डिफ़ॉल्ट मौजूदा पैराग्राफ़ को हटाता है
     $textFrame->getParagraphs()->removeAt(0);
     # पहली सूची
     $paragraph1 = new Paragraph();
@@ -388,23 +380,21 @@ try {
 }
 ```
 
-## **पैराग्राफ के प्रथम‑पंक्ति इंडेंट सेट करें**
+## **पैराग्राफ के प्रथम-पंक्ति इंडेंट को सेट करें**
 
-[ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) मेथड का उपयोग करके आप पैराग्राफ की प्रथम‑पंक्ति इंडेंट नियंत्रित कर सकते हैं। यह मेथड केवल पैराग्राफ की बाईं मार्जिन के सापेक्ष पहली पंक्ति को ही स्थानांतरित करता है। सकारात्मक मान पहली पंक्ति को दाएँ शिफ्ट करता है, जबकि बाकी पंक्तियाँ पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
+[ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) मेथड का उपयोग करके आप पैराग्राफ़ की प्रथम‑पंक्ति इंडेंट नियंत्रित कर सकते हैं। यह मेथड केवल प्रथम पंक्ति को पैराग्राफ़ के बाएँ मार्जिन के सापेक्ष स्थानांतरित करता है। सकारात्मक मान प्रथम पंक्ति को दाएँ शिफ्ट करता है, जबकि शेष पंक्तियाँ पैराग्राफ़ बॉडी के साथ संरेखित रहती हैं।
 
-पूरे पैराग्राफ को स्थानांतरित करने के लिए आप [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setmarginleft/) का उपयोग करें। केवल पहली पंक्ति को स्थानांतरित करने के लिए [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) का उपयोग करें।
+यदि आपको पूरी पैराग्राफ़ को स्थानांतरित करना है तो [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setmarginleft/) उपयोग करें। यदि केवल प्रथम‑पंक्ति को स्थानांतरित करना है तो [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) उपयोग करें।
 
-नीचे दिया गया उदाहरण कई पैराग्राफ बनाता है और विभिन्न इंडेंट मान लागू करता है ताकि दिखाया जा सके कि प्रथम‑पंक्ति इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
+नीचे दिया गया उदाहरण कई पैराग्राफ़ बनाता है और विभिन्न इंडेंट मान लागू करता है ताकि दिखाया जा सके कि प्रथम‑पंक्ति इंडेंट पैराग्राफ़ लेआउट को कैसे प्रभावित करता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. लक्ष्य स्लाइड एक्सेस करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. लक्ष्य स्लाइड तक पहुँचें।
 3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. आकार में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. कई पैराग्राफ बनाकर उनके लिए विभिन्न [Indent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) मान सेट करें।
-6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-7. संशोधित प्रस्तुति को सहेजें।
-
-यह कोड दिखाता है कि पैराग्राफ इंडेंट कैसे सेट करें:
+4. आकार में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ़ को हटाएँ।
+5. कई पैराग्राफ़ बनाएं और उनके लिए विभिन्न [Indent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) मान सेट करें।
+6. पैराग्राफ़ को टेक्स्ट फ़्रेम में जोड़ें।
+7. संशोधित प्रेजेंटेशन को सहेजें।
 
 ```php
 $presentation = new Presentation();
@@ -451,28 +441,24 @@ try {
 }
 ```
 
-परिणाम:
+![पैराग्राफ़ों का प्रथम‑पंक्ति इंडेंट](first_line_indent.png)
 
-![पैराग्राफों का प्रथम‑पंक्ति इंडेंट](first_line_indent.png)
+## **पैराग्राफ के हैंगिंग इंडेंट को सेट करें**
 
-## **पैराग्राफ के लिए हैंगिंग इंडेंट सेट करें**
+हैंगिंग इंडेंट वह पैराग्राफ़ लेआउट है जिसमें पहली पंक्ति बाकी पंक्तियों से बाईं ओर शुरू होती है। Aspose.Slides में, आप इस प्रभाव को [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) मेथड से बना सकते हैं। पहली पंक्ति को बाएँ ले जाने के लिए इंडेंट को नकारात्मक मान पर सेट करें।
 
-हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति शेष पंक्तियों के बाईं ओर शुरू होती है। Aspose.Slides में आप यह प्रभाव [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) मेथड से बना सकते हैं। इंडेंट को नकारात्मक मान पर सेट करने से पहली पंक्ति पैराग्राफ बॉडी के सापेक्ष बाएँ शिफ़्ट हो जाती है।
+वास्तव में, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setmarginleft/) पैराग्राफ़ बॉडी की बायीं स्थिति को परिभाषित करता है, और [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) पहली पंक्ति की स्थिति को उस मार्जिन के सापेक्ष परिभाषित करता है। हैंगिंग इंडेंट बनाने के लिए, `MarginLeft` को सकारात्मक मान और `Indent` को नकारात्मक मान सेट करें।
 
-व्यावहारिक रूप से, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setmarginleft/) पैराग्राफ बॉडी की बाएँ स्थिति निर्धारित करता है, और [ParagraphFormat::setIndent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) उस मार्जिन के सापेक्ष पहली पंक्ति की स्थिति निर्धारित करता है। हैंगिंग इंडेंट बनाने के लिए, एक सकारात्मक `MarginLeft` मान और नकारात्मक `Indent` मान सेट करें।
+यह फॉर्मेटिंग ग्रंथसूची, संदर्भ, शब्दकोश प्रविष्टियों और अन्य पैराग्राफ़ के लिए उपयोगी है जहाँ रैप्ड पंक्तियों को पैराग्राफ़ बॉडी के नीचे संरेखित होना चाहिए न कि पहली पंक्ति के पहले अक्षर के नीचे।
 
-यह फॉर्मेटिंग बिब्लियोग्राफी, रेफ़रेंसेस, शब्दकोश प्रविष्टियों आदि में उपयोगी है जहाँ रैप्ड लाइनों को पैराग्राफ बॉडी के नीचे संरेखित होना चाहिए, न कि पहली पंक्ति के पहले अक्षर के नीचे।
-
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. लक्ष्य स्लाइड एक्सेस करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. लक्ष्य स्लाइड तक पहुँचें।
 3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. आकार में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ हटाएँ।
-5. प्रत्येक पैराग्राफ के लिए एक सकारात्मक [MarginLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setmarginleft/) मान सेट करें।
+4. आकार में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ़ को हटाएँ।
+5. प्रत्येक पैराग्राफ़ के लिए एक सकारात्मक [MarginLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setmarginleft/) मान सेट करें।
 6. हैंगिंग इंडेंट प्रभाव बनाने के लिए एक नकारात्मक [Indent](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setindent/) मान सेट करें।
-7. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-8. संशोधित प्रस्तुति को सहेजें।
-
-यह कोड दिखाता है कि पैराग्राफ के लिए हैंगिंग इंडेंट कैसे सेट करें:
+7. पैराग्राफ़ को टेक्स्ट फ़्रेम में जोड़ें।
+8. संशोधित प्रेजेंटेशन को सहेजें।
 
 ```php
 $presentation = new Presentation();
@@ -511,21 +497,17 @@ try {
 }
 ```
 
-परिणाम:
+![पैराग्राफ़ों का हैंगिंग इंडेंट](hanging_indent.png)
 
-![पैराग्राफों का हैंगिंग इंडेंट](hanging_indent.png)
+## **एंड पैराग्राफ रन गुणों को प्रबंधित करें**
 
-## **पैराग्राफ अंत रन गुणों का प्रबंधन**
-
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. पैराग्राफ वाले स्लाइड का रेफ़रेंस उसकी स्थिति द्वारा प्राप्त करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+1. स्थिति के माध्यम से पैराग्राफ़ वाले स्लाइड का रेफ़रेंस प्राप्त करें।
 1. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-1. आयत में दो पैराग्राफ वाले एक [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को जोड़ें।
-1. पैराग्राफों के लिए फ़ॉन्ट ऊँचाई और फ़ॉन्ट प्रकार सेट करें।
-1. पैराग्राफों के End प्रॉपर्टीज़ सेट करें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह PHP कोड दिखाता है कि PowerPoint में पैराग्राफ के End प्रॉपर्टीज़ कैसे सेट करें:
+1. आयत में दो पैराग्राफ़ के साथ एक [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) जोड़ें।
+1. पैराग्राफ़ के लिए फ़ॉन्ट हाईट और फ़ॉन्ट प्रकार सेट करें।
+1. पैराग्राफ़ के एंड गुण सेट करें।
+1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
 
 ```php
 $pres = new Presentation();
@@ -549,40 +531,38 @@ try {
 }
 ```
 
-## **HTML टेक्स्ट को पैराग्राफ में आयात करें**
+## **पैराग्राफ में HTML टेक्स्ट आयात करें**
 
-Aspose.Slides HTML टेक्स्ट को पैराग्राफ में आयात करने के लिए उन्नत समर्थन प्रदान करता है।
+Aspose.Slides पैराग्राफ़ में HTML टेक्स्ट आयात करने के लिए उन्नत समर्थन प्रदान करता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. स्लाइड के इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
 3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) जोड़ें।
-4. `AutoShape` के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को जोड़ें और एक्सेस करें।
-5. `TextFrame` में मौजूद डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. एक TextReader में सोर्स HTML फ़ाइल पढ़ें।
-7. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाएं।
-8. पढ़े गए TextReader की HTML फ़ाइल सामग्री को TextFrame की [ParagraphCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphcollection/) में जोड़ें।
-9. संशोधित प्रस्तुति को सहेजें।
-
-यह PHP कोड पैराग्राफ में HTML टेक्स्ट आयात करने के चरणों को लागू करता है:
+4. `AutoShape` के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) तक पहुँचें और जोड़ें।
+5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ़ को हटाएँ।
+6. टेक्स्टरीडर में स्रोत HTML फ़ाइल पढ़ें।
+7. [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ़ बनाएं।
+8. पढ़े हुए TextReader की सामग्री को TextFrame की [ParagraphCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphcollection/) में जोड़ें।
+9. संशोधित प्रेजेंटेशन को सहेजें।
 
 ```php
-# खाली प्रस्तुति इंस्टेंस बनाएं
+# खाली प्रस्तुति इंस्टेंस बनाएँ
 $pres = new Presentation();
 try {
-    # प्रस्तुति की डिफ़ॉल्ट पहली स्लाइड तक पहुंचें
+    # प्रस्तुति की डिफ़ॉल्ट पहली स्लाइड तक पहुँचें
     $slide = $pres->getSlides()->get_Item(0);
     # HTML सामग्री को समायोजित करने के लिए AutoShape जोड़ें
     $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
     $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # shape में टेक्स्ट फ्रेम जोड़ें
+    # आकार में टेक्स्ट फ़्रेम जोड़ें
     $ashape->addTextFrame("");
-    # जोड़े गए टेक्स्ट फ्रेम में सभी पैराग्राफ साफ़ करें
+    # जोड़े गए टेक्स्ट फ़्रेम में सभी पैराग्राफ़ साफ़ करें
     $ashape->getTextFrame()->getParagraphs()->clear();
     # स्ट्रीम रीडर का उपयोग करके HTML फ़ाइल लोड करें
     $tr = new StreamReader("file.html");
-    # टेक्स्ट फ्रेम में HTML स्ट्रीम रीडर से टेक्स्ट जोड़ें
+    # टेक्स्ट फ़्रेम में HTML स्ट्रीम रीडर से टेक्स्ट जोड़ें
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
-    # प्रस्तुति सहेजें
+    # प्रस्तुति को सहेजें
     $pres->save("output_out.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -593,32 +573,30 @@ try {
 
 ## **पैराग्राफ टेक्स्ट को HTML में निर्यात करें**
 
-Aspose.Slides पैराग्राफ में मौजूद टेक्स्ट को HTML में निर्यात करने के लिए उन्नत समर्थन प्रदान करता है।
+Aspose.Slides पैराग्राफ़ में मौजूद टेक्स्ट को HTML में निर्यात करने के लिए उन्नत समर्थन प्रदान करता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाकर इच्छित प्रस्तुति लोड करें।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. HTML में निर्यात किए जाने वाले टेक्स्ट वाले आकार को एक्सेस करें।
-4. आकार के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को एक्सेस करें।
-5. `StreamWriter` का एक इंस्टेंस बनाकर नया HTML फ़ाइल जोड़ें।
-6. `StreamWriter` को एक प्रारंभिक इंडेक्स प्रदान करें और वांछित पैराग्राफ निर्यात करें।
-
-यह PHP कोड दिखाता है कि PowerPoint पैराग्राफ टेक्स्ट को HTML में कैसे निर्यात करें:
+1. इच्छित प्रेजेंटेशन को लोड करके [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ।
+2. स्लाइड के इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+3. HTML में निर्यात की जाने वाली टेक्स्ट वाले आकार तक पहुँचें।
+4. आकार के [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) तक पहुँचें।
+5. `StreamWriter` का एक उदाहरण बनाएं और नई HTML फ़ाइल जोड़ें।
+6. StreamWriter को प्रारंभिक इंडेक्स प्रदान करें और अपनी पसंदीदा पैराग्राफ़ निर्यात करें।
 
 ```php
-# प्रेजेंटेशन फ़ाइल लोड करें
+# प्रस्तुति फ़ाइल लोड करें
 $pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    # प्रेजेंटेशन की डिफ़ॉल्ट पहली स्लाइड तक पहुंचें
+    # प्रस्तुति की डिफ़ॉल्ट पहली स्लाइड तक पहुँचें
     $slide = $pres->getSlides()->get_Item(0);
-    # वांछित इंडेक्स
+    # इच्छित इंडेक्स
     $index = 0;
-    # जोड़ी गई आकृति तक पहुंचें
+    # जोड़े गए आकार तक पहुँच रहे हैं
     $ashape = $slide->getShapes()->get_Item($index);
-    # आउटपुट HTML फाइल बनाना
+    # आउटपुट HTML फ़ाइल बना रहे हैं
     $os = new Java("java.io.FileOutputStream", "output.html");
     $writer = new OutputStreamWriter($os, "UTF-8");
-    # पहला पैराग्राफ HTML के रूप में निकालना
-    # पैराग्राफ की प्रारंभिक इंडेक्स और कॉपी करने के लिए कुल पैराग्राफ प्रदान करके डेटा को HTML में लिखना
+    # पहला पैराग्राफ़ HTML के रूप में निकाल रहे हैं
+    # पैराग्राफ़ डेटा को HTML में लिख रहे हैं, पैराग्राफ़ की शुरुआत इंडेक्स और कॉपी किए जाने वाले कुल पैराग्राफ़ प्रदान करके
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
     $writer->close();
 } catch (JavaException $e) {
@@ -629,17 +607,17 @@ try {
 }
 ```
 
-## **पैराग्राफ को छवि के रूप में सहेजें**
+## **एक पैराग्राफ को छवि के रूप में सहेजें**
 
-इस खंड में हम दो उदाहरणों की जांच करेंगे जो दर्शाते हैं कि कैसे [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास द्वारा दर्शाए गए टेक्स्ट पैराग्राफ को छवि के रूप में सहेजा जा सकता है। दोनों उदाहरणों में स्वरूप में `getImage` मेथड का उपयोग करके पैराग्राफ वाले आकार की छवि प्राप्त करना, आकार के भीतर पैराग्राफ की सीमाएँ गणना करना, और उसे बिटमैप छवि के रूप में निर्यात करना शामिल है। ये विधियाँ आपको PowerPoint प्रस्तुति से विशिष्ट टेक्स्ट हिस्सों को निकालने और उन्हें अलग-अलग छवियों के रूप में सहेजने की सुविधा देती हैं, जो विभिन्न परिदृश्यों में उपयोगी हो सकती हैं।
+इस भाग में, हम दो उदाहरणों का अन्वेषण करेंगे जो दर्शाते हैं कि कैसे [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) क्लास द्वारा प्रतिनिधित्व किए गए टेक्स्ट पैराग्राफ़ को छवि के रूप में सहेजा जा सकता है। दोनों उदाहरणों में आकार से छवि प्राप्त करने, पैराग्राफ़ के बाउंड्स की गणना करने और इसे बिटमैप छवि के रूप में निर्यात करने की प्रक्रिया शामिल है। इन तरीकों से आप PowerPoint प्रेजेंटेशन से विशिष्ट टेक्स्ट भाग निकालकर अलग-अलग छवियों के रूप में सहेज सकते हैं, जो विभिन्न परिदृश्यों में उपयोगी हो सकता है।
 
-मान लेते हैं कि हमारे पास sample.pptx नामक एक प्रस्तुति फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहला आकार एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ हैं।
+मान लेते हैं कि हमारे पास sample.pptx नामक एक प्रेजेंटेशन फ़ाइल है, जिसमें एक स्लाइड है और पहला आकार एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ़ हैं।
 
-![तीन पैराग्राफ वाले टेक्स्ट बॉक्स](paragraph_to_image_input.png)
+![तीन पैराग्राफ़ वाला टेक्स्ट बॉक्स](paragraph_to_image_input.png)
 
 **उदाहरण 1**
 
-इस उदाहरण में हम दूसरे पैराग्राफ को छवि के रूप में प्राप्त करते हैं। इसके लिये हम प्रस्तुति की पहली स्लाइड से आकार की छवि निकालते हैं और फिर आकार के टेक्स्ट फ्रेम में दूसरे पैराग्राफ की सीमाएँ गणना करते हैं। पैराग्राफ को नई बिटमैप छवि पर दोबारा ड्रॉ किया जाता है और PNG फॉर्मेट में सहेजा जाता है। यह विधि तब उपयोगी होती है जब आपको विशिष्ट पैराग्राफ को अलग छवि के रूप में सहेजना हो और टेक्स्ट के आयाम और फॉर्मेटिंग को बनाए रखना हो।
+इस उदाहरण में, हम दूसरे पैराग्राफ़ को छवि के रूप में प्राप्त करते हैं। इसके लिए हम पहले स्लाइड के आकार से छवि निकालते हैं और फिर आकार के टेक्स्ट फ़्रेम में दूसरे पैराग्राफ़ के बाउंड्स की गणना करते हैं। पैराग्राफ़ को फिर एक नई बिटमैप छवि पर पुनः ड्रॉ किया जाता है, जिसे PNG फ़ॉर्मेट में सहेजा जाता है। यह विधि तब उपयोगी होती है जब आपको विशिष्ट पैराग्राफ़ को अलग छवि के रूप में सहेजना हो और टेक्स्ट के आयाम व फ़ॉर्मेटिंग को बनाए रखना हो।
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -654,21 +632,21 @@ try {
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // मेमोरी से आकार का बिटमैप बनाएं।
+    // मेमोरी से एक आकार बिटमैप बनाएं।
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
-    // दूसरे पैराग्राफ की सीमाओं की गणना करें।
+    // दूसरे पैराग्राफ़ की सीमाओं की गणना करें।
     $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
     $paragraphRectangle = $secondParagraph->getRect();
 
-    // आउटपुट छवि के निर्देशांक और आकार की गणना करें (न्यूनतम आकार - 1x1 पिक्सेल)।
+    // आउटपुट चित्र के लिए समन्वय और आकार की गणना करें (न्यूनतम आकार - 1x1 पिक्सेल)।
     $imageX = floor(java_values($paragraphRectangle->getX()));
     $imageY = floor(java_values($paragraphRectangle->getY()));
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // आकार बिटमैप को क्रॉप करके केवल पैराग्राफ बिटमैप प्राप्त करें।
+    // केवल पैराग्राफ़ बिटमैप प्राप्त करने के लिए आकार बिटमैप को काटें।
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -681,11 +659,11 @@ try {
 
 परिणाम:
 
-![पैराग्राफ छवि](paragraph_to_image_output.png)
+![पैराग्राफ़ छवि](paragraph_to_image_output.png)
 
 **उदाहरण 2**
 
-इस उदाहरण में हम पिछली विधि का विस्तार करके पैराग्राफ छवि में स्केलिंग फ़ैक्टर जोड़ते हैं। आकार को प्रस्तुति से निकाला जाता है और `2` स्केलिंग फ़ैक्टर के साथ छवि के रूप में सहेजा जाता है। यह उच्च रेज़ॉल्यूशन आउटपुट प्रदान करता है। स्केल को ध्यान में रखते हुए पैराग्राफ की सीमाएँ फिर से गणना की जाती हैं। स्केलिंग उन स्थितियों में उपयोगी है जहाँ अधिक विस्तृत छवि आवश्यक होती है, जैसे उच्च‑गुणवत्ता वाले प्रिंट सामग्री में।
+इस उदाहरण में, हम पिछले दृष्टिकोण को स्केलिंग फ़ैक्टर जोड़कर विस्तारित करते हैं। आकार को प्रेजेंटेशन से निकालते हैं और `2` के स्केल फ़ैक्टर के साथ छवि के रूप में सहेजते हैं। इससे निर्यात किए गए पैराग्राफ़ की उच्च रिजॉल्यूशन प्राप्त होती है। फिर पैराग्राफ़ बाउंड्स को स्केल को ध्यान में रखकर गणना किया जाता है। स्केलिंग तब उपयोगी होती है जब अधिक विस्तृत छवि की आवश्यकता हो, जैसे उच्च-गुणवत्ता वाले मुद्रण सामग्री में उपयोग के लिए।
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -697,17 +675,17 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // आकार को स्केलिंग के साथ मेमोरी में बिटमैप के रूप में सहेजें।
+    // आकार को मेमोरी में स्केलिंग के साथ बिटमैप के रूप में सहेजें।
     $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // मेमोरी से आकार का बिटमैप बनाएं।
+    // मेमोरी से आकार बिटमैप बनाएं।
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
-    // दूसरे पैराग्राफ की सीमाओं की गणना करें।
+    // दूसरे पैराग्राफ़ की सीमाओं की गणना करें।
     $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
     $paragraphRectangle = $secondParagraph->getRect();
     $paragraphRectangle->setRect(
@@ -717,13 +695,13 @@ try {
             java_values($paragraphRectangle->getHeight()) * $imageScaleY
     );
 
-    // आउटपुट छवि के निर्देशांक और आकार की गणना करें (न्यूनतम आकार - 1x1 पिक्सेल)।
+    // आउटपुट छवि के लिए समन्वय और आकार की गणना करें (न्यूनतम आकार - 1x1 पिक्सेल)।
     $imageX = floor(java_values($paragraphRectangle->getX()));
     $imageY = floor(java_values($paragraphRectangle->getY()));
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // आकार बिटमैप को क्रॉप करके केवल पैराग्राफ बिटमैप प्राप्त करें।
+    // केवल पैराग्राफ़ बिटमैप प्राप्त करने के लिए आकार बिटमैप को काटें।
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -736,18 +714,18 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं टेक्स्ट फ्रेम के अंदर लाइन रैपिंग को पूरी तरह बंद कर सकता हूँ?**
+**क्या मैं टेक्स्ट फ़्रेम के भीतर लाइन रैपिंग को पूरी तरह बंद कर सकता हूँ?**
 
-हाँ। टेक्स्ट फ्रेम की रैपिंग सेटिंग ([setWrapText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframeformat/setwraptext/)) का उपयोग करके रैपिंग बंद कर सकते हैं जिससे लाइनों को फ्रेम की सीमा पर तोड़ना नहीं होगा।
+हाँ। टेक्स्ट फ़्रेम की रैपिंग सेटिंग ([setWrapText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframeformat/setwraptext/)) को बंद करके लाइन रैपिंग को निष्क्रिय कर सकते हैं ताकि लाइनों को फ़्रेम के किनारों पर नहीं तोड़ा जाए।
 
-**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक सीमाएँ कैसे प्राप्त करूँ?**
+**मैं किसी विशेष पैराग्राफ़ की स्लाइड पर सटीक बाउंड्स कैसे प्राप्त कर सकता हूँ?**
 
-आप पैराग्राफ (और यहां तक कि एकल पोर्शन) का बॉण्डिंग रेक्टैंगल प्राप्त कर सकते हैं जिससे स्लाइड पर उसकी सटीक स्थिति और आकार पता चलता है।
+आप पैराग्राफ़ (और यहाँ तक कि एकल पोर्शन) का बाउंडिंग रेक्टेंगल प्राप्त कर सकते हैं जिससे उसके सटीक स्थान और आकार का पता चलता है।
 
-**पैराग्राफ संरेखण (बायां/दायां/केंद्र/जस्टिफ़ाइ) कहाँ नियंत्रित होता है?**
+**पैराग्राफ़ एलाइनमेंट (बाएँ/दाएँ/केंद्र/जस्टिफ़ाई) कहाँ नियंत्रित होता है?**
 
-[Alignment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setalignment/) एक पैराग्राफ‑स्तर की सेटिंग है जो [ParagraphFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/) में होती है; यह पूरे पैराग्राफ पर लागू होती है चाहे व्यक्तिगत पोर्शन का फ़ॉर्मेट कुछ भी हो।
+[Alignment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/setalignment/) एक पैराग्राफ‑लेवल सेटिंग है जो [ParagraphFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraphformat/) में परिभाषित है; यह पूरे पैराग्राफ़ पर लागू होता है, चाहे व्यक्तिगत पोर्शन का फॉर्मेट कुछ भी हो।
 
-**क्या मैं सिर्फ पैराग्राफ के एक भाग (जैसे एक शब्द) के लिए स्पेल‑चेक भाषा सेट कर सकता हूँ?**
+**क्या मैं पैराग्राफ़ के केवल एक भाग (उदाहरण के लिए एक शब्द) के लिए स्पेल‑चेक भाषा सेट कर सकता हूँ?**
 
-हाँ। भाषा पोर्शन स्तर पर सेट की जाती है ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/hi/php-java/aspose.slides/baseportionformat/#setLanguageId)), इसलिए एक ही पैराग्राफ में कई भाषाएँ coexist कर सकती हैं।
+हाँ। भाषा पोर्शन स्तर पर सेट की जाती है ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/hi/php-java/aspose.slides/baseportionformat/#setLanguageId)), इसलिए एक ही पैराग्राफ़ में कई भाषाएँ साथ‑साथ मौजूद हो सकती हैं।

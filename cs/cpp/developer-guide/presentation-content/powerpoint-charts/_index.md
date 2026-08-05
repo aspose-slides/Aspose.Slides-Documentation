@@ -1,6 +1,6 @@
 ---
-title: Vytvořte a přizpůsobte grafy PowerPoint v С++
-linktitle: Grafy PowerPoint
+title: Vytváření a přizpůsobení grafů PowerPointu v C++
+linktitle: Grafy PowerPointu
 type: docs
 weight: 70
 url: /cs/cpp/powerpoint-charts/
@@ -19,7 +19,7 @@ keywords:
 - exportovat graf
 - PowerPoint
 - prezentace
-- С++
+- C++
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte grafy PowerPoint v С++ pomocí Aspose.Slides — pracujte s daty, styly a typy grafů v PPT a PPTX s jasnými ukázkovými kódy."
+description: "Vytvářejte a přizpůsobujte grafy PowerPointu v C++ pomocí Aspose.Slides—pracujte s daty, styly a typy grafů v PPT a PPTX pomocí srozumitelných ukázek kódu."
 ---

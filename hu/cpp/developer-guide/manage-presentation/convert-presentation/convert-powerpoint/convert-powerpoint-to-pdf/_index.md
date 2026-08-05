@@ -1,74 +1,74 @@
 ---
-title: PPT és PPTX konvertálása PDF-re C++-ban [Haladó funkciókkal]
-linktitle: PowerPoint PDF-re
+title: "PPT és PPTX konvertálása PDF-re C++-ban [Haladó funkciók beépítve]"
+linktitle: "PowerPoint PDF-re"
 type: docs
 weight: 40
 url: /hu/cpp/convert-powerpoint-to-pdf/
 keywords:
-- PowerPoint konvertálása
-- prezentáció konvertálása
-- PowerPoint PDF-re
-- prezentáció PDF-re
-- PPT PDF-re
-- PPT konvertálása PDF-re
-- PPTX PDF-re
-- PPTX konvertálása PDF-re
-- PowerPoint mentése PDF-ként
-- PPT mentése PDF-ként
-- PPTX mentése PDF-ként
-- PPT exportálása PDF-be
-- PPTX exportálása PDF-be
-- PDF/A1a
-- PDF/A1b
-- PDF/UA
-- C++
-- Aspose.Slides
-description: "PowerPoint PPT/PPTX konvertálása magas minőségű, kereshető PDF-fájlokká C++-ban az Aspose.Slides használatával, gyors kódpéldákkal és haladó konverziós beállításokkal."
+- "PowerPoint konvertálás"
+- "prezentáció konvertálása"
+- "PowerPoint PDF-re"
+- "prezentáció PDF-re"
+- "PPT PDF-re"
+- "PPT konvertálása PDF-re"
+- "PPTX PDF-re"
+- "PPTX konvertálása PDF-re"
+- "PowerPoint mentése PDF-ként"
+- "PPT mentése PDF-ként"
+- "PPTX mentése PDF-ként"
+- "PPT exportálása PDF-be"
+- "PPTX exportálása PDF-be"
+- "PDF/A1a"
+- "PDF/A1b"
+- "PDF/UA"
+- "C++"
+- "Aspose.Slides"
+description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, kereshető PDF-ekre C++-ban az Aspose.Slides használatával, gyors kódrészletekkel és haladó konverziós beállításokkal."
 ---
 ## **Áttekintés**
 
-A PowerPoint‑prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása C++‑ban több előnnyel jár, többek között a különböző eszközök közötti kompatibilitással és a prezentáció elrendezésének, formázásának megőrzésével. Ez az útmutató bemutatja, hogyan konvertálhatók a prezentációk PDF‑dokumentumokká, hogyan szabályozhatók a képminőség, hogyan lehet rejtett diákot belefoglalni, jelszóval védeni a PDF‑fájlokat, felismerni a betűkészlet‑helyettesítéseket, kiválasztani bizonyos diákot a konvertáláshoz, valamint hogyan alkalmazhatók megfelelőségi szabványok a kimeneti dokumentumokra.
+A PowerPoint‑prezentációk (PPT, PPTX, ODP stb.) PDF formátumba történő konvertálása C++‑ban több előnnyel jár, többek között kompatibilitással a különböző eszközök között, valamint a bemutató elrendezésének és formázásának megőrzésével. Ez az útmutató bemutatja, hogyan lehet a prezentációkat PDF‑dokumentumokká konvertálni, különböző beállításokkal szabályozni a képek minőségét, rejtett diákot belefoglalni, PDF‑fájlokat jelszóval védeni, betűkicseréket észlelni, meghatározott diákat kiválasztani a konvertáláshoz, és megfelelőségi szabványokat alkalmazni a kimeneti dokumentumokra.
 
-## **PowerPoint → PDF átalakítások**
+## **PowerPoint PDF konverziók**
 
-Az Aspose.Slides segítségével a következő formátumú prezentációkat konvertálhatja PDF‑be:
+Az Aspose.Slides használatával a következő formátumú prezentációkat konvertálhatja PDF‑re:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-A prezentáció PDF‑be konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF‑ként a `Save` metódussal. A [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztály biztosítja a `Save` metódust, amelyet általában prezentációk PDF‑be konvertálására használnak.
+A prezentáció PDF‑re konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF‑ként a `Save` metódus használatával. A [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztály biztosítja a `Save` metódust, amelyet általában a prezentáció PDF‑re konvertálásához használnak.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Az Aspose.Slides for C++ a kimeneti dokumentumokba beilleszti API‑információit és verziószámát. Például amikor egy prezentációt PDF‑be konvertál, az Aspose.Slides az Application mezőbe "*Aspose.Slides*"‑t, a PDF Producer mezőbe pedig "*Aspose.Slides v XX.XX*" formátumú értéket helyez. **Megjegyzés:** az Aspose.Slides nem módosítható vagy távolítható el ez az információ a kimeneti dokumentumokból.
+Az Aspose.Slides for C++ beilleszti API információit és verziószámát a kimeneti dokumentumokba. Például egy prezentáció PDF‑re konvertálásakor az Aspose.Slides a Application mezőt a „*Aspose.Slides*” értékkel, a PDF Producer mezőt pedig „*Aspose.Slides v XX.XX*” formában tölti ki. **Megjegyzés**, hogy nem adhatja meg az Aspose.Slidesnek, hogy módosítsa vagy eltávolítsa ezeket az információkat a kimeneti dokumentumokból.
 
 {{% /alert %}}
 
-Az Aspose.Slides lehetővé teszi a következőket:
+Az Aspose.Slides lehetővé teszi a következők konvertálását:
 
-* teljes prezentációk PDF‑be konvertálása
-* adott diák PDF‑be konvertálása
+* Teljes prezentációk PDF‑re
+* Kijelölt diák egy prezentációból PDF‑re
 
-Az Aspose.Slides a prezentációkat PDF‑be exportálja, biztosítva, hogy a létrehozott PDF‑ek szorosan egyezzenek az eredeti prezentációkkal. A konverzió során a következő elemek és attribútumok pontosan megjelennek:
+Az Aspose.Slides a prezentációkat PDF‑be exportálja, biztosítva, hogy a létrejövő PDF‑ek szorosan megegyezzenek az eredeti prezentációkkal. Az elemek és attribútumok pontosan kerülnek renderelésre a konverzió során, többek között:
 
-* képek
-* szövegdobozok és alakzatok
-* szövegformázás
-* bekezdésformázás
-* hiperhivatkozások
-* fejléc és lábléc
-* felsorolások
-* táblázatok
+* Képek
+* Szövegdobozok és alakzatok
+* Szövegformázás
+* Bekezdésformázás
+* Hiperhivatkozások
+* Fejléc és lábléc
+* Feltűtések
+* Táblázatok
 
 ## **PowerPoint PDF‑re konvertálása**
 
-Az alapértelmezett PowerPoint‑PDF konverziós folyamat az alapbeállításokat használja. Ebben az esetben az Aspose.Slides a megadott prezentációt a legmagasabb minőségi szinteken, optimális beállításokkal konvertálja PDF‑be.
+Az alapértelmezett PowerPoint‑PDF konverziós folyamat az alapértelmezett beállításokat használja. Ebben az esetben az Aspose.Slides a lehető legjobb beállításokkal és a legmagasabb minőségi szintekkel próbálja a megadott prezentációt PDF‑re konvertálni.
 
-Ez a C++ kód megmutatja, hogyan konvertálhat egy prezentációt (PPT, PPTX, ODP stb.) PDF‑be:
+Ez a C++ kód megmutatja, hogyan konvertálhat egy prezentációt (PPT, PPTX, ODP stb.) PDF‑re:
 
 ```c++
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.ppt");
 
 // Mentse a prezentációt PDF-ként.
@@ -79,99 +79,99 @@ presentation->Dispose();
 
 {{%  alert  color="primary"  %}} 
 
-Az Aspose egy ingyenes online [**PowerPoint to PDF converter**](https://products.aspose.app/slides/hu/conversion/ppt-to-pdf) szolgáltatást kínál, amely bemutatja a prezentáció‑PDF konverziós folyamatot. Ezzel a konverterrel élőben tesztelheti a leírt eljárást.
+Az Aspose ingyenes online **PowerPoint PDF konvertert** kínál, amely bemutatja a prezentáció PDF‑re konvertálási folyamatát. A konverterrel tesztet végezhet, hogy élőben lássa a leírt eljárást.
 
 {{% /alert %}}
 
-## **PowerPoint PDF‑re konvertálása beállításokkal**
+## **PowerPoint PDF‑re konvertálás beállításokkal**
 
-Az Aspose.Slides egyedi beállításokat (a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályban) biztosít, amelyekkel testreszabhatja a kimeneti PDF‑et, jelszóval zárolhatja, vagy megadhatja, hogyan járjon el a konverzió során.
+Az Aspose.Slides egyedi beállításokat—tulajdonságokat a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályban—biztosít, amelyekkel testreszabhatja a létrehozott PDF‑et, jelszóval zárolhatja azt, vagy meghatározhatja a konverziós folyamat menetét.
 
-### **PowerPoint PDF‑re konvertálása egyedi beállításokkal**
+### **PowerPoint PDF‑re konvertálás egyedi beállításokkal**
 
-Egyedi konverziós beállításokkal meghatározhatja a raszteres képek kívánt minőségét, a metafájlok kezelését, a szöveg tömörítési szintjét, a képek DPI‑ját és egyebeket.
+Egyedi konverziós beállítások használatával meghatározhatja a raszteres képek kívánt minőségi beállítását, megadhatja, hogyan kezelje a metafájlokat, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a képek DPI értékét, és egyebeket.
 
-Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be több egyedi beállítással.
+Az alábbi kódpélda bemutatja, hogyan konvertálhat egy PowerPoint prezentációt PDF‑re több egyedi beállítással.
 
 ```c++
-// PdfOptions osztály példányosítása.
+// Példányosítja a PdfOptions osztályt.
 auto pdfOptions = MakeObject<PdfOptions>();
 
-// JPG képek minőségének beállítása.
+// Beállítja a JPG képek minőségét.
 pdfOptions->set_JpegQuality(90);
 
-// Képek DPI-beállítása.
+// Beállítja a képek DPI értékét.
 pdfOptions->set_SufficientResolution(300);
 
-// Metafájlok viselkedésének beállítása.
+// Beállítja a metafájlok viselkedését.
 pdfOptions->set_SaveMetafilesAsPng(true);
 
-// Szövegtartalom tömörítési szintjének beállítása.
+// Beállítja a szöveges tartalom szövegkompressziós szintjét.
 pdfOptions->set_TextCompression(PdfTextCompression::Flate);
 
-// PDF megfelelőségi mód definiálása.
+// Meghatározza a PDF megfelelőségi módot.
 pdfOptions->set_Compliance(PdfCompliance::Pdf15);
 
-// Presentation osztály példányosítása, amely PowerPoint vagy OpenDocument fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// Mentse a prezentációt PDF-dokumentumként.
+// Mentse a prezentációt PDF dokumentumként.
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
 ```
 
-### **PowerPoint PDF‑re konvertálása rejtett diák beépítésével**
+### **PowerPoint PDF‑re konvertálás rejtett diákkal**
 
-Ha a prezentáció rejtett diákot tartalmaz, a [set_ShowHiddenSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályból használva belefoglalhatja a rejtett diákot a kimeneti PDF‑oldalak közé.
+Ha egy prezentáció rejtett diákot tartalmaz, használhatja a [set_ShowHiddenSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályból, hogy a rejtett diákat is oldalként belefoglalja a létrehozott PDF‑be.
 
-Ez a C++ kód megmutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be a rejtett diák beépítésével:
+Ez a C++ kód bemutatja, hogyan konvertálhat egy PowerPoint prezentációt PDF‑re, beleértve a rejtett diákat:
 
 ```c++
-// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// A PdfOptions osztály példányosítása.
+// Példányosítja a PdfOptions osztályt.
 auto pdfOptions = MakeObject<PdfOptions>();
 
-// Rejtett diák hozzáadása.
+// Hozzáadja a rejtett diákat.
 pdfOptions->set_ShowHiddenSlides(true);
 
-// A prezentáció mentése PDF-ként.
+// Mentse a prezentációt PDF-ként.
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
 ```
 
-### **PowerPoint PDF‑re konvertálása jelszóval védett PDF‑ben**
+### **PowerPoint PDF‑re konvertálás jelszóval védve**
 
-Ez a C++ kód bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt jelszóval védett PDF‑be a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztály védelmi paramétereinek használatával:
+Ez a C++ kód bemutatja, hogyan konvertálhat egy PowerPoint prezentációt jelszóval védett PDF‑be a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztály védelmi paramétereinek használatával:
 
 ```c++
-// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// A PdfOptions osztály példányosítása.
+// Példányosítja a PdfOptions osztályt.
 auto pdfOptions = MakeObject<PdfOptions>();
 
-// PDF jelszó és hozzáférési jogosultságok beállítása.
+// Beállítja a PDF jelszót és a hozzáférési engedélyeket.
 pdfOptions->set_Password(u"password");
 pdfOptions->set_AccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
 
-// A prezentáció mentése PDF-ként.
+// Mentse a prezentációt PDF-ként.
 presentation->Save(u"PPTX-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
 ```
 
-### **Betűkészlet‑helyettesítések felismerése**
+### **Betűkicserék észlelése**
 
-Az Aspose.Slides a [set_WarningCallback](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/saveoptions/set_warningcallback/) metódust biztosítja a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályon, amely lehetővé teszi a betűkészlet‑helyettesítések észlelését a prezentáció‑PDF konverzió során.
+Az Aspose.Slides a [set_WarningCallback](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/saveoptions/set_warningcallback/) metódust biztosítja a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztály alatt, amely lehetővé teszi a betűkicserék észlelését a prezentáció PDF‑re konvertálás folyamata során.
 
-Ez a C++ kód megmutatja, hogyan lehet felismerni a betűkészlet‑helyettesítéseket:
+Ez a C++ kód megmutatja, hogyan lehet betűkicseréket észlelni:
 
 ```c++
-// Figyelmeztető visszahívás megvalósítása.
+// A figyelmeztetési visszahívás megvalósítása.
 class FontSubstitutionHandler : public IWarningCallback
 {
 public:
@@ -191,14 +191,14 @@ ReturnAction FontSubstitutionHandler::Warning(SharedPtr<IWarningInfo> warning)
 
 int main()
 {
-    // A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+    // Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
     auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-    // Figyelmeztető visszahívás beállítása a PDF beállításokban.
+    // Beállítja a figyelmeztetési visszahívást a PDF beállításokban.
     auto pdfOptions = MakeObject<PdfOptions>();
     pdfOptions->set_WarningCallback(MakeObject<FontSubstitutionHandler>());
 
-    // A prezentáció mentése PDF-ként.
+    // Mentse a prezentációt PDF-ként.
     presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
     
     presentation->Dispose();
@@ -209,63 +209,63 @@ int main()
 
 {{%  alert color="primary"  %}} 
 
-A betűkészlet‑helyettesítésekhez kapcsolódó visszahívások részleteiért tekintse meg a [Getting Warning Callbacks for Fonts Substitution](/slides/hu/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/) cikket.
+További információért a betűkicserékhez kapcsolódó visszahívások fogadásáról a renderelés során, lásd a [Getting Warning Callbacks for Fonts Substitution](/slides/hu/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/) oldalt.
 
-A betűkészlet‑helyettesítésekről további információk a [Font Substitution](/slides/hu/cpp/font-substitution/) oldalon találhatók.
+További információért a betűkicseréről, lásd a [Font Substitution](/slides/hu/cpp/font-substitution/) cikket.
 
 {{% /alert %}} 
 
-## **Kiválasztott diák PDF‑re konvertálása PowerPoint‑ból**
+## **Kijelölt diák konvertálása PowerPointból PDF‑re**
 
-Ez a C++ kód bemutatja, hogyan konvertálhat csak bizonyos diákat egy PowerPoint‑prezentációból PDF‑be:
+Ez a C++ kód bemutatja, hogyan konvertálhat csak bizonyos diákat egy PowerPoint prezentációból PDF‑re:
 
 ```C++
-// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"PowerPoint.pptx");
 
-// Diák számát tartalmazó tömb beállítása.
+// Beállítja a diákszámok tömbjét.
 auto slides = MakeArray<int32_t>({ 1, 3 });
 
-// A prezentáció mentése PDF-ként.
+// Mentse a prezentációt PDF-ként.
 presentation->Save(u"PPTX-to-PDF.pdf", slides, SaveFormat::Pdf);
 
 presentation->Dispose();
 ```
 
-## **PowerPoint PDF‑re konvertálása egyedi diamérettel**
+## **PowerPoint PDF‑re konvertálás egyedi dia mérettel**
 
-Ez a C++ kód bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be megadott diamérettel:
+Ez a C++ kód bemutatja, hogyan konvertálhat egy PowerPoint prezentációt PDF‑re meghatározott dia mérettel:
 
 ```C++
 auto slideWidth = 612;
 auto slideHeight = 792;
 
-// Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
-// Create a new presentation with an adjusted slide size.
+// Új prezentáció létrehozása módosított diamérettel.
 auto resizedPresentation = MakeObject<Presentation>();
 
-// Set the custom slide size.
+// Egyedi diaméret beállítása.
 resizedPresentation->get_SlideSize()->SetSize(slideWidth, slideHeight, SlideSizeScaleType::EnsureFit);
 
-// Clone the first slide from the original presentation.
+// Az eredeti prezentáció első diájának klónozása.
 auto slide = presentation->get_Slide(0);
 resizedPresentation->get_Slides()->InsertClone(0, slide);
 
-// Save the resized presentation to a PDF with notes.
+// A méretezett prezentáció mentése jegyzetekkel ellátott PDF-be.
 resizedPresentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf);
 
 resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
-## **PowerPoint PDF‑re konvertálása jegyzet-diák nézetben**
+## **PowerPoint PDF‑re konvertálás jegyzetdiák nézetben**
 
-Ez a C++ kód bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be, amely tartalmazza a jegyzeteket:
+Ez a C++ kód bemutatja, hogyan konvertálhat egy PowerPoint prezentációt PDF‑re, amely tartalmazza a jegyzeteket:
 
 ```C++
-// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
 // PDF beállítások konfigurálása jegyzetelrendezéssel.
@@ -274,17 +274,17 @@ notesOptions->set_NotesPosition(NotesPositions::BottomFull);
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-// A prezentáció mentése jegyzetekkel ellátott PDF-be.
+// Mentse a prezentációt jegyzetekkel ellátott PDF-be.
 presentation->Save(u"PDF_with_notes.tiff", SaveFormat::Pdf, pdfOptions);
 
 presentation->Dispose();
 ```
 
-## **PDF hozzáférhetőségi és megfelelőségi szabványok**
+## **PDF hozzáférhetőség és megfelelőségi szabványok**
 
-Az Aspose.Slides lehetővé teszi olyan konverziós eljárás használatát, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ajánlásainak. A PowerPoint‑dokumentumot bármelyik következő megfelelőségi szabvánnyal exportálhatja PDF‑be: **PDF/A1a**, **PDF/A1b** és **PDF/UA**.
+Az Aspose.Slides lehetővé teszi egy olyan konvertálási eljárás használatát, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) szabványnak. A PowerPoint dokumentumot PDF‑re exportálhatja bármelyik következő megfelelőségi szabvány használatával: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
 
-Ez a C++ kód egy PowerPoint‑PDF konverziós folyamatot mutat be, amely különböző megfelelőségi szabványok alapján több PDF‑et hoz létre:
+Ez a C++ kód bemutat egy PowerPoint‑PDF konverziós folyamatot, amely különböző megfelelőségi szabványok alapján több PDF‑et hoz létre:
 
 ```C++
 auto presentation = MakeObject<Presentation>(u"pres.pptx");
@@ -308,36 +308,36 @@ presentation->Dispose();
 
 {{% alert title="Note" color="warning" %}} 
 
-Az Aspose.Slides támogatja a PDF konverziós műveleteket, lehetővé téve a PDF fájlok népszerű formátumokra történő átalakítását. Végrehajthatja a [PDF to HTML](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-jpg/), és [PDF to PNG](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-png/) konverziókat. Más, speciális formátumokra irányuló PDF konverziók – [PDF to SVG](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-tiff/), és [PDF to XML](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-xml/) – szintén támogatottak.
+Az Aspose.Slides támogatja a PDF konverziós műveleteket, lehetővé téve a PDF fájlok konvertálását népszerű formátumokba. Végrehajthatja a [PDF to HTML](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-jpg/), és [PDF to PNG](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-png/) konverziókat. Egyéb PDF konverziós műveletek speciális formátumokba—[PDF to SVG](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-tiff/), és [PDF to XML](https://products.aspose.com/slides/hu/cpp/conversion/pdf-to-xml/)—szintén támogatottak.
 
 {{% /alert %}}
 
-> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, például a SmartArt‑ot, diagramokat és képleteket egyetlen ábraként kezeli. Az egyéni útvonal elemek nem maradnak meg különálló tartalomként, és csupán ábrákként jelenhetnek meg; az alternatív szöveg csak az egész ábrához kerül.
+> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, például a SmartArt, diagramok és képletek egyetlen ábraként kezeli. Az egyedi útvonal elemek nem maradnak meg különálló tartalomként, és jelölhetők artefaktként; az alternatív szöveg csak az egész ábrára vonatkozik.
 
-## **GYIK**
+## **FAQ**
 
-**Több PowerPoint‑fájlt tudok egyszerre PDF‑be konvertálni?**
+**Konvertálhatok több PowerPoint fájlt egyszerre PDF‑re?**
 
-Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl kötegelt konvertálását PDF‑be. Programból bejárhatja a fájlokat, és alkalmazhatja a konverziós folyamatot.
+Igen, az Aspose.Slides támogatja több PPT vagy PPTX fájl kötegelt konvertálását PDF‑re. A fájlokon ciklikusan végigjárhatja a konverziós folyamatot programozott módon.
 
-**Lehetőség van a létrehozott PDF‑et jelszóval védeni?**
+**Lehet jelszóval védeni a konvertált PDF‑et?**
 
-Természetesen. A [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztály használatával beállíthat jelszót és hozzáférési jogosultságokat a konverzió során.
+Természetesen. Használja a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályt a jelszó beállításához és a hozzáférési jogok meghatározásához a konverziós folyamat során.
 
-**Hogyan lehet a rejtett diákat belefoglalni a PDF‑be?**
+**Hogyan foglalhatom bele a rejtett diákat a PDF‑be?**
 
-Használja a `set_ShowHiddenSlides` metódust a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályban a rejtett diák kimeneti PDF‑be való beépítéséhez.
+Használja a `set_ShowHiddenSlides` metódust a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályban a rejtett diák eredményül kapott PDF‑be történő belefoglalásához.
 
-**Az Aspose.Slides képes magas képminőséget biztosítani a PDF‑ben?**
+**Az Aspose.Slides képes magas képminőséget fenntartani a PDF‑ben?**
 
-Igen, a képminőséget a `set_JpegQuality` és a `set_SufficientResolution` módszerekkel szabályozhatja a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályban, így biztosíthatja a PDF‑ben a magas minőségű képeket.
+Igen, a képminőséget szabályozhatja a [PdfOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/pdfoptions/) osztályban található, például a `set_JpegQuality` és `set_SufficientResolution` metódusok használatával, hogy a PDF magas minőségű képeket tartalmazzon.
 
 **Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**
 
-Igen, az Aspose.Slides lehetővé teszi PDF‑ek exportálását, amelyek megfelelnek különböző szabványoknak, többek között PDF/A1a, PDF/A1b és PDF/UA, ezáltal biztosítva a dokumentumok hozzáférhetőségét és archiválási követelményeit.
+Igen, az Aspose.Slides lehetővé teszi, hogy a PDF‑ek olyan szabványoknak feleljenek meg, mint a PDF/A1a, PDF/A1b és PDF/UA, biztosítva, hogy a dokumentumok megfeleljenek a hozzáférhetőségi és archiválási követelményeknek.
 
 ## **További források**
 
-- [Aspose.Slides for C++ Documentation](/slides/hu/cpp/)
-- [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/hu/cpp/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/hu/conversion)
+- [Aspose.Slides for C++ dokumentáció](/slides/hu/cpp/)
+- [Aspose.Slides for C++ API referencia](https://reference.aspose.com/slides/hu/cpp/)
+- [Aspose ingyenes online konvertálók](https://products.aspose.app/slides/hu/conversion)

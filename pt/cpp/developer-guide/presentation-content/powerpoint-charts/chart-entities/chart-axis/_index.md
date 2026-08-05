@@ -1,5 +1,5 @@
 ---
-title: Personalizar Eixos de Gráfico em Apresentações usando С++
+title: Personalizar eixos de gráfico em apresentações usando C++
 linktitle: Eixo de Gráfico
 type: docs
 url: /pt/cpp/chart-axis/
@@ -19,28 +19,28 @@ keywords:
 - posição do eixo
 - PowerPoint
 - apresentação
-- С++
+- C++
 - Aspose.Slides
-description: "Descubra como usar o Aspose.Slides para С++ para personalizar eixos de gráfico em apresentações do PowerPoint para relatórios e visualizações."
+description: "Descubra como usar Aspose.Slides for C++ para personalizar eixos de gráfico em apresentações PowerPoint para relatórios e visualizações."
 ---
-## **Visão geral**
+## **Visão Geral**
 
-Este artigo explica como personalizar eixos de gráfico no Aspose.Slides. Ele mostra como obter valores reais do eixo, trocar dados entre eixos, ocultar o eixo vertical ou horizontal em gráficos de linhas, alterar o tipo de eixo de categoria, definir o formato de data para valores do eixo de categoria, girar o título de um eixo, definir a posição do eixo e exibir um rótulo de unidade no eixo de valores.
+Este artigo explica como personalizar eixos de gráficos no Aspose.Slides. Ele mostra como obter valores reais dos eixos, trocar dados entre eixos, ocultar o eixo vertical ou horizontal em gráficos de linhas, mudar o tipo do eixo de categoria, definir o formato de data para os valores do eixo de categoria, girar o título de um eixo, definir a posição do eixo e exibir um rótulo de unidade no eixo de valores.
 
-## **Obter os valores máximos no eixo vertical**
-Aspose.Slides para C++ permite obter os valores mínimo e máximo em um eixo vertical. Siga estas etapas:
+## **Obter os Valores Máximos no Eixo Vertical**
+Aspose.Slides for C++ permite que você obtenha os valores mínimo e máximo em um eixo vertical. Siga estas etapas:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation).
+1. Crie uma instância da [Presentation](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation) classe.
 2. Acesse o primeiro slide.
 3. Adicione um gráfico com dados padrão.
 4. Obtenha o valor máximo real no eixo.
 5. Obtenha o valor mínimo real no eixo.
-6. Obtenha a unidade principal real do eixo.
-7. Obtenha a unidade secundária real do eixo.
-8. Obtenha a escala da unidade principal real do eixo.
-9. Obtenha a escala da unidade secundária real do eixo.
+6. Obtenha a unidade maior real do eixo.
+7. Obtenha a unidade menor real do eixo.
+8. Obtenha a escala da unidade maior real do eixo.
+9. Obtenha a escala da unidade menor real do eixo.
 
-Este código de exemplo — uma implementação das etapas acima — mostra como obter os valores necessários em C++:
+Este código de exemplo—uma implementação das etapas acima—mostra como obter os valores necessários em C++:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -60,10 +60,10 @@ double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Trocar os Dados entre Eixos**
-Aspose.Slides permite trocar rapidamente os dados entre os eixos — os dados representados no eixo vertical (eixo y) são movidos para o eixo horizontal (eixo x) e vice‑versa.
+## **Trocar os Dados entre os Eixos**
+Aspose.Slides permite que você troque rapidamente os dados entre eixos—os dados representados no eixo vertical (eixo y) são transferidos para o eixo horizontal (eixo x) e vice‑versa.
 
-Este código C++ mostra como executar a tarefa de troca de dados entre eixos em um gráfico:
+Este código C++ mostra como realizar a troca de dados entre eixos em um gráfico:
 
 ``` cpp
 // Cria apresentação vazia
@@ -80,7 +80,7 @@ pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 
 ## **Desativar o Eixo Vertical para Gráficos de Linha**
 
-Este código C++ mostra como ocultar o eixo vertical em um gráfico de linha:
+Este código C++ mostra como ocultar o eixo vertical em um gráfico de linhas:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -93,7 +93,7 @@ pres->Save(u"chart.pptx", SaveFormat::Pptx);
 
 ## **Desativar o Eixo Horizontal para Gráficos de Linha**
 
-Este código mostra como ocultar o eixo horizontal em um gráfico de linha:
+Este código mostra como ocultar o eixo horizontal em um gráfico de linhas:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -106,7 +106,7 @@ pres->Save(u"chart.pptx", SaveFormat::Pptx);
 
 ## **Alterar um Eixo de Categoria**
 
-Usando o método **set_CategoryAxisType()**, você pode especificar o tipo de eixo de categoria desejado (**date** ou **text**). Este código em C++ demonstra a operação: 
+Usando o método **set_CategoryAxisType()**, você pode especificar o tipo de eixo de categoria desejado (**date** ou **text**). Este código em C++ demonstra a operação:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -122,7 +122,7 @@ presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Definir o Formato de Data para Valores do Eixo de Categoria**
-Aspose.Slides para C++ permite definir o formato de data para um valor do eixo de categoria. A operação é demonstrada neste código C++:
+Aspose.Slides for C++ permite definir o formato de data para um valor de eixo de categoria. A operação é demonstrada neste código C++:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -155,8 +155,8 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Definir o Ângulo de Rotação para um Título de Eixo**
-Aspose.Slides para C++ permite definir o ângulo de rotação para o título de um eixo de gráfico. Este código C++ demonstra a operação:
+## **Definir o Ângulo de Rotação para o Título de um Eixo**
+Aspose.Slides for C++ permite definir o ângulo de rotação para o título de um eixo de gráfico. Este código C++ demonstra a operação:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -170,7 +170,7 @@ pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
 ## **Definir a Posição do Eixo em um Eixo de Categoria ou Valor**
-Aspose.Slides para C++ permite definir a posição do eixo em um eixo de categoria ou de valor. Este código C++ mostra como executar a tarefa:
+Aspose.Slides for C++ permite definir a posição do eixo em um eixo de categoria ou valor. Este código C++ mostra como executar a tarefa:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -181,8 +181,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Ativar o Rótulo de Unidade de Exibição em um Eixo de Valor do Gráfico**
-Aspose.Slides para C++ permite configurar um gráfico para exibir um rótulo de unidade em seu eixo de valor. Este código C++ demonstra a operação:
+## **Ativar o Rótulo de Unidade de Exibição no Eixo de Valor de um Gráfico**
+Aspose.Slides for C++ permite configurar um gráfico para exibir um rótulo de unidade no eixo de valor do gráfico. Este código C++ demonstra a operação:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -193,12 +193,12 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Como definir o valor em que um eixo cruza o outro (cruzamento de eixos)?**
+**Como definir o valor em que um eixo cruza o outro (cruzamento de eixo)?**
 
-Os eixos fornecem uma [configuração de cruzamento](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/axis/set_crosstype/): você pode escolher cruzar em zero, no valor máximo da categoria/valor ou em um valor numérico específico. Isso é útil para mover o eixo X para cima ou para baixo ou para enfatizar uma linha de base.
+Os eixos fornecem uma [configuração de cruzamento](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/axis/set_crosstype/): você pode escolher cruzar em zero, no valor máximo da categoria/valor ou em um valor numérico específico. Isso é útil para deslocar o eixo X para cima ou para baixo ou para enfatizar uma linha de base.
 
-**Como posicionar os rótulos de marcações em relação ao eixo (ao lado, fora, dentro)?**
+**Como posicionar os rótulos de marcação em relação ao eixo (ao lado, fora, dentro)?**
 
 Defina a [posição do rótulo](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/axis/set_majortickmark/) como "cross", "outside" ou "inside". Isso afeta a legibilidade e ajuda a economizar espaço, especialmente em gráficos pequenos.

@@ -3,6 +3,8 @@ title: ヘッダーとフッター
 type: docs
 weight: 220
 url: /ja/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - ヘッダーとフッター
 - ヘッダーとフッターを追加
@@ -14,13 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用してスライドのヘッダーとフッターを制御します。C# の例で、PPT、PPTX、ODP 形式に日付、スライド番号、カスタムテキストを追加できます。"
+description: "Aspose.Slides for .NET を使用してスライドのヘッダーとフッターを制御します。C# の例で、PPT、PPTX、ODP に日付、スライド番号、カスタムテキストを追加できます。"
 ---
-この記事では、**Aspose.Slides for .NET** を使用してフッターの追加と日付および時刻プレースホルダーの更新方法を示します。
+この記事では、**Aspose.Slides for .NET** を使用してフッターを追加し、日付と時刻のプレースホルダーを更新する方法を示します。
 
 ## **フッターの追加**
 
-スライドのフッター領域にテキストを追加し、表示できるようにします。
+スライドのフッター領域にテキストを追加し、表示させます。
 
 ```csharp
 static void AddHeaderFooter()

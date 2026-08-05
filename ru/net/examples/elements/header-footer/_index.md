@@ -3,6 +3,8 @@ title: Заголовок и нижний колонтитул
 type: docs
 weight: 220
 url: /ru/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - заголовок и нижний колонтитул
 - добавить заголовок и нижний колонтитул
@@ -16,9 +18,8 @@ keywords:
 - Aspose.Slides
 description: "Управляйте заголовками и нижними колонтитулами слайдов с помощью Aspose.Slides for .NET: добавляйте даты, номера слайдов и пользовательский текст в PPT, PPTX и ODP с примерами на C#."
 ---
-В этой статье демонстрируется, как добавить нижние колонтитулы и обновить заполнители даты и времени с использованием **Aspose.Slides for .NET**.
+В этой статье показано, как добавить нижние колонтитулы и обновить заполнители даты и времени, используя **Aspose.Slides for .NET**.
 
-## **Add a Footer**
 ## **Add a Footer**
 Добавьте текст в область нижнего колонтитула слайда и сделайте его видимым.
 
@@ -33,7 +34,6 @@ static void AddHeaderFooter()
 }
 ```
 
-## **Update Date and Time**
 ## **Update Date and Time**
 Измените заполнитель даты и времени на слайде.
 

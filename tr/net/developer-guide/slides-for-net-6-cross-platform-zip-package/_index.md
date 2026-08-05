@@ -3,6 +3,8 @@ title: Aspose.Slides for .NET 6 Cross-Platform (ZIP Paketi)
 type: docs
 weight: 237
 url: /tr/net/slides-for-net-6-cross-platform-zip-package/
+aliases:
+  - /net/slides-for-net-6-cross-platform/
 keywords:
 - çapraz platform
 - .NET 6
@@ -12,7 +14,7 @@ keywords:
 - bağımlı kütüphane
 - Aspose.Slides.dll
 - System.Drawing.Common
-- isim çakışması
+- ad çakışması
 - extern takma ad
 - CS0433
 - PowerPoint
@@ -21,33 +23,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET 6'yı kullanarak Windows, Linux ve macOS üzerinde çapraz platform C# uygulamaları oluşturabilir, PowerPoint PPT, PPTX ve ODP dosyalarını oluşturabilir, düzenleyebilir ve dönüştürebilirsiniz."
+description: "Aspose.Slides for .NET 6'yı kullanarak Windows, Linux ve macOS üzerinde çapraz platform C# uygulamaları oluşturun; PowerPoint PPT, PPTX ve ODP dosyalarını oluşturabilir, düzenleyebilir ve dönüştürebilirsiniz."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET 6 Cross-Platform'un bir ZIP paketinden nasıl kullanılacağını açıklar. Paketin nasıl indirileceğini, `net6.0/crossplatform` klasöründen dosyaların nasıl açılacağını, `Aspose.Slides.dll`'e nasıl referans ekleneceğini ve gerekli bağımlı kütüphanelerin uygulama çıktı dizinine kopyalanması için proje dosyasının nasıl yapılandırılacağını açıklar.
+Bu makale, Aspose.Slides for .NET 6 Cross-Platform'un bir ZIP paketinden nasıl kullanılacağını açıklar. Paketin nasıl indirileceği, `net6.0/crossplatform` klasöründen dosyaların nasıl açılacağı, `Aspose.Slides.dll`'e nasıl referans ekleneceği ve gerekli bağımlı kütüphanelerin uygulama çıkış dizinine kopyalanması için proje dosyasının nasıl yapılandırılacağı anlatılır.
 
-Makale ayrıca, ana Aspose.Slides .NET derlemesi ve Windows, Linux ve macOS için platforma özgü grafik alt sistem kütüphanelerini içeren çapraz platform paketinin içeriğini de açıklar.
+Makale ayrıca, çapraz platform paketinin içeriğini, ana Aspose.Slides .NET derlemesi ve Windows, Linux ve macOS için platform‑specific grafik alt sistem kütüphanelerini tanımlar.
 
-{{% alert title="Not" color="primary" %}}
-Aspose.Slides for .NET 6 Cross-Platform ayrıca [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) üzerinden de mevcuttur.
+{{% alert title="Note" color="primary" %}}
+
+Aspose.Slides for .NET 6 Cross-Platform ayrıca [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) adresinden de temin edilebilir.
+
 {{% /alert %}}
 
-## **ZIP Paketi Kullanarak Çapraz Platform Aspose.Slides Kullanma**
+## **ZIP Paketinden Cross-Platform Aspose.Slides Kullanma**
 
-1. En son Aspose.Slides'in ZIP paketini [Yayın Sayfası](https://releases.aspose.com/slides/tr/net/) üzerinden indirin.  
+1. En son Aspose.Slides ZIP paketini [Release Page](https://releases.aspose.com/slides/tr/net/) üzerinden indirin.  
 
-2. *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* içindeki dosyaları açın ve projenizde bağımlılıklar için kullanılacak klasöre yerleştirin.  
+2. *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* içindeki dosyaları açın ve projenizde bağımlılık olarak kullanılacak klasöre yerleştirin.  
 
-3. Aspose.Slides.dll'ye bir referans ekleyin.
+3. Aspose.Slides.dll'e bir referans ekleyin.
 
    ![add-project-reference-visual-studio](add-project-reference-visual-studio.png)
 
-   Örneğimizde (aşağıda), kütüphaneler proje klasöründe şu yolda bulunur: *ConsoleApp\libs\Aspose.Slides\net6.0\crossplatform\...*
+   Örneğimizde (aşağıda) kütüphaneler proje klasöründe şu yolda bulunuyor: *ConsoleApp\libs\Aspose.Slides\net6.0\crossplatform\...*
 
    ![browse-console-app](browse-console-app.jpg)
 
-4. Kalan dosyaları (Aspose.Slides'in bağımlı olduğu) csproj proje dosyasına aşağıdaki şekilde talimat ekleyerek çıktı dizinine koyun:
+4. Kalan dosyaları (Aspose.Slides'ın bağımlı olduğu dosyalar) çıkış dizinine kopyalamak için csproj proje dosyasına aşağıdaki talimatı ekleyin:
 
 ```xml
 <ItemGroup>
@@ -85,25 +89,25 @@ Aspose.Slides for .NET 6 Cross-Platform ayrıca [NuGet](https://www.nuget.org/pa
 </ItemGroup>
 ```
 
-5. `TargetPath` öğesine dikkat edin.  
+5. `TargetPath` değerine dikkat edin.  
 
-   Varsayılan olarak, `<CopyToOutputDirectory>` dosyaları göreli yollarını koruyarak kopyalar, ancak bağımlı kütüphanelerin çıktı oluşturulan aynı klasöre (Aspose.Slides.dll konumu) gitmesi gerekir.
+   Varsayılan olarak `<CopyToOutputDirectory>` dosyaları göreli yollarını koruyarak kopyalar, ancak bağımlı kütüphanelerin çıkışın oluşturulduğu aynı klasöre (Aspose.Slides.dll konumu) gitmesi gerekir.
 
 ## **Notlar**
 
-### **Özel Grafik Alt Sistemi**
+### **Sahipli Grafik Alt Sistemi**
 
-Aspose.Slides çapraz platform, bir dizi kütüphaneden oluşur:
+Aspose.Slides cross-platform bir kütüphane koleksiyonudur:
 
-| Aspose.Slides.dll                                          | Aspose.Slides Mantığının Tümünü Yöneten Ana .NET Derlemesi                 |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------- |
-| aspose.slides.drawing.capi_vc14x64.dll                     | Bağımlılık: Windows x64 için grafik alt sistem uygulaması                  |
-| aspose.slides.drawing.capi_vc14x86.dll                     | Bağımlılık: Windows x64 için grafik alt sistem uygulaması                  |
-| libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | Bağımlılık: Linux (x86/x64) için grafik alt sistem uygulaması              |
-| libaspose.slides.drawing.capi_appleclang_x86_64.dylib      | Bağımlılık: macOS AMD64 (x86-64/x64) için grafik alt sistem uygulaması    |
-| libaspose.slides.drawing.capi_appleclang_arm64.dylib       | Bağımlılık: macOS ARM64 (AArch64) için grafik alt sistem uygulaması       |
+| Aspose.Slides.dll                                          | Tüm Aspose.Slides Mantığından Sorumlu Ana .NET Derlemesi |
+| ---------------------------------------------------------- | -------------------------------------------------------- |
+| aspose.slides.drawing.capi_vc14x64.dll                     | Bağımlılık: Win x64 için grafik alt sistem uygulaması |
+| aspose.slides.drawing.capi_vc14x86.dll                     | Bağımlılık: Win x86 için grafik alt sistem uygulaması |
+| libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | Bağımlılık: Linux (x86/x64) için grafik alt sistem uygulaması |
+| libaspose.slides.drawing.capi_appleclang_x86_64.dylib      | Bağımlılık: macOS AMD64 (x86-64/x64) için grafik alt sistem uygulaması |
+| libaspose.slides.drawing.capi_appleclang_arm64.dylib       | Bağımlılık: macOS ARM64 (AArch64) için grafik alt sistem uygulaması |
 
-Aspose.Slides.dll, çalıştığı sistemin gerektirdiği kütüphaneyi kullanır. Kütüphaneler genellikle herhangi bir dosya sisteminde Aspose.Slides.dll ile aynı konumda bulunur.
+Aspose.Slides.dll, çalıştığı sistemin gerektirdiği kütüphaneyi kullanır. Kütüphaneler genellikle Aspose.Slides.dll ile aynı konumda bulunur.
 
 ### **ZIP Paket Yapısı**
 
@@ -123,8 +127,8 @@ ZIP paketi aşağıdaki klasör yapısını içerir:
 
   └─── netstandard2.0
 
-* Her klasör, ilgili .NET sürümü için derlemeleri içerir. net6.0 için iki sürüm vardır: default ve crossplatform. İkincisi, çapraz platform Aspose.Slides.dll ve tüm bağımlılıklarını içerir. Bu klasörün açılmış içeriği, çapraz platform geliştirme ve diğer Aspose.Slides kullanım senaryoları için bir projeye bağımlılık eklemesi olarak kullanılabilir.
+* Her klasör, ilgili .NET sürümü için derlemeler içerir. net6.0 için iki sürüm vardır: default ve crossplatform. İkincisi, çapraz platform Aspose.Slides.dll ve tüm bağımlılıklarını içerir. Bu klasörün açılmış içeriği, çapraz platform geliştirme ve diğer Aspose.Slides kullanım senaryoları için projeye bağımlılık olarak eklenebilir.
 
 ## **Ayrıca Bakınız**
 
-- [Sistem Gereksinimleri](/slides/tr/net/system-requirements/)
+- [System Requirements](/slides/tr/net/system-requirements/)

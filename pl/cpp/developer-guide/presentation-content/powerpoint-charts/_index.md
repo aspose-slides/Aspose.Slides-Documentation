@@ -7,7 +7,7 @@ url: /pl/cpp/powerpoint-charts/
 keywords:
 - dodaj wykres
 - utwórz wykres
-- zaktualizuj wykres
+- aktualizuj wykres
 - zmień wykres
 - modyfikuj wykres
 - dostosuj wykres
@@ -21,5 +21,5 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Twórz i dostosowuj wykresy PowerPoint w C++ przy użyciu Aspose.Slides — pracuj z danymi, stylami i typami wykresów w formatach PPT i PPTX, korzystając z przejrzystych przykładów kodu."
+description: "Tworzenie i dostosowywanie wykresów PowerPoint w C++ za pomocą Aspose.Slides — pracuj z danymi, stylami i typami wykresów w formatach PPT i PPTX, korzystając z przejrzystych przykładów kodu."
 ---

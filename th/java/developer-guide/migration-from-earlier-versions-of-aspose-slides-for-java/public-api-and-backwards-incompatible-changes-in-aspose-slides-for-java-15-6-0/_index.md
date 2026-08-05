@@ -1,12 +1,14 @@
 ---
-title: Public API และการเปลี่ยนแปลงที่ไม่เข้ากันย้อนกลับใน Aspose.Slides for Java 15.6.0
-linktitle: Aspose.Slides for Java 15.6.0
+title: การเปลี่ยนแปลง Public API และการไม่เข้ากันย้อนหลังใน Aspose.Slides for Java 15.6.0
+linktitle: Aspose.Slides สำหรับ Java 15.6.0
 type: docs
 weight: 140
 url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/
+aliases:
+  - /java/aspose-slides-for-java-15-6-0-release-notes/
 keywords:
 - การย้ายข้อมูล
-- โค้ดเก่า
+- โค้ดเดิม
 - โค้ดสมัยใหม่
 - วิธีการเก่า
 - วิธีการสมัยใหม่
@@ -15,29 +17,32 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เกิดข้อแตกต่างใน Aspose.Slides for Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เสียหายใน Aspose.Slides for Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
 ---
 {{% alert color="primary" %}} 
-หน้านี้แสดงรายการคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่ [เพิ่มใหม่](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) รวมถึงข้อจำกัดใหม่และ [การเปลี่ยนแปลง](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) ที่นำมาใช้กับ Aspose.Slides for Java 15.6.0 API.
+
+หน้านี้แสดงรายการทั้งหมดของคลาส, วิธีการ, คุณสมบัติ ฯลฯ ที่ [added](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) , ข้อจำกัดใหม่ใด ๆ และ [changes](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) อื่น ๆ ที่แนะนำใน API ของ Aspose.Slides for Java 15.6.0  
+
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-#### **คอนสตรัคเตอร์ของ com.aspose.slides.DataLabel ถูกเปลี่ยนแปลง**
-ลายเซ็นของคอนสตรัคเตอร์ได้ถูกเปลี่ยนจาก DataLabel(com.aspose.slides.IChartSeries) เป็น DataLabel(com.aspose.slides.IChartDataPoint).
-#### **สมาชิก com.aspose.slides.IDocumentProperties.getCount(), .getPropertyName(int index)., .remove(String name), .contains(String name) ถูกทำเครื่องหมายว่า Deprecated; มีการแนะนำการทดแทนแทน**
-เมธอด IDocumentProperties.getCount(), IDocumentProperties.getPropertyName(int index)., .remove(string name), .contains(string name) ถูกทำเครื่องหมายว่า Deprecated. เมธอด IDocumentProperties.countOfCustomProperties(), IDocumentProperties.getCustomPropertyName(int index)., .removeCustomProperty(String name), .containsCustomProperty(string name) ถูกเพิ่มเข้ามาแทน.
+#### **ลายเซ็นของคอนสตรัคเตอร์ com.aspose.slides.DataLabel ถูกเปลี่ยนแปลง**
+ลายเซ็นของคอนสตรัคเตอร์ถูกเปลี่ยนแปลงจาก DataLabel(com.aspose.slides.IChartSeries) เป็น DataLabel(com.aspose.slides.IChartDataPoint).
+#### **สมาชิก com.aspose.slides.IDocumentProperties.getCount(), .getPropertyName(int index)., .remove(String name), .contains(String name) ถูกทำเครื่องหมายว่าเลิกใช้; มีการแนะนำตัวทดแทนแทนที่**
+เมธอด IDocumentProperties.getCount(), IDocumentProperties.getPropertyName(int index)., .remove(string name), .contains(string name) ถูกทำเครื่องหมายว่าเลิกใช้. เมธอด IDocumentProperties.countOfCustomProperties(), IDocumentProperties.getCustomPropertyName(int index)., .removeCustomProperty(String name), .containsCustomProperty(string name) ถูกแนะนำแทนที่.
 #### **เมธอด com.aspose.slides.INotesSlideManager.removeNotesSlide() ถูกเพิ่ม**
-เมธอด com.aspose.slides.INotesSlideManager.RemoveNotesSlide() ถูกเพิ่มเพื่อใช้ลบสไลด์บันทึกของสไลด์บางอัน.
-#### **เมธอด com.aspose.slides.ISlide.getNotesSlideManager() ถูกเพิ่ม. เมธอด ISlide.getNotesSlide() และ ISlide.addNotesSlide() ถูกทำเครื่องหมายว่า Deprecated**
-เมธอด ISlide.getNotesSlide() และ ISlide.addNotesSlide() ถูกทำเครื่องหมายว่า Deprecated. ใช้เมธอดใหม่ ISlide.getNotesSlideManager() แทน.
+เมธอด com.aspose.slides.INotesSlideManager.RemoveNotesSlide() ถูกเพิ่มเพื่อการลบสไลด์บันทึกของสไลด์บางอัน.
+#### **เมธอด com.aspose.slides.ISlide.getNotesSlideManager() ถูกเพิ่ม. เมธอด ISlide.getNotesSlide() และ ISlide.addNotesSlide() ถูกทำเครื่องหมายว่าเลิกใช้**
+เมธอด ISlide.getNotesSlide() และ ISlide.addNotesSlide() ถูกทำเครื่องหมายว่าเลิกใช้. ใช้เมธอดใหม่ ISlide.getNotesSlideManager() แทน  
+
 ``` java
 
  ISlide slide = ...;
 
 INotesSlide notes;
 
-// notes = slide.addNotesSlide(); - ถูกยกเลิก
+// notes = slide.addNotesSlide(); - เลิกใช้
 
-// notes = slide.getNotesSlide(); - ถูกยกเลิก
+// notes = slide.getNotesSlide(); - เลิกใช้
 
 notes = slide.getNotesSlideManager().getNotesSlide();
 
@@ -46,29 +51,30 @@ notes = slide.getNotesSlideManager().addNotesSlide();
 slide.getNotesSlideManager().removeNotesSlide();
 
 ```
-#### **เมธอด getAppVersion() ถูกเพิ่มใน com.aspose.slides.IDocumentProperties**
-เมธอด com.aspose.slides.IDocumentProperties.getAppVersion() ถูกเพิ่มเพื่อดึงคุณสมบัติเอกสารในตัว ซึ่งแสดงหมายเลขเวอร์ชันภายในที่ใช้โดย Microsoft PowerPoint.
-#### **เมธอด remove() ถูกเพิ่มใน com.aspose.slides.IComment**
-เมธอด com.aspose.slides.IComment.remove() ถูกเพิ่มเพื่อใช้ลบคอมเมนต์จากคอลเลกชัน.
-#### **เมธอด remove() ถูกเพิ่มใน com.aspose.slides.ICommentAuthor**
-เมธอด ICommentAuthor.Remove ถูกเพิ่มเพื่อใช้ลบผู้เขียนคอมเมนต์จากคอลเลกชัน.
-#### **เมธอด clearCustomProperties() และ clearBuiltInProperties() ถูกเพิ่มใน com.aspose.slides.IDocumentProperties**
-เมธอด com.aspose.slides.IDocumentProperties.clearCustomProperties() ถูกเพิ่มเพื่อใช้ลบคุณสมบัติเอกสารที่กำหนดเองทั้งหมด. เมธอด com.aspose.slides.IDocumentProperties.clearBuiltInProperties() ถูกเพิ่มเพื่อใช้ลบและตั้งค่าเริ่มต้นสำหรับคุณสมบัติเอกสารในตัวทั้งหมด (Company, Subject, Author เป็นต้น).
-#### **เมธอด getBlackWhiteMode() และ setBlackWhiteMode(byte) ถูกเพิ่มใน com.aspose.slides.IShape**
-เมธอด getBlackWhiteMode() และ setBlackWhiteMode(byte) ถูกเพิ่มใน com.aspose.slides.IShape. เมธอดเหล่านี้ระบุว่ารูปร่างจะถูกแสดงผลในโหมดสีขาว-ดำอย่างไร. ค่าที่เป็นไปได้ถูกกำหนดในคลาส com.aspose.slides.BlackWhiteMode.
+#### **เมธอด getAppVersion() ถูกเพิ่มให้กับ com.aspose.slides.IDocumentProperties**
+เมธอด com.aspose.slides.IDocumentProperties.getAppVersion() ถูกเพิ่มขึ้นเพื่อดึงคุณสมบัติลายสาร builtin ของเอกสาร ซึ่งแสดงหมายเลขเวอร์ชันภายในที่ใช้โดย Microsoft PowerPoint.
+#### **เมธอด remove() ถูกเพิ่มให้กับ com.aspose.slides.IComment**
+เมธอด com.aspose.slides.IComment.remove() ถูกเพิ่มเพื่อการลบความคิดเห็นจากคอลเลกชัน.
+#### **เมธอด remove() ถูกเพิ่มให้กับ com.aspose.slides.ICommentAuthor**
+เมธอด ICommentAuthor.Remove ถูกเพิ่มเพื่อการลบผู้เขียนความคิดเห็นจากคอลเลกชัน.
+#### **เมธอด clearCustomProperties() และ clearBuiltInProperties() ถูกเพิ่มให้กับ com.aspose.slides.IDocumentProperties**
+เมธอด com.aspose.slides.IDocumentProperties.clearCustomProperties() ถูกเพิ่มเพื่อการลบคุณสมบัติเซกเมนต์ทั้งหมดของเอกสาร.
+เมธอด com.aspose.slides.IDocumentProperties.clearBuiltInProperties() ถูกเพิ่มเพื่อการลบและตั้งค่าค่าเริ่มต้นให้กับคุณสมบัติลำลองทั้งหมด (Company, Subject, Author เป็นต้น).
+#### **เมธอด getBlackWhiteMode(), setBlackWhiteMode(byte) ถูกเพิ่มให้กับ com.aspose.slides.IShape**
+เมธอด getBlackWhiteMode(), setBlackWhiteMode(byte) ถูกเพิ่มให้กับ com.aspose.slides.IShape. เมธอดเหล่านี้ระบุวิธีการแสดงรูปร่างในโหมดสีขาว-ดำ ค่าได้ระบุในคลาส com.aspose.slides.BlackWhiteMode  
 
-|**Value** |**ความหมาย** |
+|**ค่า**|**ความหมาย**|
 | :- | :- |
-|Color |คืนค่าโดยใช้สีปกติ |
-|Automatic |คืนค่าโดยใช้สีอัตโนมัติ |
-|Gray |คืนค่าโดยใช้สีเทา |
-|LightGray |คืนค่าโดยใช้สีเทาอ่อน |
-|InverseGray |คืนค่าโดยใช้สีเทาแบบย้อนกลับ |
-|GrayWhite |คืนค่าโดยใช้สีเทาและสีขาว |
-|BlackGray |คืนค่าโดยใช้สีดำและสีเทา |
-|BlackWhite |คืนค่าโดยใช้สีดำและสีขาว |
-|Black |คืนค่าโดยใช้สีดำเท่านั้น |
-|White |คืนค่าโดยใช้สีขาว |
-|Hidden |วัตถุจะไม่ถูกแสดงผล |
-#### **เมธอด removeAt(int), remove(ICommentAuthor) และ clear() ถูกเพิ่มใน com.aspose.slides.ICommentAuthorCollection**
-เมธอด ICommentAuthorCollection.removeAt(int) ถูกเพิ่มเพื่อใช้ลบผู้เขียนตามดัชนีที่ระบุ. เมธอด ICommentAuthorCollection.remove(ICommentAuthor) ถูกเพิ่มเพื่อใช้ลบผู้เขียนที่ระบุจากคอลเลกชัน. เมธอด ICommentAuthorCollection.clear() ถูกเพิ่มเพื่อใช้ลบรายการทั้งหมดจากคอลเลกชัน.
+|Color|คืนค่าแบบสีปกติ|
+|Automatic|คืนค่าแบบสีอัตโนมัติ|
+|Gray|คืนค่าเป็นสีเทา|
+|LightGray|คืนค่าเป็นสีเทาอ่อน|
+|InverseGray|คืนค่าเป็นสีเทากลับด้าน|
+|GrayWhite|คืนค่าเป็นสีเทาและสีขาว|
+|BlackGray|คืนค่าเป็นสีดำและสีเทา|
+|BlackWhite|คืนค่าเป็นสีดำและสีขาว|
+|Black|คืนค่าเป็นสีดำเท่านั้น|
+|White|คืนค่าเป็นสีขาว|
+|Hidden|วัตถุจะไม่แสดงผล|
+#### **เมธอด removeAt(int), remove(ICommentAuthor) และ clear() ถูกเพิ่มให้กับ com.aspose.slides.ICommentAuthorCollection**
+เมธอด ICommentAuthorCollection.removeAt(int) ถูกเพิ่มเพื่อการลบผู้เขียนตามดัชนีที่ระบุ. เมธอด ICommentAuthorCollection.remove(ICommentAuthor) ถูกเพิ่มเพื่อการลบผู้เขียนที่ระบุจากคอลเลกชัน. เมธอด ICommentAuthorCollection.clear() ถูกเพิ่มเพื่อการลบรายการทั้งหมดจากคอลเลกชัน.

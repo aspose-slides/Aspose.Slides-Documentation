@@ -1,5 +1,5 @@
 ---
-title: Dostosuj punkty danych w wykresach Treemap i Sunburst przy użyciu C++
+title: Dostosowywanie punktów danych w wykresach Treemap i Sunburst przy użyciu C++
 linktitle: Punkty danych w wykresach Treemap i Sunburst
 type: docs
 url: /pl/cpp/data-points-of-treemap-and-sunburst-chart/
@@ -13,13 +13,13 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać punktami danych w wykresach treemap i sunburst przy użyciu Aspose.Slides dla C++, zgodnie z formatami PowerPoint."
+description: "Dowiedz się, jak zarządzać punktami danych w wykresach treemap i sunburst przy użyciu Aspose.Slides dla C++, kompatybilnych z formatami PowerPoint."
 ---
 ## **Wprowadzenie**
 
-Wśród innych typów wykresów PowerPoint istnieją dwa typy „hierarchiczne” – **Treemap** i **Sunburst** (chart (również znany jako Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph lub Multi Level Pie Chart)). Te wykresy wyświetlają hierarchiczne dane zorganizowane jako drzewo – od liści do szczytu gałęzi. Liście są definiowane przez punkty danych serii, a każdy kolejny zagnieżdżony poziom grupowania jest definiowany przez odpowiednią kategorię. Aspose.Slides for C++ umożliwia formatowanie punktów danych wykresu Sunburst i Treemap w C++.
+Wśród innych typów wykresów PowerPoint istnieją dwa typy „hierarchiczne” – **Treemap** i **Sunburst** (chart (znany również jako wykres Sunburst, diagram Sunburst, wykres radialny, graf radialny lub wykres kołowy wielopoziomowy)). Te wykresy wyświetlają dane hierarchiczne zorganizowane jako drzewo – od liści do szczytu gałęzi. Liście są definiowane przez punkty danych serii, a każdy kolejny poziom grupowania jest określany przez odpowiednią kategorię. Aspose.Slides for C++ pozwala formatować punkty danych wykresu Sunburst i Treemap w C++.
 
-Poniżej znajduje się wykres Sunburst, gdzie dane w kolumnie Series1 definiują węzły liści, a pozostałe kolumny definiują hierarchiczne punkty danych:
+To jest wykres Sunburst, w którym dane w kolumnie Series1 definiują węzły liści, podczas gdy inne kolumny definiują punkty danych hierarchicznych:
 
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
@@ -35,10 +35,12 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 - [**Tworzenie wykresu Sunburst**](/slides/pl/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) klasy oraz [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) metoda udostępniają dostęp do formatowania punktów danych wykresów Treemap i Sunburst.  
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) służy do uzyskiwania dostępu do kategorii wielopoziomowych – reprezentuje kontener obiektów [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/).  
-W zasadzie jest to opakowanie dla [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) z właściwościami dodanymi specyficznie dla punktów danych.  
-Klasa [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) posiada dwie metody: [**get_Format()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) i [**get_Label()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/), które zapewniają dostęp do odpowiednich ustawień.
+Jeśli istnieje potrzeba sformatowania punktów danych wykresu, należy użyć następujących:
+
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) klasy i metoda [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) zapewniają dostęp do formatowania punktów danych wykresów Treemap i Sunburst.  
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) jest używany do uzyskiwania dostępu do wielopoziomowych kategorii – reprezentuje kontener obiektów [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) .  
+W zasadzie jest to wrapper dla [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) z właściwościami dodanymi specjalnie dla punktów danych.  
+Klasa [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) posiada dwie metody: [**get_Format()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) oraz [**get_Label()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) które zapewniają dostęp do odpowiednich ustawień.
 
 ## **Pokaż wartość punktu danych**
 
@@ -84,20 +86,20 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
 
-## **FAQ**
+## **Najczęściej Zadawane Pytania**
 
 **Czy mogę zmienić kolejność (sortowanie) segmentów w wykresie Sunburst/Treemap?**
 
-Nie. PowerPoint sortuje segmenty automatycznie (zazwyczaj według wartości malejących, zgodnie z ruchem wskazówek zegara). Aspose.Slides odzwierciedla to zachowanie: nie można zmienić kolejności bezpośrednio; należy to zrobić poprzez wstępne przetworzenie danych.
+Nie. PowerPoint sortuje segmenty automatycznie (zazwyczaj malejąco, zgodnie z ruchem wskazówek zegara). Aspose.Slides odzwierciedla to zachowanie: nie można zmienić kolejności bezpośrednio; można to osiągnąć poprzez wstępne przetworzenie danych.
 
 **Jak motyw prezentacji wpływa na kolory segmentów i etykiet?**
 
-Kolory wykresu dziedziczą [motyw/paleta](/slides/pl/cpp/presentation-theme/) prezentacji, chyba że wyraźnie ustawisz wypełnienia lub czcionki. Aby uzyskać spójne wyniki, zablokuj stałe wypełnienia i formatowanie tekstu na wymaganych poziomach.
+Kolory wykresu dziedziczą [motyw/paletę](/slides/pl/cpp/presentation-theme/) prezentacji, chyba że jawnie ustawisz wypełnienia/czcionki. Aby uzyskać spójne wyniki, ustal stałe wypełnienia i formatowanie tekstu na wymaganych poziomach.
 
 **Czy eksport do PDF/PNG zachowa niestandardowe kolory gałęzi i ustawienia etykiet?**
 
 Tak. Podczas eksportu prezentacji ustawienia wykresu (wypełnienia, etykiety) są zachowywane w formatach wyjściowych, ponieważ Aspose.Slides renderuje wykres z zastosowanym formatowaniem.
 
-**Czy mogę obliczyć rzeczywiste współrzędne etykiety/elementu w celu niestandardowego umieszczenia nakładki nad wykresem?**
+**Czy mogę obliczyć rzeczywiste współrzędne etykiety/elementu w celu umieszczenia własnej nakładki nad wykresem?**
 
-Tak. Po zwalidowaniu układu wykresu dostępne są rzeczywiste współrzędne X i Y elementów (na przykład [DataLabel](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/datalabel/)), co ułatwia precyzyjne pozycjonowanie nakładek.
+Tak. Po zwalidowaniu układu wykresu dostępne są rzeczywiste wartości X i Y dla elementów (np. [DataLabel](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/datalabel/)), co ułatwia precyzyjne pozycjonowanie nakładek.

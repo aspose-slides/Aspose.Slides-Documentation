@@ -19,26 +19,25 @@ keywords:
 - Aspose.Slides
 description: "Standard-Schriftarten in Aspose.Slides für C++ festlegen, um eine korrekte Konvertierung von PowerPoint (PPT, PPTX) und OpenDocument (ODP) zu PDF, XPS und Bildern zu gewährleisten."
 ---
+## **Übersicht**
 
-## **Standard‑Schriftart festlegen**
-Mit Aspose.Slides für C++ können Sie die Standardschriftart in PowerPoint‑Präsentationen festlegen. Eine neue Methode [set_DefaultRegularFont()](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_save_options/#a9df129ea6e65c8196e08173799a10492) wurde zur Klasse [**SaveOptions**](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.save_options/) hinzugefügt. Sie ermöglicht es, die Standardschriftart festzulegen, die anstelle aller fehlenden Schriftarten verwendet wird, wenn Präsentationen in verschiedene Formate gespeichert werden, ohne die Präsentationen neu zu laden.
+Aspose.Slides ermöglicht es Ihnen, Standardschriften festzulegen, die beim Rendern einer Präsentation verwendet werden. Dies ist nützlich beim Erzeugen von Folien‑Thumbnails oder beim Exportieren einer Präsentation in Formate wie PDF und XPS. Standardschriften werden über `LoadOptions` konfiguriert, bevor die Präsentation geladen wird.
 
-Das nachstehende Code‑Snippet demonstriert das Speichern einer Präsentation als [HTML](https://docs.fileformat.com/web/html/) und [PDF](https://docs.fileformat.com/pdf/) mit unterschiedlichen Standardschriftarten.
+Die Methode `set_DefaultRegularFont` definiert die Standardschrift für normalen Text, während `set_DefaultAsianFont` die Standardschrift für asiatischen Text festlegt. Nachdem diese Optionen gesetzt wurden, kann die Präsentation geladen und mit den angegebenen Schriften gerendert werden.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SetDefaultFont-SetDefaultFont.cpp" >}}
+## **Verwenden Sie Standardschriften beim Rendern einer Präsentation**
+Aspose.Slides ermöglicht es Ihnen, die Standardschrift für das Rendern der Präsentation zu PDF, XPS oder Thumbnails festzulegen. Dieser Artikel zeigt, wie man DefaultRegularFont und DefaultAsianFont als Standardschriften definiert. Bitte folgen Sie den unten stehenden Schritten, um Schriftarten aus externen Verzeichnissen mithilfe der Aspose.Slides‑API für C++ zu laden:
 
-## **Standard‑Schriftarten für die Darstellung einer Präsentation verwenden**
-Aspose.Slides ermöglicht es, die Standardschriftart für die Darstellung der Präsentation als PDF, XPS oder Thumbnails festzulegen. Dieser Artikel zeigt, wie DefaultRegularFont und DefaultAsianFont als Standardschriftarten definiert werden. Bitte folgen Sie den nachstehenden Schritten, um Schriftarten aus externen Verzeichnissen mithilfe der Aspose.Slides‑C++‑API zu laden:
+1. Erstellen Sie eine Instanz von LoadOptions.
+1. Setzen Sie das DefaultRegularFont auf die gewünschte Schriftart. Im folgenden Beispiel habe ich Wingdings verwendet.
+1. Setzen Sie das DefaultAsianFont auf die gewünschte Schriftart. Ich habe Wingdings im folgenden Beispiel verwendet.
+1. Laden Sie die Präsentation mit Presentation und setzen Sie dabei die Ladeoptionen.
+1. Generieren Sie nun das Folien‑Thumbnail, PDF und XPS, um die Ergebnisse zu überprüfen.
 
-1. Erstellen Sie eine Instanz von LoadOptions.  
-1. Setzen Sie die DefaultRegularFont auf die gewünschte Schriftart. Im folgenden Beispiel habe ich Wingdings verwendet.  
-1. Setzen Sie die DefaultAsianFont auf die gewünschte Schriftart. Ich habe in dem folgenden Beispiel Wingdings verwendet.  
-1. Laden Sie die Präsentation mit Presentation und den festgelegten Ladeoptionen.  
-1. Erzeugen Sie nun das Folien‑Thumbnail, PDF und XPS, um die Ergebnisse zu prüfen.
+Die Implementierung des oben Gesagten ist unten angegeben.
 
-Die Implementierung des Obigen ist unten angegeben.
 ```cpp
-// Verwenden Sie die Ladeoptionen, um die Standard‑Schriftarten für reguläre und asiatische Schriften festzulegen
+// Verwenden Sie die Ladeoptionen, um die standardmäßigen regulären und asiatischen Schriften festzulegen
 auto loadOptions = MakeObject<LoadOptions>(LoadFormat::Auto);
 loadOptions->set_DefaultRegularFont(u"Wingdings");
 loadOptions->set_DefaultAsianFont(u"Wingdings");
@@ -55,25 +54,24 @@ pptx->Save(u"DefaultFonts_out.xps", SaveFormat::Xps);
 pptx->Dispose();
 ```
 
-
 ## **FAQ**
 
-**Was genau beeinflussen DefaultRegularFont und DefaultAsianFont – nur den Export oder auch Thumbnails, PDF, XPS, HTML und SVG?**
+**Was genau beeinflussen DefaultRegularFont und DefaultAsianFont—nur den Export oder auch Thumbnails, PDF, XPS, HTML und SVG?**
 
-Sie wirken sich auf die gesamte Rendering‑Pipeline für alle unterstützten Ausgaben aus. Dazu gehören Folien‑Thumbnails, [PDF](/slides/de/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/de/cpp/convert-powerpoint-to-xps/), [Raster‑Bilder](/slides/de/cpp/convert-powerpoint-to-png/), [HTML](/slides/de/cpp/convert-powerpoint-to-html/) und [SVG](/slides/de/cpp/render-a-slide-as-an-svg-image/), weil Aspose.Slides dieselbe Layout‑ und Glyphen‑Auflösungslogik für diese Ziele verwendet.
+Sie nehmen an der Rendering‑Pipeline für alle unterstützten Ausgaben teil. Dazu gehören Folien‑Thumbnails, [PDF](/slides/de/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/de/cpp/convert-powerpoint-to-xps/), [Rasterbilder](/slides/de/cpp/convert-powerpoint-to-png/), [HTML](/slides/de/cpp/convert-powerpoint-to-html/), und [SVG](/slides/de/cpp/render-a-slide-as-an-svg-image/), da Aspose.Slides dieselbe Layout‑ und Glyph‑Auflösungslogik für diese Ziele verwendet.
 
-**Werden Standardschriftarten angewendet, wenn man eine PPTX nur liest und speichert, ohne zu rendern?**
+**Werden Standardschriften angewendet, wenn lediglich ein PPTX gelesen und gespeichert wird, ohne irgendeine Renderung?**
 
-Nein. Standardschriftarten kommen nur zum Tragen, wenn Text gemessen und gezeichnet werden muss. Ein reines Öffnen‑und‑Speichern einer Präsentation ändert weder die gespeicherten Schriftlaufdaten noch die Dateistruktur. Standardschriftarten werden bei Vorgängen aktiv, die Rendern oder Text‑Umfluss erfordern.
+Nein. Standardschriften sind relevant, wenn Text gemessen und gezeichnet werden muss. Ein einfaches Öffnen‑und‑Speichern einer Präsentation ändert weder die gespeicherten Schriftläufe noch die Dateistruktur. Standardschriften kommen bei Vorgängen zum Tragen, die Text rendern oder neu layouten.
 
-**Wenn ich eigene Schriftordner hinzufüge oder Schriften aus dem Speicher bereitstelle, werden sie bei der Auswahl der Standardschriftarten berücksichtigt?**
+**Wenn ich eigene Schriftordner hinzufüge oder Schriftarten aus dem Speicher bereitstelle, werden diese bei der Auswahl der Standardschriften berücksichtigt?**
 
-Ja. [Benutzerdefinierte Schriftquellen](/slides/de/cpp/custom-font/) erweitern den Katalog verfügbarer Familien und Glyphen, die die Engine nutzen kann. Standardschriftarten und alle [Fallback‑Regeln](/slides/de/cpp/fallback-font/) prüfen zuerst diese Quellen, was auf Servern und in Containern zu einer zuverlässigeren Abdeckung führt.
+Ja. [Custom font sources](/slides/de/cpp/custom-font/) erweitern den Katalog der verfügbaren Familien und Glyphen, die die Engine verwenden kann. Standardschriften und alle [fallback rules](/slides/de/cpp/fallback-font/) werden zuerst gegen diese Quellen aufgelöst, was zu einer zuverlässigeren Abdeckung auf Servern und in Containern führt.
 
-**Beeinflussen Standardschriftarten Textmetriken (Kerning, Advances) und damit Zeilenumbrüche und Zeilenumbruch?**
+**Beeinflussen Standardschriften die Textmetriken (Kerning, Voranschritte) und damit Zeilenumbrüche und Textumbruch?**
 
-Ja. Durch das Ändern der Schriftart ändern sich Glyphen‑Metriken, was Zeilenumbrüche, Zeilenfluss und Paginierung beim Rendern beeinflussen kann. Für Layout‑Stabilität sollten Sie entweder die Originalschriften [einbetten](/slides/de/cpp/embedded-font/) oder metrisch kompatible Standard‑ und Fallback‑Familien auswählen.
+Ja. Das Ändern der Schriftart ändert die Glyphenmetriken und kann Zeilenumbrüche, Textumbruch und Paginierung beim Rendern beeinflussen. Für Layout‑Stabilität sollten Sie [embed the original fonts](/slides/de/cpp/embedded-font/) oder metrisch kompatible Standard‑ und Fallback‑Familien wählen.
 
-**Macht das Festlegen von Standardschriftarten überhaupt Sinn, wenn alle in der Präsentation verwendeten Schriften eingebettet sind?**
+**Gibt es einen Sinn, Standardschriften festzulegen, wenn alle in der Präsentation verwendeten Schriften eingebettet sind?**
 
-Oft ist es nicht nötig, da [eingebettete Schriften](/slides/de/cpp/embedded-font/) bereits ein konsistentes Erscheinungsbild gewährleisten. Standardschriftarten dienen dennoch als Sicherheitsnetz für Zeichen, die nicht im eingebetteten Subset enthalten sind, oder wenn eine Datei sowohl eingebettete als auch nicht eingebettete Texte kombiniert.
+Oft ist das nicht nötig, da [embedded fonts](/slides/de/cpp/embedded-font/) bereits ein konsistentes Erscheinungsbild gewährleisten. Standardschriften sind dennoch als Sicherheitsnetz nützlich für Zeichen, die nicht im eingebetteten Teil enthalten sind, oder wenn eine Datei eingebetteten und nicht eingebetteten Text mischt.

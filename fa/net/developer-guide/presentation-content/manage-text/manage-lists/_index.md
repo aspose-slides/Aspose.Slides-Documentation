@@ -1,45 +1,49 @@
 ---
-title: مدیریت فهرست‌های بولت‌دار و عددی در ارائه‌ها با .NET
+title: مدیریت فهرست‌های نشانه‌دار و عددی در ارائه‌ها با .NET
 linktitle: مدیریت فهرست‌ها
 type: docs
 weight: 70
 url: /fa/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- بولت
-- فهرست بولت‌دار
+- نشان
+- فهرست نشانه‌دار
 - فهرست عددی
-- بولت نمادین
-- بولت تصویری
-- بولت سفارشی
+- نشان نماد
+- نشان تصویری
+- نشان سفارشی
 - فهرست چندسطحی
-- ایجاد بولت
-- اضافه کردن بولت
-- اضافه کردن فهرست
+- ایجاد نشان
+- افزودن نشان
+- افزودن فهرست
 - PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "بیاموزید چگونه فهرست‌های بولت‌دار، تصویری، چندسطحی و عددی را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET ایجاد و قالب‌بندی کنید."
+description: "یاد بگیرید چگونه فهرست‌های نشانه‌دار، تصویری، چندسطحی و عددی را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای .NET ایجاد و قالب‌بندی کنید."
 ---
-## **نمای کلی**
+## **مروری کلی**
 
-Aspose.Slides for .NET به شما امکان می‌دهد تا فهرست‌های بولت‌دار و عددی را در ارائه‌های PowerPoint و OpenDocument ایجاد و قالب‌بندی کنید. یک مورد فهرست یک پاراگراف است که تنظیمات بولت آن از طریق قالب پاراگراف آن کنترل می‌شود.
+Aspose.Slides برای .NET به شما امکان ایجاد و قالب‌بندی فهرست‌های نشانه‌دار و عددی در ارائه‌های PowerPoint و OpenDocument را می‌دهد. یک مورد فهرست یک پاراگراف است که تنظیمات علامت‌گذاری آن از طریق قالب پاراگراف کنترل می‌شود.
 
-از ویژگی [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/paragraphformat/) برای دسترسی به تنظیمات فهرست در سطح پاراگراف استفاده کنید. نقطهٔ ورودی اصلی [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/bullet/) است که یک شیء [IBulletFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/) برمی‌گرداند. با این شیء می‌توانید نوع بولت، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و شمارهٔ شروع را تنظیم کنید.
+از ویژگی [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/paragraphformat/) برای دسترسی به تنظیمات فهرست در سطح پاراگراف استفاده کنید. نقطه ورود اصلی [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/bullet/) است که یک شیء [IBulletFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/) را برمی‌گرداند. با این شیء می‌توانید نوع علامت، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و شماره شروع را تنظیم کنید.
 
 این مقاله نشان می‌دهد چگونه:
 
-- ایجاد یک فهرست بولت‌دار با نماد سفارشی
-- ایجاد یک بولت تصویری
-- ایجاد یک فهرست چندسطحی با تنظیم عمق پاراگراف
-- ایجاد یک فهرست عددی
-- بررسی و تغییر قالب‌بندی فهرست در یک ارائه موجود
+- فهرست نشانه‌دار با نماد سفارشی ایجاد کنید
+- علامت تصویری ایجاد کنید
+- فهرست چندسطحی را با تنظیم عمق پاراگراف ایجاد کنید
+- فهرست عددی ایجاد کنید
+- قالب‌بندی فهرست موجود در یک ارائه را بررسی و تغییر دهید
 
-## **ایجاد یک فهرست بولت‌دار**
+## **ایجاد فهرست نشانه‌دار**
 
-برای ایجاد یک فهرست بولت‌دار، اشیای [IParagraph](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/) را به یک [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) اضافه کنید و [IBulletFormat.Type](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/type/) را به [BulletType.Symbol](https://reference.aspose.com/slides/fa/net/aspose.slides/bullettype/) تنظیم کنید. سپس می‌توانید [IBulletFormat.Char](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/char/)، [IBulletFormat.Color](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/color/) و [IBulletFormat.Height](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/height/) را برای کنترل ظاهر بولت تعیین کنید.
+برای ایجاد فهرست نشانه‌دار، اشیاء [IParagraph](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/) را به یک [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) اضافه کنید و [IBulletFormat.Type](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/type/) را به [BulletType.Symbol](https://reference.aspose.com/slides/fa/net/aspose.slides/bullettype/) تنظیم کنید. سپس می‌توانید [IBulletFormat.Char](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/char/)، [IBulletFormat.Color](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/color/)، و [IBulletFormat.Height](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/height/) را برای کنترل ظاهر علامت تنظیم کنید.
+
+کد C# زیر نشان می‌دهد چگونه فهرست نشانه‌دار در یک اسلاید ایجاد شود:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -74,11 +78,13 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 نتیجه:
 
-![بولت‌های نمادین](symbol_bullets.png)
+![بولت‌های نماد](symbol_bullets.png)
 
-## **ایجاد یک فهرست عددی**
+## **ایجاد فهرست عددی**
 
-از فهرست‌های عددی زمانی استفاده کنید که ترتیب موارد مهم است. [IBulletFormat.Type](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/type/) را به [BulletType.Numbered](https://reference.aspose.com/slides/fa/net/aspose.slides/bullettype/) تنظیم کنید. همچنین می‌توانید قالب شماره‌گذاری را با [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/numberedbulletstyle/) انتخاب کنید یا هنگام نیاز به شروع از مقدار دیگری غیر از 1، [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/numberedbulletstartwith/) را تنظیم کنید.
+زمانی که ترتیب موارد مهم است از فهرست‌های عددی استفاده کنید. [IBulletFormat.Type](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/type/) را به [BulletType.Numbered](https://reference.aspose.com/slides/fa/net/aspose.slides/bullettype/) تنظیم کنید. همچنین می‌توانید قالب شماره‌گذاری را با [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/numberedbulletstyle/) انتخاب کنید یا هنگام شروع فهرست از مقدار غیر از 1، [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/numberedbulletstartwith/) را تنظیم کنید.
+
+کد C# زیر نشان می‌دهد چگونه فهرست عددی در یک اسلاید ایجاد شود:
 
 ```csharp
 using var presentation = new Presentation();
@@ -111,21 +117,25 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 ![بولت‌های عددی](numbered_bullets.png)
 
-## **ایجاد یک بولت تصویری**
+## **ایجاد علامت تصویری**
 
-Aspose.Slides به شما اجازه می‌دهد تا نماد بولت معمولی را با یک تصویر جایگزین کنید. بولت‌های تصویری بهترین عملکرد را با تصاویری ساده که در اندازهٔ کوچک قابل خواندن باقی می‌مانند، مانند آیکون‌ها یا فایل‌های PNG شفاف کوچک، دارند.
+Aspose.Slides به شما اجازه می‌دهد نماد علامت معمولی را با یک تصویر جایگزین کنید. علامت‌های تصویری برای تصاویر ساده‌ای که در اندازه کوچک نیز قابل خواندن باشند، مانند آیکون‌ها یا فایل‌های PNG شفاف کوچک، بهترین عملکرد را دارند.
 
 {{% alert color="primary" %}}
-در حالت ایده‌آل، اگر قصد دارید نماد بولت معمولی را با یک تصویر جایگزین کنید، بهتر است گرافیک ساده‌ای با پس‌زمینهٔ شفاف انتخاب کنید. چنین تصاویری به عنوان نمادهای بولت سفارشی به خوبی عمل می‌کنند.
+
+در صورت برنامه‌ریزی برای جایگزین کردن نماد عادی با یک تصویر، بهتر است گرافیک ساده‌ای با پس‌زمینه شفاف انتخاب کنید. چنین تصاویری به‌عنوان نمادهای سفارشی علامت مناسب هستند.
+
+به خاطر داشته باشید که تصویر به اندازه بسیار کوچکی کاهش می‌یابد. به همین دلیل، توصیه می‌کنیم تصویری انتخاب کنید که هنگام استفاده به‌عنوان علامت در فهرست واضح و بصری موثر بماند.
+
 {{% /alert %}}
 
-به خاطر داشته باشید که تصویر به یک اندازهٔ بسیار کوچک مقیاس می‌شود. به همین دلیل، به شدت توصیه می‌کنیم تصویری انتخاب کنید که حتی در این اندازهٔ کوچک واضح و بصری مؤثر باقی بماند.
+برای ایجاد علامت تصویری، یک تصویر به [Presentation.Images](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/images/) اضافه کنید و شیء تصویر بازگشتی را به [IBulletFormat.Picture](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/picture/) اختصاص دهید. پیش از تخصیص تصویر، [IBulletFormat.Type](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/type/) را به [BulletType.Picture](https://reference.aspose.com/slides/fa/net/aspose.slides/bullettype/) تنظیم کنید.
 
-برای ایجاد یک بولت تصویری، یک تصویر را به [Presentation.Images](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/images/) اضافه کنید و شیء تصویر بازگشتی را به [IBulletFormat.Picture](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/picture/) اختصاص دهید. قبل از اختصاص تصویر، [IBulletFormat.Type](https://reference.aspose.com/slides/fa/net/aspose.slides/ibulletformat/type/) را به [BulletType.Picture](https://reference.aspose.com/slides/fa/net/aspose.slides/bullettype/) تنظیم کنید.
+فرض کنیم فایلی به نام "image.png" داریم:
 
-فرض کنید فایلی به نام "image.png" داریم:
+![تصویر برای بولت‌ها](picture_for_bullets.png)
 
-![تصویری برای بولت‌ها](picture_for_bullets.png)
+کد C# زیر نشان می‌دهد چگونه علامت‌های تصویری در یک اسلاید ایجاد شود:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -163,9 +173,11 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 ![بولت‌های تصویری](picture_bullets.png)
 
-## **ایجاد یک فهرست چندسطحی**
+## **ایجاد فهرست چندسطحی**
 
-از [IParagraphFormat.Depth](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/depth/) برای قرار دادن موارد فهرست در سطوح مختلف استفاده کنید. سطح 0 بالاترین سطح است، سطح 1 زیر آن تو در تو می‌شود و به همین ترتیب ادامه دارد.
+از [IParagraphFormat.Depth](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/depth/) برای قرار دادن موارد فهرست در سطوح مختلف استفاده کنید. سطح 0 بالاترین سطح است، سطح 1 زیر آن تو در تو است و به همین ترتیب.
+
+کد C# زیر نشان می‌دهد چگونه فهرست نشانه‌دار چندسطحی ایجاد شود:
 
 ```csharp
 using var presentation = new Presentation();
@@ -203,9 +215,11 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 ![فهرست چندسطحی](multilevel_list.png)
 
-## **تغییر یک فهرست موجود**
+## **تغییر فهرست موجود**
 
-برای تغییر قالب‌بندی فهرست در یک ارائه موجود، به پاراگراف هدف دسترسی پیدا کنید و تنظیمات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/bullet/) آن را به‌روزرسانی کنید. همان خصوصیات استفاده‌شده برای ایجاد فهرست‌ها می‌توانند برای بررسی یا اصلاح فهرست‌های بارگذاری‌شده از فایل‌های PPT، PPTX یا ODP استفاده شوند.
+برای تغییر قالب‌بندی فهرست در یک ارائه موجود، به پاراگراف هدف دسترسی پیدا کنید و تنظیمات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/bullet/) آن را به‌روزرسانی کنید. همان ویژگی‌هایی که برای ایجاد فهرست‌ها استفاده می‌شوند، می‌توانند برای بررسی یا اصلاح فهرست‌های بارگذاری‌شده از فایل‌های PPT، PPTX یا ODP به‌کار روند.
+
+کد C# زیر اولین پاراگراف در یک فریم متن را به سبک فهرست عددی تغییر می‌دهد:
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -225,14 +239,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **سوالات متداول**
 
-**آیا فهرست‌های بولت‌دار و عددی می‌توانند به PDF یا تصاویر صادر شوند؟**
+**آیا فهرست‌های نشانه‌دار و عددی می‌توانند به PDF یا تصاویر صادر شوند؟**
 
-بله. Aspose.Slides قالب‌بندی فهرست را زمانی که فرمت هدف از چیدمان متن و ویژگی‌های بولت متناظر پشتیبانی می‌کند، حفظ می‌کند.
+بله. Aspose.Slides قالب‌بندی فهرست را حفظ می‌کند هنگامی که فرمت هدف ویژگی‌های متن و علامت مربوطه را پشتیبانی کند.
 
-**آیا می‌توانم فهرست‌ها را در ارائه‌های موجود ویرایش کنم؟**
+**آیا می‌توان فهرست‌ها را در ارائه‌های موجود ویرایش کرد؟**
 
-بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/bullet/) را بررسی یا به‌روزرسانی کنید و سپس ارائه را ذخیره کنید.
+بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/bullet/) آن را بررسی یا به‌روزرسانی کنید و سپس ارائه را ذخیره نمایید.
 
 **آیا فهرست‌ها می‌توانند متن غیرلاتین داشته باشند؟**
 
-بله. متن موارد فهرست می‌تواند شامل کاراکترهای یونیکد باشد، بنابراین می‌توانید فهرست‌ها را در ارائه‌های چندزبانه ایجاد کنید. اطمینان حاصل کنید که قلم‌های استفاده‌شده در ارائه، کاراکترهای مورد نیاز شما را پشتیبانی می‌کنند.
+بله. متن موارد فهرست می‌تواند شامل کاراکترهای Unicode باشد؛ بنابراین می‌توانید فهرست‌ها را در ارائه‌های چندزبانه ایجاد کنید. اطمینان حاصل کنید که فونت‌های استفاده‌شده در ارائه، کاراکترهای مورد نیاز شما را پشتیبانی می‌کنند.

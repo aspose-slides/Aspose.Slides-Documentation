@@ -1,25 +1,25 @@
 ---
-title: Buat dan Sesuaikan Diagram PowerPoint di С++
+title: Buat dan Sesuaikan Diagram PowerPoint di C++
 linktitle: Diagram PowerPoint
 type: docs
 weight: 70
 url: /id/cpp/powerpoint-charts/
 keywords:
-- tambahkan diagram
-- buat diagram
-- perbarui diagram
-- ubah diagram
-- modifikasi diagram
-- sesuaikan diagram
+- menambahkan diagram
+- membuat diagram
+- memperbarui diagram
+- mengubah diagram
+- memodifikasi diagram
+- menyesuaikan diagram
 - jenis diagram
 - entitas diagram
-- format diagram
+- memformat diagram
 - buku kerja diagram
 - diagram animasi
-- ekspor diagram
+- mengekspor diagram
 - PowerPoint
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram PowerPoint di С++ dengan Aspose.Slides—kerjakan data, gaya, dan jenis diagram di PPT dan PPTX menggunakan contoh kode yang jelas."
+description: "Buat dan sesuaikan diagram PowerPoint di C++ dengan Aspose.Slides—bekerja dengan data, gaya, dan jenis diagram dalam PPT dan PPTX menggunakan contoh kode yang jelas."
 ---

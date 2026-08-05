@@ -1,9 +1,12 @@
 ---
-title: Administrar párrafos de texto de PowerPoint en C++
-linktitle: Administrar párrafo
+title: Gestionar párrafos de texto de PowerPoint en C++
+linktitle: Gestionar párrafo
 type: docs
 weight: 40
 url: /es/cpp/manage-paragraph/
+aliases:
+  - /cpp/paragraph/
+  - /cpp/portion/
 keywords:
 - añadir texto
 - añadir párrafo
@@ -15,7 +18,7 @@ keywords:
 - viñeta de párrafo
 - lista numerada
 - lista con viñetas
-- propiedades del párrafo
+- propiedades de párrafo
 - importar HTML
 - texto a HTML
 - párrafo a HTML
@@ -27,28 +30,30 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Domina el formato de párrafos con Aspose.Slides para C++—optimiza la alineación, el espaciado y el estilo en presentaciones PPT, PPTX y ODP en C++."
+description: "Domina el formato de párrafos con Aspose.Slides para C++ —optimiza la alineación, el espaciado y el estilo en presentaciones PPT, PPTX y ODP en C++."
 ---
+## **Introducción**
+
 Aspose.Slides proporciona todas las interfaces y clases que necesita para trabajar con textos, párrafos y fragmentos de PowerPoint en C++.
 
-* Aspose.Slides proporciona la interfaz [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) para permitirle añadir objetos que representan un párrafo. Un objeto `ITextFame` puede tener uno o varios párrafos (cada párrafo se crea mediante un retorno de carro).
-* Aspose.Slides proporciona la interfaz [IParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraph/) para permitirle añadir objetos que representan fragmentos. Un objeto `IParagraph` puede tener uno o varios fragmentos (colección de objetos iPortions).
-* Aspose.Slides proporciona la interfaz [IPortion](https://reference.aspose.com/slides/es/cpp/aspose.slides/iportion/) para permitirle añadir objetos que representan textos y sus propiedades de formato.
+* Aspose.Slides proporciona la interfaz [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) para permitirle agregar objetos que representan un párrafo. Un objeto `ITextFame` puede tener uno o varios párrafos (cada párrafo se crea mediante un retorno de carro).
+* Aspose.Slides proporciona la interfaz [IParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraph/) para permitirle agregar objetos que representan fragmentos. Un objeto `IParagraph` puede tener una o varias porciones (colección de objetos iPortions).
+* Aspose.Slides proporciona la interfaz [IPortion](https://reference.aspose.com/slides/es/cpp/aspose.slides/iportion/) para permitirle agregar objetos que representan textos y sus propiedades de formato. 
 
 Un objeto `IParagraph` es capaz de manejar textos con diferentes propiedades de formato mediante sus objetos subyacentes `IPortion`.
 
-## **Agregar varios párrafos que contienen varios fragmentos**
+## **Agregar varios párrafos que contienen varias porciones**
 
-Estos pasos le muestran cómo añadir un marco de texto que contiene 3 párrafos y cada párrafo contiene 3 fragmentos:
+Estos pasos le muestran cómo agregar un marco de texto que contiene 3 párrafos y cada párrafo contiene 3 porciones:
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Añada un [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) rectangular a la diapositiva.
+3. Añada un rectángulo [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva.
 4. Obtenga el ITextFrame asociado al [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/).
 5. Cree dos objetos [IParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraph/) y añádalos a la colección `IParagraphs` del [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/).
 6. Cree tres objetos [IPortion](https://reference.aspose.com/slides/es/cpp/aspose.slides/iportion/) para cada nuevo `IParagraph` (dos objetos Portion para el párrafo predeterminado) y añada cada objeto `IPortion` a la colección IPortion de cada `IParagraph`.
-7. Establezca algún texto para cada fragmento.
-8. Aplique sus características de formato preferidas a cada fragmento usando las propiedades de formato expuestas por el objeto `IPortion`.
+7. Establezca algún texto para cada porción.
+8. Aplique sus características de formato preferidas a cada porción usando las propiedades de formato expuestas por el objeto `IPortion`.
 9. Guarde la presentación modificada.
 
 ```c++
@@ -63,7 +68,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 // Acceder a la primera diapositiva
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Añadir un AutoShape de tipo rectángulo
+// Añadir un AutoShape de tipo Rectángulo
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
 
 // Añadir TextFrame al rectángulo
@@ -129,21 +134,21 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
-## **Administrar viñetas de párrafo**
+## **Gestionar viñetas de párrafo**
 
-Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Los párrafos con viñetas siempre son más fáciles de leer y comprender.
+Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficaz. Los párrafos con viñetas son siempre más fáciles de leer y comprender.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Añada una [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva seleccionada.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) de la autoshape.
+3. Añada un [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva seleccionada.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) del autoshape. 
 5. Elimine el párrafo predeterminado en el `TextFrame`.
 6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraph/).
-7. Establezca el `Type` de la viñeta del párrafo a `Symbol` y defina el carácter de la viñeta.
+7. Establezca el `Type` de viñeta del párrafo a `Symbol` y defina el carácter de viñeta.
 8. Establezca el `Text` del párrafo.
-9. Establezca el `Indent` del párrafo para la viñeta.
-10. Defina un color para la viñeta.
-11. Defina una altura para la viñeta.
+9. Establezca la `Indent` del párrafo para la viñeta.
+10. Establezca un color para la viñeta.
+11. Establezca una altura para la viñeta.
 12. Añada el nuevo párrafo a la colección de párrafos del `TextFrame`.
 13. Añada el segundo párrafo y repita el proceso indicado en los pasos 7 a 13.
 14. Guarde la presentación.
@@ -160,7 +165,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 // Acceder a la primera diapositiva
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Añadir un AutoShape de tipo rectángulo
+// Añadir un AutoShape de tipo Rectángulo
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
 
 // Añadir TextFrame al rectángulo
@@ -176,23 +181,23 @@ SharedPtr<Paragraph> paragraph = MakeObject<Paragraph>();
 //Establecer texto
 paragraph->set_Text(u"Welcome to Aspose.Slides");
 
-// Establecer sangría de viñeta
+// Establecer sangría de la viñeta
 paragraph->get_ParagraphFormat()->set_Indent (25);
 
-// Establecer color de viñeta
+// Establecer color de la viñeta
 paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType ( ColorType::RGB);
 paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
 	
-// establecer IsBulletHardColor a true para usar el color propio de la viñeta
+// establecer IsBulletHardColor a true para usar color propio de la viñeta
 paragraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True); 
 																					
-// Establecer altura de viñeta
+// Establecer altura de la viñeta
 paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
 
-// Añadiendo párrafo al marco de texto
+// Añadir párrafo al marco de texto
 txtFrame->get_Paragraphs()->Add(paragraph);
 
-// Creando segundo párrafo
+// Crear segundo párrafo
 // Crear el objeto Paragraph para el marco de texto
 SharedPtr<Paragraph> paragraph2 = MakeObject<Paragraph>();
 
@@ -203,20 +208,20 @@ paragraph2->set_Text(u"This is numbered bullet");
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_Type ( BulletType::Numbered);
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle ( NumberedBulletStyle::BulletCircleNumWDBlackPlain);
 
-// Establecer sangría de viñeta
+// Establecer sangría de la viñeta
 paragraph2->get_ParagraphFormat()->set_Indent(25);
 
-// Establecer color de viñeta
+// Establecer color de la viñeta
 paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
 paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
 
-// establecer IsBulletHardColor a true para usar el color propio de la viñeta
+// establecer IsBulletHardColor a true para usar color propio de la viñeta
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
 
-// Establecer altura de viñeta
+// Establecer altura de la viñeta
 paragraph2->get_ParagraphFormat()->get_Bullet()->set_Height(100);
 
-// Añadiendo párrafo al marco de texto
+// Añadir párrafo al marco de texto
 txtFrame->get_Paragraphs()->Add(paragraph2);
 
 
@@ -224,22 +229,22 @@ txtFrame->get_Paragraphs()->Add(paragraph2);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Administrar viñetas con imágenes**
+## **Gestionar viñetas con imágenes**
 
-Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Los párrafos con imágenes son fáciles de leer y comprender.
+Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficaz. Los párrafos con imágenes son fáciles de leer y comprender.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Añada una [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) de la autoshape.
+3. Añada un [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) del autoshape. 
 5. Elimine el párrafo predeterminado en el `TextFrame`.
 6. Cree la primera instancia de párrafo usando la clase [Paragraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraph/).
 7. Cargue la imagen en [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/).
 8. Establezca el tipo de viñeta a [Picture](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/) y asigne la imagen.
-9. Establezca el `Text` del Paragraph.
-10. Establezca el `Indent` del Paragraph para la viñeta.
-11. Defina un color para la viñeta.
-12. Defina una altura para la viñeta.
+9. Establezca el `Text` del párrafo.
+10. Establezca la `Indent` del párrafo para la viñeta.
+11. Establezca un color para la viñeta.
+12. Establezca una altura para la viñeta.
 13. Añada el nuevo párrafo a la colección de párrafos del `TextFrame`.
 14. Añada el segundo párrafo y repita el proceso basado en los pasos anteriores.
 15. Guarde la presentación modificada.
@@ -258,7 +263,7 @@ System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(ima
 // Añade y accede a Autoshape
 System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
 
-// Accede al TextFrame de la autoshape
+// Accede al TextFrame del autoshape
 System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
 
 // Elimina el párrafo predeterminado
@@ -276,7 +281,7 @@ paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(ippxIma
 // Establece la altura de la viñeta
 paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100.0f);
 
-// Añade el párrafo al TextFrame
+// Añade el párrafo al marco de texto
 paragraphs->Add(paragraph);
 
 // Guarda la presentación como archivo PPTX
@@ -286,16 +291,16 @@ presentation->Save(u"ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
 presentation->Save(u"ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
 ```
 
-## **Administrar viñetas multinivel**
+## **Gestionar viñetas multinivel**
 
-Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficiente. Las viñetas multinivel son fáciles de leer y comprender.
+Las listas con viñetas le ayudan a organizar y presentar información de forma rápida y eficaz. Las viñetas multinivel son fáciles de leer y comprender.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Añada una [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) en la nueva diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) de la autoshape.
+3. Añada un [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) en la nueva diapositiva.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) del autoshape. 
 5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo mediante la clase [Paragraph] y establezca la profundidad a 0.
+6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraph/) y establezca la profundidad a 0.
 7. Cree la segunda instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad a 1.
 8. Cree la tercera instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad a 2.
 9. Cree la cuarta instancia de párrafo mediante la clase `Paragraph` y establezca la profundidad a 3.
@@ -328,7 +333,7 @@ bullet1Format->set_Char(System::Convert::ToChar(8226));
 System::SharedPtr<IFillFormat> defaultFillFormat1 = para1Format->get_DefaultPortionFormat()->get_FillFormat();
 defaultFillFormat1->set_FillType(FillType::Solid);
 defaultFillFormat1->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Establece el nivel de viñeta
+// Establece el nivel de la viñeta
 para1Format->set_Depth(0);
 
 // Añade el segundo párrafo
@@ -341,7 +346,7 @@ bullet2Format->set_Char(u'-');
 System::SharedPtr<IFillFormat> defaultFillFormat2 = para2Format->get_DefaultPortionFormat()->get_FillFormat();
 defaultFillFormat2->set_FillType(FillType::Solid);
 defaultFillFormat2->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Establece el nivel de viñeta
+// Establece el nivel de la viñeta
 para2Format->set_Depth(1);
 
 // Añade el tercer párrafo
@@ -354,7 +359,7 @@ bullet3Format->set_Char(System::Convert::ToChar(8226));
 System::SharedPtr<IFillFormat> defaultFillFormat3 = para3Format->get_DefaultPortionFormat()->get_FillFormat();
 defaultFillFormat3->set_FillType(FillType::Solid);
 defaultFillFormat3->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Establece el nivel de viñeta
+// Establece el nivel de la viñeta
 para3Format->set_Depth(2);
 
 // Añade el cuarto párrafo
@@ -367,7 +372,7 @@ bullet4Format->set_Char(u'-');
 System::SharedPtr<IFillFormat> defaultFillFormat4 = para4Format->get_DefaultPortionFormat()->get_FillFormat();
 defaultFillFormat4->set_FillType(FillType::Solid);
 defaultFillFormat4->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Establece el nivel de viñeta
+// Establece el nivel de la viñeta
 para4Format->set_Depth(3);
 
 // Añade los párrafos a la colección
@@ -377,20 +382,20 @@ paragraphs->Add(para2);
 paragraphs->Add(para3);
 paragraphs->Add(para4);
 
-// Escribe la presentación como archivo PPTX
+// Guarda la presentación como archivo PPTX
 pres->Save(u"MultilevelBullet.pptx", SaveFormat::Pptx);
 ```
 
-## **Administrar un párrafo con una lista numerada personalizada**
+## **Gestionar un párrafo con una lista numerada personalizada**
 
-La interfaz [IBulletFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/) proporciona la propiedad [NumberedBulletStartWith](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) y otras que le permiten gestionar párrafos con numeración o formato personalizado.
+La interfaz [IBulletFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/) proporciona la propiedad [NumberedBulletStartWith](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) y otras que le permiten gestionar párrafos con numeración o formato personalizados. 
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la diapositiva que contiene el párrafo.
-3. Añada una [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva.
-4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) de la autoshape.
+3. Añada un [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva.
+4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) del autoshape. 
 5. Elimine el párrafo predeterminado en el `TextFrame`.
-6. Cree la primera instancia de párrafo mediante la clase [Paragraph] y establezca [NumberedBulletStartWith] a 2.
+6. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraph/) y establezca [NumberedBulletStartWith] a 2.
 7. Cree la segunda instancia de párrafo mediante la clase `Paragraph` y establezca `NumberedBulletStartWith` a 3.
 8. Cree la tercera instancia de párrafo mediante la clase `Paragraph` y establezca `NumberedBulletStartWith` a 7.
 9. Añada los nuevos párrafos a la colección de párrafos del `TextFrame`.
@@ -440,17 +445,17 @@ presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
 
 ## **Establecer sangría de primera línea para un párrafo**
 
-Utilice el método [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) para controlar la sangría de la primera línea de un párrafo. Este método desplaza sólo la primera línea respecto al margen izquierdo del párrafo. Un valor positivo mueve la primera línea a la derecha, mientras que el resto de líneas permanecen alineadas con el cuerpo del párrafo.
+Utilice el método [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) para controlar la sangría de la primera línea de un párrafo. Este método desplaza solo la primera línea respecto al margen izquierdo del párrafo. Un valor positivo mueve la primera línea hacia la derecha, mientras que el resto de líneas permanecen alineadas con el cuerpo del párrafo.
 
-Utilice [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_marginleft/) cuando necesite mover todo el párrafo. Utilice [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) cuando necesite mover sólo la primera línea.
+Utilice [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_marginleft/) cuando necesite mover todo el párrafo. Utilice [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) cuando necesite mover solo la primera línea.
 
-El ejemplo a continuación crea varios párrafos y aplica diferentes valores de `Indent` para demostrar cómo la sangría de la primera línea afecta al diseño del párrafo.
+El ejemplo a continuación crea varios párrafos y aplica diferentes valores de `Indent` para demostrar cómo la sangría de primera línea afecta el diseño del párrafo.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la diapositiva objetivo.
 3. Añada una [AutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/autoshape/) rectangular a la diapositiva.
 4. Añada un [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/textframe/) vacío a la forma y elimine el párrafo predeterminado.
-5. Cree varios párrafos y establezca diferentes valores de [Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) para cada uno.
+5. Cree varios párrafos y establezca diferentes valores de [Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) para ellos.
 6. Añada los párrafos al marco de texto.
 7. Guarde la presentación modificada.
 
@@ -496,17 +501,15 @@ presentation->Save(u"paragraph_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-El resultado:
-
-![La sangría de primera línea de los párrafos](first_line_indent.png)
+![Sangría de primera línea de los párrafos](first_line_indent.png)
 
 ## **Establecer sangría colgante para un párrafo**
 
-Una sangría colgante es un diseño de párrafo en el que la primera línea comienza a la izquierda del resto de líneas. En Aspose.Slides, crea este efecto con el método [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/). Establezca la sangría a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
+Una sangría colgante es un diseño de párrafo en el que la primera línea comienza a la izquierda de las líneas restantes. En Aspose.Slides, crea este efecto con el método [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/). Establezca la sangría a un valor negativo para mover la primera línea a la izquierda respecto al cuerpo del párrafo.
 
-En la práctica, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_marginleft/) define la posición izquierda del cuerpo del párrafo, y [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) define la posición de la primera línea respecto a ese margen. Para crear una sangría colgante, establezca un valor positivo de `MarginLeft` y un valor negativo de `Indent`.
+En la práctica, [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_marginleft/) define la posición izquierda del cuerpo del párrafo, y [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_indent/) define la posición de la primera línea respecto a ese margen. Para crear una sangría colgante, establezca un valor positivo en `MarginLeft` y un valor negativo en `Indent`.
 
-Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas continuas deben alinearse bajo el cuerpo del párrafo en lugar de bajo el primer carácter de la primera línea.
+Este formato es útil para bibliografías, referencias, entradas de glosario y otros párrafos donde las líneas envueltas deben alinearse bajo el cuerpo del párrafo en lugar de bajo el primer carácter de la primera línea.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la diapositiva objetivo.
@@ -551,19 +554,17 @@ presentation->Save(u"hanging_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-El resultado:
+![Sangría colgante de los párrafos](hanging_indent.png)
 
-![La sangría colgante de los párrafos](hanging_indent.png)
-
-## **Administrar propiedades finales del párrafo**
+## **Gestionar propiedades de ejecución de fin de párrafo**
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
-2. Obtenga la referencia de la diapositiva que contiene el párrafo mediante su posición.
-3. Añada un [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) rectangular a la diapositiva.
-4. Añada un [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) con dos párrafos al rectángulo.
-5. Establezca la `FontHeight` y el tipo de fuente para los párrafos.
-6. Establezca las propiedades End para los párrafos.
-7. Guarde la presentación modificada como un archivo PPTX.
+1. Obtenga la referencia de la diapositiva que contiene el párrafo mediante su posición.
+1. Añada un [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) rectangular a la diapositiva.
+1. Añada un [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) con dos párrafos al rectángulo.
+1. Establezca el `FontHeight` y el tipo de fuente para los párrafos.
+1. Establezca las propiedades End para los párrafos.
+1. Guarde la presentación modificada como archivo PPTX.
 
 ```c++
 // La ruta al directorio de documentos.
@@ -577,7 +578,7 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 // Acceder a la primera diapositiva
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Añadir un AutoShape de tipo rectángulo
+// Añadir un AutoShape de tipo Rectángulo
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
 
 // Añadir TextFrame al rectángulo
@@ -610,21 +611,20 @@ ashp->get_TextFrame()->get_Paragraphs()->Add(para2);
 
 // Guardar PPTX en disco
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 ## **Importar texto HTML en párrafos**
 
-Aspose.Slides ofrece soporte mejorado para importar texto HTML en párrafos.
+Aspose.Slides proporciona soporte mejorado para la importación de texto HTML en párrafos.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/).
 2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Añada una [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva.
-4. Añada y acceda al [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) del `autoshape` 
+3. Añada un [autoshape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) a la diapositiva.
+4. Añada y acceda al `autoshape` [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) 
 5. Elimine el párrafo predeterminado en el `ITextFrame`.
 6. Lea el archivo HTML origen con un TextReader.
 7. Cree la primera instancia de párrafo mediante la clase [Paragraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraph/).
-8. Añada el contenido del archivo HTML leído con el TextReader a la [ParagraphCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraphcollection/) del TextFrame.
+8. Añada el contenido del archivo HTML leído por el TextReader a la [ParagraphCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraphcollection/) del TextFrame.
 9. Guarde la presentación modificada.
 
 ```c++
@@ -640,10 +640,10 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>();
 // Acceder a la primera diapositiva
 SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Añadir un AutoShape de tipo rectángulo
+// Añadir un AutoShape de tipo Rectángulo
 SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 700, 500);
 	
-//Restableciendo el color de relleno predeterminado
+// Restablecer el color de relleno predeterminado
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 	
 // Añadir TextFrame al rectángulo
@@ -652,16 +652,16 @@ ashp->AddTextFrame(u" ");
 // Accediendo al marco de texto
 SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
 
-//Obtener la colección de párrafos
+// Obtener colección de párrafos
 SharedPtr<Aspose::Slides::IParagraphCollection>ParaCollection = txtFrame->get_Paragraphs();
 
-// Eliminando todos los párrafos del marco de texto añadido
+// Borrar todos los párrafos en el marco de texto añadido
 ParaCollection->Clear();
 
-// Cargando el archivo HTML mediante StreamReader
+// Cargando el archivo HTML usando stream reader
 SharedPtr<System::IO::StreamReader>  tr = MakeObject<System::IO::StreamReader>(sampleHtml);
 
-// Añadiendo texto del StreamReader HTML al marco de texto
+// Añadiendo texto del stream reader HTML al marco de texto
 ParaCollection->AddFromHtml(tr->ReadToEnd());
 
 
@@ -672,10 +672,10 @@ SharedPtr<IParagraph> paragraph = txtFrame->get_Paragraphs()->idx_get(0);
 SharedPtr<IPortion> portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Aspose TextBox");
 
-//Obtener el formato del fragmento
+// Obtener formato de la porción
 SharedPtr<IPortionFormat> pf = portion->get_PortionFormat();
 
-// Establecer la fuente para el fragmento
+// Establecer la fuente para la porción
 pf->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
 
 // Establecer la propiedad negrita de la fuente
@@ -696,18 +696,20 @@ pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
 // Guardar PPTX en disco
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
+
 ```
 
 ## **Exportar texto de párrafo a HTML**
 
-Aspose.Slides ofrece soporte mejorado para exportar textos (contenidos en párrafos) a HTML.
+Aspose.Slides proporciona soporte mejorado para la exportación de textos (contenidos en párrafos) a HTML.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/) y cargue la presentación deseada.
 2. Acceda a la referencia de la diapositiva correspondiente mediante su índice.
-3. Acceda a la forma que contiene el texto que será exportado a HTML.
+3. Acceda a la forma que contiene el texto que se exportará a HTML.
 4. Acceda al [TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) de la forma.
 5. Cree una instancia de `StreamWriter` y añada el nuevo archivo HTML.
-6. Proporcione un índice inicial a StreamWriter y exporte los párrafos que prefiera.
+6. Proporcione un índice inicial a StreamWriter y exporte los párrafos que desee.
 
 ```c++
 For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
@@ -725,7 +727,7 @@ SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 // Índice deseado
 int index = 0;
 
-// Accediendo a la forma añadida
+// Accessing the added shape
 SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
 
 SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
@@ -734,7 +736,7 @@ SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
 SharedPtr<System::IO::StreamWriter> sw = MakeObject<System::IO::StreamWriter>(outPath, false, Encoding::get_UTF8());
 //	System::IO::StreamWriter^ sr = gcnew System::IO::StreamWriter("TestFile.txt", false, Encoding::get_UTF8());
 
-// Escribiendo datos de los párrafos en HTML proporcionando el índice de inicio del párrafo y el número total de párrafos a copiar
+// Escribiendo los datos de los párrafos a HTML proporcionando el índice de inicio del párrafo y el número total de párrafos a copiar
 sw->Write(ashape->get_TextFrame()->get_Paragraphs()->ExportToHtml(0, ashape->get_TextFrame()->get_Paragraphs()->get_Count(), nullptr));
 
 sw->Close();
@@ -743,7 +745,7 @@ sw->Close();
 
 ## **Guardar un párrafo como imagen**
 
-En esta sección, exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la interfaz [IParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraph/), como una imagen. Ambos ejemplos incluyen obtener la imagen de una forma que contiene el párrafo usando los métodos `GetImage` de la interfaz [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/), calcular los límites del párrafo dentro de la forma y exportarlo como una imagen bitmap. Estos enfoques le permiten extraer partes específicas del texto de presentaciones PowerPoint y guardarlas como imágenes separadas, lo que puede ser útil para utilizarlas posteriormente en varios escenarios.
+En esta sección, exploraremos dos ejemplos que demuestran cómo guardar un párrafo de texto, representado por la interfaz [IParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraph/), como una imagen. Ambos ejemplos incluyen obtener la imagen de una forma que contiene el párrafo mediante los métodos `GetImage` de la interfaz [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/), calcular los límites del párrafo dentro de la forma y exportarlo como una imagen bitmap. Estos enfoques le permiten extraer partes específicas del texto de presentaciones de PowerPoint y guardarlas como imágenes separadas, lo que puede ser útil para su uso posterior en diversos escenarios.
 
 Supongamos que tenemos un archivo de presentación llamado sample.pptx con una diapositiva, donde la primera forma es un cuadro de texto que contiene tres párrafos.
 
@@ -751,7 +753,7 @@ Supongamos que tenemos un archivo de presentación llamado sample.pptx con una d
 
 **Ejemplo 1**
 
-En este ejemplo, obtenemos el segundo párrafo como una imagen. Para ello, extraemos la imagen de la forma de la primera diapositiva de la presentación y luego calculamos los límites del segundo párrafo en el marco de texto de la forma. El párrafo se vuelve a dibujar en una nueva imagen bitmap, que se guarda en formato PNG. Este método es especialmente útil cuando necesita guardar un párrafo específico como una imagen separada manteniendo las dimensiones y el formato exactos del texto.
+En este ejemplo, obtenemos el segundo párrafo como una imagen. Para ello, extraemos la imagen de la forma de la primera diapositiva de la presentación y luego calculamos los límites del segundo párrafo en el marco de texto de la forma. El párrafo se vuelve a dibujar en una nueva imagen bitmap, que se guarda en formato PNG. Este método es especialmente útil cuando necesita guardar un párrafo específico como una imagen separada conservando las dimensiones y el formato exactos del texto.
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -789,13 +791,13 @@ paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
 presentation->Dispose();
 ```
 
-El resultado:
+¡El resultado!
 
 ![La imagen del párrafo](paragraph_to_image_output.png)
 
 **Ejemplo 2**
 
-En este ejemplo, ampliamos el enfoque anterior añadiendo factores de escala a la imagen del párrafo. La forma se extrae de la presentación y se guarda como una imagen con un factor de escala de `2`. Esto permite obtener una salida de mayor resolución al exportar el párrafo. A continuación, se calculan los límites del párrafo teniendo en cuenta la escala. La escala puede ser particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para usar en materiales impresos de alta calidad.
+En este ejemplo, ampliamos el enfoque anterior añadiendo factores de escala a la imagen del párrafo. La forma se extrae de la presentación y se guarda como una imagen con un factor de escala de `2`. Esto permite obtener una salida de mayor resolución al exportar el párrafo. Los límites del párrafo se calculan considerando la escala. La escala puede ser particularmente útil cuando se necesita una imagen más detallada, por ejemplo, para su uso en material impreso de alta calidad.
 
 ```cpp
 auto imageScaleX = 2.0f;
@@ -804,17 +806,17 @@ auto imageScaleY = imageScaleX;
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 
-// Guardar la forma en memoria como bitmap con escalado.
+// Save the shape in memory as a bitmap with scaling.
 auto shapeImage = firstShape->GetImage(ShapeThumbnailBounds::Shape, imageScaleX, imageScaleY);
 auto shapeImageStream = MakeObject<MemoryStream>();
 shapeImage->Save(shapeImageStream, ImageFormat::Png);
 shapeImage->Dispose();
 
-// Crear un bitmap de la forma desde memoria.
+// Create a shape bitmap from memory.
 shapeImageStream->set_Position(0);
 auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
 
-// Calcular los límites del segundo párrafo.
+// Calculate the boundaries of the second paragraph.
 auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
 auto paragraphRectangle = secondParagraph->GetRect();
 paragraphRectangle.set_X(paragraphRectangle.get_X() * imageScaleX);
@@ -822,14 +824,14 @@ paragraphRectangle.set_Y(paragraphRectangle.get_Y() * imageScaleY);
 paragraphRectangle.set_Width(paragraphRectangle.get_Width() * imageScaleX);
 paragraphRectangle.set_Height(paragraphRectangle.get_Height() * imageScaleY);
 
-// Calcular el tamaño de la imagen de salida (tamaño mínimo - 1x1 píxel).
+// Calculate the size for the output image (minimum size - 1x1 pixel).
 auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
 auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
 
-// Preparar un bitmap para el párrafo.
+// Prepare a bitmap for the paragraph.
 auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
 
-// Redibujar el párrafo desde el bitmap de la forma al bitmap del párrafo.
+// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
 auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
 RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
 imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
@@ -842,18 +844,18 @@ presentation->Dispose();
 
 ## **Preguntas frecuentes**
 
-**¿Puedo desactivar completamente el ajuste de línea dentro de un marco de texto?**
+**¿Puedo desactivar completamente el ajuste de líneas dentro de un marco de texto?**
 
-Sí. Utilice el método de ajuste del marco de texto ([set_WrapText](https://reference.aspose.com/slides/es/cpp/aspose.slides/textframeformat/set_wraptext/)) para desactivar el ajuste, de modo que las líneas no se interrumpan en los bordes del marco.
+Sí. Use el método de ajuste del marco de texto ([set_WrapText](https://reference.aspose.com/slides/es/cpp/aspose.slides/textframeformat/set_wraptext/)) para desactivar el ajuste, de modo que las líneas no se dividan en los bordes del marco.
 
 **¿Cómo puedo obtener los límites exactos en la diapositiva de un párrafo específico?**
 
-Puede recuperar el rectángulo delimitador del párrafo (e incluso de un único fragmento) para conocer su posición y tamaño exactos en la diapositiva.
+Puede recuperar el rectángulo delimitador del párrafo (e incluso de una única porción) para conocer su posición y tamaño precisos en la diapositiva.
 
 **¿Dónde se controla la alineación del párrafo (izquierda/derecha/centrado/justificado)?**
 
-[Alignment](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraphformat/set_alignment/) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraphformat/); se aplica a todo el párrafo sin importar el formato de los fragmentos individuales.
+[Alignment](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraphformat/set_alignment/) es una configuración a nivel de párrafo en [ParagraphFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraphformat/); se aplica a todo el párrafo independientemente del formato de cada porción.
 
-**¿Puedo establecer un idioma de corrección ortográfica solo para una parte del párrafo (p. ej., una palabra)?**
+**¿Puedo establecer un idioma de corrección ortográfica solo para una parte de un párrafo (p.ej., una palabra)?**
 
-Sí. El idioma se establece a nivel de fragmento mediante ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/es/cpp/aspose.slides/baseportionformat/set_languageid/)), por lo que pueden coexistir varios idiomas dentro de un mismo párrafo.
+Sí. El idioma se establece a nivel de porción usando ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/es/cpp/aspose.slides/baseportionformat/set_languageid/)), por lo que pueden coexistir varios idiomas dentro de un mismo párrafo.

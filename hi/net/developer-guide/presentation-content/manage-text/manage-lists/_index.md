@@ -1,17 +1,19 @@
 ---
-title: .NET में प्रस्तुतियों में बुलेटेड और नंबरेड सूचियों का प्रबंधन
-linktitle: सूचियों का प्रबंधन
+title: ".NET में प्रस्तुतियों में बुलेटेड और क्रमांकित सूचियों का प्रबंधन"
+linktitle: "सूचियों का प्रबंधन"
 type: docs
 weight: 70
 url: /hi/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
 - बुलेट
 - बुलेटेड सूची
-- नंबरेड सूची
-- सिंबल बुलेट
+- क्रमांकित सूची
+- प्रतीक बुलेट
 - चित्र बुलेट
 - कस्टम बुलेट
-- मल्टीलेवल सूची
+- बहु-स्तरीय सूची
 - बुलेट बनाएं
 - बुलेट जोड़ें
 - सूची जोड़ें
@@ -21,27 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में बुलेटेड, चित्र, मल्टीलेवल और नंबरेड सूचियों को बनाना और फ़ॉर्मेट करना सीखें।"
+description: "Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में बुलेटेड, चित्र, बहु-स्तरीय और क्रमांकित सूचियों को बनाना और फॉर्मेट करना सीखें।"
 ---
-## **अवलोकन**
+## **समीक्षा**
 
-Aspose.Slides for .NET आपको PowerPoint और OpenDocument प्रस्तुतियों में बुलेटेड और नंबरेड सूचियाँ बनाने और फ़ॉर्मेट करने की सुविधा देता है। एक सूची आइटम एक पैराग्राफ होता है जिसका बुलेट सेटिंग उसके पैराग्राफ फॉर्मेट के माध्यम से नियंत्रित होता है।
+Aspose.Slides for .NET आपको PowerPoint और OpenDocument प्रस्तुतियों में बुलेटेड और क्रमांकित सूचियों को बनाने और फ़ॉर्मेट करने की अनुमति देता है। एक सूची आइटम वह अनुच्छेद है जिसकी बुलेट सेटिंग्स उसके पैराग्राफ फ़ॉर्मेट द्वारा नियंत्रित होती हैं।
 
-पैराग्राफ-स्तर की सूची सेटिंग्स तक पहुंचने के लिए आप [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/paragraphformat/) प्रॉपर्टी का उपयोग कर सकते हैं। मुख्य प्रवेश बिंदु [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/bullet/) है, जो एक [IBulletFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/) ऑब्जेक्ट लौटाता है। इस ऑब्जेक्ट के साथ आप बुलेट का प्रकार, सिंबल, चित्र, रंग, आकार, क्रमांक शैली और प्रारंभिक संख्या सेट कर सकते हैं।
+पैराग्राफ-स्तर की सूची सेटिंग्स तक पहुँचने के लिए [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/paragraphformat/) प्रॉपर्टी का उपयोग करें। मुख्य प्रवेश बिंदु है [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/bullet/), जो एक [IBulletFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/) ऑब्जेक्ट लौटाता है। इस ऑब्जेक्ट के साथ आप बुलेट प्रकार, प्रतीक, चित्र, रंग, आकार, क्रमांकन शैली और प्रारम्भिक संख्या सेट कर सकते हैं।
 
 यह लेख दिखाता है कि कैसे:
-
-- कस्टम सिंबल के साथ बुलेटेड सूची बनाना
+- कस्टम प्रतीक के साथ बुलेटेड सूची बनाना
 - चित्र बुलेट बनाना
-- पैराग्राफ गहराई सेट करके मल्टीलेवल सूची बनाना
-- नंबरेड सूची बनाना
+- पैराग्राफ गहराई सेट करके बहु-स्तरीय सूची बनाना
+- क्रमांकित सूची बनाना
 - मौजूदा प्रस्तुति में सूची फ़ॉर्मेटिंग का निरीक्षण और परिवर्तन करना
 
-## **बुलेटेड सूची बनाना**
+## **बुलेटेड सूची बनाएं**
 
-बुलेटेड सूची बनाने के लिए, आप [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) ऑब्जेक्ट को [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) में जोड़ें और [IBulletFormat.Type](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/type/) को [BulletType.Symbol](https://reference.aspose.com/slides/hi/net/aspose.slides/bullettype/) पर सेट करें। इसके बाद आप [IBulletFormat.Char](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/color/), और [IBulletFormat.Height](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/height/) सेट करके बुलेट की उपस्थिति को नियंत्रित कर सकते हैं।
+बुलेटेड सूची बनाने के लिए, [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) ऑब्जेक्ट्स को एक [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) में जोड़ें और [IBulletFormat.Type](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/type/) को [BulletType.Symbol](https://reference.aspose.com/slides/hi/net/aspose.slides/bullettype/) पर सेट करें। फिर आप बुलेट की उपस्थिति को नियंत्रित करने के लिए [IBulletFormat.Char](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/color/), और [IBulletFormat.Height](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/height/) सेट कर सकते हैं।
 
-नीचे दिया गया C# कोड एक स्लाइड में बुलेटेड सूची बनाने का प्रदर्शन करता है:
+निम्नलिखित C# कोड एक स्लाइड में बुलेटेड सूची बनाने का प्रदर्शन करता है:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -76,13 +77,13 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![सिंबल बुलेट्स](symbol_bullets.png)
+![प्रतीक बुलेट्स](symbol_bullets.png)
 
-## **नंबरेड सूची बनाना**
+## **क्रमांकित सूची बनाएं**
 
-आइटम के क्रम का महत्व होने पर नंबरेड सूचियों का उपयोग करें। [IBulletFormat.Type](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/type/) को [BulletType.Numbered](https://reference.aspose.com/slides/hi/net/aspose.slides/bullettype/) पर सेट करें। आप [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstyle/) के साथ क्रमांक शैली चुन सकते हैं या जब सूची 1 से अलग मान से शुरू होनी चाहिए तो [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) सेट कर सकते हैं।
+जब वस्तुओं का क्रम मायने रखता है, तो क्रमांकित सूचियों का उपयोग करें। [IBulletFormat.Type](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/type/) को [BulletType.Numbered](https://reference.aspose.com/slides/hi/net/aspose.slides/bullettype/) पर सेट करें। आप [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstyle/) के साथ क्रमांकन प्रारूप चुन सकते हैं या यदि सूची 1 से शुरू नहीं होनी चाहिए तो [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) सेट कर सकते हैं।
 
-नीचे दिया गया C# कोड एक स्लाइड में नंबरेड सूची बनाने का प्रदर्शन करता है:
+निम्नलिखित C# कोड एक स्लाइड में क्रमांकित सूची बनाने का तरीका दिखाता है:
 
 ```csharp
 using var presentation = new Presentation();
@@ -113,23 +114,23 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![नंबरेड बुलेट्स](numbered_bullets.png)
+![क्रमांकित बुलेट्स](numbered_bullets.png)
 
-## **चित्र बुलेट बनाना**
+## **चित्र बुलेट बनाएं**
 
-Aspose.Slides आपको नियमित बुलेट सिंबल को छवि से बदलने की अनुमति देता है। चित्र बुलेट सबसे बेहतर होते हैं जब वे सरल छवियों से बने हों जो छोटा आकार में भी पठनीय रहें, जैसे कि आइकॉन या छोटे ट्रांसपरेंट PNG फाइलें।
+Aspose.Slides आपको नियमित बुलेट प्रतीक को छवि से बदलने की अनुमति देता है। चित्र बुलेट छोटे आकार में पढ़ने योग्य सरल छवियों के साथ सबसे बेहतर काम करते हैं, जैसे आइकन या छोटे पारदर्शी PNG फ़ाइलें।
 
 {{% alert color="primary" %}}
-आदर्श रूप में, यदि आप नियमित बुलेट सिंबल को छवि से बदलने की योजना बनाते हैं, तो पारदर्शी पृष्ठभूमि वाले सरल ग्राफिक का चयन करना सर्वोत्तम होता है। ऐसी छवियां कस्टम बुलेट सिंबल के रूप में अच्छी तरह काम करती हैं।
+आदर्श रूप से, यदि आप नियमित बुलेट प्रतीक को छवि से बदलने की योजना बना रहे हैं, तो पारदर्शी पृष्ठभूमि वाली सरल ग्राफ़िक चुनना सबसे अच्छा है। ऐसी छवियां कस्टम बुलेट प्रतीकों के रूप में अच्छी तरह काम करती हैं।
 {{% /alert %}}
 
-चित्र बुलेट बनाने के लिए, एक छवि को [Presentation.Images](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/images/) में जोड़ें और प्राप्त हुए इमेज ऑब्जेक्ट को [IBulletFormat.Picture](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/picture/) को असाइन करें। छवि असाइन करने से पहले, [IBulletFormat.Type](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/type/) को [BulletType.Picture](https://reference.aspose.com/slides/hi/net/aspose.slides/bullettype/) पर सेट करें।
+चित्र बुलेट बनाने के लिए, एक छवि को [Presentation.Images](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/images/) में जोड़ें और लौटाए गए छवि ऑब्जेक्ट को [IBulletFormat.Picture](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/picture/) पर असाइन करें। छवि असाइन करने से पहले [IBulletFormat.Type](https://reference.aspose.com/slides/hi/net/aspose.slides/ibulletformat/type/) को [BulletType.Picture](https://reference.aspose.com/slides/hi/net/aspose.slides/bullettype/) पर सेट करें।
 
-मान लीजिए हमारे पास एक "image.png" है:
+मान लीजिए हमारे पास "image.png" है:
 
 ![बुलेट्स के लिए चित्र](picture_for_bullets.png)
 
-नीचे दिया गया C# कोड एक स्लाइड में चित्र बुलेट बनाने का प्रदर्शन करता है:
+निम्नलिखित C# कोड स्लाइड में चित्र बुलेट बनाने का तरीका दिखाता है:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -167,11 +168,11 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 ![चित्र बुलेट्स](picture_bullets.png)
 
-## **मल्टीलेवल सूची बनाना**
+## **बहु-स्तरीय सूची बनाएं**
 
-विभिन्न स्तरों पर सूची आइटम रखने के लिए [IParagraphFormat.Depth](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/depth/) का उपयोग करें। स्तर 0 शीर्ष स्तर है, स्तर 1 उसके नीचे नेस्टेड है, आदि।
+[IParagraphFormat.Depth](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/depth/) का उपयोग करके सूची आइटम को विभिन्न स्तरों पर रखें। स्तर 0 शीर्ष स्तर है, स्तर 1 उसके नीचे नेस्ट किया गया है, आदि।
 
-नीचे दिया गया C# कोड मल्टीलेवल बुलेटेड सूची बनाने का प्रदर्शन करता है:
+निम्नलिखित C# कोड बहु-स्तरीय बुलेटेड सूची बनाने का तरीका दिखाता है:
 
 ```csharp
 using var presentation = new Presentation();
@@ -207,13 +208,11 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![मल्टीलेवल सूची](multilevel_list.png)
+![बहु-स्तरीय सूची](multilevel_list.png)
 
-## **मौजूदा सूची बदलें**
+## **मौजूदा सूची को बदलें**
 
-मौजूदा प्रस्तुति में सूची फ़ॉर्मेटिंग बदलने के लिए, लक्षित पैराग्राफ तक पहुंचें और उसके [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/bullet/) सेटिंग्स को अपडेट करें। सूचियों को बनाने के लिए उपयोग की गई वही प्रॉपर्टीज़ PPT, PPTX या ODP फ़ाइल से लोड की गई सूचियों को निरीक्षण या संशोधित करने के लिए भी इस्तेमाल की जा सकती हैं।
-
-नीचे दिया गया C# कोड टेक्स्ट फ्रेम में पहले पैराग्राफ को नंबरेड सूची शैली में बदलता है:
+मौजूदा प्रस्तुति में सूची फ़ॉर्मेटिंग बदलने के लिए, लक्ष्य पैराग्राफ तक पहुँचें और उसके [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/bullet/) सेटिंग्स को अपडेट करें। सूचियों को बनाने के लिए उपयोग की गई वही प्रॉपर्टीज़ PPT, PPTX या ODP फ़ाइल से लोड की गई सूचियों का निरीक्षण या संशोधन करने के लिए भी उपयोग की जा सकती हैं।
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -233,14 +232,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या बुलेटेड और नंबरेड सूचियों को PDF या छवियों में निर्यात किया जा सकता है?**
+**क्या बुलेटेड और क्रमांकित सूचियों को PDF या इमेज में निर्यात किया जा सकता है?**
 
-हाँ। Aspose.Slides सूची फ़ॉर्मेटिंग को बरकरार रखता है जब लक्ष्य फ़ॉर्मेट संबंधित टेक्स्ट लेआउट और बुलेट सुविधाओं का समर्थन करता है।
+हाँ। जब लक्ष्य फ़ॉर्मेट संबंधित पाठ लेआउट और बुलेट सुविधाओं को समर्थन करता है, तो Aspose.Slides सूची फ़ॉर्मेटिंग को संरक्षित रहता है।
 
 **क्या मैं मौजूदा प्रस्तुतियों में सूचियों को संपादित कर सकता हूँ?**
 
-हाँ। प्रस्तुति लोड करें, लक्षित पैराग्राफ तक पहुंचें, उसके [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/bullet/) सेटिंग्स का निरीक्षण या अपडेट करें, और प्रस्तुति सहेजें।
+हाँ। प्रस्तुति लोड करें, लक्ष्य पैराग्राफ तक पहुँचें, उसके [IParagraphFormat.Bullet](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/bullet/) सेटिंग्स का निरीक्षण या अद्यतन करें, और प्रस्तुति को सहेजें।
 
-**क्या सूचियों में गैर-लैटिन टेक्स्ट हो सकता है?**
+**क्या सूचियों में गैर-लैटिन पाठ हो सकता है?**
 
-हाँ। सूची आइटम टेक्स्ट यूनिकोड अक्षर रख सकता है, इसलिए आप बहुभाषी प्रस्तुतियों में सूचियाँ बना सकते हैं। सुनिश्चित करें कि प्रस्तुति में उपयोग किए गए फ़ॉन्ट आवश्यक अक्षरों का समर्थन करते हैं।
+हाँ। सूची आइटम का पाठ यूनिकोड अक्षर शामिल कर सकता है, इसलिए आप बहुभाषी प्रस्तुतियों में सूचियां बना सकते हैं। सुनिश्चित करें कि प्रस्तुति में उपयोग किए गए फ़ॉन्ट आवश्यक अक्षरों का समर्थन करते हैं।

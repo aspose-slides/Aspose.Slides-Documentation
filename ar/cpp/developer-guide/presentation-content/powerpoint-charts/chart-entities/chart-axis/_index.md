@@ -1,5 +1,5 @@
 ---
-title: تخصيص محاور المخططات في العروض التقديمية باستخدام C++
+title: تخصيص محاور المخطط في العروض التقديمية باستخدام C++
 linktitle: محور المخطط
 type: docs
 url: /ar/cpp/chart-axis/
@@ -18,26 +18,30 @@ keywords:
 - عنوان المحور
 - موضع المحور
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - C++
 - Aspose.Slides
-description: "اكتشف كيفية استخدام Aspose.Slides للـ C++ لتخصيص محاور المخططات في عروض PowerPoint التقديمية للتقارير والتصورات."
+description: "اكتشف كيفية استخدام Aspose.Slides للـ C++ لتخصيص محاور المخطط في عروض PowerPoint التقديمية للتقارير والتصوير البصري."
 ---
+## **نظرة عامة**
+
+يفسر هذا المقال كيفية تخصيص محاور المخطط في Aspose.Slides. يوضح كيفية الحصول على القيم الفعلية للمحاور، تبديل البيانات بين المحاور، إخفاء المحور العمودي أو الأفقي لرسوم الخطوط، تغيير نوع محور الفئة، تعيين تنسيق التاريخ لقيم محور الفئة، تدوير عنوان المحور، تعيين موضع المحور، وعرض تسمية وحدة على محور القيمة.
 
 ## **الحصول على القيم القصوى على المحور العمودي**
-Aspose.Slides for C++ يتيح لك الحصول على القيم الدنيا والقصوى على محور عمودي. اتبع الخطوات التالية:
+يسمح Aspose.Slides للـ C++ بالحصول على القيم الدنيا والعليا على محور عمودي. اتبع الخطوات التالية:
 
-1. إنشاء مثال لفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. الوصول إلى الشريحة الأولى.
-1. إضافة مخطط ببيانات افتراضية.
-1. الحصول على القيمة القصوى الفعلية على المحور.
-1. الحصول على القيمة الدنيا الفعلية على المحور.
-1. الحصول على الوحدة الرئيسية الفعلية للمحور.
-1. الحصول على الوحدة الفرعية الفعلية للمحور.
-1. الحصول على مقياس الوحدة الرئيسية الفعلية للمحور.
-1. الحصول على مقياس الوحدة الفرعية الفعلية للمحور.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation).
+2. الوصول إلى الشريحة الأولى.
+3. إضافة مخطط ببيانات افتراضية.
+4. الحصول على القيمة القصوى الفعلية للمحور.
+5. الحصول على القيمة الدنيا الفعلية للمحور.
+6. الحصول على الوحدة الرئيسية الفعلية للمحور.
+7. الحصول على الوحدة الفرعية الفعلية للمحور.
+8. الحصول على مقياس الوحدة الرئيسية الفعلية للمحور.
+9. الحصول على مقياس الوحدة الفرعية الفعلية للمحور.
 
-يعرض لك هذا الكود النموذجى—تنفيذ الخطوات السابقة—كيفية الحصول على القيم المطلوبة في C++:
+يعرض رمز العينة هذا — تنفيذ الخطوات السابقة — كيفية الحصول على القيم المطلوبة في C++:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -56,27 +60,28 @@ double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **تبديل البيانات بين المحاور**
-يتيح لك Aspose.Slides تبديل البيانات بين المحاور بسرعة—فالبيانات الموجودة على المحور العمودي (y-axis) تنتقل إلى المحور الأفقي (x-axis) والعكس بالعكس. 
+يسمح Aspose.Slides لك بتبديل البيانات بين المحاور بسرعة — حيث تنتقل البيانات الممثلة على المحور العمودي (y-axis) إلى المحور الأفقي (x-axis) والعكس بالعكس.
 
-يعرض لك هذا الكود C++ كيفية تنفيذ مهمة تبديل البيانات بين المحاور على مخطط:
+يعرض هذا الرمز C++ كيفية تنفيذ مهمة تبديل البيانات بين المحاور على المخطط:
+
 ``` cpp
-// إنشاء عرض تقديمي فارغ
+// ينشئ عرضًا تقديميًا فارغًا
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
 
-// تبديل الصفوف والأعمدة
+// يبدل الصفوف والأعمدة
 chart->get_ChartData()->SwitchRowColumn();
 
-// حفظ العرض التقديمي
+// يحفظ العرض التقديمي
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
+## **إلغاء تفعيل المحور العمودي لرسوم الخطوط**
 
-## **تعطيل المحور العمودي لمخططات الخط**
-يعرض لك هذا الكود C++ كيفية إخفاء المحور العمودي لمخطط خط:
+يعرض هذا الرمز C++ كيفية إخفاء المحور العمودي لرسوم الخطوط:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -86,9 +91,10 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
+## **إلغاء تفعيل المحور الأفقي لرسوم الخطوط**
 
-## **تعطيل المحور الأفقي لمخططات الخط**
-يعرض لك هذا الكود كيفية إخفاء المحور الأفقي لمخطط خط:
+يعرض هذا الرمز كيفية إخفاء المحور الأفقي لرسوم الخطوط:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -98,9 +104,10 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **تغيير محور الفئة**
-باستخدام طريقة **set_CategoryAxisType()**، يمكنك تحديد نوع محور الفئة المفضل لديك (**date** أو **text**). يوضح هذا الكود في C++ العملية: 
+
+باستخدام الطريقة **set_CategoryAxisType()**، يمكنك تحديد نوع محور الفئة المفضل لديك (**date** أو **text**). يوضح هذا الرمز في C++ العملية:
+
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -114,9 +121,9 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **تعيين تنسيق التاريخ لقيم محور الفئة**
-يتيح لك Aspose.Slides for C++ تعيين تنسيق التاريخ لقيمة محور الفئة. يتم توضيح العملية في هذا الكود C++:
+يسمح Aspose.Slides للـ C++ بتعيين تنسيق التاريخ لقيمة محور الفئة. يتم توضيح العملية في رمز C++ هذا:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
@@ -148,9 +155,9 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **تعيين زاوية الدوران لعنوان المحور**
-يتيح لك Aspose.Slides for C++ تعيين زاوية الدوران لعنوان محور المخطط. يوضح هذا الكود C++ العملية:
+يسمح Aspose.Slides للـ C++ بتعيين زاوية الدوران لعنوان محور المخطط. يوضح هذا الرمز C++ العملية:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -162,9 +169,9 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **تعيين موضع المحور على محور الفئة أو القيمة**
-يتيح لك Aspose.Slides for C++ تعيين موضع المحور في محور الفئة أو قيمة المحور. يوضح هذا الكود C++ كيفية تنفيذ المهمة:
+يسمح Aspose.Slides للـ C++ بتعيين موضع المحور في محور الفئة أو القيمة. يوضح هذا الرمز C++ كيفية تنفيذ المهمة:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -174,9 +181,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
+## **تفعيل عرض تسمية الوحدة على محور قيمة المخطط**
+يسمح Aspose.Slides للـ C++ بتهيئة مخطط لإظهار تسمية وحدة على محور قيمة المخطط. يوضح هذا الرمز C++ العملية:
 
-## **تمكين تسمية وحدة العرض على محور قيمة المخطط**
-يتيح لك Aspose.Slides for C++ تكوين مخطط لعرض تسمية وحدة على محور قيمة المخطط. يوضح هذا الكود C++ العملية:
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -186,13 +193,12 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+**كيف يمكنني تعيين القيمة التي يتقاطع عندها أحد المحاور مع الآخر (تقاطع المحاور)؟**
 
-**كيف يمكنني تعيين القيمة التي يتقاطع عندها محور مع الآخر (تقاطع المحور)؟**
+توفر المحاور إعداد [crossing setting](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/axis/set_crosstype/): يمكنك اختيار التقاطع عند الصفر، أو عند الفئة/القيمة القصوى، أو عند قيمة عددية محددة. هذا مفيد لتحريك محور X لأعلى أو لأسفل أو لتسليط الضوء على خط الأساس.
 
-توفر المحاور [إعداد التقاطع](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/): يمكنك الاختيار للتقاطع عند الصفر، أو عند أقصى فئة/قيمة، أو عند قيمة عددية محددة. هذا مفيد لتحريك محور X لأعلى أو لأسفل أو لتسليط الضوء على خط أساس.
+**كيف يمكنني وضع تسميات العلامات بالنسبة للمحور (بجانب، خارج، داخل)؟**
 
-**كيف يمكنني وضع تسميات العلامات بالنسبة إلى المحور (بجانب، خارج، داخل)؟**
-
-قم بتعيين [موضع التسمية](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) إلى "cross" أو "outside" أو "inside". يؤثر هذا على قابلية القراءة ويساعد على توفير المساحة، خاصة في المخططات الصغيرة.
+اضبط [label position](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/axis/set_majortickmark/) إلى "cross" أو "outside" أو "inside". يؤثر ذلك على قابلية القراءة ويساعد في توفير المساحة، خاصةً في المخططات الصغيرة.

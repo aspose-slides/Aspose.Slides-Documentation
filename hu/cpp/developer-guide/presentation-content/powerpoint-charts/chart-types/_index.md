@@ -1,6 +1,6 @@
 ---
-title: C++‑ban testreszabott bemutató diagramok
-linktitle: Diagram típusok
+title: C++-ban a bemutató diagramok testreszabása
+linktitle: Diagramtípusok
 type: docs
 weight: 20
 url: /hu/cpp/chart-types/
@@ -8,13 +8,13 @@ keywords:
 - diagram testreszabása
 - diagram kezelése
 - diagramtípus
-- PowerPoint diagram
+- PowerPoint-diagram
 - bemutató diagram
-- PPT diagram
-- PPTX diagram
+- PPT-diagram
+- PPTX-diagram
 - PowerPoint
 - bemutató
 - C++
 - Aspose.Slides
-description: "Fedezze fel az összes diagramtípust, amelyet az Aspose.Slides for C++ segítségével létrehozhat vagy szerkeszthet – gyors, kódelemző útmutatók a PowerPoint bemutatókhoz."
+description: "Fedezze fel az összes diagramtípust, amelyet az Aspose.Slides for C++ segítségével létrehozhat vagy szerkeszthet – gyors, kódelőnvezett útmutatók a PowerPoint bemutatókhoz."
 ---

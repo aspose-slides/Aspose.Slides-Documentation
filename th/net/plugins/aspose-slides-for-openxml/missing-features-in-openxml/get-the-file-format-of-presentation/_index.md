@@ -3,13 +3,15 @@ title: รับรูปแบบไฟล์ของการพรีเซ�
 type: docs
 weight: 50
 url: /th/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/presentation-format/
 ---
-เพื่อรับรูปแบบไฟล์ โปรดทำตามขั้นตอนด้านล่าง:
+เพื่อให้ได้รูปแบบไฟล์ โปรดทำตามขั้นตอนด้านล่าง:
 
 - สร้างอินสแตนซ์ของคลาส **IPresentationInfo**
 - รับข้อมูลเกี่ยวกับการพรีเซนเทชัน
 
-ในตัวอย่างที่ให้ด้านล่าง เราได้รับรูปแบบไฟล์แล้ว.
+ในตัวอย่างด้านล่าง เราได้รูปแบบไฟล์แล้ว
 ## **ตัวอย่าง**
 ``` csharp
 
@@ -47,5 +49,5 @@ switch (info.LoadFormat)
 ``` 
 ## **ดาวน์โหลดโค้ดตัวอย่าง**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-## **ดาวน์โหลดตัวอย่างที่ทำงานได้**
+## **ดาวน์โหลดตัวอย่างการทำงาน**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

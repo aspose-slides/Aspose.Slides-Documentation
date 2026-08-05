@@ -1,9 +1,9 @@
 ---
-title: افزودن اشکال خط به ارائه‌ها در Java
+title: افزودن اشکال خط به ارائه‌ها در جاوا
 linktitle: خط
 type: docs
 weight: 50
-url: /fa/java/Line/
+url: /fa/java/line/
 keywords:
 - خط
 - ایجاد خط
@@ -11,33 +11,33 @@ keywords:
 - خط ساده
 - پیکربندی خط
 - سفارشی‌سازی خط
-- سبک خط نقطه‌دار
+- سبک خط تیره
 - سر پیکان
 - PowerPoint
-- ارائه
+- presentation
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه قالب‌بندی خطوط را در ارائه‌های PowerPoint با Aspose.Slides برای Java مدیریت کنید. ویژگی‌ها، متدها و مثال‌ها را کشف کنید."
+description: "یادگیری نحوه دستکاری قالب‌بندی خط در ارائه‌های PowerPoint با Aspose.Slides برای Java. کشف ویژگی‌ها، متدها و مثال‌ها."
 ---
-## **بررسی کلی**
+## **مروری کلی**
 
-Aspose.Slides به شما امکان می‌دهد اشکال خط را به اسلایدهای PowerPoint به‌صورت برنامه‌ای اضافه کنید. این مقاله نشان می‌دهد چگونه یک خط ساده ایجاد شود و چگونه خطی را سفارشی کنیم تا به‌صورت یک پیکان ظاهر شود.
+Aspose.Slides به شما امکان می‌دهد تا اشکال خط را به طور برنامه‌نویسی به اسلایدهای PowerPoint اضافه کنید. این مقاله نشان می‌دهد چگونه یک خط ساده ایجاد کنید و چگونه یک خط را طوری سفارشی کنید که به شکل یک پیکان ظاهر شود.
 
-شما می‌آموزید که چگونه یک شکل خط را به اسلاید اضافه کنید، ظاهر بصری آن را تنظیم کنید و ارائه به‌روزشده را ذخیره کنید. مثال‌ها بر تنظیمات عملی قالب‌بندی خط مانند سبک، عرض، الگوی نقطه‌خط، گزینه‌های سرپیکان و رنگ پر تمرکز دارند.
+شما یاد خواهید گرفت چگونه یک شکل خط را به اسلاید اضافه کنید، ظاهر آن را تنظیم کنید و ارائه به‌روز شده را ذخیره کنید. مثال‌ها بر تنظیمات عملی قالب‌بندی خط مانند سبک، عرض، الگوی خط تیره، گزینه‌های سرپیکان و رنگ پر کردن متمرکز هستند.
 
 ## **ایجاد یک خط ساده**
 
-برای اضافه کردن یک خط ساده به اسلاید انتخاب‌شده ارائه، مراحل زیر را دنبال کنید:
+برای افزودن یک خط ساده به اسلاید منتخب ارائه، مراحل زیر را دنبال کنید:
 
 - یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
-- با استفاده از Index آن، مرجع یک اسلاید را به دست آورید.
-- با استفاده از متد [addAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) که توسط شیء [IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection) ارائه می‌شود، یک AutoShape از نوع Line اضافه کنید.
-- ارائهٔ تغییر یافته را به‌عنوان فایل PPTX بنویسید.
+- با استفاده از Index آن، مرجع یک اسلاید را دریافت کنید.
+- با استفاده از متد [addAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) که توسط شیء [IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection) در دسترس است، یک AutoShape از نوع Line اضافه کنید.
+- ارائه‌ی تغییر یافته را به صورت فایل PPTX بنویسید.
 
-در مثال زیر، یک خط به اسلاید اول ارائه افزوده‌ایم.
+در مثال زیر، یک خط را به اولین اسلاید ارائه اضافه کرده‌ایم.
 
 ```java
-// نمونه‌سازی کلاس PresentationEx که فایل PPTX را نمایندگی می‌کند
+// نمونه‌سازی کلاس PresentationEx که نمایانگر فایل PPTX است
 Presentation pres = new Presentation();
 try {
     // دریافت اولین اسلاید
@@ -46,7 +46,7 @@ try {
     // افزودن AutoShape از نوع خط
     sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
     
-    // نوشتن PPTX بر روی دیسک
+    // نوشتن فایل PPTX بر روی دیسک
     pres.save("LineShape.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -55,20 +55,20 @@ try {
 
 ## **ایجاد یک خط شبیه پیکان**
 
-Aspose.Slides برای Java همچنین به توسعه‌دهندگان امکان می‌دهد برخی از ویژگی‌های خط را تنظیم کنند تا ظاهر جذاب‌تری داشته باشد. بیایید چند ویژگی خط را طوری تنظیم کنیم که شبیه یک پیکان شود. برای انجام این کار مراحل زیر را دنبال کنید:
+Aspose.Slides for Java همچنین به توسعه‌دهندگان اجازه می‌دهد برخی از ویژگی‌های خط را پیکربندی کنند تا ظاهر جذاب‌تری داشته باشد. بیایید چند ویژگی خط را طوری تنظیم کنیم که شبیه یک پیکان باشد. برای این کار مراحل زیر را دنبال کنید:
 
 - یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
-- با استفاده از Index آن، مرجع یک اسلاید را به دست آورید.
-- با استفاده از متد [addAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) که توسط شیء [IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection) ارائه می‌شود، یک AutoShape از نوع Line اضافه کنید.
-- [Line Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineStyle) را به یکی از سبک‌های ارائه‌شده توسط Aspose.Slides برای Java تنظیم کنید.
+- با استفاده از Index آن، مرجع یک اسلاید را دریافت کنید.
+- با استفاده از متد [addAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) که توسط شیء [IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShapeCollection) در دسترس است، یک AutoShape از نوع Line اضافه کنید.
+- [Line Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineStyle) را به یکی از سبک‌های ارائه‌شده توسط Aspose.Slides for Java تنظیم کنید.
 - عرض خط را تنظیم کنید.
-- [Dash Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineDashStyle) خط را به یکی از سبک‌های ارائه‌شده توسط Aspose.Slides برای Java تنظیم کنید.
-- [Arrow Head Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadStyle) و [Length](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadLength) نقطهٔ شروع خط را تنظیم کنید.
-- [Arrow Head Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadStyle) و [Length](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadLength) نقطهٔ پایان خط را تنظیم کنید.
-- ارائهٔ تغییر یافته را به‌عنوان فایل PPTX بنویسید.
+- [Dash Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineDashStyle) خط را به یکی از سبک‌های ارائه‌شده توسط Aspose.Slides for Java تنظیم کنید.
+- [Arrow Head Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadStyle) و [Length](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadLength) نقطه شروع خط را تنظیم کنید.
+- [Arrow Head Style](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadStyle) و [Length](https://reference.aspose.com/slides/fa/java/com.aspose.slides/LineArrowheadLength) نقطه انتهای خط را تنظیم کنید.
+- ارائه‌ی تغییر یافته را به صورت فایل PPTX بنویسید.
 
 ```java
-// نمونه‌سازی کلاس PresentationEx که فایل PPTX را نمایندگی می‌کند
+// نمونه‌سازی کلاس PresentationEx که نمایانگر فایل PPTX است
 Presentation pres = new Presentation();
 try {
     // دریافت اولین اسلاید
@@ -77,7 +77,7 @@ try {
     // افزودن AutoShape از نوع خط
     IAutoShape shp = sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // اعمال برخی قالب‌بندی‌ها بر روی خط
+    // اعمال برخی قالب‌بندی‌ها روی خط
     shp.getLineFormat().setStyle(LineStyle.ThickBetweenThin);
     shp.getLineFormat().setWidth(10);
 
@@ -92,23 +92,23 @@ try {
     shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Maroon));
 
-    // نوشتن PPTX بر روی دیسک
+    // نوشتن فایل PPTX بر روی دیسک
     pres.save("LineShape.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم یک خط معمولی را به یک Connector تبدیل کنم تا به اشکال "چسبانده" شود؟**
+**آیا می‌توانم یک خط عادی را به اتصال‌کن تبدیل کنم تا به اشکال «چسبیده»؟**
 
-خیر. یک خط معمولی (یک [AutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/autoshape/) از نوع [Line](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shapetype/)) به‌صورت خودکار به یک Connector تبدیل نمی‌شود. برای چسباندن به اشکال، از نوع ویژهٔ [Connector](https://reference.aspose.com/slides/fa/java/com.aspose.slides/connector/) و APIهای مرتبط [/slides/fa/java/connector/] استفاده کنید.
+خیر. یک خط عادی (یک [AutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/autoshape/) از نوع [Line](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shapetype/)) به طور خودکار تبدیل به اتصال‌کن نمی‌شود. برای چسباندن به اشکال، از نوع اختصاصی [Connector](https://reference.aspose.com/slides/fa/java/com.aspose.slides/connector/) و APIهای مربوطه](/slides/fa/java/connector/) استفاده کنید.
 
-**اگر ویژگی‌های یک خط از تم به ارث برده شده باشند و تعیین مقادیر نهایی دشوار باشد، باید چه کاری انجام دهم؟**
+**اگر ویژگی‌های یک خط از تم ارث‌بری شده باشد و تعیین مقدار نهایی دشوار باشد، چه کار باید بکنم؟**
 
-[خواندن ویژگی‌های مؤثر](/slides/fa/java/shape-effective-properties/) را از طریق رابط‌های [ILineFormatEffectiveData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilinefillformateffectivedata/) بخوانید—این‌ها پیشاپیش ارث‌بری و سبک‌های تم را در نظر می‌گیرند.
+[ویژگی‌های مؤثر را مطالعه کنید](/slides/fa/java/shape-effective-properties/) از طریق رابط‌های [ILineFormatEffectiveData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilinefillformateffectivedata/). این رابط‌ها قبلاً ارث‌بری و سبک‌های تم را در نظر گرفته‌اند.
 
-**آیا می‌توانم یک خط را در مقابل ویرایش (جابه‌جایی، تغییر اندازه) قفل کنم؟**
+**آیا می‌توانم یک خط را در برابر ویرایش (جابجایی، تغییر اندازه) قفل کنم؟**
 
-بله. اشکال [lock objects](https://reference.aspose.com/slides/fa/java/com.aspose.slides/autoshape/#getAutoShapeLock--) را فراهم می‌کنند که به شما اجازه می‌دهد [ممنوع کردن عملیات ویرایشی](/slides/fa/java/applying-protection-to-presentation/) را اعمال کنید.
+بله. اشکال دارای [lock objects](https://reference.aspose.com/slides/fa/java/com.aspose.slides/autoshape/#getAutoShapeLock--) هستند که به شما امکان می‌دهد [عملیات ویرایشی را غیرفعال کنید](/slides/fa/java/applying-protection-to-presentation/).

@@ -1,5 +1,5 @@
 ---
-title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bản Trình chiếu bằng С++
+title: Quản lý Nhãn Dữ liệu Biểu đồ trong Bài thuyết trình sử dụng C++
 linktitle: Nhãn Dữ liệu
 type: docs
 url: /vi/cpp/chart-data-label/
@@ -11,24 +11,24 @@ keywords:
 - khoảng cách nhãn
 - vị trí nhãn
 - PowerPoint
-- bản trình chiếu
-- С++
+- bài thuyết trình
+- C++
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bản trình chiếu PowerPoint bằng Aspose.Slides cho С++ để có các slide hấp dẫn hơn."
+description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bài thuyết trình PowerPoint bằng Aspose.Slides cho C++ để tạo các slide sinh động hơn."
 ---
 ## **Giới thiệu**
 
-Nhãn dữ liệu trên biểu đồ hiển thị chi tiết về chuỗi dữ liệu của biểu đồ hoặc các điểm dữ liệu riêng lẻ. Chúng cho phép người đọc nhanh chóng nhận dạng chuỗi dữ liệu và đồng thời giúp biểu đồ dễ hiểu hơn.
+Nhãn dữ liệu trên biểu đồ hiển thị chi tiết về chuỗi dữ liệu của biểu đồ hoặc các điểm dữ liệu riêng lẻ. Chúng cho phép người đọc nhanh chóng xác định chuỗi dữ liệu và cũng làm cho biểu đồ dễ hiểu hơn.
 
-## **Đặt Độ Chính Xác Dữ Liệu trong Nhãn Dữ Liệu Biểu Đồ**
+## **Đặt độ chính xác dữ liệu trong nhãn dữ liệu biểu đồ**
 
-Mã C++ này cho bạn thấy cách đặt độ chính xác dữ liệu trong một nhãn dữ liệu biểu đồ:
+Đoạn mã C++ này cho bạn thấy cách đặt độ chính xác dữ liệu trong một nhãn dữ liệu biểu đồ:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Khởi tạo lớp Presentation đại diện cho tệp PPTX
+	// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Lấy slide đầu tiên
@@ -37,7 +37,7 @@ Mã C++ này cho bạn thấy cách đặt độ chính xác dữ liệu trong m
 	// Thêm biểu đồ với dữ liệu mặc định
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Đặt định dạng số cho chuỗi dữ liệu
+	// Đặt định dạng số cho chuỗi
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
@@ -45,8 +45,8 @@ Mã C++ này cho bạn thấy cách đặt độ chính xác dữ liệu trong m
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Hiển Thị Phần Trăm dưới Dạng Nhãn**
-Aspose.Slides cho C++ cho phép bạn đặt nhãn phần trăm trên các biểu đồ được hiển thị. Mã C++ này minh họa cách thực hiện:
+## **Hiển thị tỷ lệ phần trăm dưới dạng nhãn**
+Aspose.Slides cho C++ cho phép bạn đặt nhãn phần trăm trên các biểu đồ hiển thị. Đoạn mã C++ này minh họa cách thực hiện:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu
@@ -94,17 +94,15 @@ Aspose.Slides cho C++ cho phép bạn đặt nhãn phần trăm trên các biể
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
-
 		}
-
 	}
 
 	// Lưu bản trình chiếu chứa biểu đồ
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Đặt Dấu Phần Trăm cho Nhãn Dữ Liệu Biểu Đồ**
-Mã C++ này cho bạn cách đặt dấu phần trăm cho một nhãn dữ liệu biểu đồ:
+## **Đặt ký hiệu phần trăm cho nhãn dữ liệu biểu đồ**
+Đoạn mã C++ này cho bạn cách đặt ký hiệu phần trăm cho một nhãn dữ liệu biểu đồ:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
@@ -113,10 +111,10 @@ Mã C++ này cho bạn cách đặt dấu phần trăm cho một nhãn dữ li�
 	// Tạo một thể hiện của lớp Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Lấy tham chiếu slide qua chỉ mục của nó
+	// Lấy tham chiếu của slide thông qua chỉ số của nó
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Tạo biểu đồ PercentsStackedColumn trên slide
+	// Tạo biểu đồ PercentsStackedColumn trên một slide
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
 	// Đặt NumberFormatLinkedToSource thành false
@@ -124,7 +122,7 @@ Mã C++ này cho bạn cách đặt dấu phần trăm cho một nhãn dữ li�
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
 
-	// Đặt chỉ mục của bảng dữ liệu biểu đồ
+	// Đặt chỉ số của sheet dữ liệu biểu đồ
 	int defaultWorksheetIndex = 0;
 
 	// Lấy worksheet dữ liệu biểu đồ
@@ -141,7 +139,7 @@ Mã C++ này cho bạn cách đặt dấu phần trăm cho một nhãn dữ li�
 
 	// Lấy series biểu đồ đầu tiên
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// Đổ dữ liệu vào series
+	// Điền dữ liệu cho series
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
@@ -162,7 +160,7 @@ Mã C++ này cho bạn cách đặt dấu phần trăm cho một nhãn dữ li�
 
 	// Lấy series biểu đồ thứ hai
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// Đổ dữ liệu vào series
+	// Điền dữ liệu cho series
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
@@ -185,8 +183,8 @@ Mã C++ này cho bạn cách đặt dấu phần trăm cho một nhãn dữ li�
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Đặt Khoảng Cách Nhãn so với Trục**
-Mã C++ này cho bạn cách đặt khoảng cách nhãn so với trục danh mục khi bạn làm việc với biểu đồ được vẽ từ các trục:
+## **Đặt khoảng cách nhãn so với trục**
+Đoạn mã C++ này cho bạn cách đặt khoảng cách nhãn so với trục danh mục khi bạn làm việc với biểu đồ được vẽ từ các trục:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu
@@ -198,25 +196,25 @@ Mã C++ này cho bạn cách đặt khoảng cách nhãn so với trục danh m�
 	// Lấy tham chiếu của slide
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Tạo một biểu đồ trên slide
+	// Tạo biểu đồ trên slide
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
 	// Lấy bộ sưu tập series của biểu đồ
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
-	// Đặt khoảng cách nhãn so với trục
+	// Đặt khoảng cách nhãn so với một trục
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
 	// Ghi tệp trình chiếu ra đĩa
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Điều Chỉnh Vị Trí Nhãn**
+## **Điều chỉnh vị trí nhãn**
 
-Khi bạn tạo một biểu đồ không dựa vào bất kỳ trục nào như biểu đồ tròn, các nhãn dữ liệu của biểu đồ có thể quá gần mép của nó. Trong trường hợp này, bạn cần điều chỉnh vị trí của nhãn dữ liệu để các đường dẫn (leader lines) được hiển thị rõ ràng.
+Khi bạn tạo một biểu đồ không dựa vào bất kỳ trục nào như biểu đồ tròn, các nhãn dữ liệu của biểu đồ có thể quá gần cạnh của nó. Trong trường hợp đó, bạn cần điều chỉnh vị trí của nhãn dữ liệu để các đường dẫn (leader lines) hiển thị rõ ràng.
 
-Mã C++ này cho bạn cách điều chỉnh vị trí nhãn trên biểu đồ tròn:
+Đoạn mã C++ này cho bạn cách điều chỉnh vị trí nhãn trên biểu đồ tròn:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -237,16 +235,16 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Làm thế nào để ngăn chặn các nhãn dữ liệu bị chồng lên nhau trên các biểu đồ dày đặc?**
+**Làm thế nào để ngăn nhãn dữ liệu chồng lấn trên các biểu đồ dày đặc?**
 
-Kết hợp việc đặt nhãn tự động, các đường dẫn, và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các điểm cực đoan/chìa khóa.
+Kết hợp việc đặt nhãn tự động, các đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các điểm cực/extreme hoặc quan trọng.
 
-**Làm thế nào để tắt nhãn chỉ cho các giá trị bằng không, âm hoặc trống?**
+**Làm thế nào để tắt nhãn chỉ cho các giá trị bằng 0, âm hoặc trống?**
 
-Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định.
+Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định nghĩa.
 
 **Làm thế nào để đảm bảo kiểu nhãn nhất quán khi xuất ra PDF/hình ảnh?**
 
-Cài đặt rõ ràng phông chữ (họ, kích thước) và kiểm tra rằng phông chữ có sẵn ở phía render để tránh việc thay thế.
+Đặt rõ phông chữ (họ, kích thước) và xác minh rằng phông chữ có sẵn ở phía render để tránh việc thay thế.

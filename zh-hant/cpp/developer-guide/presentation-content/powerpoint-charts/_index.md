@@ -21,5 +21,5 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides 在 C++ 中建立與自訂 PowerPoint 圖表——透過清晰的程式碼範例操作資料、樣式以及 PPT 與 PPTX 中的圖表類型。"
+description: "使用 Aspose.Slides 在 C++ 中建立與自訂 PowerPoint 圖表──透過清晰的程式範例操作 PPT 與 PPTX 中的資料、樣式與圖表類型。"
 ---

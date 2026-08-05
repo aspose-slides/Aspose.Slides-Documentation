@@ -1,5 +1,5 @@
 ---
-title: C++'ta PowerPoint Grafiklerini Oluşturma ve Özelleştirme
+title: C++ ile PowerPoint Grafiklerini Oluşturma ve Özelleştirme
 linktitle: PowerPoint Grafikler
 type: docs
 weight: 70
@@ -9,17 +9,17 @@ keywords:
 - grafik oluştur
 - grafik güncelle
 - grafik değiştir
-- grafik düzenle
-- grafik özelleştir
+- grafik değiştir
+- grafiği özelleştir
 - grafik türü
-- grafik öğeleri
-- grafik biçimlendir
+- grafik varlıkları
+- grafiği biçimlendir
 - grafik çalışma kitabı
 - animasyonlu grafik
-- grafik dışa aktar
+- grafiği dışa aktar
 - PowerPoint
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides ile С++'ta PowerPoint grafiklerini oluşturun ve özelleştirin—PPT ve PPTX'te veri, stil ve grafik türleriyle çalışmak için net kod örnekleri kullanın."
+description: "Aspose.Slides ile C++'ta PowerPoint grafiklerini oluşturun ve özelleştirin—veri, stil ve grafik türleriyle PPT ve PPTX dosyalarında net kod örnekleri kullanarak çalışın."
 ---

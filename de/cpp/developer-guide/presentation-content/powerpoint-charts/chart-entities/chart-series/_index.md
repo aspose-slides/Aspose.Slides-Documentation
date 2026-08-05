@@ -1,13 +1,13 @@
 ---
-title: Diagrammdatenserien in Präsentationen mit C++ verwalten
-linktitle: Datenserien
+title: Verwalten von Diagramm-Serien in Präsentationen mit C++
+linktitle: Datenserie
 type: docs
 url: /de/cpp/chart-series/
 keywords:
 - Diagrammserie
 - Serienüberlappung
 - Serienfarbe
-- Kategorienfarbe
+- Kategoriefarbe
 - Serienname
 - Datenpunkt
 - Serienlücke
@@ -15,26 +15,30 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammserien in C++ für PowerPoint (PPT/PPTX) verwalten, mit praktischen Codebeispielen und bewährten Methoden, um Ihre Datenpräsentationen zu verbessern."
+description: "Erfahren Sie, wie Sie Diagrammserien in C++ für PowerPoint (PPT/PPTX) verwalten, mit praktischen Codebeispielen und bewährten Methoden zur Verbesserung Ihrer Datenpräsentationen."
 ---
+## **Übersicht**
+
+Dieser Artikel beschreibt die Rolle von [ChartSeries](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chartseries/) in Aspose.Slides und konzentriert sich darauf, wie Daten in Präsentationen strukturiert und visualisiert werden. Diese Objekte stellen die Grundlagelemente dar, die einzelne Sätze von Datenpunkten, Kategorien und Anzeigeparametern in einem Diagramm definieren. Durch die Arbeit mit [ChartSeries](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chartseries/) können Entwickler Datenquellen nahtlos integrieren und die vollständige Kontrolle darüber behalten, wie Informationen angezeigt werden, was zu dynamischen, datengetriebenen Präsentationen führt, die Erkenntnisse und Analysen klar vermitteln.
 
 Eine Serie ist eine Zeile oder Spalte von Zahlen, die in einem Diagramm dargestellt werden.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Überschneidung der Datenserie festlegen**
+## **Überlappung der Datenserie festlegen**
 
-Mit der [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb)-Methode können Sie festlegen, wie stark Balken und Säulen in einem 2D-Diagramm überlappen sollen (Bereich: -100 bis 100). Diese Eigenschaft gilt für alle Serien der übergeordneten Seriengruppe: Dies ist eine Projektion der entsprechenden Gruppeneigenschaft.
+Mit der Methode [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) können Sie festlegen, wie stark Balken und Säulen in einem 2D-Diagramm überlappen sollen (Bereich: -100 bis 100). Diese Eigenschaft gilt für alle Serien der übergeordneten Seriengruppe: Sie ist eine Projektion der entsprechenden Gruppeneigenschaft.
 
 Verwenden Sie die Methode `get_ParentSeriesGroup()::set_Overlap()`, um Ihren gewünschten Wert für `Overlap` festzulegen. 
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation).
 1. Fügen Sie einer Folie ein gruppiertes Säulendiagramm hinzu.
 1. Greifen Sie auf die erste Diagrammserie zu.
-1. Greifen Sie auf die `ParentSeriesGroup` der Diagrammserie zu und setzen Sie den gewünschten Überschneidungswert für die Serie. 
-1. Schreiben Sie die geänderte Präsentation in eine PPTX-Datei.
+1. Greifen Sie auf die `ParentSeriesGroup` der Diagrammserie zu und setzen Sie den gewünschten Überlappungswert für die Serie.
+1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-This C++ code shows you how to set the overlap for a chart series:
+Dieser C++‑Code zeigt Ihnen, wie Sie die Überlappung für eine Diagrammserie festlegen:
+
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
@@ -44,7 +48,7 @@ auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
 {
-    // Setzt die Serienüberlappung
+    // Setzt Serienüberlappung
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
@@ -52,18 +56,18 @@ if (series->idx_get(0)->get_Overlap() == 0)
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Farbe der Datenserie ändern**
 
-Aspose.Slides für C++ ermöglicht das Ändern der Farbe einer Serie wie folgt:
+Aspose.Slides für C++ ermöglicht es Ihnen, die Farbe einer Serie wie folgt zu ändern:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Fügen Sie dem Folienbereich ein Diagramm hinzu.
-1. Greifen Sie auf die Serie zu, deren Farbe Sie ändern möchten. 
-1. Setzen Sie Ihren gewünschten Fülltyp und Ihre Füllfarbe.
-1. Speichern Sie die geänderte Präsentation.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation).
+1. Fügen Sie ein Diagramm auf der Folie hinzu.
+1. Greifen Sie auf die Serie zu, deren Farbe Sie ändern möchten.
+1. Legen Sie Ihren bevorzugten Fülltyp und die Füllfarbe fest.
+1. Speichern Sie die modifizierte Präsentation.
 
-This C++ code shows you how to change a series' color:
+Dieser C++‑Code zeigt Ihnen, wie Sie die Farbe einer Serie ändern:
+
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -78,18 +82,18 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
+## **Farbe einer Datenserienkategorie ändern**
 
-## **Farbe einer Datenserien‑Kategorie ändern**
+Aspose.Slides für C++ ermöglicht es Ihnen, die Farbe einer Seriekategorie wie folgt zu ändern:
 
-Aspose.Slides für C++ ermöglicht das Ändern der Farbe einer Seriekategorie wie folgt:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Fügen Sie dem Folienbereich ein Diagramm hinzu.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation).
+1. Fügen Sie ein Diagramm auf der Folie hinzu.
 1. Greifen Sie auf die Seriekategorie zu, deren Farbe Sie ändern möchten.
-1. Setzen Sie Ihren gewünschten Fülltyp und Ihre Füllfarbe.
-1. Speichern Sie die geänderte Präsentation.
+1. Legen Sie Ihren bevorzugten Fülltyp und die Füllfarbe fest.
+1. Speichern Sie die modifizierte Präsentation.
 
-This code in C++ shows you how to change a series category's color:
+Dieser C++‑Code zeigt Ihnen, wie Sie die Farbe einer Seriekategorie ändern:
+
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -102,19 +106,19 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
+## **Namen der Datenserie ändern**
 
-## **Namen der Datenserie ändern** 
+Standardmäßig sind die Legendenbezeichnungen eines Diagramms die Inhalte der Zellen über jeder Spalte oder Zeile der Daten.
 
-Standardmäßig sind die Legendenbeschriftungen eines Diagramms die Inhalte der Zellen über jeder Spalte oder Zeile der Daten. 
+In unserem Beispiel (Beispielbild),
 
-In unserem Beispiel (Beispielbild) gilt: 
+* Die Spalten sind *Series 1, Series 2,* und *Series 3*;
+* Die Zeilen sind *Category 1, Category 2, Category 3,* und *Category 4.* 
 
-* Die Spalten sind *Series 1, Series 2* und *Series 3*;
-* Die Zeilen sind *Category 1, Category 2, Category 3* und *Category 4*. 
+Aspose.Slides für C++ ermöglicht es Ihnen, einen Seriennamen in den Diagrammdaten und in der Legende zu aktualisieren oder zu ändern.
 
-Aspose.Slides für C++ ermöglicht das Aktualisieren oder Ändern des Namens einer Serie in den Diagrammdaten und in der Legende. 
+Dieser C++‑Code zeigt Ihnen, wie Sie den Namen einer Serie im Diagrammdaten‑`ChartDataWorkbook` ändern:
 
-This C++ code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 
@@ -127,8 +131,8 @@ seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+Dieser C++‑Code zeigt Ihnen, wie Sie den Namen einer Serie in der Legende über `Series` ändern:
 
-This C++ code shows you how to change a series name in its legend through`Series`:
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -140,18 +144,18 @@ auto name = series->get_Name();
 name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 ```
 
-
 ## **Füllfarbe der Datenserie festlegen**
 
-Aspose.Slides für C++ ermöglicht das Festlegen der automatischen Füllfarbe für Diagrammserien im Plotbereich wie folgt:
+Aspose.Slides für C++ ermöglicht es Ihnen, die automatische Füllfarbe für Diagrammserien innerhalb eines Plotbereichs wie folgt festzulegen:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Holen Sie sich eine Folienreferenz über ihren Index.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu, basierend auf Ihrem bevorzugten Typ (im folgenden Beispiel wurde `ChartType::ClusteredColumn` verwendet).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation).
+1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem bevorzugten Typ hinzu (im nachfolgenden Beispiel haben wir `ChartType::ClusteredColumn` verwendet).
 1. Greifen Sie auf die Diagrammserie zu und setzen Sie die Füllfarbe auf Automatic.
 1. Speichern Sie die Präsentation in einer PPTX-Datei.
 
-This C++ code shows you how to set the automatic fill color for a chart series:
+Dieser C++‑Code zeigt Ihnen, wie Sie die automatische Füllfarbe für eine Diagrammserie festlegen:
+
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
@@ -169,18 +173,18 @@ for (const auto& series : chart->get_ChartData()->get_Series())
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Invertierte Füllfarben für Datenserie festlegen**
 
-Aspose.Slides ermöglicht das Festlegen invertierter Füllfarben für Diagrammserien im Plotbereich wie folgt:
+Aspose.Slides ermöglicht es Ihnen, die invertierte Füllfarbe für Diagrammserien innerhalb eines Plotbereichs wie folgt festzulegen:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Holen Sie sich eine Folienreferenz über ihren Index.
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu, basierend auf Ihrem bevorzugten Typ (im folgenden Beispiel wurde `ChartType::ClusteredColumn` verwendet).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation).
+1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten basierend auf Ihrem bevorzugten Typ hinzu (im nachfolgenden Beispiel haben wir `ChartType::ClusteredColumn` verwendet).
 1. Greifen Sie auf die Diagrammserie zu und setzen Sie die Füllfarbe auf invert.
 1. Speichern Sie die Präsentation in einer PPTX-Datei.
 
-This C++ code demonstrates the operation:
+Dieser C++‑Code demonstriert die Vorgehensweise:
+
 ```cpp
 Color inverColor = Color::get_Red();
     
@@ -213,12 +217,12 @@ series->get_InvertedSolidFillColor()->set_Color(inverColor);
 pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Invertierte Füllfarbe für eine Diagrammserie festlegen**
 
-Aspose.Slides ermöglicht das Setzen von Invertierungen über die Methoden `IChartDataPoint::set_InvertIfNegative()` und `ChartDataPoint.set_InvertIfNegative()`. Wird eine Invertierung über diese Methoden gesetzt, ändert der Datenpunkt seine Farben, sobald er einen negativen Wert erhält. 
+Aspose.Slides ermöglicht es Ihnen, Invertierungen über die Methoden `IChartDataPoint::set_InvertIfNegative()` und `ChartDataPoint.set_InvertIfNegative()` festzulegen. Wenn eine Invertierung mit diesen Methoden gesetzt wird, invertiert der Datenpunkt seine Farben, sobald er einen negativen Wert erhält. 
 
-This C++ code demonstrates the operation:
+Dieser C++‑Code demonstriert die Vorgehensweise:
+
 ```cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -241,19 +245,19 @@ series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
 pres->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
+## **Bestimmte Datenpunktwerte löschen**
 
-## **Spezifische Datenpunktwerte löschen**
+Aspose.Slides für C++ ermöglicht es Ihnen, die `DataPoints`‑Daten einer bestimmten Diagrammserie wie folgt zu löschen:
 
-Aspose.Slides für C++ ermöglicht das Löschen der `DataPoints`‑Daten für eine bestimmte Diagrammserie wie folgt:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation).
 2. Holen Sie sich die Referenz einer Folie über ihren Index.
 3. Holen Sie sich die Referenz eines Diagramms über seinen Index.
-4. Durchlaufen Sie alle `DataPoints` des Diagramms und setzen Sie `XValue` und `YValue` auf null.
+4. Iterieren Sie über alle `DataPoints` des Diagramms und setzen Sie `XValue` und `YValue` auf null.
 5. Löschen Sie alle `DataPoints` für die spezifische Diagrammserie.
-6. Schreiben Sie die geänderte Präsentation in eine PPTX-Datei.
+6. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-This C++ code demonstrates the operation:
+Dieser C++‑Code demonstriert die Vorgehensweise:
+
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
 auto sl = pres->get_Slides()->idx_get(0);
@@ -272,21 +276,21 @@ dataPoints->Clear();
 pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Lückenbreite der Datenserie festlegen**
 
-Aspose.Slides für C++ ermöglicht das Festlegen der Lückenbreite einer Serie über die **`set_GapWidth()`**‑Methode wie folgt:
+Aspose.Slides für C++ ermöglicht es Ihnen, die Lückenbreite einer Serie über die Methode **`set_GapWidth()`** wie folgt festzulegen:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.presentation).
 1. Greifen Sie auf die erste Folie zu.
 1. Fügen Sie ein Diagramm mit Standarddaten hinzu.
 1. Greifen Sie auf eine beliebige Diagrammserie zu.
 1. Setzen Sie die Eigenschaft `GapWidth`.
-1. Schreiben Sie die geänderte Präsentation in eine PPTX-Datei.
+1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-This code in C++ shows you how to set a series' Gap Width:
+Dieser C++‑Code zeigt Ihnen, wie Sie die Lückenbreite einer Serie festlegen:
+
 ```cpp
-// Erstellt leere Präsentation 
+// Erstellt eine leere Präsentation
 auto presentation = System::MakeObject<Presentation>();
 
 // Greift auf die erste Folie der Präsentation zu
@@ -325,18 +329,16 @@ dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, Obj
 // Setzt den GapWidth-Wert
 series->get_ParentSeriesGroup()->set_GapWidth(50);
 
-// Speichert die Präsentation auf dem Datenträger
+// Speichert die Präsentation auf die Festplatte
 presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 ```
 
-
-
 ## **FAQ**
 
-**Gibt es eine Grenze, wie viele Serien ein einzelnes Diagramm enthalten kann?**
+**Gibt es eine Obergrenze für die Anzahl der Serien, die ein einzelnes Diagramm enthalten kann?**
 
-Aspose.Slides setzt keine feste Obergrenze für die Anzahl der hinzugefügten Serien. Praktisch begrenzt werden Sie durch die Lesbarkeit des Diagramms und den verfügbaren Speicher Ihrer Anwendung.
+Aspose.Slides legt keine feste Obergrenze für die Anzahl der hinzuzufügenden Serien fest. Die praktische Grenze wird durch die Lesbarkeit des Diagramms und den verfügbaren Speicher Ihrer Anwendung bestimmt.
 
-**Was tun, wenn die Spalten innerhalb eines Clusters zu eng oder zu weit auseinander liegen?**
+**Was tun, wenn die Spalten innerhalb eines Clusters zu dicht beieinander oder zu weit auseinander liegen?**
 
-Passen Sie die Lückenbreite‑Einstellung für diese Serie (oder ihre übergeordnete Seriengruppe) an. Ein höherer Wert vergrößert den Abstand zwischen den Spalten, ein niedrigerer Wert bringt sie näher zusammen.
+Passen Sie die Einstellung für die Lückenbreite dieser Serie (oder ihrer übergeordneten Seriengruppe) an. Ein Erhöhen des Wertes vergrößert den Abstand zwischen den Spalten, während ein Verringern sie näher zusammenrückt.

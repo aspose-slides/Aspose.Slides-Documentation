@@ -1,22 +1,22 @@
 ---
-title: Xuất các phương trình toán học từ bản trình chiếu trong С++
-linktitle: Xuất công thức
+title: "Xuất các phương trình toán học từ bản trình chiếu trong C++"
+linktitle: "Xuất các phương trình"
 type: docs
 weight: 30
 url: /vi/cpp/exporting-math-equations/
 keywords:
-- xuất phương trình toán học
-- MathML
-- LaTeX
-- PowerPoint
-- bản trình chiếu
-- С++
-- Aspose.Slides
-description: "Mở khóa khả năng xuất liền mạch các phương trình toán học từ PowerPoint sang MathML bằng Aspose.Slides cho С++ — giữ nguyên định dạng và tăng khả năng tương thích."
+  - "xuất các phương trình toán học"
+  - "MathML"
+  - "LaTeX"
+  - "PowerPoint"
+  - "bản trình chiếu"
+  - "C++"
+  - "Aspose.Slides"
+description: "Mở khóa việc xuất liền mạch các phương trình toán học từ PowerPoint sang MathML bằng Aspose.Slides cho C++ — giữ nguyên định dạng và tăng cường khả năng tương thích."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides for C++ cho phép bạn xuất các phương trình toán học từ bản trình chiếu. Ví dụ, bạn có thể cần trích xuất các phương trình toán học trên các slide (từ một bản trình chiếu cụ thể) và sử dụng chúng trong chương trình hoặc nền tảng khác. 
+Aspose.Slides for C++ cho phép bạn xuất các phương trình toán học từ bản trình chiếu. Ví dụ, bạn có thể cần trích xuất các phương trình toán học trên các slide (từ một bản trình chiếu cụ thể) và sử dụng chúng trong một chương trình hoặc nền tảng khác. 
 
 {{% alert color="primary" %}} 
 
@@ -24,9 +24,9 @@ Bạn có thể xuất các phương trình sang MathML, một định dạng ho
 
 {{% /alert %}}
 
-## **Lưu các Phương Trình Toán Học dưới dạng MathML**
+## **Lưu các Phương trình Toán học dưới dạng MathML**
 
-Trong khi con người dễ dàng viết mã cho một số định dạng phương trình như LaTeX, họ gặp khó khăn khi viết mã cho MathML vì định dạng này được thiết kế để được các ứng dụng tạo ra tự động. Các chương trình có thể đọc và phân tích MathML một cách dễ dàng vì mã của nó ở dạng XML, do đó MathML thường được sử dụng như một định dạng xuất và in trong nhiều lĩnh vực. 
+Trong khi con người dễ dàng viết mã cho một số định dạng phương trình như LaTeX, họ gặp khó khăn khi viết mã cho MathML vì định dạng này được thiết kế để được các ứng dụng tạo ra tự động. Các chương trình có thể đọc và phân tích MathML một cách dễ dàng vì mã của nó nằm trong XML, do đó MathML thường được sử dụng làm định dạng đầu ra và in trong nhiều lĩnh vực. 
 
 Mã mẫu này cho bạn thấy cách xuất một phương trình toán học từ bản trình chiếu sang MathML:
 
@@ -51,24 +51,24 @@ SharedPtr<Stream> stream = System::MakeObject<FileStream>(u"mathml.xml", FileMod
 mathParagraph->WriteAsMathMl(stream);
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **FAQ**
 
-**Thực tế, gì được xuất ra MathML—một đoạn văn toán học hay một khối công thức riêng lẻ?**
+**Thực sự gì được xuất ra MathML—một đoạn văn hay một khối công thức riêng lẻ?**
 
-Bạn có thể xuất toàn bộ đoạn văn toán học ([MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/)) hoặc một khối riêng lẻ ([MathBlock](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathblock/)) sang MathML. Cả hai loại đều cung cấp một phương thức để ghi ra MathML.
+Bạn có thể xuất toàn bộ đoạn toán ([MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/)) hoặc một khối riêng lẻ ([MathBlock](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathblock/)) sang MathML. Cả hai loại đều cung cấp phương thức để ghi ra MathML.
 
 **Làm sao tôi biết một đối tượng trên slide là công thức toán học chứ không phải văn bản thường hoặc hình ảnh?**
 
-Một công thức tồn tại trong một [MathPortion](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathportion/) và có một [MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/). Các hình ảnh và các phần văn bản thường không có [MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/) không thể xuất dưới dạng công thức.
+Một công thức nằm trong một [MathPortion](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathportion/) và có một [MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/). Hình ảnh và các phần văn bản thường không có [MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/) không thể xuất thành công thức.
 
-**MathML trong bản trình chiếu xuất phát từ đâu—có phải là đặc thù của PowerPoint hay là một tiêu chuẩn?**
+**MathML trong bản trình chiếu đến từ đâu—có phải là đặc thù của PowerPoint hay là một tiêu chuẩn?**
 
-Quá trình xuất nhắm tới MathML tiêu chuẩn (XML). Aspose sử dụng Presentation MathML—phần phụ của tiêu chuẩn dành cho trình chiếu—được sử dụng rộng rãi trong các ứng dụng và trên web.
+Quá trình xuất nhắm tới MathML tiêu chuẩn (XML). Aspose sử dụng Presentation MathML—phần con của tiêu chuẩn dùng cho trình chiếu—điều này được sử dụng rộng rãi trong các ứng dụng và trên web.
 
-**Việc xuất công thức trong bảng, SmartArt, nhóm, v.v. có được hỗ trợ không?**
+**Có hỗ trợ xuất công thức nằm trong bảng, SmartArt, nhóm, v.v. không?**
 
-Có, nếu các đối tượng đó chứa các phần văn bản có [MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/) (tức là các công thức PowerPoint thực sự), chúng sẽ được xuất. Nếu công thức được nhúng dưới dạng hình ảnh, nó sẽ không được xuất.
+Có, nếu các đối tượng đó chứa các phần văn bản có [MathParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides.mathtext/mathparagraph/) (tức là các công thức PowerPoint thực sự), chúng sẽ được xuất. Nếu một công thức được nhúng dưới dạng hình ảnh, nó sẽ không được xuất.
 
-**Xuất sang MathML có làm thay đổi bản trình chiếu gốc không?**
+**Việc xuất sang MathML có thay đổi bản trình chiếu gốc không?**
 
-Không. Việc ghi MathML là một quá trình tuần tự hoá nội dung của công thức; nó không làm thay đổi tệp bản trình chiếu.
+Không. Việc ghi MathML chỉ là quá trình tuần tự hoá nội dung của công thức; nó không làm thay đổi tệp bản trình chiếu.

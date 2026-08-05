@@ -1,5 +1,5 @@
 ---
-title: Sesuaikan Sumbu Diagram dalam Presentasi Menggunakan С++
+title: Sesuaikan Sumbu Diagram dalam Presentasi Menggunakan C++
 linktitle: Sumbu Diagram
 type: docs
 url: /id/cpp/chart-axis/
@@ -19,28 +19,28 @@ keywords:
 - posisi sumbu
 - PowerPoint
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Temukan cara menggunakan Aspose.Slides untuk С++ untuk menyesuaikan sumbu diagram dalam presentasi PowerPoint untuk laporan dan visualisasi."
+description: "Temukan cara menggunakan Aspose.Slides untuk C++ untuk menyesuaikan sumbu diagram dalam presentasi PowerPoint untuk laporan dan visualisasi."
 ---
-## **Ringkasan**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara menyesuaikan sumbu diagram dalam Aspose.Slides. Ini menunjukkan cara mendapatkan nilai sumbu sebenarnya, menukar data antara sumbu, menyembunyikan sumbu vertikal atau horizontal untuk diagram garis, mengubah tipe sumbu kategori, mengatur format tanggal untuk nilai sumbu kategori, memutar judul sumbu, mengatur posisi sumbu, dan menampilkan label satuan pada sumbu nilai.
+Artikel ini menjelaskan cara menyesuaikan sumbu diagram di Aspose.Slides. Artikel ini menunjukkan cara mendapatkan nilai sumbu yang sebenarnya, menukar data antara sumbu, menyembunyikan sumbu vertikal atau horizontal untuk diagram garis, mengubah jenis sumbu kategori, mengatur format tanggal untuk nilai sumbu kategori, memutar judul sumbu, mengatur posisi sumbu, dan menampilkan label satuan pada sumbu nilai.
 
 ## **Dapatkan Nilai Maksimum pada Sumbu Vertikal**
-Aspose.Slides untuk C++ memungkinkan Anda memperoleh nilai minimum dan maksimum pada sumbu vertikal. Ikuti langkah‑langkah berikut:
+Aspose.Slides untuk C++ memungkinkan Anda memperoleh nilai minimum dan maksimum pada sumbu vertikal. Ikuti langkah-langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
 2. Akses slide pertama.
 3. Tambahkan diagram dengan data default.
-4. Dapatkan nilai maksimum aktual pada sumbu.
-5. Dapatkan nilai minimum aktual pada sumbu.
-6. Dapatkan satuan utama aktual pada sumbu.
-7. Dapatkan satuan minor aktual pada sumbu.
-8. Dapatkan skala satuan utama aktual pada sumbu.
-9. Dapatkan skala satuan minor aktual pada sumbu.
+4. Dapatkan nilai maksimum sebenarnya pada sumbu.
+5. Dapatkan nilai minimum sebenarnya pada sumbu.
+6. Dapatkan unit mayor sebenarnya dari sumbu.
+7. Dapatkan unit minor sebenarnya dari sumbu.
+8. Dapatkan skala unit mayor sebenarnya dari sumbu.
+9. Dapatkan skala unit minor sebenarnya dari sumbu.
 
-Kode contoh—implementasi langkah‑langkah di atas—menunjukkan cara mendapatkan nilai yang diperlukan dalam C++:
+Kode contoh ini—implementasi dari langkah-langkah di atas—menunjukkan cara memperoleh nilai yang diperlukan dalam C++:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -61,9 +61,9 @@ pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Tukar Data antara Sumbu**
-Aspose.Slides memungkinkan Anda dengan cepat menukar data antara sumbu—data yang ditampilkan pada sumbu vertikal (y‑axis) dipindahkan ke sumbu horizontal (x‑axis) dan sebaliknya.
+Aspose.Slides memungkinkan Anda menukar data antara sumbu dengan cepat—data yang ditampilkan pada sumbu vertikal (y-axis) dipindahkan ke sumbu horizontal (x-axis) dan sebaliknya.
 
-Kode C++ berikut menunjukkan cara melakukan penukaran data antara sumbu pada diagram:
+Kode C++ ini menunjukkan cara melakukan tugas penukaran data antara sumbu pada diagram:
 
 ``` cpp
 // Membuat presentasi kosong
@@ -80,7 +80,7 @@ pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 
 ## **Nonaktifkan Sumbu Vertikal untuk Diagram Garis**
 
-Kode C++ berikut menunjukkan cara menyembunyikan sumbu vertikal untuk diagram garis:
+Kode C++ ini menunjukkan cara menyembunyikan sumbu vertikal untuk diagram garis:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -106,7 +106,7 @@ pres->Save(u"chart.pptx", SaveFormat::Pptx);
 
 ## **Ubah Sumbu Kategori**
 
-Dengan metode **set_CategoryAxisType()**, Anda dapat menentukan tipe sumbu kategori yang diinginkan (**date** atau **text**). Kode C++ berikut mendemonstrasikan operasinya:
+Dengan menggunakan metode **set_CategoryAxisType()**, Anda dapat menentukan jenis sumbu kategori yang diinginkan (**date** atau **text**). Kode C++ ini mendemonstrasikan operasi tersebut:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -122,7 +122,7 @@ presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Atur Format Tanggal untuk Nilai Sumbu Kategori**
-Aspose.Slides untuk C++ memungkinkan Anda mengatur format tanggal untuk nilai sumbu kategori. Operasi ini ditunjukkan dalam kode C++ berikut:
+Aspose.Slides untuk C++ memungkinkan Anda mengatur format tanggal untuk nilai sumbu kategori. Operasi ini didemonstrasikan dalam kode C++ berikut:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -156,7 +156,7 @@ pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
 ## **Atur Sudut Rotasi untuk Judul Sumbu**
-Aspose.Slides untuk C++ memungkinkan Anda mengatur sudut rotasi untuk judul sumbu diagram. Kode C++ berikut mendemonstrasikan operasinya:
+Aspose.Slides untuk C++ memungkinkan Anda mengatur sudut rotasi untuk judul sumbu diagram. Kode C++ ini mendemonstrasikan operasi tersebut:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -170,7 +170,7 @@ pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
 ## **Atur Posisi Sumbu pada Sumbu Kategori atau Nilai**
-Aspose.Slides untuk C++ memungkinkan Anda mengatur posisi sumbu pada sumbu kategori atau nilai. Kode C++ berikut menunjukkan cara melakukan tugas tersebut:
+Aspose.Slides untuk C++ memungkinkan Anda mengatur posisi sumbu pada sumbu kategori atau nilai. Kode C++ ini menunjukkan cara melakukan tugas tersebut:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -181,8 +181,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Aktifkan Label Satuan pada Sumbu Nilai Diagram**
-Aspose.Slides untuk C++ memungkinkan Anda mengonfigurasi diagram agar menampilkan label satuan pada sumbu nilai diagram. Kode C++ berikut mendemonstrasikan operasinya:
+## **Aktifkan Label Unit Tampilan pada Sumbu Nilai Diagram**
+Aspose.Slides untuk C++ memungkinkan Anda mengkonfigurasi diagram agar menampilkan label unit pada sumbu nilai diagramnya. Kode C++ ini mendemonstrasikan operasi tersebut:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -195,10 +195,10 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Bagaimana cara mengatur nilai di mana satu sumbu memotong sumbu lainnya (axis crossing)?**
+**Bagaimana cara mengatur nilai di mana satu sumbu memotong sumbu lainnya (persilangan sumbu)?**
 
-Sumbu menyediakan [crossing setting](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/axis/set_crosstype/): Anda dapat memilih untuk memotong pada nol, pada kategori/nilai maksimum, atau pada nilai numerik tertentu. Ini berguna untuk menggeser sumbu X ke atas atau ke bawah atau untuk menekankan garis dasar.
+Sumbu menyediakan [pengaturan persilangan](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/axis/set_crosstype/): Anda dapat memilih untuk memotong pada nol, pada kategori/nilai maksimum, atau pada nilai numerik tertentu. Ini berguna untuk menggeser sumbu X ke atas atau ke bawah atau untuk menekankan garis dasar.
 
 **Bagaimana saya dapat memposisikan label tick relatif terhadap sumbu (di samping, di luar, di dalam)?**
 
-Atur [label position](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/axis/set_majortickmark/) menjadi "cross", "outside", atau "inside". Ini memengaruhi keterbacaan dan membantu menghemat ruang, terutama pada diagram kecil.
+Atur [posisi label](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/axis/set_majortickmark/) menjadi "cross", "outside", atau "inside". Ini memengaruhi keterbacaan dan membantu menghemat ruang, terutama pada diagram kecil.

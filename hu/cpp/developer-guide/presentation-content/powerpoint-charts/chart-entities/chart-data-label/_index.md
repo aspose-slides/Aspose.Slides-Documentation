@@ -1,53 +1,54 @@
 ---
-title: Diagram adatcímkék kezelése prezentációkban C++ használatával
+title: Diagram adatcímkék kezelése előadásban C++ használatával
 linktitle: Adatcímke
 type: docs
 url: /hu/cpp/chart-data-label/
 keywords:
 - diagram
 - adatcímke
-- adat pontosság
+- adatprecizió
 - százalék
 - címke távolság
-- címke hely
+- címke helye
 - PowerPoint
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint prezentációkban az Aspose.Slides for C++ használatával, hogy vonzóbb diák legyenek."
+description: "Tanulja meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint előadásokhoz az Aspose.Slides for C++ használatával, hogy élvezetesebb diák jöjjenek létre."
 ---
 ## **Bevezetés**
 
-Az adatcímkék a diagramon a diagram adat sorozatairól vagy egyes adatpontokról nyújtanak részleteket. Segítséget nyújtanak az olvasóknak az adat sorozatok gyors azonosításához, és megkönnyítik a diagramok megértését.
+Az adatcímkék egy diagramon részleteket mutatnak a diagram adat sorozatairól vagy az egyes adatpontokról. Segítik az olvasókat, hogy gyorsan azonosítsák az adat sorozatokat, és így a diagramok könnyebben érthetőek.
 
-## **Az adatpontok pontosságának beállítása a diagram adatcímkéiben**
+## **Adatprecizió beállítása a diagram adatcímkéiben**
 
-Ez a C++ kód bemutatja, hogyan lehet beállítani az adatpontok pontosságát egy diagram adatcímkéjében:
+Ez a C++ kód bemutatja, hogyan állítható be az adatprecizió egy diagram adatcímkéjében:
 
 ```c++
 	// A dokumentumok könyvtárának elérési útja
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
+	// Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Lekéri az első diát
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Alapértelmezett adatokkal hozzáad egy diagramot
+	// Diagramot ad hozzá alapértelmezett adatokkal
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Beállítja a sorozat száformátumát
+	// Beállítja a sorozat számformátumát
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// A prezentáció fájlt leírja a lemezre
+	// Mentés a bemutató fájlt a lemezre
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 
-## **Százalékok megjelenítése címkékként**
-Aspose.Slides for C++ lehetővé teszi százalékcímkék beállítását a megjelenített diagramokon. Ez a C++ kód bemutatja a működést:
+## **Százalékok megjelenítése címkeként**
+
+Az Aspose.Slides for C++ lehetővé teszi százalékcímkék beállítását a megjelenített diagramokon. Ez a C++ kód mutatja be a műveletet:
 
 ```c++
 	// A dokumentumok könyvtárának elérési útja
@@ -95,15 +96,19 @@ Aspose.Slides for C++ lehetővé teszi százalékcímkék beállítását a megj
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+
 		}
+
 	}
 
-	// Mentésre kerül a diagramot tartalmazó prezentáció
+	// Mentés a diagramot tartalmazó prezentáció
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **A százalékjel beállítása diagram adatcímkékkel**
-Ez a C++ kód megmutatja, hogyan állítható be a százalékjel egy diagram adatcímkére:
+
+## **Százalékjel beállítása diagram adatcímkékkel**
+
+Ez a C++ kód megmutatja, hogyan állítható be a százalékjel egy diagram adatcímkéjére:
 
 ```c++
 	// A dokumentumok könyvtárának elérési útja.
@@ -118,7 +123,7 @@ Ez a C++ kód megmutatja, hogyan állítható be a százalékjel egy diagram ada
 	// Létrehozza a PercentsStackedColumn diagramot egy dián
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// A NumberFormatLinkedToSource beállítása false értékre
+	// Beállítja a NumberFormatLinkedToSource értékét hamisra
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
@@ -126,31 +131,31 @@ Ez a C++ kód megmutatja, hogyan állítható be a százalékjel egy diagram ada
 	// Beállítja a diagram adatlap indexét
 	int defaultWorksheetIndex = 0;
 
-	// Lekéri a diagram adatlapot
+	// Lekéri a diagram adatlapját
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Törli az alapértelmezett generált sorozatot 
+	// Törli az alapértelmezetten generált sorozatot 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
-	// Új sorozatot ad hozzá
+	// Új sorozat hozzáadása
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
 
-	// Az első diagram sorozatot veszi
+	// Az első diagram sorozat kivétele
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// Kitölti a sorozat adataival
+	// Feltölti a sorozat adataival
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// Beállítja a sorozat kitöltő színét
+	// Beállítja a sorozat kitöltőszínét
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
-	// Beállítja a LabelFormat tulajdonságait
+	// Beállítja a LabelFormat tulajdonságokat
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
@@ -159,19 +164,19 @@ Ez a C++ kód megmutatja, hogyan állítható be a százalékjel egy diagram ada
 	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// A második diagram sorozatot veszi
+	// A második diagram sorozat kivétele
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// Kitölti a sorozat adataival
+	// Feltölti a sorozat adataival
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// Beállítja a sorozat kitöltő színét
+	// Beállítja a sorozat kitöltőszínét
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
-	// Beállítja a LabelFormat tulajdonságait
+	// Beállítja a LabelFormat tulajdonságokat
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
@@ -180,13 +185,14 @@ Ez a C++ kód megmutatja, hogyan állítható be a százalékjel egy diagram ada
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// A prezentáció fájlt leírja a lemezre
+	// A prezentáció fájlt lemezre írja
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
 ## **Címke távolságának beállítása a tengelytől**
-Ez a C++ kód bemutatja, hogyan állítható be a címke távolsága egy kategória tengelytől, ha olyan diagramról van szó, amely a tengelyek alapján van ábrázolva:
+
+Ez a C++ kód bemutatja, hogyan állítható be a címke távolsága a kategória tengelytől, amikor a diagram tengelyek alapján van ábrázolva:
 
 ```c++
 	// A dokumentumok könyvtárának elérési útja
@@ -198,7 +204,7 @@ Ez a C++ kód bemutatja, hogyan állítható be a címke távolsága egy kategó
 	// Lekéri egy dia referenciáját
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Létrehoz egy diagramot a dián
+	// Létrehozza a diagramot a dián
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
@@ -208,13 +214,15 @@ Ez a C++ kód bemutatja, hogyan állítható be a címke távolsága egy kategó
 	// Beállítja a címke távolságát egy tengelytől
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// A prezentáció fájlt leírja a lemezre
+	// A prezentáció fájlt lemezre írja
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Címke helyének módosítása**
+## **Címke helyének beállítása**
 
-Amikor olyan diagramot hozunk létre, amely nem támaszkodik semmilyen tengelyre, például kördiagramra, a diagram adatcímkéi túl közel kerülhetnek a szélhez. Ilyen esetben módosítani kell a címke helyét, hogy a vezető vonalak jól láthatók legyenek. Ez a C++ kód megmutatja, hogyan állítható be a címke helye egy kördiagramon:
+Ha olyan diagramot hoz létre, amely nem támaszkodik semmilyen tengelyre, például kördiagram, a diagram adatcímkéi túl közel kerülhetnek a széléhez. Ilyenkor a adatcímke helyét kell módosítani, hogy a vezető vonalak jól láthatóak legyenek.
+
+Ez a C++ kód megmutatja, hogyan állítható be a címke helye egy kördiagramon:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -237,14 +245,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **GYIK**
 
-**Hogyan lehet megakadályozni az adatcímkék átfedését zsúfolt diagramokon?**
+**Hogyan előzhetem meg az adatcímkék átfedését zsúfolt diagramokon?**
 
-Kombinálja az automatikus címkeelhelyezést, a vezető vonalakat és a csökkentett betűméretet; szükség esetén rejtsen el néhány mezőt (például a kategóriát), vagy csak a szélső/kulcsfontosságú pontokhoz jelenítsen meg címkéket.
+Használjon automatikus címkeelhelyezést, vezető vonalakat és csökkentett betűméretet; szükség esetén rejtsen el bizonyos mezőket (például a kategóriát), vagy csak a szélső/kulcsfontosságú pontokhoz jelenítse meg a címkéket.
 
-**Hogyan lehet letiltani a címkéket csak a nulla, negatív vagy üres értékeknél?**
+**Hogyan tilthatom le a címkéket csak a nulla, negatív vagy üres értékekhez?**
 
-Szűrje a adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést a 0, a negatív vagy a hiányzó értékek esetén egy meghatározott szabály alapján.
+Szűrje le az adatpontokat a címkék engedélyezése előtt, és a meghatározott szabály szerint tiltsa le a megjelenítést a 0, a negatív vagy a hiányzó értékek esetén.
 
-**Hogyan biztosítható a konzisztens címkestílus PDF/képek exportálásakor?**
+**Hogyan biztosíthatom a címkestílus egységességét PDF/képek exportálásakor?**
 
-Explicit módon állítsa be a betűtípusokat (család, méret), és ellenőrizze, hogy a betűtípus elérhető legyen a renderelő oldalon, hogy elkerülje a visszaesést.
+Állítsa be kifeexplicit a betűtípusokat (család, méret), és ellenőrizze, hogy a betűtípus elérhető legyen a renderelő oldalon, hogy elkerülje a helyettesítő betűtípus használatát.

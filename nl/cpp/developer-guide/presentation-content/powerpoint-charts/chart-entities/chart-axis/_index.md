@@ -1,6 +1,6 @@
 ---
-title: "Grafiekassen aanpassen in presentaties met С++"
-linktitle: "Grafiekas"
+title: Grafiekassen aanpassen in presentaties met C++
+linktitle: Grafiekas
 type: docs
 url: /nl/cpp/chart-axis/
 keywords:
@@ -14,34 +14,33 @@ keywords:
 - maximale waarde
 - minimale waarde
 - aslijn
-- datumnotatie
+- datumformaat
 - as titel
 - aspositie
 - PowerPoint
 - presentatie
-- С++
+- C++
 - Aspose.Slides
-description: "Ontdek hoe u Aspose.Slides voor С++ kunt gebruiken om grafiekassen aan te passen in PowerPoint‑presentaties voor rapporten en visualisaties."
+description: "Ontdek hoe u Aspose.Slides voor C++ kunt gebruiken om grafiekassen in PowerPoint‑presentaties aan te passen voor rapporten en visualisaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u de assen van een diagram in Aspose.Slides kunt aanpassen. Het laat zien hoe u de werkelijke aswaarden kunt ophalen, gegevens tussen assen kunt verwisselen, de verticale of horizontale as voor lijndiagrammen kunt verbergen, het type categoriasse kunt wijzigen, het datumformaat voor categoriasse‑waarden kunt instellen, een as‑titel kunt roteren, de aspositie kunt instellen en een eenheidsetiket op de waardenas kunt weergeven.
+Dit artikel legt uit hoe je grafiekassen kunt aanpassen in Aspose.Slides. Het laat zien hoe je de werkelijke aswaarden kunt ophalen, gegevens tussen assen kunt verwisselen, de verticale of horizontale as voor lijndiagrammen kunt verbergen, het type categorie‑as kunt wijzigen, het datumformaat voor categorie‑aswaarden kunt instellen, een as‑titel kunt roteren, de aspositie kunt instellen en een eenheidsetiket op de waardenas kunt weergeven.
 
-## **Haal de maximale waarden op de verticale as**
-
-Aspose.Slides voor C++ stelt u in staat om de minimum- en maximumwaarden op een verticale as te verkrijgen. Doorloop de volgende stappen:
+## **De maximale waarden op de verticale as ophalen**
+Aspose.Slides for C++ maakt het mogelijk om de minimale en maximale waarden op een verticale as te verkrijgen. Ga deze stappen door:
 
 1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse.
-2. Open de eerste dia.
-3. Voeg een diagram toe met standaardgegevens.
-4. Haal de werkelijke maximumwaarde op de as op.
-5. Haal de werkelijke minimumwaarde op de as op.
-6. Haal de werkelijke hoofdeenheid van de as op.
-7. Haal de werkelijke subeenheid van de as op.
-8. Haal de werkelijke schaal van de hoofdeenheid van de as op.
-9. Haal de werkelijke schaal van de subeenheid van de as op.
+1. Open de eerste dia.
+1. Voeg een grafiek toe met standaardgegevens.
+1. Haal de werkelijke maximale waarde op de as op.
+1. Haal de werkelijke minimale waarde op de as op.
+1. Haal de werkelijke hoofd‑eenheid van de as op.
+1. Haal de werkelijke onderliggende eenheid van de as op.
+1. Haal de werkelijke schaal van de hoofd‑eenheid van de as op.
+1. Haal de werkelijke schaal van de onderliggende eenheid van de as op.
 
-Deze voorbeeldcode—een implementatie van de bovenstaande stappen—laat zien hoe u de benodigde waarden in C++ kunt verkrijgen:
+Deze voorbeeldcode—een implementatie van de bovenstaande stappen—laat zien hoe je de vereiste waarden in C++ kunt ophalen:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -62,13 +61,12 @@ pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Gegevens tussen assen verwisselen**
+Aspose.Slides maakt het mogelijk om snel de gegevens tussen assen te verwisselen—de gegevens op de verticale as (y‑as) worden naar de horizontale as (x‑as) verplaatst en omgekeerd.
 
-Aspose.Slides stelt u in staat om snel de gegevens tussen assen te verwisselen—de gegevens die op de verticale as (y-as) staan, worden verplaatst naar de horizontale as (x-as) en omgekeerd.
-
-Deze C++-code laat zien hoe u de gegevensverwisseling tussen assen op een diagram kunt uitvoeren:
+Deze C++‑code laat zien hoe je de gegevensverwisseling tussen assen op een grafiek kunt uitvoeren:
 
 ``` cpp
-// Maakt lege presentatie
+// Maakt een lege presentatie
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
@@ -76,13 +74,13 @@ auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f
 // Wisselt rijen en kolommen
 chart->get_ChartData()->SwitchRowColumn();
 
-// Slaat presentatie op
+// Slaat de presentatie op
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Verticale as uitschakelen voor lijndiagrammen**
+## **De verticale as uitschakelen voor lijndiagrammen**
 
-Deze C++-code laat zien hoe u de verticale as voor een lijndiagram kunt verbergen:
+Deze C++‑code laat zien hoe je de verticale as voor een lijndiagram kunt verbergen:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -93,9 +91,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Horizontale as uitschakelen voor lijndiagrammen**
+## **De horizontale as uitschakelen voor lijndiagrammen**
 
-Deze code laat zien hoe u de horizontale as voor een lijndiagram kunt verbergen:
+Deze code laat zien hoe je de horizontale as voor een lijndiagram kunt verbergen:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -106,9 +104,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Een categoriasse wijzigen**
+## **Een categorie‑as wijzigen**
 
-Met de **set_CategoryAxisType()**‑methode kunt u uw gewenste categoriasstype (**date** of **text**) opgeven. Deze C++‑code toont de bewerking: 
+Met de methode **set_CategoryAxisType()** kun je het gewenste type categorie‑as opgeven (**date** of **text**). Deze C++‑code demonstreert de bewerking:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -123,9 +121,8 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Datumformaat instellen voor categoriasse‑waarden**
-
-Aspose.Slides voor C++ stelt u in staat om het datumformaat voor een categoriasse‑waarde in te stellen. De bewerking wordt gedemonstreerd in deze C++‑code:
+## **Het datumformaat instellen voor categorie‑aswaarden**
+Aspose.Slides for C++ maakt het mogelijk om het datumformaat voor een categorie‑aswaarde in te stellen. De bewerking wordt gedemonstreerd in deze C++‑code:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -158,9 +155,8 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Draaihoek instellen voor een as‑titel**
-
-Aspose.Slides voor C++ stelt u in staat om de draaihoek voor een diagramas‑titel in te stellen. Deze C++‑code demonstreert de bewerking:
+## **De rotatiehoek voor een as‑titel instellen**
+Aspose.Slides for C++ maakt het mogelijk om de rotatiehoek voor een grafiekas‑titel in te stellen. Deze C++‑code demonstreert de bewerking:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -173,9 +169,8 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Aspositie instellen op een categoriasse of waardenas**
-
-Aspose.Slides voor C++ stelt u in staat om de aspositie in een categoriasse of waardenas in te stellen. Deze C++‑code laat zien hoe u de taak kunt uitvoeren:
+## **De aspositie instellen op een categorie‑ of waardenas**
+Aspose.Slides for C++ maakt het mogelijk om de positie‑as in te stellen op een categorie‑ of waardenas. Deze C++‑code laat zien hoe je de taak kunt uitvoeren:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -186,9 +181,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Eenheidsetiket weergeven op een diagram‑waardenas inschakelen**
-
-Aspose.Slides voor C++ stelt u in staat om een diagram zo te configureren dat er een eenheidsetiket op de waardenas wordt weergegeven. Deze C++‑code demonstreert de bewerking:
+## **De weergave van een eenheidsetiket op een waardenas van een grafiek inschakelen**
+Aspose.Slides for C++ maakt het mogelijk om een grafiek zo te configureren dat er een eenheidsetiket op de waardenas wordt getoond. Deze C++‑code demonstreert de bewerking:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -201,10 +195,10 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Hoe stel ik de waarde in waarop de ene as de andere kruist (as‑kruising)?**
+**Hoe stel ik de waarde in waarop één as de andere (as‑kruising) kruist?**
 
-Assen bieden een [crossing setting](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/axis/set_crosstype/): u kunt kiezen om te kruisen op nul, op de maximale categorie/waarde, of op een specifieke numerieke waarde. Dit is handig om de X-as omhoog of omlaag te verplaatsen of om een basislijn te accentueren.
+Assen bieden een [crossing setting](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/axis/set_crosstype/): je kunt kiezen om te kruisen bij nul, bij de maximale categorie/waarde, of bij een specifieke numerieke waarde. Dit is handig om de X‑as omhoog of omlaag te verschuiven of om een referentielijn te benadrukken.
 
-**Hoe kan ik tick‑labels ten opzichte van de as positioneren (naast, buiten, binnen)?**
+**Hoe kan ik de markeringlabels ten opzichte van de as positioneren (langs, buiten, binnen)?**
 
-Stel de [label position](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/axis/set_majortickmark/) in op "cross", "outside" of "inside". Dit beïnvloedt de leesbaarheid en helpt ruimte te besparen, vooral bij kleine diagrammen.
+Stel de [label position](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/axis/set_majortickmark/) in op "cross", "outside" of "inside". Dit beïnvloedt de leesbaarheid en helpt ruimte te besparen, vooral bij kleine grafieken.

@@ -1,36 +1,43 @@
 ---
-title: Общие исключения и ошибки, связанные со шрифтами в Linux
+title: "Общие исключения и ошибки, связанные со шрифтами в Linux"
 type: docs
 weight: 200
-url: /ru/java/technical-articles/common-errors-involving-fonts
-keywords: "исключение шрифта, ошибка шрифта, Linux, Java, Aspose.Slides for Java"
+url: /ru/java/common-errors-involving-fonts/
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
+keywords: "Исключение шрифта, Ошибка шрифта, Linux, Java, Aspose.Slides для Java"
 description: "Исключения и ошибки шрифтов в Linux"
 ---
+## **Обзор**
 
-## **Отсутствие текста или изображений (EMF или WMF) при выполнении кода в Linux**
+При использовании Aspose.Slides на Linux могут возникать проблемы, связанные со шрифтами, если процесс Java не может получить доступ к необходимым папкам со шрифтами или временному каталогу, если на системе не установлено ни одного шрифта, либо если отсутствуют необходимые системные библиотеки, такие как fontconfig или libfreetype.
+
+В этой статье описываются распространённые ошибки и исключения, связанные со шрифтами в Linux, а также предлагаются решения их устранения. Она объясняет, как проверить доступ к каталогам с шрифтами и TEMP, установить необходимые шрифты и библиотеки, и использовать `FontsLoader` для загрузки шрифтов без их установки в системе.
+
+## **Отсутствие текста или изображений (EMF или WMF) при выполнении кода на Linux**
 
 Эта проблема возникает в системах с ограничениями в следующих случаях:
 
-1. Когда не установлены шрифты или папка шрифтов для процесса Java недоступна
-2. Когда директория TEMP недоступна.
+1. При отсутствии установленных шрифтов или недоступности папки со шрифтами для процесса Java  
+2. При недоступности каталога TEMP.
 
 ### **Решение**
 
-Проверьте и убедитесь, что доступ к директории TEMP и папке шрифтов предоставлен. 
+Проверьте и подтвердите, что доступ к каталогу TEMP и папке со шрифтами предоставлен.  
 
 {{% alert color="warning" %}}
-В некоторых случаях вы можете не иметь возможности предоставить доступ к папкам из‑за ограничений, наложенных средой или политикой безопасности. Попробуйте следующие обходные пути: 
+В некоторых случаях вы не сможете предоставить доступ к папкам из‑за ограничений среды или политики безопасности. Попробуйте следующие обходные пути:
 {{% /alert %}}
 
 **Обходной путь**
 
-Используйте [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) для загрузки необходимых шрифтов без их установки:
+Используйте [FontsLoader](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FontsLoader) для загрузки необходимых шрифтов без их установки:
+
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-
-Если директория TEMP недоступна, используйте этот код, чтобы указать другую директорию в качестве TEMP для Java:
+Если каталог TEMP недоступен, используйте следующий код, чтобы указать другой каталог как TEMP для Java:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -50,104 +57,105 @@ try {
 }
 ```
 
-
-## **Исключение: InvalidOperationException: Не удалось найти установленные шрифты в системе**
+## **Исключение: InvalidOperationException: Не удалось найти установленные в системе шрифты**
 
 Это исключение возникает, когда
 
-1) процесс Java не может получить доступ к папке шрифтов  
+1) процесс Java не может получить доступ к папке со шрифтами  
 2) шрифты не установлены.
 
 ### **Решение**
 
-1. Проверьте и убедитесь, что доступ к папке шрифтов для процесса Java предоставлен.  
-2. Установите некоторые шрифты или используйте [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader).  
+1. Проверьте и подтвердите, что доступ к папке со шрифтами для процесса Java предоставлен.  
+
+2. Установите несколько шрифтов или используйте [FontsLoader](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FontsLoader).  
+
 3. Установите шрифты.
 
-   * Ubuntu: 
+   * Ubuntu:  
+
      ```
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
      ```
 
+   * CentOS:  
 
-   * CentOS: 
      ```
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
      ```
 
+   * С помощью [FontsLoader](https://reference.aspose.com/slides/ru/java/com.aspose.slides/FontsLoader):  
 
-   * Using [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader): 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
-
 ## **Исключение: NoClassDefFoundError: Не удалось инициализировать класс com.aspose.slides.internal.ey.this**
 
-Это исключение возникает в Linux‑системе, где отсутствуют fontconfig и шрифты. 
+Это исключение возникает в системе Linux, где отсутствуют fontconfig и шрифты.
 
 ### **Решение**
 
 Установите fontconfig:
 
-* Ubuntu:
+* Ubuntu:  
+
   ```
   sudo apt-get update
   sudo apt-get -y install fontconfig
   ```
 
+* CentOS:  
 
-* CentOS:
   ```
   sudo yum makecache
   sudo yum -y install fontconfig
   ```
 
-
 Кроме того, некоторые версии open‑jdk (например, **alpine JDK**) также **требуют установленные шрифты**.
 
-* Ubuntu:
+* Ubuntu:  
+
   ```
   sudo apt-get install -y fonts-dejavu-core
   fc-cache -fv
   ```
 
+* CentOS:  
 
-* CentOS:
   ```
   sudo yum -y install dejavu-sans-fonts
   fc-cache -fv
   ```
 
+## **Исключение: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
 
-## **Исключение: UnsatisfiedLinkError: libfreetype.so.6: Не удалось открыть общий объектный файл: Файл или каталог не найден**
-
-Это исключение возникает в Linux‑системе, где отсутствует библиотека libfreetype. 
+Это исключение возникает в системе Linux, где отсутствует библиотека libfreetype.
 
 ### **Решение**
 
 Установите libfreetype и fontconfig:
 
-* Ubuntu: 
+* Ubuntu:  
+
   ```
   sudo apt-get update
   sudo apt-get install libfreetype6
   sudo apt-get -y install fontconfig
   ```
 
+* CentOS:  
 
-* CentOS: 
   ```
   sudo yum makecache
   sudo yum install libfreetype6
   sudo yum -y install fontconfig
   ```
 
-
 {{% alert title="TIP" color="primary" %}} 
-Не забудьте установить шрифты или использовать FontsLoader.
-{{% /alert %}}  
+Не забывайте устанавливать шрифты или использовать FontsLoader. 
+{{% /alert %}}

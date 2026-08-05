@@ -1,47 +1,47 @@
 ---
-title: Spravovat náhradní písma pro prezentace v C++
-linktitle: Náhradní písmo
+title: Spravovat záložní fonty pro prezentace v C++
+linktitle: Záložní font
 type: docs
 weight: 50
 url: /cs/cpp/fallback-font/
 keywords:
-- náhradní písmo
-- dostupné písmo
-- nahrazení glifu
-- určit písmo
+- záložní font
+- dostupný font
+- nahrazení znaků
+- určit font
 - určit pravidlo
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Podívejte se, jak Aspose.Slides pro C++ používá náhradní písma k zachování čitelnosti textu v prezentacích PowerPoint a OpenDocument, když nejsou k dispozici původní písma."
+description: "Podívejte se, jak Aspose.Slides pro C++ používá záložní fonty k zachování čitelnosti textu v prezentacích PowerPoint a OpenDocument, když nejsou k dispozici originální fonty."
 ---
 ## **Úvod**
 
-Náhradní písma se používají, když je písmo určené pro text v systému dostupné, ale neobsahuje požadovaný znak. V takovém případě může Aspose.Slides použít jedno z určených náhradních písem k nahrazení chybějícího znaku.
+Záložní fonty se používají, když je pro text určený font v systému dostupný, ale neobsahuje požadovaný znak. V takovém případě může Aspose.Slides použít jeden ze zadaných záložních fontů k nahrazení chybějícího znaku.
 
-## **Náhradní písmo**
-Náhradní písmo se používá, když je písmo určené pro text v systému dostupné, ale neobsahuje potřebný znak. V takovém případě je možné použít jedno z určených náhradních písem k nahrazení znaku.
+## **Záložní font**
+Záložní font se používá, když je pro text určený font v systému dostupný, ale tento font neobsahuje potřebný znak. V takovém případě je možné použít jeden ze zadaných záložních fontů pro nahrazení znaku.
 
-Aspose.Slides umožňuje vytvářet náhradní písma, přidávat je do kolekce náhradních písem, nastavit kolekci náhradních písem pro konkrétní prezentaci, odstraňovat náhradní písma z prezentace, definovat pravidla pro použití náhradních písem a další.
+Aspose.Slides umožňuje vytvářet záložní fonty, přidávat je do kolekce záložních fontů, nastavit kolekci záložních fontů pro konkrétní prezentaci, odebrat záložní fonty z prezentace, definovat pravidla pro použití záložních fontů a další.
 
-Seznámení s těmito funkcemi získáte pomocí následujících odkazů:
+Abyste se seznámili s těmito funkcemi, použijte následující odkazy:
 
-- [Vytvořit náhradní písmo](/slides/cs/cpp/create-fallback-font)
-- [Vytvořit kolekci náhradních písem](/slides/cs/cpp/create-fallback-fonts-collection)
-- [Vykreslit prezentaci s náhradním písmem](/slides/cs/cpp/render-presentation-with-fallback-font)
+- [Vytvořit záložní font](/slides/cs/cpp/create-fallback-font)
+- [Vytvořit kolekci záložních fontů](/slides/cs/cpp/create-fallback-fonts-collection)
+- [Renderovat prezentaci se záložním fontem](/slides/cs/cpp/render-presentation-with-fallback-font)
 
 ## **Často kladené otázky**
 
-**Jak se náhradní písma liší od substituce písma?**
+**Jak se záložní fonty liší od nahrazení fontu?**
 
-Náhradní písmo se aplikuje na jednotlivý znak nebo na rozsah Unicode, když primární písmo postrádá konkrétní znaky; doplňuje jen chybějící znaky. [Substituce](/slides/cs/cpp/font-substitution/) nahrazuje chybějící nebo nedostupné písmo pro celý úsek nebo část textu jiným písmem. Mohou být kombinovány, ale jejich rozsah a logika výběru jsou odlišné.
+Záložní font se aplikuje na jednotlivé znaky nebo na rozsah Unicode, když primární font postrádá konkrétní znaky; vyplní pouze chybějící znaky. [Substitution](/slides/cs/cpp/font-substitution/) nahradí chybějící nebo nedostupný font pro celý úsek nebo část textu jiným fontem. Lze je kombinovat, ale jejich rozsah a logika výběru jsou odlišné.
 
-**Ukládají se nastavení náhradního písma do souboru prezentace?**
+**Ukládají se nastavení záložních fontů do souboru prezentace?**
 
-Ne. Konfigurace náhradního písma existuje pouze během zpracování/vykreslování v knihovně a není serializována do souboru PPTX. Prezentace neukládá vaše pravidla náhradního písma.
+Ne. Konfigurace záložního fontu existuje pouze během zpracování/vykreslování v knihovně a není serializována do souboru PPTX. Prezentace neukládá vaše pravidla záložního fontu.
 
-**Ovlivňuje náhradní písmo prvky vytvořené objekty PowerPointu (SmartArt, grafy, WordArt)?**
+**Ovlivňuje záložní fonty prvky vytvořené objekty PowerPoint (SmartArt, grafy, WordArt)?**
 
-Ano. Text v těchto objektech prochází stejným vykreslovacím kanálem, takže se na něj vztahují stejné pravidla náhradního písma jako na běžný text.
+Ano. Text v těchto objektech prochází stejným vykreslovacím řetězcem, takže se na něj vztahují stejná pravidla záložního fontu jako na běžný text.

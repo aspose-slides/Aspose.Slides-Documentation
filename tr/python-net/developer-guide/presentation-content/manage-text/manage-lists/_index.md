@@ -1,9 +1,11 @@
 ---
-title: Python ile Sunumlarda Madde İşaretli ve Numaralı Listeleri Yönetme
+title: Python'da Sunumlarda Madde İşaretli ve Numaralı Listeleri Yönetme
 linktitle: Listeleri Yönet
 type: docs
 weight: 70
 url: /tr/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - madde işareti
 - madde işaretli liste
@@ -20,27 +22,27 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeleri oluşturmayı ve biçimlendirmeyi öğrenin."
+description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeleri nasıl oluşturup biçimlendireceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python via .NET, PowerPoint ve OpenDocument sunumlarında madde işaretli ve numaralı listeler oluşturmanızı ve biçimlendirmenizi sağlar. Bir liste öğesi, madde işareti ayarları paragraf formatı aracılığıyla kontrol edilen bir paragraftır.
+Aspose.Slides for Python via .NET, PowerPoint ve OpenDocument sunumlarında madde işaretli ve numaralı listeler oluşturmanıza ve biçimlendirmenize olanak tanır. Bir liste öğesi, madde işareti ayarları paragraf biçimi aracılığıyla kontrol edilen bir paragraftır.
 
-Paragraf düzeyinde liste ayarlarına erişmek için [Paragraph.paragraph_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/paragraph_format/) özelliğini kullanın. Ana giriş noktası, bir [BulletFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/) nesnesi döndüren [ParagraphFormat.bullet](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/bullet/) özelliğidir. Bu nesne ile madde işareti tipi, sembol, resim, renk, boyut, numaralandırma stili ve başlangıç numarasını ayarlayabilirsiniz.
+Paragraf düzeyindeki liste ayarlarına erişmek için [Paragraph.paragraph_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/paragraph_format/) özelliğini kullanın. Ana giriş noktası [ParagraphFormat.bullet](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/bullet/), bu da bir [BulletFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/) nesnesi döndürür. Bu nesne ile madde işareti türünü, sembolü, resmi, rengi, boyutu, numaralandırma stilini ve başlangıç numarasını ayarlayabilirsiniz.
 
 Bu makale aşağıdakileri gösterir:
 
-- özel bir sembolle madde işaretli liste oluşturma
-- resimli madde işareti oluşturma
-- paragraf derinliğini ayarlayarak çok seviyeli liste oluşturma
-- numaralı liste oluşturma
-- mevcut bir sunumda liste biçimlendirmesini inceleme ve değiştirme
+- özel bir sembolle madde işaretli bir liste oluşturma
+- resimli bir madde işareti oluşturma
+- paragraf derinliğini ayarlayarak çok seviyeli bir liste oluşturma
+- numaralı bir liste oluşturma
+- varolan bir sunumdaki liste biçimlendirmesini inceleme ve değiştirme
 
 ## **Madde İşaretli Liste Oluşturma**
 
-Madde işaretli bir liste oluşturmak için bir [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içine [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesneleri ekleyin ve [BulletFormat.type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/type/) özelliğini [BulletType.SYMBOL](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bullettype/) olarak ayarlayın. Ardından [BulletFormat.char](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/color/) ve [BulletFormat.height](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/height/) özelliklerini ayarlayarak madde işareti görünümünü kontrol edebilirsiniz.
+Madde işaretli bir liste oluşturmak için, bir [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içine [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraph/) nesneleri ekleyin ve [BulletFormat.type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/type/) özelliğini [BulletType.SYMBOL](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bullettype/) olarak ayarlayın. Ardından madde işaretinin görünümünü kontrol etmek için [BulletFormat.char](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/color/) ve [BulletFormat.height](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/height/) ayarlayabilirsiniz.
 
-Aşağıdaki Python kodu bir slaytta madde işaretli liste oluşturmayı gösterir:
+Aşağıdaki Python kodu, bir slaytta madde işaretli bir liste nasıl oluşturulacağını gösterir:
 
 ```py
 import aspose.slides as slides
@@ -80,9 +82,9 @@ Sonuç:
 
 ## **Numaralı Liste Oluşturma**
 
-Öğelerin sırası önemli olduğunda numaralı listeler kullanın. [BulletFormat.type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/type/) özelliğini [BulletType.NUMBERED](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bullettype/) olarak ayarlayın. Ayrıca [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/numbered_bullet_style/) ile bir numaralandırma biçimi seçebilir veya listenin 1 dışındaki bir değerden başlamasını istiyorsanız [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) özelliğini ayarlayabilirsiniz.
+Öğe sırası önemli olduğunda numaralı listeler kullanın. [BulletFormat.type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/type/) özelliğini [BulletType.NUMBERED](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bullettype/) olarak ayarlayın. Ayrıca bir numaralandırma biçimi seçmek için [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/numbered_bullet_style/) kullanabilir veya listenin 1 yerine farklı bir değerden başlamasını istediğinizde [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) özelliğini ayarlayabilirsiniz.
 
-Aşağıdaki Python kodu bir slaytta numaralı liste oluşturmayı gösterir:
+Aşağıdaki Python kodu, bir slaytta numaralı bir liste nasıl oluşturulacağını gösterir:
 
 ```py
 import aspose.slides as slides
@@ -118,21 +120,21 @@ Sonuç:
 
 ## **Resimli Madde İşareti Oluşturma**
 
-Aspose.Slides, normal bir madde işareti sembolünü bir resimle değiştirmenize olanak tanır. Resimli madde işaretleri, küçük bir boyutta okunabilirliği koruyan basit görüntüler, örneğin simgeler veya küçük şeffaf PNG dosyaları ile en iyi şekilde çalışır.
+Aspose.Slides, normal bir madde işareti sembolünü bir görüntüyle değiştirmenize olanak tanır. Resimli madde işaretleri, küçük boyutta bile okunabilirliği koruyan basit görüntülerle, örneğin simgeler veya küçük şeffaf PNG dosyalarıyla en iyi şekilde çalışır.
 
 {{% alert color="primary" %}}
-İdeal olarak, normal madde işareti sembolünü bir görüntü ile değiştirmeyi planlıyorsanız, şeffaf arka planlı basit bir grafik seçmek en iyisidir. Bu tür görüntüler, özel madde işareti sembolleri olarak iyi çalışır.
+İdeal olarak, normal madde işareti sembolünü bir görüntüyle değiştirmeyi planlıyorsanız, şeffaf arka plana sahip basit bir grafik seçmek en iyisidir. Bu tür görüntüler, özel madde işareti sembolleri olarak iyi çalışır.
 
-Unutmayın ki görüntü çok küçük bir boyuta ölçeklendirilecektir. Bu nedenle, bir listede madde işareti olarak kullanıldığında net ve görsel olarak etkili kalan bir görüntü seçmenizi şiddetle tavsiye ederiz.
+Görselin çok küçük bir boyuta ölçeklendirileceğini unutmayın. Bu nedenle, listede madde işareti olarak kullanıldığında net ve görsel açıdan etkili kalan bir görüntü seçmenizi şiddetle tavsiye ederiz.
 {{% /alert %}}
 
-Resimli bir madde işareti oluşturmak için bir resmi [Presentation.images](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/images/) koleksiyonuna ekleyin ve döndürülen resim nesnesini [BulletFormat.picture](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/picture/) özelliğine atayın. Görüntüyü atamadan önce [BulletFormat.type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/type/) özelliğini [BulletType.PICTURE](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bullettype/) olarak ayarlayın.
+Resimli bir madde işareti oluşturmak için, bir görüntüyü [Presentation.images](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/images/) ekleyin ve döndürülen görüntü nesnesini [BulletFormat.picture](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/picture/) özelliğine atayın. Görüntüyü atamadan önce [BulletFormat.type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bulletformat/type/) özelliğini [BulletType.PICTURE](https://reference.aspose.com/slides/tr/python-net/aspose.slides/bullettype/) olarak ayarlayın.
 
 Diyelim ki elimizde bir "image.png" var:
 
 ![Madde işaretleri için bir resim](picture_for_bullets.png)
 
-Aşağıdaki Python kodu bir slaytta resimli madde işaretleri oluşturmayı gösterir:
+Aşağıdaki Python kodu, bir slaytta resimli madde işaretlerinin nasıl oluşturulacağını gösterir:
 
 ```py
 import aspose.slides as slides
@@ -172,9 +174,9 @@ Sonuç:
 
 ## **Çok Seviyeli Liste Oluşturma**
 
-Liste öğelerini farklı seviyelerde konumlandırmak için [ParagraphFormat.depth](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/depth/) özelliğini kullanın. Seviye 0 en üst seviyedir, seviye 1 onun altında iç içe bulunur ve bu şekilde devam eder.
+[ParagraphFormat.depth](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/depth/) özelliğini kullanarak liste öğelerini farklı seviyelerde konumlandırın. Seviye 0 en üst seviyedir, seviye 1 onun altında bir alt seviyedir ve bu şekilde devam eder.
 
-Aşağıdaki Python kodu çok seviyeli bir madde işaretli liste oluşturmayı gösterir:
+Aşağıdaki Python kodu, çok seviyeli bir madde işaretli liste nasıl oluşturulacağını gösterir:
 
 ```py
 import aspose.slides as slides
@@ -215,9 +217,9 @@ Sonuç:
 
 ## **Mevcut Bir Listeyi Değiştirme**
 
-Mevcut bir sunumda liste biçimlendirmesini değiştirmek için hedef paragrafı alın ve [ParagraphFormat.bullet](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/bullet/) ayarlarını güncelleyin. Listeleri oluşturmak için kullanılan aynı özellikler, PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için de kullanılabilir.
+Mevcut bir sunumda liste biçimlendirmesini değiştirmek için hedef paragrafı erişin ve onun [ParagraphFormat.bullet](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/bullet/) ayarlarını güncelleyin. Listeleri oluşturmak için kullanılan aynı özellikler, PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için de kullanılabilir.
 
-Aşağıdaki Python kodu bir metin çerçevesindeki ilk paragrafı numaralı bir liste stiline dönüştürür:
+Aşağıdaki Python kodu, bir metin çerçevesindeki ilk paragrafı numaralı liste stilini kullanacak şekilde değiştirir:
 
 ```py
 import aspose.slides as slides
@@ -238,14 +240,14 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **SSS**
 
-**Madde işaretli ve numaralı listeler PDF ya da görüntülere aktarılabilir mi?**
+**Madde işaretli ve numaralı listeler PDF veya görüntülere dışa aktarılabilir mi?**
 
-Evet. Aspose.Slides, hedef format ilgili metin düzeni ve madde işareti özelliklerini desteklediği sürece liste biçimlendirmesini korur.
+Evet. Aspose.Slides, hedef format ilgili metin düzeni ve madde işareti özelliklerini desteklediğinde liste biçimlendirmesini korur.
 
-**Mevcut sunumlardaki listeleri düzenleyebilir miyim?**
+**Mevcut sunumlarda listeleri düzenleyebilir miyim?**
 
-Evet. Sunumu yükleyin, hedef paragrafı alın, [ParagraphFormat.bullet](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/bullet/) ayarlarını inceleyin veya güncelleyin ve sunumu kaydedin.
+Evet. Sunumu yükleyin, hedef paragrafı erişin, onun [ParagraphFormat.bullet](https://reference.aspose.com/slides/tr/python-net/aspose.slides/paragraphformat/bullet/) ayarlarını inceleyin veya güncelleyin ve ardından sunumu kaydedin.
 
-**Listeler Latin dışı metin içerebilir mi?**
+**Listeler Latin olmayan metin içerebilir mi?**
 
-Evet. Liste öğesi metni Unicode karakterler içerebilir, bu sayede çok dilli sunumlarda listeler oluşturabilirsiniz. Sunumda kullanılan yazı tiplerinin ihtiyaç duyduğunuz karakterleri desteklediğinden emin olun.
+Evet. Liste öğesi metni Unicode karakterler içerebilir, böylece çok dilli sunumlarda listeler oluşturabilirsiniz. Sunumda kullanılan yazı tiplerinin ihtiyaç duyduğunuz karakterleri desteklediğinden emin olun.

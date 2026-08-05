@@ -1,5 +1,5 @@
 ---
-title: Anpassa diagramobjekt i C++
+title: Anpassa diagramobjekt i presentationer i C++
 linktitle: Diagramobjekt
 type: docs
 weight: 30
@@ -10,7 +10,7 @@ keywords:
 - datamärkning
 - datamarkör
 - datatabell
-- förklaring
+- legenda
 - ritområde
 - dataserie
 - felstaplar

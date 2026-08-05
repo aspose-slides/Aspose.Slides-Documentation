@@ -1,5 +1,5 @@
 ---
-title: Crea e personalizza i grafici PowerPoint in С++
+title: Crea e personalizza i grafici PowerPoint in C++
 linktitle: Grafici PowerPoint
 type: docs
 weight: 70
@@ -19,7 +19,7 @@ keywords:
 - esporta grafico
 - PowerPoint
 - presentazione
-- С++
+- C++
 - Aspose.Slides
-description: "Crea e personalizza i grafici PowerPoint in С++ con Aspose.Slides—lavora con dati, stili e tipi di grafico in PPT e PPTX usando chiari esempi di codice."
+description: "Crea e personalizza i grafici PowerPoint in C++ con Aspose.Slides—lavora con dati, stili e tipi di grafico in PPT e PPTX usando esempi di codice chiari."
 ---

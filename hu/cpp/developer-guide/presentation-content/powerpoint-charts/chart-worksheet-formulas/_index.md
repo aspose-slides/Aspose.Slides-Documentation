@@ -1,76 +1,64 @@
 ---
-title: Diagram munkalap képletek alkalmazása prezentációkban С++-val
-linktitle: Munkalap képletek
+title: "Diagrammunkalap képletek alkalmazása a bemutatókban C++-ban"
+linktitle: "Munkalap képletek"
 type: docs
 weight: 70
 url: /hu/cpp/chart-worksheet-formulas/
 keywords:
-- diagram táblázat
-- diagram munkalap
+- diagramtáblázat
+- diagrammunkalap
 - diagram képlet
 - munkalap képlet
 - táblázat képlet
 - adatforrás
 - logikai állandó
 - numerikus állandó
-- karakterlánc állandó
-- hiba állandó
+- szöveges állandó
+- hibaállandó
 - aritmetikai állandó
 - összehasonlító operátor
 - A1 stílus
 - R1C1 stílus
 - előre definiált függvény
 - PowerPoint
-- prezentáció
-- С++
+- bemutató
+- C++
 - Aspose.Slides
-description: "Excel-szerű képletek alkalmazása az Aspose.Slides C++ diagram munkalapokon, és jelentések automatizálása PPT és PPTX fájlok között."
+description: "Alkalmazzon Excel‑stílusú képleteket az Aspose.Slides for C++ diagrammunkalapokon, és automatizálja a jelentéseket PPT és PPTX fájlokban."
 ---
 ## **Áttekintés**
 
-A diagram munkalap a diagram mögötti adatforrás egy prezentációban. Tartalmazza a kategória‑ és sorozatneveket, valamint a diagramon megjelenített numerikus értékeket. Az Aspose.Slides‑ben ez a munkalap a diagram adatkönyvtárán keresztül érhető el, amely lehetővé teszi a diagram adatok programozott kezelését.
+A diagrammunkalap a diagram adatforrása a bemutatóban. Kategória- és sorozatneveket tárol a diagram által megjelenített numerikus értékekkel együtt. Az Aspose.Slides esetében ez a munkalap a diagramadat munkafüzeten keresztül érhető el, amely lehetővé teszi a diagramadatok programozott kezelését.
 
-Ez a cikk bemutatja, hogyan lehet munkalap‑képleteket használni a diagram adataiban, hogy a cellaértékek automatikusan kiszámításra és frissítésre kerüljenek a kézi beírás helyett. Megmutatja, hogyan kell képleteket hozzárendelni, A1‑ és R1C1‑stílusú hivatkozásokat használni, újraszámolni a munkafüzet képleteit, valamint a diagram munkalapokon támogatott állandók, operátorok, cellahivatkozások és beépített függvények használatát a prezentációkban.
+Ez a cikk bemutatja, hogyan használhatók munkalap‑képletek a diagramadatokban, hogy a cellaértékek automatikusan számításra és frissítésre kerüljenek a kézi beírás helyett. Megmutatja, hogyan kell képleteket hozzárendelni, A1‑ és R1C1‑stílusú hivatkozásokat használni, a munkafüzet képleteit újraszámolni, valamint a diagrammunkalapokban a bemutatókhoz elérhető támogatott állandók, operátorok, cellahivatkozások és előre definiált függvények kezelését.
 
-## **A diagram táblázatképletekről prezentációkban**
-**Diagram táblázat** (vagy diagram munkalap) egy prezentációban a diagram adatforrása. A diagram táblázat tartalmazza az adatokat, melyek a diagramon grafikus formában jelennek meg. Amikor diagramot hozunk létre a PowerPointban, a diagramhoz kapcsolódó munkalap is automatikusan létrejön. A diagram munkalap minden diagramtípushoz létre van hozva: vonaldiagram, oszlopdiagram, napfény diagram, kördiagram stb. A diagram táblázat megtekintéséhez PowerPointban egyszerűen kattintson duplán a diagramra:
+## **A diagram táblázat képleteiről a bemutatókban**
+**Diagramtáblázat** (vagy diagrammunkalap) a bemutatóban a diagram adatforrása. A diagramtáblázat adatokat tartalmaz, amelyek grafikus módon jelennek meg a diagramon. Amikor PowerPointban diagramot hoz létre, a diagramhoz társított munkalap automatikusan létrejön. Diagrammunkalap minden diagramtípushoz létrejön: vonaldiagram, oszlopdiagram, napfény diagram, kördiagram stb. A diagramtáblázat megtekintéséhez a PowerPointban dupla‑kattintson a diagramra:
 
 ![todo:image_alt_text](chart-worksheet-formulas_1.png)
 
-A diagram táblázat a diagramelemek neveit (Kategória neve: *Category1*, Sorozat neve) és egy táblázatot tartalmaz numerikus adatokkal, amelyek ezeknek a kategóriáknak és sorozatoknak megfelelőek. Alapértelmezés szerint új diagram létrehozásakor a diagram táblázat adatai alapértékekkel vannak feltöltve. Ezután a táblázat adatait manuálisan módosíthatja a munkalapon.
+A diagramtáblázat a diagram elemeinek neveit tartalmazza (Kategória neve: *Category1*, Sorozat neve) és egy táblázatot numerikus adatokkal, amelyek a kategóriákhoz és sorozatokhoz tartoznak. Alapértelmezés szerint új diagram létrehozásakor a diagramtáblázat adatai az alapértelmezett adatokkal vannak beállítva. Ezután a táblázat adatait kézzel módosíthatja a munkalapon.
 
-Általában a diagramok összetett adatokat ábrázolnak (például pénzügyi vagy tudományos elemzők), ahol a cellák más cellák értékeiből vagy dinamikus adatokból számítódnak. A cella értékének kézi kiszámítása és kódba írása megnehezíti a későbbi módosítást. Ha egy cella értékét megváltoztatja, az attól függő összes cellát szintén frissíteni kell. Továbbá a táblázat adatai más táblázatok adataitól is függhetnek, így egy komplex adatstruktúra jön létre, amelynek könnyen és rugalmasan kell frissíthetőnek lennie.
+Általában a diagram összetett adatokat ábrázol (pl. pénzügyi elemzők, tudományos elemzők), olyan cellákkal, amelyek más cellák értékeiből vagy más dinamikus adatokból számítódnak ki. A cella értékének kézi számítása és kemény kódolása megnehezíti a későbbi módosítást. Ha egy adott cella értékét megváltoztatja, az attól függő összes cellát szintén frissíteni kell. Továbbá a táblázat adatai más táblák adataira is támaszkodhatnak, ami egy összetett bemutatóadat‑sémát hoz létre, amely könnyű és rugalmas frissítést igényel.
 
-**Diagram táblázat képlet** egy kifejezés, amely automatikusan kiszámítja és frissíti a diagram táblázat adatait. A táblázatképlet meghatározza egy adott cella vagy cellacsoport adatkiszámítási logikáját. A táblázatképlet matematikai vagy logikai képlet, amely használ: cellahivatkozásokat, matematikai függvényeket, logikai operátorokat, aritmetikai operátorokat, konverziós függvényeket, karakterlánc‑állandókat stb. A képlet definíciója egy cellába kerül, és ez a cella nem egyszerű értéket tartalmaz. A táblázatképlet kiszámítja az értéket, visszaadja, majd az érték a cellához rendelve lesz. A diagram táblázat képletek a prezentációkban valójában ugyanazok, mint az Excel képletek, és ugyanazokat az alapértelmezett függvényeket, operátorokat és állandókat támogatják.
+**Diagramtáblázat képlet** a bemutatóban egy kifejezés, amely automatikusan kiszámítja és frissíti a diagramtáblázat adatait. A táblázatképlet meghatározza egy adott cella vagy cellacsoport adat‑számítási logikáját. A táblázatképlet egy matematikai vagy logikai képlet, amely a következőket használja: cellahivatkozások, matematika függvények, logikai operátorok, aritmetikai operátorok, konverziós függvények, karakterlánc állandók stb. A képlet definíciója egy cellába íródik, és ez a cella nem egyszerű értéket tartalmaz. A táblázatképlet kiszámítja az értéket és visszaadja, majd ez az érték hozzárendelődik a cellához. A diagramtáblázat képletek a bemutatókban valójában megegyeznek az Excel képletekkel, és ugyanazok a támogatott alapértelmezett függvények, operátorok és állandók állnak rendelkezésre a megvalósításukhoz.
 
-Az [**Aspose.Slides**](https://products.aspose.com/slides/hu/cpp/) esetében a diagram táblázat a  
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea)  
-metódusával érhető el a  
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_workbook)  
-típuson keresztül.  
-A táblázatképletet a  
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692)  
-metódussal lehet hozzárendelni és módosítani.  
-Az Aspose.Slides a következő funkciókat támogatja a képletekhez:
+Az [**Aspose.Slides**](https://products.aspose.com/slides/hu/cpp/) diagramtáblázat a [**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) metódussal van reprezentálva a [**IChartDataWorkbook**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_workbook) típusban. A táblázatképletet a [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) metódussal lehet hozzárendelni és módosítani. Az alábbi funkciók támogatottak a képletekhez az Aspose.Slides-ben:
 
 - Logikai állandók
 - Numerikus állandók
-- Karakterlánc‑állandók
-- Hiba‑állandók
+- Szöveges állandók
+- Hibaállandók
 - Aritmetikai operátorok
 - Összehasonlító operátorok
 - A1‑stílusú cellahivatkozások
 - R1C1‑stílusú cellahivatkozások
-- Beépített függvények
+- Előre definiált függvények
 
-Általában a táblázatok az utoljára kiszámított képletértékeket tárolják. Ha a prezentáció betöltése után a diagram adatai nem változtak, a **IChartDataCell.get_Value()** metódus ezeket az értékeket adja vissza olvasáskor. Ha a táblázat adatainak módosítása történt, a **ChartDataCell.get_Value()** metódus **CellUnsupportedDataException**‑t dob a nem támogatott képletek esetén. Ennek oka, hogy a képletek sikeres elemzésekor meghatározásra kerülnek a cellafüggőségek, és az utolsó értékek helyessége ellenőrzésre kerül. Ha a képletet nem lehet elemezni, a cellaérték helyessége nem garantálható.
+Általában a táblázatok az utoljára kiszámított képletértékeket tárolják. Ha a bemutató betöltése után a diagramadatok nem változtak, a **IChartDataCell.get_Value()** metódus ezekeket az értékeket adja vissza olvasáskor. Ha azonban a táblázat adatokat módosították, a **ChartDataCell.get_Value()** metódus **CellUnsupportedDataException**‑t dob a nem támogatott képletek esetén. Ennek oka, hogy a képletek sikeres elemzésekor meghatározásra kerülnek a cellafüggőségek és az értékek helyessége. Ha a képlet nem elemezhető, a cella értékének helyessége nem garantálható.
 
-## **Diagram táblázat képlet hozzáadása egy prezentációhoz**
-Először adjon egy diagramot egy új prezentáció első diájához az  
-[IShapeCollection::AddChart()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374)  
-metódussal.  
-A diagram munkalapja automatikusan létrejön, és a következő metódussal érhető el:  
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea):
+## **Diagramtáblázat képlet hozzáadása a bemutatóhoz**
+Először adjon egy diagramot az új bemutató első diájához a [IShapeCollection::AddChart()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374) metódussal. A diagram munkalapja automatikusan létrejön, és a [**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) metódussal érhető el:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -81,9 +69,7 @@ auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 // ...
 ```
 
-Írjunk néhány értéket a cellákba a  
-[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec)  
-metódus segítségével, amely az **Object** típusú, így bármilyen értéket átadhat a metódusnak:
+Írjunk néhány értéket a cellákba a **Object** típusú [**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) metódussal, ami azt jelenti, hogy bármilyen értéket átadhat a metódusnak:
 
 ``` cpp
 workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
@@ -91,17 +77,11 @@ workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
 workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
 ```
 
-Most a képlet írásához a cellába használja a  
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692)  
-metódust:
+Most a képlet írásához a cellába használhatja a [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) metódust:
 
-*Megjegyzés*: a **IChartDataCell::set_Formula()** metódus A1‑stílusú cellahivatkozások beállítására szolgál.
+*Megjegyzés*: a [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) metódus A1‑stílusú cellahivatkozások beállítására szolgál.
 
-Az **R1C1Formula** cellahivatkozás beállításához használja a  
-[**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7)  
-metódust:
-
-Ezután, ha a B2 és C2 cellák értékeit olvassa, azok számítva lesznek:
+Az R1C1Formula cellahivatkozás beállításához használhatja a [**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) metódust:
 
 ``` cpp
 auto value1 = cell1->get_Value(); // 7.8
@@ -109,42 +89,42 @@ auto value2 = cell2->get_Value(); // 2.1
 ```
 
 ## **Logikai állandók**
-Logikai állandókat, például *FALSE* és *TRUE* használhat cellaképletekben:
+A cellaképletekben használhat logikai állandókat, például *FALSE* és *TRUE* értékeket:
 
 ## **Numerikus állandók**
-Számok használhatók közönséges vagy tudományos jelölésben diagram táblázat képlet létrehozásához:
+Számokat közönséges vagy tudományos jelölésben is használhat a diagramtáblázat képletek létrehozásához:
 
-## **Karakterlánc‑állandók**
-A karakterlánc (vagy literál) állandó egy konkrét érték, amelyet változtatás nélkül használnak. Karakterlánc‑állandók lehetnek: dátumok, szövegek, számok stb.:
+## **Szöveges állandók**
+A karakterlánc (vagy literál) állandó egy olyan konkrét érték, amelyet úgy használnak, ahogy van, és nem változik. Szöveges állandók lehetnek: dátumok, szövegek, számok stb.:
 
-## **Hiba‑állandók**
-Bizonyos esetekben a képlet nem tudja kiszámítani az eredményt. Ilyenkor a hiba kód jelenik meg a cellában az érték helyett. Minden hibatípusnak megvan a saját kódja:
+## **Hibaállandók**
+Néha a képlettel nem lehetséges az eredmény kiszámítása. Ebben az esetben a hiba kód jelenik meg a cellában az érték helyett. Minden hibatípusnak saját kódja van:
 
-- #DIV/0! – a képlet nullával osztani próbál.
-- #GETTING_DATA – a cellán megjelenhet, amíg az értéke még számítás alatt áll.
-- #N/A – információ hiányzik vagy nem elérhető. Okok lehetnek: a képletben használt cellák üresek, extra szóköz, elgépelés stb.
-- #NAME? – egy bizonyos cella vagy más képlettárgy nem található a neve alapján.
-- #NULL! – hibás képlet, például (,) vagy szóköz karakter használata kettőspont helyett (:).
+- #DIV/0! – a képlet nulla osztásra próbál.
+- #GETTING_DATA – megjelenhet egy cellán, amíg az értéke még számítás alatt van.
+- #N/A – információ hiányzik vagy nem elérhető. Okok lehetnek: a képletben használt cellák üresek, extra szóköz karakter, elütés stb.
+- #NAME? – a megadott névhez tartozó cella vagy egyéb képlettárgy nem található.
+- #NULL! – akkor jelenik meg, ha a képletben hiba van, pl. (,) vagy szóköz karakter a kettőspont (:) helyett.
 - #NUM! – a képletben szereplő szám érvénytelen, túl nagy vagy túl kicsi stb.
 - #REF! – érvénytelen cellahivatkozás.
-- #VALUE! – nem várt értéktípus. Például szöveges érték egy numerikus cellában.
+- #VALUE! – váratlan értéktípus. Például karakterlánc érték beállítása numerikus cellára.
 
 ## **Aritmetikai operátorok**
-Az alábbi aritmetikai operátorok használhatók diagram munkalap képletekben:
+A diagrammunkalap képletekben az összes aritmetikai operátor használható:
 
 |**Operátor**|**Jelentés**|**Példa**|
 | :- | :- | :- |
-|+ (plusz jel)|Összeadás vagy egyelőre pozitív|2 + 3|
+|+ (plusz jel)|Összeadás vagy egyelőjű plusz|2 + 3|
 |- (mínusz jel)|Kivonás vagy negáció|2 - 3<br>-3|
 |* (csillag)|Szorzás|2 * 3|
-|/ (perjel)|Osztás|2 / 3|
+|/ (osztójel)|Osztás|2 / 3|
 |% (százalék jel)|Százalék|30%|
-|^ (karet)|Hatványozás|2 ^ 3|
+|^ (hatványjel)|Hatványozás|2 ^ 3|
 
-*Megjegyzés*: Az értékelés sorrendjének módosításához zárójelezze a képlet azon részét, amelyet először szeretne számolni.
+*Megjegyzés*: A kiértékelés sorrendjének módosításához tegye a számítás első részét zárójelek közé.
 
 ## **Összehasonlító operátorok**
-Az értékeket összehasonlíthatja összehasonlító operátorokkal. Amikor két értéket ezekkel az operátorokkal hasonlítanak össze, az eredmény logikai érték, azaz *TRUE* vagy *FALSE*:
+A cellaértékeket összehasonlító operátorokkal hasonlíthatja össze. Ha két értéket ezekkel az operátorokkal hasonlítunk össze, az eredmény logikai érték, vagy *TRUE* vagy FALSE lesz:
 
 |**Operátor**|**Jelentés**|**Példa**|
 | :- | :- | :- |
@@ -156,33 +136,31 @@ Az értékeket összehasonlíthatja összehasonlító operátorokkal. Amikor ké
 |<= (kisebb vagy egyenlő jel)|Kisebb vagy egyenlő|A2 <= 3|
 
 ## **A1‑stílusú cellahivatkozások**
-**A1‑stílusú cellahivatkozások** a munkalapoknál használatosak, ahol az oszlop betűvel (pl. "*A*") és a sor számmal (pl. "*1*") van azonosítva. Az A1‑stílusú hivatkozások a következőképpen használhatók:
+**A1‑stílusú cellahivatkozások** a munkalapokon használatosak, ahol az oszlop betűvel (pl. "*A*") és a sor számmal (pl. "*1*") van azonosítva. Az A1‑stílusú cellahivatkozásokat a következő módon lehet használni:
 
-|**Cellahivatkozás**|**Példa**| | |
-| :- | :- | :- | :- |
-| |Abszolút|Relatív|Vegyes|
-|Cella|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Sor|$2:$2|2:2|-|
-|Oszlop|$A:$A|A:A|-|
-|Tartomány|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+|**Cell reference**|**Example**|**Absolute**|**Relative**|**Mixed**|
+| :- | :- | :- | :- | :- |
+|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
+|Row|$2:$2|2:2|-|
+|Column|$A:$A|A:A|-|
+|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
 
-Az alábbi példa bemutatja, hogyan használjon A1‑stílusú cellahivatkozást képletben:
+Itt egy példa, hogyan használja az A1‑stílusú cellahivatkozást képletben:
 
 ## **R1C1‑stílusú cellahivatkozások**
-**R1C1‑stílusú cellahivatkozások** a munkalapoknál használatosak, ahol a sor és az oszlop egyaránt numerikus azonosítóval rendelkezik. Az R1C1‑stílusú hivatkozások a következőképpen használhatók:
+**R1C1‑stílusú cellahivatkozások** a munkalapokon használatosak, ahol a sor és az oszlop is numerikus azonosítóval rendelkezik. A R1C1‑stílusú cellahivatkozásokat a következő módon lehet használni:
 
-|**Cellahivatkozás**|**Példa**| | |
-| :- | :- | :- | :- |
-| |Abszolút|Relatív|Vegyes|
-|Cella|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Sor|R2|R[2]|-|
-|Oszlop|C3|C[3]|-|
-|Tartomány|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+|**Cell reference**|**Example**|**Absolute**|**Relative**|**Mixed**|
+| :- | :- | :- | :- | :- |
+|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
+|Row|R2|R[2]|-|
+|Column|C3|C[3]|-|
+|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
 
-Az alábbi példa bemutatja, hogyan használjon R1C1‑stílusú cellahivatkozást képletben:
+Itt egy példa, hogyan használja a R1C1‑stílusú cellahivatkozást képletben:
 
-## **Beépített függvények**
-Vannak beépített függvények, amelyeket a képletekben használhat a megvalósítás egyszerűsítésére. Ezek a függvények a leggyakrabban használt műveleteket foglalják össze, például:
+## **Előre definiált függvények**
+Vannak előre definiált függvények, amelyeket a képletekben a megvalósítás egyszerűsítésére lehet használni. Ezek a függvények a leggyakrabban használt műveleteket foglalják össze, például:
 
 - ABS
 - AVERAGE
@@ -190,24 +168,24 @@ Vannak beépített függvények, amelyeket a képletekben használhat a megvaló
 - CHOOSE
 - CONCAT
 - CONCATENATE
-- DATE (1900-as dátumrendszer)
+- DATE (1900 date system)
 - DAYS
 - FIND
 - FINDB
 - IF
-- INDEX (referencia forma)
-- LOOKUP (vektor forma)
-- MATCH (vektor forma)
+- INDEX (reference form)
+- LOOKUP (vector form)
+- MATCH (vector form)
 - MAX
 - SUM
 - VLOOKUP
 
-## **GYIK**
+## **FAQ**
 
-**Támogatottak-e külső Excel fájlok adatforrásként a képletekkel ellátott diagramokhoz?**
+**Támogatottak-e külső Excel fájlok adatforrásként a képletekkel rendelkező diagramhoz?**
 
-Igen. Az Aspose.Slides támogatja a külső munkafüzeteket [diagram adatforrásaként](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdatasourcetype/), amely lehetővé teszi az XLSX fájlokból származó képletek használatát a prezentáción kívül.
+Igen. Az Aspose.Slides támogatja a külső munkafüzeteket a [diagram adatforrásaként](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdatasourcetype/), ami lehetővé teszi, hogy a bemutatón kívül lévő XLSX fájlból származó képleteket használja.
 
-**A diagram képletei hivatkozhatnak-e ugyanabban a munkafüzetben lévő lapokra a lap neve alapján?**
+**A diagram képletek hivatkozhatnak a munkafüzeten belüli lapokra a lap nevén?**
 
-Igen. A képletek követik az Excel standard hivatkozási modelljét, így hivatkozhat más lapokra ugyanabban a munkafüzetben vagy egy külső munkafüzetben. Külső hivatkozások esetén adja meg az elérési utat és a munkafüzet nevét az Excel szintaxisának megfelelően.
+Igen. A képletek a szabványos Excel hivatkozási modellnek megfelelően működnek, így hivatkozhat más lapokra ugyanabban a munkafüzetben vagy egy külső munkafüzetre. A külső hivatkozásokhoz adja meg az elérési utat és a munkafüzet nevét az Excel szintaxis szerint.

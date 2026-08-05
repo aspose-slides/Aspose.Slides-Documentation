@@ -21,23 +21,23 @@ description: "Nastavte výchozí písma v Aspose.Slides pro C++, aby byla zajiš
 ---
 ## **Přehled**
 
-Aspose.Slides umožňuje určit výchozí písma, která jsou používána při vykreslování prezentace. To je užitečné při generování miniatur snímků nebo exportu prezentace do formátů, jako jsou PDF a XPS. Výchozí písma se nastavují pomocí `LoadOptions` před načtením prezentace.
+Aspose.Slides vám umožňuje zadat výchozí písma, která se používají při vykreslování prezentace. To je užitečné při generování miniatur snímků nebo při exportu prezentace do formátů, jako jsou PDF a XPS. Výchozí písma jsou nakonfigurována pomocí `LoadOptions` před načtením prezentace.
 
-Metoda `set_DefaultRegularFont` určuje výchozí písmo pro běžný text, zatímco `set_DefaultAsianFont` určuje výchozí písmo pro asijský text. Po nastavení těchto možností lze prezentaci načíst a vykreslit pomocí zadaných písem.
+Metoda `set_DefaultRegularFont` určuje výchozí písmo pro běžný text, zatímco `set_DefaultAsianFont` určuje výchozí písmo pro asijský text. Po nastavení těchto možností lze prezentaci načíst a vykreslit pomocí určených písem.
 
-## **Použití výchozích písem při vykreslování prezentace**
-Aspose.Slides vám umožňuje nastavit výchozí písmo při vykreslování prezentace do PDF, XPS nebo miniatur. Tento článek ukazuje, jak definovat DefaultRegularFont a DefaultAsianFont jako výchozí písma. Postupujte podle níže uvedených kroků pro načtení písem z externích adresářů pomocí Aspose.Slides pro C++ API:
+## **Použití výchozích písem pro vykreslení prezentace**
+Aspose.Slides vám umožňuje nastavit výchozí písmo pro vykreslení prezentace do PDF, XPS nebo miniatur. Tento článek ukazuje, jak definovat DefaultRegularFont a DefaultAsianFont pro použití jako výchozí písma. Postupujte podle níže uvedených kroků pro načítání písem z externích adresářů pomocí Aspose.Slides pro C++ API:
 
-1. Vytvořte instanci třídy LoadOptions.  
-1. Nastavte DefaultRegularFont na požadované písmo. V následujícím příkladu jsem použil Wingdings.  
-1. Nastavte DefaultAsianFont na požadované písmo. V následujícím příkladu jsem použil Wingdings.  
-1. Načtěte prezentaci pomocí třídy Presentation a nastavených možností načítání.  
-1. Nyní vygenerujte miniaturu snímku, PDF a XPS pro ověření výsledků.  
+1. Vytvořte instanci třídy LoadOptions.
+1. Nastavte DefaultRegularFont na požadované písmo. V následujícím příkladu jsem použil Wingdings.
+1. Nastavte DefaultAsianFont na požadované písmo. V následujícím vzorku jsem použil Wingdings.
+1. Načtěte prezentaci pomocí třídy Presentation a nastavením možností načtení.
+1. Nyní vygenerujte miniaturu snímku, PDF a XPS pro ověření výsledků.
 
 Implementace výše uvedeného je uvedena níže.
 
 ```cpp
-// Použijte možnosti načítání k určení výchozích běžných a asijských písem
+// Použijte možnosti načtení k určení výchozích běžných a asijských písem
 auto loadOptions = MakeObject<LoadOptions>(LoadFormat::Auto);
 loadOptions->set_DefaultRegularFont(u"Wingdings");
 loadOptions->set_DefaultAsianFont(u"Wingdings");
@@ -54,24 +54,24 @@ pptx->Save(u"DefaultFonts_out.xps", SaveFormat::Xps);
 pptx->Dispose();
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Co přesně ovlivňují DefaultRegularFont a DefaultAsianFont – jen export, nebo také miniatury, PDF, XPS, HTML a SVG?**
+**Co přesně ovlivňují DefaultRegularFont a DefaultAsianFont — jen export, nebo také miniatury, PDF, XPS, HTML a SVG?**
 
-Podílejí se na renderovacím řetězci pro všechny podporované výstupy. To zahrnuje miniatury snímků, [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/cs/cpp/convert-powerpoint-to-xps/), [rasterové obrázky](/slides/cs/cpp/convert-powerpoint-to-png/), [HTML](/slides/cs/cpp/convert-powerpoint-to-html/), a [SVG](/slides/cs/cpp/render-a-slide-as-an-svg-image/), protože Aspose.Slides používá stejnou logiku rozložení a rozlišení glyfů pro všechny tyto cíle.
+Podílejí se na vykreslovacím řetězci pro všechny podporované výstupy. To zahrnuje miniatury snímků, [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/cs/cpp/convert-powerpoint-to-xps/), [rastrové obrázky](/slides/cs/cpp/convert-powerpoint-to-png/), [HTML](/slides/cs/cpp/convert-powerpoint-to-html/), a [SVG](/slides/cs/cpp/render-a-slide-as-an-svg-image/), protože Aspose.Slides používá stejnou logiku rozložení a řešení glifů napříč těmito cíli.
 
-**Použijí se výchozí písma při pouhém načtení a uložení PPTX bez jakéhokoli vykreslování?**
+**Používají se výchozí písma při jednoduchém načtení a uložení PPTX bez jakéhokoli vykreslení?**
 
-Ne. Výchozí písma mají význam jen tehdy, když je nutné text měřit a vykreslovat. Přímé otevření a uložení prezentace nemění uložené fontové běhy ani strukturu souboru. Výchozí písma vstupují do hry při operacích, které text vykreslují nebo přetvářejí.
+Ne. Výchozí písma mají význam, když je třeba text změřit a vykreslit. Přímé otevření a uložení prezentace nemění uložené běhy písem ani strukturu souboru. Výchozí písma se uplatní během operací, které vykreslují nebo přetvářejí text.
 
-**Pokud přidám své vlastní složky s písmy nebo poskytnu písma z paměti, budou zohledněny při výběru výchozích písem?**
+**Pokud přidám své vlastní složky s písmy nebo poskytnu písma z paměti, budou brány v úvahu při výběru výchozích písem?**
 
-Ano. [Vlastní zdroje písem](/slides/cs/cpp/custom-font/) rozšiřují katalog dostupných rodin a glyfů, které může engine použít. Výchozí písma a jakákoliv [pravidla záložních písem](/slides/cs/cpp/fallback-font/) se nejprve vyhodnotí proti těmto zdrojům, což poskytuje spolehlivější krytí na serverech a v kontejnerch.
+Ano. [Vlastní zdroje písem](/slides/cs/cpp/custom-font/) rozšiřují katalog dostupných rodin a glifů, které engine může použít. Výchozí písma a jakákoli [pravidla pro náhradní písmo](/slides/cs/cpp/fallback-font/) se nejprve vyhodnotí vůči těmto zdrojům, což poskytuje spolehlivější pokrytí na serverech a v kontejnerech.
 
-**Ovlivní výchozí písma metriky textu (kerning, posuny) a tím i zalamování řádků a obalování?**
+**Budou výchozí písma ovlivňovat metriky textu (kerning, posuny) a tím i zalamování řádků a zalamování?**
 
-Ano. Změna písma mění metriky glyfů a může ovlivnit zalomení řádků, obalování a stránkování během vykreslování. Pro stabilitu rozložení [vložte původní písma](/slides/cs/cpp/embedded-font/) nebo zvolte metricky kompatibilní výchozí a záložní rodiny.
+Ano. Změna písma mění metriky glifů a může ovlivnit zalamování řádků, obalování a stránkování během vykreslování. Pro stabilitu rozvržení [vložit původní písma](/slides/cs/cpp/embedded-font/) nebo vybrat metricky kompatibilní výchozí a náhradní rodiny.
 
-**Má smysl nastavovat výchozí písma, pokud jsou všechna písma použita v prezentaci vložena?**
+**Má smysl nastavit výchozí písma, pokud jsou všechna písma v prezentaci vložena?**
 
-Často to není nutné, protože [vložená písma](/slides/cs/cpp/embedded-font/) již zajišťují jednotný vzhled. Výchozí písma však stále slouží jako pojistka pro znaky, které nejsou zahrnuty ve vloženém podmnožině, nebo když soubor kombinuje vložený a nevložený text.
+Často to není nutné, protože [vložená písma](/slides/cs/cpp/embedded-font/) již zajišťují konzistentní vzhled. Výchozí písma stále pomáhají jako bezpečnostní rezerva pro znaky, které nejsou zahrnuty ve vložené podmnožině, nebo když soubor kombinuje vložený a nevložený text.

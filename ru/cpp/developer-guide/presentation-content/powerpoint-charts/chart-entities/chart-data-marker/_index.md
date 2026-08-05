@@ -16,45 +16,49 @@ keywords:
 - Aspose.Slides
 description: "Узнайте, как настроить маркеры данных диаграммы в Aspose.Slides для C++, повышая эффективность презентаций в форматах PPT и PPTX с помощью понятных примеров кода на C++."
 ---
+## **Обзор**
 
-## **Set Chart Markers**
-Aspose.Slides for C++ предоставляет простой API для автоматической установки маркеров серии диаграммы. В следующей функции каждая серия диаграммы автоматически получит различный маркер по умолчанию.
+Эта статья объясняет, как работать с маркерами данных диаграммы в Aspose.Slides. В ней показано, как создать диаграмму, получить доступ к серии и её точкам данных, применить заливку изображением к маркерам на уровне точек данных, изменить размер маркера и сохранить обновлённую презентацию. Также отмечается, что стандартные формы маркеров доступны через перечисление `MarkerStyleType`, и что внешний вид маркеров сохраняется при экспорте диаграмм в растровые форматы или SVG.
 
-Пример кода ниже показывает, как автоматически установить маркер серии диаграммы.
+## **Установить маркеры диаграммы**
+Aspose.Slides for C++ предоставляет простой API для автоматической установки маркера серии диаграммы. В следующей функции каждая серия диаграммы автоматически получит различный маркер по умолчанию.
+
+Ниже приведён пример кода, показывающий, как автоматически установить маркер серии диаграммы.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-DefaultMarkersInChart-DefaultMarkersInChart.cpp" >}}
 
-## **Set Chart Marker Options**
-Маркеры можно задавать для точек данных диаграммы в рамках конкретной серии. Чтобы установить параметры маркера диаграммы, выполните следующие шаги:
+## **Установить параметры маркера диаграммы**
+Маркеры можно устанавливать на точках данных диаграммы внутри определённой серии. Чтобы задать параметры маркера диаграммы, выполните следующие действия:
 
-- Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-- Создать диаграмму по умолчанию.
-- Установить изображение.
-- Выбрать первую серию диаграммы.
-- Добавить новую точку данных.
-- Сохранить презентацию на диск.
+- Instantiate [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) class.
+- Creating the default chart.
+- Set the picture.
+- Take the first chart series.
+- Add a new data point.
+- Write a presentation to disk.
 
 В приведённом ниже примере мы задали параметры маркера диаграммы на уровне точек данных.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetMarkerOptions-SetMarkerOptions.cpp" >}}
 
-## **Set Chart Markers on the Series Data Point Level**
-Теперь маркеры можно задавать для точек данных диаграммы в конкретной серии. Чтобы установить параметры маркера диаграммы, выполните следующие шаги:
+## **Установить маркеры диаграммы на уровне точек данных серии**
+Теперь маркеры можно устанавливать на точках данных диаграммы внутри определённой серии. Чтобы задать параметры маркера диаграммы, выполните следующие действия:
 
-- Создать экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-- Создать диаграмму по умолчанию.
-- Установить изображение.
-- Выбрать первую серию диаграммы.
-- Добавить новую точку данных.
-- Сохранить презентацию на диск.
+- Instantiate Presentation class.
+- Creating the default chart.
+- Set the picture.
+- Take the first chart series.
+- Add a new data point.
+- Write a presentation to disk.
 
 В приведённом ниже примере мы задали параметры маркера диаграммы на уровне точек данных.
+
 ```cpp
 const String outPath = u"../out/SetMarkerOptionsonSeries_out.pptx";
 const String ImagePath = u"../templates/Tulips.jpg";
 const String ImagePath2 = u"../templates/aspose - logo.jpg";
 
-//Создать экземпляр класса Presentation, представляющего файл PPTX
+//Создать объект класса Presentation, представляющего файл PPTX
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 //Получить первый слайд
@@ -69,10 +73,10 @@ int defaultWorksheetIndex = 0;
 // Получение листа данных диаграммы
 SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// Удалить автоматически сгенерированные серии и категории
+// Удалить сгенерированные по умолчанию серии и категории
 chart->get_ChartData()->get_Series()->Clear();
 
-// Теперь добавить новую серию
+// Теперь добавляем новую серию
 SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 
 // Получить изображение
@@ -86,7 +90,7 @@ SharedPtr<IPPImage> imgx2 = pres->get_Images()->AddImage(image2);
 image->Dispose();
 image2->Dispose();
 
-// Добавить новую точку (1:3) туда.
+// Добавить новую точку (1:3) здесь.
 SharedPtr<IChartDataPoint> point = series->get_DataPoints()->AddDataPointForLineSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(4.5)));
 point->get_Marker()->get_Format()->get_Fill()->set_FillType(FillType::Picture);
 point->get_Marker()->get_Format()->get_Fill()->get_PictureFillFormat()->get_Picture()->set_Image(imgx1);
@@ -103,26 +107,25 @@ point = series->get_DataPoints()->AddDataPointForLineSeries(fact->GetCell(defaul
 point->get_Marker()->get_Format()->get_Fill()->set_FillType(FillType::Picture);
 point->get_Marker()->get_Format()->get_Fill()->get_PictureFillFormat()->get_Picture()->set_Image(imgx2);
 
-// Changing the chart series marker
+// Изменение маркера серии диаграммы
 series->get_Marker()->set_Size(15);
 
-// Write the presentation file to disk
+// Сохранить файл презентации на диск
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 pres->Dispose();
 ```
 
-
-## **Apply a Color to Data Points**
-Вы можете применять цвет к точкам данных в диаграмме, используя Aspose.Slides for C++. **[IChartDataPointLevelsManager](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/)** и **[IChartDataPointLevel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/)** были добавлены для доступа к свойствам уровней точек данных. В этой статье показано, как получить доступ к точкам данных и применить к ним цвет.
+## **Применить цвет к точкам данных**
+Вы можете применить цвет к точкам данных в диаграмме, используя Aspose.Slides for C++. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) и **[IChartDataPointLevel](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichartdatapointlevel/)** добавлены для доступа к свойствам уровней точек данных. Эта статья демонстрирует, как получить доступ к точкам данных диаграммы и применить к ним цвет.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AddColorToDataPoints-AddColorToDataPoints.cpp" >}}
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Which marker shapes are available out of the box?**
+**Какие формы маркеров доступны из коробки?**
 
-Доступны стандартные формы (круг, квадрат, ромб, треугольник и т.д.); список определяется перечислением [MarkerStyleType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/markerstyletype/). Если вам нужна нестандартная форма, используйте маркер с заливкой изображением, чтобы имитировать пользовательские визуальные элементы.
+Стандартные формы доступны (круг, квадрат, ромб, треугольник и т.д.); список определяется перечислением [MarkerStyleType](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/markerstyletype/). Если вам нужна нестандартная форма, используйте маркер с заливкой изображением, чтобы имитировать пользовательскую графику.
 
-**Are markers preserved when exporting a chart to an image or SVG?**
+**Сохраняются ли маркеры при экспорте диаграммы в изображение или SVG?**
 
-Да. При рендеринге диаграмм в [raster formats](/slides/ru/cpp/convert-powerpoint-to-png/) или сохранении [shapes as SVG](/slides/ru/cpp/render-a-slide-as-an-svg-image/) маркеры сохраняют свой внешний вид и настройки, включая размер, заполнение и контур.
+Да. При рендеринге диаграмм в [raster formats](/slides/ru/cpp/convert-powerpoint-to-png/) или сохранении [shapes as SVG](/slides/ru/cpp/render-a-slide-as-an-svg-image/), маркеры сохраняют свой внешний вид и настройки, включая размер, заливку и контур.

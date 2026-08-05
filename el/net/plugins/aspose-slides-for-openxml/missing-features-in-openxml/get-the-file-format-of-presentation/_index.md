@@ -1,15 +1,17 @@
 ---
-title: Λάβετε τη μορφή αρχείου της παρουσίασης
+title: Λήψη μορφής αρχείου παρουσίασης
 type: docs
 weight: 50
 url: /el/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/presentation-format/
 ---
-Για να λάβετε τη μορφή του αρχείου, ακολουθήστε τα παρακάτω βήματα:
+Για να λάβετε τη μορφή του αρχείου, παρακαλώ ακολουθήστε τα παρακάτω βήματα:
 
-- Δημιουργήστε μια παρουσία της κλάσης **IPresentationInfo**  
-- Λάβετε πληροφορίες σχετικά με την παρουσίαση
+- Δημιουργήστε ένα στιγμιότυπο της κλάσης **IPresentationInfo**
+- Λάβετε πληροφορίες για την παρουσίαση
 
-Στο παρακάτω παράδειγμα, έχουμε λάβει τη μορφή του αρχείου.
+Στο παρακάτω παράδειγμα, έχουμε τη μορφή του αρχείου.
 ## **Παράδειγμα**
 ``` csharp
 
@@ -43,9 +45,8 @@ switch (info.LoadFormat)
         }
 
 }
-
-``` 
-## **Κατεβάστε δείγμα κώδικα**
+```
+## **Λήψη Δείγματος Κώδικα**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
-## **Κατεβάστε εκτελέσιμο παράδειγμα**
+## **Λήψη Εκτελεστικού Παραδείγματος**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

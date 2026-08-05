@@ -1,6 +1,6 @@
 ---
-title: Thay đổi kích thước slide trong bài thuyết trình Java
-linktitle: Kích thước Slide
+title: Thay đổi kích thước slide của bản trình chiếu trong Java
+linktitle: Kích thước slide
 type: docs
 weight: 70
 url: /vi/java/slide-size/
@@ -23,29 +23,29 @@ keywords:
 - tối đa hoá
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - Java
 - Aspose.Slides
-descriptions: "Tìm hiểu cách nhanh chóng thay đổi kích thước slide trong các tệp PPT, PPTX và ODP bằng Java và Aspose.Slides, tối ưu hoá bài thuyết trình cho mọi loại màn hình mà không mất chất lượng."
+description: "Tìm hiểu cách nhanh chóng thay đổi kích thước slide trong các tệp PPT, PPTX và ODP bằng Java và Aspose.Slides, tối ưu hóa bản trình chiếu cho mọi loại màn hình mà không mất chất lượng."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides cung cấp các công cụ toàn diện để điều chỉnh kích thước slide và tỷ lệ khung hình trong các bản trình bày PowerPoint, rất quan trọng cho cả việc in ấn và hiển thị trên màn hình.
+Aspose.Slides cung cấp các công cụ toàn diện để điều chỉnh kích thước slide và tỷ lệ khung hình trong các bản trình chiếu PowerPoint, quan trọng cả trong việc in ấn và hiển thị trên màn hình.
 
-Kích thước và tỷ lệ slide phổ biến:
+Các kích thước và tỷ lệ slide phổ biến:
 
-- **Standard (4:3 Aspect Ratio)**: Lý tưởng cho các màn hình và thiết bị cổ điển.
-- **Widescreen (16:9 Aspect Ratio)**: Được khuyên dùng cho các máy chiếu và màn hình hiện đại.
+- **Standard (4:3 Aspect Ratio)**: Thích hợp cho các màn hình và thiết bị cũ.
+- **Widescreen (16:9 Aspect Ratio)**: Được khuyến nghị cho máy chiếu và màn hình hiện đại.
 
-Đảm bảo tính nhất quán trong toàn bộ bài thuyết trình vì một kích thước slide và tỷ lệ khung hình duy nhất sẽ áp dụng cho tất cả các slide. Để đạt kết quả tối ưu, hãy đặt kích thước slide ngay từ đầu quá trình tạo bài thuyết trình để tránh các vấn đề phát sinh.
+Đảm bảo tính nhất quán trong suốt bản trình chiếu vì một kích thước và tỷ lệ khung hình duy nhất sẽ áp dụng cho tất cả các slide. Để đạt kết quả tối ưu, hãy đặt kích thước slide ngay từ đầu quá trình tạo bản trình chiếu để tránh các vấn đề phát sinh.
 
 {{% alert color="primary" %}} 
-Mặc định, các bài thuyết trình được tạo bằng Aspose.Slides sử dụng tỷ lệ 4:3 tiêu chuẩn.
+Mặc định, các bản trình chiếu được tạo bằng Aspose.Slides sử dụng tỷ lệ khung hình chuẩn 4:3.
 {{% /alert %}}
 
-## **Thay đổi kích thước slide trong bài thuyết trình**
+## **Thay đổi kích thước slide trong bản trình chiếu**
 
-Mẫu mã sau đây cho bạn thấy cách thay đổi kích thước slide trong một bài thuyết trình bằng Java sử dụng Aspose.Slides:
+Mã mẫu này cho bạn thấy cách thay đổi kích thước slide trong một bản trình chiếu bằng Java sử dụng Aspose.Slides:
 
 ```java
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
@@ -57,11 +57,11 @@ try {
 }
 ```
 
-## **Xác định kích thước slide tùy chỉnh trong bài thuyết trình**
+## **Xác định kích thước slide tùy chỉnh trong bản trình chiếu**
 
-Nếu bạn thấy các kích thước slide thông thường (4:3 và 16:9) không phù hợp với công việc của mình, bạn có thể quyết định sử dụng một kích thước slide cụ thể hoặc độc đáo. Ví dụ, nếu bạn dự định in các slide ở kích thước đầy đủ từ bài thuyết trình trên một bố cục trang tùy chỉnh hoặc nếu bạn muốn hiển thị bài thuyết trình trên một số loại màn hình nhất định, việc sử dụng cài đặt kích thước tùy chỉnh cho bài thuyết trình sẽ mang lại lợi ích.
+Nếu bạn thấy các kích thước slide thông thường (4:3 và 16:9) không phù hợp với công việc của mình, bạn có thể quyết định sử dụng một kích thước slide cụ thể hoặc độc đáo. Ví dụ, nếu bạn dự định in các slide kích thước đầy đủ từ bản trình chiếu trên bố cục trang tùy chỉnh hoặc nếu bạn muốn hiển thị bản trình chiếu trên một số loại màn hình nhất định, bạn có thể hưởng lợi từ việc thiết lập kích thước tùy chỉnh cho bản trình chiếu.
 
-Mẫu mã dưới đây cho bạn thấy cách sử dụng Aspose.Slides for Java để chỉ định kích thước slide tùy chỉnh cho một bài thuyết trình bằng Java:
+Mã mẫu này cho bạn thấy cách sử dụng Aspose.Slides cho Java để chỉ định kích thước slide tùy chỉnh cho một bản trình chiếu bằng Java:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -75,9 +75,9 @@ try {
 
 ## **Xử lý nội dung slide sau khi thay đổi kích thước**
 
-Sau khi bạn thay đổi kích thước slide cho một bài thuyết trình, nội dung của các slide (hình ảnh hoặc đối tượng, ví dụ) có thể bị biến dạng. Mặc định, các đối tượng sẽ tự động được điều chỉnh kích thước để phù hợp với kích thước slide mới. Tuy nhiên, khi thay đổi kích thước slide của một bài thuyết trình, bạn có thể chỉ định một cài đặt xác định cách Aspose.Slides xử lý nội dung trên các slide.
+Sau khi bạn thay đổi kích thước slide cho một bản trình chiếu, nội dung của các slide (ví dụ như hình ảnh hoặc đối tượng) có thể bị biến dạng. Mặc định, các đối tượng sẽ tự động được thay đổi kích thước để phù hợp với kích thước slide mới. Tuy nhiên, khi thay đổi kích thước slide của bản trình chiếu, bạn có thể chỉ định một cài đặt xác định cách Aspose.Slides xử lý nội dung trên các slide.
 
-Tùy thuộc vào mục tiêu bạn muốn đạt được, bạn có thể sử dụng bất kỳ cài đặt nào sau đây:
+Tùy thuộc vào mục tiêu hoặc nhu cầu của bạn, bạn có thể sử dụng bất kỳ cài đặt nào trong số này:
 
 - `DoNotScale`
 
@@ -85,13 +85,13 @@ Tùy thuộc vào mục tiêu bạn muốn đạt được, bạn có thể sử
 
 - `EnsureFit`
 
-  Nếu bạn muốn thu nhỏ kích thước slide và cần Aspose.Slides thu nhỏ các đối tượng trên slide để chúng đều vừa vào slide (điều này giúp tránh mất nội dung), hãy sử dụng cài đặt này.
+  Nếu bạn muốn thu nhỏ tới kích thước slide nhỏ hơn và cần Aspose.Slides thu nhỏ các đối tượng trên slide để đảm bảo chúng vừa trên slide (như vậy bạn tránh mất nội dung), hãy sử dụng cài đặt này.
 
 - `Maximize`
 
-  Nếu bạn muốn phóng to kích thước slide và cần Aspose.Slides phóng đại các đối tượng trên slide để chúng tỷ lệ với kích thước slide mới, hãy sử dụng cài đặt này.
+  Nếu bạn muốn phóng to tới kích thước slide lớn hơn và cần Aspose.Slides phóng to các đối tượng trên slide để chúng tỷ lệ với kích thước slide mới, hãy sử dụng cài đặt này.
 
-Mẫu mã dưới đây cho bạn thấy cách sử dụng cài đặt `Maximize` khi thay đổi kích thước slide của một bài thuyết trình:
+Mã mẫu này cho bạn thấy cách sử dụng cài đặt `Maximize` khi thay đổi kích thước slide của bản trình chiếu:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -102,20 +102,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Tôi có thể đặt kích thước slide tùy chỉnh bằng các đơn vị khác ngoài inch (ví dụ, điểm hoặc milimet)?**
+**Bạn có thể đặt kích thước slide tùy chỉnh bằng đơn vị khác ngoài inch (ví dụ: point hoặc milimet) không?**
 
-Có. Aspose.Slides sử dụng đơn vị điểm nội bộ, trong đó 1 điểm bằng 1/72 inch. Bạn có thể chuyển đổi bất kỳ đơn vị nào (như milimet hoặc centimet) sang điểm và sử dụng các giá trị đã chuyển đổi để xác định chiều rộng và chiều cao slide.
+Có. Aspose.Slides sử dụng đơn vị point nội bộ, trong đó 1 point bằng 1/72 inch. Bạn có thể chuyển đổi bất kỳ đơn vị nào (như milimet hoặc centimet) sang point và sử dụng các giá trị đã chuyển để xác định chiều rộng và chiều cao slide.
 
-**Kích thước slide tùy chỉnh rất lớn có ảnh hưởng đến hiệu năng và mức tiêu thụ bộ nhớ khi render không?**
+**Kích thước slide tùy chỉnh rất lớn sẽ ảnh hưởng đến hiệu suất và mức tiêu thụ bộ nhớ khi render không?**
 
-Có. Kích thước slide lớn hơn (theo điểm) kết hợp với tỷ lệ render cao sẽ làm tăng mức tiêu thụ bộ nhớ và thời gian xử lý. Hãy lựa chọn kích thước slide thực tế và chỉ điều chỉnh tỷ lệ render khi thực sự cần để đạt chất lượng đầu ra mong muốn.
+Có. Kích thước slide lớn hơn (tính bằng point) kết hợp với tỷ lệ render cao hơn sẽ làm tăng mức tiêu thụ bộ nhớ và thời gian xử lý. Hãy lựa chọn kích thước slide thực tế và chỉ điều chỉnh tỷ lệ render khi cần thiết để đạt chất lượng đầu ra mong muốn.
 
-**Tôi có thể định nghĩa một kích thước slide không chuẩn và sau đó hợp nhất các slide từ các bài thuyết trình có kích thước khác nhau không?**
+**Tôi có thể định nghĩa một kích thước slide không chuẩn và sau đó hợp nhất các slide từ các bản trình chiếu có kích thước khác nhau không?**
 
-Bạn không thể [hợp nhất các bài thuyết trình](/slides/vi/java/merge-presentation/) khi chúng có kích thước slide khác nhau — trước tiên, hãy thay đổi kích thước của một bài thuyết trình sao cho khớp với bài còn lại. Khi thay đổi kích thước slide, bạn có thể chọn cách xử lý nội dung hiện có thông qua tùy chọn [SlideSizeScaleType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidesizescaletype/). Sau khi đồng bộ kích thước, bạn có thể hợp nhất các slide mà vẫn bảo toàn định dạng.
+Bạn không thể [hợp nhất các bản trình chiếu](/slides/vi/java/merge-presentation/) khi chúng có kích thước slide khác nhau — trước tiên, hãy thay đổi kích thước một bản trình chiếu để khớp với bản còn lại. Khi thay đổi kích thước slide, bạn có thể chọn cách xử lý nội dung hiện có thông qua tùy chọn [SlideSizeScaleType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidesizescaletype/). Sau khi đồng bộ kích thước, bạn có thể hợp nhất các slide mà vẫn giữ định dạng.
 
-**Tôi có thể tạo ảnh thu nhỏ cho các hình dạng riêng lẻ hoặc các vùng cụ thể của một slide, và chúng có tuân theo kích thước slide mới không?**
+**Tôi có thể tạo ảnh thu nhỏ cho các hình dạng riêng lẻ hoặc các vùng cụ thể của một slide và chúng sẽ tôn trọng kích thước slide mới không?**
 
-Có. Aspose.Slides có thể render ảnh thu nhỏ cho [toàn bộ slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) cũng như cho [các hình dạng đã chọn](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shape/#getImage-int-float-float-). Các hình ảnh tạo ra sẽ phản ánh kích thước slide và tỷ lệ khung hình hiện tại, đảm bảo khung hình và hình học nhất quán.
+Bạn có thể. Aspose.Slides có thể tạo ảnh thu nhỏ cho [toàn bộ slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) cũng như cho [các hình dạng được chọn](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shape/#getImage-int-float-float-). Các hình ảnh đầu ra phản ánh kích thước và tỷ lệ khung hình hiện tại của slide, đảm bảo khung hình và hình học nhất quán.

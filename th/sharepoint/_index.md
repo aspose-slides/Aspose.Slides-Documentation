@@ -1,7 +1,7 @@
 ---
-title: Aspose.Slides สำหรับ SharePoint
-second_title: เอกสาร Aspose.Slides
-description: Aspose.Slides for SharePoint คือโซลูชันที่ยืดหยุ่นซึ่งทำให้สามารถแปลงเอกสาร PowerPoint® ภายในไซต์ Microsoft SharePoint ได้
+title: Aspose.Slides for SharePoint
+second_title: Aspose.Slides for SharePoint
+description: Aspose.Slides for SharePoint เป็นโซลูชันที่ยืดหยุ่นซึ่งทำให้สามารถแปลงเอกสาร PowerPoint® ภายในไซต์ Microsoft SharePoint ได้
 type: docs
 weight: 60
 url: /th/sharepoint/
@@ -9,22 +9,22 @@ is_root: true
 ---
 {{% alert color="primary" %}}
 
-![Aspose.Slides สำหรับ SharePoint](home_1.png)
+![Aspose.Slides for SharePoint](home_1.png)
 
-**ยินดีต้อนรับสู่ Aspose.Slides สำหรับ SharePoint**
+**ยินดีต้อนรับสู่ Aspose.Slides for SharePoint**
 
-Aspose.Slides for SharePoint คือโซลูชันที่ยืดหยุ่นซึ่งทำให้สามารถแปลงเอกสาร PowerPoint® ภายในไซต์ Microsoft SharePoint ได้
+Aspose.Slides for SharePoint เป็นโซลูชันที่ยืดหยุ่นซึ่งทำให้สามารถแปลงเอกสาร PowerPoint® ภายในไซต์ Microsoft SharePoint ได้
 
 {{% /alert %}}
 
-## **ทรัพยากร Aspose.Slides สำหรับ SharePoint**
+## **ทรัพยากรของ Aspose.Slides for SharePoint**
 
-ด้านล่างนี้เป็นลิงก์ไปยังแหล่งข้อมูลที่เป็นประโยชน์ซึ่งคุณอาจต้องใช้ในการทำงานของคุณ
+ต่อไปนี้คือลิงก์ไปยังทรัพยากรที่เป็นประโยชน์บางส่วนซึ่งคุณอาจต้องการเพื่อทำงานของคุณให้สำเร็จ
 
-- [เอกสาร Aspose.Slides สำหรับ SharePoint Online](/slides/th/sharepoint/)
-- [คุณสมบัติของ Aspose.Slides สำหรับ SharePoint](/slides/th/sharepoint/features/)
-- [บันทึกเวอร์ชัน Aspose.Slides สำหรับ SharePoint](https://releases.aspose.com/slides/th/sharepoint/release-notes/)
-- [หน้าผลิตภัณฑ์ Aspose.Slides สำหรับ SharePoint](https://products.aspose.com/slides/th/sharepoint/)
-- [ดาวน์โหลด Aspose.Slides สำหรับ SharePoint](https://releases.aspose.com/slides/th/sharepoint/)
-- [ฟอรัมสนับสนุนฟรี Aspose.Slides สำหรับ SharePoint](https://forum.aspose.com/c/slides/th/11)
-- [ศูนย์ช่วยเหลือแบบชำระเงิน Aspose.Slides สำหรับ SharePoint](https://helpdesk.aspose.com/)
+- [เอกสาร Aspose.Slides for SharePoint Online](/slides/th/sharepoint/)
+- [คุณลักษณะของ Aspose.Slides for SharePoint](/slides/th/sharepoint/features/)
+- [บันทึกการปล่อย Aspose.Slides for SharePoint](https://releases.aspose.com/slides/th/sharepoint/release-notes/)
+- [หน้าผลิตภัณฑ์ Aspose.Slides for SharePoint](https://products.aspose.com/slides/th/sharepoint/)
+- [ดาวน์โหลด Aspose.Slides for SharePoint](https://releases.aspose.com/slides/th/sharepoint/)
+- [ฟอรั่มสนับสนุนฟรีของ Aspose.Slides for SharePoint](https://forum.aspose.com/c/slides/th/11)
+- [ศูนย์ช่วยเหลือสนับสนุนแบบชำระเงินของ Aspose.Slides for SharePoint](https://helpdesk.aspose.com/)

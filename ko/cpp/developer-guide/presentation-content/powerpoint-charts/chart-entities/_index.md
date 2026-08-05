@@ -1,5 +1,5 @@
 ---
-title: C++에서 프레젠테이션 차트 엔터티 사용자 정의
+title: C++에서 프레젠테이션 차트 엔터티 사용자 지정
 linktitle: 차트 엔터티
 type: docs
 weight: 30
@@ -19,5 +19,5 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++의 차트 엔터티를 이해하고, PowerPoint PPT 및 PPTX에서 C++를 사용하여 시리즈, 카테고리, 데이터 포인트 및 축을 관리하는 방법을 배웁니다."
+description: "Aspose.Slides for C++의 차트 엔터티를 이해하고, C++을 사용하여 PowerPoint PPT 및 PPTX에서 시리즈, 카테고리, 데이터 포인트 및 축을 관리하는 방법을 배웁니다."
 ---

@@ -1,41 +1,43 @@
 ---
-title: Linux में फ़ॉन्ट से संबंधित सामान्य अपवर्जन और त्रुटियाँ
+title: Linux पर फ़ॉन्ट्स से संबंधित सामान्य अपवाद और त्रुटियाँ
 type: docs
 weight: 200
 url: /hi/java/common-errors-involving-fonts/
-keywords: "फ़ॉन्ट अपवर्जन, फ़ॉन्ट त्रुटि, Linux, Java, Aspose.Slides for Java"
-description: "Linux पर फ़ॉन्ट अपवर्जन और त्रुटियाँ"
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
+keywords: "फ़ॉन्ट अपवाद, फ़ॉन्ट त्रुटि, Linux, Java, Aspose.Slides for Java"
+description: "Linux पर फ़ॉन्ट अपवाद और त्रुटियाँ"
 ---
-## **सारांश**
+## **अवलोकन**
 
-जब Aspose.Slides को Linux पर उपयोग किया जाता है, तो फ़ॉन्ट‑संबंधी समस्याएँ उत्पन्न हो सकती हैं यदि Java प्रक्रिया आवश्यक फ़ॉन्ट फ़ोल्डर या TEMP निर्देशिका तक पहुँच नहीं सकती, यदि सिस्टम पर कोई फ़ॉन्ट स्थापित नहीं है, या यदि आवश्यक सिस्टम लाइब्रेरी जैसे fontconfig या libfreetype अनुपलब्ध हैं।
+जब Aspose.Slides को Linux पर उपयोग किया जाता है, तो फ़ॉन्ट‑संबंधी समस्याएँ उत्पन्न हो सकती हैं यदि Java प्रक्रिया आवश्यक फ़ॉन्ट फ़ोल्डर या अस्थायी डायरेक्टरी तक पहुँच नहीं सकती, यदि सिस्टम पर कोई फ़ॉन्ट स्थापित नहीं हैं, या यदि आवश्यक सिस्टम लाइब्रेरी जैसे fontconfig या libfreetype गायब हों।
 
-यह लेख Linux पर फ़ॉन्ट से संबंधित सामान्य त्रुटियों और अपवर्जन को बताता है और उन्हें हल करने के लिए समाधान प्रदान करता है। यह समझाता है कि फ़ॉन्ट और TEMP निर्देशिकाओं तक पहुँच की जाँच कैसे करें, आवश्यक फ़ॉन्ट और लाइब्रेरी को स्थापित करें, और `FontsLoader` का उपयोग करके फ़ॉन्ट को सिस्टम‑व्यापी स्थापित किए बिना लोड करें।
+यह लेख Linux पर फ़ॉन्ट‑संबंधी सामान्य त्रुटियों और अपवादों का वर्णन करता है और उन्हें हल करने के लिए समाधान प्रदान करता है। यह बताता है कि फ़ॉन्ट और TEMP डायरेक्टरी तक पहुँच कैसे जांचें, आवश्यक फ़ॉन्ट और लाइब्रेरी स्थापित करें, और `FontsLoader` का उपयोग करके सिस्टम‑वाइड इंस्टॉल किए बिना फ़ॉन्ट लोड करें।
 
-## **जब कोड Linux पर निष्पादित किया जाता है तो टेक्स्ट या छवियां (EMF या WMF) गायब होती हैं**
+## **कोड को Linux पर चलाते समय गायब टेक्स्ट या इमेजेज (EMF या WMF)**
 
-यह समस्या उन सिस्टम में होती है जहाँ निम्नलिखित प्रतिबंध होते हैं:
+यह समस्या उन प्रणालियों में होती है जहाँ इन मामलों में प्रतिबंध होते हैं:
 
-1. जब कोई फ़ॉन्ट स्थापित नहीं है या java प्रक्रिया के लिए फ़ॉन्ट फ़ोल्डर तक पहुँच नहीं सकती
-2. जब TEMP निर्देशिका तक पहुँच नहीं सकती।
+1. जब कोई फ़ॉन्ट स्थापित नहीं है या जब java प्रक्रिया के लिए फ़ॉन्ट फ़ोल्डर तक पहुँचना संभव नहीं है
+2. जब TEMP डायरेक्टरी तक पहुँच नहीं हो सकती।
 
 ### **समाधान**
 
-जाँचें और पुष्टि करें कि TEMP निर्देशिका और फ़ॉन्ट फ़ोल्डर तक पहुँच प्रदान की गई है। 
+जाँचें और पुष्टि करें कि TEMP डायरेक्टरी और फ़ॉन्ट फ़ोल्डर तक पहुँच प्रदान की गई है। 
 
 {{% alert color="warning" %}}
-कुछ मामलों में, पर्यावरण या सुरक्षा नीति द्वारा लगाए गए प्रतिबंधों के कारण फ़ोल्डर तक पहुँच प्रदान करना संभव नहीं हो सकता। इन वैकल्पिक उपायों को आज़माएँ: 
+कुछ मामलों में, पर्यावरण या सुरक्षा नीति द्वारा लगाए गए प्रतिबंधों के कारण आप फ़ोल्डर्स तक पहुँच नहीं दे पाते। इन विकल्पों को आज़माएँ: 
 {{% /alert %}}
 
-**Workaround**
+**वैकल्पिक समाधान**
 
-[FontsLoader](https://reference.aspose.com/slides/hi/java/com.aspose.slides/FontsLoader) का उपयोग करके आवश्यक फ़ॉन्ट को बिना स्थापित किए लोड करें:
+आवश्यक फ़ॉन्ट को इंस्टॉल किए बिना लोड करने के लिए [FontsLoader](https://reference.aspose.com/slides/hi/java/com.aspose.slides/FontsLoader) का उपयोग करें:
 
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-यदि TEMP निर्देशिका तक पहुँच नहीं सकती, तो Java के लिए TEMP के रूप में कोई अन्य निर्देशिका निर्दिष्ट करने हेतु नीचे दिया गया कोड उपयोग करें:
+यदि TEMP डायरेक्टरी तक पहुँच नहीं हो सकती, तो Java के लिए TEMP के रूप में किसी अन्य डायरेक्टरी को निर्दिष्ट करने के लिये यह कोड उपयोग करें:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -55,9 +57,9 @@ try {
 }
 ```
 
-## **Exception: InvalidOperationException: सिस्टम पर कोई भी फ़ॉन्ट स्थापित नहीं मिला**
+## **अपवाद: InvalidOperationException: सिस्टम पर कोई भी फ़ॉन्ट नहीं मिला**
 
-यह अपवर्जन तब होता है जब
+यह अपवाद तब होता है जब
 
 1) Java प्रक्रिया फ़ॉन्ट फ़ोल्डर तक पहुँच नहीं सकती  
 2) कोई फ़ॉन्ट स्थापित नहीं है।
@@ -76,7 +78,7 @@ try {
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
-```
+     ```
 
    * CentOS: 
 
@@ -86,15 +88,15 @@ try {
      fc-cache -fv
      ```
 
-   * [FontsLoader](https://reference.aspose.com/slides/hi/java/com.aspose.slides/FontsLoader) का उपयोग करके: 
+   * उपयोग करके [FontsLoader](https://reference.aspose.com/slides/hi/java/com.aspose.slides/FontsLoader): 
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
-## **Exception: NoClassDefFoundError: Could Not Initialize Class com.aspose.slides.internal.ey.this**
+## **अपवाद: NoClassDefFoundError: com.aspose.slides.internal.ey.this क्लास को इनिशियलाइज़ नहीं किया जा सका**
 
-यह अपवर्जन एक ऐसे Linux सिस्टम पर होता है जिसमें fontconfig और फ़ॉन्ट नहीं हैं। 
+यह अपवाद उन Linux सिस्टम पर होता है जहाँ fontconfig और फ़ॉन्ट नहीं हैं। 
 
 ### **समाधान**
 
@@ -114,7 +116,7 @@ fontconfig स्थापित करें:
   sudo yum -y install fontconfig
   ```
 
-इसके अतिरिक्त, कुछ open‑jdk संस्करण (जैसे **alpine JDK**) को भी **स्थापित फ़ॉन्ट की आवश्यकता होती है**।
+इसके अतिरिक्त, कुछ open-jdk संस्करण (जैसे **alpine JDK**) भी **स्थापित फ़ॉन्ट की आवश्यकता** रखते हैं।
 
 * Ubuntu:
 
@@ -130,9 +132,9 @@ fontconfig स्थापित करें:
   fc-cache -fv
   ```
 
-## **Exception: UnsatisfiedLinkError: libfreetype.so.6: Cannot Open Shared Object File: No Such File or Directory**
+## **अपवाद: UnsatisfiedLinkError: libfreetype.so.6: साझा ऑब्जेक्ट फ़ाइल नहीं खोला जा सका: ऐसी कोई फ़ाइल या डायरेक्टरी नहीं**
 
-यह अपवर्जन एक ऐसे Linux सिस्टम पर होता है जिसमें libfreetype लाइब्रेरी नहीं है। 
+यह अपवाद उन Linux सिस्टम पर होता है जहाँ libfreetype लाइब्रेरी नहीं है। 
 
 ### **समाधान**
 
@@ -155,5 +157,5 @@ libfreetype और fontconfig स्थापित करें:
   ```
 
 {{% alert title="TIP" color="primary" %}} 
-फ़ॉन्ट स्थापित करना या FontsLoader का उपयोग करना न भूलें। 
+फ़ॉन्ट स्थापित करना या FontsLoader का उपयोग करना न भूलें।
 {{% /alert %}}

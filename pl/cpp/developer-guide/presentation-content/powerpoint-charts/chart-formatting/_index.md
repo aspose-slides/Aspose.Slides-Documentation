@@ -12,7 +12,7 @@ keywords:
 - ustawienia wykresu
 - opcje wykresu
 - właściwości czcionki
-- zaokrąglone obramowanie
+- zaokrąglona krawędź
 - PowerPoint
 - prezentacja
 - C++
@@ -21,93 +21,93 @@ description: "Poznaj formatowanie wykresów w Aspose.Slides dla C++ i podnieś s
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu i wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu.
+Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu oraz wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu.
 
-Artykuł demonstruje także, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane i niestandardowe formaty liczbowe dla danych wykresu oraz włączyć zaokrąglone rogi dla obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresów w prezentacji.
+Demonstruje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane i niestandardowe formaty liczb do danych wykresu oraz włączyć zaokrąglone narożniki dla obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
 
-## **Formatuj elementy wykresu**
+## **Formatowanie elementów wykresu**
 Aspose.Slides for C++ umożliwia programistom dodawanie własnych wykresów do slajdów od podstaw. Ten artykuł wyjaśnia, jak formatować różne elementy wykresu, w tym oś kategorii i oś wartości.
 
-Aspose.Slides for C++ zapewnia prosty interfejs API do zarządzania różnymi elementami wykresu i formatowania ich przy użyciu własnych wartości:
+Aspose.Slides for C++ udostępnia prosty interfejs API do zarządzania różnymi elementami wykresu i formatowania ich przy użyciu własnych wartości:
 
 1. Utwórz instancję klasy **Presentation**.
-1. Uzyskaj referencję do slajdu po jego indeksie.
-1. Dodaj wykres z danymi domyślnymi oraz wybranym typem (w tym przykładzie użyjemy ChartType.LineWithMarkers).
+1. Pobierz referencję do slajdu za pośrednictwem jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (w tym przykładzie użyjemy ChartType.LineWithMarkers).
 1. Uzyskaj dostęp do osi wartości wykresu i ustaw następujące właściwości:
-   1. Ustaw **Line format** dla głównych linii siatki osi wartości.
-   1. Ustaw **Line format** dla pobocznych linii siatki osi wartości.
-   1. Ustaw **Number Format** dla osi wartości.
-   1. Ustaw **Min, Max, Major and Minor units** dla osi wartości.
-   1. Ustaw **Text Properties** dla danych osi wartości.
-   1. Ustaw **Title** dla osi wartości.
-   1. Ustaw **Line Format** dla osi wartości.
+   1. Ustawienie **Line format** dla głównych linii siatki osi wartości
+   1. Ustawienie **Line format** dla pobocznych linii siatki osi wartości
+   1. Ustawienie **Number Format** dla osi wartości
+   1. Ustawienie **Min, Max, Major and Minor units** dla osi wartości
+   1. Ustawienie **Text Properties** dla danych osi wartości
+   1. Ustawienie **Title** dla osi wartości
+   1. Ustawienie **Line Format** dla osi wartości
 1. Uzyskaj dostęp do osi kategorii wykresu i ustaw następujące właściwości:
-   1. Ustaw **Line format** dla głównych linii siatki osi kategorii.
-   1. Ustaw **Line format** dla pobocznych linii siatki osi kategorii.
-   1. Ustaw **Text Properties** dla danych osi kategorii.
-   1. Ustaw **Title** dla osi kategorii.
-   1. Ustaw **Label Positioning** dla osi kategorii.
-   1. Ustaw **Rotation Angle** dla etykiet osi kategorii.
-1. Uzyskaj dostęp do legendy wykresu i ustaw **Text Properties** dla niej.
-1. Ustaw wyświetlanie legend wykresu bez nakładania się na wykres.
+   1. Ustawienie **Line format** dla głównych linii siatki osi kategorii
+   1. Ustawienie **Line format** dla pobocznych linii siatki osi kategorii
+   1. Ustawienie **Text Properties** dla danych osi kategorii
+   1. Ustawienie **Title** dla osi kategorii
+   1. Ustawienie **Label Positioning** dla osi kategorii
+   1. Ustawienie **Rotation Angle** dla etykiet osi kategorii
+1. Uzyskaj dostęp do legendy wykresu i ustaw **Text Properties** dla niej
+1. Ustaw wyświetlanie legend wykresu bez nakładania się na wykres
 1. Uzyskaj dostęp do **Secondary Value Axis** wykresu i ustaw następujące właściwości:
-   1. Włącz drugorzędną **Value Axis**.
-   1. Ustaw **Line Format** dla drugorzędnej osi wartości.
-   1. Ustaw **Number Format** dla drugorzędnej osi wartości.
-   1. Ustaw **Min, Max, Major and Minor units** dla drugorzędnej osi wartości.
-1. Teraz umieść pierwszą serię wykresu na drugorzędnej osi wartości.
-1. Ustaw wypełnienie tylnej ściany wykresu.
-1. Ustaw wypełnienie obszaru wykresu.
-1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
+   1. Włączenie drugorzędnej **Value Axis**
+   1. Ustawienie **Line Format** dla drugorzędnej osi wartości
+   1. Ustawienie **Number Format** dla drugorzędnej osi wartości
+   1. Ustawienie **Min, Max, Major and Minor units** dla drugorzędnej osi wartości
+1. Narysuj pierwszą serię wykresu na drugorzędnej osi wartości
+1. Ustaw tło tylnej ściany wykresu na wybrany kolor wypełnienia
+1. Ustaw kolor wypełnienia obszaru wykresu
+1. Zapisz zmodyfikowaną prezentację do pliku PPTX
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChartEntities-ChartEntities.cpp" >}}
 
-## **Ustaw właściwości czcionki dla wykresu**
-Aspose.Slides for C++ zapewnia wsparcie w ustawianiu właściwości czcionki dla wykresu. Postępuj zgodnie z poniższymi krokami, aby ustawić właściwości czcionki dla wykresu.
+## **Ustawienie właściwości czcionki dla wykresu**
+Aspose.Slides for C++ zapewnia obsługę ustawiania właściwości czcionki dla wykresu. Postępuj zgodnie z poniższymi krokami, aby ustawić właściwości czcionki wykresu.
 
 - Utwórz obiekt klasy Presentation.
-- Dodaj wykres do slajdu.
+- Dodaj wykres na slajdzie.
 - Ustaw wysokość czcionki.
 - Zapisz zmodyfikowaną prezentację.
 
-Poniżej podano przykładowy kod.
+Poniżej znajduje się przykładowy kod.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontPropertiesForChart-FontPropertiesForChart.cpp" >}}
 
-## **Ustaw właściwości czcionki dla tabeli danych wykresu**
-Aspose.Slides for C++ zapewnia wsparcie w zmianie koloru kategorii w serii.
+## **Ustawienie właściwości czcionki dla tabeli danych wykresu**
+Aspose.Slides for C++ zapewnia obsługę zmiany koloru kategorii w serii.
 
 1. Utwórz obiekt klasy Presentation.
-1. Dodaj wykres do slajdu.
+1. Dodaj wykres na slajdzie.
 1. Ustaw tabelę wykresu.
 1. Ustaw wysokość czcionki.
 1. Zapisz zmodyfikowaną prezentację.
 
-Poniżej podano przykładowy kod.
+Poniżej znajduje się przykładowy kod.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingFontPropertiesForChartDataTable-SettingFontPropertiesForChartDataTable.cpp" >}}
 
-## **Ustaw zaokrąglone krawędzie obszaru wykresu**
-Aspose.Slides for C++ zapewnia wsparcie w ustawianiu obszaru wykresu. Dodano właściwości **IChart.HasRoundedCorners** i **Chart.HasRoundedCorners** w Aspose.Slides.
+## **Ustawienie zaokrąglonych krawędzi obszaru wykresu**
+Aspose.Slides for C++ zapewnia obsługę ustawiania obszaru wykresu. Dodano właściwości **IChart.HasRoundedCorners** i **Chart.HasRoundedCorners** w Aspose.Slides.
 
 1. Utwórz obiekt klasy Presentation.
-1. Dodaj wykres do slajdu.
-1. Ustaw typ wypełnienia i kolor wypełnienia wykresu.
-1. Ustaw właściwość zaokrąglonych rogów na True.
+1. Dodaj wykres na slajdzie.
+1. Ustaw typ wypełnienia i kolor wypełnienia wykresu
+1. Ustaw właściwość zaokrąglonych narożników na wartość True.
 1. Zapisz zmodyfikowaną prezentację.
 
-Poniżej podano przykładowy kod.
+Poniżej znajduje się przykładowy kod.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingChartAreaRoundedBorders-SettingChartAreaRoundedBorders.cpp" >}}
 
-## **Ustaw format liczbowy**
-Aspose.Slides for C++ zapewnia prosty interfejs API do zarządzania formatem danych wykresu:
+## **Ustawienie formatu liczbowego**
+Aspose.Slides for C++ udostępnia prosty interfejs API do zarządzania formatem danych wykresu:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
-1. Uzyskaj referencję do slajdu po jego indeksie.
-1. Dodaj wykres z danymi domyślnymi oraz wybranym typem (w tym przykładzie używamy **ChartType.ClusteredColumn**).
-1. Ustaw wstępny format liczbowy z dostępnych wartości wstępnych.
-1. Przejdź przez komórki danych wykresu w każdej serii i ustaw format liczbowy danych wykresu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+1. Pobierz referencję do slajdu za pośrednictwem jego indeksu.
+1. Dodaj wykres z domyślnymi danymi oraz wybranym typem (w tym przykładzie użyto **ChartType.ClusteredColumn**).
+1. Ustaw wstępny format liczbowy spośród dostępnych wartości wstępnych.
+1. Przejdź przez każdą komórkę danych wykresu w każdej serii i ustaw format liczbowy danych wykresu.
 1. Zapisz prezentację.
 1. Ustaw niestandardowy format liczbowy.
 1. Przejdź przez komórki danych wykresu w każdej serii i ustaw inny format liczbowy danych wykresu.
@@ -115,9 +115,11 @@ Aspose.Slides for C++ zapewnia prosty interfejs API do zarządzania formatem dan
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-NumberFormat-NumberFormat.cpp" >}}
 
-| |**Możliwe wstępnie ustawione wartości formatu liczbowego wraz z ich indeksem i które można używać, podane są poniżej:**|
+| |**Możliwe wstępnie zdefiniowane formaty liczb wraz z ich indeksami**|
 | :- | :- |
+
 |**0**|General|
+| :- | :- |
 |**1**|0|
 |**2**|0.00|
 |**3**|#,##0|
@@ -153,19 +155,20 @@ Aspose.Slides for C++ zapewnia prosty interfejs API do zarządzania formatem dan
 |**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
+
 |||
 | :- | :- |
 
 ## **FAQ**
 
-**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste obramowanie?**
+**Czy mogę ustawić półprzezroczyste wypełnienia kolumn/obszarów, zachowując nieprzezroczyste krawędzie?**
 
-Tak. Przezroczystość wypełnienia i obrys są konfigurowane osobno. Jest to przydatne przy poprawianiu czytelności siatki i danych w gęstych wizualizacjach.
+Tak. Przezroczystość wypełnienia i kontur są konfigurowane osobno. Jest to przydatne do zwiększenia czytelności siatki i danych w gęstych wizualizacjach.
 
-**Jak mogę sobie poradzić z etykietami danych, gdy nakładają się na siebie?**
+**Jak radzić sobie z etykietami danych, gdy zachodzą na siebie?**
 
-Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (na przykład kategorie), ustaw offset/pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub przełącz format na „wartość + legenda”.
+Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (np. kategorie), ustaw offset/pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub przełącz format na „wartość + legenda”.
 
-**Czy mogę zastosować wypełnienia gradientowe lub wzorcowe do serii?**
+**Czy mogę zastosować gradientowe lub wzorcowe wypełnienia w seriach?**
 
-Tak. Zazwyczaj dostępne są zarówno wypełnienia jednorodne, jak i gradientowe/wzorcowe. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które zmniejszają kontrast względem siatki i tekstu.
+Tak. Zarówno jednolite, jak i gradientowe/wzorcowe wypełnienia są zazwyczaj dostępne. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które zmniejszają kontrast względem siatki i tekstu.

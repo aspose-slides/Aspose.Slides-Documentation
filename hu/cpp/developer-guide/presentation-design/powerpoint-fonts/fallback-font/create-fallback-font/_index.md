@@ -1,5 +1,5 @@
 ---
-title: Tartalék betűtípusok meghatározása a prezentációkhoz C++-ban
+title: Tartalék betűtípusok megadása a bemutatókhoz C++-ban
 linktitle: Tartalék betűtípus
 type: docs
 weight: 10
@@ -8,28 +8,28 @@ keywords:
 - tartalék betűtípus
 - tartalék szabály
 - betűtípus alkalmazása
-- betűtípus cseréje
-- Unicode-tartomány
+- betűtípus helyettesítése
+- Unicode tartomány
 - hiányzó glif
 - megfelelő glif
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - C++
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for C++ használatát a tartalék betűtípusok beállításához PPT, PPTX és ODP fájlokban, biztosítva a szöveg egységes megjelenítését minden eszközön és operációs rendszeren."
+description: "Az Aspose.Slides for C++ használatával állíthat be tartalék betűtípusokat PPT, PPTX és ODP fájlokban, biztosítva a szöveg egységes megjelenését minden eszközön vagy operációs rendszeren."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy tartalék betűtípusokat adjon meg a prezentáció renderelése és exportálása során. A tartalék betűtípusokat akkor használja a rendszer, ha az elsődleges betűtípus nem tartalmaz glifeket bizonyos karakterekhez.
+Az Aspose.Slides lehetővé teszi, hogy tartalék betűtípusokat (fallback fonts) adjon meg a bemutató rendereléséhez és exportálási műveleteihez. A tartalék betűtípusokat akkor használja a rendszer, amikor az elsődleges betűtípus nem tartalmaz glyph-eket a konkrét karakterekhez.
 
-A tartalék viselkedés a tartalék szabályok segítségével konfigurálható. Minden szabály egy Unicode-tartományt kapcsol össze egy vagy több betűtípussal, amelyek a szükséges glifeket tartalmazhatják. Definiálhat szabályokat különböző karaktertartományokhoz, hozzáadhat vagy eltávolíthat tartalék betűtípusokat a meglévő szabályokból, és több szabályt szervezhet egy tartalék betűtípus szabálygyűjteményben.
+A tartalék viselkedés a tartalék szabályok (fallback rules) segítségével konfigurálható. Minden szabály egy Unicode-tartományt rendel egy vagy több betűtípushoz, amely tartalmazhatja a szükséges glyph-eket. Definiálhat szabályokat különböző karaktertartományokhoz, hozzáadhat vagy eltávolíthat tartalék betűtípusokat a meglévő szabályokból, illetve több szabályt szervezhet egy tartalék betűtípus szabályok gyűjteményébe.
 
-A tartalék szabályok futásidejű renderelési beállítások. Nem módosítják magát a prezentációfájlt, és nem tárolódnak a PPTX fájlban.
+A tartalék szabályok futás‑időbeli renderelési beállítások. Nem módosítják a bemutató fájlt, és nem tárolódnak a PPTX fájlban.
 
 ## **Tartalék szabályok**
 
-Az Aspose.Slides támogatja az [IFontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontfallbackrule/) interfészt és a [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) osztályt a tartalék betűtípus alkalmazásához szükséges szabályok megadásához. A [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) osztály a megadott Unicode-tartomány – amely a hiányzó glifek keresésére szolgál – és egy betűtípuslistának a megfelelő glifek tartalmazására való kapcsolását jelenti:
+Az Aspose.Slides támogatja a [IFontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontfallbackrule/) interfészt és a [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) osztályt a tartalék betűtípus szabályok meghatározásához. A [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) osztály a megadott Unicode‑tartomány és egy lista a betűtípusokról közötti kapcsolatot reprezentálja, amely a hiányzó glyph‑ek keresésére szolgál, és megfelelő glyph‑eket tartalmazhat:
 
 ``` cpp
 uint32_t startUnicodeIndex = 0x0B80;
@@ -38,38 +38,38 @@ uint32_t endUnicodeIndex = 0x0BFF;
 auto firstRule = MakeObject<FontFallBackRule>(startUnicodeIndex, endUnicodeIndex, u"Vijaya");
 auto secondRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), static_cast<uint32_t>(0x309F), u"MS Mincho, MS Gothic");
 
-// Több módon is hozzáadhat betűtípuslistát:
+// Többféleképpen hozzáadhat betűtípus-listát:
 auto fontNames = MakeArray<String>({ u"Segoe UI Emoji, Segoe UI Symbol", u"Arial" });
 
 auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), static_cast<uint32_t>(0x1F64F), fontNames);
 ```
 
-Az is lehetséges, hogy a [Remove()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontfallbackrule/remove/) függvénnyel eltávolítsa a tartalék betűtípust, vagy a [AddFallBackFonts()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontfallbackrule/addfallbackfonts/) metódussal hozzáadja azt a meglévő [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) objektumhoz.
+Lehetséges a tartalék betűtípus [Remove()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontfallbackrule/remove/) metódusával eltávolítani vagy a [AddFallBackFonts()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifontfallbackrule/addfallbackfonts/) metódussal hozzáadni a meglévő [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) objektumhoz.
 
-A [FontFallBackRulesCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrulescollection/) használható a [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) objektumok listájának szervezésére, ha több Unicode-tartományhoz kell tartalék betűtípus helyettesítési szabályokat megadni.
+A [FontFallBackRulesCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrulescollection/) használható a [FontFallBackRule](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontfallbackrule/) objektumok listájának szervezésére, ha több Unicode‑tartományra szeretne tartalék betűtípus helyettesítési szabályokat meghatározni.
 
 {{% alert color="primary" title="Lásd még" %}} 
-- [Tartalék betűtípusok gyűjteményének létrehozása](/slides/hu/cpp/create-fallback-fonts-collection/)
+- [Create Fallback Fonts Collection](/slides/hu/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **GYIK**
 
-**Mi a különbség a tartalék betűtípus, a betűtípus helyettesítés és a betűtípus beágyazása között?**
+**Mi a különbség a tartalék betűtípus, a betűtípus helyettesítés és a betűtípus beágyazás között?**
 
-A tartalék betűtípust csak akkor használja a rendszer, ha a karakterek hiányoznak az elsődleges betűtípusból. A [betűtípus helyettesítés](/slides/hu/cpp/font-substitution/) az egész megadott betűtípust egy másikra cseréli. A [betűtípus beágyazása](/slides/hu/cpp/embedded-font/) a betűtípusokat az output fájlba csomagolja, így a fogadó fél a szöveget a tervezett módon láthatja.
+A tartalék betűtípust csak a fő betűtípusban hiányzó karakterekhez használja. A [betűtípus helyettesítés](/slides/hu/cpp/font-substitution/) az egész megadott betűtípust egy másikkal cseréli le. A [betűtípus beágyazás](/slides/hu/cpp/embedded-font/) a betűtípusokat a kimeneti fájlba csomagolja, így a címzettek a szöveget a tervezett módon láthatják.
 
-**A tartalék betűtípusok alkalmazva vannak az exportálás során, például PDF, PNG vagy SVG, vagy csak a képernyőn történő renderelésnél?**
+**A tartalék betűtípusok alkalmazásra kerülnek exportáláskor, például PDF, PNG vagy SVG esetén, vagy csak képernyőn történő rendereléskor?**
 
-Igen. A tartalék hatással van minden [renderelési és exportálási műveletre](/slides/hu/cpp/convert-presentation/), ahol a karaktereket meg kell jeleníteni, de a forrás betűtípusban hiányoznak.
+Igen. A tartalék hat az összes [renderelési és exportálási műveletre](/slides/hu/cpp/convert-presentation/), ahol karaktereket kell megjeleníteni, de azok hiányoznak a forrás‑betűtípusból.
 
-**A tartalék beállítása módosítja-e magát a prezentációfájlt, és a beállítás megmarad-e a későbbi megnyitások során?**
+**A tartalék konfigurálása módosítja a bemutató fájlt, és a beállítás megmarad a jövőbeni megnyitásokkor?**
 
-Nem. A tartalék szabályok futásidejű renderelési beállítások a kódban; nem tárolódnak a .pptx fájlban, és nem jelennek meg a PowerPointban.
+Nem. A tartalék szabályok futás‑időbeli renderelési beállítások a kódban; nem kerülnek tárolásra a .pptx fájlban, és nem jelennek meg a PowerPointban.
 
-**Hatással van-e a működési rendszer (Windows/Linux/macOS) és a betűtárkönyvtárak halmaza a tartalék kiválasztására?**
+**Az operációs rendszer (Windows/Linux/macOS) és a betűtípus‑könyvtárak halmaza befolyásolja a tartalék kiválasztását?**
 
-Igen. A motor a rendelkezésre álló rendszerkönyvtárakból és a megadott [további útvonalak](/slides/hu/cpp/custom-font/) közül oldja fel a betűtípusokat. Ha egy betűtípus fizikailag nem érhető el, a rá hivatkozó szabály nem lép hatályba.
+Igen. A motor a rendelkezésre álló rendszerkönyvtárakból és a megadott [további útvonalak](/slides/hu/cpp/custom-font/) közül oldja fel a betűtípusokat. Ha egy betűtípus fizikailag nem áll rendelkezésre, a rá hivatkozó szabály nem lép hatályba.
 
-**A tartalék működik-e a WordArt, a SmartArt és a diagramok esetén?**
+**Működik a tartalék betűtípus WordArt, SmartArt és diagramok esetén is?**
 
-Igen. Amikor ezek az objektumok szöveget tartalmaznak, ugyanaz a glif-helyettesítési mechanizmus kerül alkalmazásra a hiányzó karakterek megjelenítéséhez.
+Igen. Amikor ezek az objektumok szöveget tartalmaznak, ugyanaz a glyph‑helyettesítési mechanizmus alkalmazásra kerül a hiányzó karakterek rendereléséhez.

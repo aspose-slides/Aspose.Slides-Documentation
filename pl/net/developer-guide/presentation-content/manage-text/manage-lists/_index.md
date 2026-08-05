@@ -4,13 +4,15 @@ linktitle: Zarządzaj listami
 type: docs
 weight: 70
 url: /pl/net/manage-lists/
+aliases:
+  - /net/zarzadzaj-listami-punktowanymi-i-numerowanymi/
 keywords:
-- punktor
+- punkt
 - lista punktowana
 - lista numerowana
-- symbol punktora
+- punkt symboliczny
 - punkt graficzny
-- niestandardowy punktor
+- punkt niestandardowy
 - lista wielopoziomowa
 - utwórz punkt
 - dodaj punkt
@@ -21,27 +23,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować listy punktowane, graficzne, wielopoziomowe i numerowane w prezentacjach PowerPoint oraz OpenDocument przy użyciu Aspose.Slides dla .NET."
+description: "Dowiedz się, jak tworzyć i formatować listy punktowane, graficzne, wielopoziomowe oraz numerowane w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET."
 ---
 ## **Przegląd**
 
-Aspose.Slides for .NET umożliwia tworzenie i formatowanie list punktowanych i numerowanych w prezentacjach PowerPoint oraz OpenDocument. Element listy to akapit, którego ustawienia punktora są kontrolowane przez format akapitu.
+Aspose.Slides dla .NET umożliwia tworzenie i formatowanie list wypunktowanych oraz numerowanych w prezentacjach PowerPoint i OpenDocument. Element listy jest akapitem, którego ustawienia punktora są kontrolowane przez formatowanie akapitu.
 
-Użyj właściwości [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/paragraphformat/) aby uzyskać dostęp do ustawień list na poziomie akapitu. Głównym punktem wejścia jest [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/bullet/), który zwraca obiekt [IBulletFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/). Za jego pomocą możesz ustawić typ punktora, symbol, obraz, kolor, rozmiar, styl numeracji oraz numer początkowy.
+Użyj właściwości [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/paragraphformat/) aby uzyskać dostęp do ustawień list na poziomie akapitu. Głównym punktem wejścia jest [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/bullet/), który zwraca obiekt [IBulletFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/). Dzięki temu obiektowi możesz ustawić typ punktora, symbol, obraz, kolor, rozmiar, styl numeracji oraz numer początkowy.
 
 Ten artykuł pokazuje, jak:
 
-- utworzyć listę punktowaną z niestandardowym symbolem
-- utworzyć punkt graficzny
+- utworzyć listę wypunktowaną z własnym symbolem
+- utworzyć punktor graficzny
 - utworzyć listę wielopoziomową ustawiając głębokość akapitu
 - utworzyć listę numerowaną
-- sprawdzić i zmienić formatowanie listy w istniejącej prezentacji
+- przejrzeć i zmienić formatowanie listy w istniejącej prezentacji
 
-## **Utwórz listę punktowaną**
+## **Utworzenie listy wypunktowanej**
 
-Aby utworzyć listę punktowaną, dodaj obiekty [IParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/) do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) i ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Symbol](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/). Następnie możesz ustawić [IBulletFormat.Char](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/color/), oraz [IBulletFormat.Height](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/height/) aby kontrolować wygląd punktora.
+Aby utworzyć listę wypunktowaną, dodaj obiekty [IParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/) do [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) i ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Symbol](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/). Następnie możesz ustawić [IBulletFormat.Char](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/color/) oraz [IBulletFormat.Height](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/height/), aby kontrolować wygląd punktora.
 
-Poniższy kod C# demonstruje, jak utworzyć listę punktowaną na slajdzie:
+Poniższy kod C# demonstruje, jak utworzyć listę wypunktowaną na slajdzie:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -76,11 +78,11 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![Symbole punktów](symbol_bullets.png)
+![Symbole punktorów](symbol_bullets.png)
 
-## **Utwórz listę numerowaną**
+## **Utworzenie listy numerowanej**
 
-Używaj list numerowanych, gdy kolejność elementów ma znaczenie. Ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/). Możesz również wybrać format numeracji przy pomocy [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/numberedbulletstyle/) lub ustawić [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/numberedbulletstartwith/), gdy lista ma zaczynać się od wartości innej niż 1.
+Używaj list numerowanych, gdy kolejność elementów ma znaczenie. Ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/). Możesz także wybrać format numeracji za pomocą [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/numberedbulletstyle/) lub ustawić [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/numberedbulletstartwith/), gdy lista ma zaczynać się od wartości innej niż 1.
 
 Poniższy kod C# pokazuje, jak utworzyć listę numerowaną na slajdzie:
 
@@ -113,23 +115,23 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![Punkty numerowane](numbered_bullets.png)
+![Punktory numerowane](numbered_bullets.png)
 
-## **Utwórz punkt graficzny**
+## **Utworzenie punktora graficznego**
 
-Aspose.Slides pozwala zamienić zwykły symbol punktora na obraz. Punkty graficzne działają najlepiej z prostymi obrazami, które pozostają czytelne w małym rozmiarze, takimi jak ikony lub małe przezroczyste pliki PNG.
+Aspose.Slides pozwala zamienić standardowy symbol punktora na obraz. Punktory graficzne najlepiej działają z prostymi obrazami, które pozostają czytelne przy małym rozmiarze, takimi jak ikony lub małe pliki PNG z przezroczystością.
 
- {{% alert color="primary" %}}
-Idealnie, jeśli planujesz zastąpić zwykły symbol punktora obrazem, najlepiej wybrać prostą grafikę z przezroczystym tłem. Takie obrazy dobrze sprawdzają się jako niestandardowe symbole punktora.
+{{% alert color="primary" %}}
+Idealnie, jeśli planujesz zastąpić standardowy symbol punktora obrazem, najlepiej wybrać prostą grafikę z przezroczystym tłem. Takie obrazy dobrze sprawdzają się jako własne symbole punktorów.
 {{% /alert %}}
 
-Aby utworzyć punkt graficzny, dodaj obraz do [Presentation.Images](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/images/) i przypisz zwrócony obiekt obrazu do [IBulletFormat.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/picture/). Ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/) przed przypisaniem obrazu.
+Aby utworzyć punktor graficzny, dodaj obraz do [Presentation.Images](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/images/) i przypisz zwrócony obiekt obrazu do [IBulletFormat.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/picture/). Ustaw [IBulletFormat.Type](https://reference.aspose.com/slides/pl/net/aspose.slides/ibulletformat/type/) na [BulletType.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/bullettype/) przed przypisaniem obrazu.
 
-Załóżmy, że mamy plik "image.png":
+Załóżmy, że mamy plik „image.png”:
 
-![Obraz dla punktów](picture_for_bullets.png)
+![Obraz dla punktorów](picture_for_bullets.png)
 
-Poniższy kod C# pokazuje, jak utworzyć punkty graficzne na slajdzie:
+Poniższy kod C# pokazuje, jak utworzyć punktory graficzne na slajdzie:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -165,13 +167,13 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![Punkty graficzne](picture_bullets.png)
+![Punktory graficzne](picture_bullets.png)
 
-## **Utwórz listę wielopoziomową**
+## **Utworzenie listy wielopoziomowej**
 
-Użyj [IParagraphFormat.Depth](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/depth/) aby umieścić elementy listy na różnych poziomach. Poziom 0 to najwyższy poziom, poziom 1 jest zagnieżdżony poniżej niego, i tak dalej.
+Użyj [IParagraphFormat.Depth](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/depth/), aby umieścić elementy listy na różnych poziomach. Poziom 0 jest najwyższym poziomem, poziom 1 jest zagnieżdżony pod nim i tak dalej.
 
-Poniższy kod C# pokazuje, jak utworzyć wielopoziomową listę punktowaną:
+Poniższy kod C# pokazuje, jak utworzyć wielopoziomową listę wypunktowaną:
 
 ```csharp
 using var presentation = new Presentation();
@@ -209,9 +211,9 @@ Wynik:
 
 ![Lista wielopoziomowa](multilevel_list.png)
 
-## **Zmień istniejącą listę**
+## **Modyfikacja istniejącej listy**
 
-Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/bullet/). Te same właściwości użyte do tworzenia list mogą być użyte do sprawdzania lub modyfikowania list załadowanych z pliku PPT, PPTX lub ODP.
+Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/bullet/). Te same właściwości używane do tworzenia list można wykorzystać do przeglądania lub modyfikacji list wczytanych z pliku PPT, PPTX lub ODP.
 
 Poniższy kod C# zmienia pierwszy akapit w ramce tekstowej, aby używał stylu listy numerowanej:
 
@@ -233,14 +235,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Czy listy punktowane i numerowane mogą być eksportowane do PDF lub obrazów?**
+**Czy listy wypunktowane i numerowane mogą być eksportowane do PDF lub obrazów?**
 
-Tak. Aspose.Slides zachowuje formatowanie list, gdy format docelowy obsługuje odpowiednie układy tekstu i funkcje punktora.
+Tak. Aspose.Slides zachowuje formatowanie list, gdy format docelowy obsługuje odpowiednie układy tekstu i funkcje punktorów.
 
 **Czy mogę edytować listy w istniejących prezentacjach?**
 
-Tak. Załaduj prezentację, uzyskaj dostęp do docelowego akapitu, sprawdź lub zaktualizuj jego ustawienia [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/bullet/), i zapisz prezentację.
+Tak. Wczytaj prezentację, uzyskaj dostęp do docelowego akapitu, przejrzyj lub zaktualizuj jego ustawienia [IParagraphFormat.Bullet](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/bullet/), a następnie zapisz prezentację.
 
-**Czy listy mogą zawierać tekst niełaciński?**
+**Czy listy mogą zawierać tekst nie łaciński?**
 
-Tak. Tekst elementu listy może zawierać znaki Unicode, dzięki czemu możesz tworzyć listy w wielojęzycznych prezentacjach. Upewnij się, że czcionki użyte w prezentacji obsługują potrzebne znaki.
+Tak. Tekst elementu listy może zawierać znaki Unicode, więc możesz tworzyć listy w wielojęzycznych prezentacjach. Upewnij się, że czcionki użyte w prezentacji obsługują potrzebne znaki.

@@ -1,44 +1,52 @@
 ---
-title: Aspose.Slides لـ Node.js عبر Java
-second_title: Aspose.Slides for Node.js
-description: يوفر Aspose.Slides لـ Node.js عبر Java العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG و PDF والمزيد.
+title: Aspose.Slides for Node.js عبر Java
+second_title: Aspose.Slides لـ Node.js
 type: docs
 weight: 47
 url: /ar/nodejs-java/
+keywords:
+- وثائق
+- معالجة العروض التقديمية
+- تحويل العروض التقديمية
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides هي واجهة برمجة تطبيقات لإدارة Microsoft PowerPoint® تمكن التطبيقات من قراءة وكتابة مستندات PowerPoint® دون استخدام Microsoft PowerPoint®."
 is_root: true
 ---
-
 {{% alert color="primary" %}}
 
-**مرحبًا بك في Aspose.Slides لـ Node.js عبر Java**
+**مرحبًا بكم في Aspose.Slides for Node.js عبر Java**
 
-![شعار منتج Aspose.Slides لـ Node.js عبر Java](aspose_slides-for-nodejs-via-java.png)
+![شعار منتج Aspose.Slides for Node.js عبر Java](aspose_slides-for-nodejs-via-java.png)
 
-Aspose.Slides لـ Node.js عبر Java هي مكتبة فصول تمكّن تطبيقاتك من قراءة وكتابة مستندات PowerPoint® دون استخدام Microsoft PowerPoint®.
+Aspose.Slides for Node.js عبر Java هي مكتبة فئات تتيح لتطبيقاتك قراءة وكتابة مستندات PowerPoint® دون استخدام Microsoft PowerPoint®.
 
-Aspose.Slides لـ Node.js عبر Java هي المكون الأول والوحيد الذي يوفر إمكانية إدارة مستندات PowerPoint®.
+Aspose.Slides for Node.js عبر Java هي أول مكوّن وحيد يوفر الوظيفة لإدارة مستندات PowerPoint®.
 
-يوفر Aspose.Slides لـ Node.js عبر Java العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG و PDF والمزيد.
+Aspose.Slides for Node.js عبر Java توفر الكثير من الميزات الرئيسية مثل إدارة النصوص، الأشكال، الجداول والرسوم المتحركة، إضافة الصوت والفيديو إلى الشرائح، معاينة الشرائح، تصدير الشرائح إلى تنسيق SVG وPDF والمزيد.
 
 {{% /alert %}}
 
-## موارد Aspose.Slides لـ Node.js عبر Java
+## موارد Aspose.Slides for Node.js عبر Java
 
 {{% alert color="primary" %}}
 
-تمت عملية نقل Aspose.Slides لـ Node.js عبر Java من Aspose.Slides لـ Java، لذا يمكنك استخدام توثيق الـ API المرجعي الخاص بالأخير.
+تم تحويل Aspose.Slides for Node.js عبر Java من Aspose.Slides for Java، لذا يمكنك استخدام وثائق الأخيرة ومرجع API.
 
 {{% /alert %}}
 
-هذه روابط لموارد مفيدة:
+هذه روابط إلى موارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Node.js عبر Java](/slides/ar/java/developer-guide/)
-- [ميزات Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/features-overview/)
-- [القيود واختلافات API لـ Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/limitations-and-api-differences/)
-- [ملاحظات الإصدار لـ Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/release-notes/)
-- [صفحة منتج Aspose.Slides لـ Node.js عبر Java](https://products.aspose.com/slides/nodejs-java/)
-- [تحميل حزمة Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/)
-- [تثبيت Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/installation/)
-- [مرجع API لـ Aspose.Slides لـ Node.js عبر Java](https://reference.aspose.com/slides/nodejs-java/)
-- [منتدى الدعم المجاني لـ Aspose.Slides لـ Node.js عبر Java](https://forum.aspose.com/c/slides/11)
-- [مكتب دعم الدفع لـ Aspose.Slides لـ Node.js عبر Java](https://helpdesk.aspose.com/)
+- [توثيق Aspose.Slides for Node.js عبر Java على الإنترنت](/slides/ar/nodejs-java/developer-guide/)
+- [ميزات Aspose.Slides for Node.js عبر Java](/slides/ar/nodejs-java/features-overview/)
+- [قيود Aspose.Slides for Node.js عبر Java واختلافات API](/slides/ar/nodejs-java/limitations-and-api-differences/)
+- [ملاحظات إصدار Aspose.Slides for Node.js عبر Java](https://releases.aspose.com/slides/ar/nodejs-java/release-notes/)
+- [صفحة منتج Aspose.Slides for Node.js عبر Java](https://products.aspose.com/slides/ar/nodejs-java/)
+- [تنزيل حزمة Aspose.Slides for Node.js عبر Java](https://releases.aspose.com/slides/ar/nodejs-java/)
+- [تثبيت Aspose.Slides for Node.js عبر Java](/slides/ar/nodejs-java/installation/)
+- [مرجع API لـ Aspose.Slides for Node.js عبر Java](https://reference.aspose.com/slides/ar/nodejs-java/)
+- [منتدى الدعم المجاني لـ Aspose.Slides for Node.js عبر Java](https://forum.aspose.com/c/slides/ar/)
+- [مكتب المساعدة للدعم المدفوع لـ Aspose.Slides for Node.js عبر Java](https://helpdesk.aspose.com/)

@@ -1,10 +1,10 @@
 ---
-title: Kelola Label Data Diagram dalam Presentasi Menggunakan С++
+title: Kelola Label Data Grafik dalam Presentasi Menggunakan C++
 linktitle: Label Data
 type: docs
 url: /id/cpp/chart-data-label/
 keywords:
-- diagram
+- grafik
 - label data
 - presisi data
 - persentase
@@ -12,32 +12,32 @@ keywords:
 - lokasi label
 - PowerPoint
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk С++ untuk slide yang lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++ agar slide lebih menarik."
 ---
-## **Pendahuluan**
+## **Introduction**
 
-Label data pada diagram menampilkan detail tentang serangkaian data diagram atau titik data individu. Mereka memungkinkan pembaca dengan cepat mengidentifikasi serangkaian data dan juga membuat diagram lebih mudah dipahami.
+Label data pada grafik menampilkan detail tentang seri data grafik atau titik data individu. Label ini memungkinkan pembaca dengan cepat mengidentifikasi seri data dan juga membuat grafik lebih mudah dipahami.
 
-## **Atur Presisi Data pada Label Data Diagram**
+## **Set Data Precision in Chart Data Labels**
 
-Kode C++ berikut menunjukkan cara mengatur presisi data pada label data diagram:
+Kode C++ berikut menunjukkan cara mengatur presisi data pada label data grafik:
 
 ```c++
 	// Jalur ke direktori dokumen
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
-	// Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang merepresentasikan file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Mengambil slide pertama
+	// Mendapatkan slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Menambahkan diagram dengan data default
+	// Menambahkan chart dengan data default
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Mengatur format angka seri
+	// Mengatur format nomor seri
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
@@ -45,9 +45,9 @@ Kode C++ berikut menunjukkan cara mengatur presisi data pada label data diagram:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Tampilkan Persentase sebagai Label**
+## **Display Percentages as Labels**
 
-Aspose.Slides untuk C++ memungkinkan Anda mengatur label persentase pada diagram yang ditampilkan. Kode C++ berikut mendemonstrasikan operasi tersebut:
+Aspose.Slides for C++ memungkinkan Anda menampilkan label persentase pada grafik yang ditampilkan. Kode C++ berikut mendemonstrasikan operasinya:
 
 ```c++
 	// Jalur ke direktori dokumen
@@ -95,28 +95,30 @@ Aspose.Slides untuk C++ memungkinkan Anda mengatur label persentase pada diagram
 			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
 			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
 			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+
 		}
+
 	}
 
-	// Menyimpan presentasi yang berisi diagram
+	// Menyimpan presentasi yang berisi chart
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Atur Tanda Persentase dengan Label Data Diagram**
+## **Set the Percentage Sign with Chart Data Labels**
 
-Kode C++ berikut menunjukkan cara mengatur tanda persentase untuk label data diagram:
+Kode C++ berikut menunjukkan cara mengatur tanda persentase untuk label data grafik:
 
 ```c++
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
-	// Membuat instance kelas Presentation
+	// Membuat instance dari kelas Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Mendapatkan referensi slide melalui indeksnya
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Membuat diagram PercentsStackedColumn pada slide
+	// Membuat chart PercentsStackedColumn pada slide
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
 	// Mengatur NumberFormatLinkedToSource menjadi false
@@ -124,10 +126,10 @@ Kode C++ berikut menunjukkan cara mengatur tanda persentase untuk label data dia
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
 
-	// Mengatur indeks lembar data diagram
+	// Mengatur indeks lembar data chart
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan lembar kerja data diagram
+	// Mendapatkan worksheet data chart
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -139,7 +141,7 @@ Kode C++ berikut menunjukkan cara mengatur tanda persentase untuk label data dia
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
 
-	// Mengambil seri diagram pertama
+	// Mengambil seri chart pertama
 	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
 	// Mengisi data seri
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
@@ -160,7 +162,7 @@ Kode C++ berikut menunjukkan cara mengatur tanda persentase untuk label data dia
 	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// Mengambil seri diagram kedua
+	// Mengambil seri chart kedua
 	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
 	// Mengisi data seri
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
@@ -185,9 +187,9 @@ Kode C++ berikut menunjukkan cara mengatur tanda persentase untuk label data dia
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Atur Jarak Label dari Sumbu**
+## **Set Label Distance from Axis**
 
-Kode C++ berikut menunjukkan cara mengatur jarak label dari sumbu kategori ketika Anda bekerja dengan diagram yang dipetakan dari sumbu:
+Kode C++ berikut menunjukkan cara mengatur jarak label dari sumbu kategori ketika Anda menangani grafik yang dipetakan dari sumbu:
 
 ```c++
 	// Jalur ke direktori dokumen
@@ -199,11 +201,11 @@ Kode C++ berikut menunjukkan cara mengatur jarak label dari sumbu kategori ketik
 	// Mendapatkan referensi slide
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Membuat diagram pada slide
+	// Membuat chart pada slide
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Mendapatkan koleksi seri diagram
+	// Mendapatkan koleksi seri chart
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
 	// Mengatur jarak label dari sumbu
@@ -213,11 +215,11 @@ Kode C++ berikut menunjukkan cara mengatur jarak label dari sumbu kategori ketik
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Sesuaikan Lokasi Label**
+## **Adjust Label Location**
 
-Saat Anda membuat diagram yang tidak bergantung pada sumbu apa pun seperti diagram pai, label data diagram dapat berakhir terlalu dekat dengan tepinya. Dalam kasus seperti itu, Anda harus menyesuaikan lokasi label data sehingga garis penghubung ditampilkan dengan jelas.
+Saat Anda membuat grafik yang tidak bergantung pada sumbu apa pun seperti diagram lingkaran, label data grafik dapat berakhir terlalu dekat dengan tepinya. Dalam kasus seperti itu, Anda harus menyesuaikan lokasi label data sehingga garis penunjuk ditampilkan dengan jelas.
 
-Kode C++ berikut menunjukkan cara menyesuaikan lokasi label pada diagram pai:
+Kode C++ berikut menunjukkan cara menyesuaikan lokasi label pada diagram lingkaran:
 
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -240,14 +242,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Bagaimana cara mencegah label data saling tumpang tindih pada diagram yang padat?**
+**How can I prevent data labels from overlapping on dense charts?**
 
-Gabungkan penempatan label otomatis, garis penghubung, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk titik ekstrem/kunci.
+Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang diperkecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk titik ekstrem/kunci.
 
-**Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
+**How can I disable labels only for zero, negative, or empty values?**
 
-Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditetapkan.
 
-**Bagaimana cara memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
+**How can I ensure a consistent label style when exporting to PDF/images?**
 
-Tetapkan font secara eksplisit (famili, ukuran) dan verifikasi bahwa font tersedia di sisi rendering untuk menghindari fallback.
+Tetapkan font secara eksplisit (keluarga, ukuran) dan pastikan font tersedia di sisi rendering untuk menghindari fallback.

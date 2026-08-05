@@ -4,161 +4,165 @@ linktitle: Text extrahieren
 type: docs
 weight: 90
 url: /de/net/extract-text-from-presentation/
+aliases:
+  - /net/slides-on-cloud-platforms/extracting-text/overview/
+  - /net/slides-on-cloud-platforms/extracting-text/slides/de/
 keywords:
-- Text extrahieren
-- Text aus Folie extrahieren
-- Text aus Präsentation extrahieren
-- Text aus PowerPoint extrahieren
-- Text aus OpenDocument extrahieren
-- Text aus PPT extrahieren
-- Text aus PPTX extrahieren
-- Text aus ODP extrahieren
-- Text abrufen
-- Text aus Folie abrufen
-- Text aus Präsentation abrufen
-- Text aus PowerPoint abrufen
-- Text aus OpenDocument abrufen
-- Text aus PPT abrufen
-- Text aus PPTX abrufen
-- Text aus ODP abrufen
-- PowerPoint
-- OpenDocument
-- Präsentation
-- .NET
-- C#
-- Aspose.Slides
-description: "Extrahieren Sie schnell Text aus PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET. Folgen Sie unserer einfachen Schritt‑für‑Schritt‑Anleitung, um Zeit zu sparen."
+  - Text extrahieren
+  - Text aus Folie extrahieren
+  - Text aus Präsentation extrahieren
+  - Text aus PowerPoint extrahieren
+  - Text aus OpenDocument extrahieren
+  - Text aus PPT extrahieren
+  - Text aus PPTX extrahieren
+  - Text aus ODP extrahieren
+  - Text abrufen
+  - Text aus Folie abrufen
+  - Text aus Präsentation abrufen
+  - Text aus PowerPoint abrufen
+  - Text aus OpenDocument abrufen
+  - Text aus PPT abrufen
+  - Text aus PPTX abrufen
+  - Text aus ODP abrufen
+  - PowerPoint
+  - OpenDocument
+  - Präsentation
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Extrahieren Sie schnell Text aus PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET. Folgen Sie unserer einfachen Schritt-für-Schritt-Anleitung, um Zeit zu sparen."
 ---
-
 ## **Übersicht**
 
-Das Extrahieren von Text aus Präsentationen ist eine häufige, aber dennoch wesentliche Aufgabe für Entwickler, die mit Folieninhalten arbeiten. Egal, ob Sie mit Microsoft PowerPoint‑Dateien im PPT‑ oder PPTX‑Format oder mit OpenDocument‑Präsentationen (ODP) zu tun haben, der Zugriff auf und das Abrufen von Textdaten kann für Analysen, Automatisierung, Indexierung oder Inhaltsmigration entscheidend sein.
+Das Extrahieren von Text aus Präsentationen ist eine verbreitete, aber wesentliche Aufgabe für Entwickler, die mit Folieninhalten arbeiten. Egal, ob Sie mit Microsoft PowerPoint‑Dateien im PPT‑ oder PPTX‑Format oder mit OpenDocument‑Präsentationen (ODP) zu tun haben – der Zugriff auf und das Abrufen von Textdaten kann für Analyse, Automatisierung, Indizierung oder die Migration von Inhalten entscheidend sein.
 
-Dieser Artikel bietet eine umfassende Anleitung, wie Sie Text effizient aus verschiedenen Präsentationsformaten, einschließlich PPT, PPTX und ODP, mit Aspose.Slides für .NET extrahieren können. Sie lernen, wie Sie systematisch durch Präsentationselemente iterieren, um den benötigten Textinhalt exakt zu erhalten.
+Dieser Artikel bietet eine umfassende Anleitung, wie Sie Text effizient aus verschiedenen Präsentationsformaten – einschließlich PPT, PPTX und ODP – mithilfe von Aspose.Slides für .NET extrahieren können. Sie lernen, wie Sie systematisch durch Präsentationselemente iterieren, um den benötigten Textinhalt exakt zu erhalten.
 
 ## **Text aus einer Folie extrahieren**
 
-Aspose.Slides für .NET stellt den Namespace [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/) bereit, der die Klasse [SlideUtil](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/) enthält. Diese Klasse bietet mehrere überladene statische Methoden zum Extrahieren von Text aus einer Präsentation oder Folie. Um Text aus einer Folie einer Präsentation zu extrahieren, verwenden Sie die Methode [GetAllTextBoxes](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/getalltextboxes/). Diese Methode nimmt ein Objekt vom Typ [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) als Parameter entgegen. Bei Ausführung scannt die Methode die gesamte Folie nach Text und gibt ein Array von Objekten des Typs [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) zurück, wobei sämtliche Textformatierungen erhalten bleiben.
+Aspose.Slides für .NET stellt den Namespace [Aspose.Slides.Util](https://reference.aspose.com/slides/de/net/aspose.slides.util/) bereit, der die Klasse [SlideUtil](https://reference.aspose.com/slides/de/net/aspose.slides.util/slideutil/) enthält. Diese Klasse bietet mehrere überladene statische Methoden zum Extrahieren des gesamten Textes aus einer Präsentation oder Folie. Um Text aus einer Folie einer Präsentation zu extrahieren, verwenden Sie die Methode [GetAllTextBoxes](https://reference.aspose.com/slides/de/net/aspose.slides.util/slideutil/getalltextboxes/). Diese Methode akzeptiert ein Objekt vom Typ [IBaseSlide](https://reference.aspose.com/slides/de/net/aspose.slides/ibaseslide/) als Parameter. Beim Aufruf scannt die Methode die gesamte Folie nach Text und gibt ein Array von Objekten des Typs [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) zurück, wobei sämtliche Textformatierungen erhalten bleiben.
 
-Der folgende Codeausschnitt extrahiert den gesamten Text aus der ersten Folie der Präsentation:
+Das folgende Code‑Snippet extrahiert den gesamten Text aus der ersten Folie der Präsentation:
+
 ```cs
 int slideIndex = 0;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
-using Presentation presentation = new Presentation("demo.pptx");
+using var presentation = new Presentation("demo.pptx");
 
-// Holen Sie eine Referenz zur Folie.
-ISlide slide = presentation.Slides[slideIndex];
+var slide = presentation.Slides[slideIndex];
 
-// Holen Sie ein Array von Text-Frames von der Folie.
-ITextFrame[] textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextBoxes(slide);
+var textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextBoxes(slide);
 
-// Durchlaufen Sie das Array der Text-Frames.
-for (int i = 0; i < textFrames.Length; i++)
+foreach (var textFrame in textFrames)
 {
-    // Durchlaufen Sie die Absätze im aktuellen Text-Frame.
-    foreach (IParagraph paragraph in textFrames[i].Paragraphs)
+    foreach (var paragraph in textFrame.Paragraphs)
     {
-        // Durchlaufen Sie die Textteile im aktuellen Absatz.
-        foreach (IPortion portion in paragraph.Portions)
+        foreach (var portion in paragraph.Portions)
         {
-            // Geben Sie den Text im aktuellen Textteil aus.
-            Console.WriteLine(portion.Text);
+            var portionText = portion.Text;
+            Console.WriteLine(portionText);
 
-            // Geben Sie die Schriftgröße des Textes aus.
-            Console.WriteLine(portion.PortionFormat.FontHeight);
+            var portionFormat = portion.PortionFormat;
+            var fontHeight = portionFormat.FontHeight;
+            Console.WriteLine(fontHeight);
 
-            // Geben Sie den Schriftartnamen des Textes aus.
-            if (portion.PortionFormat.LatinFont != null)
-                Console.WriteLine(portion.PortionFormat.LatinFont.FontName);
+            var latinFont = portionFormat.LatinFont;
+            if (latinFont != null)
+            {
+                var fontName = latinFont.FontName;
+                Console.WriteLine(fontName);
+            }
         }
     }
 }
 ```
-
 
 ## **Text aus einer Präsentation extrahieren**
 
-Um Text aus der gesamten Präsentation zu scannen, verwenden Sie die statische Methode [GetAllTextFrames](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/getalltextframes/) der Klasse [SlideUtil](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/). Sie akzeptiert zwei Parameter:
+Um Text aus der gesamten Präsentation zu erfassen, verwenden Sie die statische Methode [GetAllTextFrames](https://reference.aspose.com/slides/de/net/aspose.slides.util/slideutil/getalltextframes/) der Klasse [SlideUtil](https://reference.aspose.com/slides/de/net/aspose.slides.util/slideutil/). Sie akzeptiert zwei Parameter:
 
-1. Zunächst ein [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)-Objekt, das eine PowerPoint‑ oder OpenDocument‑Präsentation darstellt, aus der Text extrahiert werden soll.
-2. Zweitens ein `Boolean`‑Wert, der angibt, ob die Master‑Folien beim Scannen des Textes aus der Präsentation einbezogen werden sollen.
+1. Zunächst ein Objekt vom Typ [IPresentation](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentation/), das eine PowerPoint‑ oder OpenDocument‑Präsentation darstellt, aus der der Text extrahiert werden soll.
+1. Zweitens ein `Boolean`‑Wert, der angibt, ob die Master‑Folien beim Durchsuchen der Präsentation einbezogen werden sollen.
 
-Die Methode gibt ein Array von Objekten des Typs [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) zurück, einschließlich Informationen zur Textformatierung. Der nachstehende Code scannt den Text und die Formatierungsdetails einer Präsentation, einschließlich der Master‑Folien.
+Die Methode liefert ein Array von Objekten des Typs [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/), einschließlich Informationen zur Textformatierung. Der nachfolgende Code scannt den Text und die Formatierungsdetails einer Präsentation, einschließlich der Master‑Folien.
+
 ```cs
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
-using Presentation presentation = new Presentation("demo.pptx");
+using var presentation = new Presentation("demo.pptx");
 
-// Holen Sie ein Array von Text-Frames aus allen Folien in der Präsentation.
-ITextFrame[] textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(presentation, true);
+var includeMasterSlides = true;
+var textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(presentation, includeMasterSlides);
 
-// Durchlaufen Sie das Array der Text-Frames.
-for (int i = 0; i < textFrames.Length; i++)
+foreach (var textFrame in textFrames)
 {
-    // Durchlaufen Sie die Absätze im aktuellen Text-Frame.
-    foreach (IParagraph paragraph in textFrames[i].Paragraphs)
+    foreach (var paragraph in textFrame.Paragraphs)
     {
-        // Durchlaufen Sie die Textteile im aktuellen Absatz.
-        foreach (IPortion portion in paragraph.Portions)
+        foreach (var portion in paragraph.Portions)
         {
-            // Geben Sie den Text im aktuellen Textteil aus.
-            Console.WriteLine(portion.Text);
+            var portionText = portion.Text;
+            Console.WriteLine(portionText);
 
-            // Geben Sie die Schriftgröße des Textes aus.
-            Console.WriteLine(portion.PortionFormat.FontHeight);
+            var portionFormat = portion.PortionFormat;
+            var fontHeight = portionFormat.FontHeight;
+            Console.WriteLine(fontHeight);
 
-            // Geben Sie den Schriftartnamen des Textes aus.
-            if (portion.PortionFormat.LatinFont != null)
-                Console.WriteLine(portion.PortionFormat.LatinFont.FontName);
+            var latinFont = portionFormat.LatinFont;
+            if (latinFont != null)
+            {
+                var fontName = latinFont.FontName;
+                Console.WriteLine(fontName);
+            }
         }
     }
 }
 ```
 
-
 ## **Kategorisierte und schnelle Textextraktion**
 
-Die Klasse [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/) bietet ebenfalls statische Methoden zum Extrahieren des gesamten Textes aus Präsentationen:
+Die Klasse [PresentationFactory](https://reference.aspose.com/slides/de/net/aspose.slides/presentationfactory/) bietet ebenfalls Methoden zum Extrahieren des gesamten Textes aus Präsentationen:
+
 ``` cs
 IPresentationText GetPresentationText(string file, TextExtractionArrangingMode mode);
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode);
 IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode, ILoadOptions options);
 ```
 
-
-Das Aufzählungsargument [TextExtractionArrangingMode](https://reference.aspose.com/slides/net/aspose.slides/textextractionarrangingmode/) gibt den Modus für die Anordnung des Textextraktionsergebnisses an und kann auf die folgenden Werte gesetzt werden:
-- `Unarranged` – Der Rohtext ohne Rücksicht auf seine Position auf der Folie.
+Das Enum‑Argument [TextExtractionArrangingMode](https://reference.aspose.com/slides/de/net/aspose.slides/textextractionarrangingmode/) gibt den Modus für die Anordnung des Textextraktions‑Ergebnisses an und kann auf die folgenden Werte gesetzt werden:
+- `Unarranged` – Der Rohtext, ohne Rücksicht auf seine Position auf der Folie.
 - `Arranged` – Der Text wird in derselben Reihenfolge angeordnet wie auf der Folie.
 
-Der Modus **Unarranged** kann verwendet werden, wenn Geschwindigkeit entscheidend ist; er ist schneller als der Modus **Arranged**.
+Der Modus *Unarranged* kann verwendet werden, wenn Geschwindigkeit entscheidend ist; er ist schneller als der Modus *Arranged*.
 
-[IPresentationText](https://reference.aspose.com/slides/net/aspose.slides/ipresentationtext/) repräsentiert den aus der Präsentation extrahierten Rohtext. Es enthält die Eigenschaft [SlidesText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/) aus dem Namespace [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/), die ein Array von Objekten des Typs [ISlideText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/) zurückgibt. Jedes Objekt stellt den Text der entsprechenden Folie dar. Das Objekt vom Typ [ISlideText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/) verfügt über die folgenden Eigenschaften:
+[IPresentationText](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationtext/) repräsentiert den rohen, aus der Präsentation extrahierten Text. Seine Eigenschaft `SlidesText` gibt ein Array von Objekten des Typs [ISlideText](https://reference.aspose.com/slides/de/net/aspose.slides/islidetext/) zurück. Jedes Objekt repräsentiert den Text auf der jeweiligen Folie. Das Objekt vom Typ [ISlideText](https://reference.aspose.com/slides/de/net/aspose.slides/islidetext/) besitzt die folgenden Eigenschaften:
 
-- `Text` – Der Text in den Formen der Folie.
-- `MasterText` – Der Text in den Formen der Master‑Folie, die mit dieser Folie verknüpft ist.
-- `LayoutText` – Der Text in den Formen der Layout‑Folie, die mit dieser Folie verknüpft ist.
-- `NotesText` – Der Text in den Formen der Notizfolie, die mit dieser Folie verknüpft ist.
-- `CommentsText` – Der Text in den Kommentaren, die zu dieser Folie gehören.
+- `Text` – Der Text innerhalb der Formen der Folie.
+- `MasterText` – Der Text innerhalb der Formen der Master‑Folie, die dieser Folie zugeordnet ist.
+- `LayoutText` – Der Text innerhalb der Formen der Layout‑Folie, die dieser Folie zugeordnet ist.
+- `NotesText` – Der Text innerhalb der Formen der Notiz‑Folie, die dieser Folie zugeordnet ist.
+- `CommentsText` – Der Text innerhalb von Kommentaren, die dieser Folie zugeordnet sind.
+
 ```cs
-IPresentationText text = new PresentationFactory().GetPresentationText("presentation.ppt", TextExtractionArrangingMode.Unarranged);
-Console.WriteLine(text.SlidesText[0].Text);
-Console.WriteLine(text.SlidesText[0].LayoutText);
-Console.WriteLine(text.SlidesText[0].MasterText);
-Console.WriteLine(text.SlidesText[0].NotesText);
-Console.WriteLine(text.SlidesText[0].CommentsText);
-```
+var presentationPath = "presentation.ppt";
+var arrangingMode = TextExtractionArrangingMode.Unarranged;
+var presentationText = PresentationFactory.Instance.GetPresentationText(presentationPath, arrangingMode);
+var firstSlideText = presentationText.SlidesText[0];
 
+Console.WriteLine(firstSlideText.Text);
+Console.WriteLine(firstSlideText.LayoutText);
+Console.WriteLine(firstSlideText.MasterText);
+Console.WriteLine(firstSlideText.NotesText);
+Console.WriteLine(firstSlideText.CommentsText);
+```
 
 ## **FAQ**
 
 **Wie schnell verarbeitet Aspose.Slides große Präsentationen bei der Textextraktion?**
 
-Aspose.Slides ist für hohe Leistung optimiert und verarbeitet selbst große Präsentationen effizient, wodurch es sich für Echtzeit‑ oder Massenverarbeitungs‑Szenarien eignet.
+Aspose.Slides ist für hohe Leistung optimiert und kann selbst [große Präsentationen](/slides/de/net/open-presentation/) verarbeiten, sodass es sich für Echtzeit‑ oder Batch‑Verarbeitungsszenarien eignet.
 
 **Kann Aspose.Slides Text aus Tabellen und Diagrammen innerhalb von Präsentationen extrahieren?**
 
-Ja, Aspose.Slides unterstützt das vollständige Extrahieren von Text aus Tabellen, Diagrammen und anderen komplexen Folienelementen, sodass Sie sämtlichen Textinhalt leicht zugänglich machen und analysieren können.
+Ja. Aspose.Slides kann Text aus vielen Folienelementen extrahieren, einschließlich Tabellen und diagrammbezogenen Objekten, sodass Sie auf textuelle Inhalte gängiger Präsentationsstrukturen zugreifen und diese analysieren können.
 
 **Benötige ich eine spezielle Aspose.Slides‑Lizenz, um Text aus Präsentationen zu extrahieren?**
 
-Sie können Text mit der kostenlosen Testversion von Aspose.Slides extrahieren, wobei jedoch bestimmte Einschränkungen gelten, z. B. die Verarbeitung nur einer begrenzten Anzahl von Folien. Für uneingeschränkte Nutzung und die Bearbeitung größerer Präsentationen wird der Kauf einer Voll‑Lizenz empfohlen.
+Sie können Text mit der kostenlosen Testversion von Aspose.Slides extrahieren, allerdings gibt es [bestimmte Einschränkungen](/slides/de/net/licensing/), etwa die Verarbeitung nur einer begrenzten Anzahl von Folien. Für uneingeschränkte Nutzung und zum Umgang mit größeren Präsentationen wird der Kauf einer Voll‑Lizenz empfohlen.

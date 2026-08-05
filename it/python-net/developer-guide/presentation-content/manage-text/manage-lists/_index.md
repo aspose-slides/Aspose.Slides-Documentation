@@ -4,43 +4,45 @@ linktitle: Gestisci elenchi
 type: docs
 weight: 70
 url: /it/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
-- puntatore
+- punto
 - elenco puntato
 - elenco numerato
-- puntatore simbolo
-- puntatore immagine
-- puntatore personalizzato
+- punto simbolo
+- punto immagine
+- punto personalizzato
 - elenco a più livelli
-- crea puntatore
-- aggiungi puntatore
+- crea punto
+- aggiungi punto
 - aggiungi elenco
 - PowerPoint
 - OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Scopri come creare e formattare elenchi puntati, con immagini, a più livelli e numerati in presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Python tramite .NET."
+description: "Scopri come creare e formattare elenchi puntati, con immagine, a più livelli e numerati in presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Python tramite .NET."
 ---
 ## **Panoramica**
 
-Aspose.Slides per Python tramite .NET consente di creare e formattare elenchi puntati e numerati in presentazioni PowerPoint e OpenDocument. Un elemento di elenco è un paragrafo le cui impostazioni di punteggio sono controllate tramite il suo formato di paragrafo.
+Aspose.Slides per Python tramite .NET consente di creare e formattare elenchi puntati e numerati in presentazioni PowerPoint e OpenDocument. Un elemento dell'elenco è un paragrafo le cui impostazioni del punto elenco sono controllate tramite il formato del paragrafo.
 
-Utilizza la proprietà [Paragraph.paragraph_format](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/paragraph_format/) per accedere alle impostazioni di elenco a livello di paragrafo. Il punto di ingresso principale è [ParagraphFormat.bullet](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/bullet/), che restituisce un oggetto [BulletFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/). Con questo oggetto è possibile impostare il tipo di puntatore, il simbolo, l'immagine, il colore, la dimensione, lo stile di numerazione e il numero iniziale.
+Utilizza la proprietà [Paragraph.paragraph_format](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/paragraph_format/) per accedere alle impostazioni dell'elenco a livello di paragrafo. Il punto di ingresso principale è [ParagraphFormat.bullet](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/bullet/), che restituisce un oggetto [BulletFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/). Con questo oggetto, è possibile impostare il tipo di punto elenco, il simbolo, l'immagine, il colore, le dimensioni, lo stile di numerazione e il numero iniziale.
 
 Questo articolo mostra come:
 
 - creare un elenco puntato con un simbolo personalizzato
-- creare un puntatore immagine
-- creare un elenco multlivello impostando la profondità del paragrafo
+- creare un punto elenco immagine
+- creare un elenco a più livelli impostando la profondità del paragrafo
 - creare un elenco numerato
 - esaminare e modificare la formattazione dell'elenco in una presentazione esistente
 
-## **Creare un elenco puntato**
+## **Crea un elenco puntato**
 
-Per creare un elenco puntato, aggiungi oggetti [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) a un [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) e imposta [BulletFormat.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/type/) su [BulletType.SYMBOL](https://reference.aspose.com/slides/it/python-net/aspose.slides/bullettype/). Puoi quindi impostare [BulletFormat.char](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/color/), e [BulletFormat.height](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/height/) per controllare l'aspetto del puntatore.
+Per creare un elenco puntato, aggiungi oggetti [Paragraph](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraph/) a un [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) e imposta [BulletFormat.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/type/) a [BulletType.SYMBOL](https://reference.aspose.com/slides/it/python-net/aspose.slides/bullettype/). È quindi possibile impostare [BulletFormat.char](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/color/), e [BulletFormat.height](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/height/) per controllare l'aspetto del punto elenco.
 
-Il seguente codice Python dimostra come creare un elenco puntato in una diapositiva:
+Il seguente codice Python mostra come creare un elenco puntato in una diapositiva:
 
 ```py
 import aspose.slides as slides
@@ -76,11 +78,11 @@ with slides.Presentation() as presentation:
 
 Il risultato:
 
-![I simboli puntati](symbol_bullets.png)
+![I simboli dei punti](symbol_bullets.png)
 
-## **Creare un elenco numerato**
+## **Crea un elenco numerato**
 
-Utilizza gli elenchi numerati quando l'ordine degli elementi è importante. Imposta [BulletFormat.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/type/) su [BulletType.NUMBERED](https://reference.aspose.com/slides/it/python-net/aspose.slides/bullettype/). Puoi anche scegliere un formato di numerazione con [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/numbered_bullet_style/) oppure impostare [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) quando l'elenco deve iniziare da un valore diverso da 1.
+Utilizza gli elenchi numerati quando l'ordine degli elementi è importante. Imposta [BulletFormat.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/type/) a [BulletType.NUMBERED](https://reference.aspose.com/slides/it/python-net/aspose.slides/bullettype/). È inoltre possibile scegliere un formato di numerazione con [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/numbered_bullet_style/) o impostare [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) quando l'elenco deve iniziare da un valore diverso da 1.
 
 Il seguente codice Python mostra come creare un elenco numerato in una diapositiva:
 
@@ -114,23 +116,25 @@ with slides.Presentation() as presentation:
 
 Il risultato:
 
-![I puntatori numerati](numbered_bullets.png)
+![I punti numerati](numbered_bullets.png)
 
-## **Creare un puntatore immagine**
+## **Crea un punto elenco immagine**
 
-Aspose.Slides consente di sostituire un simbolo di puntatore normale con un'immagine. I puntatori immagine funzionano al meglio con immagini semplici che rimangono leggibili a dimensioni ridotte, come icone o piccoli file PNG trasparenti.
+Aspose.Slides permette di sostituire un simbolo di punto elenco standard con un'immagine. I punti elenco immagine funzionano meglio con immagini semplici che rimangono leggibili a piccole dimensioni, come icone o piccoli file PNG trasparenti.
 
 {{% alert color="primary" %}}
-Idealmente, se prevedi di sostituire il simbolo di puntatore normale con un'immagine, è consigliabile scegliere una grafica semplice con sfondo trasparente. Tale immagine funziona bene come simbolo di puntatore personalizzato.
+Ideale, se prevedi di sostituire il simbolo di punto elenco standard con un'immagine, è consigliabile scegliere una grafica semplice con uno sfondo trasparente. Tali immagini funzionano bene come simboli di punto elenco personalizzati.
+
+Tieni presente che l'immagine verrà ridotta a una dimensione molto piccola. Per questo motivo, consigliamo vivamente di selezionare un'immagine che rimanga chiara ed efficace visivamente quando viene utilizzata come punto elenco in un elenco.
 {{% /alert %}}
 
-Per creare un puntatore immagine, aggiungi un'immagine a [Presentation.images](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/images/) e assegna l'oggetto immagine restituito a [BulletFormat.picture](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/picture/). Imposta [BulletFormat.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/type/) su [BulletType.PICTURE](https://reference.aspose.com/slides/it/python-net/aspose.slides/bullettype/) prima di assegnare l'immagine.
+Per creare un punto elenco immagine, aggiungi un'immagine a [Presentation.images](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/images/) e assegna l'oggetto immagine restituito a [BulletFormat.picture](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/picture/). Imposta [BulletFormat.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/bulletformat/type/) a [BulletType.PICTURE](https://reference.aspose.com/slides/it/python-net/aspose.slides/bullettype/) prima di assegnare l'immagine.
 
 Supponiamo di avere un "image.png":
 
-![Un'immagine per i puntatori](picture_for_bullets.png)
+![Un'immagine per i punti](picture_for_bullets.png)
 
-Il seguente codice Python mostra come creare puntatori immagine in una diapositiva:
+Il seguente codice Python mostra come creare punti elenco immagine in una diapositiva:
 
 ```py
 import aspose.slides as slides
@@ -166,13 +170,13 @@ with slides.Presentation() as presentation:
 
 Il risultato:
 
-![I puntatori immagine](picture_bullets.png)
+![I punti immagine](picture_bullets.png)
 
-## **Creare un elenco multlivello**
+## **Crea un elenco a più livelli**
 
-Utilizza [ParagraphFormat.depth](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/depth/) per posizionare gli elementi dell'elenco su livelli diversi. Il livello 0 è il livello più alto, il livello 1 è annidato al di sotto, e così via.
+Utilizza [ParagraphFormat.depth](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/depth/) per posizionare gli elementi dell'elenco su livelli diversi. Il livello 0 è il livello superiore, il livello 1 è nidificato al di sotto, e così via.
 
-Il seguente codice Python mostra come creare un elenco puntato multlivello:
+Il seguente codice Python mostra come creare un elenco puntato a più livelli:
 
 ```py
 import aspose.slides as slides
@@ -209,11 +213,11 @@ with slides.Presentation() as presentation:
 
 Il risultato:
 
-![L'elenco multlivello](multilevel_list.png)
+![L'elenco a più livelli](multilevel_list.png)
 
-## **Modificare un elenco esistente**
+## **Modifica un elenco esistente**
 
-Per modificare la formattazione di un elenco in una presentazione esistente, accedi al paragrafo di destinazione e aggiorna le sue impostazioni [ParagraphFormat.bullet](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/bullet/). Le stesse proprietà utilizzate per creare gli elenchi possono essere usate per ispezionare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
+Per modificare la formattazione di un elenco in una presentazione esistente, accedi al paragrafo di destinazione e aggiorna le sue impostazioni [ParagraphFormat.bullet](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/bullet/). Le stesse proprietà utilizzate per creare gli elenchi possono essere utilizzate per esaminare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
 
 Il seguente codice Python modifica il primo paragrafo in un text frame per utilizzare uno stile di elenco numerato:
 
@@ -236,13 +240,13 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **FAQ**
 
-**È possibile esportare elenchi puntati e numerati in PDF o immagini?**
+**È possibile esportare gli elenchi puntati e numerati in PDF o immagini?**
 
-Sì. Aspose.Slides conserva la formattazione degli elenchi quando il formato di destinazione supporta il layout di testo corrispondente e le funzionalità dei puntatori.
+Sì. Aspose.Slides conserva la formattazione degli elenchi quando il formato di destinazione supporta la disposizione del testo e le funzionalità di punto elenco corrispondenti.
 
-**Posso modificare gli elenchi in presentazioni esistenti?**
+**Posso modificare gli elenchi nelle presentazioni esistenti?**
 
-Sì. Carica la presentazione, accedi al paragrafo di destinazione, ispeziona o aggiorna le sue impostazioni [ParagraphFormat.bullet](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/bullet/), e salva la presentazione.
+Sì. Carica la presentazione, accedi al paragrafo di destinazione, esamina o aggiorna le sue impostazioni [ParagraphFormat.bullet](https://reference.aspose.com/slides/it/python-net/aspose.slides/paragraphformat/bullet/), e salva la presentazione.
 
 **Gli elenchi possono contenere testo non latino?**
 

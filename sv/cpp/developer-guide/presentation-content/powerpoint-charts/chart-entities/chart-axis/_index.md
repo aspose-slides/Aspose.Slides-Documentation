@@ -1,5 +1,5 @@
 ---
-title: Anpassa diagramaxlar i presentationer med C++
+title: Använda C++ för att anpassa diagramaxlar i presentationer
 linktitle: Diagramaxel
 type: docs
 url: /sv/cpp/chart-axis/
@@ -23,24 +23,25 @@ keywords:
 - Aspose.Slides
 description: "Upptäck hur du använder Aspose.Slides för C++ för att anpassa diagramaxlar i PowerPoint-presentationer för rapporter och visualiseringar."
 ---
-## **Översikt**
+## **Overview**
 
-Denna artikel förklarar hur du anpassar diagramaxlar i Aspose.Slides. Den visar hur du hämtar faktiska axelvärden, byter data mellan axlar, döljer den vertikala eller horisontella axeln för linjediagram, ändrar kategorialeltyp, anger datumformat för kategorialelvärden, roterar en axeltitel, anger axelpositionen och visar en enhetsetikett på värdeaxeln.
+Den här artikeln förklarar hur du anpassar diagramaxi i Aspose.Slides. Den visar hur du hämtar faktiska axelvärden, byter data mellan axlar, döljer den vertikala eller horisontella axeln för linjediagram, ändrar kategoriaxelns typ, anger datumformatet för kategoriaxelvärden, roterar en axeltitel, ställer in axelns position och visar en enhetsetikett på värdeaxeln.
 
-## **Hämta maxvärdena på den vertikala axeln**
-Aspose.Slides för C++ låter dig hämta minsta och största värden på en vertikal axel. Följ dessa steg:
+## **Get the Max Values on the Vertical Axis**
+
+Aspose.Slides för C++ låter dig hämta de minsta och största värdena på en vertikal axel. Följ dessa steg:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
-2. Öppna den första bilden.
-3. Lägg till ett diagram med standarddata.
-4. Hämta det faktiska maximala värdet på axeln.
-5. Hämta det faktiska minsta värdet på axeln.
-6. Hämta den faktiska huvudenheten för axeln.
-7. Hämta den faktiska delenheten för axeln.
-8. Hämta den faktiska skalan för huvudenheten på axeln.
-9. Hämta den faktiska skalan för delenheten på axeln.
+1. Öppna den första bilden.
+1. Lägg till ett diagram med standarddata.
+1. Hämta det faktiska maximivärdet på axeln.
+1. Hämta det faktiska minimivärdet på axeln.
+1. Hämta den faktiska huvudenheten för axeln.
+1. Hämta den faktiska delenheten för axeln.
+1. Hämta den faktiska huvudenhetsskalan för axeln.
+1. Hämta den faktiska delenhetsskalan för axeln.
 
-Denna exempelkod – en implementation av stegen ovan – visar hur du hämtar de nödvändiga värdena i C++:
+Denna exempel­kod—en implementering av stegen ovan—visar hur du hämtar de nödvändiga värdena i C++:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -60,10 +61,11 @@ double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Byt data mellan axlarna**
-Aspose.Slides låter dig snabbt byta data mellan axlar – data som visas på den vertikala axeln (y‑axeln) flyttas till den horisontella axeln (x‑axeln) och vice versa. 
+## **Swap the Data between Axes**
 
-Denna C++‑kod visar hur du utför datautbytesuppgiften mellan axlar i ett diagram:
+Aspose.Slides låter dig snabbt byta data mellan axlarna—data som visas på den vertikala axeln (y‑axeln) flyttas till den horisontella axeln (x‑axeln) och vice versa.
+
+Denna C++‑kod visar hur du utför data­bytet mellan axlar i ett diagram:
 
 ``` cpp
 // Skapar tom presentation
@@ -78,7 +80,7 @@ chart->get_ChartData()->SwitchRowColumn();
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Inaktivera den vertikala axeln för linjediagram**
+## **Disable the Vertical Axis for Line Charts**
 
 Denna C++‑kod visar hur du döljer den vertikala axeln för ett linjediagram:
 
@@ -91,7 +93,7 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Inaktivera den horisontella axeln för linjediagram**
+## **Disable the Horizontal Axis for Line Charts**
 
 Denna kod visar hur du döljer den horisontella axeln för ett linjediagram:
 
@@ -104,9 +106,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-## **Ändra en kategorialel**
+## **Change a Category Axis**
 
-Med metoden **set_CategoryAxisType()** kan du ange din föredragna kategorialeltyp (**date** eller **text**). Denna C++‑kod demonstrerar operationen: 
+Genom att använda metoden **set_CategoryAxisType()** kan du ange önskad kategoriaxeltyp (**date** eller **text**). Denna kod i C++ demonstrerar operationen: 
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
@@ -121,8 +123,9 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ange datumformat för kategorialelvärden**
-Aspose.Slides för C++ låter dig ange datumformat för ett kategorialelvärde. Operationen demonstreras i denna C++‑kod:
+## **Set the Date Format for Category Axis Values**
+
+Aspose.Slides för C++ låter dig ange datumformatet för ett kategoriaxelvärde. Operationen demonstreras i denna C++‑kod:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -155,7 +158,8 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Ange rotationsvinkeln för en axeltitel**
+## **Set the Rotation Angle for an Axis Title**
+
 Aspose.Slides för C++ låter dig ange rotationsvinkeln för en diagramaxeltitel. Denna C++‑kod demonstrerar operationen:
 
 ``` cpp
@@ -169,8 +173,9 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-## **Ange axelpositionen på en kategori‑ eller värdeaxel**
-Aspose.Slides för C++ låter dig ange positionsaxeln i en kategori‑ eller värdeaxel. Denna C++‑kod visar hur uppgiften utförs:
+## **Set the Axis Position on a Category or Value Axis**
+
+Aspose.Slides för C++ låter dig ange positionsaxeln i en kategori- eller värdeaxel. Denna C++‑kod visar hur du utför uppgiften:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
@@ -181,7 +186,8 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Aktivera visning av enhetsetikett på ett diagramvärdeaxel**
+## **Enable the Display Unit Label on a Chart Value Axis**
+
 Aspose.Slides för C++ låter dig konfigurera ett diagram så att det visar en enhetsetikett på dess värdeaxel. Denna C++‑kod demonstrerar operationen:
 
 ``` cpp
@@ -197,8 +203,8 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 **Hur anger jag värdet där en axel korsar den andra (axelkorsning)?**
 
-Axlar erbjuder en [crossing setting](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/axis/set_crosstype/): du kan välja att korsa vid noll, vid den maximala kategorin/värdet eller vid ett specifikt numeriskt värde. Detta är användbart för att flytta X‑axeln upp eller ner eller för att betona en referenslinje.
+Axlar erbjuder en [crossing setting](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/axis/set_crosstype/): du kan välja att korsa vid noll, vid den maximala kategorin/värdet eller vid ett specifikt numeriskt värde. Detta är användbart för att flytta X‑axeln upp eller ner eller för att framhäva en referenslinje.
 
-**Hur kan jag placera tick‑etiketter relativt till axeln (bredvid, utanför, innanför)?**
+**Hur kan jag placera tickenetiketter i förhållande till axeln (intill, ute, inne)?**
 
 Ställ in [label position](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/axis/set_majortickmark/) till "cross", "outside" eller "inside". Detta påverkar läsbarheten och hjälper till att spara utrymme, särskilt i små diagram.

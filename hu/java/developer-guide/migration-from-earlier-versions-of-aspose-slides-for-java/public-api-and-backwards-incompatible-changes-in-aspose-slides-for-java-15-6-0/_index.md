@@ -1,9 +1,11 @@
 ---
-title: "Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 15.6.0-ban"
-linktitle: "Aspose.Slides for Java 15.6.0"
+title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 15.6.0‑ban
+linktitle: Aspose.Slides for Java 15.6.0
 type: docs
 weight: 140
 url: /hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/
+aliases:
+  - /java/aspose-slides-for-java-15-6-0-release-notes/
 keywords:
 - migráció
 - régi kód
@@ -15,20 +17,23 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és töréspontokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Nézze át a nyilvános API frissítéseket és a visszafelé nem kompatibilis változásokat az Aspose.Slides for Java-ban, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
 {{% alert color="primary" %}} 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) osztályt, metódust, tulajdonságot stb., az új korlátozásokat és egyéb [változásokat](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) az Aspose.Slides for Java 15.6.0 API-val.
+
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) osztályt, metódust, tulajdonságot stb., valamint az új korlátozásokat és egyéb [változásokat](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) a Aspose.Slides for Java 15.6.0 API-val együtt.
+
 {{% /alert %}} 
 ## **Nyilvános API változások**
 #### **A com.aspose.slides.DataLabel konstruktor aláírása megváltozott**
-A konstruktor aláírása megváltozott a DataLabel(com.aspose.slides.IChartSeries)-ról a DataLabel(com.aspose.slides.IChartDataPoint)-ra.
-#### **A com.aspose.slides.IDocumentProperties.getCount(), .getPropertyName(int index)., .remove(String name), .contains(String name) tagok elavulttá lettek nyilvánítva; helyettesítőket vezettek be helyettük**
-Az IDocumentProperties.getCount(), IDocumentProperties.getPropertyName(int index), .remove(string name) és .contains(string name) metódusok elavulttá lettek nyilvánítva. Helyettük bevezetésre kerültek az IDocumentProperties.countOfCustomProperties(), IDocumentProperties.getCustomPropertyName(int index), .removeCustomProperty(String name) és .containsCustomProperty(string name) metódusok.
+A konstruktor aláírása megváltozott a DataLabel(com.aspose.slides.IChartSeries) és a DataLabel(com.aspose.slides.IChartDataPoint) között.
+#### **A com.aspose.slides.IDocumentProperties.getCount(), .getPropertyName(int index)., .remove(String name), .contains(String name) tagok elavulttá lettek jelölve; helyettesítők lettek bevezetve helyette**
+Az IDocumentProperties.getCount(), IDocumentProperties.getPropertyName(int index)., .remove(string name) és .contains(string name) metódusok elavulttá lettek jelölve. Helyette be lettek vezetve az IDocumentProperties.countOfCustomProperties(), IDocumentProperties.getCustomPropertyName(int index)., .removeCustomProperty(String name) és .containsCustomProperty(string name) metódusok.
 #### **A com.aspose.slides.INotesSlideManager.removeNotesSlide() metódus hozzá lett adva**
-A com.aspose.slides.INotesSlideManager.RemoveNotesSlide() metódus hozzá lett adva egy dia jegyzetdiájának eltávolításához.
-#### **A com.aspose.slides.ISlide.getNotesSlideManager() metódus hozzá lett adva. Az ISlide.getNotesSlide() és ISlide.addNotesSlide() metódusok elavulttá lettek nyilvánítva**
-Az ISlide.getNotesSlide() és ISlide.addNotesSlide() metódusok elavulttá lettek nyilvánítva. Helyette használja az új ISSlide.getNotesSlideManager() metódust.
+A com.aspose.slides.INotesSlideManager.RemoveNotesSlide() metódus hozzá lett adva egy dia jegyzetdia eltávolításához.
+#### **A com.aspose.slides.ISlide.getNotesSlideManager() metódus hozzá lett adva. Az ISlide.getNotesSlide() és ISlide.addNotesSlide() metódusok elavulttá lettek jelölve**
+Az ISlide.getNotesSlide() és ISlide.addNotesSlide() metódusok elavulttá lettek jelölve. Helyette használja az új ISlide.getNotesSlideManager() metódust.
+
 ``` java
 
  ISlide slide = ...;
@@ -46,30 +51,31 @@ notes = slide.getNotesSlideManager().addNotesSlide();
 slide.getNotesSlideManager().removeNotesSlide();
 
 ```
-#### **A getAppVersion() metódus hozzá lett adva a com.aspose.slides.IDocumentProperties-hez**
-A com.aspose.slides.IDocumentProperties.getAppVersion() metódus hozzá lett adva a beépített dokumentumtulajdonság lekéréséhez, amely a Microsoft PowerPoint által használt belső verziószámokat reprezentálja.
-#### **A remove() metódus hozzá lett adva a com.aspose.slides.IComment-hoz**
-A com.aspose.slides.IComment.remove() metódus hozzá lett adva a megjegyzés a gyűjteményből történő eltávolításához.
-#### **A remove() metódus hozzá lett adva a com.aspose.slides.ICommentAuthor-hoz**
-Az ICommentAuthor.Remove metódus hozzá lett adva a megjegyzések szerzőjének a gyűjteményből történő eltávolításához.
-#### **A clearCustomProperties() és a clearBuiltInProperties() metódusok hozzá lettek adva a com.aspose.slides.IDocumentProperties-hez**
+#### **A getAppVersion() metódus hozzá lett adva a com.aspose.slides.IDocumentProperties osztályhoz**
+A com.aspose.slides.IDocumentProperties.getAppVersion() metódus hozzá lett adva a beépített dokumentum tulajdonság lekéréséhez, amely a Microsoft PowerPoint által használt belső verziószámokat képviseli.
+#### **A remove() metódus hozzá lett adva a com.aspose.slides.IComment osztályhoz**
+A com.aspose.slides.IComment.remove() metódus hozzá lett adva a megjegyzés a gyűjteményből való eltávolításához.
+#### **A remove() metódus hozzá lett adva a com.aspose.slides.ICommentAuthor osztályhoz**
+Az ICommentAuthor.Remove metódus hozzá lett adva a megjegyzések szerzőjének a gyűjteményből való eltávolításához.
+#### **A clearCustomProperties() és a clearBuiltInProperties() metódusok hozzá lettek adva a com.aspose.slides.IDocumentProperties osztályhoz**
 A com.aspose.slides.IDocumentProperties.clearCustomProperties() metódus hozzá lett adva az összes egyéni dokumentumtulajdonság eltávolításához.
 A com.aspose.slides.IDocumentProperties.clearBuiltInProperties() metódus hozzá lett adva az összes beépített dokumentumtulajdonság (Company, Subject, Author stb.) eltávolításához és alapértelmezett értékek beállításához.
-#### **A getBlackWhiteMode() és a setBlackWhiteMode(byte) metódusok hozzá lettek adva a com.aspose.slides.IShape-hoz**
-A getBlackWhiteMode(), a setBlackWhiteMode(byte) metódusok hozzá lettek adva a com.aspose.slides.IShape-hoz. A metódusok meghatározzák, hogy egy alakzat hogyan jelenik meg fekete-fehér megjelenítési módban. A lehetséges értékek a com.aspose.slides.BlackWhiteMode osztályban vannak definiálva.
+#### **A getBlackWhiteMode() és a setBlackWhiteMode(byte) metódusok hozzá lettek adva a com.aspose.slides.IShape osztályhoz**
+A getBlackWhiteMode() és a setBlackWhiteMode(byte) metódusok hozzá lettek adva a com.aspose.slides.IShape osztályhoz.
+A metódusok meghatározzák, hogyan jelenik meg egy alakzat fekete-fehér megjelenítési módban. A lehetséges értékek a com.aspose.slides.BlackWhiteMode osztályban vannak meghatározva.
 
-|**Érték**|**Jelentés**|
+|**Érték** |**Jelentés** |
 | :- | :- |
-|Color|Visszaadja a normál színezést|
-|Automatic|Visszaadja az automatikus színezést|
-|Gray|Visszaadja a szürke színezést|
-|LightGray|Visszaadja a világosszürke színezést|
-|InverseGray|Visszaadja az inverz szürke színezést|
-|GrayWhite|Visszaadja a szürke és fehér színezést|
-|BlackGray|Visszaadja a fekete és szürke színezést|
-|BlackWhite|Visszaadja a fekete és fehér színezést|
-|Black|Csak fekete színezést ad vissza|
-|White|Fehér színezést ad vissza|
-|Hidden|Az objektum nem jelenik meg|
-#### **A removeAt(int), a remove(ICommentAuthor) és a clear() metódusok hozzá lettek adva a com.aspose.slides.ICommentAuthorCollection-hoz**
-A ICommentAuthorCollection.removeAt(int) metódus hozzá lett adva a megadott indexű szerző eltávolításához. A ICommentAuthorCollection.remove(ICommentAuthor) metódus hozzá lett adva a megadott szerző a gyűjteményből történő eltávolításához. A ICommentAuthorCollection.clear() metódus hozzá lett adva a gyűjtemény összes elemének eltávolításához.
+|Color |Visszatér normál színezéssel |
+|Automatic |Visszatér automatikus színezéssel |
+|Gray |Visszatér szürke színezéssel |
+|LightGray |Visszatér világosszürke színezéssel |
+|InverseGray |Visszatér invertált szürke színezéssel |
+|GrayWhite |Visszatér szürke és fehér színezéssel |
+|BlackGray |Visszatér fekete és szürke színezéssel |
+|BlackWhite |Visszatér fekete és fehér színezéssel |
+|Black |Visszatér csak fekete színezéssel |
+|White |Visszatér fehér színezéssel |
+|Hidden |Az objektum nem kerül renderelésre |
+#### **A removeAt(int), remove(ICommentAuthor) és a clear() metódusok hozzá lettek adva a com.aspose.slides.ICommentAuthorCollection osztályhoz**
+Az ICommentAuthorCollection.removeAt(int) metódus hozzá lett adva a szerző adott index alapján történő eltávolításához. Az ICommentAuthorCollection.remove(ICommentAuthor) metódus hozzá lett adva a megadott szerző a gyűjteményből való eltávolításához. Az ICommentAuthorCollection.clear() metódus hozzá lett adva az összes elem a gyűjteményből való eltávolításához.

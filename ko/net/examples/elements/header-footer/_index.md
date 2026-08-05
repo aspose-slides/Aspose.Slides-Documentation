@@ -1,8 +1,10 @@
 ---
-title: 헤더 및 바닥글
+title: 머리글 바닥글
 type: docs
 weight: 220
 url: /ko/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - 헤더 바닥글
 - 헤더 바닥글 추가
@@ -14,9 +16,9 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET을 사용하여 슬라이드 헤더와 바닥글을 제어합니다: C# 예제를 통해 PPT, PPTX 및 ODP에서 날짜, 슬라이드 번호 및 사용자 지정 텍스트를 추가합니다."
+description: "Aspose.Slides for .NET을 사용하여 슬라이드 머리글 및 바닥글을 제어합니다: PPT, PPTX 및 ODP에서 날짜, 슬라이드 번호 및 사용자 지정 텍스트를 C# 예제로 추가합니다."
 ---
-이 문서에서는 **Aspose.Slides for .NET**을 사용하여 바닥글을 추가하고 날짜 및 시간 자리 표시자를 업데이트하는 방법을 보여줍니다.
+이 문서는 **Aspose.Slides for .NET**을(를) 사용하여 바닥글을 추가하고 날짜 및 시간 자리 표시자를 업데이트하는 방법을 보여줍니다.
 
 ## **바닥글 추가**
 

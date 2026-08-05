@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides para .NET
-second_title: "Documentação do Aspose.Slides"
+second_title: Aspose.Slides para .NET
 type: docs
 weight: 10
 url: /pt/net/
@@ -13,7 +13,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET é uma API de gerenciamento do Microsoft PowerPoint® que permite que aplicações .NET leiam e escrevam documentos PowerPoint® sem usar o Microsoft PowerPoint®.
+description: Aspose.Slides para .NET é uma API de gerenciamento do Microsoft PowerPoint® que permite que aplicações .NET leiam e escrevam documentos PowerPoint® sem usar o Microsoft PowerPoint®.
 is_root: true
 ---
 {{% alert color="primary" %}}
@@ -24,9 +24,9 @@ is_root: true
 
 Aspose.Slides for .NET é uma API de gerenciamento do Microsoft PowerPoint® que permite que aplicações .NET leiam e escrevam documentos PowerPoint® sem usar o Microsoft PowerPoint®.
 
-Aspose.Slides for .NET é o primeiro e único componente que fornece as funcionalidades necessárias para gerenciar documentos PowerPoint®.
+Aspose.Slides for .NET é o primeiro e único componente que oferece as funcionalidades necessárias para gerenciar documentos PowerPoint®.
 
-Aspose.Slides for .NET oferece muitos recursos principais, como gerenciamento de texto, formas, tabelas e animações, adição de áudio e vídeo aos slides, visualização de slides, exportação de slides para SVG, PDF e diferentes formatos, além de muitas outras capacidades.
+Aspose.Slides for .NET oferece muitos recursos principais, como gerenciamento de texto, formas, tabelas e animações, adição de áudio e vídeo aos slides, visualização de slides, exportação de slides para SVG, PDF e diferentes formatos, e muitas outras capacidades.
 
 {{% /alert %}}
 

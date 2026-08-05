@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides untuk C++
-second_title: Dokumentasi Aspose.Slides
+second_title: Aspose.Slides untuk C++
 type: docs
 weight: 30
 url: /id/cpp/
@@ -12,22 +12,22 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: Aspose.Slides untuk C++ adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi C++ membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®.
+description: Aspose.Slides untuk C++ adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi C++ untuk membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®.
 is_root: true
 ---
 {{% alert color="primary" %}}
 
-![Logo Produk Aspose.Slides untuk C++](home_1.png)
+![Aspose.Slides for C++ Product Logo](home_1.png)
 
 **Selamat datang di Aspose.Slides untuk C++**
 
-Aspose.Slides for C++ adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi C++ membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®. Aspose.Slides for C++ merupakan komponen pertama dan satu-satunya yang menyediakan fungsi untuk mengelola dokumen PowerPoint®. Aspose.Slides for C++ menyediakan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio dan video ke slide, meninjau slide, mengekspor slide ke format SVG, PDF, dan lainnya.
+Aspose.Slides for C++ adalah API manajemen Microsoft PowerPoint® yang memungkinkan aplikasi C++ untuk membaca dan menulis dokumen PowerPoint® tanpa menggunakan Microsoft PowerPoint®. Aspose.Slides for C++ adalah komponen pertama dan satu-satunya yang menyediakan fungsionalitas untuk mengelola dokumen PowerPoint®. Aspose.Slides for C++ menyediakan banyak fitur utama seperti mengelola teks, bentuk, tabel & animasi, menambahkan audio dan video ke slide, meninjau slide, mengekspor slide ke format SVG, PDF, dan lainnya.
 
 {{% /alert %}}
 
-## **Aspose.Slides untuk C++ Sumber Daya**
+## **Sumber Daya Aspose.Slides untuk C++**
 
-Berikut adalah tautan ke sumber daya yang berguna:
+Berikut ini adalah tautan ke sumber daya yang berguna:
 
 - [Dokumentasi Online Aspose.Slides untuk C++](/slides/id/cpp/)
 - [Fitur Aspose.Slides untuk C++](/slides/id/cpp/features-overview/)

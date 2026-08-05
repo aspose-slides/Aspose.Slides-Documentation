@@ -1,11 +1,11 @@
 ---
-title: "Hantera diagramdataserier i presentationer med C++"
-linktitle: "Dataserier"
+title: Hantera diagramdataserier i presentationer med C++
+linktitle: Dataserier
 type: docs
 url: /sv/cpp/chart-series/
 keywords:
 - diagramserier
-- serieöverlappning
+- seriers överlappning
 - seriefärg
 - kategorifärg
 - serienamn
@@ -19,25 +19,25 @@ description: "Lär dig hur du hanterar diagramserier i C++ för PowerPoint (PPT/
 ---
 ## **Översikt**
 
-Denna artikel beskriver rollen för [ChartSeries](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartseries/) i Aspose.Slides, med fokus på hur data struktureras och visualiseras i presentationer. Dessa objekt tillhandahåller de grundläggande elementen som definierar individuella uppsättningar av datapunkter, kategorier och utseendeparametrar i ett diagram. Genom att arbeta med [ChartSeries](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartseries/), kan utvecklare sömlöst integrera underliggande datakällor och upprätthålla full kontroll över hur information visas, vilket resulterar i dynamiska, datadrivna presentationer som tydligt förmedlar insikter och analyser.
+Denna artikel beskriver rollen för [ChartSeries](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartseries/) i Aspose.Slides och fokuserar på hur data struktureras och visualiseras i presentationer. Dessa objekt tillhandahåller de grundläggande elementen som definierar enskilda uppsättningar av datapunkter, kategorier och utseendeparametrar i ett diagram. Genom att arbeta med [ChartSeries](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartseries/) kan utvecklare sömlöst integrera underliggande datakällor och behålla full kontroll över hur information visas, vilket resulterar i dynamiska, datadrivna presentationer som tydligt förmedlar insikter och analyser.
 
-En serie är en rad eller kolumn med siffror som plottas i ett diagram.
+En serie är en rad eller kolumn med tal som plottas i ett diagram.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Ange överlappning för dataserier**
+## **Ange överlappning för dataserien**
 
-Med metoden [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) kan du ange hur mycket staplar och kolumner ska överlappa i ett 2D-diagram (intervallet: -100 till 100). Denna egenskap gäller för alla serier i den överordnade seriegruppen: det är en projektion av den motsvarande gruppens egenskap.
+Med metoden [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) kan du specificera hur mycket staplar och kolumner ska överlappa i ett 2D-diagram (intervall: -100 till 100). Denna egenskap gäller för alla serier i den överordnade seriesgruppen: detta är en projektion av den lämpliga gruppens egenskap.
 
 Använd metoden `get_ParentSeriesGroup()::set_Overlap()` för att ange ditt föredragna värde för `Overlap`.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
-1. Lägg till ett grupperat kolumndiagram på en bild.
-1. Få åtkomst till den första diagramserien.
-1. Hämta diagramseriens `ParentSeriesGroup` och ange ditt föredragna överlappningsvärde för serien.
+1. Lägg till ett grupperat stapeldiagram på en bild.
+1. Åtkomst till den första diagramserien.
+1. Åtkomst till diagramseriens `ParentSeriesGroup` och ange ditt föredragna överlappningsvärde för serien.
 1. Skriv den modifierade presentationen till en PPTX-fil.
 
-Denna C++-kod visar hur du ställer in överlappning för en diagramserie:
+This C++ code shows you how to set the overlap for a chart series:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -48,7 +48,7 @@ auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
 {
-    // Ställer in seriernas överlappning
+    // Sätter seriers överlappning
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
@@ -58,15 +58,15 @@ presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 
 ## **Ändra färg på dataserie**
 
-Aspose.Slides för C++ låter dig ändra en seriefärg på följande sätt:
+Aspose.Slides för C++ låter dig ändra en series färg på följande sätt:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
 1. Lägg till ett diagram på bilden.
-1. Hämta den serie vars färg du vill ändra.
-1. Ange önskad fyllningstyp och fyllningsfärg.
+1. Åtkomst till den serie vars färg du vill ändra.
+1. Ange din föredragna fyllningstyp och fyllningsfärg.
 1. Spara den modifierade presentationen.
 
-Denna C++-kod visar hur du ändrar en seriefärg:
+Denna C++-kod visar hur du ändrar en series färg:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -84,15 +84,15 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **Ändra färg på en kategori i dataserie**
 
-Aspose.Slides för C++ låter dig ändra en seriekategori vars färg på följande sätt:
+Aspose.Slides för C++ låter dig ändra färgen på en seriekategori på följande sätt:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
 1. Lägg till ett diagram på bilden.
-1. Hämta den seriekategori vars färg du vill ändra.
-1. Ange önskad fyllningstyp och fyllningsfärg.
+1. Åtkomst till den seriekategori vars färg du vill ändra.
+1. Ange din föredragna fyllningstyp och fyllningsfärg.
 1. Spara den modifierade presentationen.
 
-Denna C++-kod visar hur du ändrar färg på en seriekategori:
+Denna C++-kod visar hur du ändrar en seriekategori färg:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -106,18 +106,18 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Ändra namn på dataserie** 
+## **Ändra namnet på dataserien**
 
-Som standard är legendnamnen för ett diagram innehållet i cellerna ovanför varje kolumn eller rad med data. 
+Som standard är legendnamnen för ett diagram innehållet i cellerna ovanför varje kolumn eller rad med data.
 
-I vårt exempel (exempelbild), 
+I vårt exempel (exempelbild),
 
 * kolumnerna är *Series 1, Series 2,* och *Series 3*;
-* raderna är *Category 1, Category 2, Category 3,* och *Category 4.* 
+* raderna är *Category 1, Category 2, Category 3,* och *Category 4.*
 
-Aspose.Slides för C++ låter dig uppdatera eller ändra ett serienamn i dess diagramdata och legend. 
+Aspose.Slides för C++ låter dig uppdatera eller ändra ett serienamn i dess diagramdata och legend.
 
-Denna C++-kod visar hur du ändrar ett serienamn i dess diagramdata `ChartDataWorkbook`:
+Denna C++-kod visar hur du ändrar en series namn i dess diagramdata `ChartDataWorkbook`:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -144,26 +144,24 @@ auto name = series->get_Name();
 name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 ```
 
-## **Ange fyllningsfärg för dataserie**
+## **Ange fyllningsfärgen för dataserie**
 
 Aspose.Slides för C++ låter dig ange den automatiska fyllningsfärgen för diagramserier i ett plotområde på följande sätt:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
 1. Hämta en bilds referens via dess index.
 1. Lägg till ett diagram med standarddata baserat på din föredragna typ (i exemplet nedan använde vi `ChartType::ClusteredColumn`).
-1. Hämta diagramserien och sätt fyllningsfärgen till Automatic.
+1. Åtkomst till diagramserien och ange fyllningsfärgen till Automatic.
 1. Spara presentationen till en PPTX-fil.
-
-Denna C++-kod visar hur du sätter den automatiska fyllningsfärgen för en diagramserie:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// Skapar ett grupperat kolumndiagram
+// Skapar ett grupperat stapeldiagram
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
 
-// Ställer in seriernas fyllningsformat till automatiskt
+// Ställer in seriens fyllningsformat till automatiskt
 for (const auto& series : chart->get_ChartData()->get_Series())
 {
     series->GetAutomaticSeriesColor();
@@ -173,17 +171,15 @@ for (const auto& series : chart->get_ChartData()->get_Series())
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ställ in inverterade fyllningsfärger för dataserier**
+## **Ange inverterad fyllningsfärg för dataserie**
 
 Aspose.Slides låter dig ange inverterad fyllningsfärg för diagramserier i ett plotområde på följande sätt:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
 1. Hämta en bilds referens via dess index.
 1. Lägg till ett diagram med standarddata baserat på din föredragna typ (i exemplet nedan använde vi `ChartType::ClusteredColumn`).
-1. Hämta diagramserien och sätt fyllningsfärgen till invert.
+1. Åtkomst till diagramserien och ange fyllningsfärgen till invert.
 1. Spara presentationen till en PPTX-fil.
-
-Denna C++-kod demonstrerar operationen:
 
 ```cpp
 Color inverColor = Color::get_Red();
@@ -217,11 +213,9 @@ series->get_InvertedSolidFillColor()->set_Color(inverColor);
 pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ställ in inverterad fyllningsfärg för en diagramserie**
+## **Ange inverterad fyllningsfärg för en diagramserie**
 
-Aspose.Slides låter dig ställa in inversioner via metoderna `IChartDataPoint::set_InvertIfNegative()` och `ChartDataPoint.set_InvertIfNegative()`. När en inversion är inställd med metoderna ändrar datapunkten sina färger när den får ett negativt värde. 
-
-Denna C++-kod demonstrerar operationen:
+Aspose.Slides låter dig ställa in inverteringar via metoderna `IChartDataPoint::set_InvertIfNegative()` och `ChartDataPoint.set_InvertIfNegative()`. När en invertering har satts med hjälp av metoderna, inverterar datapunkten sina färger när den får ett negativt värde.
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -245,18 +239,16 @@ series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
 pres->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Rensa specifika datapunktsvärden**
+## **Rensa specifika datapunktvärden**
 
-Aspose.Slides för C++ låter dig rensa `DataPoints`‑data för en specifik diagramserie på följande sätt:
+Aspose.Slides för C++ låter dig rensa `DataPoints`-data för en specifik diagramserie på följande sätt:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
 2. Hämta referensen till en bild via dess index.
 3. Hämta referensen till ett diagram via dess index.
-4. Iterera genom alla diagrammets `DataPoints` och sätt `XValue` och `YValue` till null.
-5. Rensa alla `DataPoints` för specifik diagramserie.
+4. Iterera igenom alla diagrammets `DataPoints` och sätt `XValue` och `YValue` till null.
+5. Rensa alla `DataPoints` för en specifik diagramserie.
 6. Skriv den modifierade presentationen till en PPTX-fil.
-
-Denna C++-kod demonstrerar operationen:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
@@ -278,19 +270,17 @@ pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 
 ## **Ange gapbredd för dataserie**
 
-Aspose.Slides för C++ låter dig ange en seriers Gap Width via metoden **`set_GapWidth()`** på följande sätt:
+Aspose.Slides för C++ låter dig ange en series Gap Width via metoden **`set_GapWidth()`** på följande sätt:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
-1. Få åtkomst till den första bilden.
+1. Åtkomst till den första bilden.
 1. Lägg till ett diagram med standarddata.
-1. Hämta någon diagramserie.
+1. Åtkomst till någon diagramserie.
 1. Ange egenskapen `GapWidth`.
 1. Skriv den modifierade presentationen till en PPTX-fil.
 
-Denna C++-kod visar hur du anger en seriers Gap Width:
-
 ```cpp
-// Skapar tom presentation 
+// Skapar en tom presentation 
 auto presentation = System::MakeObject<Presentation>();
 
 // Hämtar presentationens första bild
@@ -299,10 +289,10 @@ auto slide = presentation->get_Slides()->idx_get(0);
 // Lägger till ett diagram med standarddata
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
 
-// Ställer in index för diagramdatasheet
+// Anger index för diagramdatabladet
 int32_t worksheetIndex = 0;
 
-// Hämtar diagramdatas arbetsblad
+// Hämtar diagrammets dataarbetsblad
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
 // Lägger till serier
@@ -314,7 +304,7 @@ chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Hämtar den andra diagramserien
+// Tar den andra diagramserien
 auto series = chart->get_ChartData()->get_Series()->idx_get(1);
 auto dataPoints = series->get_DataPoints();
 
@@ -326,19 +316,19 @@ dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, Obj
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
 dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
 
-// Ställer in GapWidth‑värde
+// Anger GapWidth‑värde
 series->get_ParentSeriesGroup()->set_GapWidth(50);
 
-// Sparar presentation till disk
+// Sparar presentationen till disk
 presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Finns det någon gräns för hur många serier ett enskilt diagram kan innehålla?**
 
-Aspose.Slides har ingen fast takgräns för antalet serier du lägger till. Den praktiska takgränsen bestäms av diagrammets läsbarhet och av det minne som finns tillgängligt för din applikation.
+Aspose.Slides pålägger ingen fast begränsning för antalet serier du lägger till. Den praktiska gränsen bestäms av diagrammets läsbarhet och av det minne som är tillgängligt för din applikation.
 
 **Vad händer om kolumnerna inom en grupp är för nära varandra eller för långt ifrån varandra?**
 
-Justera gapbreddsinställningen för den serien (eller dess överordnade seriegrupp). Att öka värdet breddar avståndet mellan kolumnerna, medan ett lägre värde för minskar avståndet.
+Justera inställningen för gapbredd för den serien (eller dess överordnade seriesgrupp). Att öka värdet gör att avståndet mellan kolumnerna blir bredare, medan en minskning för med dem närmare varandra.

@@ -1,6 +1,6 @@
 ---
 title: Personalizar fontes do PowerPoint em C++
-linktitle: Fonte personalizada
+linktitle: Fonte Personalizada
 type: docs
 weight: 20
 url: /pt/cpp/custom-font/
@@ -20,7 +20,7 @@ description: "Personalize fontes em slides do PowerPoint com Aspose.Slides para 
 ---
 ## **Visão geral**
 
-Aspose.Slides permite que você use fontes personalizadas em apresentações sem instalá-las no sistema operacional. Você pode carregar fontes de pastas personalizadas, fornecer fontes para uma apresentação específica por meio de fontes em nível de documento, ou carregar fontes externas diretamente de dados binários.
+Aspose.Slides permite que você use fontes personalizadas em apresentações sem instalá‑las no sistema operacional. Você pode carregar fontes a partir de pastas personalizadas, fornecer fontes para uma apresentação específica por meio de fontes em nível de documento ou carregar fontes externas diretamente a partir de dados binários.
 
 As fontes carregadas são usadas quando uma apresentação é renderizada ou exportada, por exemplo para PDF, imagens e outros formatos suportados. Isso ajuda a manter a saída da apresentação consistente em diferentes ambientes. O artigo também explica como inspecionar as pastas de fontes usadas pelo Aspose.Slides e como limpar o cache de fontes após trabalhar com fontes externas.
 
@@ -37,11 +37,11 @@ Aspose Slides permite que você carregue essas fontes usando [FontsLoader::LoadE
 
 ## **Carregar fontes personalizadas**
 
-Aspose.Slides permite que você carregue fontes usadas em uma apresentação sem instalá‑las no sistema. Isso afeta a saída de exportação — como PDF, imagens e outros formatos suportados — de modo que os documentos resultantes pareçam consistentes em diferentes ambientes. As fontes são carregadas a partir de diretórios personalizados.
+Aspose.Slides permite que você carregue fontes usadas em uma apresentação sem instalá‑las no sistema. Isso afeta a saída de exportação — como PDF, imagens e outros formatos suportados — de modo que os documentos resultantes tenham aparência consistente entre ambientes. As fontes são carregadas a partir de diretórios personalizados.
 
-1. Especifique uma ou mais pastas que contenham os arquivos de fonte.
-2. Chame o método estático [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/loadexternalfonts/) para carregar fontes dessas pastas.
-3. Carregue e renderize/exporte a apresentação.
+1. Especifique uma ou mais pastas que contenham os arquivos de fonte.  
+2. Chame o método estático [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/loadexternalfonts/) para carregar fontes dessas pastas.  
+3. Carregue e renderize/exporte a apresentação.  
 4. Chame [FontsLoader.clearCache](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/clearcache/) para limpar o cache de fontes.
 
 O exemplo de código a seguir demonstra o processo de carregamento de fontes:
@@ -59,22 +59,20 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 
-// Limpe o cache de fontes após o trabalho ser concluído.
+// Limpe o cache de fontes após a conclusão do trabalho.
 FontsLoader::ClearCache();
 ```
 
 {{% alert color="info" title="Note" %}}
-
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/loadexternalfonts/) adiciona pastas adicionais aos caminhos de pesquisa de fontes, mas não altera a ordem de inicialização das fontes.
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/loadexternalfonts/) adiciona pastas adicionais aos caminhos de pesquisa de fontes, mas não altera a ordem de inicialização das fontes.  
 As fontes são inicializadas nesta ordem:
 
-1. O caminho padrão de fontes do sistema operacional.
-1. Os caminhos carregados via [FontsLoader](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/).
-
+1. O caminho de fontes padrão do sistema operacional.  
+1. Os caminhos carregados via [FontsLoader](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/).  
 {{%/alert %}}
 
 ## **Obter pastas de fontes personalizadas**
-Aspose.Slides fornece [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/getfontfolders/) para permitir que você encontre pastas de fontes. Este método retorna pastas adicionadas através do método `LoadExternalFonts` e pastas de fontes do sistema.
+Aspose.Slides fornece [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/getfontfolders/) para permitir que você encontre pastas de fontes. Esse método devolve as pastas adicionadas pelo método `LoadExternalFonts` e as pastas de fontes do sistema.
 
 Este código C++ mostra como usar o método [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fontsloader/getfontfolders/):
 
@@ -84,7 +82,7 @@ Este código C++ mostra como usar o método [FontsLoader::GetFontFolders()](http
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
-## **Especificar fontes personalizadas usadas com uma apresentação**
+## **Especificar fontes personalizadas usadas em uma apresentação**
 Aspose.Slides fornece a propriedade [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) para permitir que você especifique fontes externas que serão usadas com a apresentação.
 
 Este código C++ mostra como usar a propriedade [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/):
@@ -99,7 +97,7 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<A
 {
     auto presentation = System::MakeObject<Presentation>(u"MyPresentation.pptx", loadOptions);
     //trabalhe com a apresentação
-    //CustomFont1, CustomFont2, bem como fontes das pastas assets\fonts e global\fonts e suas subpastas, estão disponíveis para a apresentação
+    //CustomFont1, CustomFont2, bem como fontes das pastas assets\fonts & global\fonts e seus subdiretórios estão disponíveis para a apresentação
 }
 ```
 
@@ -124,7 +122,7 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(memoryfontsLocation
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOptions);
 ```
 
-## **Perguntas frequentes**
+## **FAQ**
 
 **As fontes personalizadas afetam a exportação para todos os formatos (PDF, PNG, SVG, HTML)?**
 
@@ -132,16 +130,16 @@ Sim. As fontes conectadas são usadas pelo renderizador em todos os formatos de 
 
 **As fontes personalizadas são incorporadas automaticamente ao PPTX resultante?**
 
-Não. Registrar uma fonte para renderização não é o mesmo que incorporá‑la em um PPTX. Se precisar que a fonte esteja dentro do arquivo da apresentação, você deve usar os recursos de [incorporação](/slides/pt/cpp/embedded-font/).
+Não. Registrar uma fonte para renderização não é o mesmo que incorporá‑la em um PPTX. Se precisar que a fonte permaneça dentro do arquivo de apresentação, deve usar os recursos explícitos de [recursos de incorporação](/slides/pt/cpp/embedded-font/).
 
-**Posso controlar o comportamento de fallback quando uma fonte personalizada não possui certos glifos?**
+**Posso controlar o comportamento de fallback quando uma fonte personalizada não possui determinados glifos?**
 
-Sim. Configure [substituição de fonte](/slides/pt/cpp/font-substitution/), [regras de substituição](/slides/pt/cpp/font-replacement/) e [conjuntos de fallback](/slides/pt/cpp/fallback-font/) para definir exatamente qual fonte será usada quando o glifo solicitado estiver ausente.
+Sim. Configure a [substituição de fontes](/slides/pt/cpp/font-substitution/), as [regras de substituição](/slides/pt/cpp/font-replacement/) e os [conjuntos de fallback](/slides/pt/cpp/fallback-font/) para definir exatamente qual fonte será usada quando o glifo solicitado estiver ausente.
 
-**Posso usar fontes em contêineres Linux/Docker sem instalá‑las em todo o sistema?**
+**Posso usar fontes em contêineres Linux/Docker sem instalá‑las no sistema?**
 
 Sim. Aponte para suas próprias pastas de fontes ou carregue fontes a partir de arrays de bytes. Isso elimina qualquer dependência de diretórios de fontes do sistema na imagem do contêiner.
 
 **E quanto à licença — posso incorporar qualquer fonte personalizada sem restrições?**
 
-Você é responsável pela conformidade com a licença da fonte. Os termos variam; algumas licenças proíbem a incorporação ou o uso comercial. Sempre revise o contrato de licença da fonte (EULA) antes de distribuir os resultados.
+Você é responsável pela conformidade com a licença da fonte. Os termos variam; algumas licenças proíbem a incorporação ou o uso comercial. Sempre revise o EULA da fonte antes de distribuir os resultados.

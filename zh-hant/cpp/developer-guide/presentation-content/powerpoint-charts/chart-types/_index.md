@@ -1,5 +1,5 @@
 ---
-title: 在 C++ 中自訂簡報圖表
+title: 自訂 C++ 簡報圖表
 linktitle: 圖表類型
 type: docs
 weight: 20
@@ -16,5 +16,5 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "探索使用 Aspose.Slides for C++ 所能建立或編輯的每種圖表類型 - 針對 PowerPoint 簡報的快速、程式碼優先指南。"
+description: "探索您可以使用 Aspose.Slides for C++ 建立或編輯的所有圖表類型——快速、以程式碼為先的 PowerPoint 簡報指南。"
 ---

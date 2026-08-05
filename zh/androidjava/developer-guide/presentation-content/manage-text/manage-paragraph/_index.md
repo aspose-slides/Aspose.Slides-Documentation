@@ -1,9 +1,11 @@
 ---
-title: 管理 Android 上的 PowerPoint 文本段落
+title: 在 Android 上管理 PowerPoint 文本段落
 linktitle: 管理段落
 type: docs
 weight: 40
 url: /zh/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
 keywords:
 - 添加文本
 - 添加段落
@@ -28,31 +30,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 完全掌握段落格式——在 Java 中优化 PPT、PPTX 和 ODP 演示文稿的对齐、间距和样式。"
+description: "使用 Aspose.Slides for Android 精通段落格式设置——在 Java 中优化 PPT、PPTX 和 ODP 演示文稿的对齐、间距和样式。"
 ---
-Aspose.Slides 提供了在 Java 中处理 PowerPoint 文本、段落和片段所需的全部接口和类。
+## **简介**
 
-* Aspose.Slides 提供了 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/) 接口，以便您添加表示段落的对象。一个 `ITextFame` 对象可以包含一个或多个段落（每个段落通过回车符创建）。
-* Aspose.Slides 提供了 [IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 接口，以便您添加表示片段的对象。一个 `IParagraph` 对象可以包含一个或多个片段（iPortions 对象的集合）。
-* Aspose.Slides 提供了 [IPortion](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iportion/) 接口，以便您添加表示文本及其格式属性的对象。
+Aspose.Slides 提供了在 Java 中处理 PowerPoint 文本、段落和文本块所需的所有接口和类。
+
+* Aspose.Slides 提供了 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/) 接口，允许您添加表示段落的对象。`ITextFame` 对象可以包含一个或多个段落（每个段落通过回车创建）。
+* Aspose.Slides 提供了 [IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 接口，允许您添加表示文本块的对象。`IParagraph` 对象可以包含一个或多个文本块（iPortions 对象的集合）。
+* Aspose.Slides 提供了 [IPortion](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iportion/) 接口，允许您添加表示文本及其格式属性的对象。
 
 `IParagraph` 对象能够通过其底层的 `IPortion` 对象处理具有不同格式属性的文本。
 
-## **添加包含多个文本片段的多个段落**
+## **添加包含多个文本块的多个段落**
 
-以下步骤示例演示如何添加一个包含 3 段，每段包含 3 个片段的文本框：
+以下步骤演示如何添加一个包含 3 个段落、每个段落包含 3 个文本块的文本框：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 通过索引访问相应幻灯片的引用。  
-3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。  
-4. 获取与该 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 关联的 ITextFrame。  
-5. 创建两个 [IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 对象，并将它们添加到 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/) 的 `IParagraphs` 集合中。  
-6. 为每个新 `IParagraph`（默认段落有两个片段）创建三个 [IPortion](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iportion/) 对象，并将每个 `IPortion` 添加到相应 `IParagraph` 的 IPortion 集合中。  
-7. 为每个片段设置文本。  
-8. 使用 `IPortion` 对象公开的格式属性，为每个片段应用所需的格式功能。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 通过索引获取相应幻灯片的引用。
+3. 向幻灯片添加一个矩形 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
+4. 获取与该 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 关联的 ITextFrame。
+5. 创建两个 [IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 对象，并将它们添加到 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/) 的 `IParagraphs` 集合中。
+6. 为每个新的 `IParagraph` 创建三个 [IPortion](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iportion/) 对象（默认段落需要两个 Portion 对象），并将每个 `IPortion` 对象添加到相应 `IParagraph` 的 IPortion 集合中。
+7. 为每个文本块设置一些文本。
+8. 使用 `IPortion` 对象提供的格式属性，为每个文本块应用所需的格式设置。
 9. 保存修改后的演示文稿。
-
-下面的 Java 代码实现了上述添加段落和片段的步骤：
 
 ```java
 // 实例化一个表示 PPTX 文件的 Presentation 类
@@ -61,13 +63,13 @@ try {
     // 访问第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 添加矩形类型的 AutoShape
+    // 添加一个矩形类型的 AutoShape
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
     // 访问 AutoShape 的 TextFrame
     ITextFrame tf = ashp.getTextFrame();
 
-    // 创建具有不同文本格式的段落和片段
+    // 创建具有不同文本格式的段落和文本块
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -123,22 +125,20 @@ try {
 
 项目符号列表帮助您快速高效地组织和呈现信息。使用项目符号的段落更易于阅读和理解。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 通过索引访问相应幻灯片的引用。  
-3. 向选定的幻灯片添加一个 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。  
-4. 访问该 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。  
-5. 删除 `TextFrame` 中的默认段落。  
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例。  
-7. 将段落的 bullet `Type` 设置为 `Symbol` 并设置项目符号字符。  
-8. 设置段落的 `Text`。  
-9. 为项目符号设置段落的 `Indent`。  
-10. 为项目符号设置颜色。  
-11. 为项目符号设置高度。  
-12. 将新段落添加到 `TextFrame` 的段落集合中。  
-13. 添加第二个段落并重复步骤 7 到 13。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 通过索引获取相应幻灯片的引用。
+3. 向选定的幻灯片添加一个 [自动形状](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
+4. 访问该自动形状的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。
+5. 删除 `TextFrame` 中的默认段落。
+6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例。
+7. 将段落的项目符号 `Type` 设置为 `Symbol` 并设置项目符号字符。
+8. 设置段落的 `Text`。
+9. 为项目符号设置段落的 `Indent`。
+10. 为项目符号设置颜色。
+11. 设置项目符号的高度。
+12. 将新段落添加到 `TextFrame` 的段落集合中。
+13. 添加第二个段落并重复步骤 7 至 13。
 14. 保存演示文稿。
-
-下面的 Java 代码展示了如何添加段落项目符号：
 
 ```java
 // 实例化一个表示 PPTX 文件的 Presentation 类
@@ -147,10 +147,10 @@ try {
     // 访问第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // 添加并访问 Autoshape
+    // 添加并访问自动形状
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 访问 autoshape 的文本框
+    // 访问自动形状的文本框
     ITextFrame txtFrm = aShp.getTextFrame();
 
     // 删除默认段落
@@ -212,25 +212,23 @@ try {
 
 ## **管理图片项目符号**
 
-项目符号列表帮助您快速高效地组织和呈现信息。使用图片的段落同样易于阅读和理解。
+图片项目符号帮助您快速高效地组织和呈现信息。使用图片的段落易于阅读和理解。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 通过索引访问相应幻灯片的引用。  
-3. 向幻灯片添加一个 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。  
-4. 访问该 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。  
-5. 删除 `TextFrame` 中的默认段落。  
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例。  
-7. 在 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 中加载图像。  
-8. 将项目符号类型设置为 [Picture](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 并设置图像。  
-9. 设置段落的 `Text`。  
-10. 为图片项目符号设置段落的 `Indent`。  
-11. 为图片项目符号设置颜色。  
-12. 为图片项目符号设置高度。  
-13. 将新段落添加到 `TextFrame` 的段落集合中。  
-14. 添加第二个段落并依据前述步骤重复操作。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 通过索引获取相应幻灯片的引用。
+3. 向幻灯片添加一个 [自动形状](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
+4. 访问该自动形状的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。
+5. 删除 `TextFrame` 中的默认段落。
+6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例。
+7. 在 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 中加载图像。
+8. 将项目符号类型设置为 [Picture](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 并设置图像。
+9. 设置段落的 `Text`。
+10. 为项目符号设置段落的 `Indent`。
+11. 为项目符号设置颜色。
+12. 为项目符号设置高度。
+13. 将新段落添加到 `TextFrame` 的段落集合中。
+14. 添加第二个段落并根据前面的步骤重复过程。
 15. 保存修改后的演示文稿。
-
-下面的 Java 代码展示了如何添加和管理图片项目符号：
 
 ```java
 // 实例化一个表示 PPTX 文件的 Presentation 类
@@ -247,16 +245,16 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-    // 添加并访问 Autoshape
+    // 添加并访问自动形状
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 访问 autoshape 的文本框
+    // 访问自动形状的文本框
     ITextFrame textFrame = autoShape.getTextFrame();
 
     // 删除默认段落
     textFrame.getParagraphs().removeAt(0);
 
-    // 创建新的段落
+    // 创建新段落
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
 
@@ -283,21 +281,19 @@ try {
 
 ## **管理多级项目符号**
 
-项目符号列表帮助您快速高效地组织和呈现信息。多级项目符号易于阅读和理解。
+多级项目符号帮助您快速高效地组织和呈现信息。多级项目符号易于阅读和理解。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 通过索引访问相应幻灯片的引用。  
-3. 在新幻灯片中添加一个 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。  
-4. 访问该 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。  
-5. 删除 `TextFrame` 中的默认段落。  
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例，并将深度设为 0。  
-7. 使用 `Paragraph` 类创建第二个段落实例，并将深度设为 1。  
-8. 使用 `Paragraph` 类创建第三个段落实例，并将深度设为 2。  
-9. 使用 `Paragraph` 类创建第四个段落实例，并将深度设为 3。  
-10. 将新段落添加到 `TextFrame` 的段落集合中。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 通过索引获取相应幻灯片的引用。
+3. 在新幻灯片中添加一个 [自动形状](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
+4. 访问该自动形状的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。
+5. 删除 `TextFrame` 中的默认段落。
+6. 通过 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例并将深度设置为 0。
+7. 通过 `Paragraph` 类创建第二个段落实例并将深度设置为 1。
+8. 通过 `Paragraph` 类创建第三个段落实例并将深度设置为 2。
+9. 通过 `Paragraph` 类创建第四个段落实例并将深度设置为 3。
+10. 将新段落添加到 `TextFrame` 的段落集合中。
 11. 保存修改后的演示文稿。
-
-下面的 Java 代码展示了如何添加和管理多级项目符号：
 
 ```java
 // 实例化一个表示 PPTX 文件的 Presentation 类
@@ -306,10 +302,10 @@ try {
     // 访问第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 添加并访问 Autoshape
+    // 添加并访问自动形状
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 访问创建的 autoshape 的文本框
+    // 访问创建的自动形状的文本框
     ITextFrame text = aShp.addTextFrame("");
 
     // 清除默认段落
@@ -322,7 +318,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 设置项目符号级别
+    // 设置项目符号层级
     para1.getParagraphFormat().setDepth((short)0);
 
     // 添加第二个段落
@@ -332,7 +328,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 设置项目符号级别
+    // 设置项目符号层级
     para2.getParagraphFormat().setDepth((short)1);
 
     // 添加第三个段落
@@ -342,7 +338,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar((char)8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 设置项目符号级别
+    // 设置项目符号层级
     para3.getParagraphFormat().setDepth((short)2);
 
     // 添加第四个段落
@@ -352,48 +348,46 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 设置项目符号级别
+    // 设置项目符号层级
     para4.getParagraphFormat().setDepth((short)3);
 
-    // 将段落添加到集合
+    // 将段落添加到集合中
     text.getParagraphs().add(para1);
     text.getParagraphs().add(para2);
     text.getParagraphs().add(para3);
     text.getParagraphs().add(para4);
 
-    // 将演示文稿写入为 PPTX 文件
+    // 将演示文稿保存为 PPTX 文件
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **管理自定义编号列表的段落**
+## **管理具有自定义编号列表的段落**
 
-[IBulletFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibulletformat/) 接口提供了 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 属性等，可帮助您管理具有自定义编号或格式的段落。
+[IBulletFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibulletformat/) 接口提供了 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 属性等，可用于管理具有自定义编号或格式的段落。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 访问包含该段落的幻灯片。  
-3. 向幻灯片添加一个 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。  
-4. 访问该 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。  
-5. 删除 `TextFrame` 中的默认段落。  
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例，并将 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 设置为 2。  
-7. 使用 `Paragraph` 类创建第二个段落实例，并将 `NumberedBulletStartWith` 设置为 3。  
-8. 使用 `Paragraph` 类创建第三个段落实例，并将 `NumberedBulletStartWith` 设置为 7。  
-9. 将新段落添加到 `TextFrame` 的段落集合中。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 获取包含该段落的幻灯片。
+3. 向幻灯片添加一个 [自动形状](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
+4. 访问该自动形状的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。
+5. 删除 `TextFrame` 中的默认段落。
+6. 通过 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例，并将 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 设置为 2。
+7. 通过 `Paragraph` 类创建第二个段落实例，并将 `NumberedBulletStartWith` 设置为 3。
+8. 通过 `Paragraph` 类创建第三个段落实例，并将 `NumberedBulletStartWith` 设置为 7。
+9. 将新段落添加到 `TextFrame` 的段落集合中。
 10. 保存修改后的演示文稿。
-
-下面的 Java 代码展示了如何添加和管理自定义编号或格式的段落：
 
 ```java
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // 访问创建的 autoshape 的文本框
+    // 访问创建的自动形状的文本框
     ITextFrame textFrame = shape.getTextFrame();
 
-    // 删除默认已存在的段落
+    // 删除默认的现有段落
     textFrame.getParagraphs().removeAt(0);
 
     // 第一个列表
@@ -425,23 +419,21 @@ try {
 }
 ```
 
-## **为段落设置首行缩进**
+## **设置段落首行缩进**
 
-使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 方法可控制段落的首行缩进。此方法仅移动相对于段落左边距的第一行，正值会将首行向右移动，而其余行保持与段落正文对齐。
+使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 方法可以控制段落的首行缩进。该方法仅移动段落左侧边距相对的第一行。正值会将第一行向右移动，而其余行保持与段落正文对齐。
 
-当需要移动整段时，请使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。仅需移动首行时，请使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)。
+需要整体移动段落时请使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。仅移动首行时请使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)。
 
-下面的示例创建了多个段落，并对它们应用不同的缩进值，以演示首行缩进对段落布局的影响。
+下面的示例创建了多个段落并为它们设置不同的缩进值，以演示首行缩进对段落布局的影响。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 访问目标幻灯片。  
-3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/autoshape/)。  
-4. 向该形状添加一个空的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframe/)，并删除默认段落。  
-5. 创建多个段落并为它们设置不同的 [Indent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 值。  
-6. 将段落添加到文本框中。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 访问目标幻灯片。
+3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/autoshape/)。
+4. 向形状添加一个空的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframe/)，并删除默认段落。
+5. 创建多个段落并为它们设置不同的 [Indent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 值。
+6. 将段落添加到文本框中。
 7. 保存修改后的演示文稿。
-
-下面的代码展示了如何设置段落缩进：
 
 ```java
 Presentation presentation = new Presentation();
@@ -489,28 +481,24 @@ finally {
 }
 ```
 
-效果如下：
+![](first_line_indent.png "段落的首行缩进")
 
-![段落的首行缩进](first_line_indent.png)
+## **设置段落悬挂缩进**
 
-## **为段落设置悬挂缩进**
+悬挂缩进是一种段落布局，首行相对于其余行向左移动。在 Aspose.Slides 中，可通过 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 方法实现。将缩进设置为负值即可使首行向左偏移。
 
-悬挂缩进是一种段落布局，第一行位于其余行的左侧。 在 Aspose.Slides 中，您可以使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 方法实现此效果。 将缩进设置为负值，可使第一行相对于段落正文向左移动。
+实际上，[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 定义段落正文的左侧位置，而 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 定义首行相对于该左侧位置的偏移。要创建悬挂缩进，请为段落设置正的 `MarginLeft` 值并将 `Indent` 设为负值。
 
-实际使用中，[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 定义段落正文的左侧位置，而 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 定义第一行相对于该左边距的位置。 要创建悬挂缩进，请将正的 `MarginLeft` 与负的 `Indent` 组合使用。
+此格式常用于参考文献、词汇表条目以及需要让换行后文本对齐到正文左侧而非首字符的段落。
 
-此格式常用于参考文献、文献目录、术语表等需要让换行文本对齐在段落正文下方的场景。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 访问目标幻灯片。  
-3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/autoshape/)。  
-4. 向该形状添加一个空的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframe/)，并删除默认段落。  
-5. 为每个段落设置一个正的 [MarginLeft](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 值。  
-6. 将 [Indent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 设置为负值，以产生悬挂缩进效果。  
-7. 将段落添加到文本框中。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 访问目标幻灯片。
+3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/autoshape/)。
+4. 向形状添加一个空的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframe/)，并删除默认段落。
+5. 创建段落并为每个段落设置正值的 [MarginLeft](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。
+6. 设置负值的 [Indent](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 以创建悬挂缩进效果。
+7. 将段落添加到文本框中。
 8. 保存修改后的演示文稿。
-
-下面的代码展示了如何为段落设置悬挂缩进：
 
 ```java
 Presentation presentation = new Presentation();
@@ -550,21 +538,17 @@ finally {
 }
 ```
 
-效果如下：
+![](hanging_indent.png "段落的悬挂缩进")
 
-![段落的悬挂缩进](hanging_indent.png)
+## **管理段落结束运行属性**
 
-## **管理段落结尾运行属性**
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 通过位置获取包含该段落的幻灯片引用。  
-3. 向幻灯片添加一个矩形 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。  
-4. 向该矩形添加一个包含两个段落的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。  
-5. 为段落设置 `FontHeight` 和字体类型。  
-6. 为段落设置 End 属性。  
-7. 将修改后的演示文稿保存为 PPTX 文件。
-
-下面的 Java 代码展示了如何为段落设置 End 属性：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 通过位置获取包含该段落的幻灯片的引用。
+3. 向幻灯片添加一个矩形 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
+4. 向矩形添加一个带有两个段落的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。
+5. 为段落设置 `FontHeight` 和字体类型。
+6. 为段落设置结束属性。
+7. 将修改后的演示文稿写入为 PPTX 文件。
 
 ```java
 Presentation pres = new Presentation();
@@ -593,28 +577,26 @@ try {
 
 ## **将 HTML 文本导入段落**
 
-Aspose.Slides 为将 HTML 文本导入段落提供了增强的支持。
+Aspose.Slides 提供了增强的 HTML 文本导入段落的支持。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。  
-2. 通过索引访问相应幻灯片的引用。  
-3. 向幻灯片添加一个 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。  
-4. 为 `autoshape` 添加并访问其 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。  
-5. 删除 `ITextFrame` 中的默认段落。  
-6. 使用 TextReader 读取源 HTML 文件。  
-7. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例。  
-8. 将读取的 TextReader 中的 HTML 内容添加到 TextFrame 的 [ParagraphCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraphcollection/)。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。
+2. 通过索引获取相应幻灯片的引用。
+3. 向幻灯片添加一个 [autoshape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
+4. 添加并访问 `autoshape` 的 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)。
+5. 删除 `ITextFrame` 中的默认段落。
+6. 在 TextReader 中读取源 HTML 文件。
+7. 使用 [Paragraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraph/) 类创建第一个段落实例。
+8. 将读取的 TextReader 中的 HTML 文件内容添加到 TextFrame 的 [ParagraphCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraphcollection/) 中。
 9. 保存修改后的演示文稿。
-
-下面的 Java 代码实现了将 HTML 文本导入段落的步骤：
 
 ```java
 // 创建空的演示文稿实例
 Presentation pres = new Presentation();
 try {
-    // 访问演示文稿的默认第一张幻灯片
+    // 访问演示文稿默认的第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 添加 AutoShape 以容纳 HTML 内容
+    // 添加自动形状以容纳 HTML 内容
     IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
             (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
 
@@ -629,7 +611,7 @@ try {
     // 使用流读取器加载 HTML 文件
     TextReader tr = new StreamReader("file.html");
 
-    // 将 HTML 流读取器中的文本添加到文本框
+    // 在文本框中添加来自 HTML 流读取器的文本
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
     // 保存演示文稿
@@ -641,36 +623,34 @@ try {
 
 ## **将段落文本导出为 HTML**
 
-Aspose.Slides 为将段落中的文本导出为 HTML 提供了增强的支持。
+Aspose.Slides 提供了增强的将段落文本导出为 HTML 的支持。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例并加载所需的演示文稿。  
-2. 通过索引访问相应幻灯片的引用。  
-3. 访问包含待导出文本的形状。  
-4. 访问该形状的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframe/)。  
-5. 创建 `StreamWriter` 实例并添加新的 HTML 文件。  
-6. 为 StreamWriter 提供起始索引并导出所需的段落。
-
-下面的 Java 代码展示了如何将 PowerPoint 段落文本导出为 HTML：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例并加载所需的演示文稿。
+2. 通过索引获取相应幻灯片的引用。
+3. 获取包含要导出为 HTML 的文本的形状。
+4. 访问该形状的 [TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframe/)。
+5. 创建 `StreamWriter` 实例并添加新的 HTML 文件。
+6. 向 StreamWriter 提供起始索引并导出所需的段落。
 
 ```java
 // 加载演示文稿文件
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    // 访问演示文稿的默认第一张幻灯片
+    // 访问演示文稿默认的第一张幻灯片
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // 期望的索引
+    // 所需索引
     int index = 0;
 
-    // 访问已添加的形状
+    // 访问添加的形状
     IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
 
     // 创建输出 HTML 文件
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    //提取第一段为 HTML
-    // 写入段落数据到 HTML，通过提供段落起始索引和要复制的段落总数
+    //提取第一段落为 HTML
+    // 通过提供段落起始索引和要复制的段落总数，将段落数据写入 HTML
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -681,22 +661,22 @@ try {
 
 ## **将段落保存为图像**
 
-本节将演示两个示例，说明如何将由 [IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 接口表示的文本段落保存为图像。两个示例都包括：使用 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 接口的 `getImage` 方法获取包含段落的形状图像、计算段落在形状内的边界，并将其导出为位图图像。这些方法可帮助您从 PowerPoint 演示文稿中提取特定文本并保存为单独的图像，便于在其他场景中使用。
+在本节中，我们将展示两个示例，演示如何将由 [IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 接口表示的文本段落保存为图像。两个示例都包括使用 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 接口的 `getImage` 方法获取包含段落的形状的图像，计算段落在形状内的边界，并将其导出为位图图像。这些方法允许您从 PowerPoint 演示文稿中提取特定文本部分并将其保存为独立的图像，可用于各种场景的进一步使用。
 
-假设我们有一个名为 sample.pptx 的演示文稿，包含一张幻灯片，其中第一个形状是一个包含三个段落的文本框。
+假设我们有一个名为 sample.pptx 的演示文稿文件，包含一张幻灯片，第一形状是包含三个段落的文本框。
 
 ![包含三个段落的文本框](paragraph_to_image_input.png)
 
 **示例 1**
 
-本示例获取第二个段落的图像。为此，我们先提取幻灯片中第一个形状的图像，然后计算该形状文本框中第二个段落的边界。随后将该段落重新绘制到新的位图图像中，并以 PNG 格式保存。该方法在需要将特定段落单独保存为图像且保持原始尺寸和格式时非常有用。
+在此示例中，我们获取第二段落的图像。为此，我们先提取演示文稿第一张幻灯片中形状的图像，然后计算该形状文本框中第二段落的边界。随后将该段落重新绘制到新的位图图像中，并以 PNG 格式保存。此方法在需要将特定段落单独保存为图像且保持文本的精确尺寸和格式时特别有用。
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 将形状保存到内存中作为位图。
+    // 将形状保存为内存中的位图。
     IImage shapeImage = firstShape.getImage();
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
@@ -706,7 +686,7 @@ try {
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // 计算第二段的边界。
+    // 计算第二段落的边界。
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     RectF paragraphRectangle = secondParagraph.getRect();
 
@@ -716,7 +696,7 @@ try {
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // 裁剪形状位图，仅获取段落位图。
+    // 裁剪形状位图，仅保留段落位图。
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -726,13 +706,11 @@ try {
 }
 ```
 
-结果：
-
 ![段落图像](paragraph_to_image_output.png)
 
 **示例 2**
 
-本示例在前述方法的基础上添加了缩放因子。我们先提取形状并以 `2` 的缩放因子保存为图像，从而在导出段落时获得更高分辨率。随后在考虑缩放的情况下计算段落边界。
+在此示例中，我们在前一种方法的基础上为段落图像添加了缩放因子。形状以 2 倍的缩放因子提取为图像，从而在导出段落时获得更高分辨率。随后在计算段落边界时考虑了该缩放比例。缩放在需要更高细节的图像时非常有用，例如用于高质量印刷材料。
 
 ```java
 float imageScaleX = 2f;
@@ -742,7 +720,7 @@ Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 将形状以缩放方式保存到内存中作为位图。
+    // 将形状保存为内存中的位图并进行缩放。
     IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
@@ -752,7 +730,7 @@ try {
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // 计算第二段的边界。
+    // 计算第二段落的边界。
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     RectF paragraphRectangle = secondParagraph.getRect();
     paragraphRectangle.set(
@@ -768,7 +746,7 @@ try {
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // 裁剪形状位图，仅获取段落位图。
+    // 裁剪形状位图，仅保留段落位图。
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -778,20 +756,20 @@ try {
 }
 ```
 
-## **常见问题解答**
+## **常见问题**
 
-**我能完全禁用文本框内的自动换行吗？**
+**我可以完全禁用文本框内的自动换行吗？**
 
-可以。使用文本框的换行设置（[setWrapText](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)）将换行关闭，行就不会在框边缘断开。
+可以。使用文本框的换行设置 ([setWrapText](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) 将换行关闭，行就不会在框边缘换行。
 
-**如何获取特定段落在幻灯片上的准确边界？**
+**如何获取特定段落在幻灯片上的精确边界？**
 
-您可以检索段落（甚至单个片段）的边界矩形，以了解其在幻灯片上的精确位置和大小。
+您可以检索段落（甚至单个文本块）的边界矩形，以了解其在幻灯片上的精确位置和尺寸。
 
-**段落的对齐方式（左/右/居中/两端对齐）在哪里控制？**
+**段落对齐（左/右/居中/两端对齐）在哪里设置？**
 
-[Alignment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) 是 [ParagraphFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraphformat/) 级别的设置，会作用于整段，而不是单独的片段格式。
+[Alignment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) 是 [ParagraphFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/paragraphformat/) 的段落级设置；它适用于整个段落，而不受单个文本块格式的影响。
 
-**我能为段落中的某个词单独设置拼写检查语言吗？**
+**我可以为段落的一部分（例如一个单词）设置拼写检查语言吗？**
 
-可以。语言在片段层级设置（[PortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)），因此同一段落中可以共存多种语言。
+可以。语言在文本块级别设置 ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-))，因此单个段落中可以共存多种语言。

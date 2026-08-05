@@ -1,46 +1,48 @@
 ---
 title: Beheer opsommingstekens en genummerde lijsten in presentaties in Python
-linktitle: Lijsten beheren
+linktitle: Beheer lijsten
 type: docs
 weight: 70
 url: /nl/python-net/manage-lists/
+aliases:
+  - /python-net/beheer-opsomming-en-genummerde-lijsten/
 keywords:
-- opsommingsteken
-- opsomming
-- genummerde lijst
-- symbool opsommingsteken
-- afbeelding opsommingsteken
-- aangepast opsommingsteken
-- meerlagige lijst
-- opsomming maken
-- opsomming toevoegen
-- lijst toevoegen
-- PowerPoint
-- OpenDocument
-- presentatie
-- Python
-- Aspose.Slides
-description: "Leer hoe u opsommingstekens, afbeelding‑opsommingen, meerlagige en genummerde lijsten kunt maken en opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides for Python via .NET."
+  - opsommingsteken
+  - opsomming
+  - genummerde lijst
+  - symbool opsommingsteken
+  - afbeelding opsommingsteken
+  - aangepast opsommingsteken
+  - meerlagige lijst
+  - opsomming maken
+  - opsomming toevoegen
+  - lijst toevoegen
+  - PowerPoint
+  - OpenDocument
+  - presentatie
+  - Python
+  - Aspose.Slides
+description: "Leer hoe u opsommingstekens, afbeeldings‑, meerlagige en genummerde lijsten maakt en opmaakt in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Python via .NET."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Python via .NET stelt u in staat om opsommingstekens en genummerde lijsten te maken en op te maken in PowerPoint‑ en OpenDocument‑presentaties. Een lijstitem is een alinea waarvan de opsommingstekeninstellingen worden geregeld via het alinea‑formaat.
+Aspose.Slides for Python via .NET stelt u in staat om opsommingstekens en genummerde lijsten te maken en op te maken in PowerPoint‑ en OpenDocument‑presentaties. Een lijstitem is een alinea waarvan de opsommingseigenschappen worden beheerd via de alinea‑indeling.
 
-Gebruik de eigenschap [Paragraph.paragraph_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/paragraph_format/) om lijstinstellingen op alinea‑niveau te benaderen. Het hoofdtoegangspunt is [ParagraphFormat.bullet](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/bullet/), dat een [BulletFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/)‑object retourneert. Met dit object kunt u het type opsommingsteken, symbool, afbeelding, kleur, grootte, nummeringsstijl en startnummer instellen.
+Gebruik de [Paragraph.paragraph_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/paragraph_format/)‑eigenschap om lijstinstellingen op alinea‑niveau te benaderen. Het belangrijkste toegangspunt is [ParagraphFormat.bullet](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/bullet/), dat een [BulletFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/)‑object retourneert. Met dit object kunt u het type opsommingsteken, symbool, afbeelding, kleur, grootte, nummeringsstijl en startnummer instellen.
 
 Dit artikel laat zien hoe u:
 
-- een opsomming met een aangepast symbool maakt
-- een afbeelding als opsommingsteken maakt
-- een meerlagige lijst maakt door de diepte van de alinea in te stellen
+- een opsomming maakt met een aangepast symbool
+- een afbeelding‑opsommingsteken maakt
+- een meerlagige lijst maakt door de alinea‑diepte in te stellen
 - een genummerde lijst maakt
-- lijstopmaak in een bestaande presentatie inspecteert en wijzigt
+- de lijstopmaak in een bestaande presentatie bekijkt en wijzigt
 
-## **Een opsomming maken**
+## **Maak een opsomming**
 
-Om een opsomming te maken, voegt u [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/)‑objecten toe aan een [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) en stelt u [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.SYMBOL](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/). Vervolgens kunt u [BulletFormat.char](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/color/) en [BulletFormat.height](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/height/) instellen om het uiterlijk van het opsommingsteken te regelen.
+Om een opsomming te maken, voegt u [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/)‑objecten toe aan een [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) en stelt u [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.SYMBOL](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/). Vervolgens kunt u [BulletFormat.char](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/color/) en [BulletFormat.height](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/height/) instellen om het uiterlijk van het opsommingsteken te bepalen.
 
-De volgende Python‑code demonstreert hoe u een opsomming maakt in een dia:
+De volgende Python‑code laat zien hoe u een opsomming maakt in een dia:
 
 ```py
 import aspose.slides as slides
@@ -76,13 +78,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De symboolopsommingen](symbol_bullets.png)
+![De symbool‑opsommingstekens](symbol_bullets.png)
 
-## **Een genummerde lijst maken**
+## **Maak een genummerde lijst**
 
-Gebruik genummerde lijsten wanneer de volgorde van items van belang is. Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.NUMBERED](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/). U kunt ook een nummeringsopmaak kiezen met [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_style/) of [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) instellen wanneer de lijst moet beginnen met een andere waarde dan 1.
+Gebruik genummerde lijsten wanneer de volgorde van de items van belang is. Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.NUMBERED](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/). U kunt tevens een nummeringsopmaak kiezen met [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_style/) of [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) instellen wanneer de lijst moet beginnen met een andere waarde dan 1.
 
-De volgende Python‑code laat zien hoe u een genummerde lijst maakt in een dia:
+De volgende Python‑code toont hoe u een genummerde lijst maakt in een dia:
 
 ```py
 import aspose.slides as slides
@@ -114,25 +116,23 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De genummerde opsommingen](numbered_bullets.png)
+![De genummerde opsommingstekens](numbered_bullets.png)
 
-## **Een afbeelding‑opsomming maken**
+## **Maak een afbeelding‑opsomming**
 
-Aspose.Slides stelt u in staat om een regulier opsommingsteken te vervangen door een afbeelding. Afbeeldings‑opsommingen werken het best met eenvoudige afbeeldingen die ook op een kleine grootte leesbaar blijven, zoals iconen of kleine transparante PNG‑bestanden.
+Aspose.Slides maakt het mogelijk om een regulier opsommingsteken te vervangen door een afbeelding. Afbeeldings‑opsommingstekens werken het beste met eenvoudige afbeeldingen die ook op een kleine afmeting leesbaar blijven, zoals iconen of kleine transparante PNG‑bestanden.
 
 {{% alert color="primary" %}}
-Idealiter, als u van plan bent om het gewone opsommingsteken te vervangen door een afbeelding, is het het beste een eenvoudige afbeelding met een transparante achtergrond te kiezen. Dergelijke afbeeldingen werken goed als aangepaste opsommingstekens.
-
-Houd er rekening mee dat de afbeelding wordt verkleind tot een zeer kleine afmeting. Om die reden raden we sterk aan een afbeelding te kiezen die duidelijk en visueel effectief blijft wanneer deze als opsommingsteken in een lijst wordt gebruikt.
+Idealiter, als u van plan bent het standaard opsommingsteken te vervangen door een afbeelding, kiest u het beste een eenvoudige grafiek met een transparante achtergrond. Dergelijke afbeeldingen werken goed als aangepaste opsommingstekens.
 {{% /alert %}}
 
-Om een afbeelding‑opsomming te maken, voegt u een afbeelding toe aan [Presentation.images](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/images/) en kent u het geretourneerde afbeeldingobject toe aan [BulletFormat.picture](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/picture/). Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.PICTURE](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/) voordat u de afbeelding toewijst.
+Om een afbeelding‑opsommingsteken te maken, voegt u een afbeelding toe aan [Presentation.images](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/images/) en kent u het geretourneerde afbeeldingsobject toe aan [BulletFormat.picture](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/picture/). Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.PICTURE](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/) voordat u de afbeelding toewijst.
 
 Stel dat we een "image.png" hebben:
 
-![Een afbeelding voor de opsommingen](picture_for_bullets.png)
+![Een afbeelding voor de opsommingstekens](picture_for_bullets.png)
 
-De volgende Python‑code laat zien hoe u afbeelding‑opsommingen maakt in een dia:
+De volgende Python‑code toont hoe u afbeelding‑opsommingstekens maakt in een dia:
 
 ```py
 import aspose.slides as slides
@@ -168,11 +168,11 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De afbeelding‑opsommingen](picture_bullets.png)
+![De afbeelding‑opsommingstekens](picture_bullets.png)
 
-## **Een meerlagige lijst maken**
+## **Maak een meerlagige lijst**
 
-Gebruik [ParagraphFormat.depth](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/depth/) om lijstitems op verschillende niveaus te plaatsen. Niveau 0 is het hoogste niveau, niveau 1 wordt eronder genest, enzovoort.
+Gebruik [ParagraphFormat.depth](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/depth/) om lijstitems op verschillende niveaus te plaatsen. Niveau 0 is het bovenste niveau, niveau 1 staat eronder genest, enzovoort.
 
 De volgende Python‑code laat zien hoe u een meerlagige opsomming maakt:
 
@@ -213,11 +213,9 @@ Het resultaat:
 
 ![De meerlagige lijst](multilevel_list.png)
 
-## **Een bestaande lijst wijzigen**
+## **Bestaande lijst wijzigen**
 
-Om de lijstopmaak in een bestaande presentatie te wijzigen, krijgt u toegang tot de doel‑alinea en werkt u de instellingen van [ParagraphFormat.bullet](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/bullet/) bij. Dezelfde eigenschappen die worden gebruikt om lijsten te maken, kunnen worden gebruikt om lijsten die uit een PPT, PPTX of ODP‑bestand zijn geladen, te inspecteren of te wijzigen.
-
-De volgende Python‑code wijzigt de eerste alinea in een tekstframe zodat deze een genummerde lijststijl gebruikt:
+Om de lijstopmaak in een bestaande presentatie te wijzigen, opent u de betreffende alinea en werkt u de [ParagraphFormat.bullet](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/bullet/)‑instellingen bij. Dezelfde eigenschappen die worden gebruikt om lijsten te maken, kunnen ook worden gebruikt om lijsten te inspecteren of aan te passen die zijn geladen uit een PPT‑, PPTX‑ of ODP‑bestand.
 
 ```py
 import aspose.slides as slides
@@ -236,16 +234,16 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("updated_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kunnen opsommings‑ en genummerde lijsten worden geëxporteerd naar PDF of afbeeldingen?**
+**Kunnen opsommingstekens en genummerde lijsten worden geëxporteerd naar PDF of afbeeldingen?**
 
-Ja. Aspose.Slides behoudt de lijstopmaak wanneer het doel‑formaat de overeenkomstige tekstlay-out en opsommingsteken‑functies ondersteunt.
+Ja. Aspose.Slides behoudt de lijstopmaak wanneer het doelformaat de overeenkomstige tekstlay-out en opsommingsteken‑functionaliteit ondersteunt.
 
 **Kan ik lijsten bewerken in bestaande presentaties?**
 
-Ja. Laad de presentatie, krijg toegang tot de doel‑alinea, inspecteer of werk de instellingen van [ParagraphFormat.bullet](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/bullet/) bij, en sla de presentatie op.
+Ja. Laad de presentatie, open de betreffende alinea, bekijk of werk de [ParagraphFormat.bullet](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/bullet/)‑instellingen bij, en sla de presentatie op.
 
 **Kunnen lijsten niet‑Latijnse tekst bevatten?**
 
-Ja. De tekst van lijstitems kan Unicode‑tekens bevatten, zodat u lijsten kunt maken in meertalige presentaties. Zorg ervoor dat de gebruikte lettertypen in de presentatie de benodigde tekens ondersteunen.
+Ja. De tekst van een lijstitem kan Unicode‑tekens bevatten, zodat u lijsten kunt maken in meertalige presentaties. Zorg ervoor dat de gebruikte lettertypen de benodigde tekens ondersteunen.

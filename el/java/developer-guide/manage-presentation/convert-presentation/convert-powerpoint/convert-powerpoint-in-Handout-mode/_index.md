@@ -1,39 +1,39 @@
 ---
-title: Μετατροπή παρουσιάσεων PowerPoint σε λειτουργία Handout χρησιμοποιώντας Java
+title: Μετατροπή Παρουσιάσεων PowerPoint σε Λειτουργία Handout Χρησιμοποιώντας Java
 linktitle: Λειτουργία Handout
 type: docs
 weight: 150
-url: /el/java/convert-powerpoint-in-Handout-mode/
+url: /el/java/convert-powerpoint-in-handout-mode/
 keywords:
-- Μετατροπή PowerPoint
-- Μετατροπή παρουσίασης
-- Λειτουργία Handout
-- Εκτύπωση
+- μετατροπή PowerPoint
+- μετατροπή παρουσίασης
+- λειτουργία Handout
+- διανομή
 - PPT
 - PPTX
 - PowerPoint
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μετατρέψτε παρουσιάσεις σε handouts στην Java. Ορίστε διαφάνειες ανά σελίδα, διατηρήστε τις σημειώσεις, εξάγετε σε PDF ή εικόνες με Aspose.Slides, με δείγμα κώδικα Java. Δοκιμάστε το δωρεάν."
+description: "Μετατρέψτε παρουσιάσεις σε χάρτινα φύλλα σε Java. Ορίστε αριθμό διαφανειών ανά σελίδα, διατηρήστε σημειώσεις, εξαγάγετε σε PDF ή εικόνες με το Aspose.Slides, με δείγμα κώδικα Java. Δοκιμάστε το δωρεάν."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides σάς επιτρέπει να μετατρέπετε παρουσιάσεις σε μορφές εξόδου που υποστηρίζουν τη λειτουργία Handout. Σε αυτή τη λειτουργία, πολλές διαφάνειες τοποθετούνται σε μία σελίδα, κάτι που είναι χρήσιμο για εκτύπωση υλικού παρουσιάσεων για συνέδρια, σεμινάρια και παρόμοιες εκδηλώσεις.
+Το Aspose.Slides σάς επιτρέπει να μετατρέψετε παρουσιάσεις σε μορφές εξόδου που υποστηρίζουν τη λειτουργία Handout. Σε αυτή τη λειτουργία, πολλαπλές διαφάνειες τοποθετούνται σε μία σελίδα, κάτι που είναι χρήσιμο για την εκτύπωση υλικού παρουσιάσεων για συνέδρια, σεμινάρια και παρόμοια γεγονότα.
 
-Η λειτουργία Handout διαμορφώνεται μέσω της μεθόδου `setSlidesLayoutOptions`, η οποία είναι διαθέσιμη στα [IPdfOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/ihtmloptions/), και [ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/). Για να ορίσετε τη διάταξη του handout, χρησιμοποιήστε το αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/handoutlayoutingoptions/) .
+Η λειτουργία Handout ρυθμίζεται μέσω της μεθόδου `setSlidesLayoutOptions`, η οποία είναι διαθέσιμη στα [IPdfOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/ihtmloptions/), και [ITiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiffoptions/). Για να ορίσετε τη διάταξη του handout, χρησιμοποιήστε το αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/handoutlayoutingoptions/) .
 
 ## **Εξαγωγή σε Λειτουργία Handout**
 
-Για να εξάγετε μια παρουσίαση σε λειτουργία Handout, ορίστε τη μέθοδο `setSlidesLayoutOptions` για τις επιθυμητές επιλογές εξαγωγής και καθορίστε ένα αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/handoutlayoutingoptions/) που ορίζει τον αριθμό των διαφανειών ανά σελίδα και σχετικές παραμέτρους εμφάνισης.
+Για να εξάγετε μια παρουσίαση σε λειτουργία Handout, ορίστε τη μέθοδο `setSlidesLayoutOptions` για τις επιλογές εξαγωγής προορισμού και εκχωρήστε ένα αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/handoutlayoutingoptions/) που καθορίζει τον αριθμό των διαφανειών ανά σελίδα και σχετικές παραμέτρους εμφάνισης.
 
-Παρακάτω βρίσκεται ένα παράδειγμα κώδικα που δείχνει πώς να μετατρέψετε μια παρουσίαση σε PDF σε λειτουργία Handout.
+Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```java
-// Φόρτωση παρουσίασης.
+// Φόρτωση μιας παρουσίασης.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Ορισμός επιλογών εξαγωγής.
+    // Ορισμός των επιλογών εξαγωγής.
     HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
     slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 διαφάνειες σε μία σελίδα οριζόντια
     slidesLayoutOptions.setPrintSlideNumbers(true);                   // εκτύπωση αριθμών διαφανειών
@@ -51,19 +51,19 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-Λάβετε υπόψη ότι η μέθοδος `setSlidesLayoutOptions` είναι διαθέσιμη μόνο για ορισμένες μορφές εξόδου, όπως PDF, HTML, TIFF, καθώς και κατά τη δημιουργία εικόνων.
+Λάβετε υπόψη ότι η μέθοδος `setSlidesLayoutOptions` είναι διαθέσιμη μόνο για ορισμένες μορφές εξόδου, όπως PDF, HTML, TIFF, και κατά την απόδοση ως εικόνες.
 {{% /alert %}} 
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
 **Ποιος είναι ο μέγιστος αριθμός μικρογραφιών διαφανειών ανά σελίδα στη λειτουργία Handout;**
 
-Το Aspose.Slides υποστηρίζει [presets](https://reference.aspose.com/slides/el/java/com.aspose.slides/handouttype/) έως 9 μικρογραφίες ανά σελίδα με οριζόντια ή κατακόρυφη διάταξη: 1, 2, 3, 4 (οριζόντια/κατακόρυφη), 6 (οριζόντια/κατακόρυφη) και 9 (οριζόντια/κατακόρυφη).
+Το Aspose.Slides υποστηρίζει [presets](https://reference.aspose.com/slides/el/java/com.aspose.slides/handouttype/) μέχρι 9 μικρογραφίες ανά σελίδα με οριζόντια ή κάθετη διάταξη: 1, 2, 3, 4 (οριζόντια/κάθετη), 6 (οριζόντια/κάθετη) και 9 (οριζόντια/κάθετη).
 
 **Μπορώ να ορίσω προσαρμοσμένο πλέγμα, όπως 5 ή 8 διαφάνειες ανά σελίδα;**
 
-Όχι. Ο αριθμός και η διάταξη των μικρογραφιών ελέγχονται αυστηρά από την κλάση [HandoutType](https://reference.aspose.com/slides/el/java/com.aspose.slides/handouttype/), και δεν υποστηρίζονται αυθαίρετες διατάξεις.
+Όχι. Ο αριθμός και η σειρά των μικρογραφιών ελέγχονται αυστηρά από την κλάση [HandoutType](https://reference.aspose.com/slides/el/java/com.aspose.slides/handouttype/); δεν υποστηρίζονται τυχαίες διατάξεις.
 
 **Μπορώ να συμπεριλάβω κρυφές διαφάνειες στην έξοδο Handout;**
 
-Ναι. Ενεργοποιήστε τις κρυφές διαφάνειες χρησιμοποιώντας τη μέθοδο `setShowHiddenSlides` στις ρυθμίσεις εξαγωγής για τη ζητούμενη μορφή, όπως [PdfOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/htmloptions/), ή [TiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/tiffoptions/).
+Ναι. Ενεργοποιήστε τις κρυφές διαφάνειες χρησιμοποιώντας τη μέθοδο `setShowHiddenSlides` στις ρυθμίσεις εξαγωγής για τη μορφή προορισμού, όπως [PdfOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/htmloptions/), ή [TiffOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/tiffoptions/).

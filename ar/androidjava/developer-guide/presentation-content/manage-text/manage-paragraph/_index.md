@@ -4,17 +4,19 @@ linktitle: إدارة الفقرة
 type: docs
 weight: 40
 url: /ar/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
 keywords:
 - إضافة نص
 - إضافة فقرة
 - إدارة النص
 - إدارة الفقرة
-- إدارة الترقيم
-- مسافة بادئة للفقرة
-- مسافة بادئة معلقة
-- ترقيم الفقرة
+- إدارة النقاط
+- إزاحة الفقرة
+- إزاحة معلقة
+- نقطة الفقرة
 - قائمة مرقمة
-- قائمة ذات ترقيم نقطي
+- قائمة نقطية
 - خصائص الفقرة
 - استيراد HTML
 - نص إلى HTML
@@ -28,32 +30,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "إتقان تنسيق الفقرات باستخدام Aspose.Slides لنظام Android—تحسين المحاذاة والتباعد والأسلوب في عروض PPT و PPTX و ODP في Java."
+description: "إتقان تنسيق الفقرات باستخدام Aspose.Slides لـ Android—تحسين المحاذاة، التباعد والأنماط في عروض PPT، PPTX، و ODP في Java."
 ---
-Aspose.Slides يوفر جميع الواجهات والفئات التي تحتاجها للعمل مع نصوص PowerPoint والفقرات والجزءيات في Java.
+## **المقدمة**
 
-* Aspose.Slides يوفر واجهة [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) لتسمح لك بإضافة كائنات تمثل فقرة. يمكن لكائن `ITextFame` أن يحتوي على فقرة واحدة أو متعددة (كل فقرة تُنشأ عبر إرجاع السطر).
-* Aspose.Slides يوفر واجهة [IParagraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph/) لتسمح لك بإضافة كائنات تمثل الجزءيات. يمكن لكائن `IParagraph` أن يحتوي على جزءية واحدة أو متعددة (مجموعة كائنات iPortions).
-* Aspose.Slides يوفر واجهة [IPortion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iportion/) لتسمح لك بإضافة كائنات تمثل النصوص وخصائص تنسيقها.
+توفر Aspose.Slides جميع الواجهات والفئات التي تحتاجها للعمل مع نصوص PowerPoint والفقرات والأقسام في Java.
 
-كائن `IParagraph` قادر على معالجة النصوص ذات خصائص تنسيق مختلفة عبر كائناته الأساسية `IPortion`.
+* توفر Aspose.Slides الواجهة [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) للسماح لك بإضافة كائنات تمثل فقرة. يمكن لكائن `ITextFame` أن يحتوي على فقرة واحدة أو متعددة (يتم إنشاء كل فقرة عبر إرجاع السطر).
+* توفر Aspose.Slides الواجهة [IParagraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph/) للسماح لك بإضافة كائنات تمثل أقسام. يمكن لكائن `IParagraph` أن يحتوي على قسم واحد أو متعدد (مجموعة من كائنات iPortions).
+* توفر Aspose.Slides الواجهة [IPortion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iportion/) للسماح لك بإضافة كائنات تمثل النصوص وخصائص تنسيقها.
 
-## **إضافة فقرات متعددة تحتوي على عدة جزءيات نصية**
+يمكن لكائن `IParagraph` التعامل مع النصوص ذات الخصائص التنسيقية المختلفة من خلال كائنات `IPortion` الأساسية الخاصة به.
 
-تظهر هذه الخطوات كيفية إضافة إطار نص يحتوي على 3 فقرات، وكل فقرة تحتوي على 3 جزءيات:
+## **إضافة فقرات متعددة تحتوي على أقسام نصية متعددة**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة المعنية عبر الفهرس الخاص بها.
-3. إضافة مستطيل [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+توضح هذه الخطوات كيفية إضافة إطار نص يحتوي على 3 فقرات، وكل فقرة تحتوي على 3 أقسام:
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرستها.
+3. إضافة شكل مستطيل [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
 4. الحصول على ITextFrame المرتبط بـ [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/).
-5. إنشاء كائنين من [IParagraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph/) وإضافتهما إلى مجموعة `IParagraphs` الخاصة بـ [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
-6. إنشاء ثلاثة كائنات من [IPortion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iportion/) لكل `IParagraph` جديد (جزءيتان للفقرة الافتراضية) وإضافة كل كائن `IPortion` إلى مجموعة IPortion الخاصة بكل `IParagraph`.
-7. تعيين بعض النص لكل جزء.
-8. تطبيق خصائص التنسيق المفضلة على كل جزء باستخدام خصائص التنسيق التي ي exposeها كائن `IPortion`.
+5. إنشاء كائنين من النوع [IParagraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph/) وإضافتهما إلى مجموعة `IParagraphs` في [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
+6. إنشاء ثلاثة كائنات من النوع [IPortion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iportion/) لكل `IParagraph` جديد (قسمين للفقرة الافتراضية) وإضافة كل كائن `IPortion` إلى مجموعة IPortion الخاصة بكل `IParagraph`.
+7. تعيين نص لكل قسم.
+8. تطبيق خصائص التنسيق المفضلة على كل قسم باستخدام خصائص التنسيق المتاحة في كائن `IPortion`.
 9. حفظ العرض المعدل.
 
+هذا الكود Java هو تطبيق للخطوات لإضافة فقرات تحتوي على أقسام:
+
 ```java
-// إنشاء فئة Presentation التي تمثل ملف PPTX
+// إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // الوصول إلى الشريحة الأولى
@@ -62,10 +68,10 @@ try {
     // إضافة AutoShape من نوع مستطيل
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
-    // الوصول إلى TextFrame الخاص بـ AutoShape
+    // الوصول إلى TextFrame الخاص بالـ AutoShape
     ITextFrame tf = ashp.getTextFrame();
 
-    // إنشاء فقرات وجزءيات بتنسيقات نصية مختلفة
+    // إنشاء فقرات وأقسام بأشكال نصية مختلفة
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -110,34 +116,36 @@ try {
         }
     }
 
-    // كتابة ملف PPTX إلى القرص
+    // حفظ ملف PPTX إلى القرص
     pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **إدارة نقاط الفقرة**
+## **إدارة نقط الفقرات**
 
-قوائم الترقيم تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. الفقرات ذات الترقيم تكون دائمًا أسهل في القراءة والفهم.
+قوائم النقاط تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. الفقرات ذات النقاط تكون دائمًا أسهل في القراءة والفهم.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة المعنية عبر الفهرس الخاص بها.
-3. إضافة [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة المحددة.
-4. الوصول إلى `TextFrame` الخاص بـ autoshape عبر [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرستها.
+3. إضافة [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة المختارة.
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/).
-7. تعيين `Type` للترقيم إلى `Symbol` وتعيين حرف الترقيم.
+6. إنشاء أول فئة فقرة باستخدام الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/).
+7. تعيين `Type` للنقطة إلى `Symbol` وتحديد حرف النقطة.
 8. تعيين `Text` للفقرة.
-9. تعيين `Indent` للفقرة للترقيم.
-10. تعيين لون للترقيم.
-11. تعيين ارتفاع للترقيم.
+9. تعيين `Indent` للفقرة بالنسبة للنقطة.
+10. تعيين لون للنقطة.
+11. تعيين ارتفاع للنقطة.
 12. إضافة الفقرة الجديدة إلى مجموعة فقرات `TextFrame`.
-13. إضافة الفقرة الثانية وتكرار العملية المذكورة في الخطوات 7 إلى 13.
+13. إضافة الفقرة الثانية وتكرار العملية من الخطوة 7 إلى 13.
 14. حفظ العرض.
 
+هذا الكود Java يوضح كيفية إضافة نقطة فقرة:
+
 ```java
-// ينشئ فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // يصل إلى الشريحة الأولى
@@ -146,7 +154,7 @@ try {
     // يضيف ويصل إلى Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // يصل إلى إطار النص الخاص بـ autoshape
+    // يصل إلى إطار النص للـ autoshape
     ITextFrame txtFrm = aShp.getTextFrame();
 
     // يزيل الفقرة الافتراضية
@@ -155,22 +163,22 @@ try {
     // ينشئ فقرة
     Paragraph para = new Paragraph();
 
-    // يضبط نمط ترقيم الفقرة والرمز
+    // يحدد نمط نقطة الفقرة والرمز
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char)8226);
 
     // يحدد نص الفقرة
     para.setText("Welcome to Aspose.Slides");
 
-    // يضبط مسافة بادئة للترقيم
+    // يحدد إزاحة النقطة
     para.getParagraphFormat().setIndent(25);
 
-    // يضبط لون الترقيم
+    // يحدد لون النقطة
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // اضبط IsBulletHardColor إلى true لاستخدام لون ترقيم مخصص
+    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // تعيين IsBulletHardColor إلى true لاستخدام لون النقطة الخاص
 
-    // يضبط ارتفاع الترقيم
+    // يحدد ارتفاع النقطة
     para.getParagraphFormat().getBullet().setHeight(100);
 
     // يضيف الفقرة إلى إطار النص
@@ -179,21 +187,21 @@ try {
     // ينشئ الفقرة الثانية
     Paragraph para2 = new Paragraph();
 
-    // يضبط نوع ترقيم الفقرة والأسلوب
+    // يحدد نوع نقطة الفقرة والنمط
     para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
 
     // يضيف نص الفقرة
     para2.setText("This is numbered bullet");
 
-    // يضبط مسافة بادئة للترقيم
+    // يحدد إزاحة النقطة
     para2.getParagraphFormat().setIndent(25);
 
     para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // اضبط IsBulletHardColor إلى true لاستخدام لون ترقيم مخصص
+    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // تعيين IsBulletHardColor إلى true لاستخدام لون النقطة الخاص
 
-    // يضبط ارتفاع الترقيم
+    // يحدد ارتفاع النقطة
     para2.getParagraphFormat().getBullet().setHeight(100);
 
     // يضيف الفقرة إلى إطار النص
@@ -208,32 +216,34 @@ try {
 
 ## **إدارة نقاط الصور**
 
-قوائم الترقيم تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. فقرات الصور سهلة القراءة والفهم.
+قوائم النقاط تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. فقرات الصور سهلة القراءة والفهم.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة المعنية عبر الفهرس الخاص بها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرستها.
 3. إضافة [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. الوصول إلى `TextFrame` الخاص بـ autoshape عبر [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/).
+6. إنشاء أول فئة فقرة باستخدام الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/).
 7. تحميل الصورة في [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/).
-8. تعيين نوع الترقيم إلى [Picture](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) وتعيين الصورة.
+8. تعيين نوع النقطة إلى [Picture](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) وتحديد الصورة.
 9. تعيين `Text` للفقرة.
-10. تعيين `Indent` للفقرة للترقيم.
-11. تعيين لون للترقيم.
-12. تعيين ارتفاع للترقيم.
+10. تعيين `Indent` للفقرة بالنسبة للنقطة.
+11. تعيين لون للنقطة.
+12. تعيين ارتفاع للنقطة.
 13. إضافة الفقرة الجديدة إلى مجموعة فقرات `TextFrame`.
 14. إضافة الفقرة الثانية وتكرار العملية بناءً على الخطوات السابقة.
 15. حفظ العرض المعدل.
 
+هذا الكود Java يوضح كيفية إضافة وإدارة نقاط الصور:
+
 ```java
-// ينشئ فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 Presentation presentation = new Presentation();
 try {
     // يصل إلى الشريحة الأولى
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // ينشئ الصورة للترقيم
+    // ينشئ الصورة للنقط
     IPPImage picture;
     IImage image = Images.fromFile("bullets.png");
     try {
@@ -244,7 +254,7 @@ try {
     // يضيف ويصل إلى Autoshape
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // يصل إلى إطار النص الخاص بالـ autoshape
+    // يصل إلى إطار النص للـ autoshape
     ITextFrame textFrame = autoShape.getTextFrame();
 
     // يزيل الفقرة الافتراضية
@@ -254,20 +264,20 @@ try {
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
 
-    // يضبط نمط ترقيم الفقرة والصورة
+    // يضبط نمط نقطة الفقرة والصورة
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // يضبط ارتفاع الترقيم
+    // يضبط ارتفاع النقطة
     paragraph.getParagraphFormat().getBullet().setHeight(100);
 
     // يضيف الفقرة إلى إطار النص
     textFrame.getParagraphs().add(paragraph);
 
-    // يكتب العرض كملف PPTX
+    // يحفظ العرض كملف PPTX
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-    // يكتب العرض كملف PPT
+    // يحفظ العرض كملف PPT
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 } catch (IOException e) {
 } finally {
@@ -275,24 +285,26 @@ try {
 }
 ```
 
-## **إدارة الترقيم المتعدد المستويات**
+## **إدارة نقاط متعددة المستويات**
 
-قوائم الترقيم تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. الترقيم متعدد المستويات سهل القراءة والفهم.
+قوائم النقاط تساعدك على تنظيم وعرض المعلومات بسرعة وكفاءة. نقاط المستويات المتعددة سهلة القراءة والفهم.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة المعنية عبر الفهرس الخاص بها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرستها.
 3. إضافة [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) في الشريحة الجديدة.
-4. الوصول إلى `TextFrame` الخاص بـ autoshape عبر [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/) وتعيين العمق إلى 0.
-7. إنشاء المثال الثاني للفقرة عبر الفئة `Paragraph` وتعيين العمق إلى 1.
-8. إنشاء المثال الثالث للفقرة عبر الفئة `Paragraph` وتعيين العمق إلى 2.
-9. إنشاء المثال الرابع للفقرة عبر الفئة `Paragraph` وتعيين العمق إلى 3.
+6. إنشاء الفقرة الأولى عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/) وتعيين العمق إلى 0.
+7. إنشاء الفقرة الثانية عبر الفئة `Paragraph` وتعيين العمق إلى 1.
+8. إنشاء الفقرة الثالثة عبر الفئة `Paragraph` وتعيين العمق إلى 2.
+9. إنشاء الفقرة الرابعة عبر الفئة `Paragraph` وتعيين العمق إلى 3.
 10. إضافة الفقرات الجديدة إلى مجموعة فقرات `TextFrame`.
 11. حفظ العرض المعدل.
 
+هذا الكود Java يوضح كيفية إضافة وإدارة نقاط متعددة المستويات:
+
 ```java
-// ينشئ فئة Presentation التي تمثل ملف PPTX
+// ينشئ كائنًا من فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
     // يصل إلى الشريحة الأولى
@@ -307,44 +319,44 @@ try {
     // يمسح الفقرة الافتراضية
     text.getParagraphs().clear();
 
-    // Adds the first paragraph
+    // يضيف الفقرة الأولى
     IParagraph para1 = new Paragraph();
     para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // يضبط مستوى الترقيم
+    // يحدد مستوى النقطة
     para1.getParagraphFormat().setDepth((short)0);
 
-    // Adds the second paragraph
+    // يضيف الفقرة الثانية
     IParagraph para2 = new Paragraph();
     para2.setText("Second Level");
     para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // يضبط مستوى الترقيم
+    // يحدد مستوى النقطة
     para2.getParagraphFormat().setDepth((short)1);
 
-    // Adds the third paragraph
+    // يضيف الفقرة الثالثة
     IParagraph para3 = new Paragraph();
     para3.setText("Third Level");
     para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar((char)8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // يضبط مستوى الترقيم
+    // يحدد مستوى النقطة
     para3.getParagraphFormat().setDepth((short)2);
 
-    // Adds the fourth paragraph
+    // يضيف الفقرة الرابعة
     IParagraph para4 = new Paragraph();
     para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // يضبط مستوى الترقيم
+    // يحدد مستوى النقطة
     para4.getParagraphFormat().setDepth((short)3);
 
     // يضيف الفقرات إلى المجموعة
@@ -353,34 +365,36 @@ try {
     text.getParagraphs().add(para3);
     text.getParagraphs().add(para4);
 
-    // يكتب العرض كملف PPTX
+    // يحفظ العرض كملف PPTX
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **إدارة فقرة مع قائمة مرقمة مخصصة**
+## **إدارة فقرة بقائمة مرقمة مخصصة**
 
-توفر واجهة [IBulletFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibulletformat/) الخاصية [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) وغيرها التي تسمح لك بإدارة الفقرات ذات الترقيم أو التنسيق المخصص.
+توفر الواجهة [IBulletFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibulletformat/) الخاصية [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) وغيرها التي تسمح لك بإدارة الفقرات ذات الترقيم أو التنسيق المخصص.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
 2. الوصول إلى الشريحة التي تحتوي على الفقرة.
 3. إضافة [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. الوصول إلى `TextFrame` الخاص بـ autoshape عبر [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية في `TextFrame`.
-6. إنشاء أول مثال للفقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/) وتعيين [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) إلى 2.
-7. إنشاء المثال الثاني للفقرة عبر الفئة `Paragraph` وتعيين `NumberedBulletStartWith` إلى 3.
-8. إنشاء المثال الثالث للفقرة عبر الفئة `Paragraph` وتعيين `NumberedBulletStartWith` إلى 7.
+6. إنشاء الفقرة الأولى عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/) وتعيين [NumberedBulletStartWith](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) إلى 2.
+7. إنشاء الفقرة الثانية عبر الفئة `Paragraph` وتعيين `NumberedBulletStartWith` إلى 3.
+8. إنشاء الفقرة الثالثة عبر الفئة `Paragraph` وتعيين `NumberedBulletStartWith` إلى 7.
 9. إضافة الفقرات الجديدة إلى مجموعة فقرات `TextFrame`.
 10. حفظ العرض المعدل.
+
+هذا الكود Java يوضح كيفية إضافة وإدارة الفقرات ذات الترقيم أو التنسيق المخصص:
 
 ```java
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // يصل إلى إطار النص للـ autoshape المُنشأ
+    // يصل إلى إطار النص للـ autoshape المنشئ
     ITextFrame textFrame = shape.getTextFrame();
 
     // يزيل الفقرة الافتراضية الموجودة
@@ -415,21 +429,23 @@ try {
 }
 ```
 
-## **تعيين مسافة بادئة السطر الأول للفقرة**
+## **تعيين مسافة بادئة للسطر الأول لفقرة**
 
-استخدم الطريقة [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) للتحكم في مسافة البادئة للسطر الأول للفقرة. هذه الطريقة تحرك السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية إلى جسم الفقرة.
+استخدم طريقة [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) للتحكم في المسافة البادئة للسطر الأول من الفقرة. تنقل هذه الطريقة السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تحرك السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية لنص الفقرة.
 
 استخدم [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) عندما تحتاج إلى تحريك الفقرة بأكملها. استخدم [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) عندما تحتاج إلى تحريك السطر الأول فقط.
 
-المثال أدناه ينشئ عدة فقرات ويطبق قيم مسافة بادئة مختلفة لتوضيح كيف تؤثر مسافة البادئة للسطر الأول على تخطيط الفقرة.
+المثال أدناه ينشئ عدة فقرات ويطبق قيم بادئة مختلفة لتوضيح كيفية تأثير المسافة البادئة للسطر الأول على تخطيط الفقرة.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/) مستطيل إلى الشريحة.
+3. إضافة شكل مستطيل [AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/) إلى الشريحة.
 4. إضافة [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/) فارغ إلى الشكل وإزالة الفقرة الافتراضية.
-5. إنشاء عدة فقرات وتعيين قيم مختلفة للخاصية [Indent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) لها.
+5. إنشاء عدة فقرات وتعيين قيم مختلفة لـ [Indent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-).
 6. إضافة الفقرات إلى إطار النص.
 7. حفظ العرض المعدل.
+
+هذا الكود يوضح كيفية تعيين مسافة بادئة للفقرة:
 
 ```java
 Presentation presentation = new Presentation();
@@ -481,22 +497,24 @@ finally {
 
 ![المسافة البادئة للسطر الأول للفقرات](first_line_indent.png)
 
-## **تعيين مسافة البادئة المعلقة للفقرة**
+## **تعيين مسافة بادئة معلقة لفقرة**
 
-المسافة البادئة المعلقة هي تخطيط فقرة يبدأ فيه السطر الأول إلى يسار الأسطر المتبقية. في Aspose.Slides، تنشئ هذا التأثير باستخدام الطريقة [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). عيّن البادئة إلى قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
+المسافة البادئة المعلقة هي تخطيط للفقرة حيث يبدأ السطر الأول إلى اليسار من الأسطر المتبقية. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام طريقة [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). اضبط المسافة إلى قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة لنص الفقرة.
 
-عمليًا، [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) يحدد الموضع الأيسر لجسم الفقرة، و[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) يحدد موضع السطر الأول بالنسبة لهذا الهامش. لإنشاء مسافة بادئة معلّقة، عيّن قيمة `MarginLeft` موجبة وقيمة `Indent` سالبة.
+عمليًا، تحدد [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موقع الجزء الأيسر من نص الفقرة، وتحدد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) موقع السطر الأول بالنسبة لذلك الهامش. لإنشاء مسافة بادئة معلقة، اضبط قيمة `MarginLeft` إلى موجبة وقيمة `Indent` إلى سالبة.
 
-هذا التنسيق مفيد للبيبليوغرافيات والمراجع ومEntries القاموسية وغيرها من الفقرات التي يجب أن تكون الأسطر المُلتفة محاذية تحت جسم الفقرة بدلاً من تحت الحرف الأول للسطر الأول.
+هذا التنسيق مفيد للمراجع، المراجع الببليوغرافية، مدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون الأسطر المتعددة محاذية تحت جسم الفقرة بدلاً من الحرف الأول للسطر الأول.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
 2. الوصول إلى الشريحة المستهدفة.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/) مستطيل إلى الشريحة.
+3. إضافة شكل مستطيل [AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/) إلى الشريحة.
 4. إضافة [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/) فارغ إلى الشكل وإزالة الفقرة الافتراضية.
 5. إنشاء فقرات وتعيين قيمة `MarginLeft` موجبة لكل فقرة.
 6. تعيين قيمة `Indent` سالبة لإنشاء تأثير المسافة البادئة المعلقة.
 7. إضافة الفقرات إلى إطار النص.
 8. حفظ العرض المعدل.
+
+هذا الكود يوضح كيفية تعيين مسافة بادئة معلقة لفقرة:
 
 ```java
 Presentation presentation = new Presentation();
@@ -542,13 +560,15 @@ finally {
 
 ## **إدارة خصائص تشغيل نهاية الفقرة**
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
-1. الحصول على مرجع الشريحة التي تحتوي على الفقرة عبر موقعها.
-1. إضافة مستطيل [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع الشريحة التي تحتوي على الفقرة عبر موضعها.
+1. إضافة شكل مستطيل [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
 1. إضافة [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) يحتوي على فقرتين إلى المستطيل.
 1. تعيين `FontHeight` ونوع الخط للفقرات.
 1. تعيين خصائص End للفقرات.
 1. كتابة العرض المعدل كملف PPTX.
+
+هذا الكود Java يوضح كيفية تعيين خصائص End للفقرات في PowerPoint:
 
 ```java
 Presentation pres = new Presentation();
@@ -577,23 +597,25 @@ try {
 
 ## **استيراد نص HTML إلى الفقرات**
 
-Aspose.Slides يوفر دعمًا محسّنًا لاستيراد نص HTML إلى الفقرات.
+توفر Aspose.Slides دعمًا محسنًا لاستيراد نص HTML إلى الفقرات.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
-2. الوصول إلى مرجع الشريحة المعنية عبر الفهرس الخاص بها.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرستها.
 3. إضافة [autoshape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. إضافة والوصول إلى `ITextFrame` الخاص بـ autoshape عبر [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
+4. إضافة والوصول إلى `autoshape` [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
 5. إزالة الفقرة الافتراضية في `ITextFrame`.
-6. قراءة ملف HTML المصدر باستخدام TextReader.
-7. إنشاء أول مثال للفقرة عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/).
+6. قراءة ملف HTML المصدر في TextReader.
+7. إنشاء الفقرة الأولى عبر الفئة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/).
 8. إضافة محتوى ملف HTML المقروء من TextReader إلى [ParagraphCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraphcollection/) الخاص بـ TextFrame.
 9. حفظ العرض المعدل.
 
+هذا الكود Java هو تنفيذ للخطوات لاستيراد نصوص HTML إلى الفقرات:
+
 ```java
-// إنشاء كائن Presentation فارغ
+// إنشاء مثال فارغ للعرض التقديمي
 Presentation pres = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى الافتراضية في العرض
+    // الوصول إلى الشريحة الأولى الافتراضية للعرض
     ISlide slide = pres.getSlides().get_Item(0);
 
     // إضافة AutoShape لاستيعاب محتوى HTML
@@ -605,16 +627,16 @@ try {
     // إضافة إطار نص إلى الشكل
     ashape.addTextFrame("");
 
-    // مسح جميع الفقرات في إطار النص المضاف
+    // مسح جميع الفقرات في إطار النص المضافة
     ashape.getTextFrame().getParagraphs().clear();
 
-    // تحميل ملف HTML باستخدام قارئ تدفق
+    // تحميل ملف HTML باستخدام قارئ التدفق
     TextReader tr = new StreamReader("file.html");
 
     // إضافة النص من قارئ تدفق HTML إلى إطار النص
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
-    // حفظ العرض
+    // حفظ العرض التقديمي
     pres.save("output_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -623,23 +645,25 @@ try {
 
 ## **تصدير نص الفقرة إلى HTML**
 
-Aspose.Slides يوفر دعمًا محسّنًا لتصدير النصوص (الموجودة في الفقرات) إلى HTML.
+توفر Aspose.Slides دعمًا محسنًا لتصدير النصوص (الموجودة في الفقرات) إلى HTML.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) وتحميل العرض المطلوب.
-2. الوصول إلى مرجع الشريحة المعنية عبر الفهرس الخاص بها.
-3. الوصول إلى الشكل الذي يحتوي على النص الذي سيُصدّر إلى HTML.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/) الخاص بالشكل.
-5. إنشاء مثيل من `StreamWriter` وإضافة ملف HTML جديد.
-6. تحديد فهرس بدء للـ StreamWriter وتصدير الفقرات المفضلة لديك.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) وتحميل العرض المطلوب.
+2. الوصول إلى مرجع الشريحة ذات الصلة عبر فهرستها.
+3. الوصول إلى الشكل الذي يحتوي على النص المراد تصديره إلى HTML.
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/) للشكل.
+5. إنشاء كائن `StreamWriter` وإضافة ملف HTML جديد.
+6. تحديد فهرس بداية إلى StreamWriter وتصدير الفقرات المفضلة لديك.
+
+هذا الكود Java يوضح كيفية تصدير نصوص فقرات PowerPoint إلى HTML:
 
 ```java
-// تحميل ملف العرض
+// تحميل ملف العرض التقديمي
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    // الوصول إلى الشريحة الأولى الافتراضية في العرض
+    // الوصول إلى الشريحة الأولى الافتراضية للعرض
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // المؤشر المطلوب
+    // الفهرس المطلوب
     int index = 0;
 
     // الوصول إلى الشكل المضاف
@@ -650,7 +674,7 @@ try {
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
     //استخراج الفقرة الأولى كـ HTML
-    // كتابة بيانات الفقرات إلى HTML عن طريق توفير مؤشر بداية الفقرة وإجمالي الفقرات التي سيتم نسخها
+    // كتابة بيانات الفقرات إلى HTML بتحديد فهرس بدء الفقرة وإجمالي الفقرات المراد نسخها
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -659,30 +683,30 @@ try {
 }
 ```
 
-## **حفظ فقرة كصورة**
+## **حفظ الفقرة كصورة**
 
-في هذا القسم، سنستعرض مثالين يوضحان كيفية حفظ فقرة نصية، ممثلة بواجهة [IParagraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph/)، كصورة. يتضمن كل مثال الحصول على صورة الشكل الذي يحتوي الفقرة باستخدام طرق `getImage` من واجهة [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/)، حساب حدود الفقرة داخل الشكل، وتصديرها كصورة bitmap. تسمح هذه الأساليب باستخلاص أجزاء محددة من النص من عروض PowerPoint وحفظها كصور منفصلة، ما قد يكون مفيدًا للاستخدامات المتعددة.
+في هذا القسم، نستعرض مثالين يوضحان كيفية حفظ فقرة نصية، ممثلة بواجهة [IParagraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph/)، كصورة. يتضمن كلا المثالين الحصول على صورة الشكل الذي يحتوي على الفقرة باستخدام طرق `getImage` من واجهة [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/)، حساب حدود الفقرة داخل الشكل، وتصديرها كصورة bitmap. تتيح هذه الأساليب استخراج أجزاء محددة من النص من عروض PowerPoint وحفظها كصور منفصلة، وهو ما قد يكون مفيدًا لاستخدامات متعددة.
 
-لنفترض أن لدينا ملف عرض يُدعى sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو صندوق نص يحتوي على ثلاث فقرات.
+لنفترض أن لدينا ملف عرض تقديمي اسمه sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو مربع نص يحتوي على ثلاث فقرات.
 
 ![مربع النص مع ثلاث فقرات](paragraph_to_image_input.png)
 
 **مثال 1**
 
-في هذا المثال نحصل على الفقرة الثانية كصورة. للقيام بذلك، نستخرج صورة الشكل من الشريحة الأولى للعرض ثم نحسب حدود الفقرة الثانية في إطار النص الخاص بالشكل. تُعاد رسم الفقرة على صورة bitmap جديدة، تُحفظ بتنسيق PNG. هذه الطريقة مفيدة عندما تحتاج إلى حفظ فقرة محددة كصورة منفصلة مع الحفاظ على الأبعاد والتنسيق الدقيق للنص.
+في هذا المثال نحصل على الفقرة الثانية كصورة. للقيام بذلك، نستخرج صورة الشكل من الشريحة الأولى للعرض ثم نحسب حدود الفقرة الثانية في إطار النص داخل الشكل. ثم يتم إعادة رسم الفقرة على صورة bitmap جديدة تُحفظ بصيغة PNG. تُعد هذه الطريقة مفيدة عندما تحتاج إلى حفظ فقرة محددة كصورة منفصلة مع الحفاظ على أبعاد النص وتنسيقه الأصلي.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // حفظ الشكل في الذاكرة كصورة نقطية.
+    // حفظ الشكل في الذاكرة كصورة bitmap.
     IImage shapeImage = firstShape.getImage();
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // إنشاء صورة نقطية للشكل من الذاكرة.
+    // إنشاء صورة bitmap للشكل من الذاكرة.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
@@ -690,13 +714,13 @@ try {
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     RectF paragraphRectangle = secondParagraph.getRect();
 
-    // حساب الإحداثيات والحجم لصورة الإخراج (الحد الأدنى - 1×1 بكسل).
+    // حساب إحداثيات وحجم الصورة الناتجة (الحد الأدنى - بكسل واحد 1x1).
     int imageX = (int) Math.floor(paragraphRectangle.left);
     int imageY = (int) Math.floor(paragraphRectangle.top);
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // قص صورة الشكل للحصول على صورة الفقرة فقط.
+    // قص صورة bitmap للشكل للحصول فقط على صورة bitmap للفقرة.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -712,7 +736,7 @@ try {
 
 **مثال 2**
 
-في هذا المثال نمد النهج السابق بإضافة عوامل مقياس إلى صورة الفقرة. يُستخرج الشكل من العرض ويحفظ كصورة بمعامل مقياس `2`. يسمح ذلك بإخراج بدقة أعلى عند تصدير الفقرة. تُحسب حدود الفقرة مع مراعاة المقياس. يمكن أن يكون المقياس مفيدًا عندما تحتاج إلى صورة أكثر تفصيلًا، مثلاً للاستخدام في مواد مطبوعة عالية الجودة.
+في هذا المثال نوسع النهج السابق بإضافة عوامل قياس إلى صورة الفقرة. يُستخرج الشكل من العرض ويُحفظ كصورة بعامل قياس `2`. يتيح ذلك الحصول على إخراج بدقة أعلى عند تصدير الفقرة. ثم تُحسب حدود الفقرة مع الأخذ في الاعتبار المقياس. يمكن أن يكون القياس مفيدًا عندما تكون هناك حاجة إلى صورة أكثر تفصيلاً، مثلاً للاستخدام في مواد مطبوعة عالية الجودة.
 
 ```java
 float imageScaleX = 2f;
@@ -722,13 +746,13 @@ Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // حفظ الشكل في الذاكرة كصورة نقطية مع التحجيم.
+    // حفظ الشكل في الذاكرة كصورة bitmap مع التحجيم.
     IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // إنشاء صورة نقطية للشكل من الذاكرة.
+    // إنشاء صورة bitmap للشكل من الذاكرة.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
@@ -742,13 +766,13 @@ try {
             paragraphRectangle.bottom * imageScaleY
     );
 
-    // حساب الإحداثيات والحجم لصورة الإخراج (الحد الأدنى - بكسل واحد × واحد).
+    // حساب الإحداثيات والحجم للصورة الناتجة (الحد الأدنى - بكسل واحد 1x1).
     int imageX = (int) Math.floor(paragraphRectangle.left);
     int imageY = (int) Math.floor(paragraphRectangle.top);
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // قص صورة الشكل للحصول على صورة الفقرة فقط.
+    // قص صورة bitmap للشكل للحصول فقط على صورة bitmap للفقرة.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -760,18 +784,18 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تعطيل الالتفاف داخل إطار النص تمامًا؟**
+**هل يمكنني إيقاف التفاف النص داخل إطار النص تمامًا؟**
 
-نعم. استخدم إعداد الالتفاف لإطار النص ([setWrapText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) لتقليل الالتفاف بحيث لا تنقسام الأسطر عند حواف الإطار.
+نعم. استخدم إعداد التفاف إطار النص ([setWrapText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) لإلغاء التفاف النص بحيث لا تنكسر الأسطر عند حواف الإطار.
 
-**كيف يمكنني الحصول على حدود محددة على الشريحة لفقرة معينة؟**
+**كيف يمكنني الحصول على حدود الفقرة المحددة على الشريحة بدقة؟**
 
-يمكنك استرجاع المستطيل الحدودي للفقرة (وأو حتى للجزئية الواحدة) لمعرفة موقعها الدقيق وحجمها على الشريحة.
+يمكنك استرجاع المستطيل المحدد للفقرة (وحتى للقسم الواحد) لمعرفة موقعها الدقيق وحجمها على الشريحة.
 
-**أين يتم التحكم في محاذاة الفقرة (يسار/يمين/وسط/ضبط)؟**
+**أين يتم التحكم بمحاذاة الفقرة (يسار/يمين/وسط/ضبط)؟**
 
-[Alignment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) هو إعداد على مستوى الفقرة في [ParagraphFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraphformat/); يُطبق على الفقرة بالكامل بغض النظر عن تنسيق كل جزءية.
+[Alignment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) هو إعداد على مستوى الفقرة في [ParagraphFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraphformat/); يطبق على الفقرة بأكملها بغض النظر عن تنسيق الأقسام الفردية.
 
-**هل يمكنني تعيين لغة تدقيق إملائي لجزء فقط من الفقرة (مثلاً كلمة واحدة)؟**
+**هل يمكنني تعيين لغة التدقيق الإملائي لجزء فقط من الفقرة (مثلاً كلمة واحدة)؟**
 
-نعم. تُحدد اللغة على مستوى الجزءية ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-))، لذا يمكن أن تتعايش لغات متعددة داخل فقرة واحدة.
+نعم. اللغة تُحدد على مستوى القسم ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-))، لذا يمكن وجود لغات متعددة داخل فقرة واحدة.

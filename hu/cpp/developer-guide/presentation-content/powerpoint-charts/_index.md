@@ -9,10 +9,10 @@ keywords:
 - diagram létrehozása
 - diagram frissítése
 - diagram módosítása
-- diagram szerkesztése
+- diagram átalakítása
 - diagram testreszabása
 - diagram típusa
-- diagram entitások
+- diagram elemei
 - diagram formázása
 - diagram munkafüzet
 - animált diagram
@@ -21,5 +21,5 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "PowerPoint diagramok létrehozása és testreszabása C++-ban az Aspose.Slides segítségével — dolgozzon adatokkal, stílusokkal és diagramtípusokkal PPT és PPTX formátumban, világos kódrészletek bemutatásával."
+description: "PowerPoint diagramok létrehozása és testreszabása C++-ban az Aspose.Slides segítségével – dolgozzon adatcsoportokkal, stílusokkal és diagramtípusokkal PPT és PPTX fájlokban, egyértelmű kódpéldákat felhasználva."
 ---

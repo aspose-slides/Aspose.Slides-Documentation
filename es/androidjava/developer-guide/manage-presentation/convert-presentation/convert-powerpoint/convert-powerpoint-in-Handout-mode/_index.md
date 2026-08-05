@@ -1,14 +1,14 @@
 ---
-title: Convertir presentaciones de PowerPoint en modo Handout en Android
-linktitle: Modo Handout
+title: Convertir presentaciones de PowerPoint en modo Folleto en Android
+linktitle: Modo Folleto
 type: docs
 weight: 150
 url: /es/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - convertir PowerPoint
 - convertir presentación
-- modo handout
-- guía
+- modo folleto
+- folleto
 - PPT
 - PPTX
 - PowerPoint
@@ -16,16 +16,18 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Convertir presentaciones a guías en Java. Establecer diapositivas por página, mantener notas, exportar a PDF o imágenes con Aspose.Slides para Android, con código de ejemplo. Pruébalo gratis."
+description: "Convertir presentaciones a folletos en Java. Establecer diapositivas por página, conservar notas, exportar a PDF o imágenes con Aspose.Slides para Android, con código de ejemplo. Pruébalo gratis."
 ---
+## **Introducción**
 
-## **Exportación en modo de Guías**
+Aspose.Slides ofrece la capacidad de convertir presentaciones a varios formatos, incluida la creación de folletos para imprimir en modo Folleto. Este modo le permite configurar cómo aparecen varias diapositivas en una sola página, lo que resulta útil para conferencias, seminarios y otros eventos. Puede activar este modo estableciendo el método `setSlidesLayoutOptions` en las interfaces [IPdfOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ihtmloptions/) y [ITiffOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itiffoptions/) .
 
-Aspose.Slides ofrece la capacidad de convertir presentaciones a varios formatos, incluyendo la creación de guías para imprimir en modo Handout. Este modo le permite configurar cómo aparecen varias diapositivas en una sola página, lo que resulta útil para conferencias, seminarios y otros eventos. Puede activar este modo estableciendo el método `setSlidesLayoutOptions` en las interfaces [IPdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihtmloptions/), y [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) .
+## **Exportación en modo Folleto**
 
-Para configurar el modo Handout, use el objeto [HandoutLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handoutlayoutingoptions/) , que determina cuántas diapositivas se colocan en una sola página y otros parámetros de visualización.
+Para configurar el modo Folleto, utilice el objeto [HandoutLayoutingOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/handoutlayoutingoptions/), que determina cuántas diapositivas se colocan en una sola página y otros parámetros de visualización.
 
-A continuación se muestra un ejemplo de código que muestra cómo convertir una presentación a PDF en modo Handout.
+A continuación se muestra un ejemplo de código que demuestra cómo convertir una presentación a PDF en modo Folleto.
+
 ```java
 // Cargar una presentación.
 Presentation presentation = new Presentation("sample.pptx");
@@ -40,28 +42,27 @@ try {
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-	// Exportar la presentación a PDF con el diseño elegido.
+	// Exportar la presentación a PDF con el diseño seleccionado.
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-
 {{% alert color="warning" %}} 
-Tenga en cuenta que el método `setSlidesLayoutOptions` está disponible solo para ciertos formatos de salida, como PDF, HTML, TIFF, y al renderizar como imágenes.
+Tenga en cuenta que el método `setSlidesLayoutOptions` sólo está disponible para ciertos formatos de salida, como PDF, HTML, TIFF y al renderizar como imágenes.
 {{% /alert %}} 
 
 ## **Preguntas frecuentes**
 
-**¿Cuál es el número máximo de miniaturas de diapositivas por página en modo Handout?**
+**¿Cuál es el número máximo de miniaturas de diapositivas por página en el modo Folleto?**
 
-Aspose.Slides admite [preajustes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handouttype/) de hasta 9 miniaturas por página con orden horizontal o vertical: 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical) y 9 (horizontal/vertical).
+Aspose.Slides admite [preajustes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/handouttype/) de hasta 9 miniaturas por página con orden horizontal o vertical: 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical) y 9 (horizontal/vertical).
 
-**¿Puedo definir una cuadrícula personalizada, como 5 u 8 diapositivas por página?**
+**¿Puedo definir una cuadrícula personalizada, como 5 o 8 diapositivas por página?**
 
-No. El número y el orden de las miniaturas están controlados estrictamente por la clase [HandoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handouttype/) ; no se admiten diseños arbitrarios.
+No. El número y el orden de las miniaturas están controlados estrictamente por la clase [HandoutType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/handouttype/); no se admiten disposiciones arbitrarias.
 
-**¿Puedo incluir diapositivas ocultas en la salida Handout?**
+**¿Puedo incluir diapositivas ocultas en la salida del Folleto?**
 
-Sí. Active las diapositivas ocultas usando el método `setShowHiddenSlides` en la configuración de exportación del formato de destino, como [PdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/htmloptions/), o [TiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/).
+Sí. Active las diapositivas ocultas mediante el método `setShowHiddenSlides` en la configuración de exportación del formato de destino, como [PdfOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/htmloptions/) o [TiffOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/tiffoptions/).

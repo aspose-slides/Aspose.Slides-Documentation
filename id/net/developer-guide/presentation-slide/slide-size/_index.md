@@ -13,12 +13,12 @@ keywords:
 - 16:9
 - atur ukuran slide
 - ubah ukuran slide
-- ukuran slide kustom
 - ukuran slide khusus
+- ukuran slide istimewa
 - ukuran slide unik
 - slide ukuran penuh
 - tipe layar
-- jangan skala
+- jangan skalakan
 - pastikan muat
 - maksimalkan
 - PowerPoint
@@ -27,18 +27,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-descriptions: "Pelajari cara cepat mengubah ukuran slide dalam file PPT, PPTX, dan ODP dengan .NET dan Aspose.Slides, optimalkan presentasi untuk layar apa pun tanpa mengurangi kualitas."
+description: "Pelajari cara cepat mengubah ukuran slide dalam file PPT, PPTX, dan ODP dengan .NET dan Aspose.Slides, optimalkan presentasi untuk layar apa pun tanpa kehilangan kualitas."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides for .NET menyediakan alat lengkap untuk menyesuaikan ukuran slide dan rasio aspek dalam presentasi PowerPoint, penting untuk pencetakan maupun tampilan di layar. 
+Aspose.Slides untuk .NET menyediakan alat lengkap untuk menyesuaikan ukuran slide dan rasio aspek dalam presentasi PowerPoint, yang penting baik untuk pencetakan maupun tampilan di layar. 
 
 Ukuran Slide Populer dan Rasio:
 
-- **Standard (Rasio Aspek 4:3)**: Ideal untuk layar dan perangkat lama.
-- **Widescreen (Rasio Aspek 16:9)**: Direkomendasikan untuk proyektor dan tampilan modern.
+- **Standar (Rasio Aspek 4:3)**: Ideal untuk layar dan perangkat lama.
+- **Layar Lebar (Rasio Aspek 16:9)**: Direkomendasikan untuk proyektor dan tampilan modern.
 
-Pastikan konsistensi di seluruh presentasi Anda karena satu ukuran slide dan rasio aspek berlaku untuk semua slide. Untuk hasil optimal, tetapkan dimensi slide Anda di awal proses pembuatan presentasi untuk menghindari komplikasi.
+Pastikan konsistensi di seluruh presentasi Anda karena satu ukuran slide dan rasio aspek diterapkan pada semua slide. Untuk hasil optimal, tetapkan dimensi slide di awal proses pembuatan presentasi untuk menghindari komplikasi.
 
 {{% alert color="primary" %}} 
 Secara default, presentasi yang dibuat dengan Aspose.Slides menggunakan rasio aspek standar 4:3.
@@ -46,7 +46,7 @@ Secara default, presentasi yang dibuat dengan Aspose.Slides menggunakan rasio as
 
 ## **Cara Mengubah Ukuran Slide dalam Presentasi**
 
-Contoh ini memperlihatkan cara mengubah ukuran slide presentasi dengan Aspose.Slides dalam C#:
+Contoh ini menunjukkan cara mengubah ukuran slide presentasi dengan Aspose.Slides dalam C#:
 
 ```csharp
 using (Presentation pres = new Presentation("presentation-4x3.pptx"))
@@ -56,9 +56,9 @@ using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 }
 ```
 
-## **Tentukan Ukuran Slide Kustom**
+## **Tentukan Ukuran Slide Khusus**
 
-Menyesuaikan ukuran slide dengan kebutuhan spesifik Anda, seperti untuk tata letak kertas unik atau spesifikasi layar, dapat bermanfaat. Berikut cara mengatur ukuran slide kustom dengan Aspose.Slides untuk .NET:
+Menyesuaikan ukuran slide dengan kebutuhan spesifik Anda, seperti untuk tata letak kertas unik atau spesifikasi layar, dapat bermanfaat. Berikut cara mengatur ukuran slide khusus dengan Aspose.Slides untuk .NET:
 
 ```csharp
 using (Presentation pres = new Presentation("presentation.pptx"))
@@ -68,13 +68,13 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
-## **Kelola Konten Slide Setelah Mengubah Ukuran**
+## **Tangani Konten Slide Setelah Mengubah Ukuran**
 
-Setelah mengubah ukuran, konten slide dapat terdistorsi. Anda dapat mengontrol bagaimana Aspose.Slides mengelola perubahan ukuran ini:
+Setelah mengubah ukuran, konten slide mungkin terdistorsi. Anda dapat mengontrol cara Aspose.Slides menangani perubahan ukuran ini:
 
-- **`DoNotScale`**: Menjaga objek pada ukuran asli untuk menghindari skala.
-- **`EnsureFit`**: Menskalakan objek agar sesuai dengan slide yang lebih kecil, mencegah kehilangan konten.
-- **`Maximize`**: Membesarkan objek agar cocok dengan slide yang lebih besar untuk konsistensi estetika.
+- **`DoNotScale`**: Menjaga objek pada ukuran asli untuk menghindari penskalaan.
+- **`EnsureFit`**: Menskala objek agar sesuai dengan slide yang lebih kecil, mencegah kehilangan konten.
+- **`Maximize`**: Memperbesar objek agar sesuai dengan slide yang lebih besar untuk konsistensi estetika.
 
 Contoh penggunaan pengaturan `Maximize` untuk penyesuaian ukuran slide:
 
@@ -87,18 +87,18 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 
 ## **FAQ**
 
-**Apakah saya dapat mengatur ukuran slide kustom menggunakan satuan selain inci (misalnya, poin atau milimeter)?**
+**Apakah saya dapat mengatur ukuran slide khusus menggunakan satuan selain inci (misalnya, poin atau milimeter)?**
 
 Ya. Aspose.Slides menggunakan poin secara internal, di mana 1 poin sama dengan 1/72 inci. Anda dapat mengonversi satuan apa pun (seperti milimeter atau sentimeter) ke poin dan menggunakan nilai yang dikonversi untuk menentukan lebar dan tinggi slide.
 
-**Apakah ukuran slide kustom yang sangat besar akan memengaruhi kinerja dan penggunaan memori saat rendering?**
+**Apakah ukuran slide khusus yang sangat besar memengaruhi kinerja dan penggunaan memori selama rendering?**
 
-Ya. Dimensi slide yang lebih besar (dalam poin) yang dikombinasikan dengan skala rendering yang lebih tinggi menyebabkan peningkatan konsumsi memori dan waktu pemrosesan yang lebih lama. Tujuannya adalah ukuran slide yang praktis dan sesuaikan skala rendering hanya bila diperlukan untuk mencapai kualitas output yang diinginkan.
+Ya. Dimensi slide yang lebih besar (dalam poin) dikombinasikan dengan skala rendering yang lebih tinggi menghasilkan peningkatan konsumsi memori dan waktu pemrosesan yang lebih lama. Usahakan untuk menggunakan ukuran slide yang praktis dan sesuaikan skala rendering hanya bila diperlukan untuk mencapai kualitas output yang diinginkan.
 
-**Apakah saya dapat menentukan satu ukuran slide non-standar lalu menggabungkan slide dari presentasi yang memiliki ukuran berbeda?**
+**Apakah saya dapat menentukan satu ukuran slide non-standar dan kemudian menggabungkan slide dari presentasi yang memiliki ukuran berbeda?**
 
-Anda tidak dapat [merge presentations](/slides/id/net/merge-presentation/) saat memiliki ukuran slide yang berbeda — pertama, ubah ukuran satu presentasi agar cocok dengan yang lain. Saat mengubah ukuran slide, Anda dapat memilih cara menangani konten yang ada melalui opsi [SlideSizeScaleType](https://reference.aspose.com/slides/id/net/aspose.slides/slidesizescaletype/). Setelah menyelaraskan ukuran, Anda dapat menggabungkan slide sambil mempertahankan pemformatan.
+Anda tidak dapat [merge presentations](/slides/id/net/merge-presentation/) saat mereka memiliki ukuran slide yang berbeda — pertama, ubah ukuran satu presentasi agar sesuai dengan yang lain. Saat mengubah ukuran slide, Anda dapat memilih cara konten yang ada ditangani melalui opsi [SlideSizeScaleType](https://reference.aspose.com/slides/id/net/aspose.slides/slidesizescaletype/). Setelah ukuran selaras, Anda dapat menggabungkan slide sambil mempertahankan pemformatan.
 
-**Apakah saya dapat menghasilkan thumbnail untuk bentuk individual atau wilayah spesifik dari slide, dan apakah mereka akan mematuhi ukuran slide baru?**
+**Apakah saya dapat menghasilkan thumbnail untuk bentuk individu atau wilayah spesifik dari slide, dan apakah mereka akan menghormati ukuran slide yang baru?**
 
 Ya. Aspose.Slides dapat merender thumbnail untuk [entire slides](https://reference.aspose.com/slides/id/net/aspose.slides/slide/getimage/) serta untuk [selected shapes](https://reference.aspose.com/slides/id/net/aspose.slides/shape/getimage/). Gambar yang dihasilkan mencerminkan ukuran slide dan rasio aspek saat ini, memastikan bingkai dan geometri yang konsisten.

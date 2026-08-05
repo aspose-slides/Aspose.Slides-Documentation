@@ -3,6 +3,8 @@ title: 备注
 type: docs
 weight: 240
 url: /zh/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - 备注
 - 添加备注幻灯片
@@ -16,13 +18,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "在 Aspose.Slides for .NET 中处理幻灯片备注：添加、读取、编辑，并使用清晰的 C# 示例导出 PPT、PPTX 和 ODP 的演讲者备注。"
+description: "在 Aspose.Slides for .NET 中处理幻灯片备注：添加、读取、编辑，并使用清晰的 C# 示例将演讲者备注导出为 PPT、PPTX 和 ODP。"
 ---
-本文演示如何使用 **Aspose.Slides for .NET** 添加、读取、删除和更新备注幻灯片。
+本文演示了如何使用 **Aspose.Slides for .NET** 添加、读取、删除和更新备注幻灯片。
 
 ## **添加备注幻灯片**
 
-创建一个备注幻灯片并向其分配文本。
+创建一个备注幻灯片并为其分配文本。
 
 ```csharp
 static void AddNote()
@@ -51,9 +53,9 @@ static void AccessNote()
 }
 ```
 
-## **移除备注幻灯片**
+## **删除备注幻灯片**
 
-移除与幻灯片关联的备注幻灯片。
+删除与幻灯片关联的备注幻灯片。
 
 ```csharp
 static void RemoveNote()

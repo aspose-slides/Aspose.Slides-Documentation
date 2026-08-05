@@ -1,35 +1,35 @@
 ---
-title: Renderowanie prezentacji z czcionkami zapasowymi w С++
+title: Renderowanie prezentacji z zastępczymi czcionkami w C++
 linktitle: Renderowanie prezentacji
 type: docs
 weight: 30
 url: /pl/cpp/render-presentation-with-fallback-font/
 keywords:
-- czcionka zapasowa
+- zastępcza czcionka
 - renderowanie PowerPoint
 - renderowanie prezentacji
 - renderowanie slajdu
 - PowerPoint
 - OpenDocument
 - prezentacja
-- С++
+- C++
 - Aspose.Slides
-description: "Renderowanie prezentacji z czcionkami zapasowymi w Aspose.Slides dla С++ – zachowaj spójny tekst w PPT, PPTX i ODP dzięki krok po kroku przykładowym kodom C++."
+description: "Renderowanie prezentacji z zastępczymi czcionkami w Aspose.Slides dla C++ – zapewnij spójność tekstu w plikach PPT, PPTX i ODP dzięki przykładowemu kodowi C++ krok po kroku."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia renderowanie prezentacji przy użyciu zasad czcionek zapasowych. Ten artykuł pokazuje, jak utworzyć kolekcję zasad czcionek zapasowych, modyfikować jej zasady poprzez usuwanie lub dodawanie czcionek zapasowych oraz przypisać kolekcję za pomocą metody `FontsManager::set_FontFallBackRulesCollection`.
+Aspose.Slides umożliwia renderowanie prezentacji przy użyciu reguł zastępczych czcionek. W tym artykule pokazano, jak utworzyć kolekcję reguł zastępczych czcionek, modyfikować jej zasady przez usuwanie lub dodawanie czcionek zastępczych oraz przypisać kolekcję przy użyciu metody `FontsManager::set_FontFallBackRulesCollection`.
 
-Po przypisaniu kolekcji zasad czcionek zapasowych do `FontsManager` prezentacji, zasady są stosowane podczas operacji, takich jak zapisywanie, renderowanie i konwertowanie prezentacji. Przykład demonstruje, jak używać skonfigurowanych zasad przy renderowaniu miniatury slajdu i zapisywaniu jej jako obrazu PNG.
+Po przypisaniu kolekcji reguł zastępczych czcionek do `FontsManager` prezentacji, reguły są stosowane podczas operacji, takich jak zapisywanie, renderowanie i konwertowanie prezentacji. Przykład demonstruje, jak używać skonfigurowanych reguł przy renderowaniu miniatury slajdu i zapisywaniu jej jako obrazu PNG.
 
-## **Renderowanie slajdu przy użyciu zasad czcionek zapasowych**
+## **Renderowanie slajdu przy użyciu reguł zastępczych czcionek**
 
-Poniższy przykład zawiera następujące kroki:
+Poniższy przykład obejmuje następujące kroki:
 
-1. Tworzymy [kolekcję zasad czcionek zapasowych](/slides/pl/cpp/create-fallback-fonts-collection/).
-1. [Remove()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontfallbackrule/remove/) zasadę czcionki zapasowej i [AddFallBackFonts()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) do innej zasady.
-1. Przekaż kolekcję zasad do metody [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
-1. Za pomocą metody [Presentation::Save()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save()) możemy zapisać prezentację w tym samym formacie lub w innym. Po ustawieniu kolekcji zasad czcionek zapasowych w FontsManager, zasady te są stosowane podczas wszystkich operacji na prezentacji: zapisywanie, renderowanie, konwertowanie itp.
+1. Tworzymy [kolekcję reguł zastępczych czcionek](/slides/pl/cpp/create-fallback-fonts-collection/).
+2. [Remove()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontfallbackrule/remove/) regułę zastępczą czcionki i [AddFallBackFonts()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) dodajemy do innej reguły.
+3. Przekazujemy kolekcję reguł do metody [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
+4. Za pomocą metody [Presentation::Save()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save/) możemy zapisać prezentację w tym samym formacie lub w innym. Po ustawieniu kolekcji reguł zastępczych czcionek w `FontsManager`, reguły te są stosowane podczas wszystkich operacji na prezentacji: zapisywanie, renderowanie, konwertowanie itp.
 
 ``` cpp
 // Utwórz nową instancję kolekcji reguł
@@ -41,10 +41,10 @@ rulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x400), static
 
 for (const auto& fallBackRule : rulesList)
 {
-	// Próba usunięcia czcionki zapasowej "Tahoma" z załadowanych reguł
+	// Próba usunięcia czcionki zastępczej "Tahoma" z załadowanych reguł
 	fallBackRule->Remove(u"Tahoma");
 
-	// I aktualizacji reguł dla określonego zakresu
+	// I aktualizacja reguł dla określonego zakresu
 	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) && 
 		(fallBackRule->get_RangeStartIndex() < static_cast<uint32_t>(0x5000)))
 	{
@@ -52,7 +52,7 @@ for (const auto& fallBackRule : rulesList)
 	}
 }
 
-// Możemy również usunąć istniejące reguły z listy
+// Możemy także usunąć istniejące reguły z listy
 if (rulesList->get_Count() > 0)
 {
 	rulesList->Remove(rulesList->idx_get(0));
@@ -71,5 +71,5 @@ pres->Dispose();
 ```
 
 {{% alert color="primary" %}} 
-Dowiedz się więcej, jak [konwertować slajdy PowerPoint do PNG w C++](/slides/pl/cpp/convert-powerpoint-to-png/).
+Przeczytaj więcej o tym, jak [przekształcić slajdy PowerPoint do PNG w C++](/slides/pl/cpp/convert-powerpoint-to-png/).
 {{% /alert %}}

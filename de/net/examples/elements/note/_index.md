@@ -3,6 +3,8 @@ title: Notiz
 type: docs
 weight: 240
 url: /de/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - Notiz
 - Notizfolie hinzufügen
@@ -16,7 +18,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Arbeiten Sie mit Foliennotizen in Aspose.Slides für .NET: Hinzufügen, Lesen, Bearbeiten und Exportieren von Rednernotizen in PPT, PPTX und ODP mit klaren C#-Beispielen."
+description: "Arbeiten Sie mit Foliennotizen in Aspose.Slides für .NET: Notizen hinzufügen, lesen, bearbeiten und Sprecher-Notizen in PPT, PPTX und ODP mit klaren C#-Beispielen exportieren."
 ---
 Dieser Artikel zeigt, wie man Notizfolien hinzufügt, liest, entfernt und aktualisiert, indem man **Aspose.Slides for .NET** verwendet.
 
@@ -35,9 +37,9 @@ static void AddNote()
 }
 ```
 
-## **Zugriff auf eine Notizfolie**
+## **Auf eine Notizfolie zugreifen**
 
-Lesen Sie Text aus einer vorhandenen Notizfolie.
+Lesen Sie den Text einer vorhandenen Notizfolie.
 
 ```csharp
 static void AccessNote()
@@ -53,7 +55,7 @@ static void AccessNote()
 
 ## **Notizfolie entfernen**
 
-Entfernen Sie die Notizfolie, die einer Folie zugeordnet ist.
+Entfernen Sie die mit einer Folie verknüpfte Notizfolie.
 
 ```csharp
 static void RemoveNote()

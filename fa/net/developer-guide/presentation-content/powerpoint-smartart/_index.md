@@ -1,9 +1,11 @@
 ---
-title: ایجاد و سفارشی‌سازی SmartArt پاورپوینت در .NET
-linktitle: SmartArt پاورپوینت
+title: ایجاد و سفارشی‌سازی SmartArt در PowerPoint با .NET
+linktitle: پاورپوینت SmartArt
 type: docs
 weight: 100
 url: /fa/net/powerpoint-smartart/
+aliases:
+  - /net/examples/elements/smartart/
 keywords:
 - SmartArt
 - مدیریت SmartArt
@@ -14,5 +16,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه SmartArt پاورپوینت را در .NET با استفاده از API Aspose.Slides ایجاد و ویرایش کنید: طرح‌بندی‌ها، گره‌ها، سبک‌ها، همراه با مثال‌های گام به گام برای خودکارسازی سریع اسلایدها."
+description: "با استفاده از API Aspose.Slides، نحوه ایجاد و ویرایش SmartArt در PowerPoint با .NET را بیاموزید: چینش‌ها، گره‌ها، سبک‌ها، به همراه مثال‌های گام به گام برای خودکارسازی سریع اسلایدها."
 ---

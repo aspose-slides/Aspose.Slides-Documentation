@@ -1,31 +1,33 @@
 ---
-title: Zarządzaj skoroszytami wykresów w prezentacjach przy użyciu C++
-linktitle: Skoroszyt wykresu
+title: Zarządzanie zeszytami wykresów w prezentacjach przy użyciu C++
+linktitle: Zeszyt wykresu
 type: docs
 weight: 70
 url: /pl/cpp/chart-workbook/
 keywords:
-- skoroszyt wykresu
+- zeszyt wykresu
 - dane wykresu
-- komórka skoroszytu
+- komórka zeszytu
 - etykieta danych
 - arkusz
 - źródło danych
-- zewnętrzny skoroszyt
+- zewnętrzny zeszyt
 - zewnętrzne dane
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Odkryj Aspose.Slides dla C++: łatwo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
+description: "Odkryj Aspose.Slides dla C++: łatwo zarządzaj zeszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pośrednictwem strumieni skoroszytów, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu. Opisuje także pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
+Ten artykuł wyjaśnia, jak pracować z zeszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pośrednictwem strumieni zeszytu, używać komórek zeszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
 
-## **Odczyt i zapis danych wykresu z skoroszytu**
+Omówiono również pracę z zewnętrznymi zeszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny zeszyt, odczytać ścieżkę zewnętrznego zeszytu powiązanego z wykresem oraz edytować dane wykresu, gdy zeszyt jest dostępny.
 
-Aspose.Slides udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) i [WriteWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), które umożliwiają odczyt i zapis skoroszytów danych wykresu (zawierających dane wykresu edytowane przy pomocy Aspose.Cells). **Uwaga** że dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+## **Odczyt i zapis danych wykresu z zeszytu**
+
+Aspose.Slides udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) i [WriteWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), które pozwalają odczytywać i zapisywać zeszyty danych wykresu (zawierające dane wykresu edytowane za pomocą Aspose.Cells). **Uwaga**, dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -41,7 +43,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Ten kod C++ demonstruje operację ustawienia skoroszytu danych wykresu:
+Ten kod C++ demonstruje operację ustawiania zeszytu danych wykresu:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -73,16 +75,16 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Ustaw komórkę WorkBook jako etykietę danych wykresu**
+## **Ustawienie komórki zeszytu jako etykiety danych wykresu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
-2. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-3. Dodaj wykres bąbelkowy z pewnymi danymi.
-4. Uzyskaj dostęp do serii wykresu.
-5. Ustaw komórkę skoroszytu jako etykietę danych.
-6. Zapisz prezentację.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).  
+1. Pobierz odniesienie do slajdu za jego indeksem.  
+1. Dodaj wykres bąbelkowy z pewnymi danymi.  
+1. Uzyskaj dostęp do serii wykresu.  
+1. Ustaw komórkę zeszytu jako etykietę danych.  
+1. Zapisz prezentację.
 
-Ten kod C++ pokazuje, jak ustawić komórkę skoroszytu jako etykietę danych wykresu:
+Ten kod C++ pokazuje, jak ustawić komórkę zeszytu jako etykietę danych wykresu:
 
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
@@ -124,9 +126,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Określ typ źródła danych**
+## **Określenie typu źródła danych**
 
-Ten kod C++ pokazuje, jak określić typ dla źródła danych:
+Ten kod C++ pokazuje, jak określić typ źródła danych:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -143,9 +145,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Wykryj nieobsługiwane formaty osadzonych skoroszytów**
+## **Wykrywanie nieobsługiwanych formatów osadzonych zeszytów**
 
-Aspose.Slides nie obsługuje formatu binarnego skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody `get_EmbeddedWorkbookType` w [IChartData](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/) razem z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/workbooktype/), aby wykryć nieobsługiwane formaty i pominąć te wykresy.
+Aspose.Slides nie obsługuje formatu binarnego zeszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody `get_EmbeddedWorkbookType` na interfejsie [IChartData](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/) razem z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/workbooktype/), aby wykrywać nieobsługiwane formaty i pomijać takie wykresy.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -164,25 +166,25 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // Osadzony skoroszyt jest w formacie .xlsb, który nie jest obsługiwany.
+        // Osadzony zeszyt jest w formacie .xlsb, który nie jest obsługiwany.
         continue;
     }
 
-    // Odczytaj lub modyfikuj tutaj dane skoroszytu wykresu.
+    // Odczytaj lub modyfikuj dane zeszytu wykresu tutaj.
 }
 ```
 
-## **Zewnętrzny skoroszyt**
+## **Zewnętrzny zeszyt**
 
 {{% alert color="primary" %}} 
-W wersji 19.4 [Aspose.Slides](https://releases.aspose.com/slides/pl/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) wprowadziliśmy obsługę zewnętrznych skoroszytów jako źródła danych dla wykresów.
+W [Aspose.Slides](https://releases.aspose.com/slides/pl/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 wprowadzono obsługę zewnętrznych zeszytów jako źródła danych dla wykresów.
 {{% /alert %}} 
 
-### **Utwórz zewnętrzny skoroszyt**
+### **Utworzenie zewnętrznego zeszytu**
 
-Używając metod **`ReadWorkbookStream`** i **`SetExternalWorkbook`**, możesz albo utworzyć od podstaw zewnętrzny skoroszyt, albo zamienić wewnętrzny skoroszyt w zewnętrzny.
+Korzystając z metod **`ReadWorkbookStream`** i **`SetExternalWorkbook`**, możesz zarówno utworzyć zewnętrzny zeszyt od podstaw, jak i uczynić wewnętrzny zeszyt zewnętrznym.
 
-Ten kod C++ demonstruje proces tworzenia zewnętrznego skoroszytu:
+Ten kod C++ demonstruje proces tworzenia zewnętrznego zeszytu:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -204,13 +206,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Ustaw zewnętrzny skoroszyt**
+### **Ustawienie zewnętrznego zeszytu**
 
-Korzystając z metody **`IChartData::SetExternalWorkbook`**, możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metoda ta może także służyć do aktualizacji ścieżki do zewnętrznego skoroszytu (jeśli ten został przeniesiony).
+Korzystając z metody **`IChartData::SetExternalWorkbook`**, możesz przypisać zewnętrzny zeszyt do wykresu jako jego źródło danych. Ta metoda może również służyć do aktualizacji ścieżki do zewnętrznego zeszytu (jeśli został on przeniesiony).
 
-Chociaż nie możesz edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, możesz nadal używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podana zostanie względna ścieżka do zewnętrznego skoroszytu, zostaje ona automatycznie przekształcona w pełną ścieżkę.
+Choć nie możesz edytować danych w zeszytach przechowywanych w zdalnych lokalizacjach lub zasobach, nadal możesz używać takich zeszytów jako zewnętrznego źródła danych. Jeśli podana zostanie względna ścieżka do zewnętrznego zeszytu, zostanie ona automatycznie zamieniona na pełną ścieżkę.
 
-Ten kod C++ pokazuje, jak ustawić zewnętrzny skoroszyt:
+Ten kod C++ pokazuje, jak ustawić zewnętrzny zeszyt:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -234,10 +236,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-Parametr `updateChartData` (w metodzie `SetExternalWorkbook`) służy do określenia, czy skoroszyt Excel zostanie załadowany, czy nie.
+Parametr `updateChartData` (w metodzie `SetExternalWorkbook`) określa, czy zeszyt Excel zostanie wczytany.
 
-* Gdy wartość `updateChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka do skoroszytu — dane wykresu nie zostaną załadowane ani zaktualizowane z docelowego skoroszytu. Możesz użyć tego ustawienia w sytuacji, gdy docelowy skoroszyt nie istnieje lub jest niedostępny. 
-* Gdy wartość `updateChartData` jest ustawiona na `true`, dane wykresu zostają zaktualizowane z docelowego skoroszytu.
+* Gdy wartość `updateChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka do zeszytu – dane wykresu nie zostaną wczytane ani zaktualizowane z docelowego zeszytu. Użyj tego ustawienia w sytuacji, gdy docelowy zeszyt nie istnieje lub jest niedostępny.  
+* Gdy wartość `updateChartData` jest ustawiona na `true`, dane wykresu zostaną zaktualizowane z docelowego zeszytu.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -251,13 +253,13 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Pobierz ścieżkę zewnętrznego skoroszytu źródła danych wykresu**
+### **Pobranie ścieżki zewnętrznego źródła danych zeszytu wykresu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-3. Utwórz obiekt dla kształtu wykresu.
-4. Utwórz obiekt dla typu źródła (`ChartDataSourceType`), które reprezentuje źródło danych wykresu.
-5. Określ odpowiedni warunek na podstawie tego, czy typ źródła jest taki sam jak typ zewnętrznego skoroszytu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).  
+1. Pobierz odniesienie do slajdu za jego indeksem.  
+1. Utwórz obiekt dla kształtu wykresu.  
+1. Utwórz obiekt dla typu źródła (`ChartDataSourceType`), które reprezentuje źródło danych wykresu.  
+1. Określ odpowiedni warunek w zależności od tego, czy typ źródła jest taki sam jak typ zewnętrznego źródła danych zeszytu.
 
 Ten kod C++ demonstruje tę operację:
 
@@ -272,15 +274,15 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Zapisuje prezentację
+// Saves the presentation
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **Edytuj dane wykresu**
+### **Edycja danych wykresu**
 
-Możesz edytować dane w zewnętrznych skoroszytach w taki sam sposób, w jaki wprowadzasz zmiany w zawartości wewnętrznych skoroszytów. Gdy zewnętrzny skoroszyt nie może zostać załadowany, zostaje rzucony wyjątek.
+Możesz edytować dane w zewnętrznych zeszytach tak samo, jak zmieniasz zawartość wewnętrznych zeszytów. Gdy zewnętrzny zeszyt nie może zostać wczytany, zostanie zgłoszony wyjątek.
 
-Ten kod C++ jest implementacją opisanego procesu:
+Ten kod C++ ilustruje opisany proces:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
@@ -298,26 +300,26 @@ const String templatePath = u"../templates/presentation.pptx";
 
 ## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym skoroszytem?**
+**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym zeszytem?**
 
-Tak. Wykres posiada [typ źródła danych](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) oraz [ścieżkę do zewnętrznego skoroszytu](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); jeśli źródłem jest zewnętrzny skoroszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
+Tak. Wykres posiada [typ źródła danych](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) oraz [ścieżkę do zewnętrznego zeszytu](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); jeśli źródłem jest zewnętrzny zeszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
 
-**Czy względne ścieżki do zewnętrznych skoroszytów są obsługiwane i jak są przechowywane?**
+**Czy obsługiwane są względne ścieżki do zewnętrznych zeszytów i w jaki sposób są przechowywane?**
 
-Tak. Jeśli podasz względną ścieżkę, zostaje ona automatycznie przekształcona w ścieżkę bezwzględną. Jest to wygodne przy przenoszeniu projektu; jednak należy pamiętać, że prezentacja zapisze ścieżkę bezwzględną w pliku PPTX.
+Tak. Jeśli podasz względną ścieżkę, zostanie ona automatycznie przekształcona w ścieżkę bezwzględną. Ułatwia to przenoszenie projektu; pamiętaj jednak, że prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX.
 
-**Czy mogę używać skoroszytów znajdujących się na zasobach/udziałach sieciowych?**
+**Czy mogę używać zeszytów znajdujących się na zasobach sieciowych/udostępnionych?**
 
-Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja zdalnych skoroszytów bezpośrednio z Aspose.Slides nie jest obsługiwana — mogą być używane wyłącznie jako źródło.
+Tak, takie zeszyty mogą służyć jako zewnętrzne źródło danych. Edycja zdalnych zeszytów bezpośrednio z Aspose.Slides nie jest wspierana – mogą być używane wyłącznie jako źródło.
 
 **Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisywaniu prezentacji?**
 
-Nie. Prezentacja przechowuje [odnośnik do zewnętrznego pliku](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) i używa go do odczytu danych. Sam zewnętrzny plik nie jest modyfikowany podczas zapisywania prezentacji.
+Nie. Prezentacja przechowuje [odnośnik do zewnętrznego pliku](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) i używa go do odczytu danych. Zewnętrzny plik nie jest modyfikowany przy zapisie prezentacji.
 
 **Co zrobić, jeśli zewnętrzny plik jest chroniony hasłem?**
 
-Aspose.Slides nie akceptuje hasła przy tworzeniu łącza. Typowe podejście polega na usunięciu ochrony z wyprzedzeniem lub przygotowaniu odszyfrowanej kopii (na przykład przy użyciu [Aspose.Cells](/cells/cpp/)) i połączeniu się z tą kopią.
+Aspose.Slides nie akceptuje hasła przy tworzeniu odnośnika. Typowym rozwiązaniem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (na przykład przy użyciu [Aspose.Cells](/cells/cpp/)) i odwołanie się do tej kopii.
 
-**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**
+**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego zeszytu?**
 
-Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.
+Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym wczytaniu danych.

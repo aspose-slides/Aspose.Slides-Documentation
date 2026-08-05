@@ -1,12 +1,14 @@
 ---
-title: Üstbilgi Altbilgi
+title: Üstbilgi ve Altbilgi
 type: docs
 weight: 220
 url: /tr/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - üstbilgi altbilgi
-- üstbilgi altbilgi ekle
-- üstbilgi altbilgi güncelle
+- üstbilgi ve altbilgi ekle
+- üstbilgi ve altbilgi güncelle
 - kod örneği
 - PowerPoint
 - OpenDocument
@@ -14,13 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile slayt üstbilgi ve altbilgilerini yönetin: PPT, PPTX ve ODP formatlarında tarih, slayt numarası ve özel metin ekleyin, C# örnekleriyle."
+description: "Aspose.Slides for .NET ile slayt üstbilgileri ve altbilgelerini kontrol edin: PPT, PPTX ve ODP dosyalarında tarih, slayt numarası ve özel metin ekleyin, C# örnekleriyle."
 ---
-Bu makale, **Aspose.Slides for .NET** kullanarak altbilgileri eklemeyi ve tarih ve saat yer tutucularını güncellemeyi göstermektedir.
+Bu makale, **Aspose.Slides for .NET** kullanarak altbilgileri eklemeyi ve tarih ve saat yer tutucularını güncellemeyi gösterir.
 
 ## **Altbilgi Ekle**
 
-Bir slaytın altbilgi alanına metin ekleyin ve görünür hale getirin.
+Bir slaytın altbilgi alanına metin ekleyin ve görünür hâle getirin.
 
 ```csharp
 static void AddHeaderFooter()
@@ -35,7 +37,7 @@ static void AddHeaderFooter()
 
 ## **Tarih ve Saati Güncelle**
 
-Bir slayt üzerindeki tarih ve saat yer tutucusunu değiştirin.
+Bir slayttaki tarih ve saat yer tutucusunu değiştirin.
 
 ```csharp
 static void UpdateDateTime()

@@ -1,19 +1,21 @@
 ---
-title: إدارة القوائم النقطية والمرقمة في العروض التقديمية باستخدام .NET
+title: إدارة القوائم النقطية والمرقمة في العروض التقديمية في .NET
 linktitle: إدارة القوائم
 type: docs
 weight: 70
 url: /ar/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- نقطة
+- رصاص
 - قائمة نقطية
 - قائمة مرقمة
-- نقطة رمزية
-- نقطة صورة
-- نقطة مخصصة
+- رصاص رمزي
+- رصاص صورة
+- رصاص مخصص
 - قائمة متعددة المستويات
-- إنشاء نقطة
-- إضافة نقطة
+- إنشاء رصاص
+- إضافة رصاص
 - إضافة قائمة
 - PowerPoint
 - OpenDocument
@@ -21,27 +23,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتنسيق القوائم النقطية، وقوائم الصور، والقوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET."
+description: "تعلم كيفية إنشاء وتنسيق القوائم النقطية، القوائم المصورة، القوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ .NET."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for .NET يتيح لك إنشاء وتنسيق القوائم ذات النقاط والمرقمة في عروض PowerPoint وOpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات النقطة الخاصة به من خلال تنسيق الفقرة.
+يسمح Aspose.Slides for .NET بإنشاء وتنسيق القوائم النقطية والمرقمة في عروض PowerPoint وOpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات الرصاص الخاصة به من خلال تنسيق الفقرة.
 
-استخدم خاصية [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/paragraphformat/) للوصول إلى إعدادات القائمة على مستوى الفقرة. النقطة الرئيسية هي [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/bullet/)، التي تُعيد كائنًا من نوع [IBulletFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/). باستخدام هذا الكائن، يمكنك تعيين نوع النقطة، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
+استخدم خاصية [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/paragraphformat/) للوصول إلى إعدادات القائمة على مستوى الفقرة. النقطة الرئيسية هي [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/bullet/)، التي تُرجِع كائنًا من نوع [IBulletFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/). باستخدام هذا الكائن، يمكنك تعيين نوع الرصاص، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
 
-يظهر هذا المقال كيف تقوم بـ:
+هذا المقال يوضح كيفية:
 
 - إنشاء قائمة نقطية برمز مخصص
-- إنشاء نقطة صورة
+- إنشاء رصاص بصورة
 - إنشاء قائمة متعددة المستويات عن طريق تعيين عمق الفقرة
-- إنشاء قائمة مرقمة
-- فحص وتعديل تنسيق القائمة في عرض تقديمي موجود
+- إنشاء قائمة مُرقمة
+- فحص وتغيير تنسيق القائمة في عرض تقديمي موجود
 
 ## **إنشاء قائمة نقطية**
 
-لإنشاء قائمة نقطية، أضف كائنات [IParagraph](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/) إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) واضبط [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Symbol](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/). يمكنك بعد ذلك ضبط [IBulletFormat.Char](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/char/)، [IBulletFormat.Color](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/color/)، و[IBulletFormat.Height](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/height/) للتحكم في مظهر النقطة.
+لإنشاء قائمة نقطية، أضف كائنات [IParagraph](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/) إلى [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) واضبط [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) على [BulletType.Symbol](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/). يمكنك بعد ذلك ضبط [IBulletFormat.Char](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/char/)، [IBulletFormat.Color](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/color/)، و[IBulletFormat.Height](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/height/) للتحكم في مظهر الرصاص.
 
-الكود التالي بلغة C# يوضح كيفية إنشاء قائمة نقطية في شريحة:
+الكود C# التالي يوضح كيفية إنشاء قائمة نقطية في شريحة:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -76,13 +78,13 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![النقاط الرمزية](symbol_bullets.png)
+![الرموز النقطية](symbol_bullets.png)
 
-## **إنشاء قائمة مرقمة**
+## **إنشاء قائمة مُرقمة**
 
-استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. اضبط [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Numbered](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstyle/) أو ضبط [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstartwith/) عندما يجب أن تبدأ القائمة برقم غير 1.
+استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. اضبط [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) على [BulletType.Numbered](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/). يمكنك أيضًا اختيار تنسيق الترقيم عبر [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstyle/) أو ضبط [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/numberedbulletstartwith/) عندما يجب أن تبدأ القائمة من قيمة غير 1.
 
-الكود التالي بلغة C# يوضح كيفية إنشاء قائمة مرقمة في شريحة:
+الكود C# التالي يوضح كيفية إنشاء قائمة مُرقمة في شريحة:
 
 ```csharp
 using var presentation = new Presentation();
@@ -113,25 +115,25 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![النقاط المرقمة](numbered_bullets.png)
+![القوائم المُرقمة](numbered_bullets.png)
 
-## **إنشاء نقطة صورة**
+## **إنشاء رصاص بصورة**
 
-Aspose.Slides يسمح لك باستبدال رمز النقطة العادي بصورة. تعمل نقاط الصورة بشكل أفضل مع الصور البسيطة التي تظل مقروءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
+يسمح Aspose.Slides لك باستبدال رمز الرصاص العادي بصورة. تعمل الرصاصات المصورة بشكل أفضل مع الصور البسيطة التي تظل مقروءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
 
 {{% alert color="primary" %}}
-من المثالي، إذا كنت تخطط لاستبدال رمز النقطة العادي بصورة، فمن الأفضل اختيار رسم بسيط بخلفية شفافة. مثل هذه الصور تعمل جيدًا كرموز نقطية مخصصة.
-
-ضع في اعتبارك أن الصورة ستُصغر إلى حجم صغير جدًا. لهذا السبب، نوصي بشدة باختيار صورة تظل واضحة وفعّالة بصريًا عندما تُستخدم كنقطة في قائمة.
+من الناحية المثالية، إذا كنت تخطط لاستبدال رمز الرصاص العادي بصورة، فمن الأفضل اختيار رسم بسيط بخلفية شفافة. تعمل مثل هذه الصور جيدًا كرموز رصاص مخصصة.
 {{% /alert %}}
 
-لإنشاء نقطة صورة، أضف صورة إلى [Presentation.Images](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/images/) وعيّن كائن الصورة المرتجع إلى [IBulletFormat.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/picture/). اضبط [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) إلى [BulletType.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/) قبل تعيين الصورة.
+ضع في اعتبارك أن الصورة سيتم تصغيرها إلى حجم صغير جدًا. لهذا السبب نوصي بشدة باختيار صورة تظل واضحة وفعالة بصريًا عندما تُستخدم كرصاص في قائمة.
+
+لإنشاء رصاص بصورة، أضف صورة إلى [Presentation.Images](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/images/).assign الصورة التي تم إرجاعها إلى [IBulletFormat.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/picture/). اضبط [IBulletFormat.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/ibulletformat/type/) على [BulletType.Picture](https://reference.aspose.com/slides/ar/net/aspose.slides/bullettype/) قبل تعيين الصورة.
 
 لنفترض أن لدينا ملف "image.png":
 
-![صورة للنقاط](picture_for_bullets.png)
+![صورة للرصاص](picture_for_bullets.png)
 
-الكود التالي بلغة C# يوضح كيفية إنشاء نقاط صورة في شريحة:
+الكود C# التالي يوضح كيفية إنشاء رصاصات مصورة في شريحة:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -167,13 +169,13 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![النقاط الصورية](picture_bullets.png)
+![الرصاص بالصورة](picture_bullets.png)
 
 ## **إنشاء قائمة متعددة المستويات**
 
-استخدم [IParagraphFormat.Depth](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/depth/) لوضع عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى الأعلى، المستوى 1 متداخل تحته، وهكذا.
+استخدم [IParagraphFormat.Depth](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/depth/) لتحديد عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى العلوي، المستوى 1 متداخل تحته، وهكذا.
 
-الكود التالي بلغة C# يوضح كيفية إنشاء قائمة نقطية متعددة المستويات:
+الكود C# التالي يوضح كيفية إنشاء قائمة نقطية متعددة المستويات:
 
 ```csharp
 using var presentation = new Presentation();
@@ -213,9 +215,9 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 ## **تغيير قائمة موجودة**
 
-لتغيير تنسيق القائمة في عرض تقديمي موجود، وصل إلى الفقرة المستهدفة وقم بتحديث إعدادات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/bullet/) الخاصة بها. يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم المحمّلة من ملف PPT أو PPTX أو ODP.
+لتغيير تنسيق القائمة في عرض تقديمي موجود، وصول إلى الفقرة المستهدفة وتحديث إعدادات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/bullet/). يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
 
-الكود التالي بلغة C# يُغيّر الفقرة الأولى في إطار نص لاستخدام نمط قائمة مرقمة:
+الكود C# التالي يغيّر الفقرة الأولى في إطار نص لاستخدام نمط قائمة مُرقمة:
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -233,16 +235,16 @@ paragraph.ParagraphFormat.Indent = -20;
 presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
 **هل يمكن تصدير القوائم النقطية والمرقمة إلى PDF أو صور؟**
 
-نعم. Aspose.Slides يحافظ على تنسيق القوائم عندما يدعم format الهدف تخطيط النص وميزات النقاط المقابلة.
+نعم. يحافظ Aspose.Slides على تنسيق القوائم عندما يدعم تنسيق الهدف تخطيط النص والميزات المتعلقة بالرصاص.
 
 **هل يمكنني تحرير القوائم في العروض التقديمية الموجودة؟**
 
-نعم. حمّل العرض التقديمي، وصل إلى الفقرة المستهدفة، افحص أو حدّث إعدادات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/bullet/)، ثم احفظ العرض.
+نعم. قم بتحميل العرض التقديمي، وصول إلى الفقرة المستهدفة، فحص أو تحديث إعدادات [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/bullet/)، ثم احفظ العرض التقديمي.
 
 **هل يمكن أن تحتوي القوائم على نص غير لاتيني؟**
 
-نعم. يمكن أن يحتوي نص عناصر القائمة على أحرف يونيكود، مما يتيح إنشاء قوائم في عروض تقديمية متعددة اللغات. تأكد من أن الخطوط المستخدمة في العرض تدعم الأحرف التي تحتاجها.
+نعم. يمكن أن يحتوي نص عنصر القائمة على أحرف Unicode، لذا يمكنك إنشاء قوائم في عروض تقديمية متعددة اللغات. تأكد من أن الخطوط المستخدمة في العرض التقديمي تدعم الأحرف التي تحتاجها.

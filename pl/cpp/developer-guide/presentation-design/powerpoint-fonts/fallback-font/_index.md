@@ -1,47 +1,48 @@
 ---
-title: Zarządzanie czcionkami zapasowymi dla prezentacji w C++
-linktitle: Czcionka zapasowa
+title: Zarządzaj czcionkami zastępczymi w prezentacjach w C++
+linktitle: Czcionka zastępcza
 type: docs
 weight: 50
 url: /pl/cpp/fallback-font/
 keywords:
-- czcionka zapasowa
+- czcionka zastępcza
 - dostępna czcionka
-- zamiana glifu
+- zamiana glifów
 - określenie czcionki
 - określenie reguły
 - PowerPoint
 - OpenDocument
 - prezentacja
-- С++
+- C++
 - Aspose.Slides
-description: "Zobacz, jak Aspose.Slides dla C++ używa czcionek zapasowych, aby tekst był czytelny w prezentacjach PowerPoint i OpenDocument, gdy oryginalne czcionki nie są dostępne."
+description: "Zobacz, jak Aspose.Slides dla C++ używa czcionek zastępczych, aby tekst był czytelny w prezentacjach PowerPoint i OpenDocument, gdy oryginalne czcionki nie są dostępne."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-Czcionki zapasowe są używane, gdy czcionka określona dla tekstu jest dostępna w systemie, ale nie zawiera wymaganego glifu. W takim przypadku Aspose.Slides może użyć jednej z określonych czcionek zapasowych do zastąpienia brakującego glifu.
+Czcionki zastępcze są używane, gdy czcionka określona dla tekstu jest dostępna w systemie, ale nie zawiera wymaganego glifu. W takim przypadku Aspose.Slides może użyć jednej z określonych czcionek zastępczych, aby zastąpić brakujący glif.
 
-## **Czcionka zapasowa**
-Czcionka zapasowa jest używana, gdy czcionka określona dla tekstu jest dostępna w systemie, ale nie zawiera wymaganego glifu. W takim przypadku można użyć jednej z określonych czcionek zapasowych do zastąpienia glifu.
+## **Czcionka zastępcza**
 
-Aspose.Slides umożliwia tworzenie czcionek zapasowych, dodawanie ich do kolekcji czcionek zapasowych, ustawianie kolekcji czcionek zapasowych dla określonej prezentacji, usuwanie czcionek zapasowych z prezentacji, określanie reguł stosowania czcionek zapasowych i inne.
+Czcionka zastępcza jest używana, gdy czcionka określona dla tekstu jest dostępna w systemie, ale nie zawiera niezbędnego glifu. W takim przypadku można użyć jednej z określonych czcionek zastępczych do zastąpienia glifu.
 
-Aby zapoznać się z tymi funkcjami, skorzystaj z poniższych linków:
+Aspose.Slides umożliwia tworzenie czcionek zastępczych, dodawanie ich do kolekcji czcionek zastępczych, ustawianie kolekcji czcionek zastępczych dla określonej prezentacji, usuwanie czcionek zastępczych z prezentacji, określanie reguł stosowania czcionek zastępczych i inne.
 
-- [Utwórz czcionkę zapasową](/slides/pl/cpp/create-fallback-font)
-- [Utwórz kolekcję czcionek zapasowych](/slides/pl/cpp/create-fallback-fonts-collection)
-- [Renderuj prezentację z czcionką zapasową](/slides/pl/cpp/render-presentation-with-fallback-font)
+Aby zapoznać się z tymi funkcjami, użyj poniższych linków:
+
+- [Utwórz czcionkę zastępczą](/slides/pl/cpp/create-fallback-font)
+- [Utwórz kolekcję czcionek zastępczych](/slides/pl/cpp/create-fallback-fonts-collection)
+- [Renderuj prezentację z czcionką zastępczą](/slides/pl/cpp/render-presentation-with-fallback-font)
 
 ## **FAQ**
 
-**Czym różnią się czcionki zapasowe od substytucji czcionek?**
+**Czym różnią się czcionki zastępcze od substytucji czcionek?**
 
-Czcionka zapasowa jest stosowana dla każdego znaku lub zakresu Unicode, gdy podstawowa czcionka nie zawiera określonych glifów; uzupełnia jedynie brakujące znaki. [Substitucja](/slides/pl/cpp/font-substitution/) zastępuje brakującą lub niedostępną czcionkę dla całego fragmentu lub części tekstu inną czcionką. Mogą być łączone, ale ich zakres i logika wyboru są różne.
+Czcionka zastępcza jest stosowana na poziomie pojedynczego znaku lub zakresu Unicode, gdy podstawowa czcionka nie zawiera konkretnych glifów; wypełnia tylko brakujące znaki. [Substitution](/slides/pl/cpp/font-substitution/) zastępuje brakującą lub niedostępną czcionkę dla całego fragmentu lub części tekstu inną czcionką. Można je łączyć, ale ich zakres i logika wyboru są różne.
 
-**Czy ustawienia czcionek zapasowych są zapisywane w pliku prezentacji?**
+**Czy ustawienia czcionek zastępczych są zapisywane w pliku prezentacji?**
 
-Nie. Konfiguracja czcionek zapasowych istnieje w czasie przetwarzania/renderowania w bibliotece i nie jest serializowana do pliku PPTX. Prezentacja nie przechowuje Twoich reguł czcionek zapasowych.
+Nie. Konfiguracja czcionek zastępczych istnieje w czasie przetwarzania/renderowania w bibliotece i nie jest serializowana do pliku PPTX. Prezentacja nie przechowuje Twoich reguł czcionek zastępczych.
 
-**Czy czcionki zapasowe wpływają na elementy utworzone przez obiekty PowerPoint (SmartArt, wykresy, WordArt)?**
+**Czy czcionki zastępcze wpływają na elementy tworzone przez obiekty PowerPoint (SmartArt, wykresy, WordArt)?**
 
-Tak. Tekst wewnątrz tych obiektów przechodzi przez ten sam proces renderowania, więc te same reguły czcionek zapasowych mają zastosowanie zarówno do niego, jak i do zwykłego tekstu.
+Tak. Tekst wewnątrz tych obiektów przechodzi przez ten sam proces renderowania, więc te same reguły czcionek zastępczych mają zastosowanie zarówno do niego, jak i do zwykłego tekstu.

@@ -1,56 +1,59 @@
 ---
-title: Kelola Paragraf Teks PowerPoint di .NET
-linktitle: Kelola Paragraf
+title: "Kelola Paragraf Teks PowerPoint di .NET"
+linktitle: "Kelola Paragraf"
 type: docs
 weight: 40
 url: /id/net/manage-paragraph/
+aliases:
+  - /net/paragraf/
+  - /net/bagian/
 keywords:
-- tambahkan teks
-- tambahkan paragraf
-- kelola teks
-- kelola paragraf
-- kelola bullet
-- indent paragraf
-- indent gantung
-- bullet paragraf
-- daftar bernomor
-- daftar berbullet
-- properti paragraf
-- impor HTML
-- teks ke HTML
-- paragraf ke HTML
-- paragraf ke gambar
-- teks ke gambar
-- ekspor paragraf
-- PowerPoint
-- presentasi
-- .NET
-- C#
-- Aspose.Slides
-description: "Kuasai pemformatan paragraf dengan Aspose.Slides untuk .NET—optimalkan perataan, spasi, dan gaya dalam presentasi PPT, PPTX, dan ODP di C#."
+  - "tambah teks"
+  - "tambah paragraf"
+  - "kelola teks"
+  - "kelola paragraf"
+  - "kelola bullet"
+  - "indentasi paragraf"
+  - "indentasi menggantung"
+  - "bullet paragraf"
+  - "daftar bernomor"
+  - "daftar bullet"
+  - "properti paragraf"
+  - "impor HTML"
+  - "teks ke HTML"
+  - "paragraf ke HTML"
+  - "paragraf ke gambar"
+  - "teks ke gambar"
+  - "ekspor paragraf"
+  - "PowerPoint"
+  - "presentasi"
+  - ".NET"
+  - "C#"
+  - "Aspose.Slides"
+description: "Kuasai pemformatan paragraf dengan Aspose.Slides untuk .NET—optimalkan perataan, spasi, dan gaya dalam presentasi PPT, PPTX, dan ODP menggunakan C#."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides menyediakan semua antarmuka dan kelas yang Anda perlukan untuk bekerja dengan teks, paragraf, dan bagian PowerPoint dalam C#.
+Aspose.Slides menyediakan semua antarmuka dan kelas yang Anda perlukan untuk bekerja dengan teks PowerPoint, paragraf, dan portion dalam C#.
 
-* Aspose.Slides menyediakan antarmuka [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) yang memungkinkan Anda menambahkan objek yang merepresentasikan sebuah paragraf. Sebuah objek `ITextFame` dapat memiliki satu atau beberapa paragraf (setiap paragraf dibuat melalui carriage return).
-* Aspose.Slides menyediakan antarmuka [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) yang memungkinkan Anda menambahkan objek yang merepresentasikan bagian. Sebuah objek `IParagraph` dapat memiliki satu atau beberapa bagian (koleksi objek iPortions).
-* Aspose.Slides menyediakan antarmuka [IPortion](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/) yang memungkinkan Anda menambahkan objek yang merepresentasikan teks dan properti formatnya. 
+* Aspose.Slides menyediakan antarmuka [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) untuk memungkinkan Anda menambahkan objek yang merepresentasikan paragraf. Objek `ITextFame` dapat memiliki satu atau beberapa paragraf (setiap paragraf dibuat melalui carriage return).
+* Aspose.Slides menyediakan antarmuka [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) untuk memungkinkan Anda menambahkan objek yang merepresentasikan portion. Objek `IParagraph` dapat memiliki satu atau beberapa portion (koleksi objek iPortions).
+* Aspose.Slides menyediakan antarmuka [IPortion](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/) untuk memungkinkan Anda menambahkan objek yang merepresentasikan teks dan properti pemformatannya. 
 
-Sebuah objek `IParagraph` dapat menangani teks dengan properti format yang berbeda melalui objek `IPortion` yang mendasarinya.
+Objek `IParagraph` dapat menangani teks dengan properti pemformatan yang berbeda melalui objek `IPortion` yang mendasarinya.
 
-## **Menambahkan Beberapa Paragraf yang Memuat Beberapa Bagian**
+## **Menambahkan Beberapa Paragraf yang Memuat Beberapa Portion**
 
-Langkah-langkah berikut menunjukkan cara menambahkan sebuah bingkai teks yang berisi 3 paragraf dan setiap paragraf berisi 3 bagian:
+Langkah‑langkah berikut menunjukkan cara menambahkan frame teks yang berisi 3 paragraf dan setiap paragraf berisi 3 portion:
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah Rectangle [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
 4. Dapatkan ITextFrame yang terkait dengan [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/).
 5. Buat dua objek [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) dan tambahkan ke koleksi `IParagraphs` dari [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/).
-6. Buat tiga objek [IPortion](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/) untuk setiap `IParagraph` baru (dua objek Portion untuk Paragraph default) dan tambahkan setiap objek `IPortion` ke koleksi IPortion masing‑masing `IParagraph`.
-7. Tetapkan beberapa teks untuk setiap bagian.
-8. Terapkan fitur format pilihan Anda ke setiap bagian menggunakan properti format yang disediakan oleh objek `IPortion`.
+6. Buat tiga objek [IPortion](https://reference.aspose.com/slides/id/net/aspose.slides/iportion/) untuk setiap `IParagraph` baru (dua objek Portion untuk Paragraph default) dan tambahkan masing‑masing objek `IPortion` ke koleksi IPortion dari setiap `IParagraph`.
+7. Tetapkan teks untuk setiap portion.
+8. Terapkan fitur pemformatan pilihan Anda pada setiap portion menggunakan properti pemformatan yang disediakan oleh objek `IPortion`.
 9. Simpan presentasi yang telah dimodifikasi.
 
 ```c#
@@ -60,13 +63,13 @@ using (Presentation pres = new Presentation())
     // Mengakses slide pertama
     ISlide slide = pres.Slides[0];
 
-    // Menambahkan IAutoShape Rectangle
+    // Menambahkan IAutoShape berbentuk Persegi Panjang
     IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
     // Mengakses TextFrame AutoShape
     ITextFrame tf = ashp.TextFrame;
 
-    // Membuat Paragraph dan Portion dengan format teks yang berbeda
+    // Membuat Paragraf dan Portion dengan format teks yang berbeda
     IParagraph para0 = tf.Paragraphs[0];
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -116,23 +119,22 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Mengelola Bullet Paragraf**
-
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Paragraf ber‑bullet selalu lebih mudah dibaca dan dipahami.
+## **Kelola Bullet Paragraf**
+Daftar bullet membantu Anda mengatur dan menyajikan informasi secara cepat dan efisien. Paragraf berbullet selalu lebih mudah dibaca dan dipahami.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide yang dipilih.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) autoshape. 
-5. Hapus paragraf default di `TextFrame`.
+4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) dari autoshape. 
+5. Hapus paragraf default dalam `TextFrame`.
 6. Buat instance paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/).
-8. Tetapkan `Type` bullet untuk paragraf menjadi `Symbol` dan tetapkan karakter bullet.
-9. Tetapkan `Text` paragraf.
-10. Tetapkan `Indent` paragraf untuk bullet.
+8. Atur `Type` bullet untuk paragraf menjadi `Symbol` dan tetapkan karakter bullet.
+9. Atur `Text` paragraf.
+10. Atur `Indent` paragraf untuk bullet.
 11. Tetapkan warna untuk bullet.
 12. Tetapkan tinggi bullet.
 13. Tambahkan paragraf baru ke koleksi paragraf `TextFrame`.
-14. Tambahkan paragraf kedua dan ulangi proses pada langkah 7 sampai 13.
+14. Tambahkan paragraf kedua dan ulangi proses yang diberikan pada langkah 7 hingga 13.
 15. Simpan presentasi.
 
 ```c#
@@ -147,7 +149,7 @@ using (Presentation pres = new Presentation())
     // Menambahkan dan mengakses Autoshape
     IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Mengakses frame teks autoshape
+    // Mengakses text frame autoshape
     ITextFrame txtFrm = aShp.TextFrame;
 
     // Menghapus paragraf default
@@ -163,41 +165,41 @@ using (Presentation pres = new Presentation())
     // Mengatur teks paragraf
     para.Text = "Welcome to Aspose.Slides";
 
-    // Mengatur indent bullet
+    // Mengatur indentasi bullet
     para.ParagraphFormat.Indent = 25;
 
     // Mengatur warna bullet
     para.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
     para.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // mengatur IsBulletHardColor ke true untuk menggunakan warna bullet sendiri
+    para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // atur IsBulletHardColor ke true untuk menggunakan warna bullet sendiri
 
-    // Mengatur Tinggi Bullet
+    // Mengatur tinggi bullet
     para.ParagraphFormat.Bullet.Height = 100;
 
-    // Menambahkan Paragraf ke frame teks
+    // Menambahkan Paragraf ke text frame
     txtFrm.Paragraphs.Add(para);
 
     // Membuat paragraf kedua
     Paragraph para2 = new Paragraph();
 
-    // Mengatur jenis dan gaya bullet paragraf
+    // Mengatur tipe dan gaya bullet paragraf
     para2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
     para2.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletCircleNumWDBlackPlain;
 
     // Menambahkan teks paragraf
     para2.Text = "This is numbered bullet";
 
-    // Mengatur indent bullet
+    // Mengatur indentasi bullet
     para2.ParagraphFormat.Indent = 25;
 
     para2.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
     para2.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // mengatur IsBulletHardColor ke true untuk menggunakan warna bullet sendiri
+    para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // atur IsBulletHardColor ke true untuk menggunakan warna bullet sendiri
 
-    // Mengatur Tinggi Bullet
+    // Mengatur tinggi bullet
     para2.ParagraphFormat.Bullet.Height = 100;
 
-    // Menambahkan Paragraf ke frame teks
+    // Menambahkan Paragraf ke text frame
     txtFrm.Paragraphs.Add(para2);
 
 
@@ -207,24 +209,23 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Mengelola Bullet Gambar**
-
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Paragraf gambar mudah dibaca dan dipahami.
+## **Kelola Bullet Gambar**
+Daftar bullet membantu Anda mengatur dan menyajikan informasi secara cepat dan efisien. Paragraf gambar mudah dibaca dan dipahami.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) autoshape.
-5. Hapus paragraf default di `TextFrame`.
+4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) dari autoshape.
+5. Hapus paragraf default dalam `TextFrame`.
 6. Buat instance paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/).
-7. Muat gambar dalam [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/).
-8. Tetapkan tipe bullet ke [Picture](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) dan tetapkan gambar.
-9. Tetapkan `Text` paragraf.
-10. Tetapkan `Indent` paragraf untuk bullet.
+7. Muat gambar ke dalam [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/).
+8. Atur tipe bullet menjadi [Picture](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) dan tetapkan gambar.
+9. Atur `Text` Paragraph.
+10. Atur `Indent` Paragraph untuk bullet.
 11. Tetapkan warna untuk bullet.
-12. Tetapkan tinggi bullet.
+12. Tetapkan tinggi untuk bullet.
 13. Tambahkan paragraf baru ke koleksi paragraf `TextFrame`.
-14. Tambahkan paragraf kedua dan ulangi proses berdasarkan langkah sebelumnya.
+14. Tambahkan paragraf kedua dan ulangi proses berdasarkan langkah‑langkah sebelumnya.
 15. Simpan presentasi yang telah dimodifikasi.
 
 ```c#
@@ -256,33 +257,32 @@ paragraph.Text = "Welcome to Aspose.Slides";
 paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
 paragraph.ParagraphFormat.Bullet.Picture.Image = ippxImage;
 
-// Mengatur Tinggi Bullet
+// Mengatur tinggi bullet
 paragraph.ParagraphFormat.Bullet.Height = 100;
 
 // Menambahkan paragraf ke text frame
 textFrame.Paragraphs.Add(paragraph);
 
-// Menulis presentasi sebagai file PPTX
+// Menyimpan presentasi sebagai file PPTX
 presentation.Save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-// Menulis presentasi sebagai file PPT
+// Menyimpan presentasi sebagai file PPT
 presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 ```
 
-## **Mengelola Bullet Multilevel**
-
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Bullet multilevel mudah dibaca dan dipahami.
+## **Kelola Bullet Multilevel**
+Daftar bullet membantu Anda mengatur dan menyajikan informasi secara cepat dan efisien. Bullet multilevel mudah dibaca dan dipahami.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation)class.
 2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) di slide baru.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) autoshape.
-5. Hapus paragraf default di `TextFrame`.
-6. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/) dan set kedalaman ke 0.
-7. Buat instance paragraf kedua melalui kelas `Paragraph` dan set kedalaman ke 1.
-8. Buat instance paragraf ketiga melalui kelas `Paragraph` dan set kedalaman ke 2.
-9. Buat instance paragraf keempat melalui kelas `Paragraph` dan set kedalaman ke 3.
-10. Tambahkan paragraf baru ke koleksi paragraf `TextFrame`.
+3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) pada slide baru.
+4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) dari autoshape.
+5. Hapus paragraf default dalam `TextFrame`.
+6. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/) dan atur depth menjadi 0.
+7. Buat instance paragraf kedua melalui kelas `Paragraph` dan atur depth menjadi 1.
+8. Buat instance paragraf ketiga melalui kelas `Paragraph` dan atur depth menjadi 2.
+9. Buat instance paragraf keempat melalui kelas `Paragraph` dan atur depth menjadi 3.
+10. Tambahkan paragraf‑paragraf baru ke koleksi paragraf `TextFrame`.
 11. Simpan presentasi yang telah dimodifikasi.
 
 ```c#
@@ -296,7 +296,7 @@ using (Presentation pres = new Presentation())
     // Menambahkan dan mengakses Autoshape
     IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Mengakses frame teks dari autoshape yang dibuat
+    // Mengakses text frame dari autoshape yang dibuat
     ITextFrame text = aShp.AddTextFrame("");
     
     // Menghapus paragraf default
@@ -309,7 +309,7 @@ using (Presentation pres = new Presentation())
     para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
     para1.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para1.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Mengatur level bullet
+    // Menetapkan level bullet
     para1.ParagraphFormat.Depth = 0;
 
     // Menambahkan paragraf kedua
@@ -319,7 +319,7 @@ using (Presentation pres = new Presentation())
     para2.ParagraphFormat.Bullet.Char = '-';
     para2.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para2.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Mengatur level bullet
+    // Menetapkan level bullet
     para2.ParagraphFormat.Depth = 1;
 
     // Menambahkan paragraf ketiga
@@ -329,7 +329,7 @@ using (Presentation pres = new Presentation())
     para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
     para3.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para3.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Mengatur level bullet
+    // Menetapkan level bullet
     para3.ParagraphFormat.Depth = 2;
 
     // Menambahkan paragraf keempat
@@ -339,7 +339,7 @@ using (Presentation pres = new Presentation())
     para4.ParagraphFormat.Bullet.Char = '-';
     para4.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     para4.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Mengatur level bullet
+    // Menetapkan level bullet
     para4.ParagraphFormat.Depth = 3;
 
     // Menambahkan paragraf ke koleksi
@@ -348,24 +348,23 @@ using (Presentation pres = new Presentation())
     text.Paragraphs.Add(para3);
     text.Paragraphs.Add(para4);
 
-    // Menulis presentasi sebagai file PPTX
+    // Menyimpan presentasi sebagai file PPTX
     pres.Save("MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
-## **Mengelola Paragraf dengan Daftar Bernomor Kustom**
-
-Antarmuka [IBulletFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/) menyediakan properti [NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith) dan lainnya yang memungkinkan Anda mengelola paragraf dengan penomoran atau format kustom.
+## **Kelola Paragraf dengan Daftar Nomor Kustom**
+Antarmuka [IBulletFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/) menyediakan properti [NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith) dan lainnya yang memungkinkan Anda mengelola paragraf dengan penomoran atau pemformatan khusus. 
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation)class.
 2. Akses slide yang berisi paragraf.
 3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) autoshape.
-5. Hapus paragraf default di `TextFrame`.
-6. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/) dan set [NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith) ke 2.
-7. Buat instance paragraf kedua melalui kelas `Paragraph` dan set `NumberedBulletStartWith` ke 3.
-8. Buat instance paragraf ketiga melalui kelas `Paragraph` dan set `NumberedBulletStartWith` ke 7.
-9. Tambahkan paragraf baru ke koleksi paragraf `TextFrame`.
+4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) dari autoshape.
+5. Hapus paragraf default dalam `TextFrame`.
+6. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/) dan atur [NumberedBulletStartWith](https://reference.aspose.com/slides/id/net/aspose.slides/ibulletformat/numberedbulletstartwith) ke 2.
+7. Buat instance paragraf kedua melalui kelas `Paragraph` dan atur `NumberedBulletStartWith` ke 3.
+8. Buat instance paragraf ketiga melalui kelas `Paragraph` dan atur `NumberedBulletStartWith` ke 7.
+9. Tambahkan paragraf‑paragraf baru ke koleksi paragraf `TextFrame`.
 10. Simpan presentasi yang telah dimodifikasi.
 
 ```c#
@@ -373,7 +372,7 @@ using (var presentation = new Presentation())
 {
 	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-	// Mengakses frame teks dari autoshape yang dibuat
+	// Mengakses text frame dari autoshape yang dibuat
 	ITextFrame textFrame = shape.TextFrame;
 
 	// Menghapus paragraf default yang ada
@@ -403,20 +402,20 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Mengatur Indent Baris Pertama untuk Paragraf**
+## **Atur Indent Baris Pertama untuk Paragraf**
 
-Gunakan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) untuk mengontrol indent baris pertama sebuah paragraf. Properti ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sedangkan baris lainnya tetap rata dengan tubuh paragraf.
+Gunakan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) untuk mengontrol indentasi baris pertama sebuah paragraf. Properti ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris lainnya tetap rata dengan badan paragraf.
 
 Gunakan [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) ketika Anda perlu memindahkan seluruh paragraf. Gunakan [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) ketika Anda hanya perlu memindahkan baris pertama.
 
-Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai `Indent` yang berbeda untuk mendemonstrasikan bagaimana indent baris pertama memengaruhi tata letak paragraf.
+Contoh di bawah membuat beberapa paragraf dan menerapkan nilai `Indent` yang berbeda untuk mendemonstrasikan bagaimana indentasi baris pertama memengaruhi tata letak paragraf.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
 2. Akses slide target.
 3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) persegi panjang ke slide.
 4. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) kosong ke shape dan hapus paragraf default.
-5. Buat beberapa paragraf dan set nilai [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) yang berbeda untuk masing‑masing.
-6. Tambahkan paragraf ke bingkai teks.
+5. Buat beberapa paragraf dan atur nilai [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) yang berbeda untuk masing‑masing.
+6. Tambahkan paragraf‑paragraf ke text frame.
 7. Simpan presentasi yang telah dimodifikasi.
 
 ```cs
@@ -462,23 +461,25 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![Indent baris pertama dari paragraf](first_line_indent.png)
+Hasilnya:
 
-## **Mengatur Indent Gantung untuk Paragraf**
+![Indentasi baris pertama dari paragraf](first_line_indent.png)
 
-Indent gantung adalah tata letak paragraf di mana baris pertama dimulai di sebelah kiri baris-baris berikutnya. Di Aspose.Slides, Anda menciptakan efek ini dengan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/). Set `Indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap tubuh paragraf.
+## **Atur Indent Menggantung untuk Paragraf**
 
-Secara praktik, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) menentukan posisi kiri tubuh paragraf, dan [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent gantung, set nilai `MarginLeft` positif dan nilai `Indent` negatif.
+Indent menggantung adalah tata letak paragraf di mana baris pertama dimulai lebih ke kiri dibandingkan baris‑baris berikutnya. Di Aspose.Slides, Anda menciptakan efek ini dengan properti [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/). Atur `Indent` ke nilai negatif untuk memindahkan baris pertama ke kiri relatif terhadap badan paragraf.
 
-Formatting ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris yang dibungkus harus rata di bawah tubuh paragraf bukan di bawah karakter pertama baris pertama.
+Secara praktis, [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) menentukan posisi kiri badan paragraf, dan [IParagraphFormat.Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, tetapkan nilai `MarginLeft` positif dan nilai `Indent` negatif.
+
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris yang dibungkus harus rata di bawah badan paragraf, bukan di bawah karakter pertama baris pertama.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
 2. Akses slide target.
 3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) persegi panjang ke slide.
 4. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) kosong ke shape dan hapus paragraf default.
-5. Buat paragraf dan set nilai [MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) positif untuk masing‑masing paragraf.
-6. Set nilai [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) negatif untuk menciptakan efek indent gantung.
-7. Tambahkan paragraf ke bingkai teks.
+5. Buat paragraf‑paragraf dan atur nilai [MarginLeft](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginleft/) positif untuk masing‑masing paragraf.
+6. Atur nilai [Indent](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/indent/) negatif untuk menciptakan efek indent menggantung.
+7. Tambahkan paragraf‑paragraf ke text frame.
 8. Simpan presentasi yang telah dimodifikasi.
 
 ```cs
@@ -516,17 +517,19 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-![Indent gantung dari paragraf](hanging_indent.png)
+Hasilnya:
 
-## **Mengelola Properti Jalur Akhir Paragraf**
+![Indentasi menggantung dari paragraf](hanging_indent.png)
 
-1. Buat sebuah instance dari [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) class.
-1. Dapatkan referensi untuk slide yang berisi paragraf melalui posisinya.
-1. Tambahkan sebuah rectangle [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) ke slide.
-1. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) dengan dua paragraf ke Rectangle.
-1. Set `FontHeight` dan tipe Font untuk paragraf.
-1. Set properti End untuk paragraf.
-1. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
+## **Kelola Properti End Paragraph Run**
+
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) .
+2. Dapatkan referensi slide yang berisi paragraf melalui posisinya.
+3. Tambahkan sebuah rectangle [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) ke slide.
+4. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) dengan dua paragraf ke Rectangle.
+5. Atur `FontHeight` dan tipe Font untuk paragraf‑paragraf.
+6. Atur properti End untuk paragraf‑paragraf.
+7. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
 
 ```c#
 using (Presentation pres = new Presentation("Test.pptx"))
@@ -550,16 +553,15 @@ using (Presentation pres = new Presentation("Test.pptx"))
 }
 ```
 
-## **Mengimpor Teks HTML ke dalam Paragraf**
-
-Aspose.Slides menyediakan dukungan tingkat lanjut untuk mengimpor teks HTML ke dalam paragraf.
+## **Impor Teks HTML ke Paragraf**
+Aspose.Slides menyediakan dukungan yang ditingkatkan untuk mengimpor teks HTML ke dalam paragraf.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) ke slide.
 4. Tambahkan dan akses `autoshape` [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/).
-5. Hapus paragraf default di `ITextFrame`.
-6. Baca file HTML sumber dalam sebuah TextReader.
+5. Hapus paragraf default dalam `ITextFrame`.
+6. Baca file HTML sumber menggunakan TextReader.
 7. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/net/aspose.slides/paragraph/).
 8. Tambahkan konten file HTML yang dibaca oleh TextReader ke [ParagraphCollection](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphcollection/) TextFrame.
 9. Simpan presentasi yang telah dimodifikasi.
@@ -568,7 +570,7 @@ Aspose.Slides menyediakan dukungan tingkat lanjut untuk mengimpor teks HTML ke d
 // Membuat instance presentasi kosong
 using (Presentation pres = new Presentation())
 {
-    // Mengakses slide pertama bawaan presentasi
+    // Mengakses slide pertama default dari presentasi
     ISlide slide = pres.Slides[0];
 
     // Menambahkan AutoShape untuk menampung konten HTML
@@ -579,7 +581,7 @@ using (Presentation pres = new Presentation())
     // Menambahkan text frame ke shape
     ashape.AddTextFrame("");
 
-    // Menghapus semua paragraf di text frame yang ditambahkan
+    // Menghapus semua paragraf dalam text frame yang ditambahkan
     ashape.TextFrame.Paragraphs.Clear();
 
     // Memuat file HTML menggunakan stream reader
@@ -593,15 +595,14 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Mengekspor Teks Paragraf ke HTML**
-
-Aspose.Slides menyediakan dukungan tingkat lanjut untuk mengekspor teks (yang terdapat dalam paragraf) ke HTML.
+## **Ekspor Teks Paragraf ke HTML**
+Aspose.Slides menyediakan dukungan yang ditingkatkan untuk mengekspor teks (yang berada dalam paragraf) ke HTML.
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) dan muat presentasi yang diinginkan.
 2. Akses referensi slide yang relevan melalui indeksnya.
 3. Akses shape yang berisi teks yang akan diekspor ke HTML.
 4. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) shape.
-5. Buat instance `StreamWriter` dan tambahkan file HTML baru.
+5. Buat sebuah instance `StreamWriter` dan tambahkan file HTML baru.
 6. Berikan indeks awal ke StreamWriter dan ekspor paragraf pilihan Anda.
 
 ```c#
@@ -609,7 +610,7 @@ Aspose.Slides menyediakan dukungan tingkat lanjut untuk mengekspor teks (yang te
 using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 {
 
-    // Mengakses slide pertama bawaan presentasi
+    // Mengakses slide pertama default dari presentasi
     ISlide slide = pres.Slides[0];
 
     // Mengakses indeks yang diperlukan
@@ -627,43 +628,43 @@ using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
 }
 ```
 
-## **Menyimpan Paragraf sebagai Gambar**
+## **Simpan Paragraf sebagai Gambar**
 
-Di bagian ini, kami akan mengeksplorasi dua contoh yang menunjukkan cara menyimpan paragraf teks, yang direpresentasikan oleh antarmuka [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/), sebagai gambar. Kedua contoh mencakup memperoleh gambar shape yang berisi paragraf menggunakan metode `GetImage` dari antarmuka [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/), menghitung batas paragraf di dalam shape, dan mengekspornya sebagai gambar bitmap. Pendekatan ini memungkinkan Anda mengekstrak bagian spesifik teks dari presentasi PowerPoint dan menyimpannya sebagai gambar terpisah, yang dapat berguna untuk penggunaan lebih lanjut dalam berbagai skenario.
+Pada bagian ini, kami akan mengeksplorasi dua contoh yang menunjukkan cara menyimpan sebuah paragraf teks, yang direpresentasikan oleh antarmuka [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/), sebagai gambar. Kedua contoh mencakup memperoleh gambar shape yang berisi paragraf menggunakan metode `GetImage` dari antarmuka [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/), menghitung batas paragraf di dalam shape, dan mengekspornya sebagai gambar bitmap. Pendekatan ini memungkinkan Anda mengekstrak bagian‑bagian tertentu dari teks PowerPoint dan menyimpannya sebagai gambar terpisah, yang dapat berguna untuk penggunaan lebih lanjut dalam berbagai skenario.
 
-Misalkan kita memiliki file presentasi bernama sample.pptx dengan satu slide, di mana shape pertama adalah kotak teks yang berisi tiga paragraf.
+Misalkan kami memiliki file presentasi bernama *sample.pptx* dengan satu slide, di mana shape pertama adalah kotak teks yang berisi tiga paragraf.
 
 ![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
 **Contoh 1**
 
-Dalam contoh ini, kami memperoleh paragraf kedua sebagai gambar. Untuk melakukannya, kami mengekstrak gambar shape dari slide pertama presentasi, kemudian menghitung batas paragraf kedua dalam bingkai teks shape. Paragraf kemudian digambar ulang pada gambar bitmap baru, yang disimpan dalam format PNG. Metode ini sangat berguna ketika Anda perlu menyimpan paragraf tertentu sebagai gambar terpisah sambil mempertahankan dimensi dan format teks secara tepat.
+Dalam contoh ini, kami memperoleh paragraf kedua sebagai gambar. Untuk melakukannya, kami mengekstrak gambar shape dari slide pertama presentasi, lalu menghitung batas paragraf kedua dalam text frame shape. Paragraf kemudian digambar ulang pada gambar bitmap baru, yang disimpan dalam format PNG. Metode ini sangat berguna ketika Anda perlu menyimpan paragraf tertentu sebagai gambar terpisah sambil mempertahankan dimensi dan pemformatan teks secara tepat.
 
 ```csharp
 using var presentation = new Presentation("sample.pptx");
 var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
 
-// Save the shape in memory as a bitmap.
+// Simpan shape di memori sebagai bitmap.
 using var shapeImage = firstShape.GetImage();
 using var shapeImageStream = new MemoryStream();
 shapeImage.Save(shapeImageStream, ImageFormat.Png);
 
-// Create a shape bitmap from memory.
+// Buat bitmap shape dari memori.
 shapeImageStream.Seek(0, SeekOrigin.Begin);
 using var shapeBitmap = Image.FromStream(shapeImageStream);
 
-// Calculate the boundaries of the second paragraph.
+// Hitung batas paragraf kedua.
 var secondParagraph = firstShape.TextFrame.Paragraphs[1];
 var paragraphRectangle = secondParagraph.GetRect();
 
-// Calculate the size for the output image (minimum size - 1x1 pixel).
+// Hitung ukuran untuk gambar output (ukuran minimum - 1x1 piksel).
 var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
 var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
 
-// Prepare a bitmap for the paragraph.
+// Siapkan bitmap untuk paragraf.
 using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
 
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
+// Gambar ulang paragraf dari bitmap shape ke bitmap paragraf.
 using var imageGraphics = Graphics.FromImage(paragraphBitmap);
 var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
 imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
@@ -671,13 +672,13 @@ imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, Graph
 paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
 ```
 
-Hasil:
+Hasilnya:
 
 ![Gambar paragraf](paragraph_to_image_output.png)
 
 **Contoh 2**
 
-Dalam contoh ini, kami memperluas pendekatan sebelumnya dengan menambahkan faktor skala pada gambar paragraf. Shape diekstrak dari presentasi dan disimpan sebagai gambar dengan faktor skala `2`. Ini memungkinkan keluaran resolusi lebih tinggi saat mengekspor paragraf. Batas paragraf kemudian dihitung dengan mempertimbangkan skala. Skala dapat sangat berguna ketika diperlukan gambar yang lebih detail, misalnya untuk keperluan materi cetak berkualitas tinggi.
+Dalam contoh ini, kami memperluas pendekatan sebelumnya dengan menambahkan faktor skala pada gambar paragraf. Shape diekstrak dari presentasi dan disimpan sebagai gambar dengan faktor skala `2`. Hal ini memungkinkan output resolusi lebih tinggi saat mengekspor paragraf. Batas paragraf kemudian dihitung dengan mempertimbangkan skala. Skala dapat sangat berguna ketika diperlukan gambar yang lebih detail, misalnya untuk materi cetak berkualitas tinggi.
 
 ```csharp
 var imageScaleX = 2f;
@@ -686,16 +687,16 @@ var imageScaleY = imageScaleX;
 using var presentation = new Presentation("sample.pptx");
 var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
 
-// Save the shape in memory as a bitmap with scaling.
+// Simpan shape di memori sebagai bitmap dengan skala.
 using var shapeImage = firstShape.GetImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
 using var shapeImageStream = new MemoryStream();
 shapeImage.Save(shapeImageStream, ImageFormat.Png);
 
-// Create a shape bitmap from memory.
+// Buat bitmap shape dari memori.
 shapeImageStream.Seek(0, SeekOrigin.Begin);
 using var shapeBitmap = Image.FromStream(shapeImageStream);
 
-// Calculate the boundaries of the second paragraph.
+// Hitung batas paragraf kedua.
 var secondParagraph = firstShape.TextFrame.Paragraphs[1];
 var paragraphRectangle = secondParagraph.GetRect();
 paragraphRectangle.X *= imageScaleX;
@@ -703,14 +704,14 @@ paragraphRectangle.Y *= imageScaleY;
 paragraphRectangle.Width *= imageScaleX;
 paragraphRectangle.Height *= imageScaleY;
 
-// Calculate the size for the output image (minimum size - 1x1 pixel).
+// Hitung ukuran untuk gambar output (ukuran minimum - 1x1 piksel).
 var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
 var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
 
-// Prepare a bitmap for the paragraph.
+// Siapkan bitmap untuk paragraf.
 using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
 
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
+// Gambar ulang paragraf dari bitmap shape ke bitmap paragraf.
 using var imageGraphics = Graphics.FromImage(paragraphBitmap);
 var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
 imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
@@ -720,18 +721,18 @@ paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
 
 ## **FAQ**
 
-**Apakah saya dapat menonaktifkan pembungkus baris sepenuhnya di dalam sebuah bingkai teks?**
+**Apakah saya dapat menonaktifkan pembungkusan baris sepenuhnya di dalam sebuah text frame?**
 
-Ya. Gunakan pengaturan pembungkus bingkai teks ([WrapText](https://reference.aspose.com/slides/id/net/aspose.slides/textframeformat/wraptext/)) untuk mematikan pembungkus sehingga baris tidak akan terpotong di tepi bingkai.
+Ya. Gunakan pengaturan pembungkusan text frame ([WrapText](https://reference.aspose.com/slides/id/net/aspose.slides/textframeformat/wraptext/)) untuk mematikan pembungkusan sehingga baris tidak terpotong di tepi frame.
 
-**Bagaimana saya dapat memperoleh batas tepat pada slide untuk paragraf tertentu?**
+**Bagaimana saya bisa mendapatkan batas tepat pada slide untuk paragraf tertentu?**
 
-Anda dapat mengambil rectangle pembatas paragraf (bahkan untuk satu bagian) untuk mengetahui posisi dan ukuran tepatnya pada slide.
+Anda dapat mengambil rectangle pembatas paragraf (bahkan untuk satu portion) untuk mengetahui posisi dan ukuran tepatnya pada slide.
 
-**Di mana pengaturan perataan paragraf (kiri/kanan/tengah/justify) dikontrol?**
+**Di mana kontrol perataan paragraf (kiri/kanan/tengah/justify) berada?**
 
-[Alignment](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphformat/alignment/) adalah pengaturan tingkat paragraf di [ParagraphFormat](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphformat/); ia berlaku pada seluruh paragraf terlepas dari format bagian individual.
+[Alignment](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphformat/alignment/) merupakan pengaturan tingkat paragraf di [ParagraphFormat](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphformat/); ia diterapkan pada seluruh paragraf terlepas dari pemformatan portion individual.
 
-**Apakah saya dapat mengatur bahasa pemeriksaan ejaan hanya untuk bagian paragraf (misalnya, satu kata)?**
+**Apakah saya dapat mengatur bahasa pemeriksa ejaan hanya untuk sebagian paragraf (misalnya satu kata)?**
 
-Ya. Bahasa diatur pada tingkat bagian ([PortionFormat.LanguageId](https://reference.aspose.com/slides/id/net/aspose.slides/baseportionformat/languageid/)), sehingga beberapa bahasa dapat hidup berdampingan dalam satu paragraf.
+Ya. Bahasa diatur pada tingkat portion ([PortionFormat.LanguageId](https://reference.aspose.com/slides/id/net/aspose.slides/baseportionformat/languageid/)), sehingga beberapa bahasa dapat hidup berdampingan dalam satu paragraf.

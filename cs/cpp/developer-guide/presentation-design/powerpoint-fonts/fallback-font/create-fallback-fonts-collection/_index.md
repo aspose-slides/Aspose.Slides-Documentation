@@ -1,39 +1,39 @@
 ---
-title: Konfigurace kolekcí záložních fontů v C++
-linktitle: Kolekce záložních fontů
+title: Konfigurace kolekcí náhradních písem v C++
+linktitle: Kolekce náhradních písem
 type: docs
 weight: 20
 url: /cs/cpp/create-fallback-fonts-collection/
 keywords:
-- záložní font
-- záložní pravidlo
-- kolekce fontů
-- konfigurace fontu
-- nastavení fontu
+- náhradní písmo
+- náhradní pravidlo
+- kolekce písem
+- konfigurovat písmo
+- nastavit písmo
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Nastavte kolekci záložních fontů v Aspose.Slides pro C++, aby byl text v prezentacích PowerPoint a OpenDocument konzistentní a ostrý."
+description: "Nastavte kolekci náhradních písem v Aspose.Slides pro C++, aby byl text v prezentacích PowerPoint a OpenDocument konzistentní a ostrý."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje nakonfigurovat sbírku pravidel záložních fontů pro prezentaci. Každé záložní pravidlo je reprezentováno třídou `FontFallBackRule` a může být přidáno do `FontFallBackRulesCollection`, která implementuje rozhraní `IFontFallBackRulesCollection`.
+Aspose.Slides vám umožňuje nakonfigurovat kolekci pravidel náhradního písma pro prezentaci. Každé pravidlo fallback je reprezentováno třídou `FontFallBackRule` a může být přidáno do `FontFallBackRulesCollection`, která implementuje rozhraní `IFontFallBackRulesCollection`.
 
-Po vytvoření sbírky ji můžete přiřadit pomocí metody `set_FontFallBackRulesCollection` třídy `FontsManager` prezentace. `FontsManager` řídí fonty v celé prezentaci a každá instance `Presentation` má svůj vlastní `FontsManager`.
+Po vytvoření kolekce ji můžete přiřadit pomocí metody `set_FontFallBackRulesCollection` třídy `FontsManager` prezentace. `FontsManager` řídí písma v celé prezentaci a každá instance `Presentation` má svůj vlastní `FontsManager`.
 
-Jakmile je `FontsManager` inicializován se sbírkou záložních fontů, jsou během vykreslování prezentace použity určené záložní fonty.
+Jakmile je `FontsManager` inicializován s kolekcí fallback písem, specifikovaná náhradní písma jsou použita během vykreslování prezentace.
 
-## **Použít pravidla záložních fontů**
+## **Použití pravidel fallback**
 
-Instance třídy [FontFallBackRule](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontfallbackrule/) lze uspořádat do [FontFallBackRulesCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontfallbackrulescollection/), která implementuje rozhraní [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontfallbackrulescollection/). Do sbírky lze přidávat nebo odebírat pravidla.
+Instance [FontFallBackRule](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontfallbackrule/) třídy lze uspořádat do [FontFallBackRulesCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontfallbackrulescollection/), která implementuje rozhraní [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifontfallbackrulescollection/). Je možné přidávat nebo odstraňovat pravidla z kolekce.
 
-Pak lze tuto sbírku předat metodě [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) třídy [FontsManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/). FontsManager řídí fonty v celé prezentaci.
+Poté může být tato kolekce předána metodě [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) třídy [FontsManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsmanager/). `FontsManager` řídí písma v celé prezentaci.
 
-Každá [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) má metodu [get_FontsManager()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_fontsmanager/), která vrací vlastní instanci třídy FontsManager.
+Každý [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) má metodu [get_FontsManager()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_fontsmanager/) s vlastní instancí třídy `FontsManager`.
 
-Zde je příklad, jak vytvořit sbírku pravidel záložních fontů a přiřadit ji do FontsManageru konkrétní prezentace:  
+Zde je příklad, jak vytvořit kolekci pravidel fallback písem a přiřadit ji do `FontsManager` konkrétní prezentace:  
 
 ``` cpp
 auto presentation = MakeObject<Presentation>();
@@ -45,26 +45,26 @@ userRulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), s
 presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList);
 ```
 
-Po inicializaci FontsManageru se sbírkou záložních fontů jsou během vykreslování prezentace použity záložní fonty.
+Po inicializaci `FontsManager` kolekcí fallback písem jsou tato písma použita během vykreslování prezentace.
 
 {{% alert color="primary" %}} 
-Přečtěte si více o tom, jak [Render Presentation with Fallback Font](/slides/cs/cpp/render-presentation-with-fallback-font/).
+Přečtěte si více o [Render Presentation with Fallback Font](/slides/cs/cpp/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Budou moje pravidla záložních fontů vložena do souboru PPTX a viditelná v PowerPointu po uložení?**
+**Budou moje pravidla fallback vložena do souboru PPTX a viditelná v PowerPointu po uložení?**
 
-Ne. Pravidla záložních fontů jsou nastavení prováděná za běhu; nejsou serializována do PPTX a nebudou se zobrazovat v uživatelském rozhraní PowerPointu.
+Ne. Pravidla fallback jsou nastavení vykreslování v runtime; nejsou serializována do PPTX a nebudou se zobrazovat v uživatelském rozhraní PowerPointu.
 
-**Platí záložní fonty i pro text uvnitř SmartArt, WordArt, grafů a tabulek?**
+**Používá se fallback na text uvnitř SmartArt, WordArt, grafů a tabulek?**
 
-Ano. Pro jakýkoli text v těchto objektech se používá stejný mechanismus substituce glyfu.
+Ano. Stejný mechanismus substituce glyfů se používá pro jakýkoli text v těchto objektech.
 
-**Distribuuje Aspose nějaké fonty s knihovnou?**
+**Distribuuje Aspose nějaká písma spolu s knihovnou?**
 
-Ne. Fonty přidáváte a používáte na své straně a na vlastní odpovědnost.
+Ne. Písma přidáváte a používáte na své straně a nesete za to odpovědnost.
 
-**Lze použít nahrazení/substituci chybějících fontů a záložní fonty pro chybějící glyfy společně?**
+**Lze současně použít nahrazení/substituci chybějících písem a fallback pro chybějící glyfy?**
 
-Ano. Jedná se o nezávislé fáze stejného pipeline pro řešení fontů: nejprve engine určuje dostupnost fontů ([replacement](/slides/cs/cpp/font-replacement/)/[substitution](/slides/cs/cpp/font-substitution/)), poté záložní fonty vyplňují mezery chybějících glyfů v dostupných fontech.
+Ano. Jedná se o nezávislé fáze stejného pipeline řešení písem: nejprve engine řeší dostupnost písem ([replacement](/slides/cs/cpp/font-replacement/)/[substitution](/slides/cs/cpp/font-substitution/)), poté fallback doplňuje mezery pro chybějící glyfy v dostupných písmech.

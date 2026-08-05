@@ -1,12 +1,12 @@
 ---
-title: JavaScript ile Sunum Slayt Boyutunu Değiştirme
+title: JavaScript'te Sunum Slayt Boyutunu Değiştirme
 linktitle: Slayt Boyutu
 type: docs
 weight: 70
 url: /tr/nodejs-java/slide-size/
 keywords:
 - slayt boyutu
-- en‑boy oranı
+- en-boy oranı
 - standart
 - geniş ekran
 - 4:3
@@ -18,7 +18,7 @@ keywords:
 - benzersiz slayt boyutu
 - tam boyutlu slayt
 - ekran tipi
-- ölçeklendirme yok
+- yeniden ölçekleme
 - uygunluğu sağla
 - büyüt
 - PowerPoint
@@ -27,18 +27,18 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-descriptions: "Node.js ve Aspose.Slides ile PPT, PPTX ve ODP dosyalarındaki slaytları hızlıca yeniden boyutlandırmayı öğrenin, kalite kaybı olmadan herhangi bir ekran için sunumları optimize edin."
+description: "Node.js ve Aspose.Slides kullanarak PPT, PPTX ve ODP dosyalarındaki slaytları hızlıca yeniden boyutlandırmayı, kalite kaybı yaşamadan herhangi bir ekran için sunumları optimize etmeyi öğrenin."
 ---
 ## **Giriş**
 
-Aspose.Slides PowerPoint sunumlarında slayt boyutu ve en‑boy oranını ayarlamak için kapsamlı araçlar sağlar; bu, hem baskı hem de ekrandaki görüntüleme için kritiktir.
+Aspose.Slides, PowerPoint sunumlarında slayt boyutunu ve en‑boy oranını ayarlamak için kapsamlı araçlar sağlar; bu, hem baskı hem de ekranda görüntüleme için kritiktir. 
 
-Popüler Slayt Boyutları ve Oranları:
+Popüler Slayt Boyutları ve Oranlar:
 
-- **Standard (4:3 Aspect Ratio)**: Eski ekranlar ve cihazlar için idealdir.
-- **Widescreen (16:9 Aspect Ratio)**: Modern projeksiyon cihazları ve göstergeler için önerilir.
+- **Standard (4:3 En–Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
+- **Widescreen (16:9 En–Boy Oranı)**: Modern projektörler ve ekranlar için önerilir.
 
-Sunumunuz boyunca tutarlılığı sağlamak için tek bir slayt boyutu ve en‑boy oranı tüm slaytlara uygulanır. En iyi sonuçlar için, karmaşıklığı önlemek amacıyla sunum oluşturma sürecinin başında slayt boyutlarınızı ayarlayın.
+Sunumunuz boyunca tutarlılığı sağlamak için tüm slaytlara aynı slayt boyutu ve en‑boy oranı uygulanır. En iyi sonuçlar için, slayt boyutlarını sunum oluşturma sürecinin başında ayarlayın; böylece komplikasyonlardan kaçınırsınız.
 
 {{% alert color="primary" %}} 
 Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en‑boy oranını kullanır.
@@ -46,7 +46,7 @@ Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en‑bo
 
 ## **Sunumlarda Slayt Boyutunu Değiştirme**
 
-Bu örnek kod, JavaScript'te Aspose.Slides kullanarak bir sunumun slayt boyutunu nasıl değiştireceğinizi gösterir:
+Bu örnek kod, Aspose.Slides kullanarak JavaScript'te bir sunumun slayt boyutunu nasıl değiştireceğinizi gösterir:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres-4x3-aspect-ratio.pptx");
@@ -62,9 +62,9 @@ try {
 
 ## **Sunumlarda Özel Slayt Boyutlarını Belirleme**
 
-Ortak slayt boyutları (4:3 ve 16:9) işiniz için uygun değilse, belirli veya benzersiz bir slayt boyutu kullanmayı tercih edebilirsiniz. Örneğin, sunumunuzu özel bir sayfa düzeninde tam boyutta yazdırmayı ya da belirli ekran tiplerinde göstermek istiyorsanız, özel bir boyut ayarı kullanmak sizin için faydalı olacaktır.
+Eğer yaygın slayt boyutları (4:3 ve 16:9) işiniz için uygun değilse, belirli veya benzersiz bir slayt boyutu kullanmayı tercih edebilirsiniz. Örneğin, sunumunuzdan tam boy slaytları özel bir sayfa düzeninde yazdırmayı planlıyorsanız veya sunumunuzu belirli ekran tiplerinde görüntülemeyi düşünüyorsanız, özel bir boyut ayarı kullanmak size fayda sağlayabilir.
 
-Bu örnek kod, JavaScript'te Node.js için Aspose.Slides'i Java aracılığıyla kullanarak bir sunum için özel bir slayt boyutu belirlemenizi gösterir:
+Bu örnek kod, Aspose.Slides for Node.js'i Java üzerinden kullanarak JavaScript'te bir sunum için özel bir slayt boyutu nasıl belirleyeceğinizi gösterir:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -78,25 +78,25 @@ try {
 }
 ```
 
-## **Sunumlarda Slayt Boyutu Değiştirirken Oluşabilecek Sorunlarla Baş Etme**
+## **Sunumlarda Slayt Boyutunu Değiştirirken Oluşabilecek Sorunlarla Baş Etme**
 
-Bir sunumun slayt boyutunu değiştirdikten sonra, slaytlardaki içerikler (örneğin resimler veya nesneler) bozulabilir. Varsayılan olarak, nesneler yeni slayt boyutuna uyması için otomatik olarak yeniden boyutlandırılır. Ancak bir sunumun slayt boyutunu değiştirirken, Aspose.Slides'in slaytlardaki içeriklerle nasıl başa çıkacağını belirleyen bir ayar belirtebilirsiniz.
+Bir sunumun slayt boyutunu değiştirdikten sonra, slaytların içeriği (örneğin resimler veya nesneler) bozulabilir. Varsayılan olarak, nesneler yeni slayt boyutuna sığacak şekilde otomatik olarak yeniden boyutlandırılır. Ancak, bir sunumun slayt boyutunu değiştirirken, Aspose.Slides'in slaytlardaki içerikle nasıl ilgileneceğini belirleyen bir ayar seçebilirsiniz.
 
-Ne yapmak istediğinize bağlı olarak aşağıdaki ayarlardan birini kullanabilirsiniz:
+Ne yapmayı veya elde etmeyi amaçladığınıza bağlı olarak, bu ayarlardan herhangi birini kullanabilirsiniz:
 
 - `DoNotScale`
 
-  Slaytlardaki nesnelerin yeniden boyutlandırılmasını **istemiyorsanız**, bu ayarı kullanın.
+  Slaytlardaki nesnelerin yeniden boyutlandırılmasını İSTEMİYORSANIZ bu ayarı kullanın.
 
 - `EnsureFit`
 
-  Daha küçük bir slayt boyutuna ölçeklendirmek ve tüm nesnelerin slaytlara sığmasını sağlamak (içeriğin kaybolmasını önlemek) için Aspose.Slides'in nesneleri küçültmesini istiyorsanız, bu ayarı kullanın.
+  Daha küçük bir slayt boyutuna ölçeklendirmek istiyor ve Aspose.Slides'in slayt nesnelerini küçülterek hepsinin slaytlara sığmasını (böylece içeriği kaybetmezsiniz) sağlamasını istiyorsanız bu ayarı kullanın.
 
 - `Maximize`
 
-  Daha büyük bir slayt boyutuna ölçeklendirmek ve nesnelerin yeni slayt boyutuna göre orantılı olarak büyütülmesini istiyorsanız, bu ayarı kullanın.
+  Daha büyük bir slayt boyutuna ölçeklendirmek istiyor ve Aspose.Slides'in slayt nesnelerini yeni slayt boyutuna orantılı olacak şekilde büyütmesini istiyorsanız bu ayarı kullanın.
 
-Bu örnek kod, bir sunumun slayt boyutunu değiştirirken `Maximize` ayarını nasıl kullanacağınızı gösterir:
+Bu örnek kod, bir sunumun slayt boyutunu değiştirirken `Maximize` ayarının nasıl kullanılacağını gösterir:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -111,18 +111,18 @@ try {
 
 ## **SSS**
 
-**Slayt boyutunu inç dışındaki birimlerle (örneğin puan veya milimetre) ayarlayabilir miyim?**
+**İnç dışında birimlerle (örneğin, puan veya milimetre) özel bir slayt boyutu ayarlayabilir miyim?**
 
-Evet. Aspose.Slides dahili olarak puanları kullanır; 1 puan 1/72 inçtir. Milimetre veya santimetre gibi birimleri puana dönüştürüp, dönüştürülmüş değerleri slayt genişliği ve yüksekliği olarak tanımlayabilirsiniz.
+Evet. Aspose.Slides dahili olarak puan (point) birimini kullanır; 1 puan bir inçin 1/72’sine eşittir. Herhangi bir birimi (örneğin milimetre veya santimetre) puana dönüştürüp, dönüştürülmüş değerleri slayt genişliği ve yüksekliğini tanımlamak için kullanabilirsiniz.
 
-**Çok büyük bir özel slayt boyutu render sırasında performans ve bellek kullanımını etkiler mi?**
+**Çok büyük bir özel slayt boyutu, oluşturma sırasında performans ve bellek kullanımını etkiler mi?**
 
-Evet. Daha büyük slayt boyutları (puan olarak) ve yüksek render ölçeği, bellek tüketimini artırır ve işlem sürelerini uzatır. Pratik bir slayt boyutu hedefleyin ve yalnızca gereken kaliteyi elde etmek için render ölçeğini ayarlayın.
+Evet. Daha büyük slayt boyutları (puan cinsinden) ve yüksek oluşturma ölçeği, bellek tüketimini artırır ve işlem süresini uzatır. Pratik bir slayt boyutu hedefleyin ve istenen çıktı kalitesine ulaşmak için yalnızca gerektiğinde oluşturma ölçeğini ayarlayın.
 
-**Farklı boyutlarda olan sunumlardan slaytları birleştirirken tek bir standart dışı slayt boyutu tanımlayıp sonra birleştirebilir miyim?**
+**Tek bir standart dışı slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?**
 
-Farklı slayt boyutlarına sahip iken [merge presentations](/slides/tr/nodejs-java/merge-presentation/) yapamazsınız — önce bir sunumu diğerine eşitleyecek şekilde yeniden boyutlandırın. Slayt boyutunu değiştirirken mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](/reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutları eşitledikten sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
+Farklı slayt boyutlarına sahip oldukları sürece [sunumları birleştirme](/slides/tr/nodejs-java/merge-presentation/) yapamazsınız — önce bir sunumu diğerine uyacak şekilde yeniden boyutlandırın. Slayt boyutunu değiştirirken, mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutları hizaladıktan sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
 
-**Bireysel şekiller veya slaydın belirli bölgeleri için küçük resimler (thumbnail) oluşturabilir miyim ve bunlar yeni slayt boyutunu dikkate alır mı?**
+**Bir slaydın tek tek şekilleri veya belirli bölgeleri için küçük resimler oluşturabilir miyim ve yeni slayt boyutuna saygı gösterirler mi?**
 
-Evet. Aspose.Slides, [entire slides](/reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getImage) ve [selected shapes](/reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getImage) için küçük resimler oluşturabilir. Oluşturulan görseller mevcut slayt boyutu ve en‑boy oranını yansıtarak tutarlı çerçeve ve geometri sağlar.
+Evet. Aspose.Slides, [tam slaytlar](/slides/tr/nodejs-java/aspose.slides/slide/#getImage) için olduğu gibi [seçili şekiller](/slides/tr/nodejs-java/aspose.slides/shape/#getImage) için de küçük resimler oluşturabilir. Oluşan görseller, mevcut slayt boyutu ve en‑boy oranını yansıtarak tutarlı çerçeveleme ve geometri sağlar.

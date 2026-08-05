@@ -1,6 +1,6 @@
 ---
-title: Prezentációs diagramok formázása C++-ban
-linktitle: Diagramformázás
+title: Diagramok formázása PowerPoint prezentációkban C++-ban
+linktitle: Diagram formázása
 type: docs
 weight: 60
 url: /hu/cpp/chart-formatting/
@@ -21,103 +21,105 @@ description: "Ismerje meg a diagramok formázását az Aspose.Slides for C++-ban
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan formázhatja a diagramokat PowerPoint-prezentációkban az Aspose.Slides használatával. Bemutatja, hogyan testreszabhatja a diagramok kulcsfontosságú elemeit, például a tengelyeket, rácsvonalakat, címeket, jelmagyarázatokat, a diagramterületet és a falak kitöltését, hogy javítsa a diagram adatok megjelenését és olvashatóságát.
+Ez a cikk bemutatja, hogyan formázhatók diagramok a PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram kulcsfontosságú elemei, például a tengelyek, rácsvonalak, címek, jelmagyarázatok, a diagramterület és a falak kitöltései a diagram adatok megjelenésének és olvashatóságának javítása érdekében.
 
-A cikk azt is bemutatja, hogyan állítható be a diagram szövegének betűtípus tulajdonságai, hogyan alkalmazhatók előre definiált és egyéni numerikus formátumok a diagram adataira, valamint hogyan engedélyezhetők lekerekített sarkok a diagram területén. Ezek a példák együtt megmutatják, hogyan szabályozhatja a diagramok vizuális stílusát és adatmegjelenítését egy prezentációban.
+Bemutatja továbbá, hogyan állíthatók be a diagram szövegének betűtípus‑tulajdonságai, hogyan alkalmazhatók előre definiált és egyedi numerikus formátumok a diagram adatokra, valamint hogyan engedélyezhetők a lekerekített sarkok a diagram területén. Együtt ezek a példák azt szemléltetik, hogyan szabályozható a diagramok vizuális stílusa és adatmegjelenítése egy prezentációban.
 
 ## **Diagramelemek formázása**
-Az Aspose.Slides for C++ lehetővé teszi a fejlesztők számára, hogy saját diagramokat adjanak hozzá a diáikhoz a semmiből. Ez a cikk elmagyarázza, hogyan formázhatók a különböző diagramelemek, beleértve a diagram kategória- és értéktengelyét.
+Az Aspose.Slides for C++ lehetővé teszi a fejlesztők számára, hogy saját diagramokat hozzanak létre a diákon. Ez a cikk azt mutatja be, hogyan formázhatók különböző diagramelemek, beleértve a diagram kategória‑ és értéktengelyét.
 
-Az Aspose.Slides for C++ egyszerű API-t biztosít a különböző diagramelemek kezeléséhez és egyéni értékekkel történő formázásához:
+Az Aspose.Slides for C++ egyszerű API‑t biztosít a különböző diagramelemek kezelésére és saját értékekkel való formázásukra:
 
 1. Hozzon létre egy példányt a **Presentation** osztályból.
-1. Szerezze meg egy dia hivatkozását az indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, a kívánt típusok egyikével (ebben a példában a ChartType.LineWithMarkers típust használjuk).
-1. Érje el a diagram Érték tengelyét, és állítsa be a következő tulajdonságokat:
-   1. A **Line format** beállítása az Érték tengely fő rácsvonalaihoz
-   1. A **Line format** beállítása az Érték tengely alrácsvonalaihoz
-   1. A **Number Format** beállítása az Érték tengelyhez
-   1. A **Min, Max, Major and Minor units** beállítása az Érték tengelyhez
-   1. A **Text Properties** beállítása az Érték tengely adataihoz
-   1. A **Title** beállítása az Érték tengelyhez
-   1. A **Line Format** beállítása az Érték tengelyhez
-1. Érje el a diagram Kategória tengelyét, és állítsa be a következő tulajdonságokat:
-   1. A **Line format** beállítása a Kategória tengely fő rácsvonalaihoz
-   1. A **Line format** beállítása a Kategória tengely alrácsvonalaihoz
-   1. A **Text Properties** beállítása a Kategória tengely adataihoz
-   1. A **Title** beállítása a Kategória tengelyhez
-   1. A **Label Positioning** beállítása a Kategória tengelyhez
-   1. A **Rotation Angle** beállítása a Kategória tengely címkéihez
-1. Érje el a diagram Jelmagyarázatát, és állítsa be a **Text Properties** értékét.
-1. Állítsa be a diagram Jelmagyarázatának megjelenítését úgy, hogy ne fedje le a diagramot
-1. Érje el a diagram **Secondary Value Axis** és állítsa be a következő tulajdonságokat:
-   1. A másodlagos **Value Axis** engedélyezése
-   1. A **Line Format** beállítása a másodlagos értéktengelyhez
-   1. A **Number Format** beállítása a másodlagos értéktengelyhez
-   1. A **Min, Max, Major and Minor units** beállítása a másodlagos értéktengelyhez
-1. Most ábrázolja az első diagram sorozatot a másodlagos értéktengelyen
-1. Állítsa be a diagram hátfalát kitöltő színre
-1. Állítsa be a diagram diagramterületének kitöltő színét
+1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus egyikével (ebben a példában a **ChartType.LineWithMarkers**‑t használjuk).
+1. Nyissa meg a diagram **Value Axis**‑át, és állítsa be a következő tulajdonságokat:
+   1. **Line format** beállítása az értéktengely fő rácsvonalaihoz
+   1. **Line format** beállítása az értéktengely segéd rácsvonalaihoz
+   1. **Number Format** beállítása az értéktengelyhez
+   1. **Min, Max, Major and Minor units** beállítása az értéktengelyhez
+   1. **Text Properties** beállítása az értéktengely adataihoz
+   1. **Title** beállítása az értéktengelyhez
+   1. **Line Format** beállítása az értéktengelyhez
+1. Nyissa meg a diagram **Category Axis**‑át, és állítsa be a következő tulajdonságokat:
+   1. **Line format** beállítása a kategóriatengely fő rácsvonalaihoz
+   1. **Line format** beállítása a kategóriatengely segéd rácsvonalaihoz
+   1. **Text Properties** beállítása a kategóriatengely adataihoz
+   1. **Title** beállítása a kategóriatengelyhez
+   1. **Label Positioning** beállítása a kategóriatengelyhez
+   1. **Rotation Angle** beállítása a kategóriatengely címkéihez
+1. Nyissa meg a diagram **Legend**‑jét, és állítsa be a **Text Properties**‑t számára
+1. Állítsa be, hogy a diagram jelmagyarázata ne fedje át a diagramot
+1. Nyissa meg a diagram **Secondary Value Axis**‑t, és állítsa be a következő tulajdonságokat:
+   1. Engedélyezze a **Secondary Value Axis**‑t
+   1. **Line Format** beállítása a másodlagos értéktengelyhez
+   1. **Number Format** beállítása a másodlagos értéktengelyhez
+   1. **Min, Max, Major and Minor units** beállítása a másodlagos értéktengelyhez
+1. Hozza létre az első diagram sorozatot a **Secondary Value Axis**‑en
+1. Állítsa be a diagram hátfalat kitöltő színre
+1. Állítsa be a diagram ábrázolási területének kitöltő színét
 1. Írja a módosított prezentációt egy PPTX fájlba
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChartEntities-ChartEntities.cpp" >}}
 
-## **Diagram betűtípus tulajdonságainak beállítása**
-Az Aspose.Slides for C++ támogatja a diagramhoz kapcsolódó betűtípus tulajdonságainak beállítását. Kérjük, kövesse az alábbi lépéseket a diagram betűtípus tulajdonságainak beállításához.
+## **Betűtípus‑tulajdonságok beállítása diagramhoz**
+Az Aspose.Slides for C++ támogatja a diagram betűtípus‑tulajdonságainak beállítását. Kövesse az alábbi lépéseket a diagram betűtípus‑tulajdonságainak beállításához.
 
-- Példányosítsa a **Presentation** osztályt.
-- Adjon hozzá egy diagramot a diahoz.
+- Hozzon létre egy **Presentation** osztálypéldányt.
+- Adjon hozzá egy diagramot a diára.
 - Állítsa be a betűmagasságot.
 - Mentse a módosított prezentációt.
 
-Az alábbi példa példát mutatja.
+Az alábbi mintapélda bemutatásra kerül.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontPropertiesForChart-FontPropertiesForChart.cpp" >}}
 
-## **Diagram adat táblázat betűtípus tulajdonságainak beállítása**
-Az Aspose.Slides for C++ támogatja a sorozat színben lévő kategóriák színének módosítását.
+## **Betűtípus‑tulajdonságok beállítása diagram adat táblához**
+Az Aspose.Slides for C++ támogatja a sorozat színeiben lévő kategóriák színének módosítását.
 
-1. Példányosítsa a **Presentation** osztályt.
-1. Adjon hozzá egy diagramot a diahoz.
-1. Állítsa be a diagram táblázatát.
+1. Hozzon létre egy **Presentation** osztálypéldányt.
+1. Adjon hozzá egy diagramot a diára.
+1. Állítsa be a diagram táblát.
 1. Állítsa be a betűmagasságot.
 1. Mentse a módosított prezentációt.
 
-Az alábbi példa példát mutatja. 
+Az alábbi mintapélda bemutatásra kerül.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingFontPropertiesForChartDataTable-SettingFontPropertiesForChartDataTable.cpp" >}}
 
-## **Diagramterület lekerekített szegélyek beállítása**
-Az Aspose.Slides for C++ támogatja a diagram terület beállítását. Az **IChart.HasRoundedCorners** és **Chart.HasRoundedCorners** tulajdonságok hozzá lettek adva az Aspose.Slides-hez. 
+## **Lekerekített szegélyek beállítása a diagram területén**
+Az Aspose.Slides for C++ támogatja a diagram területének beállítását. Az **IChart.HasRoundedCorners** és a **Chart.HasRoundedCorners** tulajdonságok kerültnek bevezetésre az Aspose.Slides‑ben.
 
-1. Példányosítsa a **Presentation** osztályt.
-1. Adjon hozzá egy diagramot a diahoz.
-1. Állítsa be a diagram kitöltési típusát és kitöltő színét
-1. Állítsa a lekerekített sarok tulajdonságot **True**-ra.
-1. Mentse a módosított prezentációt. 
+1. Hozzon létre egy **Presentation** osztálypéldányt.
+1. Adjon hozzá egy diagramot a diára.
+1. Állítsa be a diagram kitöltésének típusát és színét.
+1. Állítsa a **Round corner** tulajdonságot **True**‑ra.
+1. Mentse a módosított prezentációt.
 
-Az alábbi példa példát mutatja. 
+Az alábbi mintapélda bemutatásra kerül.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingChartAreaRoundedBorders-SettingChartAreaRoundedBorders.cpp" >}}
 
-## **Numerikus formátum beállítása**
-Az Aspose.Slides for C++ egyszerű API-t biztosít a diagram adatformátum kezeléséhez:
+## **Számformátum beállítása**
+Az Aspose.Slides for C++ egyszerű API‑t biztosít a diagram adatformátum kezelésére:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályból.
-1. Szerezze meg egy dia hivatkozását az indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal, a kívánt típusok egyikével (ez a példa a **ChartType.ClusteredColumn** típust használja).
-1. Állítsa be az előre definiált számformátumot a lehetséges értékek közül.
-1. Iteráljon a diagram adatk celláján minden diagram sorozatban, és állítsa be a diagram adatok számformátumát.
+1. Hozzon létre egy példányt a[Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/)osztályból.
+1. Szerezze meg a dia referenciáját az indexe alapján.
+1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus egyikével (ebben a példában a **ChartType.ClusteredColumn**‑t használjuk).
+1. Állítsa be az előre definiált számformátumot a lehetséges előre definiált értékek közül.
+1. Járja be a diagram adatcella‑kat minden diagram sorozatban, és állítsa be a diagram adat számformátumát.
 1. Mentse a prezentációt.
-1. Állítsa be az egyéni számformátumot.
-1. Iteráljon a diagram adatk celláján minden diagram sorozatban, és állítson be eltérő számformátumot.
+1. Állítsa be az egyedi (custom) számformátumot.
+1. Járja be a diagram adatcella‑kat minden diagram sorozatban, és állítson be különböző számformátumot.
 1. Mentse a prezentációt.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-NumberFormat-NumberFormat.cpp" >}}
 
-| |**Az alábbiakban a lehetséges előre definiált számformátum értékek indexekkel együtt vannak megadva:**|
+| |**Az alábbiakban a lehetséges előre beállított számformátum‑értékek az előre beállított indexükkel együtt találhatók:**|
 | :- | :- |
-|**0**|Általános|
+
+|**0**|General|
+| :- | :- |
 |**1**|0|
 |**2**|0.00|
 |**3**|#,##0|
@@ -153,19 +155,20 @@ Az Aspose.Slides for C++ egyszerű API-t biztosít a diagram adatformátum kezel
 |**47**|mm:ss.0|
 |**48**|##0.0E+00|
 |**49**|@|
+
 |||
 | :- | :- |
 
 ## **GYIK**
 
-**Beállíthatok félátlátszó kitöltéseket oszlopoknak/területeknek, miközben a szegély átlátszatlan marad?**
+**Beállíthatok félig átlátszó kitöltést az oszlopok/területek számára, miközben a szegély átlátszatlan marad?**
 
-Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációk esetén.
+Igen. A kitöltés átlátszósága és a körvonal különállóan konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációk esetén.
 
-**Hogyan kezelhetem az adatcímkéket, ha átfedik egymást?**
+**Hogyan kezeljem a címkéket, ha átfedik egymást?**
 
-Csökkentse a betűméretet, tiltsa le a nem lényeges címkeelemeket (például a kategóriákat), állítsa be a címke eltolását/pozícióját, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltson a formátumra "érték + jelmagyarázat".
+Csökkentse a betűméretet, tiltsa le a nem lényeges címkeelemeket (például a kategóriákat), állítsa be a címke eltolását/pozícióját, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltson „érték + jelmagyarázat” formátumra.
 
-**Alkalmazhatok gradient vagy minta kitöltéseket a sorozatokra?**
+**Alkalmazhatok-e gradient vagy minta kitöltést sorozatokra?**
 
-Igen. A tömör és a gradient/minta kitöltések is általában elérhetők. Gyakorlatban használjon gradienseket mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.
+Igen. Általában elérhetők a homogén és a gradient/minta kitöltések is. Gyakorlatban használjon gradienteket mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.

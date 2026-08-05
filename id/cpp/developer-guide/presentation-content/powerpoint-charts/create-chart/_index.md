@@ -1,72 +1,74 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint dalam C++
-linktitle: Buat atau Perbarui Diagram
+title: Buat atau Perbarui Grafik Presentasi PowerPoint dalam C++
+linktitle: Buat atau Perbarui Grafik
 type: docs
 weight: 10
 url: /id/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
-- tambahkan diagram
-- buat diagram
-- edit diagram
-- ubah diagram
-- perbarui diagram
-- diagram sebar
-- diagram pai
-- diagram garis
-- diagram peta pohon
-- diagram saham
-- diagram kotak dan whisker
-- diagram corong
-- diagram sunburst
-- diagram histogram
-- diagram radar
-- diagram multi kategori
+- tambahkan grafik
+- buat grafik
+- edit grafik
+- ubah grafik
+- perbarui grafik
+- grafik tersebar
+- grafik pai
+- grafik garis
+- grafik pohon
+- grafik saham
+- grafik kotak dan whisker
+- grafik corong
+- grafik sunburst
+- grafik histogram
+- grafik radar
+- grafik multikategori
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam C++."
+description: "Buat dan sesuaikan grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++. Tambahkan, format, dan edit grafik dengan contoh kode praktis dalam C++."
 ---
 ## **Gambaran Umum**
 
-Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari inisialisasi objek presentasi dan diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini menyediakan panduan komprehensif tentang cara membuat dan menyesuaikan grafik menggunakan Aspose.Slides. Anda akan belajar cara menambahkan grafik ke slide secara programatik, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk menyesuaikan dengan kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi objek presentation dan chart hingga mengonfigurasi series, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan grafik dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
 
-## **Membuat Diagram**
+## **Buat Grafik**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan, yang mungkin tidak langsung terlihat dari tabel atau spreadsheet. 
+Grafik membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan, yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
-**Mengapa Membuat Diagram?**
+**Mengapa Membuat Grafik?**
 
-Dengan diagram, Anda dapat
+Dengan grafik, Anda dapat
 
-* menggabungkan, merangkum, atau menyimpulkan sejumlah besar data pada satu slide dalam presentasi
+* menggabungkan, menyederhanakan, atau merangkum sejumlah besar data pada satu slide dalam sebuah presentasi
 * menampilkan pola dan tren dalam data
-* menilai arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu 
-* mengidentifikasi outlier, penyimpangan, deviasi, kesalahan, data yang tidak masuk akal, dll. 
-* mengomunikasikan atau menyajikan data kompleks
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan ukuran tertentu
+* mengidentifikasi outlier, penyimpangan, deviasi, kesalahan, data yang tidak masuk akal, dll.
+* mengomunikasikan atau menyajikan data yang kompleks
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi sisip, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram standar (berdasarkan tipe diagram populer) dan diagram khusus. 
+Di PowerPoint, Anda dapat membuat grafik melalui fungsi sisipkan, yang menyediakan templat untuk merancang banyak jenis grafik. Menggunakan Aspose.Slides, Anda dapat membuat grafik standar (berdasarkan jenis grafik populer) dan grafik khusus.
 
 {{% alert color="primary" %}} 
 
-Agar Anda dapat membuat diagram, Aspose.Slides menyediakan enum class [ChartType](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) di dalam namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts/). Nilai‑nilai pada enum class ini sesuai dengan berbagai tipe diagram. 
+Untuk memungkinkan Anda membuat grafik, Aspose.Slides menyediakan enum class [ChartType](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) di dalam namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts/). Nilai‑nilai dalam enum class ini sesuai dengan berbagai jenis grafik. 
 
 {{% /alert %}} 
 
-### **Membuat Diagram Normal**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan.  
-1. Tambahkan judul untuk diagram.  
-1. Akses worksheet data diagram.  
-1. Hapus semua seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Tambahkan warna isi untuk seri diagram.  
-1. Tambahkan label untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.  
+### **Buat Grafik Normal**
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan beberapa data dan tentukan tipe grafik yang Anda inginkan. 
+4. Tambahkan judul untuk grafik. 
+5. Akses worksheet data grafik. 
+6. Hapus semua series dan kategori default. 
+7. Tambahkan series dan kategori baru. 
+8. Tambahkan data grafik baru untuk series grafik. 
+9. Tambahkan warna isi untuk series grafik. 
+10. Tambahkan label untuk series grafik. 
+11. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram normal:
+Kode C++ berikut menunjukkan cara membuat grafik normal:
 
 ```c++
 // Jalur ke direktori dokumen.
@@ -78,30 +80,30 @@ Kode C++ ini menunjukkan cara membuat diagram normal:
 	//Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Menambahkan diagram dengan data default
+	// Menambahkan grafik dengan data default
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Menetapkan indeks lembar data diagram
+	// Menetapkan indeks lembar data grafik
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mendapatkan worksheet data grafik
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Menetapkan Judul diagram
+	// Menetapkan Judul grafik
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// Menghapus seri dan kategori default yang dihasilkan
+	// Menghapus series dan kategori yang dibuat secara default
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// Menambahkan seri baru
+	// Menambahkan series baru
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
@@ -111,28 +113,28 @@ Kode C++ ini menunjukkan cara membuat diagram normal:
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// Mengambil seri diagram pertama
+	// Mengambil series grafik pertama
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Mengisi data seri
+	// Mengisi data series
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// Menetapkan warna isi untuk seri
+	// Menetapkan warna isi untuk series
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// Mengambil seri diagram kedua
+	// Mengambil series grafik kedua
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Mengisi data seri
+	// Mengisi data series
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// Menetapkan warna isi untuk seri
+	// Menetapkan warna isi untuk series
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
@@ -152,54 +154,55 @@ Kode C++ ini menunjukkan cara membuat diagram normal:
 
 	// Menyimpan presentasi
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-### **Membuat Diagram Sebar**
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel. 
+### **Buat Grafik Scatter**
+Grafik scatter (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-Anda mungkin ingin menggunakan diagram sebar ketika  
+Anda mungkin ingin menggunakan grafik scatter ketika
 
-* Anda memiliki data numerik berpasangan  
-* Anda memiliki 2 variabel yang saling berhubungan dengan baik  
-* Anda ingin menentukan apakah 2 variabel tersebut terkait  
-* Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen  
+* Anda memiliki data numerik berpasangan
+* Anda memiliki 2 variabel yang saling berpasangan dengan baik
+* Anda ingin menentukan apakah 2 variabel saling terkait
+* Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen
 
-Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda yang berbeda: 
+Kode C++ berikut menunjukkan cara membuat grafik scatter dengan serangkaian penanda yang berbeda:
 
 ```c++
 // Jalur ke direktori dokumen.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//Membuat instance kelas presentasi yang mewakili file PPTX
+	// Membuat instance kelas presentasi yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Mengakses slide pertama
+	// Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Menambahkan diagram dengan data default
+	// Menambahkan grafik dengan data default
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// Menetapkan Judul diagram
+	// Menetapkan Judul grafik
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Menghapus seri default yang dihasilkan 
+	// Menghapus series yang dihasilkan secara default 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// Menetapkan indeks untuk lembar data diagram
+	// Menetapkan indeks untuk lembar data grafik
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mendapatkan worksheet data grafik
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Menambahkan seri baru
+	// Menambahkan series baru
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Mengambil seri diagram pertama
+	// Mengambil series grafik pertama
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 	// Menambahkan titik baru (1:3)
@@ -208,16 +211,16 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	// Menambahkan titik baru (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// Mengedit tipe seri
+	// Mengedit tipe series
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// Mengubah penanda seri diagram
+	// Mengubah penanda series grafik
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// Mengambil seri diagram kedua
+	// Mengambil series grafik kedua
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
 	// Menambahkan titik baru (5:2)
@@ -232,7 +235,7 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	// Menambahkan titik baru (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// Mengubah penanda seri diagram
+	// Mengubah penanda series grafik
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -274,7 +277,7 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Membuat label khusus untuk tiap kategori seri baru
+	// Membuat label khusus untuk setiap kategori series baru
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -291,10 +294,10 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Menampilkan garis pemimpin untuk Diagram
+	// Menampilkan garis pemimpin untuk Grafik
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Menetapkan sudut rotasi untuk sektor diagram pai
+	// Menetapkan sudut rotasi untuk sektor grafik pai
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
@@ -302,51 +305,51 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Pai**
-Diagram pai paling cocok untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya. 
+### **Buat Grafik Pie**
+Grafik pie paling cocok untuk menampilkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan grafik batang sebagai gantinya.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType.Pie`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Tambahkan titik baru untuk diagram dan tambahkan warna khusus untuk sektor diagram pai.  
-1. Atur label untuk seri.  
-1. Atur garis penunjuk (leader lines) untuk label seri.  
-1. Atur sudut rotasi untuk slide diagram pai.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (dalam hal ini, `ChartType.Pie`).
+4. Akses data grafik IChartDataWorkbook.
+5. Hapus series dan kategori default.
+6. Tambahkan series dan kategori baru.
+7. Tambahkan data grafik baru untuk series grafik.
+8. Tambahkan titik baru untuk grafik dan tambahkan warna khusus untuk sektor grafik pie.
+9. Atur label untuk series.
+10. Atur garis pemimpin untuk label series.
+11. Atur sudut rotasi untuk slide grafik pie.
+12. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram pai:
+Kode C++ berikut menunjukkan cara membuat grafik pie:
 
 ```c++
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Mengakses slide pertama
+	// Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Menambahkan diagram dengan data default
+	// Menambahkan grafik dengan data default
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// Menetapkan Judul diagram
+	// Menetapkan Judul grafik
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Menghapus seri dan kategori default yang dihasilkan
+	// Menghapus series dan kategori yang dibuat secara default
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// Menetapkan indeks lembar data diagram
+	// Menetapkan indeks lembar data grafik
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mendapatkan worksheet data grafik
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Menambahkan Kategori
@@ -354,13 +357,13 @@ Kode C++ ini menunjukkan cara membuat diagram pai:
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
-	// Menambahkan seri baru
+	// Menambahkan series baru
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// Mengambil seri diagram pertama
+	// Mengambil series grafik pertama
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Mengisi data seri
+	// Mengisi data series
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -401,7 +404,7 @@ Kode C++ ini menunjukkan cara membuat diagram pai:
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Membuat label khusus untuk setiap kategori seri baru
+	// Membuat label khusus untuk setiap kategori series baru
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -418,10 +421,10 @@ Kode C++ ini menunjukkan cara membuat diagram pai:
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Menetapkan seri untuk menampilkan garis pemimpin pada diagram
+	// Menetapkan series untuk menampilkan garis pemimpin pada grafik
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Menetapkan sudut rotasi untuk sektor diagram pai
+	// Menetapkan sudut rotasi untuk sektor grafik pai
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
@@ -429,20 +432,20 @@ Kode C++ ini menunjukkan cara membuat diagram pai:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Garis**
+### **Buat Grafik Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Menggunakan diagram garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam rangkaian data, dll.
+Grafik garis (juga dikenal sebagai line graph) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan grafik garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren sepanjang waktu, menyoroti anomali dalam seri data, dll.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType::Line`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (dalam hal ini, `ChartType::Line`).
+4. Akses data grafik IChartDataWorkbook.
+5. Hapus series dan kategori default.
+6. Tambahkan series dan kategori baru.
+7. Tambahkan data grafik baru untuk series grafik.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram garis:
+Kode C++ berikut menunjukkan cara membuat grafik garis:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -451,7 +454,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Secara default, titik‑titik pada diagram garis dihubungkan oleh garis lurus berkelanjutan. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
+Secara default, titik pada grafik garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan dengan tanda hubung, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
 
 ```c++
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
@@ -461,26 +464,26 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-### **Membuat Diagram Peta Pohon**
+### **Buat Grafik Tree Map**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan (pada saat yang sama) dengan cepat menarik perhatian ke item yang menjadi kontributor besar bagi setiap kategori. 
+Grafik tree map paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan (pada saat yang sama) dengan cepat menarik perhatian ke item yang merupakan kontributor besar bagi setiap kategori.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType.TreeMap`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (dalam hal ini, `ChartType.TreeMap`).
+4. Akses data grafik IChartDataWorkbook.
+5. Hapus series dan kategori default.
+6. Tambahkan series dan kategori baru.
+7. Tambahkan data grafik baru untuk series grafik.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram peta pohon:
+Kode C++ berikut menunjukkan cara membuat grafik tree map:
 
 ```c++
-	// Jalur ke direktori dokumen.
+// Jalur ke direktori dokumen.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Mengakses slide pertama
@@ -536,41 +539,41 @@ Kode C++ ini menunjukkan cara membuat diagram peta pohon:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Saham**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.OpenHighLowClose`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Tentukan format HiLowLines.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Grafik Saham**
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (ChartType.OpenHighLowClose).
+4. Akses data grafik IChartDataWorkbook.
+5. Hapus series dan kategori default.
+6. Tambahkan series dan kategori baru.
+7. Tambahkan data grafik baru untuk series grafik.
+8. Tentukan format HiLowLines.
+9. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Contoh kode C++ yang digunakan untuk membuat diagram saham:
+Contoh kode C++ yang digunakan untuk membuat grafik saham:
 
 ```c++
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Menambahkan diagram dengan data default
+	// Menambahkan grafik dengan data default
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
-	// Menetapkan indeks untuk lembar data diagram
+	// Menetapkan indeks lembar data grafik
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mendapatkan worksheet data grafik
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Menghapus seri dan kategori default yang dihasilkan
+	// Menghapus series dan kategori yang dibuat secara default
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
@@ -579,41 +582,41 @@ Contoh kode C++ yang digunakan untuk membuat diagram saham:
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
 
-	// Menambahkan seri baru
+	// Menambahkan series baru
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Open")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"High")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, ObjectExt::Box<System::String>(u"Low")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
 
-	// Mengambil seri diagram pertama
+	// Mengambil series grafik pertama
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// Mengisi data seri pertama
+	// Mengisi data series pertama
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// Mengisi data seri kedua
+	// Mengisi data series kedua
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// Mengisi data seri kedua
+	// Mengisi data series ketiga
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// Mengisi data seri kedua
+	// Mengisi data series keempat
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
 
-	// Menetapkan grup seri
+	// Menetapkan grup series
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars (true);
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
@@ -628,17 +631,17 @@ Contoh kode C++ yang digunakan untuk membuat diagram saham:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Kotak‑dan‑Whisker**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.BoxAndWhisker`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Grafik Box and Whisker**
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (ChartType.BoxAndWhisker).
+4. Akses data grafik IChartDataWorkbook.
+5. Hapus series dan kategori default.
+6. Tambahkan series dan kategori baru.
+7. Tambahkan data grafik baru untuk series grafik.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
+Kode C++ berikut menunjukkan cara membuat grafik box and whisker:
 
 ```c++
 	// Jalur ke direktori dokumen.
@@ -647,7 +650,7 @@ Kode C++ ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
 	//Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Mengakses slide pertama
+	//Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -685,19 +688,19 @@ Kode C++ ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Corong**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.Funnel`).  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Grafik Funnel**
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (ChartType.Funnel).
+4. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram corong:
+Kode C++ berikut menunjukkan cara membuat grafik funnel:
 
 ```c++
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Mengakses slide pertama
@@ -732,13 +735,13 @@ Kode C++ ini menunjukkan cara membuat diagram corong:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Sunburst**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType.sunburst`).  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Grafik Sunburst**
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (dalam hal ini, `ChartType.sunburst`).
+4. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram sunburst:
+Kode C++ berikut menunjukkan cara membuat grafik sunburst:
 
 ```c++
 	// Jalur ke direktori dokumen.
@@ -798,16 +801,16 @@ Kode C++ ini menunjukkan cara membuat diagram sunburst:
 
 ```
 
-### **Membuat Diagram Histogram**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan (`ChartType.Histogram` dalam kasus ini).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Grafik Histogram**
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya. 
+3. Tambahkan grafik dengan beberapa data dan tentukan tipe grafik yang Anda inginkan (`ChartType.Histogram` dalam kasus ini).
+4. Akses data grafik `IChartDataWorkbook`.
+5. Hapus series dan kategori default.
+6. Tambahkan series dan kategori baru.
+7. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram histogram:
+Kode C++ berikut menunjukkan cara membuat grafik histogram:
 
 ```c++
 	// Jalur ke direktori dokumen.
@@ -841,14 +844,14 @@ Kode C++ ini menunjukkan cara membuat diagram histogram:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Radar**
+### **Buat Grafik Radar**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan (`ChartType.Radar` dalam kasus ini).  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya. 
+3. Tambahkan grafik dengan beberapa data dan tentukan tipe grafik yang Anda inginkan (`ChartType.Radar` dalam kasus ini).
+4. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram radar:
+Kode C++ berikut menunjukkan cara membuat grafik radar:
 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
@@ -857,39 +860,39 @@ presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::C
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Multi‑Kategori**
+### **Buat Grafik Multi‑Kategori**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.ClusteredColumn`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan grafik dengan data default bersama tipe yang diinginkan (ChartType.ClusteredColumn).
+4. Akses data grafik IChartDataWorkbook.
+5. Hapus series dan kategori default.
+6. Tambahkan series dan kategori baru.
+7. Tambahkan data grafik baru untuk series grafik.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram multi‑kategori:
+Kode C++ berikut menunjukkan cara membuat grafik multi‑kategori:
 
 ```c++
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Mengakses slide pertama
+	// Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Menambahkan diagram dengan data default
+	// Menambahkan grafik dengan data default
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// Menetapkan indeks untuk lembar data diagram
+	// Menetapkan indeks untuk lembar data grafik
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mendapatkan worksheet data grafik
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Menghapus isi workbook
+	// Membersihkan workbook
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
@@ -914,7 +917,7 @@ Kode C++ ini menunjukkan cara membuat diagram multi‑kategori:
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
 
-	// Menambahkan seri baru
+	// Menambahkan series baru
 	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
 		ChartType::ClusteredColumn);
 
@@ -931,11 +934,11 @@ Kode C++ ini menunjukkan cara membuat diagram multi‑kategori:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Peta**
+### **Buat Grafik Peta**
 
-Diagram peta adalah visualisasi area yang berisi data. Diagram peta paling cocok untuk membandingkan data atau nilai di seluruh wilayah geografis.
+Grafik peta adalah visualisasi area yang memuat data. Grafik peta paling cocok untuk membandingkan data atau nilai antar wilayah geografis.
 
-Kode C++ ini menunjukkan cara membuat diagram peta:
+Kode C++ berikut menunjukkan cara membuat grafik peta:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -944,20 +947,20 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Kombinasi**
+### **Buat Grafik Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+Grafik kombinasi (atau combo chart) menggabungkan dua atau lebih jenis grafik dalam satu grafik. Grafik ini memungkinkan Anda menyorot, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu Anda mengidentifikasi hubungan di antara mereka.
 
 ![The combination chart](combination_chart.png)
 
-Kode C++ berikut menunjukkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
+Kode C++ berikut menunjukkan cara membuat grafik kombinasi seperti yang ditampilkan di atas dalam presentasi PowerPoint:
 
 ```cpp
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Atur judul diagram.
+    // Setel judul grafik.
     chart->set_HasTitle(true);
     chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
     chart->get_ChartTitle()->set_Overlay(false);
@@ -966,11 +969,11 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // Atur legenda diagram.
+    // Setel legenda grafik.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // Hapus seri dan kategori default yang dihasilkan.
+    // Hapus series dan kategori yang dibuat secara default.
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
@@ -983,7 +986,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 4, 0, ObjectExt::Box<String>(u"Category 4")));
 
-    // Tambahkan seri pertama.
+    // Tambahkan series pertama.
     auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1"));
     auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chart->get_Type());
 
@@ -1043,21 +1046,21 @@ static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 
 static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // Atur sumbu horizontal.
+    // Setel sumbu horizontal.
     auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
     horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(horizontalAxis, u"X Axis");
 
-    // Atur sumbu vertikal.
+    // Setel sumbu vertikal.
     auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
     verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // Atur warna garis kisi utama vertikal.
+    // Setel warna garis kisi utama vertikal.
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1065,7 +1068,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
 static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // Atur sumbu horizontal sekunder.
+    // Setel sumbu horizontal sekunder.
     auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
     secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
     secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
@@ -1073,7 +1076,7 @@ static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
     secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
     secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // Atur sumbu vertikal sekunder.
+    // Setel sumbu vertikal sekunder.
     auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
     secondaryVerticalAxis->set_Position(AxisPositionType::Right);
     secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
@@ -1102,17 +1105,17 @@ static void CreateComboChart()
 }
 ```
 
-## **Memperbarui Diagram**
+## **Perbarui Grafik**
 
-1. Instansiasikan kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang mewakili presentasi yang berisi diagram.  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Telusuri semua shape untuk menemukan diagram yang diinginkan.  
-4. Akses worksheet data diagram.  
-5. Modifikasi data seri diagram dengan mengubah nilai‑nilai seri.  
-6. Tambahkan seri baru dan isi data di dalamnya.  
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.  
+1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang mewakili presentasi yang berisi grafik.
+2. Dapatkan referensi slide melalui indeksnya.
+3. Telusuri semua shape untuk menemukan grafik yang diinginkan.
+4. Akses worksheet data grafik.
+5. Modifikasi data series grafik dengan mengubah nilai series.
+6. Tambahkan series baru dan isi data di dalamnya.
+7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ ini menunjukkan cara memperbarui diagram:
+Kode C++ berikut menunjukkan cara memperbarui sebuah grafik:
 
 ```c++
 // Membuat instance kelas Presentation yang mewakili file PPTX
@@ -1121,67 +1124,67 @@ System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"Existi
 // Mengakses slide pertama
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// Menambahkan diagram dengan data default
+// Menambahkan grafik dengan data default
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// Menetapkan indeks untuk lembar data diagram
+// Menetapkan indeks untuk lembar data grafik
 int32_t defaultWorksheetIndex = 0;
 
-// Mendapatkan worksheet data diagram
+// Mendapatkan worksheet data grafik
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// Mengubah Nama Kategori diagram
+// Mengubah Nama Kategori grafik
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// Mengambil seri diagram pertama
+// Mengambil series grafik pertama
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// Memperbarui data seri
+// Memperbarui data series
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// Mengubah nama seri
+// Memodifikasi nama series
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// Mengambil seri diagram kedua
+// Mengambil series grafik kedua
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Sekarang memperbarui data seri
+// Sekarang memperbarui data series
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// Mengubah nama seri
+// Memodifikasi nama series
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// Sekarang, Menambahkan seri baru
+// Sekarang, menambahkan series baru
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// Mengambil seri diagram ke-3
+// Mengambil series grafik ketiga
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// Sekarang mengisi data seri
+// Sekarang mengisi data series
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// Simpan presentasi dengan diagram
+// Simpan presentasi dengan grafik
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Menetapkan Rentang Data untuk Diagram**
+## **Atur Rentang Data untuk Grafik**
 
-1. Buka instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang berisi diagram.  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Telusuri semua shape untuk menemukan diagram yang diinginkan.  
-4. Akses data diagram dan tetapkan rentangnya.  
-5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.  
+1. Buka instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang berisi grafik.
+2. Dapatkan referensi slide melalui indeksnya.
+3. Telusuri semua shape untuk menemukan grafik yang diinginkan.
+4. Akses data grafik dan atur rentangnya.
+5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ ini menunjukkan cara menetapkan rentang data untuk diagram:
+Kode C++ berikut menunjukkan cara mengatur rentang data untuk sebuah grafik:
 
 ```cpp
 // Jalur ke direktori dokumen.
@@ -1190,17 +1193,17 @@ String dataDir = GetDataPath();
 // Membuat instance kelas Presentation yang mewakili file PPTX
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// Mengakses slide pertama dan menambahkan diagram dengan data default
+// Mengakses slide pertama dan menambahkan grafik dengan data default
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram akan secara otomatis mendapatkan simbol penanda default yang berbeda.
+## **Gunakan Marker Default pada Grafik**
+Ketika Anda menggunakan marker default pada grafik, setiap series grafik secara otomatis mendapatkan simbol marker default yang berbeda.
 
-Kode C++ ini menunjukkan cara mengatur penanda seri diagram secara otomatis:
+Kode C++ berikut menunjukkan cara mengatur marker series grafik secara otomatis:
 
 ```cpp
 // Jalur ke direktori dokumen.
@@ -1229,10 +1232,10 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr
 
 chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// Mengambil seri diagram kedua
+// Mengambil series grafik kedua
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Mengisi data seri
+// Mengisi data series
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1246,18 +1249,18 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Tipe diagram apa saja yang didukung oleh Aspose.Slides?**
+**Jenis grafik apa yang didukung oleh Aspose.Slides?**
 
-Aspose.Slides mendukung berbagai tipe diagram, termasuk batang, garis, pai, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides mendukung berbagai jenis grafik, termasuk bar, line, pie, area, scatter, histogram, radar, dan masih banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis grafik yang paling tepat untuk kebutuhan visualisasi data Anda.
 
-**Bagaimana cara menambahkan diagram baru ke slide?**
+**Bagaimana cara menambahkan grafik baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan grafik, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan grafik dengan menentukan tipe grafik dan data awal. Proses ini mengintegrasikan grafik langsung ke dalam presentasi Anda.
 
-**Bagaimana saya dapat memperbarui data yang ditampilkan dalam diagram?**
+**Bagaimana cara memperbarui data yang ditampilkan dalam grafik?**
 
-Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/)), menghapus semua seri dan kategori default, kemudian menambahkan data khusus Anda. Ini memungkinkan Anda memperbarui diagram secara programatis agar mencerminkan data terkini.
+Anda dapat memperbarui data grafik dengan mengakses workbook datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/)), menghapus semua series dan kategori default, kemudian menambahkan data khusus Anda. Hal ini memungkinkan Anda menyegarkan grafik secara programatik agar mencerminkan data terbaru.
 
-**Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
+**Apakah memungkinkan untuk menyesuaikan tampilan grafik?**
 
-Ya, Aspose.Slides menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan grafik sesuai kebutuhan desain spesifik Anda.

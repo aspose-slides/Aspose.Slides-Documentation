@@ -1,14 +1,16 @@
 ---
-title: ภาพรวมคุณสมบัติ
+title: "ภาพรวมคุณลักษณะ"
 type: docs
 weight: 10
 url: /th/cpp/features-overview/
+aliases:
+  - /cpp/aspose-slides-for-c-features/
 keywords:
-- คุณลักษณะ
-- แพลตฟอร์มที่รองรับ
+- ฟีเจอร์
+- แพลตฟอร์มที่สนับสนุน
 - รูปแบบไฟล์
 - การแปลง
-- การแสดงผล
+- การเรนเดอร์
 - การพิมพ์
 - การจัดรูปแบบ
 - PowerPoint
@@ -16,87 +18,87 @@ keywords:
 - การนำเสนอ
 - C++
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides for C++: API ที่ทรงพลังสำหรับสร้าง, แก้ไข, ทำงานอัตโนมัติและแปลงการนำเสนอ PowerPoint และ OpenDocument อย่างมีประสิทธิภาพ."
+description: "ค้นพบ Aspose.Slides for C++: API ที่ทรงพลังสำหรับสร้าง, แก้ไข, ทำอัตโนมัติ, และแปลงการนำเสนอ PowerPoint และ OpenDocument อย่างมีประสิทธิภาพ."
 ---
 ## **รูปแบบไฟล์และการแปลง**
-Aspose.Slides forC++ รองรับรูปแบบเอกสาร PowerPoint ส่วนใหญ่และยังสามารถส่งออกเป็นรูปแบบที่เป็นที่นิยมใช้กันอย่างกว้างขวางสำหรับการแลกเปลี่ยนระหว่างองค์กร ตารางต่อไปนี้แสดงรูปแบบเหล่านั้น:
+Aspose.Slides forC++ รองรับรูปแบบไฟล์ PowerPoint ส่วนใหญ่และยังสามารถส่งออกเป็นรูปแบบยอดนิยมที่ใช้กันอย่างกว้างขวางสำหรับการแลกเปลี่ยนระหว่างองค์กร ตารางต่อไปนี้แสดงรายการรูปแบบเหล่านั้น:
 
 |**คุณสมบัติ**|**คำอธิบาย**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/th/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides for C++ ให้การประมวลผลที่เร็วที่สุดสำหรับรูปแบบเอกสารการนำเสนอประเภทนี้|
-|[Portable Document Format (PDF)](/slides/th/cpp/portable-document-format-pdf/)|รูปแบบไฟล์ที่รองรับสามารถส่งออกเป็นเอกสาร Adobe Portable Document Format (PDF) ด้วยวิธีเดียว|
-|[XML Parser Specification (XPS)](/slides/th/cpp/xml-parser-specification-xps/)|ไฟล์รูปแบบทั้งหมดที่รองรับสามารถส่งออกเป็นเอกสาร XML Parser Specification (XPS) ด้วยวิธีเดียว|
-|[PresentationML (PPTX, XML)](/slides/th/cpp/presentationml-pptx-xml/)|Aspose.Slides for C++ รองรับการประมวลผลรูปแบบการนำเสนอ OOXML หรือที่เรียกว่า PresentationML หรือ PPTX|
-|[PPTX To HTML Conversion](https://docs.aspose.com/slides/th/cpp/convert-powerpoint-to-html/)|Aspose.Slides for C++ รองรับการแปลงการนำเสนอเป็นรูปแบบ HTML|
+|[Microsoft PowerPoint (PPT)](/slides/th/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides for C++ ให้การประมวลผลที่เร็วที่สุดสำหรับรูปแบบเอกสารนำเสนอนี้.|
+|[Portable Document Format (PDF)](/slides/th/cpp/portable-document-format-pdf/)|รูปแบบไฟล์ที่สนับสนุนสามารถส่งออกเป็นเอกสาร Adobe Portable Document Format (PDF) ด้วยวิธีเดียว.|
+|[XML Parser Specification (XPS)](/slides/th/cpp/xml-parser-specification-xps/)|รูปแบบไฟล์ที่สนับสนุนทั้งหมดสามารถส่งออกเป็นเอกสาร XML Parser Specification (XPS) ด้วยวิธีเดียว.|
+|[PresentationML (PPTX, XML)](/slides/th/cpp/presentationml-pptx-xml/)|Aspose.Slides for C++ รองรับการประมวลผลรูปแบบการนำเสนอ OOXML ที่รู้จักกันในชื่อ PresentationML หรือ PPTX.|
+|[PPTX To HTML Conversion](https://docs.aspose.com/slides/th/cpp/convert-powerpoint-to-html/)|Aspose.Slides for C++ รองรับการแปลงการนำเสนอเป็นรูปแบบ HTML.|
 
 ## **การแสดงผล**
-Aspose.Slides for C++ รองรับการเรนเดอร์สไลด์ในเอกสารการนำเสนอด้วยความแม่นยำสูงเป็นรูปแบบกราฟิกต่าง ๆ ตามรายการต่อไปนี้:
+Aspose.Slides for C++ รองรับการเรนเดอร์สไลด์ในเอกสารนำเสนอด้วยความแม่นยำสูงเป็นรูปแบบกราฟิกต่าง ๆ ตามที่ระบุด้านล่าง:
 
 |**คุณสมบัติ**|**คำอธิบาย**|
 | :- | :- |
-|C++ Supported Image Formats|ด้วย Aspose.Slides for C++ คุณจะสามารถเรนเดอร์ไม่เพียงแต่สไลด์การนำเสนอ แต่ยังรวมถึงภาพบนสไลด์ไปยังรูปแบบกราฟิกที่ C++ สนับสนุนทั้งหมด เช่น PNG, BMP และ JPEG|
-|SVG Format|Aspose.Slides for C++ ยังให้วิธีการในตัวเพื่อส่งออกสไลด์การนำเสนอเป็นรูปแบบ Scalable Vector Graphics (SVG)|
+|C++ Supported Image Formats|ด้วย Aspose.Slides for C++ คุณจะสามารถแสดงผลสไลด์นำเสนอ ไม่เพียงแต่สไลด์เท่านั้น แต่ยังรวมถึงภาพบนสไลด์ในรูปแบบกราฟิกที่ C++ รองรับทั้งหมด เช่น PNG, BMP และ JPEG|
+|SVG Format|Aspose.Slides for C++ ยังมีวิธีการในตัวเพื่อส่งออกสไลด์นำเสนอเป็นรูปแบบ Scalable Vector Graphics (SVG)|
 
 ## **คุณลักษณะของเนื้อหา**
-Aspose.Slides forC++ ทำให้คุณสามารถเข้าถึง, แก้ไข หรือสร้างเนื้อหาส่วนใหญ่ของเอกสารการนำเสนอได้
+Aspose.Slides forC++ ทำให้คุณเข้าถึง, แก้ไข หรือสร้างเนื้อหาเกือบทั้งหมดของเอกสารนำเสนอได้.
 
 |**คุณสมบัติ**|**คำอธิบาย**|
 | :- | :- |
-|Master Slides|Master Slides กำหนดเค้าโครงของสไลด์ปกติ Aspose.Slides for C++ ทำให้คุณสามารถเข้าถึงและแก้ไข Master Slides ของเอกสารการนำเสนอ|
-|Normal Slides|ด้วย Aspose.Slides for C++ คุณไม่เพียงสร้างสไลด์ใหม่หลายประเภท แต่ยังสามารถเข้าถึงและแก้ไขสไลด์ที่มีอยู่ในเอกสารการนำเสนอ|
-|Cloning / Copying Slides|Aspose.Slides for C++ มีเมธอดในตัวเพื่อคัดลอกหรือทำสำเนาสไลด์ที่มีอยู่ ไม่เพียงภายในงานนำเสนอเดียว แต่ยังจากงานนำเสนอหนึ่งไปยังอีกงานหนึ่ง เนื่องจากสไลด์สืบทอดเค้าโครงจาก master slide วิธีการคัดลอกในตัวจะคัดลอก master ด้วยโดยอัตโนมัติ|
-|Place Holders and Text Holders|คุณยังสามารถเข้าถึง place holders และ text holders ในสไลด์ได้ อีกทั้งสามารถสร้างสไลด์พร้อม text holders ตั้งแต่ต้นโดยใช้เมธอดที่เหมาะสม|
-|Header and Footers|Aspose.Slides for C++ ยังอำนวยความสะดวกในการจัดการส่วนหัว / ส่วนท้ายในสไลด์|
-|Notes in Slides|ด้วย Aspose.Slides for C++ คุณไม่เพียงเข้าถึงและแก้ไขโน้ตที่เชื่อมโยงกับสไลด์แต่ยังสามารถเพิ่มโน้ตได้|
-|Finding a Shape|คุณสามารถค้นหา shape เฉพาะจากสไลด์โดยใช้ข้อความแทน (alternative text) ที่เชื่อมโยงกับ shape นั้น|
-|Backgrounds|Aspose.Slides for C++ ทำให้คุณสามารถทำงานกับพื้นหลังที่เชื่อมโยงกับ master หรือสไลด์ปกติของการนำเสนอ|
-|Text Boxes|กล่องข้อความสามารถสร้างจากศูนย์ได้ ทั้งกล่องข้อความที่มีอยู่สามารถเข้าถึงและแก้ไขข้อความโดยไม่สูญเสียรูปแบบเดิม|
-|Rectangle Shapes|รูปสี่เหลี่ยมสามารถสร้างหรือแก้ไขได้โดย Aspose.Slides for C++|
-|Poly Line Shapes|รูป poly line สามารถสร้างหรือแก้ไขได้โดย Aspose.Slides for C++|
-|Ellipse Shapes|รูปวงรีสามารถสร้างหรือแก้ไขได้โดย Aspose.Slides for C++|
-|Group Shapes|Aspose.Slides for C++ รองรับรูปแบบกลุ่ม (group shapes)|
-|Auto Shapes|Auto shapes ก็ได้รับการสนับสนุนโดย Aspose.Slides for C++|
-|Shapes Serialization|แม้ว่า Aspose.Slides for C++ จะรองรับรูปแบบ shape จำนวนมาก แต่หากมี shape ที่ไม่ได้รับการสนับสนุน Aspose.Slides for C++ มีวิธีการ serialization ที่คุณสามารถใช้เพื่อแปลง shape นั้นจากสไลด์ที่มีอยู่เพื่อใช้งานต่อใน Aspose.Slides for C++ ตามความต้องการ|
-|Picture Frames|รูปภาพถูกจัดการใน picture frames ด้วย Aspose.Slides for C++|
-|Audio Frames|ไฟล์เสียงสามารถเชื่อมโยงหรือฝังในสไลด์ผ่าน audio frames โดย Aspose.Slides for C++|
-|Video Frames|ไฟล์วิดีโอถูกจัดการใน video frames ผ่าน Aspose.Slides for C++|
-|OLE Frame|OLE Objects ถูกจัดการใน OLE frames โดย Aspose.Slides for C++|
+|Master Slides|มาสเตอร์สไลด์กำหนดเค้าโครงของสไลด์ปกติ Aspose.Slides for C++ ทำให้คุณเข้าถึงและแก้ไขมาสเตอร์สไลด์ของเอกสารนำเสนอได้|
+|Normal Slides|ด้วย Aspose.Slides for C++ คุณไม่เพียงแต่สร้างสไลด์ใหม่หลายประเภทเท่านั้น แต่ยังเข้าถึงและแก้ไขสไลด์ที่มีอยู่ในเอกสารนำเสนอได้|
+|Cloning / Copying Slides|Aspose.Slides for C++ มีวิธีการในตัวสำหรับคัดลอกหรือทำสำเนาสไลด์ที่มีอยู่ไม่เพียงในงานนำเสนอเดียว แต่ยังจากงานนำเสนอหนึ่งไปยังอีกงานหนึ่ง เนื่องจากสไลด์สืบทอดเค้าโครงจากมาสเตอร์สไลด์ วิธีการคัดลอกในตัวจะคัดลอกมาสเตอร์ด้วยโดยอัตโนมัติ|
+|Place Holders and Text Holders|คุณสามารถเข้าถึงตัวจับตำแหน่งและตัวจับข้อความในสไลด์ได้เช่นกัน นอกจากนี้คุณสามารถสร้างสไลด์พร้อมตัวจับข้อความตั้งแต่ต้นโดยใช้วิธีที่เหมาะสม|
+|Header and Footers|Aspose.Slides for C++ ยังอำนวยความสะดวกในการจัดการส่วนหัวและส่วนท้ายในสไลด์|
+|Notes in Slides|ด้วย Aspose.Slides for C++ คุณไม่เพียงเข้าถึงและแก้ไขโน้ตที่สัมพันธ์กับสไลด์เท่านั้น แต่ยังสามารถเพิ่มโน้ตได้|
+|Finding a Shape|คุณยังสามารถค้นหารูปร่างเฉพาะจากสไลด์โดยใช้ข้อความสำรองที่สัมพันธ์กับรูปร่างนั้น|
+|Backgrounds|Aspose.Slides for C++ ทำให้สามารถทำงานกับพื้นหลังที่สัมพันธ์กับมาสเตอร์หรือสไลด์ปกติของการนำเสนอได้|
+|Text Boxes|กล่องข้อความสามารถสร้างตั้งแต่ต้นได้ กล่องข้อความที่มีอยู่สามารถเข้าถึงและแก้ไขข้อความของมันได้โดยไม่สูญเสียรูปแบบข้อความเดิม|
+|Rectangle Shapes|รูปร่างสี่เหลี่ยมผืนผ้าสามารถสร้างหรือแก้ไขได้โดย Aspose.Slides for C++|
+|Poly Line Shapes|รูปร่างเส้นพอลีไลน์สามารถสร้างหรือแก้ไขได้โดย Aspose.Slides for C++|
+|Ellipse Shapes|รูปร่างวงรีสามารถสร้างหรือแก้ไขได้โดย Aspose.Slides for C++|
+|Group Shapes|Aspose.Slides for C++ ยังรองรับการจัดกลุ่มรูปร่าง|
+|Auto Shapes|รูปร่างออโต้ก็ได้รับการสนับสนุนโดย Aspose.Slides for C++|
+|Shapes Serialization|แม้ว่า Aspose.Slides for C++ จะรองรับรูปร่างจำนวนมาก อย่างไรก็ตาม หากรูปร่างใดไม่รองรับโดย Aspose.Slides for C++ จะมีวิธีการจัดลำดับข้อมูล (serialization) ที่ให้โดย Aspose.Slides for C++ ซึ่งคุณสามารถจัดลำดับข้อมูลรูปร่างนั้นจากสไลด์ที่มีอยู่เพื่อใช้ต่อใน Aspose.Slides for C++ ตามความต้องการ|
+|Picture Frames|รูปภาพถูกจัดการในเฟรมภาพโดยใช้ Aspose.Slides for C++|
+|Audio Frames|ไฟล์เสียงสามารถเชื่อมโยงหรือฝังในสไลด์ผ่านเฟรมเสียงโดย Aspose.Slides for C++|
+|Video Frames|ไฟล์วิดีโอถูกจัดการในเฟรมวิดีโอตาม Aspose.Slides for C++|
+|OLE Frame|วัตถุ OLE ถูกจัดการในเฟรม OLE โดย Aspose.Slides for C++|
 |Tables|ตารางบนสไลด์ก็ได้รับการสนับสนุนโดย Aspose.Slides for C++|
-|Text Frame|ข้อความที่เชื่อมโยงกับ shape ใดก็สามารถเข้าถึงได้ผ่าน text frame ของ shape นั้น|
-|Text Scanning|ข้อความในงานนำเสนอสามารถสแกนได้ทั้งระดับงานนำเสนอหรือระดับสไลด์ผ่านเมธอดสแกนในตัว|
-|Animations|สามารถประยุกต์ใช้งานแอนิเมชันบน shape|
-|Slide Shows|การแสดงสไลด์, การเปลี่ยนสไลด์และ Morph Transitions ก็ได้รับการสนับสนุน|
+|Text Frame|ข้อความที่สัมพันธ์กับรูปร่างใดก็สามารถเข้าถึงได้ผ่านเฟรมข้อความที่สัมพันธ์กับรูปร่างนั้น|
+|Text Scanning|ข้อความในงานนำสามารถสแกนระดับงานนำเสนอหรือระดับสไลด์ได้ผ่านวิธีการสแกนในตัว|
+|Animations|สามารถนำแอนิเมชันไปใช้กับรูปร่างได้|
+|Slide Shows|การแสดงสไลด์ การเปลี่ยนสไลด์ และการเปลี่ยนแบบ Morph ก็ได้รับการสนับสนุน|
 
 ## **คุณลักษณะการจัดรูปแบบ**
-สามารถจัดรูปแบบข้อความและ shape บนสไลด์ในเอกสารการนำเสนอโดยใช้ Aspose.Slides for C++ ได้
+สามารถจัดรูปแบบข้อความและรูปร่างบนสไลด์ในเอกสารนำเสนอโดยใช้ Aspose.Slides for C++.
 
 |**คุณสมบัติ**|**คำอธิบาย**|
 | :- | :- |
-|Text Formatting|<p>ใน Aspose.Slides for C++ ข้อความถูกจัดการผ่าน text frames ที่เชื่อมโยงกับ shape ดังนั้นข้อความสามารถจัดรูปแบบได้โดยใช้ paragraph และ portion ที่เชื่อมโยงกับ text frames รายการส่วนของข้อความต่อไปนี้สามารถจัดรูปแบบผ่าน Aspose.Slides for C++.</p><p>- ประเภทฟอนต์</p><p>- ขนาดฟอนต์</p><p>- สีฟอนต์</p><p>- เงาฟอนต์</p><p>- การจัดแนวย่อหน้า</p><p>- รายการหัวข้อย่อหน้า</p><p>- การจัดวางย่อหน้า</p>|
-|Shape Formatting|<p>ใน Aspose.Slides for C++ องค์ประกอบพื้นฐานของสไลด์คือ shape รายการคุณลักษณะของ Shape ต่อไปนี้สามารถจัดรูปแบบได้โดยใช้ Aspose.Slides for C++:</p><p>- ตำแหน่ง</p><p>- ขนาด</p><p>- เส้น</p><p>- การเติม (รวมถึง Pattern, Gradient, Solid)</p><p>- ข้อความ</p><p>- ภาพ</p>|
+|Text Formatting|<p>ใน Aspose.Slides for C++ ข้อความถูกจัดการผ่านเฟรมข้อความที่สัมพันธ์กับรูปร่าง ดังนั้นข้อความสามารถจัดรูปแบบได้โดยใช้ย่อหน้าและส่วนที่สัมพันธ์กับเฟรมข้อความ รายการองค์ประกอบข้อความต่อไปนี้สามารถจัดรูปแบบผ่าน Aspose.Slides for C++.</p><p>- ประเภทฟอนต์</p><p>- ขนาดฟอนต์</p><p>- สีฟอนต์</p><p>- เฉดสีฟอนต์</p><p>- การจัดแนวย่อหน้า</p><p>- การทำรายการย่อหน้า</p><p>- แนวทางย่อหน้า</p>|
+|Shape Formatting|<p>ใน Aspose.Slides for C++ องค์ประกอบพื้นฐานของสไลด์คือรูปทรง ด้านล่างนี้คือองค์ประกอบของรูปทรงที่สามารถจัดรูปแบบได้โดยใช้ Aspose.Slides for C++:</p><p>- ตำแหน่ง</p><p>- ขนาด</p><p>- เส้น</p><p>- การเติม (รวมถึงลายแพทเทิร์น, ไกรม, แบบทึบ)</p><p>- ข้อความ</p><p>- ภาพ</p>|
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันต้องติดตั้ง Microsoft PowerPoint บนเซิร์ฟเวอร์หรือ PC เพื่อให้ไลบรารีทำงานหรือไม่?**
+**ฉันต้องติดตั้ง Microsoft PowerPoint บนเซิร์ฟเวอร์/PC เพื่อให้ไลบรารีทำงานหรือไม่?**
 
-ไม่จำเป็น PowerPoint ไม่ต้องการ; Aspose.Slides เป็นเอนจินแยกส่วนสำหรับสร้าง, แก้ไข, แปลงและเรนเดอร์การนำเสนอ
+ไม่จำเป็น PowerPoint ไม่ต้องการ; Aspose.Slides เป็นเอนจิ้นแบบสแตนด์อโลนสำหรับสร้าง, แก้ไข, แปลง และแสดงผลการนำเสนอ.
 
-**การทำงานของ multithreading เป็นอย่างไร? สามารถทำการประมวลผลแบบขนานได้หรือไม่?**
+**การทำงานแบบหลายเธรดทำอย่างไร? สามารถประมวลผลแบบขนานได้หรือไม่?**
 
-สามารถประมวลผลเอกสารต่าง ๆ ในเธรดที่แตกต่างกันได้อย่างปลอดภัย; ไม่ควรใช้วัตถุ [การนำเสนอ](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) เดียวกันโดย [หลายเธรด](/slides/th/cpp/multithreading/) พร้อมกัน
+ปลอดภัยในการประมวลผลเอกสารต่าง ๆ ในเธรดที่แยกกัน; วัตถุ [presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) เดียวกันต้องไม่ถูกใช้โดย [multiple threads](/slides/th/cpp/multithreading/) พร้อมกัน.
 
-**ไฟล์ที่มีรหัสผ่านและการเข้ารหัสได้รับการสนับสนุนหรือไม่?**
+**รองรับรหัสผ่านไฟล์และการเข้ารหัสหรือไม่?**
 
-ใช่ คุณสามารถ [เปิดการนำเสนอที่เข้ารหัส](/slides/th/cpp/password-protected-presentation/) ตั้งรหัสผ่านเปิดหรือเขียน หรือเอารหัสผ่านออก และตรวจสอบสถานะการป้องกันได้
+ใช่ [You can](/slides/th/cpp/password-protected-presentation/) เปิดการนำเสนอที่เข้ารหัส, ตั้งหรือเอารหัสผ่านสำหรับการเปิดและการเขียนออก, และตรวจสอบสถานะการป้องกัน.
 
-**ฉันต้องดูแลแพคเกจฟอนต์ในคอนเทนเนอร์ Linux หรือไม่?**
+**ฉันต้องคำนึงถึงแพคเกจฟอนต์ในคอนเทนเนอร์ Linux หรือไม่?**
 
-ใช่ แนะนำให้ติดตั้งแพคเกจฟอนต์ทั่วไปและ/หรือระบุ [ไดเรกทอรีฟอนต์](/slides/th/cpp/custom-font/) อย่างชัดเจนในแอปพลิเคชันของคุณเพื่อหลีกเลี่ยงการแทนที่ที่ไม่คาดคิด
+ใช่ แนะนำให้ติดตั้งแพคเกจฟอนต์ทั่วไปและ/หรือระบุโดยชัดเจน [specify font directories](/slides/th/cpp/custom-font/) ในแอปพลิเคชันของคุณเพื่อหลีกเลี่ยงการแทนที่ที่ไม่คาดคิด.
 
-**มีข้อจำกัดในรุ่นประเมินหรือไม่?**
+**มีข้อจำกัดในเวอร์ชันทดลองหรือไม่?**
 
-ใน [โหมดประเมิน](/slides/th/cpp/licensing/) จะมีลายน้ำเพิ่มในผลลัพธ์และมีข้อจำกัดบางประการ; มี [ใบอนุญาตชั่วคราว 30 วัน](https://purchase.aspose.com/temporary-license/) ให้ใช้สำหรับการทดสอบเต็มฟีเจอร์
+ใน [evaluation mode](/slides/th/cpp/licensing/) จะมีการใส่ลายน้ำในผลลัพธ์และมีข้อจำกัดบางประการ; มี [30-day temporary license](https://purchase.aspose.com/temporary-license/) ให้ใช้สำหรับการทดสอบคุณสมบัติเต็มรูปแบบ.
 
-**การนำเข้ารูปแบบภายนอกเข้าสู่การนำเสนอ (PDF/HTML → PPTX) ได้รับการสนับสนุนหรือไม่?**
+**รองรับการนำเข้ารูปแบบภายนอกเข้าสู่การนำเสนอ (PDF/HTML → PPTX) หรือไม่?**
 
-ใช่ คุณสามารถเพิ่ม [หน้าดี PDF และเนื้อหา HTML](/slides/th/cpp/import-presentation/) ไปยังการนำเสนอ เพื่อนำมาสร้างเป็นสไลด์
+ใช่ คุณสามารถเพิ่ม [PDF pages and HTML content](/slides/th/cpp/import-presentation/) ไปยังการนำเสนอ ทำให้เป็นสไลด์.

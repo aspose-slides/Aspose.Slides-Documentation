@@ -4,6 +4,9 @@ linktitle: Absatz verwalten
 type: docs
 weight: 40
 url: /de/java/manage-paragraph/
+aliases:
+  - /java/paragraph/
+  - /java/portion/
 keywords:
 - Text hinzufügen
 - Absatz hinzufügen
@@ -15,7 +18,7 @@ keywords:
 - Absatz‑Aufzählungszeichen
 - Nummerierte Liste
 - Aufzählungsliste
-- Absatz‑Eigenschaften
+- Absatzeigenschaften
 - HTML importieren
 - Text zu HTML
 - Absatz zu HTML
@@ -27,44 +30,48 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Meistern Sie die Absatzformatierung mit Aspose.Slides für Java — optimieren Sie Ausrichtung, Abstand und Stil in PPT-, PPTX- und ODP‑Präsentationen in Java."
+description: "Meistern Sie die Absatzformatierung mit Aspose.Slides für Java – optimieren Sie Ausrichtung, Abstand und Stil in PPT-, PPTX- und ODP‑Präsentationen in Java."
 ---
-Aspose.Slides stellt alle Schnittstellen und Klassen bereit, die Sie benötigen, um in Java mit PowerPoint-Texten, Absätzen und Portionen zu arbeiten.
+## **Einleitung**
 
-* Aspose.Slides stellt die [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) Schnittstelle bereit, mit der Sie Objekte hinzufügen können, die einen Absatz darstellen. Ein `ITextFame`-Objekt kann einen oder mehrere Absätze enthalten (jeder Absatz wird durch einen Zeilenumbruch erzeugt).
-* Aspose.Slides stellt die [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/) Schnittstelle bereit, mit der Sie Objekte hinzufügen können, die Portionen darstellen. Ein `IParagraph`-Objekt kann eine oder mehrere Portionen (eine Sammlung von iPortions-Objekten) enthalten.
-* Aspose.Slides stellt die [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/) Schnittstelle bereit, mit der Sie Objekte hinzufügen können, die Texte und deren Formatierungseigenschaften darstellen. 
+Aspose.Slides stellt alle Schnittstellen und Klassen bereit, die Sie benötigen, um in Java mit PowerPoint‑Texten, Absätzen und Portionen zu arbeiten.
 
-Ein `IParagraph`-Objekt kann Texte mit unterschiedlichen Formatierungseigenschaften über seine zugrunde liegenden `IPortion`-Objekte verarbeiten.
+* Aspose.Slides bietet die [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/)‑Schnittstelle, mit der Sie Objekte hinzufügen können, die einen Absatz darstellen. Ein `ITextFame`‑Objekt kann einen oder mehrere Absätze enthalten (jeder Absatz wird durch einen Zeilenumbruch erstellt).
+* Aspose.Slides bietet die [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/)‑Schnittstelle, mit der Sie Objekte hinzufügen können, die Portionen darstellen. Ein `IParagraph`‑Objekt kann eine oder mehrere Portionen enthalten (Sammlung von iPortions‑Objekten).
+* Aspose.Slides bietet die [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/)‑Schnittstelle, mit der Sie Objekte hinzufügen können, die Texte und deren Formatierungseigenschaften darstellen. 
+
+Ein `IParagraph`‑Objekt kann Texte mit unterschiedlichen Formatierungseigenschaften über seine zugrundeliegenden `IPortion`‑Objekte verarbeiten.
 
 ## **Mehrere Absätze mit mehreren Portionen hinzufügen**
 
 Diese Schritte zeigen, wie Sie einen Textrahmen mit 3 Absätzen hinzufügen, wobei jeder Absatz 3 Portionen enthält:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-4. Rufen Sie das mit dem [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) verbundene ITextFrame ab.
-5. Erstellen Sie zwei [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/) Objekte und fügen Sie sie der `IParagraphs`-Sammlung des [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) hinzu.
-6. Erstellen Sie für jedes neue `IParagraph` drei [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/) Objekte (zwei Portion-Objekte für den Standard‑Absatz) und fügen Sie jedes `IPortion`-Objekt der IPortion‑Sammlung jedes `IParagraph` hinzu.
-7. Legen Sie für jede Portion einen Text fest.
-8. Wenden Sie mit den vom `IPortion`‑Objekt bereitgestellten Formatierungseigenschaften Ihre gewünschten Formatierungsoptionen auf jede Portion an.
+4. Holen Sie das mit dem [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) verknüpfte ITextFrame.
+5. Erstellen Sie zwei [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/)‑Objekte und fügen Sie sie zur `IParagraphs`‑Sammlung des [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) hinzu.
+6. Erstellen Sie für jedes neue `IParagraph` drei [IPortion](https://reference.aspose.com/slides/de/java/com.aspose.slides/iportion/)‑Objekte (zwei Portion‑Objekte für den Standard‑Absatz) und fügen Sie jedes `IPortion`‑Objekt zur IPortion‑Sammlung des jeweiligen `IParagraph` hinzu.
+7. Setzen Sie für jede Portion einen Text.
+8. Wenden Sie die gewünschten Formatierungsfunktionen auf jede Portion mithilfe der vom `IPortion`‑Objekt bereitgestellten Formatierungseigenschaften an.
 9. Speichern Sie die geänderte Präsentation.
 
+Dieser Java‑Code implementiert die Schritte zum Hinzufügen von Absätzen mit Portionen:
+
 ```java
-// Instanziieren einer Presentation-Klasse, die eine PPTX-Datei darstellt
+// Instanziieren Sie eine Presentation-Klasse, die eine PPTX-Datei repräsentiert
 Presentation pres = new Presentation();
 try {
     // Zugriff auf die erste Folie
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Hinzufügen einer AutoShape vom Typ Rechteck
+    // Ein AutoShape vom Typ Rechteck hinzufügen
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
-    // Zugriff auf das TextFrame der AutoShape
+    // Zugriff auf das TextFrame des AutoShape
     ITextFrame tf = ashp.getTextFrame();
 
-    // Erstellen von Absätzen und Portionen mit unterschiedlichen Textformaten
+    // Absätze und Portionen mit unterschiedlichen Textformaten erstellen
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -116,86 +123,88 @@ try {
 }
 ```
 
-## **Absatz‑Aufzählungen verwalten**
+## **Absatz‑Aufzählungszeichen verwalten**
 
-Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und darzustellen. Aufgezählte Absätze sind immer leichter zu lesen und zu verstehen.
+Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und zu präsentieren. Aufzählungs‑Absätze sind immer leichter zu lesen und zu verstehen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie der ausgewählten Folie ein [autoshape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) des Autoshapes zu. 
 5. Entfernen Sie den Standard‑Absatz im `TextFrame`.
-6. Erstellen Sie die erste Absatz‑Instanz mit der [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/) Klasse.
-7. Setzen Sie den Aufzählungs‑`Type` des Absatzes auf `Symbol` und legen Sie das Aufzählungszeichen fest.
+6. Erstellen Sie die erste Absatz‑Instanz mithilfe der [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/)‑Klasse.
+7. Setzen Sie den Aufzählungs‑`Type` des Absatzes auf `Symbol` und definieren Sie das Aufzählungszeichen.
 8. Setzen Sie den Absatz‑`Text`.
-9. Setzen Sie den Absatz‑`Indent` für das Aufzählungszeichen.
-10. Legen Sie eine Farbe für das Aufzählungszeichen fest.
+9. Setzen Sie die Absatz‑`Indent` für das Aufzählungszeichen.
+10. Definieren Sie eine Farbe für das Aufzählungszeichen.
 11. Legen Sie eine Höhe für das Aufzählungszeichen fest.
 12. Fügen Sie den neuen Absatz zur `TextFrame`‑Absatzsammlung hinzu.
-13. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte 7‑12.
+13. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte 7 bis 13.
 14. Speichern Sie die Präsentation.
 
+Dieser Java‑Code zeigt, wie Sie ein Aufzählungszeichen zu einem Absatz hinzufügen:
+
 ```java
-// Instanziert eine Presentation-Klasse, die eine PPTX-Datei darstellt
+// Instanziert eine Presentation-Klasse, die eine PPTX-Datei repräsentiert
 Presentation pres = new Presentation();
 try {
     // Greift auf die erste Folie zu
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Fügt eine AutoShape hinzu und greift darauf zu
+    // Fügt ein Autoshape hinzu und greift darauf zu
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Greift auf das TextFrame der AutoShape zu
+    // Greift auf das TextFrame des Autoshapes zu
     ITextFrame txtFrm = aShp.getTextFrame();
 
-    // Entfernt den Standardabsatz
+    // Entfernt den Standard‑Absatz
     txtFrm.getParagraphs().removeAt(0);
 
     // Erstellt einen Absatz
     Paragraph para = new Paragraph();
 
-    // Legt den Aufzählungsstil und das Symbol für den Absatz fest
+    // Setzt den Aufzählungsstil und das Symbol des Absatzes
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char)8226);
 
-    // Setzt den Text des Absatzes
+    // Setzt den Absatztext
     para.setText("Welcome to Aspose.Slides");
 
-    // Legt den Aufzählungs‑Einzug fest
+    // Setzt den Aufzählungseinzug
     para.getParagraphFormat().setIndent(25);
 
-    // Legt die Aufzählungsfarbe fest
+    // Setzt die Aufzählungsfarbe
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor auf true setzen, um eigene Aufzählungsfarbe zu verwenden
+    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // Setzt IsBulletHardColor auf true, um eine eigene Aufzählungsfarbe zu verwenden
 
-    // Legt die Aufzählungshöhe fest
+    // Setzt die Aufzählungshöhe
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // Fügt den Absatz dem TextFrame hinzu
+    // Fügt den Absatz dem Textframe hinzu
     txtFrm.getParagraphs().add(para);
 
-    // Erstellt einen zweiten Absatz
+    // Erstellt den zweiten Absatz
     Paragraph para2 = new Paragraph();
 
-    // Legt den Aufzählungstyp und -stil des Absatzes fest
+    // Setzt den Aufzählungstyp und Stil des Absatzes
     para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
 
     // Fügt den Absatztext hinzu
     para2.setText("This is numbered bullet");
 
-    // Legt den Aufzählungs‑Einzug fest
+    // Setzt den Aufzählungseinzug
     para2.getParagraphFormat().setIndent(25);
 
     para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor auf true setzen, um eigene Aufzählungsfarbe zu verwenden
+    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // Setzt IsBulletHardColor auf true, um eine eigene Aufzählungsfarbe zu verwenden
 
-    // Legt die Aufzählungshöhe fest
+    // Setzt die Aufzählungshöhe
     para2.getParagraphFormat().getBullet().setHeight(100);
 
-    // Fügt den Absatz dem TextFrame hinzu
+    // Fügt den Absatz dem Textframe hinzu
     txtFrm.getParagraphs().add(para2);
     
     // Speichert die geänderte Präsentation
@@ -205,25 +214,27 @@ try {
 }
 ```
 
-## **Bild‑Aufzählungen verwalten**
+## **Bild‑Aufzählungszeichen verwalten**
 
-Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und darzustellen. Bild‑Absätze sind leicht zu lesen und zu verstehen.
+Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und zu präsentieren. Bild‑Absätze sind leicht zu lesen und zu verstehen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie der Folie ein [autoshape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) des Autoshapes zu. 
 5. Entfernen Sie den Standard‑Absatz im `TextFrame`.
-6. Erstellen Sie die erste Absatz‑Instanz mit der [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/) Klasse.
+6. Erstellen Sie die erste Absatz‑Instanz mithilfe der [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/)‑Klasse.
 7. Laden Sie das Bild in [IPPImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/).
-8. Setzen Sie den Aufzählungs‑Typ auf [Picture](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/) und legen Sie das Bild fest.
+8. Setzen Sie den Aufzählungstyp auf [Picture](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/) und weisen Sie das Bild zu.
 9. Setzen Sie den Absatz‑`Text`.
-10. Setzen Sie den Absatz‑`Indent` für das Aufzählungszeichen.
-11. Legen Sie eine Farbe für das Aufzählungszeichen fest.
+10. Setzen Sie die Absatz‑`Indent` für das Aufzählungszeichen.
+11. Definieren Sie eine Farbe für das Aufzählungszeichen.
 12. Legen Sie eine Höhe für das Aufzählungszeichen fest.
 13. Fügen Sie den neuen Absatz zur `TextFrame`‑Absatzsammlung hinzu.
-14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die vorherigen Schritte.
+14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie den Prozess gemäß den vorherigen Schritten.
 15. Speichern Sie die geänderte Präsentation.
+
+Dieser Java‑Code zeigt, wie Sie Bild‑Aufzählungszeichen hinzufügen und verwalten:
 
 ```java
 // Instanziert eine Presentation-Klasse, die eine PPTX-Datei darstellt
@@ -232,7 +243,7 @@ try {
     // Greift auf die erste Folie zu
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Instanziert das Bild für Aufzählungszeichen
+    // Instanziiert das Bild für Aufzählungszeichen
     IPPImage picture;
     IImage image = Images.fromFile("bullets.png");
     try {
@@ -240,33 +251,33 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-    // Fügt eine AutoShape hinzu und greift darauf zu
+    // Fügt ein Autoshape hinzu und greift darauf zu
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Greift auf das Textframe der AutoShape zu
+    // Greift auf das Textframe des Autoshapes zu
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    // Entfernt den Standardabsatz
+    // Entfernt den Standard‑Absatz
     textFrame.getParagraphs().removeAt(0);
 
     // Erstellt einen neuen Absatz
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
 
-    // Legt den Aufzählungsstil und das Bild des Absatzes fest
+    // Setzt den Aufzählungsstil und das Bild des Absatzes
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // Legt die Aufzählungshöhe fest
+    // Setzt die Aufzählungshöhe
     paragraph.getParagraphFormat().getBullet().setHeight(100);
 
     // Fügt den Absatz dem Textframe hinzu
     textFrame.getParagraphs().add(paragraph);
 
-    // Schreibt die Präsentation als PPTX-Datei
+    // Speichert die Präsentation als PPTX-Datei
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-    // Schreibt die Präsentation als PPT-Datei
+    // Speichert die Präsentation als PPT-Datei
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 } catch (IOException e) {
 } finally {
@@ -274,21 +285,23 @@ try {
 }
 ```
 
-## **Mehrstufige Aufzählungen verwalten**
+## **Mehrstufige Aufzählungszeichen verwalten**
 
-Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und darzustellen. Mehrstufige Aufzählungen sind leicht zu lesen und zu verstehen.
+Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu organisieren und zu präsentieren. Mehrstufige Aufzählungszeichen sind leicht zu lesen und zu verstehen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie in der neuen Folie ein [autoshape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) des Autoshapes zu. 
 5. Entfernen Sie den Standard‑Absatz im `TextFrame`.
-6. Erstellen Sie die erste Absatz‑Instanz über die [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/) Klasse und setzen Sie die Tiefe auf 0.
+6. Erstellen Sie die erste Absatz‑Instanz über die [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/)‑Klasse und setzen Sie die Tiefe auf 0.
 7. Erstellen Sie die zweite Absatz‑Instanz über die `Paragraph`‑Klasse und setzen Sie die Tiefe auf 1.
 8. Erstellen Sie die dritte Absatz‑Instanz über die `Paragraph`‑Klasse und setzen Sie die Tiefe auf 2.
 9. Erstellen Sie die vierte Absatz‑Instanz über die `Paragraph`‑Klasse und setzen Sie die Tiefe auf 3.
 10. Fügen Sie die neuen Absätze zur `TextFrame`‑Absatzsammlung hinzu.
 11. Speichern Sie die geänderte Präsentation.
+
+Dieser Java‑Code zeigt, wie Sie mehrstufige Aufzählungszeichen hinzufügen und verwalten:
 
 ```java
 // Instanziert eine Presentation-Klasse, die eine PPTX-Datei darstellt
@@ -297,13 +310,13 @@ try {
     // Greift auf die erste Folie zu
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Fügt eine AutoShape hinzu und greift darauf zu
+    // Fügt ein Autoshape hinzu und greift darauf zu
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Greift auf das Textframe der erstellten AutoShape zu
+    // Greift auf das Textframe des erstellten Autoshapes zu
     ITextFrame text = aShp.addTextFrame("");
 
-    // Löscht den Standardabsatz
+    // Löscht den Standard‑Absatz
     text.getParagraphs().clear();
 
     // Fügt den ersten Absatz hinzu
@@ -313,7 +326,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Legt die Aufzählungsebene fest
+    // Setzt die Aufzählungsebene
     para1.getParagraphFormat().setDepth((short)0);
 
     // Fügt den zweiten Absatz hinzu
@@ -323,7 +336,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Legt die Aufzählungsebene fest
+    // Setzt die Aufzählungsebene
     para2.getParagraphFormat().setDepth((short)1);
 
     // Fügt den dritten Absatz hinzu
@@ -333,7 +346,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar((char)8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Legt die Aufzählungsebene fest
+    // Setzt die Aufzählungsebene
     para3.getParagraphFormat().setDepth((short)2);
 
     // Fügt den vierten Absatz hinzu
@@ -343,7 +356,7 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Legt die Aufzählungsebene fest
+    // Setzt die Aufzählungsebene
     para4.getParagraphFormat().setDepth((short)3);
 
     // Fügt die Absätze zur Sammlung hinzu
@@ -352,7 +365,7 @@ try {
     text.getParagraphs().add(para3);
     text.getParagraphs().add(para4);
 
-    // Schreibt die Präsentation als PPTX-Datei
+    // Speichert die Präsentation als PPTX-Datei
     pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -361,25 +374,27 @@ try {
 
 ## **Absatz mit benutzerdefinierter nummerierter Liste verwalten**
 
-Die [IBulletFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/) Schnittstelle bietet die Eigenschaft [NumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) und weitere, mit denen Sie Absätze mit benutzerdefinierter Nummerierung oder Formatierung verwalten können. 
+Die [IBulletFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/)‑Schnittstelle stellt die Eigenschaft [NumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) und weitere bereit, mit denen Sie Absätze mit benutzerdefinierter Nummerierung oder Formatierung verwalten können. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie auf die Folie zu, die den Absatz enthält.
 3. Fügen Sie der Folie ein [autoshape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) des Autoshapes zu.
 5. Entfernen Sie den Standard‑Absatz im `TextFrame`.
-6. Erstellen Sie die erste Absatz‑Instanz über die [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/) Klasse und setzen Sie [NumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) auf 2.
+6. Erstellen Sie die erste Absatz‑Instanz über die [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/)‑Klasse und setzen Sie [NumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) auf 2.
 7. Erstellen Sie die zweite Absatz‑Instanz über die `Paragraph`‑Klasse und setzen Sie `NumberedBulletStartWith` auf 3.
 8. Erstellen Sie die dritte Absatz‑Instanz über die `Paragraph`‑Klasse und setzen Sie `NumberedBulletStartWith` auf 7.
 9. Fügen Sie die neuen Absätze zur `TextFrame`‑Absatzsammlung hinzu.
 10. Speichern Sie die geänderte Präsentation.
+
+Dieser Java‑Code zeigt, wie Sie Absätze mit benutzerdefinierter Nummerierung oder Formatierung hinzufügen und verwalten:
 
 ```java
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Greift auf das Textframe der erstellten AutoShape zu
+    // Greift auf das Textframe des erstellten Autoshapes zu
     ITextFrame textFrame = shape.getTextFrame();
 
     // Entfernt den standardmäßig vorhandenen Absatz
@@ -416,19 +431,21 @@ try {
 
 ## **Erste‑Zeilen‑Einzug für einen Absatz festlegen**
 
-Verwenden Sie die Methode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), um den ersten Zeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie die Methode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), um den Erstzeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
 
-Verwenden Sie [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-), wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), wenn Sie nur die erste Zeile verschieben wollen.
+Verwenden Sie [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-), wenn Sie den gesamten Absatz verschieben möchten. Verwenden Sie [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-), wenn Sie nur die erste Zeile verschieben wollen.
 
-Das nachstehende Beispiel erstellt mehrere Absätze und wendet unterschiedliche Einzugswerte an, um zu demonstrieren, wie sich der erste Zeileneinzug auf das Layout auswirkt.
+Das folgende Beispiel erstellt mehrere Absätze und wendet unterschiedliche Einzugswerte an, um zu demonstrieren, wie sich der Erstzeileneinzug auf das Layout auswirkt.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Greifen Sie auf die Zieldolie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/autoshape/) hinzu.
 4. Fügen Sie dem Shape ein leeres [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/textframe/) hinzu und entfernen Sie den Standard‑Absatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [Indent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) Werte für sie.
-6. Fügen Sie die Absätze zum Textrahmen hinzu.
+5. Erstellen Sie mehrere Absätze und setzen Sie für jeden unterschiedliche [Indent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-)‑Werte.
+6. Fügen Sie die Absätze dem TextFrame hinzu.
 7. Speichern Sie die geänderte Präsentation.
+
+Dieser Code zeigt, wie Sie einen Absatz‑Einzug festlegen:
 
 ```java
 Presentation presentation = new Presentation();
@@ -478,24 +495,26 @@ finally {
 
 Das Ergebnis:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Der Erstzeileneinzug der Absätze](first_line_indent.png)
 
 ## **Hängenden Einzug für einen Absatz festlegen**
 
-Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit der Methode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Setzen Sie den Einzug auf einen negativen Wert, um die erste Zeile relativ zum Absatzkörper nach links zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit der Methode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Setzen Sie den Einzug auf einen negativen Wert, um die erste Zeile nach links zu verschieben.
 
-In der Praxis definiert [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) die linke Position des Absatzkörpers, und [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, setzen Sie einen positiven `MarginLeft`-Wert und einen negativen `Indent`-Wert.
+In der Praxis definiert [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) die linke Position des Absatzkörpers, und [IParagraphFormat.setIndent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) bestimmt die Position der ersten Zeile relativ zu diesem Rand. Für einen hängenden Einzug setzen Sie einen positiven `MarginLeft`‑Wert und einen negativen `Indent`‑Wert.
 
-Diese Formatierung ist nützlich für Bibliografien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
+Diese Formatierung ist nützlich für Literaturverzeichnisse, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein müssen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Greifen Sie auf die Zieldolie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie auf die Ziel‑Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/autoshape/) hinzu.
 4. Fügen Sie dem Shape ein leeres [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/textframe/) hinzu und entfernen Sie den Standard‑Absatz.
-5. Erstellen Sie Absätze und setzen Sie für jeden Absatz einen positiven [MarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) Wert.
-6. Setzen Sie einen negativen [Indent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-) Wert, um den hängenden Einzug zu erzeugen.
-7. Fügen Sie die Absätze zum Textrahmen hinzu.
+5. Erstellen Sie Absätze und setzen Sie für jeden einen positiven [MarginLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)‑Wert.
+6. Setzen Sie einen negativen [Indent](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setIndent-float-)‑Wert, um den hängenden Einzug zu erzeugen.
+7. Fügen Sie die Absätze dem TextFrame hinzu.
 8. Speichern Sie die geänderte Präsentation.
+
+Dieser Code zeigt, wie Sie einen hängenden Einzug für einen Absatz festlegen:
 
 ```java
 Presentation presentation = new Presentation();
@@ -537,17 +556,19 @@ finally {
 
 Das Ergebnis:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Der hängende Einzug der Absätze](hanging_indent.png)
 
-## **End‑Absatz‑Run‑Eigenschaften verwalten**
+## **End‑Absatz‑Lauf‑Eigenschaften verwalten**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Holen Sie die Referenz für die Folie, die den Absatz enthält, über deren Position.
-3. Fügen Sie der Folie ein rechteckiges [autoshape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
-4. Fügen Sie dem Rechteck ein [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) mit zwei Absätzen hinzu.
-5. Setzen Sie die `FontHeight` und den Schrifttyp für die Absätze.
-6. Setzen Sie die End‑Eigenschaften für die Absätze.
-7. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+1. Holen Sie die Referenz zur Folie, die den Absatz enthält, über deren Position.
+1. Fügen Sie der Folie ein rechteckiges [autoshape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
+1. Fügen Sie dem Rechteck ein [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) mit zwei Absätzen hinzu.
+1. Setzen Sie `FontHeight` und den Schrifttyp für die Absätze.
+1. Setzen Sie die End‑Eigenschaften für die Absätze.
+1. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+
+Dieser Java‑Code zeigt, wie Sie die End‑Eigenschaften für Absätze in PowerPoint festlegen: 
 
 ```java
 Presentation pres = new Presentation();
@@ -578,61 +599,65 @@ try {
 
 Aspose.Slides bietet erweiterte Unterstützung für das Importieren von HTML‑Text in Absätze.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse.
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Fügen Sie der Folie ein [autoshape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) hinzu.
 4. Fügen Sie dem `autoshape` ein [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) hinzu und greifen Sie darauf zu.
 5. Entfernen Sie den Standard‑Absatz im `ITextFrame`.
-6. Lesen Sie die Quell‑HTML‑Datei mit einem TextReader.
-7. Erstellen Sie die erste Absatz‑Instanz über die [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/) Klasse.
-8. Fügen Sie den HTML‑Dateiinhalte aus dem gelesenen TextReader zur [ParagraphCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/) des TextFrames hinzu.
+6. Lesen Sie die Quell‑HTML‑Datei mit einem TextReader ein.
+7. Erstellen Sie die erste Absatz‑Instanz über die [Paragraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraph/)‑Klasse.
+8. Fügen Sie den HTML‑Dateiinhalt aus dem gelesenen TextReader zur [ParagraphCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphcollection/) des TextFrames hinzu.
 9. Speichern Sie die geänderte Präsentation.
 
+Dieser Java‑Code implementiert die Schritte zum Importieren von HTML‑Texten in Absätze:
+
 ```java
-    // Leere Präsentationsinstanz erstellen
-    Presentation pres = new Presentation();
-    try {
-        // Auf die standardmäßige erste Folie der Präsentation zugreifen
-        ISlide slide = pres.getSlides().get_Item(0);
+// Leere Präsentationsinstanz erstellen
+Presentation pres = new Presentation();
+try {
+    // Auf die standardmäßige erste Folie der Präsentation zugreifen
+    ISlide slide = pres.getSlides().get_Item(0);
 
-        // AutoShape hinzufügen, um den HTML-Inhalt unterzubringen
-        IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-                (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
+    // AutoShape hinzufügen, um den HTML-Inhalt aufzunehmen
+    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
+            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
 
-        ashape.getFillFormat().setFillType(FillType.NoFill);
+    ashape.getFillFormat().setFillType(FillType.NoFill);
 
-        // Textframe zum Shape hinzufügen
-        ashape.addTextFrame("");
+    // Textframe zum Shape hinzufügen
+    ashape.addTextFrame("");
 
-        // Alle Absätze im hinzugefügten Textframe löschen
-        ashape.getTextFrame().getParagraphs().clear();
+    // Alle Absätze im hinzugefügten Textframe leeren
+    ashape.getTextFrame().getParagraphs().clear();
 
-        // HTML-Datei mit StreamReader laden
-        TextReader tr = new StreamReader("file.html");
+    // HTML-Datei mit StreamReader laden
+    TextReader tr = new StreamReader("file.html");
 
-        // Text aus dem HTML-StreamReader in den Textframe hinzufügen
-        ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
+    // Text aus dem HTML-StreamReader in das Textframe hinzufügen
+    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
-        // Präsentation speichern
-        pres.save("output_out.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
+    // Präsentation speichern
+    pres.save("output_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **Absatz‑Text nach HTML exportieren**
 
 Aspose.Slides bietet erweiterte Unterstützung für das Exportieren von Texten (in Absätzen enthalten) nach HTML.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) Klasse und laden Sie die gewünschte Präsentation.
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse und laden Sie die gewünschte Präsentation.
+2. Greifen Sie über den Index auf die entsprechende Folie zu.
 3. Greifen Sie auf das Shape zu, das den zu exportierenden Text enthält.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/textframe/) des Shapes zu.
-5. Erstellen Sie eine Instanz von `StreamWriter` und fügen Sie die neue HTML‑Datei hinzu.
-6. Geben Sie einen Startindex an den StreamWriter weiter und exportieren Sie Ihre gewünschten Absätze.
+5. Erstellen Sie eine Instanz von `StreamWriter` und legen Sie die neue HTML‑Datei an.
+6. Geben Sie einen Start‑Index an den StreamWriter weiter und exportieren Sie Ihre gewünschten Absätze.
+
+Dieser Java‑Code zeigt, wie Sie PowerPoint‑Absatz‑Texte nach HTML exportieren:
 
 ```java
-// Laden der Präsentationsdatei
+// Präsentationsdatei laden
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
     // Auf die standardmäßige erste Folie der Präsentation zugreifen
@@ -641,15 +666,15 @@ try {
     // Gewünschter Index
     int index = 0;
 
-    // Zugriff auf das hinzugefügte Shape
+    // Auf das hinzugefügte Shape zugreifen
     IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
 
     // Ausgabedatei HTML erstellen
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    //Erster Absatz als HTML extrahieren
-    // Schreiben von Absatzdaten in HTML, indem Startindex des Absatzes und Gesamtzahl der zu kopierenden Absätze angegeben werden
+    //Ersten Absatz als HTML extrahieren
+    // Schreiben von Absatzdaten nach HTML durch Angabe des Startindexes des Absatzes und der Anzahl zu kopierender Absätze
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -660,42 +685,42 @@ try {
 
 ## **Absatz als Bild speichern**
 
-In diesem Abschnitt untersuchen wir zwei Beispiele, die zeigen, wie ein Textabsatz, dargestellt durch die [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/) Schnittstelle, als Bild gespeichert werden kann. Beide Beispiele umfassen das Abrufen des Bildes eines Shapes, das den Absatz enthält, über die `getImage`‑Methoden der [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/) Schnittstelle, das Berechnen der Grenzen des Absatzes innerhalb des Shapes und das Exportieren als Bitmap‑Bild. Diese Ansätze ermöglichen das Extrahieren spezifischer Textteile aus PowerPoint‑Präsentationen und das Speichern als separate Bilder, was in verschiedenen Szenarien nützlich sein kann.
+In diesem Abschnitt betrachten wir zwei Beispiele, die zeigen, wie ein Text‑Absatz, dargestellt durch die [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/)‑Schnittstelle, als Bild gespeichert werden kann. Beide Beispiele umfassen das Abrufen des Bildes eines Shapes, das den Absatz enthält, mithilfe der `getImage`‑Methoden der [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/)‑Schnittstelle, das Berechnen der Begrenzungs‑Rectangle des Absatzes innerhalb des Shapes und das Exportieren als Bitmap‑Bild. Diese Ansätze ermöglichen das Extrahieren spezifischer Textteile aus PowerPoint‑Präsentationen und das Speichern als einzelne Bilder, was in verschiedenen Szenarien nützlich sein kann.
 
-Nehmen wir an, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, wobei das erste Shape ein Textfeld mit drei Absätzen ist.
+Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, wobei das erste Shape ein Textfeld mit drei Absätzen ist.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
 
 **Beispiel 1**
 
-In diesem Beispiel erhalten wir den zweiten Absatz als Bild. Dazu extrahieren wir das Bild des Shapes von der ersten Folie der Präsentation und berechnen anschließend die Grenzen des zweiten Absatzes im TextFrame des Shapes. Der Absatz wird dann auf ein neues Bitmap‑Bild gezeichnet und im PNG‑Format gespeichert. Diese Methode ist besonders nützlich, wenn Sie einen bestimmten Absatz als separates Bild sichern möchten, während die genauen Abmessungen und die Formatierung des Textes erhalten bleiben.
+In diesem Beispiel erhalten wir den zweiten Absatz als Bild. Dazu extrahieren wir das Bild des Shapes aus der ersten Folie der Präsentation und berechnen anschließend die Begrenzungs‑Rectangle des zweiten Absatzes im TextFrame des Shapes. Der Absatz wird dann auf ein neues Bitmap‑Bild gezeichnet und im PNG‑Format gespeichert. Diese Methode ist besonders nützlich, wenn Sie einen bestimmten Absatz als separates Bild speichern möchten, während Sie die genauen Abmessungen und die Formatierung des Textes beibehalten.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Form in Speicher als Bitmap speichern.
+    // Das Shape im Speicher als Bitmap speichern.
     IImage shapeImage = firstShape.getImage();
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // Bitmap des Shapes aus dem Speicher erstellen.
+    // Ein Shape-Bitmap aus dem Speicher erstellen.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // Grenzen des zweiten Absatzes berechnen.
+    // Die Grenzen des zweiten Absatzes berechnen.
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     Rectangle2D paragraphRectangle = secondParagraph.getRect();
 
-    // Koordinaten und Größe für das Ausgabebild berechnen (Mindestgröße – 1x1 Pixel).
+    // Koordinaten und Größe für das Ausgabebild berechnen (Mindestgröße - 1x1 Pixel).
     int imageX = (int) Math.floor(paragraphRectangle.getX());
     int imageY = (int) Math.floor(paragraphRectangle.getY());
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
 
-    // Das Shape‑Bitmap zuschneiden, um nur das Absatz‑Bitmap zu erhalten.
+    // Das Shape-Bitmap zuschneiden, um nur das Absatz-Bitmap zu erhalten.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -707,11 +732,11 @@ try {
 
 Das Ergebnis:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Der Absatz‑Bild](paragraph_to_image_output.png)
 
 **Beispiel 2**
 
-In diesem Beispiel erweitern wir den vorherigen Ansatz, indem wir Skalierungsfaktoren zum Absatz‑Bild hinzufügen. Das Shape wird aus der Präsentation extrahiert und mit einem Skalierungsfaktor von `2` als Bild gespeichert. Dadurch entsteht ein Bild mit höherer Auflösung beim Export des Absatzes. Die Absatzgrenzen werden anschließend unter Berücksichtigung des Maßstabs berechnet. Skalierung ist besonders hilfreich, wenn ein detaillierteres Bild benötigt wird, z. B. für den Einsatz in hochwertigem Druckmaterial.
+In diesem Beispiel erweitern wir den vorherigen Ansatz, indem wir Skalierungsfaktoren zum Absatz‑Bild hinzufügen. Das Shape wird aus der Präsentation extrahiert und mit einem Skalierungsfaktor von `2` als Bild gespeichert. Dadurch entsteht ein hochauflösendes Ergebnis beim Export des Absatzes. Anschließend werden die Absatz‑Begrenzungen unter Berücksichtigung des Skalierungsfaktors berechnet. Skalierung ist besonders nützlich, wenn ein detailreicheres Bild benötigt wird, etwa für hochwertige Druckmaterialien.
 
 ```java
 float imageScaleX = 2f;
@@ -721,17 +746,17 @@ Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Shape im Speicher als Bitmap mit Skalierung speichern.
+    // Das Shape im Speicher als Bitmap mit Skalierung speichern.
     IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // Bitmap des Shapes aus dem Speicher erstellen.
+    // Ein Shape-Bitmap aus dem Speicher erstellen.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // Grenzen des zweiten Absatzes berechnen.
+    // Die Grenzen des zweiten Absatzes berechnen.
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     Rectangle2D paragraphRectangle = secondParagraph.getRect();
     paragraphRectangle.setRect(
@@ -741,13 +766,13 @@ try {
             paragraphRectangle.getHeight() * imageScaleY
     );
 
-    // Koordinaten und Größe für das Ausgabebild berechnen (Mindestgröße – 1x1 Pixel).
+    // Die Koordinaten und Größe für das Ausgabebild berechnen (Mindestgröße - 1x1 Pixel).
     int imageX = (int) Math.floor(paragraphRectangle.getX());
     int imageY = (int) Math.floor(paragraphRectangle.getY());
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
 
-    // Das Shape‑Bitmap zuschneiden, um nur das Absatz‑Bitmap zu erhalten.
+    // Das Shape-Bitmap zuschneiden, um nur das Absatz-Bitmap zu erhalten.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -759,18 +784,18 @@ try {
 
 ## **FAQ**
 
-**Kann ich das Zeilenumbruch‑Verhalten in einem TextFrame vollständig deaktivieren?**
+**Kann ich das Zeilen‑Umbruchverhalten in einem TextFrame komplett deaktivieren?**
 
-Ja. Verwenden Sie die Einstellung für das Zeilenumbruch‑Verhalten des TextFrames ([setWrapText](https://reference.aspose.com/slides/de/java/com.aspose.slides/textframeformat/#setWrapText-byte-)), um das Umbrechen zu deaktivieren, sodass Zeilen nicht an den Rändern des Frames umbrochen werden.
+Ja. Verwenden Sie die Umbruch‑Einstellung des TextFrames ([setWrapText](https://reference.aspose.com/slides/de/java/com.aspose.slides/textframeformat/#setWrapText-byte-)), um das Umbruch‑Verhalten auszuschalten, sodass Zeilen nicht am Rand des Frames umgebrochen werden.
 
-**Wie erhalte ich die genauen Folien‑Grenzen eines bestimmten Absatzes?**
+**Wie erhalte ich die genauen Positionen eines bestimmten Absatzes auf der Folie?**
 
-Sie können das Begrenzungsrechteck des Absatzes (und sogar eines einzelnen Abschnitts) abrufen, um seine genaue Position und Größe auf der Folie zu kennen.
+Sie können das Begrenzungs‑Rechteck des Absatzes (oder sogar einer einzelnen Portion) abrufen, um seine exakte Position und Größe auf der Folie zu kennen.
 
 **Wo wird die Absatz‑Ausrichtung (links/rechts/zentriert/Blocksatz) gesteuert?**
 
-[Alignment](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphformat/#setAlignment-int-) ist eine Einstellung auf Absatzebene in [ParagraphFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphformat/); sie gilt für den gesamten Absatz, unabhängig von der einzelnen Portion‑Formatierung.
+[Alignment](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphformat/#setAlignment-int-) ist eine Absatz‑Ebene‑Einstellung in [ParagraphFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/paragraphformat/); sie gilt für den gesamten Absatz, unabhängig von einzelnen Portion‑Formaten.
 
-**Kann ich eine Rechtschreib‑Sprache nur für einen Teil eines Absatzes (z. B. ein Wort) festlegen?**
+**Kann ich für nur einen Teil eines Absatzes (z. B. ein Wort) eine Rechtschreib‑Sprache festlegen?**
 
-Ja. Die Sprache wird auf Portionsebene festgelegt ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), sodass mehrere Sprachen innerhalb eines einzelnen Absatzes coexistieren können.
+Ja. Die Sprache wird auf Portion‑Ebene gesetzt ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), sodass mehrere Sprachen innerhalb eines einzelnen Absatzes coexistieren können.

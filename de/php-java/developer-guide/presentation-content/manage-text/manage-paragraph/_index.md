@@ -4,64 +4,70 @@ linktitle: Absatz verwalten
 type: docs
 weight: 40
 url: /de/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
 keywords:
-- Text hinzufügen
-- Absatz hinzufügen
-- Text verwalten
-- Absatz verwalten
-- Aufzählungszeichen verwalten
-- Absatzeinrückung
-- Hängende Einrückung
-- Absatzaufzählungszeichen
-- Nummerierte Liste
-- Aufzählungsliste
-- Absatzeigenschaften
-- HTML importieren
-- Text zu HTML
-- Absatz zu HTML
-- Absatz zu Bild
-- Text zu Bild
-- Absatz exportieren
-- PowerPoint
-- OpenDocument
-- Präsentation
-- PHP
-- Aspose.Slides
-description: "Meistern Sie die Absatzformatierung mit Aspose.Slides für PHP über Java — optimieren Sie Ausrichtung, Abstand und Stil in PPT-, PPTX- und ODP‑Präsentationen."
+  - Text hinzufügen
+  - Absatz hinzufügen
+  - Text verwalten
+  - Absatz verwalten
+  - Aufzählungszeichen verwalten
+  - Absatz-Einzug
+  - hängender Einzug
+  - Absatz-Aufzählungszeichen
+  - nummerierte Liste
+  - Aufzählungsliste
+  - Absatz-Eigenschaften
+  - HTML importieren
+  - Text zu HTML
+  - Absatz zu HTML
+  - Absatz zu Bild
+  - Text zu Bild
+  - Absatz exportieren
+  - PowerPoint
+  - OpenDocument
+  - Präsentation
+  - PHP
+  - Aspose.Slides
+description: "Master-Absatzformatierung mit Aspose.Slides für PHP via Java - optimieren Sie Ausrichtung, Abstand und Stil in PPT-, PPTX- und ODP-Präsentationen."
 ---
-Aspose.Slides stellt alle Klassen bereit, die Sie benötigen, um mit PowerPoint-Texten, Absätzen und Portionen zu arbeiten.
+## **Einführung**
 
-* Aspose.Slides bietet die Klasse [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) an, mit der Sie Objekte hinzufügen können, die einen Absatz darstellen. Ein `TextFame`-Objekt kann einen oder mehrere Absätze enthalten (jeder Absatz wird durch einen Zeilenumbruch erstellt).
-* Aspose.Slides bietet die Klasse [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/) an, mit der Sie Objekte hinzufügen können, die Portionen darstellen. Ein `Paragraph`-Objekt kann eine oder mehrere Portionen enthalten (eine Sammlung von Portion-Objekten).
-* Aspose.Slides bietet die Klasse [Portion](https://reference.aspose.com/slides/de/php-java/aspose.slides/portion/) an, mit der Sie Objekte hinzufügen können, die Texte und deren Formatierungseigenschaften darstellen.
+Aspose.Slides stellt alle Klassen bereit, die Sie benötigen, um mit PowerPoint‑Texten, Absätzen und Portionen zu arbeiten.
 
-Ein `Paragraph`-Objekt kann Texte mit unterschiedlichen Formatierungseigenschaften über seine zugrunde liegenden `Portion`-Objekte verarbeiten.
+* Aspose.Slides bietet die [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/)‑Klasse, mit der Sie Objekte hinzufügen können, die einen Absatz darstellen. Ein `TextFame`‑Objekt kann einen oder mehrere Absätze enthalten (jeder Absatz wird durch einen Zeilenumbruch erzeugt).
+* Aspose.Slides bietet die [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Klasse, mit der Sie Objekte hinzufügen können, die Portionen darstellen. Ein `Paragraph`‑Objekt kann eine oder mehrere Portionen enthalten (Sammlung von Portion‑Objekten).
+* Aspose.Slides bietet die [Portion](https://reference.aspose.com/slides/de/php-java/aspose.slides/portion/)‑Klasse, mit der Sie Objekte hinzufügen können, die Texte und deren Formatierungseigenschaften repräsentieren.
+
+Ein `Paragraph`‑Objekt kann Texte mit unterschiedlichen Formatierungseigenschaften über seine zugrunde liegenden `Portion`‑Objekte verarbeiten.
 
 ## **Mehrere Absätze mit mehreren Portionen hinzufügen**
 
-Diese Schritte zeigen, wie Sie einen Textframe mit 3 Absätzen hinzufügen, wobei jeder Absatz 3 Portionen enthält:
+Diese Schritte zeigen, wie Sie einen Textrahmen mit 3 Absätzen hinzufügen, wobei jeder Absatz 3 Portionen enthält:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
 3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
-4. Rufen Sie das mit dem [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) verbundene ITextFrame ab.
-5. Erstellen Sie zwei [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)-Objekte und fügen Sie sie zur Absatzsammlung des [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) hinzu.
-6. Erstellen Sie für jeden neuen `Paragraph` drei [Portion](https://reference.aspose.com/slides/de/php-java/aspose.slides/portion/)-Objekte (zwei Portion-Objekte für den Standard-Paragraph) und fügen Sie jedes `Portion`-Objekt der Portionensammlung des jeweiligen `Paragraph` hinzu.
-7. Legen Sie für jede Portion einen Text fest.
-8. Wenden Sie Ihre bevorzugten Formatierungsoptionen auf jede Portion an, indem Sie die vom `Portion`‑Objekt bereitgestellten Formatierungseigenschaften nutzen.
+4. Holen Sie das zugehörige ITextFrame des [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/).
+5. Erzeugen Sie zwei [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Objekte und fügen Sie sie zur Absatzsammlung des [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) hinzu.
+6. Erstellen Sie für jedes neue `Paragraph` drei [Portion](https://reference.aspose.com/slides/de/php-java/aspose.slides/portion/)‑Objekte (zwei Portion‑Objekte für den Standard‑Paragraph) und fügen Sie jedes `Portion`‑Objekt der Portionensammlung des jeweiligen `Paragraph` hinzu.
+7. Setzen Sie für jede Portion einen Text.
+8. Wenden Sie die gewünschten Formatierungsoptionen auf jede Portion über die von `Portion` bereitgestellten Formatierungseigenschaften an.
 9. Speichern Sie die geänderte Präsentation.
 
+Der folgende PHP‑Code implementiert die Schritte zum Hinzufügen von Absätzen mit Portionen:
+
 ```php
-# Instanziieren Sie eine Presentation-Klasse, die eine PPTX-Datei repräsentiert
+# Instanziieren einer Presentation-Klasse, die eine PPTX-Datei darstellt
 $pres = new Presentation();
 try {
-    # Erste Folie abrufen
+    # Zugriff auf die erste Folie
     $slide = $pres->getSlides()->get_Item(0);
-    # Ein AutoShape vom Typ Rechteck hinzufügen
+    # Hinzufügen einer AutoShape vom Typ Rechteck
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # TextFrame des AutoShape zugreifen
+    # Zugriff auf das TextFrame der AutoShape
     $tf = $ashp->getTextFrame();
-    # Absätze und Portionen mit verschiedenen Textformaten erstellen
+    # Erstellen von Absätzen und Portionen mit unterschiedlichen Textformaten
     $para0 = $tf->getParagraphs()->get_Item(0);
     $port01 = new Portion();
     $port02 = new Portion();
@@ -109,69 +115,73 @@ try {
 }
 ```
 
-## **Absatzaufzählungszeichen verwalten**
+## **Aufzählungszeichen für Absätze verwalten**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie dem ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
+Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu strukturieren und darzustellen. Aufgezählte Absätze sind stets leichter zu lesen und zu verstehen.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie der ausgewählten Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) des AutoShape zu.
 5. Entfernen Sie den Standardabsatz im `TextFrame`.
-6. Erstellen Sie die erste Absatzinstanz mithilfe der Klasse [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/).
-7. Setzen Sie den Aufzählungszeichen-`Type` des Absatzes auf `Symbol` und legen Sie das Aufzählungszeichen-Zeichen fest.
-8. Legen Sie den Absatz-`Text` fest.
-9. Setzen Sie den Absatz-`Indent` für das Aufzählungszeichen.
-10. Legen Sie eine Farbe für das Aufzählungszeichen fest.
-11. Legen Sie die Höhe des Aufzählungszeichens fest.
+6. Erzeugen Sie die erste Absatzinstanz mit der [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Klasse.
+7. Setzen Sie den Aufzählungs‑`Type` des Absatzes auf `Symbol` und legen Sie das Aufzählungszeichen fest.
+8. Setzen Sie den Absatz‑`Text`.
+9. Setzen Sie den Absatz‑`Indent` für das Aufzählungszeichen.
+10. Definieren Sie eine Farbe für das Aufzählungszeichen.
+11. Legen Sie eine Höhe für das Aufzählungszeichen fest.
 12. Fügen Sie den neuen Absatz zur Absatzsammlung des `TextFrame` hinzu.
-13. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie den Vorgang aus den Schritten 7 bis 13.
+13. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie die Schritte 7 bis 13.
 14. Speichern Sie die Präsentation.
 
+Der folgende PHP‑Code zeigt, wie ein Absatz­aufzählungszeichen hinzugefügt wird:
+
 ```php
-# Instanziiert eine Presentation-Klasse, die eine PPTX-Datei repräsentiert
+# Instanziiert eine Presentation-Klasse, die eine PPTX-Datei darstellt
 $pres = new Presentation();
 try {
     # Greift auf die erste Folie zu
     $slide = $pres->getSlides()->get_Item(0);
-    # Fügt ein Autoshape hinzu und greift darauf zu
+    # Fügt eine AutoShape hinzu und greift darauf zu
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Greift auf den Textframe des Autoshapes zu
+    # Greift auf das TextFrame der AutoShape zu
     $txtFrm = $aShp->getTextFrame();
     # Entfernt den Standardabsatz
     $txtFrm->getParagraphs()->removeAt(0);
     # Erstellt einen Absatz
     $para = new Paragraph();
-    # Legt den Aufzählungszeichenstil und das Symbol für den Absatz fest
+    # Legt den Aufzählungsstil und das Symbol des Absatzes fest
     $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para->getParagraphFormat()->getBullet()->setChar(8226);
-    # Legt den Absatztext fest
+    # Setzt den Text des Absatzes
     $para->setText("Welcome to Aspose.Slides");
-    # Legt die Einrückung des Aufzählungszeichens fest
+    # Legt den Aufzählungs-Einzug fest
     $para->getParagraphFormat()->setIndent(25);
-    # Legt die Farbe des Aufzählungszeichens fest
+    # Legt die Aufzählungsfarbe fest
     $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// set IsBulletHardColor auf true, um eigene Aufzählungszeichenfarbe zu verwenden
+    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// IsBulletHardColor auf true setzen, um eine eigene Aufzählungsfarbe zu verwenden
 
-    # Legt die Aufzählungszeichenhöhe fest
+    # Legt die Aufzählungshöhe fest
     $para->getParagraphFormat()->getBullet()->setHeight(100);
-    # Fügt den Absatz dem Textframe hinzu
+    # Fügt den Absatz dem TextFrame hinzu
     $txtFrm->getParagraphs()->add($para);
     # Erstellt den zweiten Absatz
     $para2 = new Paragraph();
-    # Legt den Aufzählungszeichen-Typ und -Stil des Absatzes fest
+    # Legt den Aufzählungstyp und -stil des Absatzes fest
     $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
     # Fügt den Absatztext hinzu
     $para2->setText("This is numbered bullet");
-    # Legt die Einrückung des Aufzählungszeichens fest
+    # Legt den Aufzählungs-Einzug fest
     $para2->getParagraphFormat()->setIndent(25);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// set IsBulletHardColor auf true, um eigene Aufzählungszeichenfarbe zu verwenden
+    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// IsBulletHardColor auf true setzen, um eine eigene Aufzählungsfarbe zu verwenden
 
-    # Legt die Aufzählungszeichenhöhe fest
+    # Legt die Aufzählungshöhe fest
     $para2->getParagraphFormat()->getBullet()->setHeight(100);
-    # Fügt den Absatz dem Textframe hinzu
+    # Fügt den Absatz dem TextFrame hinzu
     $txtFrm->getParagraphs()->add($para2);
     # Speichert die geänderte Präsentation
     $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
@@ -184,21 +194,25 @@ try {
 
 ## **Bildaufzählungszeichen verwalten**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie dem Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
+Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu strukturieren und darzustellen. Bildabsätze sind leicht zu lesen und zu verstehen.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) des AutoShape zu.
 5. Entfernen Sie den Standardabsatz im `TextFrame`.
-6. Erstellen Sie die erste Absatzinstanz mithilfe der Klasse [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/).
+6. Erzeugen Sie die erste Absatzinstanz mit der [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Klasse.
 7. Laden Sie das Bild in [PPImage](https://reference.aspose.com/slides/de/php-java/aspose.slides/ppimage/).
-8. Setzen Sie den Aufzählungszeichen-Typ auf [Picture](https://reference.aspose.com/slides/de/php-java/aspose.slides/bullettype/#Picture) und legen Sie das Bild fest.
-9. Legen Sie den Absatz-`Text` fest.
-10. Setzen Sie den Absatz-`Indent` für das Aufzählungszeichen.
-11. Legen Sie eine Farbe für das Aufzählungszeichen fest.
-12. Legen Sie die Höhe des Aufzählungszeichens fest.
+8. Setzen Sie den Aufzählungs‑Typ auf [Picture](https://reference.aspose.com/slides/de/php-java/aspose.slides/bullettype/#Picture) und legen Sie das Bild fest.
+9. Setzen Sie den Absatz‑`Text`.
+10. Setzen Sie den Absatz‑`Indent` für das Aufzählungszeichen.
+11. Definieren Sie eine Farbe für das Aufzählungszeichen.
+12. Legen Sie eine Höhe für das Aufzählungszeichen fest.
 13. Fügen Sie den neuen Absatz zur Absatzsammlung des `TextFrame` hinzu.
-14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie den Vorgang basierend auf den vorherigen Schritten.
+14. Fügen Sie den zweiten Absatz hinzu und wiederholen Sie den Prozess anhand der vorherigen Schritte.
 15. Speichern Sie die geänderte Präsentation.
+
+Der folgende PHP‑Code zeigt, wie Bild‑Aufzählungszeichen hinzugefügt und verwaltet werden:
 
 ```php
 # Instanziert eine Presentation-Klasse, die eine PPTX-Datei darstellt
@@ -216,25 +230,25 @@ try {
             $image->dispose();
         }
     }
-    # Fügt ein Autoshape hinzu und greift darauf zu
+    # Fügt eine AutoShape hinzu und greift darauf zu
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Greift auf den Textframe des Autoshapes zu
+    # Greift auf das TextFrame der AutoShape zu
     $textFrame = $autoShape->getTextFrame();
-    # Entfernt den Standardabsatz
+    # Entfernt den Standard-Absatz
     $textFrame->getParagraphs()->removeAt(0);
     # Erstellt einen neuen Absatz
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
-    # Legt den Aufzählungszeichenstil und das Bild des Absatzes fest
+    # Legt den Aufzählungsstil und das Bild des Absatzes fest
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
     $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # Legt die Aufzählungszeichenhöhe fest
+    # Legt die Aufzählungshöhe fest
     $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
-    # Fügt den Absatz dem Textframe hinzu
+    # Fügt den Absatz dem TextFrame hinzu
     $textFrame->getParagraphs()->add($paragraph);
-    # Speichert die Präsentation als PPTX-Datei
+    # Schreibt die Präsentation als PPTX-Datei
     $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-    # Speichert die Präsentation als PPT-Datei
+    # Schreibt die Präsentation als PPT-Datei
     $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
 } catch (JavaException $e) {
 } finally {
@@ -246,17 +260,21 @@ try {
 
 ## **Mehrstufige Aufzählungszeichen verwalten**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie der neuen Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
+Aufzählungslisten helfen Ihnen, Informationen schnell und effizient zu strukturieren und darzustellen. Mehrstufige Aufzählungszeichen sind leicht zu lesen und zu verstehen.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie in der neuen Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) des AutoShape zu.
 5. Entfernen Sie den Standardabsatz im `TextFrame`.
-6. Erstellen Sie die erste Absatzinstanz über die Klasse [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/) und setzen Sie die Tiefe auf 0.
-7. Erstellen Sie die zweite Absatzinstanz über die Klasse `Paragraph` und setzen Sie die Tiefe auf 1.
-8. Erstellen Sie die dritte Absatzinstanz über die Klasse `Paragraph` und setzen Sie die Tiefe auf 2.
-9. Erstellen Sie die vierte Absatzinstanz über die Klasse `Paragraph` und setzen Sie die Tiefe auf 3.
+6. Erzeugen Sie die erste Absatzinstanz über die [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Klasse und setzen Sie die Tiefe auf 0.
+7. Erzeugen Sie die zweite Absatzinstanz über die `Paragraph`‑Klasse und setzen Sie die Tiefe auf 1.
+8. Erzeugen Sie die dritte Absatzinstanz über die `Paragraph`‑Klasse und setzen Sie die Tiefe auf 2.
+9. Erzeugen Sie die vierte Absatzinstanz über die `Paragraph`‑Klasse und setzen Sie die Tiefe auf 3.
 10. Fügen Sie die neuen Absätze zur Absatzsammlung des `TextFrame` hinzu.
 11. Speichern Sie die geänderte Präsentation.
+
+Der folgende PHP‑Code zeigt, wie mehrstufige Aufzählungszeichen hinzugefügt und verwaltet werden:
 
 ```php
 # Instanziert eine Presentation-Klasse, die eine PPTX-Datei darstellt
@@ -264,9 +282,9 @@ $pres = new Presentation();
 try {
     # Greift auf die erste Folie zu
     $slide = $pres->getSlides()->get_Item(0);
-    # Fügt ein Autoshape hinzu und greift darauf zu
+    # Fügt eine AutoShape hinzu und greift darauf zu
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Greift auf den Textframe des erstellten Autoshapes zu
+    # Greift auf das TextFrame der erstellten AutoShape zu
     $text = $aShp->addTextFrame("");
     # Löscht den Standardabsatz
     $text->getParagraphs()->clear();
@@ -306,12 +324,12 @@ try {
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     # Legt die Aufzählungsebene fest
     $para4->getParagraphFormat()->setDepth(3);
-    # Fügt die Absätze zur Sammlung hinzu
+    # Fügt Absätze zur Sammlung hinzu
     $text->getParagraphs()->add($para1);
     $text->getParagraphs()->add($para2);
     $text->getParagraphs()->add($para3);
     $text->getParagraphs()->add($para4);
-    # Speichert die Präsentation als PPTX-Datei
+    # Schreibt die Präsentation als PPTX-Datei
     $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -320,28 +338,30 @@ try {
 }
 ```
 
-## **Einen Absatz mit einer benutzerdefinierten nummerierten Liste verwalten**
+## **Absatz mit benutzerdefinierter nummerierter Liste verwalten**
 
-Die Klasse [BulletFormat](https://reference.aspose.com/slides/de/php-java/aspose.slides/bulletformat/) stellt die Methode [setNumberedBulletStartWith](https://reference.aspose.com/slides/de/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) und weitere Methoden bereit, mit denen Sie Absätze mit benutzerdefinierter Nummerierung oder Formatierung verwalten können.
+Die [BulletFormat](https://reference.aspose.com/slides/de/php-java/aspose.slides/bulletformat/)‑Klasse stellt die Methode [setNumberedBulletStartWith](https://reference.aspose.com/slides/de/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) und weitere bereit, mit denen Sie Absätze mit benutzerdefinierter Nummerierung oder Formatierung verwalten können.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
 2. Greifen Sie auf die Folie zu, die den Absatz enthält.
-3. Fügen Sie dem Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) zur Folie hinzu.
 4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) des AutoShape zu.
 5. Entfernen Sie den Standardabsatz im `TextFrame`.
-6. Erstellen Sie die erste Absatzinstanz über die Klasse [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/) und setzen Sie [NumberedBulletStartWith](https://reference.aspose.com/slides/de/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) auf 2.
-7. Erstellen Sie die zweite Absatzinstanz über die Klasse `Paragraph` und setzen Sie `NumberedBulletStartWith` auf 3.
-8. Erstellen Sie die dritte Absatzinstanz über die Klasse `Paragraph` und setzen Sie `NumberedBulletStartWith` auf 7.
+6. Erzeugen Sie die erste Absatzinstanz über die [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Klasse und setzen Sie [NumberedBulletStartWith](https://reference.aspose.com/slides/de/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) auf 2.
+7. Erzeugen Sie die zweite Absatzinstanz über die `Paragraph`‑Klasse und setzen Sie `NumberedBulletStartWith` auf 3.
+8. Erzeugen Sie die dritte Absatzinstanz über die `Paragraph`‑Klasse und setzen Sie `NumberedBulletStartWith` auf 7.
 9. Fügen Sie die neuen Absätze zur Absatzsammlung des `TextFrame` hinzu.
 10. Speichern Sie die geänderte Präsentation.
+
+Der folgende PHP‑Code zeigt, wie Absätze mit benutzerdefinierter Nummerierung oder Formatierung hinzugefügt und verwaltet werden:
 
 ```php
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Greift auf den Textframe des erzeugten Autoshapes zu
+    # Greift auf das Textframe der erstellten AutoShape zu
     $textFrame = $shape->getTextFrame();
-    # Entfernt den vorhandenen Standardabsatz
+    # Entfernt den standardmäßig vorhandenen Absatz
     $textFrame->getParagraphs()->removeAt(0);
     # Erste Liste
     $paragraph1 = new Paragraph();
@@ -370,21 +390,23 @@ try {
 }
 ```
 
-## **Einrückung der ersten Zeile für einen Absatz festlegen**
+## **Ersten Zeileneinzug für einen Absatz festlegen**
 
-Verwenden Sie die Methode [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/) um die Erstzeileneinrückung eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
+Verwenden Sie die Methode [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/), um den Erstzeileneinzug eines Absatzes zu steuern. Diese Methode verschiebt nur die erste Zeile relativ zum linken Rand des Absatzes. Ein positiver Wert verschiebt die erste Zeile nach rechts, während die übrigen Zeilen am Absatzkörper ausgerichtet bleiben.
 
-Verwenden Sie [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setmarginleft/), wenn Sie den gesamten Absatz verschieben müssen. Verwenden Sie [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/), wenn Sie nur die erste Zeile verschieben möchten.
+Verwenden Sie [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setmarginleft/), wenn Sie den gesamten Absatz verschieben möchten. Verwenden Sie [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/), wenn Sie nur die erste Zeile verschieben wollen.
 
-Das nachstehende Beispiel erstellt mehrere Absätze und wendet verschiedene Einrückungswerte an, um zu zeigen, wie die Erstzeileneinrückung das Absatzlayout beeinflusst.
+Im folgenden Beispiel werden mehrere Absätze erstellt und unterschiedliche Einzugswerte angewendet, um zu demonstrieren, wie sich der Erstzeileneinzug auf das Layout auswirkt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Greifen Sie auf die Ziel‑Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie auf die Ziel­folie zu.
 3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
 4. Fügen Sie dem Shape ein leeres [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) hinzu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [Indent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/)‑Werte dafür.
+5. Erstellen Sie mehrere Absätze und setzen Sie unterschiedliche [Indent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/)‑Werte für sie.
 6. Fügen Sie die Absätze dem TextFrame hinzu.
 7. Speichern Sie die geänderte Präsentation.
+
+Der folgende Code zeigt, wie ein Absatz­einzug festgelegt wird:
 
 ```php
 $presentation = new Presentation();
@@ -433,24 +455,26 @@ try {
 
 Das Ergebnis:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Der Erstzeileneinzug der Absätze](first_line_indent.png)
 
-## **Hängende Einrückung für einen Absatz festlegen**
+## **Hängenden Einzug für einen Absatz festlegen**
 
-Eine hängende Einrückung ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit der Methode [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/). Setzen Sie die Einrückung auf einen negativen Wert, um die erste Zeile nach links relativ zum Absatzkörper zu verschieben.
+Ein hängender Einzug ist ein Absatzlayout, bei dem die erste Zeile links von den übrigen Zeilen beginnt. In Aspose.Slides erzeugen Sie diesen Effekt mit der Methode [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/). Setzen Sie den Einzug auf einen negativen Wert, um die erste Zeile nach links zu verschieben.
 
-In der Praxis definiert [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setmarginleft/), die linke Position des Absatzkörpers, und [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/), die Position der ersten Zeile relativ zu diesem Rand. Um eine hängende Einrückung zu erzeugen, setzen Sie einen positiven `MarginLeft`‑Wert und einen negativen `Indent`‑Wert.
+In der Praxis definiert [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setmarginleft/) die linke Position des Absatzkörpers, und [ParagraphFormat::setIndent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/) definiert die Position der ersten Zeile relativ zu diesem Rand. Um einen hängenden Einzug zu erzeugen, setzen Sie einen positiven `MarginLeft`‑Wert und einen negativen `Indent`‑Wert.
 
-Diese Formatierung ist nützlich für Bibliografien, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper ausgerichtet sein müssen und nicht unter dem ersten Zeichen der ersten Zeile.
+Diese Formatierung ist nützlich für Literaturverzeichnisse, Verweise, Glossareinträge und andere Absätze, bei denen umgebrochene Zeilen unter dem Absatzkörper und nicht unter dem ersten Zeichen der ersten Zeile ausgerichtet sein sollen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Greifen Sie auf die Ziel‑Folie zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie auf die Ziel­folie zu.
 3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
 4. Fügen Sie dem Shape ein leeres [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) hinzu und entfernen Sie den Standardabsatz.
-5. Erstellen Sie Absätze und setzen Sie für jeden Absatz einen positiven [MarginLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setmarginleft/)‑Wert.
-6. Setzen Sie einen negativen [Indent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/)‑Wert, um den hängenden Einrückungseffekt zu erzeugen.
+5. Erzeugen Sie Absätze und setzen Sie für jeden Absatz einen positiven [MarginLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setmarginleft/)‑Wert.
+6. Setzen Sie einen negativen [Indent](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setindent/)‑Wert, um den hängenden Einzug zu erzeugen.
 7. Fügen Sie die Absätze dem TextFrame hinzu.
 8. Speichern Sie die geänderte Präsentation.
+
+Der folgende Code zeigt, wie ein hängender Einzug für einen Absatz gesetzt wird:
 
 ```php
 $presentation = new Presentation();
@@ -491,17 +515,19 @@ try {
 
 Das Ergebnis:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Der hängende Einzug der Absätze](hanging_indent.png)
 
-## **End‑Paragraph‑Run‑Eigenschaften verwalten**
+## **End‑Absatz‑Lauf‑Eigenschaften verwalten**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Holen Sie die Referenz der Folie, die den Absatz enthält, über deren Position.
-3. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
-4. Fügen Sie dem Rechteck ein [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) mit zwei Absätzen hinzu.
-5. Setzen Sie die Schriftgröße und den Schriftarttyp für die Absätze.
-6. Setzen Sie die End‑Eigenschaften für die Absätze.
-7. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie die Referenz zur Folie, die den Absatz enthält, über deren Position.
+1. Fügen Sie der Folie ein rechteckiges [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
+1. Fügen Sie dem Rechteck ein [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) mit zwei Absätzen hinzu.
+1. Setzen Sie die Schriftgröße und den Schriftsatz für die Absätze.
+1. Setzen Sie die End‑Eigenschaften für die Absätze.
+1. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+
+Der folgende PHP‑Code zeigt, wie die End‑Eigenschaften für Absätze in PowerPoint gesetzt werden:
 
 ```php
 $pres = new Presentation();
@@ -529,34 +555,36 @@ try {
 
 Aspose.Slides bietet erweiterte Unterstützung für das Importieren von HTML‑Text in Absätze.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/).
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Fügen Sie dem Folie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) hinzu.
-4. Fügen Sie dem `AutoShape` ein [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) hinzu und greifen Sie darauf zu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Fügen Sie ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) zur Folie hinzu.
+4. Fügen Sie das [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) des AutoShape hinzu und greifen Sie darauf zu.
 5. Entfernen Sie den Standardabsatz im `TextFrame`.
-6. Lesen Sie die Quell‑HTML‑Datei mit einem TextReader.
-7. Erstellen Sie die erste Absatzinstanz über die Klasse [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/).
-8. Fügen Sie den HTML‑Dateiinhalt aus dem gelesenen TextReader zur [ParagraphCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphcollection/) des TextFrame hinzu.
+6. Lesen Sie die Quell‑HTML‑Datei mit einem TextReader ein.
+7. Erzeugen Sie die erste Absatzinstanz über die [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Klasse.
+8. Fügen Sie den HTML‑Dateiinhalt aus dem gelesenen TextReader zur [ParagraphCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphcollection/) des TextFrames hinzu.
 9. Speichern Sie die geänderte Präsentation.
+
+Der folgende PHP‑Code implementiert die Schritte zum Importieren von HTML‑Texten in Absätze:
 
 ```php
 # Leere Präsentationsinstanz erstellen
 $pres = new Presentation();
 try {
-    # Auf die standardmäßige erste Folie der Präsentation zugreifen
+    # Greift auf die standardmäßige erste Folie der Präsentation zu
     $slide = $pres->getSlides()->get_Item(0);
-    # AutoShape hinzufügen, um den HTML-Inhalt aufzunehmen
+    # Fügt die AutoShape hinzu, um den HTML-Inhalt unterzubringen
     $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
     $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # Textframe zum Shape hinzufügen
+    # Fügt dem Shape ein TextFrame hinzu
     $ashape->addTextFrame("");
-    # Alle Absätze im hinzugefügten Textframe löschen
+    # Löscht alle Absätze im hinzugefügten TextFrame
     $ashape->getTextFrame()->getParagraphs()->clear();
-    # HTML-Datei mit StreamReader laden
+    # Lädt die HTML-Datei mit einem StreamReader
     $tr = new StreamReader("file.html");
-    # Text aus dem HTML-StreamReader in den Textframe hinzufügen
+    # Fügt Text aus dem HTML-StreamReader in den TextFrame ein
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
-    # Präsentation speichern
+    # Speichert die Präsentation
     $pres->save("output_out.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -565,32 +593,34 @@ try {
 }
 ```
 
-## **Absatztext nach HTML exportieren**
+## **Absatz‑Text nach HTML exportieren**
 
-Aspose.Slides bietet erweiterte Unterstützung für das Exportieren von Texten (die in Absätzen enthalten sind) nach HTML.
+Aspose.Slides bietet erweiterte Unterstützung für das Exportieren von Texten (enthalten in Absätzen) nach HTML.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) und laden Sie die gewünschte Präsentation.
-2. Greifen Sie über den Index auf die Referenz der entsprechenden Folie zu.
-3. Greifen Sie auf das Shape zu, das den zu HTML zu exportierenden Text enthält.
-4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) des Shape zu.
-5. Erstellen Sie eine Instanz von `StreamWriter` und fügen Sie die neue HTML‑Datei hinzu.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse und laden Sie die gewünschte Präsentation.
+2. Greifen Sie über den Index auf die gewünschte Folie zu.
+3. Greifen Sie auf die Form zu, die den zu exportierenden Text enthält.
+4. Greifen Sie auf das [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) der Form zu.
+5. Erzeugen Sie eine Instanz von `StreamWriter` und fügen Sie die neue HTML‑Datei hinzu.
 6. Geben Sie einen Start‑Index an den StreamWriter weiter und exportieren Sie die gewünschten Absätze.
+
+Der folgende PHP‑Code zeigt, wie PowerPoint‑Absatz‑Texte nach HTML exportiert werden:
 
 ```php
 # Präsentationsdatei laden
 $pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    # Auf die standardmäßige erste Folie der Präsentation zugreifen
+    # Greift auf die standardmäßige erste Folie der Präsentation zu
     $slide = $pres->getSlides()->get_Item(0);
     # Gewünschter Index
     $index = 0;
-    # Auf das hinzugefügte Shape zugreifen
+    # Greift auf die hinzugefügte Form zu
     $ashape = $slide->getShapes()->get_Item($index);
-    # Ausgabedatei HTML erstellen
+    # Erstellt Ausgabedatei HTML
     $os = new Java("java.io.FileOutputStream", "output.html");
     $writer = new OutputStreamWriter($os, "UTF-8");
-    # Ersten Absatz als HTML extrahieren
-    # Absatzdaten in HTML schreiben, indem der Startindex des Absatzes und die zu kopierenden Gesamtabsaetze angegeben werden
+    # Extrahiert ersten Absatz als HTML
+    # Schreibt Absatzdaten in HTML, indem Startindex des Absatzes und Gesamtzahl der zu kopierenden Absätze angegeben werden
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
     $writer->close();
 } catch (JavaException $e) {
@@ -603,15 +633,15 @@ try {
 
 ## **Einen Absatz als Bild speichern**
 
-In diesem Abschnitt werden wir zwei Beispiele untersuchen, die zeigen, wie ein Textabsatz, dargestellt durch die Klasse [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/), als Bild gespeichert werden kann. Beide Beispiele beinhalten das Abrufen des Bildes eines Shapes, das den Absatz enthält, mithilfe der `getImage`‑Methoden der Klasse [Shape](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/), das Berechnen der Grenzen des Absatzes innerhalb des Shapes und das Exportieren als Bitmap‑Bild. Diese Vorgehensweisen ermöglichen es, bestimmte Textteile aus PowerPoint‑Präsentationen zu extrahieren und als separate Bilder zu speichern, was in verschiedenen Szenarien nützlich sein kann.
+In diesem Abschnitt werden zwei Beispiele vorgestellt, die zeigen, wie ein Textabsatz, repräsentiert durch die [Paragraph](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraph/)‑Klasse, als Bild gespeichert werden kann. Beide Beispiele umfassen das Abrufen des Bildes einer Form, die den Absatz enthält, mittels der `getImage`‑Methoden der [Shape](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/)‑Klasse, die Berechnung der Grenzen des Absatzes innerhalb der Form und das Exportieren als Bitmap‑Bild. Diese Ansätze ermöglichen das Extrahieren konkreter Textteile aus PowerPoint‑Präsentationen und das Speichern als separate Bilder, was in vielen Szenarien nützlich sein kann.
 
-Angenommen, wir haben eine Präsentationsdatei namens sample.pptx mit einer Folie, bei der das erste Shape ein Textfeld mit drei Absätzen ist.
+Angenommen, wir haben eine Präsentationsdatei namens **sample.pptx** mit einer Folie, wobei die erste Form ein Textfeld mit drei Absätzen ist.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Das Textfeld mit drei Absätzen](paragraph_to_image_input.png)
 
 **Beispiel 1**
 
-In diesem Beispiel erhalten wir den zweiten Absatz als Bild. Dazu extrahieren wir das Bild des Shapes von der ersten Folie der Präsentation und berechnen anschließend die Grenzen des zweiten Absatzes im TextFrame des Shapes. Der Absatz wird dann auf ein neues Bitmap‑Bild redgezeichnet, das im PNG‑Format gespeichert wird. Diese Methode ist besonders nützlich, wenn Sie einen bestimmten Absatz als separates Bild speichern möchten und dabei die genauen Abmessungen und die Formatierung des Textes beibehalten wollen.
+In diesem Beispiel erhalten wir den zweiten Absatz als Bild. Dazu extrahieren wir das Bild der Form von der ersten Folie der Präsentation und berechnen anschließend die Grenzen des zweiten Absatzes im TextFrame der Form. Der Absatz wird dann auf ein neues Bitmap‑Bild gezeichnet und im PNG‑Format gespeichert. Diese Methode ist besonders nützlich, wenn ein bestimmter Absatz als separates Bild gespeichert werden soll, während die genauen Abmessungen und die Formatierung des Textes erhalten bleiben.
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -620,13 +650,13 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Forme das Shape im Speicher als Bitmap.
+    // Speichere die Form im Speicher als Bitmap.
     $shapeImage = $firstShape->getImage();
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // Erstelle ein Shape-Bitmap aus dem Speicher.
+    // Erstelle ein Bitmap der Form aus dem Speicher.
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
@@ -640,7 +670,7 @@ try {
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // Schneide das Shape-Bitmap zu, um ausschließlich das Absatz-Bitmap zu erhalten.
+    // Beschneide das Form-Bitmap, um nur das Absatz-Bitmap zu erhalten.
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -653,11 +683,11 @@ try {
 
 Das Ergebnis:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Das Absatz‑Bild](paragraph_to_image_output.png)
 
 **Beispiel 2**
 
-In diesem Beispiel erweitern wir den vorherigen Ansatz, indem wir Skalierungsfaktoren zum Absatzbild hinzufügen. Das Shape wird aus der Präsentation extrahiert und mit einem Skalierungsfaktor von `2` als Bild gespeichert. Dadurch wird beim Export des Absatzes eine höhere Auflösung erzielt. Die Absatzgrenzen werden anschließend unter Berücksichtigung der Skalierung berechnet. Skalierung kann besonders nützlich sein, wenn ein detaillierteres Bild benötigt wird, beispielsweise für den Einsatz in hochwertigen Druckmaterialien.
+In diesem Beispiel erweitern wir den vorherigen Ansatz, indem wir Skalierungsfaktoren zum Absatz‑Bild hinzufügen. Die Form wird aus der Präsentation extrahiert und mit einem Skalierungsfaktor von `2` als Bild gespeichert. Dadurch entsteht ein Bild mit höherer Auflösung. Die Absatz‑Grenzen werden anschließend unter Berücksichtigung des Maßstabs berechnet. Skalierung ist besonders nützlich, wenn ein detaillierteres Bild benötigt wird, etwa für den Einsatz in hochwertigem Druckmaterial.
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -669,17 +699,17 @@ $presentation = new Presentation("sample.pptx");
 try {
     $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Shape im Speicher als Bitmap mit Skalierung speichern.
+    // Speichere die Form im Speicher als Bitmap mit Skalierung.
     $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
     $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
     $shapeImage->save($shapeImageStream, ImageFormat::Png);
     $shapeImage->dispose();
 
-    // Shape-Bitmap aus dem Speicher erstellen.
+    // Erstelle ein Bitmap der Form aus dem Speicher.
     $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
     $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
-    // Grenzen des zweiten Absatzes berechnen.
+    // Berechne die Grenzen des zweiten Absatzes.
     $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
     $paragraphRectangle = $secondParagraph->getRect();
     $paragraphRectangle->setRect(
@@ -689,13 +719,13 @@ try {
             java_values($paragraphRectangle->getHeight()) * $imageScaleY
     );
 
-    // Koordinaten und Größe für das Ausgabebild berechnen (Mindestgröße - 1x1 Pixel).
+    // Berechne die Koordinaten und Größe für das Ausgabebild (Mindestgröße - 1x1 Pixel).
     $imageX = floor(java_values($paragraphRectangle->getX()));
     $imageY = floor(java_values($paragraphRectangle->getY()));
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // Shape-Bitmap zuschneiden, um ausschließlich das Absatz-Bitmap zu erhalten.
+    // Beschneide das Form-Bitmap, um nur das Absatz-Bitmap zu erhalten.
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -708,18 +738,18 @@ try {
 
 ## **FAQ**
 
-**Kann ich das Zeilenumbruch innerhalb eines TextFrames vollständig deaktivieren?**
+**Kann ich das Zeilenumbruch‑Verhalten in einem TextFrame vollständig deaktivieren?**
 
-Ja. Verwenden Sie die Zeilenumbruch‑Einstellung des TextFrames ([setWrapText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframeformat/setwraptext/)), um den Umbruch zu deaktivieren, sodass Zeilen nicht an den Rändern des Frames umbrechen.
+Ja. Verwenden Sie die Einstellung für den Zeilenumbruch des TextFrames ([setWrapText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframeformat/setwraptext/)), um den Umbruch auszuschalten, sodass Zeilen nicht an den Rändern des Frames umbrochen werden.
 
-**Wie kann ich die genauen Folien‑Grenzen eines bestimmten Absatzes ermitteln?**
+**Wie kann ich die genauen Positionen eines bestimmten Absatzes auf der Folie ermitteln?**
 
-Sie können das Begrenzungsrechteck des Absatzes (und sogar eines einzelnen Portions) abrufen, um seine genaue Position und Größe auf der Folie zu kennen.
+Sie können das Begrenzungs‑Rechteck des Absatzes (oder sogar einer einzelnen Portion) abrufen, um dessen exakte Position und Größe auf der Folie zu kennen.
 
-**Wo wird die Absatz‑Ausrichtung (links/rechts/zentriert/Blocksatz) gesteuert?**
+**Wo wird die Absatz‑Ausrichtung (links/rechts/zentriert/Blocksatz) festgelegt?**
 
-[Alignment](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setalignment/) ist eine Einstellung auf Absatz‑Ebene in [ParagraphFormat](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/); sie gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
+[Alignment](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/setalignment/) ist eine Absatz‑Ebene‑Einstellung in [ParagraphFormat](https://reference.aspose.com/slides/de/php-java/aspose.slides/paragraphformat/); sie gilt für den gesamten Absatz, unabhängig von der Formatierung einzelner Portionen.
 
-**Kann ich eine Rechtschreibprüfungs‑Sprache nur für einen Teil eines Absatzes festlegen (z. B. ein Wort)?**
+**Kann ich eine Rechtschreib‑Sprache nur für einen Teil eines Absatzes (z. B. ein einzelnes Wort) festlegen?**
 
-Ja. Die Sprache wird auf Portion‑Ebene festgelegt ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseportionformat/#setLanguageId)), sodass mehrere Sprachen innerhalb eines einzigen Absatzes koexistieren können.
+Ja. Die Sprache wird auf Portion‑Ebene festgelegt ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseportionformat/#setLanguageId)), sodass mehrere Sprachen innerhalb eines einzelnen Absatzes coexistieren können.

@@ -1,13 +1,13 @@
 ---
-title: Aspose.Slides for PHP via Java
-second_title: "Tài liệu Aspose.Slides cho PHP"
+title: Aspose.Slides cho PHP qua Java
+second_title: Aspose.Slides cho PHP
 type: docs
 weight: 45
 url: /vi/php-java/
 keywords:
 - tài liệu
-- xử lý bản trình bày
-- chuyển đổi bản trình bày
+- xử lý bản trình chiếu
+- chuyển đổi bản trình chiếu
 - PowerPoint
 - OpenDocument
 - PHP
@@ -17,35 +17,35 @@ is_root: true
 ---
 {{% alert color="primary" %}}
 
-**Welcome to Aspose.Slides for PHP via Java**
+**Chào mừng đến với Aspose.Slides cho PHP qua Java**
 
-![Aspose.Slides for PHP via Java Product Logo](aspose_slides-for-php-via-java.png)
+![Logo sản phẩm Aspose.Slides cho PHP qua Java](aspose_slides-for-php-via-java.png)
 
-Aspose.Slides for PHP via Java là một thư viện lớp cho phép các ứng dụng của bạn đọc và ghi tài liệu PowerPoint® mà không cần sử dụng Microsoft PowerPoint®.
+Aspose.Slides cho PHP qua Java là một thư viện lớp cho phép các ứng dụng của bạn đọc và ghi tài liệu PowerPoint® mà không cần sử dụng Microsoft PowerPoint®.
 
-Aspose.Slides for PHP via Java là thành phần đầu tiên và duy nhất cung cấp chức năng quản lý tài liệu PowerPoint®.
+Aspose.Slides cho PHP qua Java là thành phần đầu tiên và duy nhất cung cấp chức năng quản lý tài liệu PowerPoint®.
 
-Aspose.Slides for PHP via Java cung cấp nhiều tính năng chính như quản lý văn bản, hình dạng, bảng và hoạt cảnh, thêm âm thanh và video vào slide, xem trước slide, xuất slide sang định dạng SVG, PDF và nhiều hơn nữa.
+Aspose.Slides cho PHP qua Java cung cấp rất nhiều tính năng chính như quản lý văn bản, hình dạng, bảng & hoạt ảnh, thêm âm thanh và video vào slide, xem thử slide, xuất slide ra định dạng SVG, PDF và hơn nữa.
 
 {{% /alert %}}
 
-## Tài nguyên Aspose.Slides for PHP via Java
+## Tài nguyên Aspose.Slides cho PHP qua Java
 
 {{% alert color="primary" %}}
 
-Aspose.Slides for PHP via Java được chuyển đổi từ Aspose.Slides for Java, vì vậy bạn có thể sử dụng tài liệu và tham chiếu API của nó.
+Aspose.Slides cho PHP qua Java được chuyển từ Aspose.Slides cho Java, vì vậy bạn có thể sử dụng tài liệu và tham chiếu API của phiên bản đó.
 
 {{% /alert %}}
 
 Đây là các liên kết tới các tài nguyên hữu ích:
 
-- [Tài liệu trực tuyến Aspose.Slides for PHP via Java](/slides/vi/php-java/)
-- [Các tính năng Aspose.Slides for PHP via Java](/slides/vi/php-java/features-overview/)
-- [Hạn chế và sự khác biệt API của Aspose.Slides for PHP via Java](/slides/vi/php-java/limitations-and-api-differences/)
-- [Ghi chú phát hành Aspose.Slides for PHP via Java](https://releases.aspose.com/slides/vi/php-java/release-notes/)
-- [Trang sản phẩm Aspose.Slides for PHP via Java](https://products.aspose.com/slides/vi/php-java/)
-- [Tải xuống gói Aspose.Slides for PHP via Java](https://releases.aspose.com/slides/vi/php-java/)
-- [Cài đặt Aspose.Slides for PHP via Java](/slides/vi/php-java/installation/)
-- [Tham chiếu API Aspose.Slides for PHP via Java](https://reference.aspose.com/slides/vi/php-java/)
-- [Diễn đàn hỗ trợ miễn phí Aspose.Slides for PHP via Java](https://forum.aspose.com/c/slides/vi/11)
-- [Trung tâm hỗ trợ trả phí Aspose.Slides for PHP via Java](https://helpdesk.aspose.com/)
+- [Tài liệu trực tuyến Aspose.Slides cho PHP qua Java](/slides/vi/php-java/)
+- [Các tính năng Aspose.Slides cho PHP qua Java](/slides/vi/php-java/features-overview/)
+- [Hạn chế và sự khác biệt API của Aspose.Slides cho PHP qua Java](/slides/vi/php-java/limitations-and-api-differences/)
+- [Ghi chú phát hành Aspose.Slides cho PHP qua Java](https://releases.aspose.com/slides/vi/php-java/release-notes/)
+- [Trang sản phẩm Aspose.Slides cho PHP qua Java](https://products.aspose.com/slides/vi/php-java/)
+- [Tải về gói Aspose.Slides cho PHP qua Java](https://releases.aspose.com/slides/vi/php-java/)
+- [Cài đặt Aspose.Slides cho PHP qua Java](/slides/vi/php-java/installation/)
+- [Tham chiếu API Aspose.Slides cho PHP qua Java](https://reference.aspose.com/slides/vi/php-java/)
+- [Diễn đàn hỗ trợ miễn phí Aspose.Slides cho PHP qua Java](https://forum.aspose.com/c/slides/vi/11)
+- [Trợ giúp hỗ trợ trả phí Aspose.Slides cho PHP qua Java](https://helpdesk.aspose.com/)

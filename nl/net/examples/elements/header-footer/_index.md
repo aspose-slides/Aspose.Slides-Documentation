@@ -3,10 +3,12 @@ title: Koptekst en voettekst
 type: docs
 weight: 220
 url: /nl/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- koptekst en voettekst
+- koptekst voettekst
 - voeg koptekst en voettekst toe
-- werk koptekst en voettekst bij
+- koptekst en voettekst bijwerken
 - codevoorbeeld
 - PowerPoint
 - OpenDocument
@@ -14,13 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Beheer slide-kopteksten en -voetteksten met Aspose.Slides for .NET: voeg data, slidennummers en aangepaste tekst toe in PPT, PPTX en ODP met C#-voorbeelden."
+description: "Beheer dia-kopteksten en voetteksten met Aspose.Slides voor .NET: voeg datums, dia-nummers en aangepaste tekst toe in PPT, PPTX en ODP met C#-voorbeelden."
 ---
-Dit artikel laat zien hoe je voetteksten kunt toevoegen en datum- en tijd-plaatsaanduidingen kunt bijwerken met behulp van **Aspose.Slides for .NET**.
+Dit artikel laat zien hoe je voetteksten kunt toevoegen en datum‑ en tijds‑plaatsaanduidingen kunt bijwerken met behulp van **Aspose.Slides for .NET**.
 
-## **Voettekst toevoegen**
+## **Voeg een voettekst toe**
 
-Voeg tekst toe aan het voettekstdomein van een dia en maak deze zichtbaar.
+Voeg tekst toe aan het voettekstgebied van een dia en maak deze zichtbaar.
 
 ```csharp
 static void AddHeaderFooter()
@@ -35,7 +37,7 @@ static void AddHeaderFooter()
 
 ## **Datum en tijd bijwerken**
 
-Wijzig de datum- en tijd-plaatsaanduiding op een dia.
+Pas de datum‑ en tijds‑plaatsaanduiding op een dia aan.
 
 ```csharp
 static void UpdateDateTime()

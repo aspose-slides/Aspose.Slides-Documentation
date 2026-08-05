@@ -3,15 +3,16 @@ title: Obtenir le format du fichier de la présentation
 type: docs
 weight: 50
 url: /fr/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/format-de-presentation/
 ---
-
-Afin d'obtenir le format du fichier, veuillez suivre les étapes ci-dessous :
+Pour obtenir le format du fichier, veuillez suivre les étapes ci-dessous :
 
 - Créez une instance de la classe **IPresentationInfo**
-- Récupérez les informations sur la présentation
+- Obtenez des informations sur la présentation
 
 Dans l'exemple ci-dessous, nous obtenons le format du fichier.
-## **Example**
+## **Exemple**
 ``` csharp
 
  string FilePath = @"..\..\..\Sample Files\";
@@ -47,6 +48,6 @@ switch (info.LoadFormat)
 
 ``` 
 ## **Télécharger le code d'exemple**
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **Télécharger l'exemple en cours d'exécution**
-- [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)
+- [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

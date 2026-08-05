@@ -1,9 +1,9 @@
 ---
-title: Adicionar Formas de Linha a Apresentações no Android
+title: Adicionar formas de linha a apresentações no Android
 linktitle: Linha
 type: docs
 weight: 50
-url: /pt/androidjava/Line/
+url: /pt/androidjava/line/
 keywords:
 - linha
 - criar linha
@@ -22,16 +22,16 @@ description: "Aprenda a manipular a formatação de linhas em apresentações Po
 ---
 ## **Visão geral**
 
-Aspose.Slides permite adicionar formas de linha a slides do PowerPoint programaticamente. Este artigo mostra como criar uma linha simples e como personalizar uma linha para que ela apareça como uma seta.
+Aspose.Slides permite adicionar formas de linha a slides PowerPoint programaticamente. Este artigo mostra como criar uma linha simples e como personalizar uma linha para que apareça como uma seta.
 
-Você aprenderá como adicionar uma forma de linha a um slide, ajustar sua aparência visual e salvar a apresentação atualizada. Os exemplos focam em configurações práticas de formatação de linha, como estilo, largura, padrão de traço, opções de ponta de seta e cor de preenchimento.
+Você aprenderá como adicionar uma forma de linha a um slide, ajustar sua aparência visual e salvar a apresentação atualizada. Os exemplos se concentram em configurações práticas de formatação de linha, como estilo, largura, padrão de traço, opções de ponta de seta e cor de preenchimento.
 
 ## **Criar uma Linha Simples**
 
-Para adicionar uma linha simples a um slide selecionado da apresentação, siga os passos abaixo:
+Para adicionar uma linha simples a um slide selecionado da apresentação, siga as etapas abaixo:
 
 - Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation).
-- Obtenha a referência de um slide usando seu Índice.
+- Obtenha a referência de um slide usando seu índice.
 - Adicione um AutoShape do tipo Line usando o método [addAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) exposto pelo objeto [IShapeCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IShapeCollection).
 - Grave a apresentação modificada como um arquivo PPTX.
 
@@ -56,16 +56,16 @@ try {
 
 ## **Criar uma Linha em Forma de Seta**
 
-Aspose.Slides for Android via Java também permite que os desenvolvedores configurem algumas propriedades da linha para que ela pareça mais atraente. Vamos tentar configurar algumas propriedades de uma linha para que ela se pareça com uma seta. Siga os passos abaixo para isso:
+Aspose.Slides for Android via Java também permite que os desenvolvedores configurem algumas propriedades da linha para torná‑la mais atraente. Vamos tentar configurar algumas propriedades de uma linha para que ela se pareça com uma seta. Siga as etapas abaixo para isso:
 
 - Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation).
-- Obtenha a referência de um slide usando seu Índice.
+- Obtenha a referência de um slide usando seu índice.
 - Adicione um AutoShape do tipo Line usando o método [addAutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) exposto pelo objeto [IShapeCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IShapeCollection).
 - Defina o [Line Style](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineStyle) para um dos estilos oferecidos pelo Aspose.Slides for Android via Java.
-- Defina a Largura da linha.
+- Defina a Width da linha.
 - Defina o [Dash Style](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineDashStyle) da linha para um dos estilos oferecidos pelo Aspose.Slides for Android via Java.
-- Defina o [Arrow Head Style](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadStyle) e o [Length](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadLength) do ponto inicial da linha.
-- Defina o [Arrow Head Style](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadStyle) e o [Length](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadLength) do ponto final da linha.
+- Defina o [Arrow Head Style](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadStyle) e [Length](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadLength) do ponto inicial da linha.
+- Defina o [Arrow Head Style](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadStyle) e [Length](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/LineArrowheadLength) do ponto final da linha.
 - Grave a apresentação modificada como um arquivo PPTX.
 
 ```java
@@ -102,14 +102,14 @@ try {
 
 ## **Perguntas Frequentes**
 
-**Posso converter uma linha normal em um conector para que ela "encaixe" nas formas?**
+**Posso converter uma linha regular em um conector para que ela “encaixe” nas formas?**
 
-Não. Uma linha normal (um [AutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/autoshape/) do tipo [Line](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/shapetype/)) não se torna automaticamente um conector. Para que ela encaixe nas formas, use o tipo dedicado [Connector](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/connector/) e as [APIs correspondentes](/slides/pt/androidjava/connector/) para conexões.
+Não. Uma linha regular (um [AutoShape](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/autoshape/) do tipo [Line](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/shapetype/)) não se torna automaticamente um conector. Para fazer com que ela encaixe nas formas, use o tipo dedicado [Connector](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/connector/) e as [corresponding APIs](/slides/pt/androidjava/connector/) para conexões.
 
 **O que devo fazer se as propriedades de uma linha forem herdadas do tema e for difícil determinar os valores finais?**
 
-[Leia as propriedades efetivas](/slides/pt/androidjava/shape-effective-properties/) através das interfaces [ILineFormatEffectiveData](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilinefillformateffectivedata/) — elas já consideram herança e estilos de tema.
+[Leia as propriedades efetivas](/slides/pt/androidjava/shape-effective-properties/) através das interfaces [ILineFormatEffectiveData](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilinefillformateffectivedata/) — essas já consideram herança e estilos de tema.
 
-**Posso bloquear uma linha contra edição (movimento, redimensionamento)?**
+**Posso bloquear uma linha contra edição (movimentação, redimensionamento)?**
 
-Sim. As formas fornecem [objetos de bloqueio](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) que permitem impedir operações de edição.
+Sim. As formas fornecem [lock objects](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) que permitem impedir operações de edição.

@@ -1,46 +1,46 @@
 ---
-title: Hantera fallback-typsnitt för presentationer i С++
-linktitle: Fallback-typsnitt
+title: "Hantera fallback‑teckensnitt för presentationer i C++"
+linktitle: "Fallback‑teckensnitt"
 type: docs
 weight: 50
 url: /sv/cpp/fallback-font/
 keywords:
-- fallback-typsnitt
-- tillgängligt typsnitt
-- teckenersättning
-- ange typsnitt
-- ange regel
+- fallback‑teckensnitt
+- tillgängligt teckensnitt
+- glyf‑ersättning
+- specificera teckensnitt
+- specificera regel
 - PowerPoint
 - OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Se hur Aspose.Slides för С++ använder fallback-typsnitt för att hålla text läsbar i PowerPoint- och OpenDocument-presentationer när originaltypsnitt inte är tillgängliga."
+description: "Se hur Aspose.Slides för C++ använder fallback‑teckensnitt för att hålla text läsbar i PowerPoint‑ och OpenDocument‑presentationer när originalteckensnitt inte är tillgängliga."
 ---
 ## **Introduktion**
 
-Fallback-typsnitt används när det typsnitt som anges för text finns i systemet men inte innehåller ett nödvändigt tecken. I sådana fall kan Aspose.Slides använda ett av de angivna fallback-typsnitten för att ersätta det saknade tecknet.
+Fallback‑teckensnitt används när det teckensnitt som är specificerat för text är tillgängligt i systemet men saknar en nödvändig glyf. I så fall kan Aspose.Slides använda ett av de angivna fallback‑teckensnitten för att ersätta den saknade glyfen.
 
-## **Fallback-typsnitt**
-Fallback-typsnitt används när det typsnitt som anges för text finns i systemet, men detta typsnitt inte innehåller ett nödvändigt tecken. I sådana fall är det möjligt att använda ett av de angivna fallback-typsnitten för teckenersättning.
+## **Fallback‑teckensnitt**
+Fallback‑teckensnitt används när det teckensnitt som är specificerat för text är tillgängligt i systemet, men detta teckensnitt saknar en nödvändig glyf. I så fall är det möjligt att använda ett av de angivna fallback‑teckensnitten för glyf‑ersättningen.
 
-Aspose.Slides tillåter att skapa fallback-typsnitt, lägga till dem i en samling av fallback-typsnitt, ange en fallback-typsnittssamling för en viss presentation, ta bort fallback-typsnitt från en presentation, specificera regler för att tillämpa fallback-typsnitt och annat.
+Aspose.Slides gör det möjligt att skapa fallback‑teckensnitt, lägga till dem i en fallback‑teckensnittssamling, ange fallback‑teckensnittssamling för en viss presentation, ta bort fallback‑teckensnitt från presentationen, specificera regler för att tillämpa fallback‑teckensnitt och mer.
 
 För att bli bekant med dessa funktioner, använd följande länkar:
 
-- [Skapa fallback-typsnitt](/slides/sv/cpp/create-fallback-font)
-- [Skapa samling av fallback-typsnitt](/slides/sv/cpp/create-fallback-fonts-collection)
-- [Rendera presentation med fallback-typsnitt](/slides/sv/cpp/render-presentation-with-fallback-font)
+- [Skapa fallback‑teckensnitt](/slides/sv/cpp/create-fallback-font)
+- [Skapa samling av fallback‑teckensnitt](/slides/sv/cpp/create-fallback-fonts-collection)
+- [Rendera presentation med fallback‑teckensnitt](/slides/sv/cpp/render-presentation-with-fallback-font)
 
 ## **FAQ**
 
-**Hur skiljer sig fallback-typsnitt från typsnittssubstitution?**
+**Hur skiljer sig fallback‑teckensnitt från teckensnittssubstitution?**
 
-Fallback tillämpas per tecken eller per område av Unicode när huvudtypsnittet saknar specifika tecken; det fyller endast de saknade tecknen. [Substitution](/slides/sv/cpp/font-substitution/) ersätter ett saknat eller otillgängligt typsnitt för ett helt löp eller en textdel med ett annat typsnitt. De kan kombineras, men deras omfång och urvallogik är olika.
+Fallback tillämpas per tecken eller per Unicode‑intervall när det primära teckensnittet saknar specifika glyfer; det fyller endast de saknade tecknen. [Substitution](/slides/sv/cpp/font-substitution/) ersätter ett saknat eller otillgängligt teckensnitt för en hel körning eller textavsnitt med ett annat teckensnitt. De kan kombineras, men deras omfattning och urvallogik är olika.
 
-**Sparas fallback-inställningarna i presentationsfilen?**
+**Sparas fallback‑inställningarna i presentationsfilen?**
 
-Nej. Fallback‑konfigurationen finns endast under bearbetning/rendering i biblioteket och serialiseras inte till PPTX. Presentationen lagrar inte dina fallback‑regler.
+Nej. Fallback‑konfigurationen lever under bearbetnings‑/renderingstid i biblioteket och serialiseras inte till PPTX. Presentationen lagrar inte dina fallback‑regler.
 
 **Påverkar fallback element som skapats av PowerPoint‑objekt (SmartArt, diagram, WordArt)?**
 

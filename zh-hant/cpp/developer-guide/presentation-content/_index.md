@@ -1,5 +1,5 @@
 ---
-title: 在 C++ 中管理簡報內容
+title: 管理 C++ 中的簡報內容
 linktitle: 簡報內容
 type: docs
 weight: 30
@@ -23,5 +23,5 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 建立、編輯與擷取簡報內容 — 取得文字、圖像、圖形、圖表等程式碼範例；支援 PPT、PPTX 與 ODP。"
+description: "使用 Aspose.Slides for C++ 建立、編輯和擷取簡報內容 — 獲取文字、圖像、圖形、圖表的程式碼範例；支援 PPT、PPTX 與 ODP。"
 ---

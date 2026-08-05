@@ -1,32 +1,32 @@
 ---
-title: "Aspose.Slides dla Node.js przy użyciu Java"
-second_title: "Aspose.Slides dla Node.js przy użyciu .NET – Dokumentacja"
+title: Aspose.Slides dla Node.js przez Java
+second_title: Aspose.Slides dla Node.js
 type: docs
 weight: 47
 url: /pl/nodejs-java/
 keywords:
-  - dokumentacja
-  - przetwarzanie prezentacji
-  - konwersja prezentacji
-  - PowerPoint
-  - OpenDocument
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: "Aspose.Slides jest interfejsem API do zarządzania Microsoft PowerPoint® umożliwiającym aplikacjom odczyt i zapis dokumentów PowerPoint® bez użycia Microsoft PowerPoint®."
+- dokumentacja
+- przetwarzanie prezentacji
+- konwersja prezentacji
+- PowerPoint
+- OpenDocument
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides jest API do zarządzania Microsoft PowerPoint® umożliwiającym aplikacjom odczytywanie i zapisywanie dokumentów PowerPoint® bez użycia Microsoft PowerPoint®."
 is_root: true
 ---
 {{% alert color="primary" %}}
 
 **Witamy w Aspose.Slides for Node.js via Java**
 
-![Aspose.Slides for Node.js via Java Product Logo](aspose_slides-for-nodejs-via-java.png)
+![Logo produktu Aspose.Slides for Node.js via Java](aspose_slides-for-nodejs-via-java.png)
 
-Aspose.Slides for Node.js via Java jest biblioteką klas, która umożliwia twoim aplikacjom odczytywanie i zapisywanie dokumentów PowerPoint® bez użycia Microsoft PowerPoint®.
+Aspose.Slides for Node.js via Java jest biblioteką klas, która umożliwia aplikacjom odczytywanie i zapisywanie dokumentów PowerPoint® bez użycia Microsoft PowerPoint®.
 
 Aspose.Slides for Node.js via Java jest pierwszym i jedynym komponentem, który zapewnia funkcjonalność zarządzania dokumentami PowerPoint®.
 
-Aspose.Slides for Node.js via Java zapewnia wiele kluczowych funkcji, takich jak zarządzanie tekstem, kształtami, tabelami i animacjami, dodawanie dźwięku i wideo do slajdów, podgląd slajdów, eksportowanie slajdów do formatu SVG, PDF i inne.
+Aspose.Slides for Node.js via Java oferuje wiele kluczowych funkcji, takich jak zarządzanie tekstem, kształtami, tabelami i animacjami, dodawanie dźwięku i wideo do slajdów, podgląd slajdów, eksportowanie slajdów do formatu SVG, PDF i wiele innych.
 
 {{% /alert %}}
 
@@ -34,11 +34,11 @@ Aspose.Slides for Node.js via Java zapewnia wiele kluczowych funkcji, takich jak
 
 {{% alert color="primary" %}}
 
-Aspose.Slides for Node.js via Java jest przeniesiona z Aspose.Slides for Java, więc możesz używać tej dokumentacji oraz referencji API.
+Aspose.Slides for Node.js via Java został przeniesiony z Aspose.Slides for Java, więc możesz korzystać z ich dokumentacji i referencji API.
 
 {{% /alert %}}
 
-Poniżej znajdują się przydatne zasoby:
+Oto linki do przydatnych zasobów:
 
 - [Dokumentacja online Aspose.Slides for Node.js via Java](/slides/pl/nodejs-java/developer-guide/)
 - [Funkcje Aspose.Slides for Node.js via Java](/slides/pl/nodejs-java/features-overview/)

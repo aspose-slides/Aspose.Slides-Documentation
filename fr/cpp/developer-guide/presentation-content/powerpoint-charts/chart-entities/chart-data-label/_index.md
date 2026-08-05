@@ -8,22 +8,24 @@ keywords:
 - étiquette de données
 - précision des données
 - pourcentage
-- distance de l'étiquette
-- position de l'étiquette
+- distance d'étiquette
+- emplacement d'étiquette
 - PowerPoint
 - présentation
 - C++
 - Aspose.Slides
-description: "Apprenez à ajouter et à formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides pour C++ afin de créer des diapositives plus attrayantes."
+description: "Apprenez à ajouter et formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides pour C++ afin de rendre les diapositives plus attrayantes."
 ---
+## **Introduction**
 
-Les étiquettes de données d’un graphique affichent des détails sur les séries de données du graphique ou sur des points de données individuels. Elles permettent aux lecteurs d’identifier rapidement les séries de données et facilitent également la compréhension des graphiques.
+Les étiquettes de données sur un graphique affichent des détails sur les séries de données du graphique ou sur des points de données individuels. Elles permettent aux lecteurs d'identifier rapidement les séries de données et facilitent également la compréhension des graphiques.
 
 ## **Définir la précision des données dans les étiquettes de graphique**
 
-Ce code C++ montre comment définir la précision des données dans une étiquette de graphique :
+Ce code C++ vous montre comment définir la précision des données dans une étiquette de graphique :
+
 ```c++
-	// Le chemin vers le répertoire des documents
+	// Le chemin du répertoire de documents
 	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
 
 	// Instancie une classe Presentation qui représente un fichier PPTX
@@ -35,7 +37,7 @@ Ce code C++ montre comment définir la précision des données dans une étiquet
 	// Ajoute un graphique avec des données par défaut
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Définit le format numérique de la série
+	// Définit le format numérique des séries
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
@@ -43,12 +45,11 @@ Ce code C++ montre comment définir la précision des données dans une étiquet
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ## **Afficher les pourcentages comme étiquettes**
+Aspose.Slides for C++ vous permet de définir des étiquettes de pourcentage sur les graphiques affichés. Ce code C++ démontre l'opération :
 
-Aspose.Slides for C++ vous permet de définir des étiquettes de pourcentage sur les graphiques affichés. Ce code C++ illustre l’opération :
 ```c++
-	// Le chemin vers le répertoire des documents
+	// Le chemin du répertoire de documents
 	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
 
 	// Crée une instance de la classe Presentation
@@ -99,27 +100,26 @@ Aspose.Slides for C++ vous permet de définir des étiquettes de pourcentage sur
 	}
 
 	// Enregistre la présentation contenant le graphique
-	presentation->Save(outPath, Aspise::Slides::Export::SaveFormat::Pptx);
+	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Définir le symbole de pourcentage avec les étiquettes de graphique**
+Ce code C++ vous montre comment définir le symbole de pourcentage pour une étiquette de graphique :
 
-## **Définir le signe de pourcentage avec les étiquettes de données du graphique**
-
-Ce code C++ montre comment définir le signe de pourcentage pour une étiquette de données de graphique :
 ```c++
-	// Le chemin vers le répertoire des documents.
+	// Le chemin du répertoire de documents.
 	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
 
 	// Crée une instance de la classe Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Obtient la référence d'une diapositive par son indice
+	// Obtient la référence d'une diapositive via son index
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Crée le graphique PercentsStackedColumn sur une diapositive
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
 
-	// Définit NumberFormatLinkedToSource sur false
+	// Définit NumberFormatLinkedToSource à false
 	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
 	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
@@ -131,7 +131,7 @@ Ce code C++ montre comment définir le signe de pourcentage pour une étiquette 
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Supprime les séries générées par défaut 
+	// Supprime la série générée par défaut 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -183,27 +183,27 @@ Ce code C++ montre comment définir le signe de pourcentage pour une étiquette 
 
 	// Enregistre le fichier de présentation sur le disque
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
+## **Définir la distance de l'étiquette par rapport à l'axe**
+Ce code C++ vous montre comment définir la distance de l'étiquette par rapport à un axe de catégorie lorsque vous travaillez avec un graphique tracé à partir d'axes :
 
-## **Définir la distance de l’étiquette par rapport à l’axe**
-
-Ce code C++ montre comment définir la distance de l’étiquette par rapport à un axe de catégorie lorsque vous travaillez avec un graphique tracé à partir d’axes :
 ```c++
-	// Le chemin vers le répertoire des documents
+	// Le chemin du répertoire de documents
 	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
 
 	// Crée une instance de la classe Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Obtient une référence à une diapositive
+	// Obtient la référence d'une diapositive
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Crée un graphique sur la diapositive
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Obtient la collection des séries du graphique
+	// Obtient la collection de séries du graphique
 	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
 
 	// Définit la distance de l'étiquette par rapport à un axe
@@ -213,12 +213,12 @@ Ce code C++ montre comment définir la distance de l’étiquette par rapport à
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Ajuster l'emplacement de l'étiquette**
 
-## **Ajuster la position de l’étiquette**
+Lorsque vous créez un graphique qui ne repose sur aucun axe, comme un graphique circulaire, les étiquettes de données du graphique peuvent se retrouver trop proches de son bord. Dans ce cas, vous devez ajuster l'emplacement de l'étiquette de données afin que les lignes de repère s'affichent clairement.
 
-Lorsque vous créez un graphique qui ne repose sur aucun axe, comme un diagramme circulaire, les étiquettes de données du graphique peuvent se retrouver trop proches de son bord. Dans ce cas, vous devez ajuster la position de l’étiquette afin que les lignes de liaison s’affichent clairement.
+Ce code C++ vous montre comment ajuster l'emplacement de l'étiquette sur un graphique circulaire :
 
-Ce code C++ montre comment ajuster la position de l’étiquette sur un diagramme circulaire :
 ```c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -236,19 +236,18 @@ label->set_Y(0.04f);
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Comment éviter que les étiquettes de données se chevauchent sur des graphiques denses ?**
+**Comment puis‑je empêcher les étiquettes de données de se chevaucher sur des graphiques denses ?**
 
-Combinez le placement automatique des étiquettes, les lignes de liaison et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les étiquettes que pour les points extrêmes/clé.
+Combinez le positionnement automatique des étiquettes, les lignes de repère et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n'affichez les étiquettes que pour les points extrêmes/clefs.
 
-**Comment désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
+**Comment puis‑je désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
 
-Filtrez les points de données avant d’activer les étiquettes et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
+Filtrez les points de données avant d'activer les étiquettes et désactivez l'affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
 
-**Comment garantir un style d’étiquette cohérent lors de l’exportation vers PDF/images ?**
+**Comment puis‑je garantir un style d'étiquette cohérent lors de l’exportation vers PDF/images ?**
 
-Définissez explicitement les polices (famille, taille) et vérifiez que la police est disponible du côté du rendu pour éviter le recours à une police de secours.
+Définissez explicitement les polices (famille, taille) et vérifiez que la police est disponible du côté du rendu afin d'éviter le recours à une police de secours.

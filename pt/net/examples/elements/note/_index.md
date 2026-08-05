@@ -3,12 +3,14 @@ title: Nota
 type: docs
 weight: 240
 url: /pt/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - nota
 - adicionar slide de notas
 - acessar slide de notas
 - remover slide de notas
-- atualizar texto das notas
+- atualizar texto da nota
 - exemplo de código
 - PowerPoint
 - OpenDocument
@@ -16,7 +18,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Trabalhe com notas de slide no Aspose.Slides for .NET: adicione, leia, edite e exporte notas do apresentador em PPT, PPTX e ODP usando exemplos claros em C#."
+description: "Trabalhe com notas de slides no Aspose.Slides for .NET: adicione, leia, edite e exporte notas de orador em PPT, PPTX e ODP usando exemplos claros em C#."
 ---
 Este artigo demonstra como adicionar, ler, remover e atualizar slides de notas usando **Aspose.Slides for .NET**.
 
@@ -67,7 +69,7 @@ static void RemoveNote()
 }
 ```
 
-## **Atualizar Texto das Notas**
+## **Atualizar Texto da Nota**
 
 Altere o texto de um slide de notas.
 

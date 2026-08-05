@@ -1,34 +1,41 @@
 ---
-title: Aspose.Slides لـ C++
-second_title: Aspose.Slides for C++
-description: Aspose.Slides لـ C++ هو العنصر الأول والوحيد الذي يوفر الوظائف لإدارة مستندات PowerPoint®.
+title: Aspose.Slides للـ C++
+second_title: Aspose.Slides للـ C++
 type: docs
 weight: 30
 url: /ar/cpp/
+keywords:
+- توثيق
+- معالجة العروض التقديمية
+- تحويل العروض التقديمية
+- PowerPoint
+- OpenDocument
+- C++
+- Aspose.Slides
+description: Aspose.Slides للـ C++ هو واجهة برمجة تطبيقات إدارة Microsoft PowerPoint® تتيح لتطبيقات C++ قراءة وكتابة مستندات PowerPoint® دون الحاجة إلى استخدام Microsoft PowerPoint®.
 is_root: true
 ---
-
 {{% alert color="primary" %}}
 
-![شعار منتج Aspose.Slides لـ C++](home_1.png)
+![شعار Aspose.Slides للـ C++](home_1.png)
 
-**مرحبًا بكم في Aspose.Slides لـ C++**
+**مرحبًا بكم في Aspose.Slides للـ C++**
 
-Aspose.Slides لـ C++ هي واجهة برمجة تطبيقات إدارة Microsoft PowerPoint® التي تمكن تطبيقات C++ من قراءة وكتابة مستندات PowerPoint® دون استخدام Microsoft PowerPoint®. Aspose.Slides لـ C++ هو العنصر الأول والوحيد الذي يوفر الوظائف لإدارة مستندات PowerPoint®. يوفر Aspose.Slides لـ C++ مجموعة كبيرة من الميزات الرئيسية مثل إدارة النصوص، والأشكال، والجداول، والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى تنسيق SVG، وPDF والمزيد.
+Aspose.Slides للـ C++ هو واجهة برمجة تطبيقات إدارة Microsoft PowerPoint® تتيح لتطبيقات C++ قراءة وكتابة مستندات PowerPoint® دون الحاجة إلى استخدام Microsoft PowerPoint®. Aspose.Slides للـ C++ هو المكوّن الأول والوحيد الذي يوفر إمكانية إدارة مستندات PowerPoint®. تقدم Aspose.Slides للـ C++ العديد من الميزات الرئيسية مثل إدارة النصوص، الأشكال، الجداول والرسوم المتحركة، إضافة الصوت والفيديو إلى الشرائح، معاينة الشرائح، تصدير الشرائح إلى SVG، صيغة PDF والمزيد.
 
 {{% /alert %}}
 
-## **موارد Aspose.Slides لـ C++**
+## **موارد Aspose.Slides للـ C++**
 
-هذه روابط لموارد مفيدة:
+فيما يلي روابط لموارد مفيدة:
 
-- [الوثائق عبر الإنترنت لـ Aspose.Slides لـ C++](/slides/ar/cpp/)
-- [ميزات Aspose.Slides لـ C++](/slides/ar/cpp/features-overview/)
-- [ملاحظات إصدار Aspose.Slides لـ C++](https://releases.aspose.com/slides/cpp/release-notes/)
-- [صفحة منتج Aspose.Slides لـ C++](https://products.aspose.com/slides/cpp/)
-- [تحميل Aspose.Slides لـ C++](https://releases.aspose.com/slides/cpp/)
-- [تثبيت حزمة NuGet لـ Aspose.Slides لـ C++](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [دليل مرجع API لـ Aspose.Slides لـ C++](https://reference.aspose.com/slides/cpp)
-- [تحميل أمثلة من مستودع GitHub](https://github.com/aspose-slides/Aspose.Slides-for-C)
-- [منتدى الدعم المجاني لـ Aspose.Slides لـ C++](https://forum.aspose.com/c/slides/11)
-- [دعم المساعدة المدفوع لـ Aspose.Slides لـ C++](https://helpdesk.aspose.com/)
+- [توثيق Aspose.Slides للـ C++ عبر الإنترنت](/slides/ar/cpp/)
+- [ميزات Aspose.Slides للـ C++](/slides/ar/cpp/features-overview/)
+- [ملاحظات الإصدار لـ Aspose.Slides للـ C++](https://releases.aspose.com/slides/ar/cpp/release-notes/)
+- [صفحة المنتج لـ Aspose.Slides للـ C++](https://products.aspose.com/slides/ar/cpp/)
+- [تحميل Aspose.Slides للـ C++](https://releases.aspose.com/slides/ar/cpp/)
+- [تثبيت حزمة NuGet لـ Aspose.Slides للـ C++](https://www.nuget.org/packages/Aspose.Slides.CPP/)
+- [دليل مرجع API لـ Aspose.Slides للـ C++](https://reference.aspose.com/slides/ar/cpp)
+- [تنزيل الأمثلة من مستودع GitHub](https://github.com/aspose-slides/Aspose.Slides-for-C)
+- [منتدى الدعم المجاني لـ Aspose.Slides للـ C++](https://forum.aspose.com/c/slides/ar/11)
+- [مكتب مساعدة الدعم المدفوع لـ Aspose.Slides للـ C++](https://helpdesk.aspose.com/)

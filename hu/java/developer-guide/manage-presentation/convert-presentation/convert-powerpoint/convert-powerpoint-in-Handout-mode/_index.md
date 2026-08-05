@@ -1,49 +1,49 @@
 ---
-title: PowerPoint bemutatók konvertálása kézikönyvi módban Java használatával
-linktitle: Kézikönyvi mód
+title: PowerPoint prezentációk konvertálása handout módban Java használatával
+linktitle: Handout mód
 type: docs
 weight: 150
-url: /hu/java/convert-powerpoint-in-Handout-mode/
+url: /hu/java/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint konvertálása
 - prezentáció konvertálása
-- kézikönyvi mód
-- kézikönyv
+- handout mód
+- handout
 - PPT
 - PPTX
 - PowerPoint
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Konvertálja a bemutatókat kézikönyvekbe Java-ban. Állítson be oldalankénti diák számát, tartsa meg a jegyzeteket, exportáljon PDF-be vagy képekbe az Aspose.Slides segítségével, minta Java kóddal. Próbálja ki ingyen."
+description: "Prezentációk konvertálása handout formátumba Java-ban. Állítsa be az oldalankénti diák számát, tartsa a jegyzeteket, exportáljon PDF-re vagy képekre az Aspose.Slides segítségével, minta Java kóddal. Próbálja ki ingyen."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides lehetővé teszi, hogy a bemutatókat olyan kimeneti formátumokra konvertálja, amelyek támogatják a kézikönyvi módot. Ebben a módban több dia kerül egyetlen oldalra, ami hasznos a prezentációs anyagok nyomtatásához konferenciákon, szemináriumokon és hasonló eseményeken.
+Az Aspose.Slides lehetővé teszi, hogy a prezentációkat olyan kimeneti formátumokra konvertálja, amelyek támogatják a Handout módot. Ebben a módban több dia egyetlen oldalon van elrendezve, ami hasznos a prezentációs anyagok nyomtatásához konferenciák, szemináriumok és hasonló események esetén.
 
-A kézikönyvi mód a `setSlidesLayoutOptions` metódussal konfigurálható, amely elérhető az [IPdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipdfoptions/), az [IRenderingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/irenderingoptions/), az [IHtmlOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ihtmloptions/) és az [ITiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itiffoptions/) felületeken. A kézikönyv elrendezésének meghatározásához használja a [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handoutlayoutingoptions/) objektumot.
+A Handout mód a `setSlidesLayoutOptions` metódussal konfigurálható, amely elérhető az [IPdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ihtmloptions/) és [ITiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itiffoptions/) esetén. A handout elrendezés meghatározásához használja a [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handoutlayoutingoptions/) objektumot.
 
-## **Kézikönyvi módú exportálás**
+## **Handout mód exportálás**
 
-A bemutató kézikönyvi módban történő exportálásához állítsa be a cél exportálási beállításoknál a `setSlidesLayoutOptions` metódust, és adjon meg egy [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handoutlayoutingoptions/) példányt, amely meghatározza az oldalonkénti diák számát és a kapcsolódó megjelenítési paramétereket.
+A prezentáció Handout módban történő exportálásához állítsa be a `setSlidesLayoutOptions` metódust a cél exportálási beállításoknál, és adjon meg egy [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handoutlayoutingoptions/) példányt, amely meghatározza az oldalankénti diák számát és a kapcsolódó megjelenítési paramétereket.
 
-Alább egy kódrészlet látható, amely bemutatja, hogyan konvertálhat egy bemutatót PDF‑re kézikönyvi módban.
+Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy prezentációt PDF-re Handout módban.
 
 ```java
-// Töltsön be egy prezentációt.
+// Prezentáció betöltése.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Állítsa be az exportálási beállításokat.
+    // Exportálási beállítások megadása.
     HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
     slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 dia egy oldalon vízszintesen
-    slidesLayoutOptions.setPrintSlideNumbers(true);                   // nyomtassa a dia számokat
-    slidesLayoutOptions.setPrintFrameSlide(true);                     // rajzoljon keretet a diák köré
-    slidesLayoutOptions.setPrintComments(false);                      // nincs megjegyzés
+    slidesLayoutOptions.setPrintSlideNumbers(true);                   // diaszámok nyomtatása
+    slidesLayoutOptions.setPrintFrameSlide(true);                     // keret nyomtatása a diák köré
+    slidesLayoutOptions.setPrintComments(false);                      // nincsenek megjegyzések
 
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-    // Exportálja a prezentációt PDF-be a kiválasztott elrendezéssel.
+    // Prezentáció exportálása PDF-be a kiválasztott elrendezéssel.
     presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     if (presentation != null) presentation.dispose();    
@@ -51,19 +51,19 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-Vegye figyelembe, hogy a `setSlidesLayoutOptions` metódus csak bizonyos kimeneti formátumoknál érhető el, például PDF, HTML, TIFF esetén, valamint képek renderelésekor.
+Vegye figyelembe, hogy a `setSlidesLayoutOptions` metódus csak bizonyos kimeneti formátumoknál érhető el, például PDF, HTML, TIFF, és képek renderelésekor.
 {{% /alert %}} 
 
 ## **GYIK**
 
-**Mi a maximális diakép miniatűrök száma oldalanként a kézikönyvi módban?**
+**Mi a maximális diakép szám oldalanként a Handout módban?**
 
-Az Aspose.Slides [preseteket](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handouttype/) támogat, amelyek legfeljebb 9 miniatűrt tesznek lehetővé oldalanként, vízszintes vagy függőleges elrendezéssel: 1, 2, 3, 4 (vízszintes/függőleges), 6 (vízszintes/függőleges) és 9 (vízszintes/függőleges).
+Az Aspose.Slides [előre definiált beállításokat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handouttype/) támogat, amelyek legfeljebb 9 bélyegképet tesznek lehetővé oldalanként, vízszintes vagy függőleges elrendezéssel: 1, 2, 3, 4 (vízszintes/függőleges), 6 (vízszintes/függőleges) és 9 (vízszintes/függőleges).
 
-**Definiálhatok egy egyedi rácsot, például 5 vagy 8 diát oldalanként?**
+**Definiálhatok egy egyéni rácsot, például 5 vagy 8 diákat oldalanként?**
 
-Nem. A miniatűrök száma és elrendezése szigorúan a [HandoutType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handouttype/) osztály által van meghatározva; egyedi elrendezések nem támogatottak.
+Nem. A bélyegképek számát és sorrendjét kizárólag a [HandoutType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/handouttype/) osztály határozza meg; tetszőleges elrendezések nem támogatottak.
 
-**Belefoglalhatom a rejtett diákot a kézikönyvi kimenetbe?**
+**Tartalmazhatok rejtett diákot a Handout kimenetben?**
 
-Igen. Engedélyezze a rejtett diák megjelenítését a `setShowHiddenSlides` metódussal az exportálási beállításoknál a célformátumhoz, például a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/), a [HtmlOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/htmloptions/) vagy a [TiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/tiffoptions/) esetén.
+Igen. A rejtett diák engedélyezhetők a `setShowHiddenSlides` metódus használatával az export beállításokban a cél formátumhoz, például a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/htmloptions/) vagy a [TiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/tiffoptions/).

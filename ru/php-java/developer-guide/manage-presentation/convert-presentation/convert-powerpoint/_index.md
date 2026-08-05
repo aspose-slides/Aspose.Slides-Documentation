@@ -1,8 +1,23 @@
 ---
-title: Конвертировать PowerPoint  | HTML, PNG, PDF, Word, TIFF
-linktitle: Конвертировать PowerPoint
+title: "Преобразование презентаций PowerPoint в PHP | HTML, PNG, PDF, Word, TIFF"
+linktitle: "Конвертировать PowerPoint"
 type: docs
 weight: 20
 url: /ru/php-java/convert-powerpoint/
-description: Эта статья содержит темы и примеры кода, которые можно использовать для конвертации PowerPoint (PPT, PPTX, ODP) в различные форматы, такие как HTML, PNG, PDF, Word, TIFF и т.д.
+aliases:
+  - /php-java/convert-powerpoint-to-word/
+keywords:
+  - конвертировать PowerPoint
+  - конвертировать презентацию
+  - конвертировать слайд
+  - конвертировать PPT
+  - конвертировать PPTX
+  - экспортировать PowerPoint
+  - экспортировать презентацию
+  - экспортировать слайд
+  - экспортировать PPT
+  - экспортировать PPTX
+  - PHP
+  - Aspose.Slides
+description: "Конвертируйте презентации PowerPoint в другие форматы с помощью Aspose.Slides для PHP через Java. Быстро, точно и без швов преобразование PPT и PPTX."
 ---

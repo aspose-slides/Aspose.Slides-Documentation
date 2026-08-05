@@ -3,11 +3,12 @@ title: الحصول على تنسيق ملف العرض التقديمي
 type: docs
 weight: 50
 url: /ar/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/presentation-format/
 ---
+من أجل الحصول على تنسيق الملف. يرجى اتباع الخطوات أدناه:
 
-لكي تحصل على تنسيق الملف. يرجى اتباع الخطوات أدناه:
-
-- إنشاء مثيل من الفئة **IPresentationInfo**
+- إنشاء كائن من الفئة **IPresentationInfo** class
 - الحصول على معلومات حول العرض التقديمي
 
 في المثال المعطى أدناه، حصلنا على تنسيق الملف.
@@ -46,7 +47,7 @@ switch (info.LoadFormat)
 }
 
 ``` 
-## **تنزيل الكود النموذجي**
+## **تنزيل كود العينة**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)
 ## **تنزيل المثال التشغيلي**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Getting%20the%20format%20of%20a%20file)

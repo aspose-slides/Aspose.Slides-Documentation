@@ -1,5 +1,5 @@
 ---
-title: Gestisci il contenuto della presentazione in С++
+title: Gestire i contenuti della presentazione in C++
 linktitle: Contenuto della presentazione
 type: docs
 weight: 30
@@ -8,7 +8,7 @@ keywords:
 - contenuto
 - BLOB
 - collegamento ipertestuale
-- media
+- multimedia
 - OLE
 - testo
 - zoom
@@ -21,7 +21,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentazione
-- С++
+- C++
 - Aspose.Slides
-description: "Crea, modifica ed estrai il contenuto delle presentazioni con Aspose.Slides per С++ — ottieni esempi di codice per testo, immagini, forme, grafici; PPT, PPTX e ODP."
+description: "Crea, modifica ed estrai i contenuti della presentazione con Aspose.Slides per C++ — ottieni esempi di codice per testo, immagini, forme, grafici; PPT, PPTX e ODP."
 ---

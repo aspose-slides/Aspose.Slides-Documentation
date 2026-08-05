@@ -1,12 +1,12 @@
 ---
-title: Dostosuj wykresy prezentacji w C++
+title: Dostosowywanie wykresów w prezentacjach w C++
 linktitle: Typy wykresów
 type: docs
 weight: 20
 url: /pl/cpp/chart-types/
 keywords:
-- dostosuj wykres
-- zarządzaj wykresem
+- dostosowywanie wykresu
+- zarządzanie wykresem
 - typ wykresu
 - wykres PowerPoint
 - wykres prezentacji
@@ -16,5 +16,5 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Poznaj wszystkie typy wykresów, które możesz tworzyć lub edytować przy użyciu Aspose.Slides dla C++ – szybkie, programistyczne przewodniki po prezentacjach PowerPoint."
+description: "Poznaj wszystkie typy wykresów, które możesz tworzyć lub edytować przy użyciu Aspose.Slides dla C++ - szybkie, kod-pierwsze przewodniki dla prezentacji PowerPoint."
 ---

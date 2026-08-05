@@ -17,24 +17,24 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Imposta i caratteri predefiniti in Aspose.Slides per C++ per garantire la corretta conversione di PowerPoint (PPT, PPTX) e OpenDocument (ODP) in PDF, XPS e immagini."
+description: "Imposta i caratteri predefiniti in Aspose.Slides per C++ per garantire una corretta conversione di PowerPoint (PPT, PPTX) e OpenDocument (ODP) in PDF, XPS e immagini."
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di specificare i caratteri predefiniti utilizzati quando una presentazione viene renderizzata. Questo è utile durante la generazione di miniature delle diapositive o l'esportazione di una presentazione in formati come PDF e XPS. I caratteri predefiniti vengono configurati tramite `LoadOptions` prima del caricamento della presentazione.
+Aspose.Slides consente di specificare i caratteri predefiniti che vengono usati quando una presentazione viene renderizzata. Questo è utile durante la generazione di miniature delle diapositive o l'esportazione di una presentazione in formati come PDF e XPS. I caratteri predefiniti sono configurati tramite `LoadOptions` prima del caricamento della presentazione.
 
-Il metodo `set_DefaultRegularFont` definisce il carattere predefinito per il testo normale, mentre `set_DefaultAsianFont` definisce il carattere predefinito per il testo asiatico. Dopo aver impostato queste opzioni, la presentazione può essere caricata e renderizzata usando i caratteri specificati.
+Il metodo `set_DefaultRegularFont` definisce il carattere predefinito per il testo normale, mentre `set_DefaultAsianFont` definisce il carattere predefinito per il testo asiatico. Dopo aver impostato queste opzioni, la presentazione può essere caricata e renderizzata utilizzando i caratteri specificati.
 
-## **Usare i caratteri predefiniti per il rendering di una presentazione**
-Aspose.Slides consente di impostare il carattere predefinito per il rendering della presentazione in PDF, XPS o miniature. Questo articolo mostra come definire DefaultRegularFont e DefaultAsianFont per usarli come caratteri predefiniti. Segui i passaggi seguenti per caricare i caratteri da directory esterne utilizzando l'API Aspose.Slides per C++:
+## **Utilizzare i caratteri predefiniti per il rendering di una presentazione**
+Aspose.Slides ti permette di impostare il carattere predefinito per il rendering della presentazione in PDF, XPS o miniature. Questo articolo mostra come definire DefaultRegularFont e DefaultAsianFont da utilizzare come caratteri predefiniti. Segui i passaggi seguenti per caricare i caratteri da directory esterne usando l'API Aspose.Slides per C++:
 
-1. Crea un'istanza di LoadOptions.  
-1. Imposta DefaultRegularFont sul carattere desiderato. Nell'esempio seguente, ho usato Wingdings.  
-1. Imposta DefaultAsianFont sul carattere desiderato. Ho usato Wingdings nel campione seguente.  
-1. Carica la presentazione usando Presentation e impostando le opzioni di caricamento.  
-1. Ora, genera la miniatura della diapositiva, PDF e XPS per verificare i risultati.
+1. Creare un'istanza di LoadOptions.  
+2. Impostare DefaultRegularFont sul carattere desiderato. Nell'esempio seguente ho usato Wingdings.  
+3. Impostare DefaultAsianFont sul carattere desiderato. Ho usato Wingdings nel campione seguente.  
+4. Caricare la presentazione usando Presentation e impostando le opzioni di caricamento.  
+5. Ora, generare la miniatura della diapositiva, PDF e XPS per verificare i risultati.
 
-L'implementazione di quanto sopra è fornita di seguito.
+L'implementazione di quanto sopra è mostrata di seguito.
 
 ```cpp
 // Usa le opzioni di caricamento per specificare i caratteri predefiniti regolari e asiatici
@@ -56,22 +56,22 @@ pptx->Dispose();
 
 ## **FAQ**
 
-**Che cosa influenzano esattamente DefaultRegularFont e DefaultAsianFont — solo l'esportazione o anche le miniature, PDF, XPS, HTML e SVG?**
+**Cosa influenzano esattamente DefaultRegularFont e DefaultAsianFont—solo l'esportazione o anche le miniature, PDF, XPS, HTML e SVG?**
 
-Partecipano al pipeline di rendering per tutti gli output supportati. Questo include le miniature delle diapositive, [PDF](/slides/it/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/it/cpp/convert-powerpoint-to-xps/), [immagini raster](/slides/it/cpp/convert-powerpoint-to-png/), [HTML](/slides/it/cpp/convert-powerpoint-to-html/), e [SVG](/slides/it/cpp/render-a-slide-as-an-svg-image/), perché Aspose.Slides utilizza la stessa logica di layout e risoluzione dei glifi per questi target.
+Partecipano al flusso di rendering per tutti gli output supportati. Ciò include le miniature delle diapositive, [PDF](/slides/it/cpp/convert-powerpoint-to-pdf/), [XPS](/slides/it/cpp/convert-powerpoint-to-xps/), [immagini raster](/slides/it/cpp/convert-powerpoint-to-png/), [HTML](/slides/it/cpp/convert-powerpoint-to-html/) e [SVG](/slides/it/cpp/render-a-slide-as-an-svg-image/), perché Aspose.Slides utilizza la stessa logica di layout e risoluzione dei glifi per questi target.
 
-**I caratteri predefiniti vengono applicati quando si legge e salva semplicemente un PPTX senza alcun rendering?**
+**Le font predefinite vengono applicate quando si legge e si salva semplicemente un PPTX senza alcun rendering?**
 
-No. I caratteri predefiniti entrano in gioco quando il testo deve essere misurato e disegnato. Un semplice salvataggio aperto‑chiuso di una presentazione non modifica le sequenze di caratteri memorizzate né la struttura del file. I caratteri predefiniti sono usati durante le operazioni che renderizzano o riformattano il testo.
+No. Le font predefinite entrano in gioco quando il testo deve essere misurato e disegnato. Un semplice salvataggio aperto‑chiuso di una presentazione non modifica le sequenze di carattere memorizzate né la struttura del file. Le font predefinite vengono utilizzate durante operazioni che renderizzano o riorganizzano il testo.
 
-**Se aggiungo le mie cartelle di font o fornisco font dalla memoria, verranno considerati nella scelta dei caratteri predefiniti?**
+**Se aggiungo le mie cartelle di font o fornisco font dalla memoria, verranno considerati nella scelta dei font predefiniti?**
 
-Sì. [Custom font sources](/slides/it/cpp/custom-font/) ampliano il catalogo di famiglie e glifi disponibili per il motore. I caratteri predefiniti e qualsiasi [fallback rules](/slides/it/cpp/fallback-font/) verranno risolti contro tali font prima, garantendo una copertura più affidabile su server e container.
+Sì. [Font personalizzati](/slides/it/cpp/custom-font/) ampliano il catalogo di famiglie e glifi disponibili che il motore può utilizzare. Le font predefinite e qualsiasi [regole di fallback](/slides/it/cpp/fallback-font/) verranno risolte prima contro tali font, garantendo una copertura più affidabile su server e container.
 
-**I caratteri predefiniti influiscono sulle metriche del testo (kerning, advance) e quindi su interruzioni di riga e avvolgimento?**
+**Le font predefinite influenzeranno le metriche del testo (kerning, advance) e quindi le interruzioni di linea e l'avvolgimento?**
 
-Sì. Cambiare il carattere modifica le metriche dei glifi e può alterare le interruzioni di riga, l'avvolgimento e la paginazione durante il rendering. Per una stabilità del layout, [embed the original fonts](/slides/it/cpp/embedded-font/) o scegli famiglie predefinite e di fallback metricamente compatibili.
+Sì. Cambiare il carattere modifica le metriche dei glifi e può alterare le interruzioni di linea, l'avvolgimento e la paginazione durante il rendering. Per la stabilità del layout, [incorporare i font originali](/slides/it/cpp/embedded-font/) o selezionare famiglie predefinite e di fallback metricamente compatibili.
 
-**Ha senso impostare i caratteri predefiniti se tutti i caratteri usati nella presentazione sono incorporati?**
+**C'è qualche motivo per impostare font predefiniti se tutti i caratteri usati nella presentazione sono incorporati?**
 
-Spesso non è necessario, perché [embedded fonts](/slides/it/cpp/embedded-font/) assicurano già un aspetto coerente. I caratteri predefiniti servono comunque come rete di sicurezza per i caratteri non coperti dal sottoinsieme incorporato o quando un file mescola testo incorporato e non incorporato.
+Spesso non è necessario, perché [font incorporati](/slides/it/cpp/embedded-font/) assicurano già un aspetto coerente. Le font predefinite sono comunque utili come rete di sicurezza per i caratteri non coperti dal sottoinsieme incorporato o quando un file mescola testo incorporato e non incorporato.

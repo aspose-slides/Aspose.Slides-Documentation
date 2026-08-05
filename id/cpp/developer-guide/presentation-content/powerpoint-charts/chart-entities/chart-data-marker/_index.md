@@ -1,5 +1,5 @@
 ---
-title: Kelola Penanda Data Diagram dalam Presentasi Menggunakan С++
+title: Kelola Penanda Data Diagram dalam Presentasi Menggunakan C++
 linktitle: Penanda Data
 type: docs
 url: /id/cpp/chart-data-marker/
@@ -12,51 +12,52 @@ keywords:
 - tipe isian
 - PowerPoint
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Pelajari cara menyesuaikan penanda data diagram di Aspose.Slides untuk С++, meningkatkan dampak presentasi pada format PPT dan PPTX dengan contoh kode С++ yang jelas."
+description: "Pelajari cara menyesuaikan penanda data diagram di Aspose.Slides untuk C++, meningkatkan dampak presentasi di format PPT dan PPTX dengan contoh kode C++ yang jelas."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
 Artikel ini menjelaskan cara bekerja dengan penanda data diagram di Aspose.Slides. Artikel ini menunjukkan cara membuat diagram, mengakses seri dan titik datanya, menerapkan isian gambar pada penanda di tingkat titik data, menyesuaikan ukuran penanda, dan menyimpan presentasi yang diperbarui. Artikel ini juga mencatat bahwa bentuk penanda standar tersedia melalui enumerasi `MarkerStyleType` dan bahwa tampilan penanda dipertahankan saat mengekspor diagram ke format raster atau SVG.
 
 ## **Set Penanda Diagram**
-Aspose.Slides for C++ menyediakan API sederhana untuk mengatur penanda seri diagram secara otomatis. Pada fitur berikut, setiap seri diagram akan secara otomatis mendapatkan simbol penanda default yang berbeda.
+Aspose.Slides for C++ menyediakan API sederhana untuk mengatur penanda seri diagram secara otomatis. Pada fitur berikut, setiap seri diagram akan mendapatkan simbol penanda default yang berbeda secara otomatis.
 
-Contoh kode di bawah menunjukkan cara mengatur penanda seri diagram secara otomatis.
+Contoh kode di bawah ini menunjukkan cara mengatur penanda seri diagram secara otomatis.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-DefaultMarkersInChart-DefaultMarkersInChart.cpp" >}}
 
 ## **Set Opsi Penanda Diagram**
-Penanda dapat diatur pada titik data diagram dalam sebuah seri tertentu. Untuk mengatur opsi penanda diagram, ikuti langkah-langkah berikut:
+Penanda dapat diatur pada titik data diagram dalam suatu seri tertentu. Untuk mengatur opsi penanda diagram, ikuti langkah-langkah di bawah ini:
 
-- Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+- Instansiasi [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) class.
 - Membuat diagram default.
-- Atur gambar.
+- Mengatur gambar.
 - Ambil seri diagram pertama.
 - Tambahkan titik data baru.
-- Tulis presentasi ke disk.
+- Tuliskan presentasi ke disk.
 
-Pada contoh di bawah, kami telah mengatur opsi penanda diagram pada tingkat titik data.
+Pada contoh di bawah ini, kami telah mengatur opsi penanda diagram pada tingkat titik data.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetMarkerOptions-SetMarkerOptions.cpp" >}}
 
 ## **Set Penanda Diagram pada Tingkat Titik Data Seri**
-Sekarang, penanda dapat diatur pada titik data diagram dalam sebuah seri tertentu. Untuk mengatur opsi penanda diagram, ikuti langkah-langkah berikut:
+Sekarang, penanda dapat diatur pada titik data diagram dalam suatu seri tertentu. Untuk mengatur opsi penanda diagram, ikuti langkah-langkah di bawah ini:
 
-- Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+- Instansiasi Presentation class.
 - Membuat diagram default.
-- Atur gambar.
+- Mengatur gambar.
 - Ambil seri diagram pertama.
 - Tambahkan titik data baru.
-- Tulis presentasi ke disk.
+- Tuliskan presentasi ke disk.
 
-Pada contoh di bawah, kami telah mengatur opsi penanda diagram pada tingkat titik data.
+Pada contoh di bawah ini, kami telah mengatur opsi penanda diagram pada tingkat titik data.
 
 ```cpp
 const String outPath = u"../out/SetMarkerOptionsonSeries_out.pptx";
 const String ImagePath = u"../templates/Tulips.jpg";
 const String ImagePath2 = u"../templates/aspose - logo.jpg";
+
 //Instansiasi kelas Presentation yang mewakili file PPTX
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
@@ -66,7 +67,7 @@ SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 // Tambahkan diagram dengan data default
 SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::LineWithMarkers, 0, 0, 500, 500);
 
-// Mengatur indeks lembar data diagram
+// Menetapkan indeks lembar data diagram
 int defaultWorksheetIndex = 0;
 
 // Mendapatkan lembar kerja data diagram
@@ -106,24 +107,24 @@ point = series->get_DataPoints()->AddDataPointForLineSeries(fact->GetCell(defaul
 point->get_Marker()->get_Format()->get_Fill()->set_FillType(FillType::Picture);
 point->get_Marker()->get_Format()->get_Fill()->get_PictureFillFormat()->get_Picture()->set_Image(imgx2);
 
-// Mengubah penanda seri diagram
+// Changing the chart series marker
 series->get_Marker()->set_Size(15);
 
-// Tulis file presentasi ke disk
+// Write the presentation file to disk
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 pres->Dispose();
 ```
 
 ## **Terapkan Warna pada Titik Data**
-Anda dapat menerapkan warna pada titik data dalam diagram menggunakan Aspose.Slides for C++. Kelas **[IChartDataPointLevelsManager](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/)** dan **[IChartDataPointLevel](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapointlevel/)** telah ditambahkan untuk mengakses properti tingkat titik data. Artikel ini menunjukkan cara mengakses dan menerapkan warna pada titik data dalam sebuah diagram.
+Anda dapat menerapkan warna pada titik data dalam diagram menggunakan Aspose.Slides for C++. Kelas [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) dan **[IChartDataPointLevel](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapointlevel/)** telah ditambahkan untuk mengakses properti tingkat titik data. Artikel ini menunjukkan cara mengakses dan menerapkan warna pada titik data dalam diagram.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AddColorToDataPoints-AddColorToDataPoints.cpp" >}}
 
 ## **FAQ**
 
-**Bentuk penanda apa yang tersedia secara default?**
+**Bentuk penanda apa yang tersedia secara bawaan?**
 
-Bentuk standar tersedia (lingkaran, persegi, berlian, segitiga, dll.); daftar tersebut didefinisikan oleh enumerasi [MarkerStyleType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/markerstyletype/). Jika Anda memerlukan bentuk non-standar, gunakan penanda dengan isian gambar untuk meniru visual khusus.
+Bentuk standar tersedia (lingkaran, persegi, belah ketupat, segitiga, dll); daftar tersebut didefinisikan oleh enumerasi [MarkerStyleType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/markerstyletype/) . Jika Anda memerlukan bentuk yang tidak standar, gunakan penanda dengan isian gambar untuk meniru visual kustom.
 
 **Apakah penanda dipertahankan saat mengekspor diagram ke gambar atau SVG?**
 

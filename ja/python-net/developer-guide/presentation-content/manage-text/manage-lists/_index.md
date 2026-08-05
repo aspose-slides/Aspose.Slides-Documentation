@@ -1,46 +1,48 @@
 ---
-title: Python でプレゼンテーションの箇条書きおよび番号付きリストを管理する
-linktitle: リストを管理する
+title: "Pythonでプレゼンテーションの箇条書きおよび番号付きリストを管理する"
+linktitle: "リストの管理"
 type: docs
 weight: 70
 url: /ja/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
-- 箇条書き
-- 箇条書きリスト
-- 番号付きリスト
-- シンボル箇条書き
-- 画像箇条書き
-- カスタム箇条書き
-- 多層リスト
-- 箇条書き作成
-- 箇条書き追加
-- リスト追加
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- Python
-- Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションで箇条書き、画像、多層、番号付きリストを作成および書式設定する方法を学びます。"
+  - "箇条書き"
+  - "箇条書きリスト"
+  - "番号付きリスト"
+  - "記号箇条書き"
+  - "画像箇条書き"
+  - "カスタム箇条書き"
+  - "多層リスト"
+  - "箇条書き作成"
+  - "箇条書き追加"
+  - "リスト追加"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "プレゼンテーション"
+  - "Python"
+  - "Aspose.Slides"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションで、箇条書き、画像箇条書き、多層リスト、番号付きリストを作成および書式設定する方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Python via .NET を使用すると、PowerPoint および OpenDocument プレゼンテーションで箇条書きリストと番号付きリストを作成および書式設定できます。リスト項目は、段落の書式設定を通じて箇条書き設定が制御される段落です。
+Aspose.Slides for Python via .NET を使用すると、PowerPoint および OpenDocument プレゼンテーションで、箇条書きリストや番号付きリストを作成および書式設定できます。リスト項目は、段落形式で箇条書き設定が制御される段落です。
 
-[Paragraph.paragraph_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraph/paragraph_format/) プロパティを使用して段落レベルのリスト設定にアクセスします。主なエントリーポイントは [ParagraphFormat.bullet](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/bullet/) で、[BulletFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/) オブジェクトを返します。このオブジェクトを使用して、箇条書きの種類、シンボル、画像、色、サイズ、番号付スタイル、開始番号を設定できます。
+段落レベルのリスト設定にアクセスするには、[Paragraph.paragraph_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraph/paragraph_format/) プロパティを使用します。メインエントリーポイントは [ParagraphFormat.bullet](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/bullet/) で、[BulletFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/) オブジェクトが返されます。このオブジェクトを使用して、箇条書きの種類、記号、画像、色、サイズ、番号付スタイル、開始番号を設定できます。
 
-この記事では以下を示します。
+本稿では、以下を示します。
 
-- カスタムシンボルで箇条書きリストを作成する方法
-- 画像箇条書きを作成する方法
-- 段落の深さを設定して多層リストを作成する方法
-- 番号付きリストを作成する方法
-- 既存のプレゼンテーションでリスト書式を確認および変更する方法
+- カスタム記号による箇条書きリストの作成
+- 画像箇条書きの作成
+- 段落の深さを設定して多層リストを作成
+- 番号付きリストの作成
+- 既存のプレゼンテーションでリスト書式を検査・変更
 
 ## **箇条書きリストの作成**
 
 箇条書きリストを作成するには、[Paragraph](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraph/) オブジェクトを [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) に追加し、[BulletFormat.type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/type/) を [BulletType.SYMBOL](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bullettype/) に設定します。その後、[BulletFormat.char](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/char/)、[BulletFormat.color](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/color/)、[BulletFormat.height](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/height/) を設定して箇条書きの外観を制御できます。
 
-次の Python コードは、スライドに箇条書きリストを作成する方法を示しています。
+以下の Python コードは、スライドで箇条書きリストを作成する方法を示しています。
 
 ```py
 import aspose.slides as slides
@@ -76,13 +78,13 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![シンボル箇条書き](symbol_bullets.png)
+![記号の箇条書き](symbol_bullets.png)
 
 ## **番号付きリストの作成**
 
-項目の順序が重要な場合は番号付きリストを使用します。[BulletFormat.type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/type/) を [BulletType.NUMBERED](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bullettype/) に設定します。また、[BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/numbered_bullet_style/) で番号付フォーマットを選択したり、[BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) で 1 以外の開始番号を指定したりできます。
+項目の順序が重要な場合は、番号付きリストを使用します。[BulletFormat.type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/type/) を [BulletType.NUMBERED](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bullettype/) に設定します。また、[BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/numbered_bullet_style/) で番号形式を選択したり、リストの開始番号を 1 以外にしたい場合は [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) を設定できます。
 
-次の Python コードは、スライドに番号付きリストを作成する方法を示しています。
+以下の Python コードは、スライドで番号付きリストを作成する方法を示しています。
 
 ```py
 import aspose.slides as slides
@@ -118,21 +120,21 @@ with slides.Presentation() as presentation:
 
 ## **画像箇条書きの作成**
 
-Aspose.Slides を使用すると、通常の箇条書きシンボルを画像に置き換えることができます。画像箇条書きは、アイコンや小さな透過 PNG ファイルなど、小さなサイズでも読みやすいシンプルな画像で最適に機能します。
+Aspose.Slides では、通常の箇条書き記号を画像に置き換えることができます。画像箇条書きは、小さなサイズでも読みやすいシンプルな画像（アイコンや透明 PNG など）で使用するのが最適です。
 
 {{% alert color="primary" %}}
-理想的には、通常の箇条書きシンボルを画像に置き換える場合、透明な背景を持つシンプルな画像を選択するのが最適です。そのような画像はカスタム箇条書きシンボルとしてうまく機能します。
+画像を箇条書き記号として使用する場合、透明な背景を持つシンプルなグラフィックを選択することを推奨します。このような画像はカスタム箇条書き記号として適しています。
 
-画像は非常に小さいサイズに縮小されることに注意してください。そのため、リストの箇条書きとして使用したときに鮮明で視覚的に効果的な画像を選択することを強く推奨します。
+画像は非常に小さく縮小されるため、リスト内の箇条書きとして使用しても鮮明で視覚的に効果的な画像を選択することを強く推奨します。
 {{% /alert %}}
 
-画像箇条書きを作成するには、[Presentation.images](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/images/) に画像を追加し、返された画像オブジェクトを [BulletFormat.picture](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/picture/) に割り当てます。画像を割り当てる前に、[BulletFormat.type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/type/) を [BulletType.PICTURE](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bullettype/) に設定します。
+画像箇条書きを作成するには、[Presentation.images](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/images/) に画像を追加し、返された画像オブジェクトを [BulletFormat.picture](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/picture/) に割り当てます。画像を割り当てる前に、[BulletFormat.type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bulletformat/type/) を [BulletType.PICTURE](https://reference.aspose.com/slides/ja/python-net/aspose.slides/bullettype/) に設定してください。
 
-たとえば「image.png」があるとします:
+例として「image.png」を使用します:
 
 ![箇条書き用画像](picture_for_bullets.png)
 
-次の Python コードは、スライドに画像箇条書きを作成する方法を示しています。
+以下の Python コードは、スライドで画像箇条書きを作成する方法を示しています。
 
 ```py
 import aspose.slides as slides
@@ -170,11 +172,11 @@ with slides.Presentation() as presentation:
 
 ![画像箇条書き](picture_bullets.png)
 
-## **マルチレベルリストの作成**
+## **多層リストの作成**
 
-[ParagraphFormat.depth](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/depth/) を使用して、リスト項目を異なるレベルに配置します。レベル 0 が最上位、レベル 1 はその下にネストされ、というように続きます。
+[ParagraphFormat.depth](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/depth/) を使用して、リスト項目を異なるレベルに配置します。レベル 0 が最上位レベル、レベル 1 がその下位にネストされるというように階層化されます。
 
-次の Python コードは、マルチレベルの箇条書きリストを作成する方法を示しています。
+以下の Python コードは、多層箇条書きリストを作成する方法を示しています。
 
 ```py
 import aspose.slides as slides
@@ -211,13 +213,13 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![マルチレベルリスト](multilevel_list.png)
+![多層リスト](multilevel_list.png)
 
 ## **既存リストの変更**
 
 既存のプレゼンテーションでリスト書式を変更するには、対象の段落にアクセスし、[ParagraphFormat.bullet](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/bullet/) 設定を更新します。リスト作成時に使用したプロパティは、PPT、PPTX、ODP ファイルから読み込んだリストを検査または変更する際にも使用できます。
 
-次の Python コードは、テキストフレーム内の最初の段落を番号付きリストスタイルに変更します。
+以下の Python コードは、テキストフレーム内の最初の段落を番号付きリストスタイルに変更します。
 
 ```py
 import aspose.slides as slides
@@ -236,16 +238,16 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("updated_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **よくある質問**
+## **FAQ**
 
-**箇条書きおよび番号付きリストは PDF や画像にエクスポートできますか？**
+**箇条書きと番号付きリストは PDF や画像にエクスポートできますか？**
 
-はい。Aspose.Slides は、対象フォーマットが対応するテキストレイアウトと箇条書き機能をサポートしている場合、リスト書式を保持します。
+はい。Aspose.Slides は、対象フォーマットが対応するテキストレイアウトと箇条書き機能をサポートしている場合、リストの書式を保持します。
 
 **既存のプレゼンテーションでリストを編集できますか？**
 
-はい。プレゼンテーションを読み込み、対象の段落にアクセスし、[ParagraphFormat.bullet](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/bullet/) 設定を検査または更新し、プレゼンテーションを保存します。
+はい。プレゼンテーションをロードし、対象の段落にアクセスして、[ParagraphFormat.bullet](https://reference.aspose.com/slides/ja/python-net/aspose.slides/paragraphformat/bullet/) 設定を検査または更新し、プレゼンテーションを保存します。
 
-**リストに非ラテン文字を含めることはできますか？**
+**リストにラテン文字以外のテキストを含められますか？**
 
 はい。リスト項目のテキストは Unicode 文字を含めることができるため、多言語プレゼンテーションでリストを作成できます。使用するフォントが必要な文字をサポートしていることを確認してください。

@@ -1,9 +1,11 @@
 ---
-title: Converteer PowerPoint-presentaties in PHP | HTML, PNG, PDF, Word, TIFF
-linktitle: Converteer PowerPoint
+title: PowerPoint-presentaties converteren in PHP | HTML, PNG, PDF, Word, TIFF
+linktitle: PowerPoint converteren
 type: docs
 weight: 20
 url: /nl/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
 - PowerPoint converteren
 - presentatie converteren
@@ -17,5 +19,5 @@ keywords:
 - PPTX exporteren
 - PHP
 - Aspose.Slides
-description: "Converteer PowerPoint-presentaties naar andere formaten met Aspose.Slides for PHP via Java. Snelle, nauwkeurige en naadloze conversie van PPT en PPTX."
+description: "PowerPoint-presentaties converteren naar andere formaten met Aspose.Slides voor PHP via Java. Snelle, nauwkeurige en naadloze conversie van PPT en PPTX."
 ---

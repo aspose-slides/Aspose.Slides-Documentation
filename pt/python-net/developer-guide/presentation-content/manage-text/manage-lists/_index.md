@@ -1,14 +1,16 @@
 ---
-title: Gerenciar Listas com Marcadores e Numeradas em Apresentações em Python
-linktitle: Gerenciar Listas
+title: Gerenciar listas com marcadores e numeradas em apresentações em Python
+linktitle: Gerenciar listas
 type: docs
 weight: 70
 url: /pt/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - marcador
 - lista com marcadores
 - lista numerada
-- marcador de símbolo
+- marcador símbolo
 - marcador de imagem
 - marcador personalizado
 - lista multinível
@@ -20,13 +22,13 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aprenda como criar e formatar listas com marcadores, imagem, multiníveis e numeradas em apresentações PowerPoint e OpenDocument usando Aspose.Slides para Python via .NET."
+description: "Aprenda a criar e formatar listas com marcadores, de imagem, multiníveis e numeradas em apresentações PowerPoint e OpenDocument usando Aspose.Slides for Python via .NET."
 ---
 ## **Visão geral**
 
-Aspose.Slides para Python via .NET permite criar e formatar listas com marcadores e numeradas em apresentações PowerPoint e OpenDocument. Um item de lista é um parágrafo cujas configurações de marcador são controladas por meio do seu formato de parágrafo.
+Aspose.Slides for Python via .NET permite criar e formatar listas com marcadores e numeradas em apresentações PowerPoint e OpenDocument. Um item de lista é um parágrafo cujas configurações de marcador são controladas por meio do seu formato de parágrafo.
 
-Use a propriedade [Paragraph.paragraph_format](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraph/paragraph_format/) para acessar as configurações de listas no nível de parágrafo. O ponto de entrada principal é [ParagraphFormat.bullet](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/bullet/), que devolve um objeto [BulletFormat](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/). Com esse objeto, você pode definir o tipo de marcador, símbolo, imagem, cor, tamanho, estilo de numeração e número inicial.
+Use a propriedade [Paragraph.paragraph_format](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraph/paragraph_format/) para acessar as configurações de lista no nível do parágrafo. O ponto de entrada principal é [ParagraphFormat.bullet](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/bullet/), que devolve um objeto [BulletFormat](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/). Com esse objeto, você pode definir o tipo de marcador, símbolo, imagem, cor, tamanho, estilo de numeração e número inicial.
 
 Este artigo mostra como:
 
@@ -34,7 +36,7 @@ Este artigo mostra como:
 - criar um marcador de imagem
 - criar uma lista multinível definindo a profundidade do parágrafo
 - criar uma lista numerada
-- inspecionar e alterar a formatação de lista em uma apresentação existente
+- inspecionar e alterar a formatação da lista em uma apresentação existente
 
 ## **Criar uma lista com marcadores**
 
@@ -76,11 +78,11 @@ with slides.Presentation() as presentation:
 
 O resultado:
 
-![Os marcadores de símbolo](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
 ## **Criar uma lista numerada**
 
-Use listas numeradas quando a ordem dos itens for importante. Defina [BulletFormat.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/type/) como [BulletType.NUMBERED](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bullettype/). Você também pode escolher um formato de numeração com [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/numbered_bullet_style/) ou definir [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) quando a lista deve começar a partir de um valor diferente de 1.
+Use listas numeradas quando a ordem dos itens for importante. Defina [BulletFormat.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/type/) como [BulletType.NUMBERED](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bullettype/). Você também pode escolher um formato de numeração com [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/numbered_bullet_style/) ou definir [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) quando a lista deve iniciar a partir de um valor diferente de 1.
 
 O código Python a seguir mostra como criar uma lista numerada em um slide:
 
@@ -114,23 +116,23 @@ with slides.Presentation() as presentation:
 
 O resultado:
 
-![Os marcadores numerados](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
 ## **Criar um marcador de imagem**
 
-Aspose.Slides permite substituir um símbolo de marcador padrão por uma imagem. Marcadores de imagem funcionam melhor com imagens simples que permanecem legíveis em tamanho pequeno, como ícones ou pequenos arquivos PNG transparentes.
+Aspose.Slides permite substituir um símbolo de marcador padrão por uma imagem. Marcadores de imagem funcionam melhor com imagens simples que permanecem legíveis em tamanho pequeno, como ícones ou arquivos PNG transparentes pequenos.
 
 {{% alert color="primary" %}}
-Idealmente, se você pretende substituir o símbolo de marcador padrão por uma imagem, o melhor é escolher um gráfico simples com fundo transparente. Essas imagens funcionam bem como símbolos de marcador personalizados.
+Idealmente, se você pretende substituir o símbolo de marcador padrão por uma imagem, é melhor escolher um gráfico simples com fundo transparente. Essas imagens funcionam bem como símbolos de marcador personalizados.
 
-Lembre-se de que a imagem será reduzida a um tamanho muito pequeno. Por esse motivo, recomendamos fortemente selecionar uma imagem que permaneça clara e visualmente eficaz quando usada como marcador em uma lista.
+Lembre-se de que a imagem será redimensionada para um tamanho muito pequeno. Por esse motivo, recomendamos enfaticamente selecionar uma imagem que continue clara e visualmente eficaz quando usada como marcador em uma lista.
 {{% /alert %}}
 
 Para criar um marcador de imagem, adicione uma imagem a [Presentation.images](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/images/) e atribua o objeto de imagem retornado a [BulletFormat.picture](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/picture/). Defina [BulletFormat.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bulletformat/type/) como [BulletType.PICTURE](https://reference.aspose.com/slides/pt/python-net/aspose.slides/bullettype/) antes de atribuir a imagem.
 
-Suponha que tenhamos um “image.png”:
+Suponha que temos um "image.png":
 
-![Uma imagem para os marcadores](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
 O código Python a seguir mostra como criar marcadores de imagem em um slide:
 
@@ -168,11 +170,11 @@ with slides.Presentation() as presentation:
 
 O resultado:
 
-![Os marcadores de imagem](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
 ## **Criar uma lista multinível**
 
-Use [ParagraphFormat.depth](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/depth/) para colocar itens de lista em diferentes níveis. O nível 0 é o nível superior, o nível 1 está aninhado abaixo dele e assim sucessivamente.
+Use [ParagraphFormat.depth](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/depth/) para posicionar itens da lista em diferentes níveis. O nível 0 é o nível superior, o nível 1 fica aninhado abaixo dele e assim sucessivamente.
 
 O código Python a seguir mostra como criar uma lista com marcadores multinível:
 
@@ -211,11 +213,11 @@ with slides.Presentation() as presentation:
 
 O resultado:
 
-![A lista multinível](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
 ## **Alterar uma lista existente**
 
-Para alterar a formatação de lista em uma apresentação existente, acesse o parágrafo alvo e atualize suas configurações de [ParagraphFormat.bullet](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/bullet/). As mesmas propriedades usadas para criar listas podem ser usadas para inspecionar ou modificar listas carregadas de um arquivo PPT, PPTX ou ODP.
+Para alterar a formatação da lista em uma apresentação existente, acesse o parágrafo alvo e atualize suas configurações de [ParagraphFormat.bullet](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/bullet/). As mesmas propriedades usadas para criar listas podem ser usadas para inspecionar ou modificar listas carregadas de um arquivo PPT, PPTX ou ODP.
 
 O código Python a seguir altera o primeiro parágrafo em um quadro de texto para usar um estilo de lista numerada:
 
@@ -240,12 +242,12 @@ with slides.Presentation("input.pptx") as presentation:
 
 **É possível exportar listas com marcadores e numeradas para PDF ou imagens?**
 
-Sim. Aspose.Slides preserva a formatação das listas quando o formato de destino suporta o layout de texto e os recursos de marcadores correspondentes.
+Sim. O Aspose.Slides preserva a formatação das listas quando o formato de destino suporta o layout de texto e os recursos de marcador correspondentes.
 
 **Posso editar listas em apresentações existentes?**
 
-Sim. Carregue a apresentação, acesse o parágrafo alvo, inspecione ou atualize suas configurações de [ParagraphFormat.bullet](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/bullet/), e salve a apresentação.
+Sim. Carregue a apresentação, acesse o parágrafo alvo, inspecione ou atualize suas configurações de [ParagraphFormat.bullet](https://reference.aspose.com/slides/pt/python-net/aspose.slides/paragraphformat/bullet/) e salve a apresentação.
 
 **As listas podem conter texto não‑latino?**
 
-Sim. O texto dos itens de lista pode conter caracteres Unicode, permitindo criar listas em apresentações multilíngues. Certifique‑se de que as fontes usadas na apresentação suportem os caracteres necessários.
+Sim. O texto dos itens da lista pode conter caracteres Unicode, portanto você pode criar listas em apresentações multilíngues. Certifique‑se de que as fontes usadas na apresentação suportem os caracteres necessários.

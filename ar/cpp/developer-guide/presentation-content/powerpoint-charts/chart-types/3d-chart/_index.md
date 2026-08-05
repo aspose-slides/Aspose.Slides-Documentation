@@ -11,30 +11,33 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتخصيص المخططات ثلاثية الأبعاد في Aspose.Slides للـ C++، مع دعم ملفات PPT و PPTX—عزّز عروضك التقديمية اليوم."
+description: "تعلم كيفية إنشاء وتخصيص المخططات ثلاثية الأبعاد في Aspose.Slides للغة C++، مع دعم ملفات PPT و PPTX—قم بتحسين عروضك التقديمية اليوم."
 ---
+## **نظرة عامة**
+
+توضح هذه المقالة كيفية تخصيص مخطط ثلاثي الأبعاد في Aspose.Slides عن طريق تكوين إعدادات `Rotation3D` مثل `RotationX` و `RotationY` و `DepthPercents` و `RightAngleAxes`. تستعرض عملية إنشاء عرض تقديمي، إضافة مخطط ثلاثي الأبعاد ببيانات افتراضية، تطبيق إعدادات العرض الثلاثي المطلوبة، وحفظ العرض التقديمي المعدل كملف PPTX.
 
 ## **تعيين خصائص RotationX و RotationY و DepthPercents لمخطط ثلاثي الأبعاد**
-توفر Aspose.Slides للغة C++ واجهة برمجة تطبيقات بسيطة لتعيين هذه الخصائص. سيساعدك المقال التالي على كيفية تعيين خصائص مختلفة مثل دوران X و Y ، **DepthPercents** وغيرها. يطبق الكود النموذجي تعيين الخصائص المذكورة أعلاه.
+توفر Aspose.Slides للغة C++ واجهة برمجة تطبيقات بسيطة لتعيين هذه الخصائص. ستساعدك المقالة التالية في كيفية ضبط خصائص مختلفة مثل دوران X و Y، **DepthPercents** وغيرها. يطبق الشيفرة النموذجية إعداد الخصائص المذكورة أعلاه.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) .
 1. الوصول إلى الشريحة الأولى.
-1. إضافة مخطط بالبيانات الافتراضية.
+1. إضافة مخطط ببيانات افتراضية.
 1. تعيين خصائص Rotation3D.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. حفظ العرض التقديمي المعدل في ملف PPTX.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ManagePropertiesCharts-ManagePropertiesCharts.cpp" >}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما هي أنواع المخططات التي تدعم وضع 3D في Aspose.Slides؟**
+**ما أنواع المخططات التي تدعم وضع 3D في Aspose.Slides؟**
 
-يدعم Aspose.Slides المتغيرات الثلاثية الأبعاد من مخططات الأعمدة، بما في ذلك Column 3D و Clustered Column 3D و Stacked Column 3D و 100% Stacked Column 3D، إلى جانب الأنواع الثلاثية ذات الصلة المعروضة من خلال تعداد [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). للحصول على قائمة دقيقة ومحدثة، تحقق من أعضاء [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) في مرجع واجهة البرمجة للنسخة المثبتة لديك.
+يدعم Aspose.Slides إصدارات ثلاثية الأبعاد من مخططات الأعمدة، بما في ذلك Column 3D و Clustered Column 3D و Stacked Column 3D و 100% Stacked Column 3D، بالإضافة إلى الأنواع الثلاثية ذات الصلة التي يتم كشفها عبر تعداد [ChartType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/charttype/). للحصول على قائمة دقيقة ومحدثة، راجع أعضاء [ChartType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/charttype/) في مرجع API للإصدار المثبت لديك.
 
-**هل يمكنني الحصول على صورة نقطية لمخطط ثلاثي الأبعاد لتقرير أو للويب؟**
+**هل يمكن الحصول على صورة نقطية لمخطط ثلاثي الأبعاد لتقرير أو للويب؟**
 
-نعم. يمكنك تصدير المخطط إلى صورة عبر [chart API](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) أو [render the entire slide](/slides/ar/cpp/convert-powerpoint-to-png/) إلى صيغ مثل PNG أو JPEG. هذا مفيد عندما تحتاج إلى معاينة دقيقة بالبكسل أو تريد تضمين المخطط في مستندات أو لوحات معلومات أو صفحات ويب دون الحاجة إلى PowerPoint.
+نعم. يمكنك تصدير المخطط إلى صورة عبر [chart API](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shape/getimage/) أو [render the entire slide](/slides/ar/cpp/convert-powerpoint-to-png/) إلى صيغ مثل PNG أو JPEG. هذا مفيد عندما تحتاج إلى معاينة دقيقة بالبكسل أو ترغب في دمج المخطط في مستندات، لوحات معلومات، أو صفحات ويب دون الحاجة إلى PowerPoint.
 
-**ما مدى كفاءة بناء وعرض المخططات الثلاثية الأبعاد الكبيرة؟**
+**ما مدى كفاءة بناء وعرض المخططات الثلاثية الكبيرة؟**
 
-تعتمد الأداء على حجم البيانات وتعقيد التصور البصري. للحصول على أفضل النتائج، احرص على تقليل تأثيرات 3D إلى الحد الأدنى، وتجنب القوام الثقيلة على الجدران ومنطقة الرسم، وقم بتقليل عدد نقاط البيانات لكل سلسلة عندما يكون ذلك ممكنًا، وقم بالعرض بتحديد حجم إخراج مناسب (الدقة والأبعاد) ليتطابق مع شاشة العرض أو متطلبات الطباعة.
+يعتمد الأداء على حجم البيانات وتعقيد الرسومات. للحصول على أفضل النتائج، احرص على تقليل التأثيرات الثلاثية إلى الحد الأدنى، وتجنب القوام الثقيلة على الجدران ومناطق الرسم، وحدّ عدد نقاط البيانات لكل سلسلة عندما يكون ذلك ممكنًا، وقم بالتصيير إلى مخرج بالحجم المناسب (الدقة والأبعاد) ليتوافق مع شاشة العرض أو متطلبات الطباعة المستهدفة.

@@ -1,6 +1,6 @@
 ---
-title: "Diagram adat táblák testreszabása prezentációkban C++ használatával"
-linktitle: "Adattábla"
+title: Diagram adat táblák testreszabása prezentációkban C++ használatával
+linktitle: Adattábla
 type: docs
 url: /hu/cpp/chart-data-table/
 keywords:
@@ -9,24 +9,24 @@ keywords:
 - betűtípus tulajdonságok
 - PowerPoint
 - prezentáció
-- С++
+- C++
 - Aspose.Slides
-description: "Testreszabja a diagram adat táblákat C++-ban PPT és PPTX esetén az Aspose.Slides segítségével, hogy növelje a hatékonyságot és a prezentációk vonzerejét."
+description: "Testreszabja a diagram adat táblákat C++-ban PPT és PPTX esetén az Aspose.Slides segítségével, hogy növelje a hatékonyságot és a vonzerőt a prezentációkban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet a diagram adat táblákkal dolgozni az Aspose.Slides-ban. Megmutatja, hogyan jeleníthető meg egy diagram adat táblája, és hogyan testreszabható a szöveg formázása betűtípus‑tulajdonságok beállításával, például félkövér stílus és betűmagasság. A példában a bemutató betöltését, a diagram hozzáadását, a diagram adat táblájának engedélyezését, a betűtípus beállítások alkalmazását és a módosított bemutató mentését demonstrálja.
+Ez a cikk bemutatja, hogyan dolgozhat a diagram adat táblákkal az Aspose.Slides-ban. Megmutatja, hogyan jeleníthet meg egy adat táblát egy diagramhoz, és hogyan testreszabhatja a szöveg formázását a betűtípus tulajdonságok, például a félkövér stílus és a betűmagasság beállításával. A példa bemutatja egy bemutató betöltését, egy diagram hozzáadását, a diagram adat táblájának engedélyezését, a betűtípus beállítások alkalmazását, és a frissített bemutató mentését.
 
-## **Betűtípus‑tulajdonságok beállítása diagram adat táblához**
-Aspose.Slides for C++ lehetővé teszi a betűtípus‑tulajdonságok módosítását egy diagram adat táblájában.  
+## **Betűtípus tulajdonságok beállítása diagram adat táblához**
+Az Aspose.Slides for C++ lehetővé teszi a diagram adat táblájának betűtípus tulajdonságainak módosítását.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztálypéldányt.  
-1. Adjon egy diagramot a diára.  
-1. Állítsa be a diagram tábláját.  
-1. Állítsa be a betűmagasságot.  
-1. Mentse el a módosított bemutatót.  
+1. Példányosítsa a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztály objektumát.
+1. Adjon hozzá egy diagramot a diára.
+1. Állítsa be a diagram táblát.
+1. Állítsa be a betűmagasságot.
+1. Mentse el a módosított bemutatót.
 
-Az alábbi minta példa látható.  
+Az alábbi példa példát mutatja.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -43,18 +43,18 @@ pres->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **GYIK**
 
-**Megjeleníthetek kis jelmagyarázat‑kulcsokat a diagram adat táblájában lévő értékek mellett?**
+**Megjeleníthetek kis jelmagyarázat kulcsokat a diagram adat táblájában lévő értékek mellett?**
 
-Igen. Az adat tábla támogatja a [legend keys](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/datatable/set_showlegendkey/) funkciót, és be‑ vagy kikapcsolható.
+Igen. Az adat tábla támogatja a [legend keys](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/datatable/set_showlegendkey/) funkciót, és be- vagy kikapcsolható.
 
-**Megmarad az adat tábla, ha a bemutatót PDF‑re, HTML‑re vagy képekre exportáljuk?**
+**Megmarad az adat tábla a bemutató PDF, HTML vagy képek formátumba exportálásakor?**
 
-Igen. Az Aspose.Slides a diagramot a dia részeként rendereli, ezért az exportált [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/hu/cpp/convert-powerpoint-to-html/)/[image](/slides/hu/cpp/convert-powerpoint-to-png/) tartalmazza a diagramot a hozzá tartozó adat táblával.
+Igen. Az Aspose.Slides a diagramot a dia részeként rendereli, így a exportált [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/)/[HTML](/slides/hu/cpp/convert-powerpoint-to-html/)/[image](/slides/hu/cpp/convert-powerpoint-to-png/) tartalmazza a diagramot a hozzá tartozó adat táblával.
 
-**Támogatottak az adat táblák a sablonfájlból származó diagramok esetén?**
+**Támogatottak az adat táblák olyan diagramoknál, amelyek sablonfájlból származnak?**
 
-Igen. Bármely, meglévő bemutatóból vagy sablonból betöltött diagram esetén a diagram tulajdonságainak segítségével ellenőrizhető és módosítható, hogy az adat tábla [látható-e](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/set_hasdatatable/).
+Igen. Bármely, meglévő bemutatóból vagy sablonból betöltött diagram esetén ellenőrizhető és módosítható, hogy az adat tábla [látható-e](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/set_hasdatatable/) a diagram tulajdonságainak használatával.
 
-**Hogyan találhatom meg gyorsan, mely diagramokban van engedélyezve az adat tábla?**
+**Hogyan találhatom meg gyorsan, mely diagramokban van engedélyezve az adat tábla egy fájlban?**
 
-Vizsgálja meg minden diagram azon tulajdonságát, amely jelzi, hogy az adat tábla [látható‑e](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/get_hasdatatable/), és iteráljon a diákon, hogy azonosítsa azokat a diagramokat, ahol engedélyezve van.
+Vizsgálja meg minden diagram olyan tulajdonságát, amely jelzi, hogy az adat tábla [látható-e](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/get_hasdatatable/), és járja végig a diákat, hogy azonosítsa azokat a diagramokat, ahol engedélyezve van.

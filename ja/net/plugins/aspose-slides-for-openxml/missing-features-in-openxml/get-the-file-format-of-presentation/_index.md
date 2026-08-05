@@ -3,8 +3,9 @@ title: プレゼンテーションのファイル形式を取得する
 type: docs
 weight: 50
 url: /ja/net/get-the-file-format-of-presentation/
+aliases:
+  - /net/presentation-format/
 ---
-
 ファイル形式を取得するには、以下の手順に従ってください。
 
 - **IPresentationInfo** クラスのインスタンスを作成する

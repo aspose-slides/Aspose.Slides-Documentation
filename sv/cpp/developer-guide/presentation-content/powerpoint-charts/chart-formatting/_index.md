@@ -1,5 +1,5 @@
 ---
-title: Formatera diagram i presentationer i C++
+title: Formatera presentationsdiagram i C++
 linktitle: Diagramformatering
 type: docs
 weight: 60
@@ -17,55 +17,53 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig diagramformatering i Aspose.Slides för C++ och förbättra din PowerPoint-presentation med professionell, iögonfallande stil."
+description: "Lär dig diagramformatering i Aspose.Slides för C++ och höj din PowerPoint-presentation med professionell, iögonfallande stil."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du formaterar diagram i PowerPoint‑presentationer med hjälp av Aspose.Slides. Den visar hur du anpassar viktiga diagramdelar såsom axlar, rutnät, titlar, förklaringar, diagramområdet och väggfyllningar för att förbättra diagrammets utseende och läsbarhet.
+Den här artikeln förklarar hur man formaterar diagram i PowerPoint‑presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramdelar såsom axlar, rutnätslinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra utseendet och läsbarheten av diagramdata. Den demonstrerar också hur man anger teckenegenskaper för diagramtext, använder förinställda och anpassade numeriska format för diagramdata samt aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datapresentationen för diagram i en presentation.
 
-Den demonstrerar också hur du anger teckensnittsegenskaper för diagramtext, tillämpar förinställda och anpassade numeriska format på diagramdata samt aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du kontrollerar både den visuella stilen och datarepresentationen för diagram i en presentation.
+## **Formatera diagramobjekt**
+Aspose.Slides för C++ låter utvecklare lägga till anpassade diagram i sina bilder från grunden. Den här artikeln förklarar hur man formaterar olika diagramobjekt inklusive diagramkategori‑ och värdeaxel.
 
-## **Formatera diagram‑entiteter**
-Aspose.Slides för C++ låter utvecklare lägga till egna diagram på sina bilder från grunden. Den här artikeln förklarar hur du formaterar olika diagram‑entiteter inklusive diagram‑kategorisk axel och värdeaxel.
-
-Aspose.Slides för C++ tillhandahåller ett enkelt API för att hantera olika diagram‑entiteter och formatera dem med egna värden:
+Aspose.Slides för C++ erbjuder ett enkelt API för att hantera olika diagramobjekt och formatera dem med anpassade värden:
 
 1. Skapa en instans av **Presentation**‑klassen.
 1. Hämta en bilds referens via dess index.
-1. Lägg till ett diagram med standarddata tillsammans med någon av de önskade typerna (i detta exempel använder vi ChartType.LineWithMarkers).
-1. Åtkomst till diagrammets Value Axis och ange följande egenskaper:
-   1. Ange **Line format** för Value Axis Major Grid lines
-   1. Ange **Line format** för Value Axis Minor Grid lines
-   1. Ange **Number Format** för Value Axis
-   1. Ange **Min, Max, Major and Minor units** för Value Axis
-   1. Ange **Text Properties** för Value Axis‑data
-   1. Ange **Title** för Value Axis
-   1. Ange **Line Format** för Value Axis
-1. Åtkomst till diagrammets Category Axis och ange följande egenskaper:
-   1. Ange **Line format** för Category Axis Major Grid lines
-   1. Ange **Line format** för Category Axis Minor Grid lines
-   1. Ange **Text Properties** för Category Axis‑data
-   1. Ange **Title** för Category Axis
-   1. Ange **Label Positioning** för Category Axis
-   1. Ange **Rotation Angle** för Category Axis‑etiketter
-1. Åtkomst till diagrammets Legend och ange **Text Properties** för dem
-1. Ställ in visning av diagram‑legender utan att de överlappar diagrammet
-1. Åtkomst till diagrammets **Secondary Value Axis** och ange följande egenskaper:
+1. Lägg till ett diagram med standarddata av någon av de önskade typerna (i detta exempel använder vi ChartType.LineWithMarkers).
+1. Åtkomst till diagrammets värdeaxel och ställ in följande egenskaper:
+   1. Ställ in **Line format** för värdeaxelns stora rutnätslinjer
+   1. Ställ in **Line format** för värdeaxelns små rutnätslinjer
+   1. Ställ in **Number Format** för värdeaxeln
+   1. Ställ in **Min, Max, Major and Minor units** för värdeaxeln
+   1. Ställ in **Text Properties** för värdeaxelns data
+   1. Ställ in **Title** för värdeaxeln
+   1. Ställ in **Line Format** för värdeaxeln
+1. Åtkomst till diagrammets kategoriaxel och ställ in följande egenskaper:
+   1. Ställ in **Line format** för kategoriaxelns stora rutnätslinjer
+   1. Ställ in **Line format** för kategoriaxelns små rutnätslinjer
+   1. Ställ in **Text Properties** för kategoriaxelns data
+   1. Ställ in **Title** för kategoriaxeln
+   1. Ställ in **Label Positioning** för kategoriaxeln
+   1. Ställ in **Rotation Angle** för kategoriaxelns etiketter
+1. Åtkomst till diagrammets förklaring och ställ in **Text Properties** för dem
+1. Ställ in att visa diagramförklaringar utan att de överlappar diagrammet
+1. Åtkomst till diagrammets **Secondary Value Axis** och ställ in följande egenskaper:
    1. Aktivera den sekundära **Value Axis**
-   1. Ange **Line Format** för Secondary Value Axis
-   1. Ange **Number Format** för Secondary Value Axis
-   1. Ange **Min, Max, Major and Minor units** för Secondary Value Axis
-1. Plotta nu den första diagramserien på Secondary Value Axis
-1. Ange bakväggens fyllningsfärg för diagrammet
-1. Ange diagrammets plot‑områdes fyllningsfärg
+   1. Ställ in **Line Format** för den sekundära värdeaxeln
+   1. Ställ in **Number Format** för den sekundära värdeaxeln
+   1. Ställ in **Min, Max, Major and Minor units** för den sekundära värdeaxeln
+1. Plotta nu den första diagramserien på den sekundära värdeaxeln
+1. Ställ in diagrammets bakre vägg till fyllnadsfärg
+1. Ställ in diagrammets plotområde fyllningsfärg
 1. Skriv den modifierade presentationen till en PPTX‑fil
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChartEntities-ChartEntities.cpp" >}}
 
-## **Ange teckensnittsegenskaper för ett diagram**
-Aspose.Slides för C++ stödjer att ange teckensnittsrelaterade egenskaper för diagrammet. Följ stegen nedan för att ange teckensnittsegenskaper för diagrammet.
+## **Ställ in teckensnittsegenskaper för ett diagram**
+Aspose.Slides för C++ erbjuder stöd för att ange teckenrelaterade egenskaper för diagrammet. Följ stegen nedan för att ställa in teckensnittsegenskaper för diagrammet.
 
-- Skapa ett **Presentation**‑objekt.
+- Instansiera **Presentation**‑klassobjektet.
 - Lägg till diagram på bilden.
 - Ange teckenhöjd.
 - Spara den modifierade presentationen.
@@ -74,12 +72,12 @@ Nedan följer ett exempel.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-FontPropertiesForChart-FontPropertiesForChart.cpp" >}}
 
-## **Ange teckensnittsegenskaper för ett diagram‑datatabell**
-Aspose.Slides för C++ stödjer att ändra färg på kategorier i en seriefärg.
+## **Ställ in teckensnittsegenskaper för en diagramdatatabell**
+Aspose.Slides för C++ erbjuder stöd för att ändra färg på kategorier i en seriefärg.
 
-1. Skapa ett **Presentation**‑objekt.
+1. Instansiera **Presentation**‑klassobjektet.
 1. Lägg till diagram på bilden.
-1. Ange diagramtabell.
+1. Ställ in diagramtabell.
 1. Ange teckenhöjd.
 1. Spara den modifierade presentationen.
 
@@ -87,35 +85,35 @@ Nedan följer ett exempel.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingFontPropertiesForChartDataTable-SettingFontPropertiesForChartDataTable.cpp" >}}
 
-## **Ange rundade kanter för diagramområdet**
-Aspose.Slides för C++ stödjer att ange diagramområde. **IChart.HasRoundedCorners** och **Chart.HasRoundedCorners**‑egenskaper har lagts till i Aspose.Slides.
+## **Ställ in rundade kanter för diagramområdet**
+Aspose.Slides för C++ erbjuder stöd för att ställa in diagramområdet. Egenskaperna **IChart.HasRoundedCorners** och **Chart.HasRoundedCorners** har lagts till i Aspose.Slides.
 
-1. Skapa ett **Presentation**‑objekt.
+1. Instansiera **Presentation**‑klassobjektet.
 1. Lägg till diagram på bilden.
 1. Ange fyllningstyp och fyllningsfärg för diagrammet
-1. Sätt egenskapen för rundade hörn till True.
+1. Ställ in egenskapen för rundade hörn till True.
 1. Spara den modifierade presentationen.
 
 Nedan följer ett exempel.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingChartAreaRoundedBorders-SettingChartAreaRoundedBorders.cpp" >}}
 
-## **Ange numeriskt format**
-Aspose.Slides för C++ erbjuder ett enkelt API för att hantera diagramdatas format:
+## **Ställ in numeriskt format**
+Aspose.Slides för C++ erbjuder ett enkelt API för att hantera diagramdatans format:
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/)‑klassen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) .
 1. Hämta en bilds referens via dess index.
-1. Lägg till ett diagram med standarddata tillsammans med någon av de önskade typerna (detta exempel använder **ChartType.ClusteredColumn**).
-1. Ställ in förinställt talformat från de möjliga förinställda värdena.
-1. Gå igenom diagramdatacellerna i varje diagramserie och ange diagramdatas talformat.
+1. Lägg till ett diagram med standarddata av någon av de önskade typerna (i detta exempel används **ChartType.ClusteredColumn**).
+1. Ställ in det förinställda nummerformatet från de möjliga förinställningarna.
+1. Gå igenom diagramdatacellerna i varje diagramserie och ange diagramdatans nummerformat.
 1. Spara presentationen.
-1. Ställ in anpassat talformat.
-1. Gå igenom diagramdatacellerna i varje diagramserie och ange ett annat talformat.
+1. Ange ett anpassat nummerformat.
+1. Gå igenom diagramdatacellerna i varje diagramserie och ange ett annat nummerformat för diagramdata.
 1. Spara presentationen.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-NumberFormat-NumberFormat.cpp" >}}
 
-| |**De möjliga förinställda talformatvärdena tillsammans med deras index som kan användas visas nedan:**|
+| |**De möjliga förinställda nummerformatvärdena och deras index som kan användas ges nedan:**|
 | :- | :- |
 |**0**|General|
 |**1**|0|
@@ -158,14 +156,14 @@ Aspose.Slides för C++ erbjuder ett enkelt API för att hantera diagramdatas for
 
 ## **Vanliga frågor**
 
-**Kan jag ange halvtransparent fyllning för kolumner/områden samtidigt som kanten förblir opak?**
+**Kan jag ange halvtransparent fyllning för kolumner/områden samtidigt som kanten förblir ogenomskinlig?**
 
 Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
 
-**Hur kan jag hantera dataetiketter när de överlappar?**
+**Hur kan jag hantera datamärkningar när de överlappar?**
 
-Minska teckenstorleken, inaktivera icke‑nödvändiga etikettkomponenter (t.ex. kategorier), justera etikettens förskjutning/position, visa etiketter endast för utvalda punkter om det behövs, eller byt format till ”värde + förklaring”.
+Minska teckenstorleken, inaktivera icke‑nödvändiga märkningselement (t.ex. kategorier), justera märkningens offset/position, visa märkningar endast för utvalda punkter om nödvändigt, eller byt formatet till "värde + förklaring".
 
 **Kan jag applicera gradient‑ eller mönsterfyllningar på serier?**
 
-Ja. Både solida och gradient‑/mönsterfyllningar är vanligtvis tillgängliga. I praktiken bör du använda gradienter sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.
+Ja. Både solida och gradient‑/mönsterfyllningar är vanligtvis tillgängliga. I praktiken bör gradienter användas sparsamt och man bör undvika kombinationer som minskar kontrasten mot rutnätet och texten.

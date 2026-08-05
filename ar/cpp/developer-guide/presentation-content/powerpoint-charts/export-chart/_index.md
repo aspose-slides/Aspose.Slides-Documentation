@@ -1,5 +1,5 @@
 ---
-title: تصدير مخططات العرض التقديمي في C++
+title: تصدير مخططات العرض التقديمي بـ C++
 linktitle: تصدير المخطط
 type: docs
 weight: 90
@@ -13,11 +13,15 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعرف على كيفية تصدير مخططات العروض التقديمية باستخدام Aspose.Slides للـ C++، مع دعم صيغ PPT و PPTX، وتبسيط إعداد التقارير في أي سير عمل."
+description: "تعرف على كيفية تصدير مخططات العرض التقديمي باستخدام Aspose.Slides للغة C++، مع دعم صيغ PPT و PPTX، وتبسيط إعداد التقارير في أي سير عمل."
 ---
+## **نظرة عامة**
 
-## **احصل على صورة مخطط**
-توفر Aspose.Slides لـ C++ دعمًا لاستخراج صورة مخطط معين. فيما يلي مثال توضيحي.  
+تتيح لك Aspose.Slides تصدير مخطط من عرض تقديمي كصورة. يوضح هذا المقال كيفية الحصول على صورة من مخطط وحفظها، وهو مفيد عندما تحتاج إلى إعادة استخدام مرئيات المخطط خارج عرض PowerPoint.
+
+## **الحصول على صورة مخطط**
+توفر Aspose.Slides للغة C++ دعم استخراج صورة لمخطط محدد. المثال التالي موضح أدناه.
+
 ```cpp
 auto presentation = MakeObject<Presentation>(u"test.pptx");
 
@@ -31,25 +35,24 @@ image->Dispose();
 presentation->Dispose();
 ```
 
+## **التعليمات المتكررة**
 
-## **الأسئلة المتكررة**
+**هل يمكنني تصدير المخطط كمتجه (SVG) بدلاً من صورة نقطية؟**
 
-**هل يمكنني تصدير المخطط كناقل (SVG) بدلاً من صورة نقطية؟**
+نعم. المخطط هو شكل، ويمكن حفظ محتوياته كملف SVG باستخدام [طريقة حفظ الشكل إلى SVG](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shape/writeassvg/).
 
-نعم. المخطط هو شكل، ويمكن حفظ محتوياته كملف SVG باستخدام [طريقة حفظ الشكل إلى SVG](https://reference.aspose.com/slides/cpp/aspose.slides/shape/writeassvg/).
+**كيف يمكنني ضبط الحجم الدقيق للمخطط المُصدَّر بالبكسل؟**
 
-**كيف يمكنني تحديد الحجم الدقيق للمخطط المصدّر بالبكسل؟**
+استخدم إصدارات الدالة التي تسمح بتحديد الحجم أو المقياس—المكتبة تدعم عرض الكائنات بأبعاد/مقاييس محددة.
 
-استخدم وظائف التحميل الزائدة لتصوير الصورة التي تسمح بتحديد الحجم أو المقياس — يدعم المكتبة تصوير الكائنات بالأبعاد أو المقياس المحدد.
+**ماذا أفعل إذا ظهرت الخطوط في التسميات والوسيلة التوضيحية بشكل غير صحيح بعد التصدير؟**
 
-**ماذا أفعل إذا ظهرت الخطوط في التسميات والوسيلة الإيضاحية بشكل غير صحيح بعد التصدير؟**
+[تحميل الخطوط المطلوبة](/slides/ar/cpp/custom-font/) عبر [FontsLoader](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fontsloader/) حتى يحافظ عرض المخطط على المقاييس ومظهر النص.
 
-[حمّل الخطوط المطلوبة](/slides/ar/cpp/custom-font/) عبر [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) حتى يحتفظ تصوير المخطط بالمقاييس ومظهر النص.
+**هل يحترم التصدير موضوع PowerPoint والأنماط والتأثيرات؟**
 
-**هل يحترم التصدير سمة PowerPoint والأنماط والتأثيرات؟**
+نعم. يتبع عارض Aspose.Slides تنسيق العرض (المواضيع، الأنماط، التعبئات، التأثيرات)، وبالتالي يتم الحفاظ على مظهر المخطط.
 
-نعم. يتبع عارض Aspose.Slides تنسيق العرض التقديمي (السمات، الأنماط، التعبئة، التأثيرات)، وبالتالي يتم الحفاظ على مظهر المخطط.
+**أين يمكنني العثور على قدرات العرض/التصدير المتاحة بخلاف صور المخطط؟**
 
-**أين يمكنني العثور على إمكانيات التصوير/التصدير المتاحة بخلاف صور المخططات؟**
-
-انظر قسم التصدير في [API](https://reference.aspose.com/slides/cpp/aspose.slides.export/)/[الوثائق](/slides/ar/cpp/convert-powerpoint/) للحصول على أهداف الإخراج ([PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/)، [SVG](/slides/ar/cpp/render-a-slide-as-an-svg-image/)، [XPS](/slides/ar/cpp/convert-powerpoint-to-xps/)، [HTML](/slides/ar/cpp/convert-powerpoint-to-html/)، إلخ) وخيارات التصوير ذات الصلة.
+انظر قسم التصدير في [API](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/)/[documentation](/slides/ar/cpp/convert-powerpoint/) لأهداف الإخراج ([PDF](/slides/ar/cpp/convert-powerpoint-to-pdf/)، [SVG](/slides/ar/cpp/render-a-slide-as-an-svg-image/)، [XPS](/slides/ar/cpp/convert-powerpoint-to-xps/)، [HTML](/slides/ar/cpp/convert-powerpoint-to-html/)، إلخ) وخيارات العرض ذات الصلة.

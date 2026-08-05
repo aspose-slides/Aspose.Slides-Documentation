@@ -1,15 +1,15 @@
 ---
-title: Personnaliser les axes des graphiques dans les présentations en C++
+title: Personnaliser les axes de graphique dans les présentations avec C++
 linktitle: Axe du graphique
 type: docs
 url: /fr/cpp/chart-axis/
 keywords:
-- axe du graphique
+- axe de graphique
 - axe vertical
 - axe horizontal
-- personnaliser l'axe
-- manipuler l'axe
-- gérer l'axe
+- personnaliser axe
+- manipuler axe
+- gérer axe
 - propriétés de l'axe
 - valeur maximale
 - valeur minimale
@@ -23,21 +23,25 @@ keywords:
 - Aspose.Slides
 description: "Découvrez comment utiliser Aspose.Slides pour C++ afin de personnaliser les axes de graphique dans les présentations PowerPoint pour les rapports et les visualisations."
 ---
+## **Vue d'ensemble**
+
+Cet article explique comment personnaliser les axes de graphique dans Aspose.Slides. Il montre comment obtenir les valeurs réelles des axes, permuter les données entre les axes, masquer l'axe vertical ou horizontal pour les graphiques en lignes, changer le type d'axe de catégorie, définir le format de date pour les valeurs de l'axe de catégorie, faire pivoter le titre d'un axe, définir la position de l'axe et afficher une étiquette d'unité sur l'axe des valeurs.
 
 ## **Obtenir les valeurs maximales sur l'axe vertical**
 Aspose.Slides for C++ vous permet d'obtenir les valeurs minimale et maximale sur un axe vertical. Suivez ces étapes :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Accédez à la première diapositive.
-3. Ajoutez un graphique avec les données par défaut.
-4. Obtenez la valeur maximale réelle sur l'axe.
-5. Obtenez la valeur minimale réelle sur l'axe.
-6. Obtenez l'unité principale réelle de l'axe.
-7. Obtenez l'unité secondaire réelle de l'axe.
-8. Obtenez l'échelle de l'unité principale réelle de l'axe.
-9. Obtenez l'échelle de l'unité secondaire réelle de l'axe.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/cpp/class/aspose.slides.presentation).
+1. Accédez à la première diapositive.
+1. Ajoutez un graphique avec des données par défaut.
+1. Obtenez la valeur maximale réelle de l'axe.
+1. Obtenez la valeur minimale réelle de l'axe.
+1. Obtenez l'unité principale réelle de l'axe.
+1. Obtenez l'unité secondaire réelle de l'axe.
+1. Obtenez l'échelle de l'unité principale réelle de l'axe.
+1. Obtenez l'échelle de l'unité secondaire réelle de l'axe.
 
-Ce code d'exemple — une implémentation des étapes ci‑dessus — montre comment obtenir les valeurs requises en C++ :
+Ce code d'exemple - une implémentation des étapes ci‑dessus - montre comment obtenir les valeurs requises en C++ :
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -56,28 +60,27 @@ double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
 pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Permuter les données entre les axes**
+Aspose.Slides vous permet de permuter rapidement les données entre les axes : les données représentées sur l'axe vertical (axe y) sont déplacées vers l'axe horizontal (axe x) et inversement.
 
-## **Échanger les données entre les axes**
-Aspose.Slides vous permet d'échanger rapidement les données entre les axes — les données représentées sur l'axe vertical (axe y) sont déplacées vers l'axe horizontal (axe x) et vice‑versa. 
+Ce code C++ vous montre comment réaliser la permutation des données entre les axes d'un graphique :
 
-Ce code C++ montre comment effectuer l'échange de données entre les axes d'un graphique :
 ``` cpp
 // Crée une présentation vide
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
 
-// Bascule les lignes et colonnes
+// Échange les lignes et les colonnes
 chart->get_ChartData()->SwitchRowColumn();
 
 // Enregistre la présentation
 pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Désactiver l'axe vertical pour les graphiques en lignes**
+Ce code C++ vous montre comment masquer l'axe vertical d'un graphique en lignes :
 
-## **Désactiver l'axe vertical pour les graphiques en ligne**
-
-Ce code C++ montre comment masquer l'axe vertical d'un graphique en ligne :
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -87,10 +90,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
+## **Désactiver l'axe horizontal pour les graphiques en lignes**
+Ce code vous montre comment masquer l'axe horizontal d'un graphique en lignes :
 
-## **Désactiver l'axe horizontal pour les graphiques en ligne**
-
-Ce code montre comment masquer l'axe horizontal d'un graphique en ligne :
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -100,10 +102,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 pres->Save(u"chart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Modifier un axe de catégorie**
+En utilisant la méthode **set_CategoryAxisType()**, vous pouvez spécifier le type d'axe de catégorie souhaité (**date** ou **text**). Ce code C++ montre l'opération :
 
-En utilisant la méthode **set_CategoryAxisType()**, vous pouvez spécifier le type d'axe de catégorie souhaité (**date** ou **text**). Ce code C++ démontre l'opération :
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -117,9 +118,9 @@ horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Définir le format de date pour les valeurs de l'axe de catégorie**
+Aspose.Slides for C++ vous permet de définir le format de date pour une valeur d'axe de catégorie. L'opération est démontrée dans ce code C++ :
 
-## **Définir le format de date pour les valeurs d'axe de catégorie**
-Aspose.Slides for C++ vous permet de définir le format de date pour une valeur d'axe de catégorie. L’opération est démontrée dans ce code C++ :
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
@@ -151,9 +152,9 @@ horizontalAxis->set_NumberFormat(u"yyyy");
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
+## **Définir l'angle de rotation d'un titre d'axe**
+Aspose.Slides for C++ vous permet de définir l'angle de rotation du titre d'un axe de graphique. Ce code C++ montre l'opération :
 
-## **Définir l'angle de rotation du titre d'axe**
-Aspose.Slides for C++ vous permet de définir l'angle de rotation du titre d'un axe de graphique. Ce code C++ démontre l'opération :
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -165,9 +166,9 @@ verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_Rotation
 pres->Save(u"test.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Définir la position de l'axe sur un axe de catégorie ou de valeur**
 Aspose.Slides for C++ vous permet de définir la position de l'axe dans un axe de catégorie ou de valeur. Ce code C++ montre comment réaliser la tâche :
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -177,9 +178,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
 ```
 
+## **Activer l'affichage de l'étiquette d'unité sur l'axe de valeur d'un graphique**
+Aspose.Slides for C++ vous permet de configurer un graphique pour afficher une étiquette d'unité sur son axe de valeur. Ce code C++ montre l'opération :
 
-## **Activer l'étiquette d'unité d'affichage sur l'axe de valeur d'un graphique**
-Aspose.Slides for C++ vous permet de configurer un graphique pour afficher une étiquette d'unité sur son axe de valeur. Ce code C++ démontre l'opération :
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
@@ -189,13 +190,12 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **FAQ**
 
-**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axe) ?**
+**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axes) ?**
 
-Les axes offrent un [paramètre de croisement](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) : vous pouvez choisir de croiser à zéro, au maximum de la catégorie/valeur, ou à une valeur numérique spécifique. Ceci est utile pour déplacer l'axe X vers le haut ou le bas ou pour mettre en avant une ligne de base.
+Les axes offrent un [paramètre de croisement](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/axis/set_crosstype/) : vous pouvez choisir de les faire croiser à zéro, au maximum de la catégorie/valeur, ou à une valeur numérique spécifique. Cela est utile pour déplacer l'axe X vers le haut ou le bas ou pour mettre en évidence une ligne de base.
 
-**Comment positionner les étiquettes de graduation par rapport à l'axe (à côté, à l'extérieur, à l'intérieur) ?**
+**Comment positionner les étiquettes de graduation par rapport à l'axe (adjacent, à l'extérieur, à l'intérieur) ?**
 
-Définissez la [position de l'étiquette](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) sur "cross", "outside" ou "inside". Cela affecte la lisibilité et aide à économiser de l'espace, en particulier sur les petits graphiques.
+Définissez la [position de l'étiquette](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/axis/set_majortickmark/) sur "cross", "outside" ou "inside". Cela influence la lisibilité et aide à économiser de l'espace, en particulier sur les petits graphiques.

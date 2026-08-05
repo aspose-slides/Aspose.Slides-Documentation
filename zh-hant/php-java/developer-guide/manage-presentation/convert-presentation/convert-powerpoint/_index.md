@@ -4,6 +4,8 @@ linktitle: 轉換 PowerPoint
 type: docs
 weight: 20
 url: /zh-hant/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
 - 轉換 PowerPoint
 - 轉換簡報
@@ -17,5 +19,5 @@ keywords:
 - 匯出 PPTX
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP（透過 Java）將 PowerPoint 簡報轉換為其他格式。快速、精準、且無縫的 PPT 與 PPTX 轉換。"
+description: "使用 Aspose.Slides for PHP（透過 Java）將 PowerPoint 簡報轉換為其他格式。快速、精確且無縫的 PPT 與 PPTX 轉換。"
 ---

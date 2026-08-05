@@ -1,78 +1,80 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ Bài thuyết trình PowerPoint trong C++
+title: Tạo hoặc Cập nhật Biểu đồ Bản thuyết trình PowerPoint bằng C++
 linktitle: Tạo hoặc Cập nhật Biểu đồ
 type: docs
 weight: 10
 url: /vi/cpp/create-chart/
+aliases:
+  - /cpp/cap-nhat-bieu-do/
 keywords:
-- thêm biểu đồ
-- tạo biểu đồ
-- chỉnh sửa biểu đồ
-- thay đổi biểu đồ
-- cập nhật biểu đồ
-- biểu đồ phân tán
-- biểu đồ tròn
-- biểu đồ đường
-- biểu đồ cây
-- biểu đồ chứng khoán
-- biểu đồ hộp và râu
-- biểu đồ phễu
-- biểu đồ nắng mặt trời
-- biểu đồ histogram
-- biểu đồ radar
-- biểu đồ đa danh mục
-- PowerPoint
-- bài thuyết trình
-- C++
-- Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong các bài thuyết trình PowerPoint bằng Aspose.Slides cho C++. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong C++."
+  - thêm biểu đồ
+  - tạo biểu đồ
+  - chỉnh sửa biểu đồ
+  - thay đổi biểu đồ
+  - cập nhật biểu đồ
+  - biểu đồ phân tán
+  - biểu đồ tròn
+  - biểu đồ đường
+  - biểu đồ cây
+  - biểu đồ chứng khoán
+  - biểu đồ hộp và râu
+  - biểu đồ phễu
+  - biểu đồ sunburst
+  - biểu đồ histogram
+  - biểu đồ radar
+  - biểu đồ đa danh mục
+  - PowerPoint
+  - bản thuyết trình
+  - C++
+  - Aspose.Slides
+description: "Tạo và tùy chỉnh biểu đồ trong bản thuyết trình PowerPoint bằng Aspose.Slides cho C++. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế bằng C++."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách lập trình thêm một biểu đồ vào slide, đưa dữ liệu vào và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế của bạn. Trong toàn bộ bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng presentation và chart cho tới cấu hình series, trục và legend. Khi thực hiện theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng, giúp đơn giản hoá quá trình tạo các bản thuyết trình dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách thêm biểu đồ vào một slide một cách lập trình, điền dữ liệu vào biểu đồ và áp dụng các tùy chọn định dạng khác nhau để phù hợp với yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ việc khởi tạo đối tượng Presentation và Chart cho đến cấu hình series, trục và legend. Bằng cách theo dõi hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng của mình, giúp đơn giản hoá quá trình tạo các bản thuyết trình dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và thu được những hiểu biết mà có thể không ngay lập tức rõ ràng từ bảng hoặc bảng tính.
+Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra những hiểu biết, những điều có thể không rõ ràng ngay từ bảng tính hoặc trang bảng.
 
 **Tại sao nên tạo biểu đồ?**
 
 Sử dụng biểu đồ, bạn có thể
 
-* tổng hợp, cô gắng hoặc tóm tắt lượng dữ liệu lớn trên một slide trong bản thuyết trình
-* khám phá các mẫu và xu hướng trong dữ liệu
-* suy ra hướng và động lực của dữ liệu theo thời gian hoặc so với một đơn vị đo nhất định
+* tổng hợp, nén hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất trong bản thuyết trình
+* phát hiện các mẫu và xu hướng trong dữ liệu
+* suy ra hướng và động lực của dữ liệu theo thời gian hoặc theo một đơn vị đo lường cụ thể
 * phát hiện các ngoại lệ, sai lệch, lỗi, dữ liệu vô nghĩa, v.v.
 * truyền đạt hoặc trình bày dữ liệu phức tạp
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng chèn, cung cấp các mẫu dùng để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo các biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và các biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng Insert, cung cấp các mẫu được dùng để thiết kế nhiều loại biểu đồ. Khi dùng Aspose.Slides, bạn có thể tạo biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
 {{% alert color="primary" %}} 
 
-Để cho phép bạn tạo biểu đồ, Aspose.Slides cung cấp enum class [ChartType](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) trong namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides.charts/). Các giá trị trong enum này tương ứng với các loại biểu đồ khác nhau. 
+Để cho phép bạn tạo biểu đồ, Aspose.Slides cung cấp enum class [ChartType](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) trong không gian tên [Aspose::Slides::Charts](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides.charts/). Các giá trị trong enum này tương ứng với các loại biểu đồ khác nhau. 
 
 {{% /alert %}} 
 
-### **Tạo biểu đồ thường**
+### **Tạo biểu đồ thông thường**
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ mong muốn. 
-1. Thêm tiêu đề cho biểu đồ. 
-1. Truy cập worksheet dữ liệu của biểu đồ. 
-1. Xóa tất cả series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Thêm một số dữ liệu mới cho series của biểu đồ. 
-1. Thêm màu nền cho series của biểu đồ. 
-1. Thêm nhãn cho series của biểu đồ. 
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ mong muốn.
+1. Thêm tiêu đề cho biểu đồ.
+1. Truy cập worksheet dữ liệu biểu đồ.
+1. Xóa tất cả series và categories mặc định.
+1. Thêm series và categories mới.
+1. Thêm một số dữ liệu mới cho series của biểu đồ.
+1. Thêm màu nền cho series.
+1. Thêm nhãn cho series.
+1. Ghi bản thuyết trình đã chỉnh sửa thành file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ thường:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ thông thường:
 
 ```c++
 // Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	//Tạo một thể hiện của lớp presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Truy cập slide đầu tiên
@@ -85,16 +87,16 @@ Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng ch�
 	// Đặt chỉ mục của sheet dữ liệu biểu đồ
 	int defaultWorksheetIndex = 0;
 
-	// Lấy worksheet dữ liệu của biểu đồ
+	// Lấy worksheet dữ liệu biểu đồ
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Đặt tiêu đề cho biểu đồ
+	// Đặt tiêu đề biểu đồ
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// Xóa các series và categories được tạo mặc định
+	// Xóa series và categories được tạo mặc định
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
@@ -105,7 +107,7 @@ Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng ch�
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Thêm các danh mục
+	// Thêm các category
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
@@ -155,31 +157,31 @@ Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng ch�
 ```
 
 ### **Tạo biểu đồ phân tán**
-Biểu đồ phân tán (còn được gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc minh họa mối tương quan giữa hai biến.
+Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc thể hiện mối tương quan giữa hai biến.
 
 Bạn có thể muốn sử dụng biểu đồ phân tán khi
 
-* bạn có dữ liệu số cặp nhau
-* bạn có 2 biến liên quan chặt chẽ với nhau
+* bạn có dữ liệu số cặp đôi
+* bạn có 2 biến có mối liên hệ chặt chẽ với nhau
 * bạn muốn xác định liệu 2 biến có liên quan hay không
 * bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc
 
-Đoạn mã C++ sau cho thấy cách tạo biểu đồ phân tán với các loại marker khác nhau:
+Mã C++ dưới đây cho thấy cách tạo biểu đồ phân tán với các marker khác nhau:
 
 ```c++
 // Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//Instantiate một thể hiện của lớp presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Accesses slide đầu tiên
+	//Truy cập slide đầu tiên
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Thêm một biểu đồ với dữ liệu mặc định
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// Đặt tiêu đề cho biểu đồ
+	// Đặt tiêu đề biểu đồ
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
@@ -188,7 +190,7 @@ Bạn có thể muốn sử dụng biểu đồ phân tán khi
 	// Xóa series được tạo mặc định 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// Đặt  chỉ mục cho sheet dữ liệu biểu đồ
+	// Đặt chỉ mục cho sheet dữ liệu biểu đồ
 	int defaultWorksheetIndex = 0;
 
 	// Lấy worksheet dữ liệu biểu đồ
@@ -220,7 +222,7 @@ Bạn có thể muốn sử dụng biểu đồ phân tán khi
 	// Lấy series biểu đồ thứ hai
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Thêm một điểm mới (5:2)
+	// Thêm điểm mới (5:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
 	// Thêm một điểm mới (3:1)
@@ -243,7 +245,7 @@ Bạn có thể muốn sử dụng biểu đồ phân tán khi
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Đặt viền cho sector
+	// Đặt viền sector
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -254,7 +256,7 @@ Bạn có thể muốn sử dụng biểu đồ phân tán khi
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Đặt viền cho sector
+	// Đặt viền Sector
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -266,7 +268,7 @@ Bạn có thể muốn sử dụng biểu đồ phân tán khi
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Đặt viền cho sector
+	// Đặt viền Sector
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
@@ -291,10 +293,10 @@ Bạn có thể muốn sử dụng biểu đồ phân tán khi
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Hiển thị các đường dẫn leader cho biểu đồ
+	// Hiển thị các đường dẫn (leader lines) cho biểu đồ
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Đặt góc xoay cho các sector của biểu đồ tròn
+	// Đặt góc quay cho các sector của biểu đồ tròn
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
@@ -303,37 +305,37 @@ Bạn có thể muốn sử dụng biểu đồ phân tán khi
 ```
 
 ### **Tạo biểu đồ tròn**
-Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑trong‑toàn trong dữ liệu, đặc biệt khi dữ liệu có các nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
+Biểu đồ tròn thích hợp nhất để hiển thị mối quan hệ phần‑với‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
 1. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là `ChartType.Pie`).
-1. Truy cập IChartDataWorkbook của biểu đồ. 
-1. Xóa series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Thêm dữ liệu mới cho series của biểu đồ. 
-1. Thêm các điểm mới cho biểu đồ và chỉ định màu tùy chỉnh cho các sector của biểu đồ tròn. 
-1. Đặt nhãn cho series. 
-1. Đặt đường dẫn (leader lines) cho nhãn series. 
-1. Đặt góc xoay cho slide chứa biểu đồ tròn. 
-1. Ghi bản thuyết trình đã chỉnh sửa thành file PPTX. 
+1. Truy cập đối tượng dữ liệu biểu đồ IChartDataWorkbook.
+1. Xóa series và categories mặc định.
+1. Thêm series và categories mới.
+1. Thêm dữ liệu mới cho series.
+1. Thêm các điểm mới cho biểu đồ và chỉ định màu tùy chỉnh cho các sector của biểu đồ tròn.
+1. Đặt nhãn cho series.
+1. Đặt các đường dẫn (leader lines) cho nhãn series.
+1. Đặt góc quay cho slide biểu đồ tròn.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ tròn:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ tròn:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	// Tạo một thể hiện của lớp Presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Truy cập slide đầu tiên
+	//Truy cập slide đầu tiên
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Thêm một biểu đồ với dữ liệu mặc định
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// Đặt tiêu đề cho biểu đồ
+	// Đặt tiêu đề biểu đồ
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
@@ -370,7 +372,7 @@ Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑tron
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Đặt viền cho sector
+	// Đặt viền Sector
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -381,7 +383,7 @@ Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑tron
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Đặt viền cho sector
+	// Đặt viền Sector
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -393,7 +395,7 @@ Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑tron
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Đặt viền cho sector
+	// Đặt viền Sector
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width (2.0);
@@ -418,10 +420,10 @@ Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑tron
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Đặt series để hiển thị leader lines cho biểu đồ
+	// Đặt series để hiển thị các đường dẫn leader cho biểu đồ
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Đặt góc xoay cho các sector của biểu đồ tròn
+	// Đặt góc quay cho các sector của biểu đồ tròn
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
@@ -430,19 +432,18 @@ Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑tron
 ```
 
 ### **Tạo biểu đồ đường**
-
-Biểu đồ đường (còn gọi là line graph) thích hợp khi bạn muốn thể hiện sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh nhiều dữ liệu cùng lúc, theo dõi thay đổi và xu hướng theo thời gian, làm nổi bật các ngoại lệ trong series, v.v.
+Biểu đồ đường (còn gọi là line graph) thích hợp nhất trong các tình huống bạn muốn thể hiện sự thay đổi giá trị theo thời gian. Khi sử dụng biểu đồ đường, bạn có thể so sánh nhiều dữ liệu một lúc, theo dõi thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series, v.v.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định và loại mong muốn (trong trường hợp này là `ChartType::Line`).
-1. Truy cập IChartDataWorkbook của biểu đồ. 
-1. Xóa series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Thêm dữ liệu mới cho series của biểu đồ. 
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là `ChartType::Line`).
+1. Truy cập IChartDataWorkbook.
+1. Xóa series và categories mặc định.
+1. Thêm series và categories mới.
+1. Thêm dữ liệu mới cho series.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ đường:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ đường:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -451,7 +452,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dấu gạch nối thay vì, bạn có thể chỉ định kiểu dash mong muốn như sau:
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng các gạch nối, bạn có thể chỉ định kiểu dash ưa thích như sau:
 
 ```c++
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
@@ -462,25 +463,24 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 ```
 
 ### **Tạo biểu đồ cây (Tree Map)**
-
-Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và (đồng thời) nhanh chóng thu hút sự chú ý đến các mục đóng góp lớn cho mỗi danh mục.
+Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và (đồng thời) nhanh chóng thu hút sự chú ý đến các mục có đóng góp lớn cho mỗi danh mục.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định và loại mong muốn (trong trường hợp này là `ChartType.TreeMap`).
-1. Truy cập IChartDataWorkbook của biểu đồ. 
-1. Xóa series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Thêm dữ liệu mới cho series của biểu đồ. 
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và loại `ChartType.TreeMap`.
+1. Truy cập IChartDataWorkbook.
+1. Xóa series và categories mặc định.
+1. Thêm series và categories mới.
+1. Thêm dữ liệu mới cho series.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ cây:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ cây:
 
 ```c++
-// Đường dẫn tới thư mục tài liệu.
+	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Truy cập slide đầu tiên
@@ -538,22 +538,22 @@ Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiể
 
 ### **Tạo biểu đồ chứng khoán**
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định và loại mong muốn (`ChartType.OpenHighLowClose`).
-1. Truy cập IChartDataWorkbook của biểu đồ. 
-1. Xóa series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Thêm dữ liệu mới cho series của biểu đồ. 
-1. Chỉ định định dạng HiLowLines. 
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và loại `ChartType.OpenHighLowClose`.
+1. Truy cập IChartDataWorkbook.
+1. Xóa series và categories mặc định.
+1. Thêm series và categories mới.
+1. Thêm dữ liệu mới cho series.
+1. Chỉ định định dạng HiLowLines.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Mẫu mã C++ dùng để tạo biểu đồ chứng khoán:
+Mã C++ mẫu dùng để tạo biểu đồ chứng khoán:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Truy cập slide đầu tiên
@@ -601,14 +601,14 @@ Mẫu mã C++ dùng để tạo biểu đồ chứng khoán:
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// Điền dữ liệu cho series thứ ba
+	// Điền dữ liệu cho series thứ hai
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// Điền dữ liệu cho series thứ tư
+	// Điền dữ liệu cho series thứ hai
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
@@ -630,21 +630,21 @@ Mẫu mã C++ dùng để tạo biểu đồ chứng khoán:
 
 ### **Tạo biểu đồ hộp và râu (Box and Whisker)**
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định và loại mong muốn (`ChartType.BoxAndWhisker`).
-1. Truy cập IChartDataWorkbook của biểu đồ. 
-1. Xóa series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Thêm dữ liệu mới cho series của biểu đồ. 
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và loại `ChartType.BoxAndWhisker`.
+1. Truy cập IChartDataWorkbook.
+1. Xóa series và categories mặc định.
+1. Thêm series và categories mới.
+1. Thêm dữ liệu mới cho series.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ hộp và râu:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ hộp và râu:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Truy cập slide đầu tiên
@@ -687,17 +687,17 @@ Mẫu mã C++ dùng để tạo biểu đồ chứng khoán:
 
 ### **Tạo biểu đồ phễu (Funnel)**
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định và loại mong muốn (`ChartType.Funnel`).
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và loại `ChartType.Funnel`.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ phễu:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ phễu:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	//Truy cập slide đầu tiên
@@ -732,19 +732,20 @@ Mẫu mã C++ dùng để tạo biểu đồ chứng khoán:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Tạo biểu đồ nắng mặt trời (Sunburst)**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định và loại mong muốn (trong trường hợp này là `ChartType.sunburst`).
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ nắng mặt trời:
+### **Tạo biểu đồ Sunburst**
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và loại `ChartType.sunburst`.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
+
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ Sunburst:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+	// Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Truy cập slide đầu tiên
@@ -795,24 +796,25 @@ Mẫu mã C++ dùng để tạo biểu đồ chứng khoán:
 
 	// Ghi tệp bản thuyết trình ra đĩa
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-### **Tạo biểu đồ histogram**
+### **Tạo biểu đồ Histogram**
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó. 
-1. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ mong muốn (`ChartType.Histogram` trong trường hợp này).
-1. Truy cập IChartDataWorkbook của biểu đồ. 
-1. Xóa series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó. 
+1. Thêm một biểu đồ với dữ liệu và chỉ định loại `ChartType.Histogram`.
+1. Truy cập IChartDataWorkbook.
+1. Xóa series và categories mặc định.
+1. Thêm series và categories mới.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ histogram:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ histogram:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// Tạo một thể hiện của lớp Presentation đại diện cho tệp PPTX
+	// Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Truy cập slide đầu tiên
@@ -840,14 +842,13 @@ Mẫu mã C++ dùng để tạo biểu đồ chứng khoán:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Tạo biểu đồ radar**
-
+### **Tạo biểu đồ Radar**
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó. 
-1. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ mong muốn (`ChartType.Radar` trong trường hợp này).
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó. 
+1. Thêm một biểu đồ với dữ liệu và chỉ định loại `ChartType.Radar`.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ radar:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ radar:
 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
@@ -858,24 +859,24 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 ### **Tạo biểu đồ đa danh mục (Multi-Category)**
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-1. Lấy tham chiếu tới một slide thông qua chỉ mục của nó. 
-1. Thêm một biểu đồ với dữ liệu mặc định và loại mong muốn (`ChartType.ClusteredColumn`).
-1. Truy cập IChartDataWorkbook của biểu đồ. 
-1. Xóa series và categories mặc định. 
-1. Thêm series và categories mới. 
-1. Thêm dữ liệu mới cho series của biểu đồ. 
-1. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX. 
+1. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và loại `ChartType.ClusteredColumn`.
+1. Truy cập IChartDataWorkbook.
+1. Xóa series và categories mặc định.
+1. Thêm series và categories mới.
+1. Thêm dữ liệu mới cho series.
+1. Ghi bản thuyết trình đã chỉnh sửa vào file PPTX.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ đa danh mục:
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ đa danh mục:
 
 ```c++
 	// Đường dẫn tới thư mục tài liệu.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+	//Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Truy cập slide đầu tiên
+	//Truy cập slide đầu tiên
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Thêm một biểu đồ với dữ liệu mặc định
@@ -887,7 +888,7 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	// Lấy worksheet dữ liệu biểu đồ
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Xóa nội dung workbook
+	// Xóa workbook
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
@@ -929,10 +930,11 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Tạo biểu đồ bản đồ (Map)**
-Biểu đồ bản đồ là một hình ảnh trực quan của một khu vực chứa dữ liệu. Biểu đồ bản đồ thích hợp để so sánh dữ liệu hoặc giá trị trên các vùng địa lý khác nhau.
 
-Đoạn mã C++ sau cho thấy cách tạo một biểu đồ bản đồ:
+### **Tạo biểu đồ bản đồ (Map)**
+Biểu đồ bản đồ là một hình ảnh thị giác của một khu vực chứa dữ liệu. Biểu đồ bản đồ thích hợp nhất để so sánh dữ liệu hoặc giá trị trên các vùng địa lý khác nhau.
+
+Mã C++ dưới đây cho thấy cách tạo một biểu đồ bản đồ:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -941,12 +943,12 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Tạo biểu đồ hỗn hợp (Combination)**
-Biểu đồ hỗn hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong cùng một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
+### **Tạo biểu đồ kết hợp (Combination)**
+Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị duy nhất. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều tập dữ liệu, giúp bạn xác định mối quan hệ giữa chúng.
 
-![Biểu đồ hỗn hợp](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Đoạn mã C++ sau cho thấy cách tạo biểu đồ hỗn hợp như trong hình trên trong một bản PowerPoint:
+Mã C++ sau đây cho thấy cách tạo biểu đồ kết hợp được hiển thị ở trên trong một bản PowerPoint:
 
 ```cpp
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
@@ -962,11 +964,11 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // Đặt chú giải biểu đồ.
+    // Đặt chú giải cho biểu đồ.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // Xóa các series và categories được tạo mặc định.
+    // Xóa series và categories được tạo mặc định.
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
@@ -1053,7 +1055,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // Đặt màu cho các đường lưới chính dọc.
+    // Đặt màu cho các đường lưới chính của trục dọc.
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1100,18 +1102,18 @@ static void CreateComboChart()
 
 ## **Cập nhật biểu đồ**
 
-1. Khởi tạo một lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation) đại diện cho bản thuyết trình chứa biểu đồ.
-2. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation) đại diện cho bản thuyết trình chứa biểu đồ.
+2. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
-4. Truy cập worksheet dữ liệu của biểu đồ.
-5. Sửa đổi dữ liệu series của biểu đồ bằng cách thay đổi giá trị series.
+4. Truy cập worksheet dữ liệu biểu đồ.
+5. Sửa đổi dữ liệu series bằng cách thay đổi giá trị series.
 6. Thêm một series mới và điền dữ liệu vào nó.
-7. Ghi bản thuyết trình đã chỉnh sửa dưới dạng file PPTX.
+7. Ghi bản thuyết trình đã chỉnh sửa thành file PPTX.
 
-Đoạn mã C++ sau cho thấy cách cập nhật một biểu đồ:
+Mã C++ dưới đây cho thấy cách cập nhật một biểu đồ:
 
 ```c++
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+// Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
 // Truy cập slide đầu tiên
@@ -1127,26 +1129,26 @@ int32_t defaultWorksheetIndex = 0;
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// Thay đổi tên danh mục của biểu đồ
+// Thay đổi tên Category của biểu đồ
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// Lấy series đầu tiên của biểu đồ
+// Lấy series biểu đồ đầu tiên
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// Cập nhật dữ liệu series
+// Cập nhật dữ liệu cho series
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// Sửa đổi tên series
+// Sửa tên series
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// Lấy series thứ hai của biểu đồ
+// Lấy series biểu đồ thứ hai
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Bây giờ cập nhật dữ liệu series
+// Bây giờ cập nhật dữ liệu cho series
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// Sửa đổi tên series
+// Sửa tên series
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
@@ -1155,7 +1157,7 @@ series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::B
 // Bây giờ, thêm một series mới
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// Lấy series thứ ba của biểu đồ
+// Lấy series biểu đồ thứ ba
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
 // Bây giờ điền dữ liệu cho series
@@ -1172,21 +1174,21 @@ pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::
 ## **Đặt phạm vi dữ liệu cho biểu đồ**
 
 1. Mở một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation) chứa biểu đồ.
-2. Lấy tham chiếu tới một slide thông qua chỉ mục của nó.
+2. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
 4. Truy cập dữ liệu biểu đồ và đặt phạm vi.
-5. Lưu bản thuyết trình đã chỉnh sửa dưới dạng file PPTX.
+5. Lưu bản thuyết trình đã chỉnh sửa thành file PPTX.
 
-Đoạn mã C++ sau cho thấy cách đặt phạm vi dữ liệu cho một biểu đồ:
+Mã C++ dưới đây cho thấy cách đặt phạm vi dữ liệu cho một biểu đồ:
 
 ```cpp
 // Đường dẫn tới thư mục tài liệu.
 String dataDir = GetDataPath();
 
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
+// Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// Truy cập slideMarker đầu tiên và thêm một biểu đồ với dữ liệu mặc định
+// Truy cập slide đầu tiên và thêm một biểu đồ với dữ liệu mặc định
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
@@ -1194,66 +1196,66 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Sử dụng marker mặc định trong biểu đồ**
-Khi bạn sử dụng marker mặc định trong biểu đồ, mỗi series sẽ tự động nhận một ký hiệu marker mặc định khác nhau.
+Khi bạn sử dụng marker mặc định trong biểu đồ, mỗi series sẽ tự động nhận các ký hiệu marker mặc định khác nhau.
 
-Đoạn mã C++ sau cho thấy cách tự động đặt marker cho series biểu đồ:
+Mã C++ dưới đây cho thấy cách tự động đặt marker cho một series:
 
 ```cpp
-	// Đường dẫn tới thư mục tài liệu.
-	String dataDir = GetDataPath();
+// Đường dẫn tới thư mục tài liệu.
+String dataDir = GetDataPath();
 
-	auto pres = System::MakeObject<Presentation>();
+auto pres = System::MakeObject<Presentation>();
 
-	auto slide = pres->get_Slides()->idx_get(0);
-	auto chart = slide->get_Shapes()->AddChart(ChartType::LineWithMarkers, 10.0f, 10.0f, 400.0f, 400.0f);
+auto slide = pres->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::LineWithMarkers, 10.0f, 10.0f, 400.0f, 400.0f);
 
-	chart->get_ChartData()->get_Series()->Clear();
-	chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
-	auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
-	chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-	auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
+chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 1, 0, ObjectExt::Box<String>(u"C1")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(24)));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 2, 0, ObjectExt::Box<String>(u"C2")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(23)));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 3, 0, ObjectExt::Box<String>(u"C3")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-10)));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 4, 0, ObjectExt::Box<String>(u"C4")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr));
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 1, 0, ObjectExt::Box<String>(u"C1")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(24)));
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 2, 0, ObjectExt::Box<String>(u"C2")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(23)));
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 3, 0, ObjectExt::Box<String>(u"C3")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-10)));
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 4, 0, ObjectExt::Box<String>(u"C4")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr));
 
-	chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
+chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-	// Lấy series thứ hai của biểu đồ
-	auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
+// Takes the second chart series
+auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Điền dữ liệu cho series
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 2, ObjectExt::Box<int32_t>(40)));
+// Populates the series data
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 2, ObjectExt::Box<int32_t>(40)));
 
-	chart->set_HasLegend(true);
-	chart->get_Legend()->set_Overlay(false);
+chart->set_HasLegend(true);
+chart->get_Legend()->set_Overlay(false);
 
-	pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
+pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides hỗ trợ các loại biểu đồ nào?**
+**Các loại biểu đồ nào được Aspose.Slides hỗ trợ?**
 
-Aspose.Slides hỗ trợ một loạt các loại biểu đồ, bao gồm cột, đường, tròn, khu vực, phân tán, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
+Aspose.Slides hỗ trợ một loạt các loại biểu đồ, bao gồm biểu đồ cột, đường, tròn, diện tích, scatter, histogram, radar và nhiều loại khác. Tính linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
 **Làm sao để thêm một biểu đồ mới vào slide?**
 
-Để thêm biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quá trình này tích hợp biểu đồ trực tiếp vào bản thuyết trình của bạn.
+Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quá trình này sẽ tích hợp biểu đồ trực tiếp vào bản thuyết trình của bạn.
 
 **Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/)), xóa bất kỳ series và categories mặc định nào, rồi thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/)), xóa bất kỳ series và categories mặc định nào, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides cung cấp các tùy chọn tùy biến phong phú. Bạn có thể sửa đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ theo yêu cầu thiết kế cụ thể của mình.
+Có, Aspose.Slides cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ sao cho phù hợp với yêu cầu thiết kế của mình.

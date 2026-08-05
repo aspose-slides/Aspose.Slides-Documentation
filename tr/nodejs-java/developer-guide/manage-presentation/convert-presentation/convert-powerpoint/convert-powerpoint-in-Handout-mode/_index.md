@@ -1,14 +1,14 @@
 ---
-title: PowerPoint Sunumlarını El İlanı Modunda JavaScript Kullanarak Dönüştürün
-linktitle: El İlanı Modu
+title: JavaScript Kullanarak El Kitapçığı Modunda PowerPoint Sunumlarını Dönüştürme
+linktitle: El Kitapçığı Modu
 type: docs
 weight: 150
-url: /tr/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /tr/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
-- PowerPoint dönüştür
-- sunum dönüştür
-- el ilanı modu
-- el ilanı
+- PowerPoint Dönüştür
+- Sunumu Dönüştür
+- El Kitapçığı Modu
+- El Kitapçığı
 - PPT
 - PPTX
 - PowerPoint
@@ -16,51 +16,51 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Sunumları el ilanına dönüştürün. Sayfa başına slayt sayısını ayarlayın, notları koruyun, Aspose.Slides for Node.js ile PDF ya da görüntülere dışa aktarın, örnek kodla. Ücretsiz deneyin."
+description: "Sunumları el kitapçıklarına dönüştürün. Sayfa başına slayt sayısını ayarlayın, notları koruyun, Aspose.Slides for Node.js ile PDF veya görüntülere dışa aktarın, örnek kodla. Ücretsiz deneyin."
 ---
 ## **Giriş**
 
-Aspose.Slides, sunumları çeşitli formatlara dönüştürme yeteneği sağlar; bu, Handout modunda yazdırma için el ilanları oluşturmayı da içerir. Bu mod, bir sayfada birden çok slaytın nasıl görüneceğini yapılandırmanıza olanak tanır ve konferanslar, seminerler ve diğer etkinlikler için faydalıdır. Bu modu, sınıflarındaki `setSlidesLayoutOptions` metodunu ayarlayarak etkinleştirebilirsiniz: [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/htmloptions/), ve [TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) sınıflarında.
+Aspose.Slides, sunumları çeşitli formatlara dönüştürme yeteneği sağlar, ayrıca Handout modunda yazdırma için el kitapçıkları oluşturmayı da içerir. Bu mod, bir sayfada birden çok slaytın nasıl görüneceğini yapılandırmanıza olanak tanır ve konferanslar, seminerler ve diğer etkinlikler için faydalıdır. Bu modu, `setSlidesLayoutOptions` yöntemini [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/htmloptions/) ve [TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) sınıflarında ayarlayarak etkinleştirebilirsiniz.
 
-## **El İlanı Modu Dışa Aktarma**
+## **El Kitapçığı Modu Dışa Aktarma**
 
-Handout modunu yapılandırmak için [HandoutLayoutingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/handoutlayoutingoptions/) nesnesini kullanın; bu nesne, tek bir sayfada kaç slayt yerleştirileceğini ve diğer görüntüleme parametrelerini belirler.
+El kitapçığı modunu yapılandırmak için, tek bir sayfada kaç slayt yerleştirileceğini ve diğer görüntüleme parametrelerini belirleyen [HandoutLayoutingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/handoutlayoutingoptions/) nesnesini kullanın.
 
-Aşağıda, bir sunumu Handout modunda PDF'ye dönüştüren bir kod örneği yer almaktadır.
+Aşağıda, bir sunumu El kitapçığı modunda PDF'ye dönüştürmeyi gösteren bir kod örneği bulunmaktadır.
 
 ```js
-// Bir sunum yükle.
+// Bir sunumu yükle.
 let presentation = new asposeSlides.Presentation("sample.pptx");
 
-// Dışa aktarma seçeneklerini ayarla.
+// Dışa aktarım seçeneklerini ayarla.
 let slidesLayoutOptions = new asposeSlides.HandoutLayoutingOptions();
 slidesLayoutOptions.setHandout(asposeSlides.HandoutType.Handouts4Horizontal);  // Bir sayfada yatay olarak 4 slayt
 slidesLayoutOptions.setPrintSlideNumbers(true);                                // slayt numaralarını yazdır
-slidesLayoutOptions.setPrintFrameSlide(true);                                  // slaytların etrafına çerçeve ekle
+slidesLayoutOptions.setPrintFrameSlide(true);                                  // slaytların etrafına çerçeve yazdır
 slidesLayoutOptions.setPrintComments(false);                                   // yorum yok
 
 let pdfOptions = new asposeSlides.PdfOptions();
 pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-// Seçilen düzenle sunumu PDF olarak dışa aktar.
+// Seçilen düzenle sunumu PDF'ye dışa aktar.
 presentation.save("output.pdf", asposeSlides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
 {{% alert color="warning" %}} 
-`setSlidesLayoutOptions` metodunun yalnızca PDF, HTML, TIFF gibi belirli çıkış formatları ve görüntü olarak render edildiğinde mevcut olduğunu unutmayın.
+`setSlidesLayoutOptions` yönteminin yalnızca PDF, HTML, TIFF gibi belirli çıktı formatları için ve görüntüler olarak render edildiğinde kullanılabildiğini unutmayın.
 {{% /alert %}} 
 
 ## **SSS**
 
-**Handout modunda sayfa başına maksimum slayt küçük resmi sayısı nedir?**
+**El kitapçığı modunda bir sayfadaki maksimum slayt küçük resmi sayısı nedir?**
 
-Aspose.Slides, sayfa başına yatay veya dikey sıralama ile 9'a kadar küçük resim [presets](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/handouttype/) destekler: 1, 2, 3, 4 (yatay/dikey), 6 (yatay/dikey) ve 9 (yatay/dikey).
+Aspose.Slides, sayfa başına en fazla 9 küçük resim destekleyen [presets](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/handouttype/) (yatay veya dikey sıralama) sunar: 1, 2, 3, 4 (yatay/dikey), 6 (yatay/dikey) ve 9 (yatay/dikey).
 
 **5 veya 8 slayt gibi özel bir ızgara tanımlayabilir miyim?**
 
-Hayır. Küçük resimlerin sayısı ve sırası, [HandoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/handouttype/) enumu tarafından kesin olarak kontrol edilir; rastgele düzenler desteklenmez.
+Hayır. Küçük resim sayısı ve sıralaması, yalnızca [HandoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/handouttype/) enum değerleriyle sıkı bir şekilde kontrol edilir; isteğe bağlı düzenler desteklenmez.
 
-**Handout çıktısına gizli slaytları ekleyebilir miyim?**
+**El kitapçığı çıktısına gizli slaytları ekleyebilir miyim?**
 
-Evet. Hedef format için dışa aktarma ayarlarında `setShowHiddenSlides` metodunu kullanın; örneğin [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/htmloptions/) veya [TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) gibi.
+Evet. Hedef format için dışa aktarma ayarlarında, örneğin [PdfOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/htmloptions/) veya [TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) gibi, `setShowHiddenSlides` yöntemini kullanın.

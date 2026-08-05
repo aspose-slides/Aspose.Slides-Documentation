@@ -16,5 +16,5 @@ keywords:
 - trình chiếu
 - C++
 - Aspose.Slides
-description: "Khám phá mọi loại biểu đồ mà bạn có thể tạo hoặc chỉnh sửa với Aspose.Slides cho C++ – hướng dẫn nhanh, ưu tiên mã cho các bài thuyết trình PowerPoint."
+description: "Khám phá mọi loại biểu đồ bạn có thể tạo hoặc chỉnh sửa với Aspose.Slides cho C++ – hướng dẫn nhanh, tập trung vào mã cho các bài thuyết trình PowerPoint."
 ---

@@ -3,11 +3,13 @@ title: Not
 type: docs
 weight: 240
 url: /tr/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - not
 - not slaytı ekle
-- not slaytına eriş
-- not slaytını kaldır
+- not slaytı eriş
+- not slaytı kaldır
 - not metnini güncelle
 - kod örneği
 - PowerPoint
@@ -16,9 +18,9 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET içinde slayt notlarıyla çalışın: PPT, PPTX ve ODP formatlarında konuşmacı notlarını ekleyin, okuyun, düzenleyin ve net C# örnekleriyle dışa aktarın."
+description: "Aspose.Slides for .NET'te slayt notlarıyla çalışın: PPT, PPTX ve ODP'de net C# örnekleriyle not ekleyin, okuyun, düzenleyin ve dışa aktarın."
 ---
-Bu makale, **Aspose.Slides for .NET** kullanarak not slaytlarını ekleme, okuma, kaldırma ve güncelleme işlemlerini göstermektedir.
+Bu makale, **Aspose.Slides for .NET** kullanarak not slaytlarını ekleme, okuma, kaldırma ve güncelleme işlemlerini gösterir.
 
 ## **Not Slaytı Ekle**
 
@@ -51,7 +53,7 @@ static void AccessNote()
 }
 ```
 
-## **Not Slaytını Kaldır**
+## **Not Slaytı Kaldır**
 
 Bir slayt ile ilişkili not slaytını kaldırın.
 

@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda Grafik Açıklamalarını C++ Kullanarak Özelleştirme
+title: C++ Kullanarak Sunumlarda Grafik Açıklamalarını Özelleştir
 linktitle: Grafik Açıklaması
 type: docs
 url: /tr/cpp/chart-legend/
@@ -11,29 +11,29 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile grafik açıklamalarını özelleştirerek, PowerPoint sunumlarını özel açıklama biçimlendirmesiyle optimize edin."
+description: "Aspose.Slides for C++ ile grafik açıklamalarını özelleştirerek, özelleştirilmiş açıklama biçimlendirmesiyle PowerPoint sunumlarını optimize edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarındaki grafik açıklamalarını özelleştirmek için seçenekler sunar. Bu makale, bir açıklamanın konumunu ve boyutunu nasıl ayarlayacağınızı, tüm açıklama için yazı tipi boyutunu nasıl belirleyeceğinizi ve tek bir açıklama girişine nasıl biçimlendirme uygulayacağınızı gösterir.
+Aspose.Slides, PowerPoint sunumlarındaki grafik açıklamalarını kişiselleştirme seçenekleri sunar. Bu makale, bir açıklamanın konumunu ve boyutunu nasıl ayarlayacağınızı, tüm açıklama için yazı tipi boyutunu nasıl belirleyeceğinizi ve tek bir açıklama girişine nasıl biçimlendirme uygulayacağınızı gösterir.
 
-Ayrıca SSS bölümünde, grafik alanının açıklama için yer açması amacıyla üzerine bindirme olmayan (non‑overlay) modun kullanılmasını, uzun açıklama etiketlerinin otomatik olarak satır başına kaydırılmasını veya satır sonları kullanılmasını, ve açıklama biçimlendirmesinin açık metin ve dolgu ayarları belirtilmediğinde sunum temasından devralınmasını kapsayan birkaç ilgili davranışı ele alır.
+Ayrıca SSS bölümünde ilgili pek çok davranışı kapsar; açıklama için alan ayırmak amacıyla örtüşme dışı modu kullanma, uzun açıklama etiketlerinin satır başına kaydırılmasına veya satır sonu eklenmesine izin verme ve açıklama biçimlendirmesinin, açıkça metin ve dolgu ayarları uygulanmadığında sunum temasından kalıtım almasını sağlama.
 
 ## **Açıklama Konumlandırması**
-Aşağıdaki adımları izleyerek açıklama özelliklerini ayarlayın:
+Açıklama özelliklerini ayarlamak için lütfen aşağıdaki adımları izleyin:
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-- Slayt referansını alın.
+- Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
+- Slaytın referansını alın.
 - Slayta bir grafik ekleyin.
 - Açıklamanın özelliklerini ayarlayın.
-- Sunumu bir PPTX dosyası olarak yazın.
+- Sunumu PPTX dosyası olarak yazın.
 
-Aşağıdaki örnekte, Grafik açıklamasının konumunu ve boyutunu ayarladık.
+Aşağıda verilen örnekte, Grafik açıklamasının konumunu ve boyutunu ayarladık.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetlegendCustomOptions-SetlegendCustomOptions.cpp" >}}
 
-## **Bir Açıklamanın Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for C++ geliştiricilerin açıklamanın yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Açıklamanın Yazı Tipi Boyutunu Ayarlama**
+Aspose.Slides for C++, geliştiricilerin açıklamanın yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
 
 - Presentation sınıfını örnekleyin.
 - Varsayılan grafiği oluşturun.
@@ -44,8 +44,8 @@ Aspose.Slides for C++ geliştiricilerin açıklamanın yazı tipi boyutunu ayarl
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SettingFontSizeOfLegend-SettingFontSizeOfLegend.cpp" >}}
 
-## **Tek Bir Açıklamanın Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for C++ geliştiricilerin tek tek açıklama girişlerinin yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Bireysel Açıklamanın Yazı Tipi Boyutunu Ayarlama**
+Aspose.Slides for C++, geliştiricilerin tek tek açıklama girişlerinin yazı tipi boyutunu ayarlamasına imkan verir. Lütfen aşağıdaki adımları izleyin:
 
 - Presentation sınıfını örnekleyin.
 - Varsayılan grafiği oluşturun.
@@ -59,14 +59,14 @@ Aspose.Slides for C++ geliştiricilerin tek tek açıklama girişlerinin yazı t
 
 ## **SSS**
 
-**Grafiğin açıklamayı otomatik olarak yer ayıracak şekilde etkinleştirebilir miyim, böylece üzerine bindirme olmaz?**
+**Açıklamayı, grafiğin üzerine bindirmek yerine otomatik olarak yer ayıracak şekilde etkinleştirebilir miyim?**
 
-Evet. Üzerine bindirme olmayan modu kullanın ([set_Overlay(false)](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/legend/set_overlay/)); bu durumda, grafik alanı açıklamayı alacak şekilde küçülecektir.
+Evet. Örtüşme dışı modu kullanın ([set_Overlay(false)](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/legend/set_overlay/)); bu durumda, çizim alanı açıklamayı barındıracak şekilde küçülecektir.
 
 **Çok satırlı açıklama etiketleri oluşturabilir miyim?**
 
-Evet. Uzun etiketler, boşluk yetersiz olduğunda otomatik olarak satır başına kaydırılır; zorunlu satır sonları, seri adındaki yeni satır karakterleriyle desteklenir.
+Evet. Uzun etiketler, alan yetersiz olduğunda otomatik olarak satır sonunda kaydırılır; zorunlu satır sonları, seri adındaki yeni satır karakterleriyle desteklenir.
 
-**Açıklamanın sunum temasının renk şemasını takip etmesini nasıl sağlarım?**
+**Açıklamayı, sunum temasının renk şemasına göre nasıl ayarlayabilirim?**
 
-Açıklama veya metni için açık renkler/dolgular/yazı tipleri belirlemeyin. Böylece tema tarafından devralınacak ve tasarım değiştiğinde doğru şekilde güncelleneceklerdir.
+Açıklama veya metni için açık renkler/dolgu/yazı tipleri belirlemeyin. Böylece tema tarafından devralınır ve tasarım değiştiğinde doğru şekilde güncellenir.

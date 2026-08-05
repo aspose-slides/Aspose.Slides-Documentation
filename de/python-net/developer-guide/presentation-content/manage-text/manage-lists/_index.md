@@ -1,17 +1,19 @@
 ---
-title: Verwalten von Aufzählungs- und nummerierten Listen in Präsentationen in Python
+title: Verwalten von Aufzählungs‑ und nummerierten Listen in Präsentationen in Python
 linktitle: Listen verwalten
 type: docs
 weight: 70
 url: /de/python-net/manage-lists/
+aliases:
+  - /python-net/manage-bullet-and-numbered-lists/
 keywords:
 - Aufzählungszeichen
 - Aufzählungsliste
-- Nummerierte Liste
+- nummerierte Liste
 - Symbol‑Aufzählungszeichen
 - Bild‑Aufzählungszeichen
-- Benutzerdefiniertes Aufzählungszeichen
-- Mehrstufige Liste
+- benutzerdefiniertes Aufzählungszeichen
+- mehrstufige Liste
 - Aufzählungszeichen erstellen
 - Aufzählungszeichen hinzufügen
 - Liste hinzufügen
@@ -20,27 +22,26 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Aufzählungs‑, Bild‑, mehrstufige und nummerierte Listen in PowerPoint- und OpenDocument‑Präsentationen mit Aspose.Slides für Python via .NET erstellen und formatieren."
+description: "Erfahren Sie, wie Sie Aufzählungs‑, Bild‑, mehrstufige und nummerierte Listen in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Python über .NET erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für Python via .NET ermöglicht das Erstellen und Formatieren von Aufzählungs‑ und Nummerierungslisten in PowerPoint‑ und OpenDocument‑Präsentationen. Ein Listeneintrag ist ein Absatz, dessen Aufzählungseinstellungen über das Absatzformat gesteuert werden.
+Aspose.Slides für Python über .NET ermöglicht das Erstellen und Formatieren von Aufzählungs- und Nummerierungslisten in PowerPoint- und OpenDocument-Präsentationen. Ein Listenelement ist ein Absatz, dessen Aufzählungseinstellungen über das Absatzformat gesteuert werden.
 
-Verwenden Sie die [Paragraph.paragraph_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/paragraph_format/) Eigenschaft, um auf Listen‑Einstellungen auf Absatzebene zuzugreifen. Der wichtigste Einstiegspunkt ist [ParagraphFormat.bullet](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/bullet/), der ein [BulletFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/) Objekt zurückgibt. Mit diesem Objekt können Sie den Aufzählungstyp, das Symbol, das Bild, die Farbe, die Größe, den Nummerierungsstil und die Startnummer festlegen.
+Verwenden Sie die Eigenschaft [Paragraph.paragraph_format](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/paragraph_format/), um auf die listenbezogenen Einstellungen auf Absatzebene zuzugreifen. Der Haupteinstiegspunkt ist [ParagraphFormat.bullet](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/bullet/), der ein [BulletFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/)‑Objekt zurückgibt. Mit diesem Objekt können Sie den Aufzählungstyp, das Symbol, das Bild, die Farbe, die Größe, den Nummerierungsstil und die Startnummer festlegen.
 
 Dieser Artikel zeigt, wie man:
+- eine Aufzählungsliste mit einem benutzerdefinierten Symbol erstellt
+- ein Bildaufzählungszeichen erstellt
+- eine mehrstufige Liste erstellt, indem die Absatztiefe festgelegt wird
+- eine nummerierte Liste erstellt
+- die Listformatierung in einer vorhandenen Präsentation inspiziert und ändert
 
-- eine Aufzählungsliste mit einem benutzerdefinierten Symbol erstellen
-- ein Bild‑Aufzählungszeichen erstellen
-- eine mehrstufige Liste erstellen, indem die Absatz‑Tiefe festgelegt wird
-- eine nummerierte Liste erstellen
-- die Listformatierung in einer vorhandenen Präsentation prüfen und ändern
+## **Erstellen einer Aufzählungsliste**
 
-## **Aufzählungsliste erstellen**
+Um eine Aufzählungsliste zu erstellen, fügen Sie [Paragraph](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/)‑Objekte zu einem [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) hinzu und setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.SYMBOL](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/). Anschließend können Sie [BulletFormat.char](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/color/) und [BulletFormat.height](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/height/) festlegen, um das Aussehen der Aufzählungszeichen zu steuern.
 
-Um eine Aufzählungsliste zu erstellen, fügen Sie einem [TextFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/textframe/) [Paragraph](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraph/)‑Objekte hinzu und setzen [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.SYMBOL](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/). Anschließend können Sie [BulletFormat.char](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/color/) und [BulletFormat.height](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/height/) festlegen, um das Aussehen der Aufzählungszeichen zu steuern.
-
-Der folgende Python‑Code demonstriert, wie man eine Aufzählungsliste in einer Folie erstellt:
+Der folgende Python‑Code demonstriert, wie man in einer Folie eine Aufzählungsliste erstellt:
 
 ```py
 import aspose.slides as slides
@@ -78,11 +79,11 @@ Das Ergebnis:
 
 ![Die Symbol‑Aufzählungszeichen](symbol_bullets.png)
 
-## **Nummerierte Liste erstellen**
+## **Erstellen einer nummerierten Liste**
 
-Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.NUMBERED](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/). Sie können außerdem ein Nummerierungsformat mit [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/numbered_bullet_style/) auswählen oder [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) festlegen, wenn die Liste mit einem Wert anderer als 1 beginnen soll.
+Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.NUMBERED](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/). Sie können außerdem ein Nummerierungsformat mit [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/numbered_bullet_style/) auswählen oder [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) festlegen, wenn die Liste mit einem anderen Wert als 1 beginnen soll.
 
-Der folgende Python‑Code zeigt, wie man eine nummerierte Liste in einer Folie erstellt:
+Der folgende Python‑Code zeigt, wie man in einer Folie eine nummerierte Liste erstellt:
 
 ```py
 import aspose.slides as slides
@@ -116,15 +117,17 @@ Das Ergebnis:
 
 ![Die nummerierten Aufzählungszeichen](numbered_bullets.png)
 
-## **Bild‑Aufzählungszeichen erstellen**
+## **Erstellen eines Bildaufzählungszeichens**
 
-Aspose.Slides ermöglicht es, ein normales Aufzählungssymbol durch ein Bild zu ersetzen. Bild‑Aufzählungszeichen funktionieren am besten mit einfachen Bildern, die in kleiner Größe lesbar bleiben, beispielsweise Icons oder kleine transparente PNG‑Dateien.
+Aspose.Slides ermöglicht es, ein reguläres Aufzählungs­symbol durch ein Bild zu ersetzen. Bild‑Aufzählungszeichen funktionieren am besten mit einfachen Bildern, die in kleiner Größe lesbar bleiben, wie z. B. Icons oder kleine transparente PNG‑Dateien.
 
- {{% alert color="primary" %}}
-Idealerweise, wenn Sie das reguläre Aufzählungssymbol durch ein Bild ersetzen möchten, sollten Sie eine einfache Grafik mit transparentem Hintergrund wählen. Solche Bilder eignen sich gut als benutzerdefinierte Aufzählungssymbole.
+{{% alert color="primary" %}}
+Idealerweise, wenn Sie das reguläre Aufzählungs­symbol durch ein Bild ersetzen möchten, sollten Sie eine einfache Grafik mit transparentem Hintergrund wählen. Derartige Bilder eignen sich gut als benutzerdefinierte Aufzählungs­symbole.
+
+Beachten Sie, dass das Bild auf eine sehr kleine Größe verkleinert wird. Aus diesem Grund empfehlen wir dringend, ein Bild auszuwählen, das auch in kleiner Darstellung klar und visuell wirksam bleibt, wenn es als Aufzählungs­zeichen in einer Liste verwendet wird.
 {{% /alert %}}
 
-Um ein Bild‑Aufzählungszeichen zu erstellen, fügen Sie ein Bild zu [Presentation.images](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/images/) hinzu und weisen das zurückgegebene Bildobjekt [BulletFormat.picture](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/picture/) zu. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.PICTURE](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/), bevor Sie das Bild zuweisen.
+Um ein Bildaufzählungszeichen zu erstellen, fügen Sie ein Bild zu [Presentation.images](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/images/) hinzu und weisen Sie das zurückgegebene Bildobjekt [BulletFormat.picture](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/picture/) zu. Setzen Sie [BulletFormat.type](https://reference.aspose.com/slides/de/python-net/aspose.slides/bulletformat/type/) auf [BulletType.PICTURE](https://reference.aspose.com/slides/de/python-net/aspose.slides/bullettype/), bevor Sie das Bild zuweisen.
 
 Angenommen, wir haben eine "image.png":
 
@@ -168,9 +171,9 @@ Das Ergebnis:
 
 ![Die Bild‑Aufzählungszeichen](picture_bullets.png)
 
-## **Mehrstufige Liste erstellen**
+## **Erstellen einer mehrstufigen Liste**
 
-Verwenden Sie [ParagraphFormat.depth](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/depth/), um Listeneinträge auf verschiedenen Ebenen zu platzieren. Ebene 0 ist die oberste Ebene, Ebene 1 ist darunter verschachtelt usw.
+Verwenden Sie [ParagraphFormat.depth](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/depth/), um Listenelemente auf verschiedenen Ebenen zu platzieren. Ebene 0 ist die oberste Ebene, Ebene 1 ist darunter verschachtelt usw.
 
 Der folgende Python‑Code zeigt, wie man eine mehrstufige Aufzählungsliste erstellt:
 
@@ -211,11 +214,11 @@ Das Ergebnis:
 
 ![Die mehrstufige Liste](multilevel_list.png)
 
-## **Vorhandene Liste ändern**
+## **Ändern einer bestehenden Liste**
 
-Um die Listformatierung in einer vorhandenen Präsentation zu ändern, greifen Sie auf den Zielabsatz zu und aktualisieren dessen [ParagraphFormat.bullet](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/bullet/)‑Einstellungen. Die gleichen Eigenschaften, die zum Erstellen von Listen verwendet werden, können zum Prüfen oder Ändern von aus einer PPT-, PPTX‑ oder ODP‑Datei geladenen Listen verwendet werden.
+Um die Listformatierung in einer bestehenden Präsentation zu ändern, greifen Sie auf den entsprechenden Absatz zu und aktualisieren seine [ParagraphFormat.bullet](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/bullet/)-Einstellungen. Die gleichen Eigenschaften, die zum Erstellen von Listen verwendet werden, können auch zum Prüfen oder Ändern von Listen verwendet werden, die aus einer PPT-, PPTX‑ oder ODP‑Datei geladen wurden.
 
-Der folgende Python‑Code ändert den ersten Absatz in einem Textframe, sodass er einen nummerierten Listenstil verwendet:
+Der folgende Python‑Code ändert den ersten Absatz in einem Text‑Frame, sodass er einen nummerierten Listenstil verwendet:
 
 ```py
 import aspose.slides as slides
@@ -238,12 +241,12 @@ with slides.Presentation("input.pptx") as presentation:
 
 **Können Aufzählungs‑ und nummerierte Listen in PDF oder Bilder exportiert werden?**
 
-Ja. Aspose.Slides behält die Listformatierung bei, sofern das Zielformat die entsprechenden Textlayout‑ und Aufzählungsfunktionen unterstützt.
+Ja. Aspose.Slides bewahrt die Listformatierung, wenn das Zielformat die entsprechenden Textlayout‑ und Aufzählungsfunktionen unterstützt.
 
-**Kann ich Listen in vorhandenen Präsentationen bearbeiten?**
+**Kann ich Listen in bestehenden Präsentationen bearbeiten?**
 
-Ja. Laden Sie die Präsentation, greifen Sie auf den Zielabsatz zu, überprüfen oder aktualisieren Sie dessen [ParagraphFormat.bullet](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/bullet/)‑Einstellungen und speichern Sie die Präsentation.
+Ja. Laden Sie die Präsentation, greifen Sie auf den gewünschten Absatz zu, prüfen oder aktualisieren Sie dessen [ParagraphFormat.bullet](https://reference.aspose.com/slides/de/python-net/aspose.slides/paragraphformat/bullet/)-Einstellungen und speichern Sie die Präsentation.
 
 **Können Listen nicht‑lateinischen Text enthalten?**
 
-Ja. Der Text von Listeneinträgen kann Unicode‑Zeichen enthalten, sodass Sie Listen in mehrsprachigen Präsentationen erstellen können. Stellen Sie sicher, dass die in der Präsentation verwendeten Schriftarten die benötigten Zeichen unterstützen.
+Ja. Der Text von Listenelementen kann Unicode‑Zeichen enthalten, sodass Sie Listen in mehrsprachigen Präsentationen erstellen können. Stellen Sie sicher, dass die in der Präsentation verwendeten Schriftarten die benötigten Zeichen unterstützen.

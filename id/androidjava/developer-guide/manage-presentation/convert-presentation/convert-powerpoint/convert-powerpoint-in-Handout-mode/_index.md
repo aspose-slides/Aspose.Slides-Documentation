@@ -3,7 +3,7 @@ title: Konversi Presentasi PowerPoint dalam Mode Handout di Android
 linktitle: Mode Handout
 type: docs
 weight: 150
-url: /id/androidjava/convert-powerpoint-in-Handout-mode/
+url: /id/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
 - konversi PowerPoint
 - konversi presentasi
@@ -16,15 +16,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konversi presentasi menjadi handout di Java. Atur jumlah slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar dengan Aspose.Slides untuk Android, lengkap dengan contoh kode. Coba secara gratis."
+description: "Konversi presentasi menjadi handout di Java. Atur jumlah slide per halaman, pertahankan catatan, ekspor ke PDF atau gambar dengan Aspose.Slides untuk Android, dengan kode contoh. Coba gratis."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Aspose.Slides menyediakan kemampuan untuk mengonversi presentasi ke berbagai format, termasuk membuat handout untuk pencetakan dalam mode Handout. Mode ini memungkinkan Anda mengatur bagaimana beberapa slide muncul pada satu halaman, sehingga berguna untuk konferensi, seminar, dan acara lainnya. Anda dapat mengaktifkan mode ini dengan mengatur metode `setSlidesLayoutOptions` pada antarmuka [IPdfOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/) .
+Aspose.Slides menyediakan kemampuan untuk mengonversi presentasi ke dalam berbagai format, termasuk membuat handout untuk dicetak dalam mode Handout. Mode ini memungkinkan Anda mengatur bagaimana banyak slide ditampilkan pada satu halaman, sehingga berguna untuk konferensi, seminar, dan acara lainnya. Anda dapat mengaktifkan mode ini dengan menyetel metode `setSlidesLayoutOptions` pada antarmuka [IPdfOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ihtmloptions/), dan [ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/) .
 
 ## **Ekspor Mode Handout**
 
-Untuk mengonfigurasi mode Handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/handoutlayoutingoptions/), yang menentukan berapa banyak slide yang ditempatkan pada satu halaman serta parameter tampilan lainnya.
+Untuk mengonfigurasi mode Handout, gunakan objek [HandoutLayoutingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/handoutlayoutingoptions/) , yang menentukan berapa banyak slide yang ditempatkan pada satu halaman serta parameter tampilan lainnya.
 
 Berikut adalah contoh kode yang menunjukkan cara mengonversi presentasi ke PDF dalam mode Handout.
 
@@ -50,7 +50,9 @@ try {
 ```
 
 {{% alert color="warning" %}} 
+
 Perlu diingat bahwa metode `setSlidesLayoutOptions` hanya tersedia untuk format output tertentu, seperti PDF, HTML, TIFF, dan saat merender sebagai gambar.
+
 {{% /alert %}} 
 
 ## **FAQ**
@@ -61,8 +63,8 @@ Aspose.Slides mendukung [preset](https://reference.aspose.com/slides/id/androidj
 
 **Apakah saya dapat menentukan grid khusus, seperti 5 atau 8 slide per halaman?**
 
-Tidak. Jumlah dan urutan thumbnail dikontrol secara ketat oleh kelas [HandoutType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/handouttype/); layout arbitrer tidak didukung.
+Tidak. Jumlah dan urutan thumbnail dikendalikan secara ketat oleh kelas [HandoutType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/handouttype/) ; tata letak arbitrer tidak didukung.
 
 **Apakah saya dapat menyertakan slide tersembunyi dalam output Handout?**
 
-Ya. Aktifkan slide tersembunyi menggunakan metode `setShowHiddenSlides` dalam pengaturan ekspor untuk format target, seperti [PdfOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/htmloptions/), atau [TiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/tiffoptions/).
+Ya. Aktifkan slide tersembunyi dengan menggunakan metode `setShowHiddenSlides` dalam pengaturan ekspor untuk format target, seperti [PdfOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/htmloptions/), atau [TiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/tiffoptions/).

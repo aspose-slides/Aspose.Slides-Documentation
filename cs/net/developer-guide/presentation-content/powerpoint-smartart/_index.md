@@ -1,12 +1,14 @@
 ---
-title: Vytvořte a přizpůsobte SmartArt v PowerPointu v .NET
+title: Vytváření a přizpůsobování SmartArt v PowerPointu v .NET
 linktitle: PowerPoint SmartArt
 type: docs
 weight: 100
 url: /cs/net/powerpoint-smartart/
+aliases:
+  - /net/examples/elements/smartart/
 keywords:
 - SmartArt
-- správa SmartArt
+- spravovat SmartArt
 - grafika SmartArt
 - uzel SmartArt
 - PowerPoint
@@ -14,5 +16,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se, jak v .NET pomocí API Aspose.Slides vytvářet a upravovat SmartArt v PowerPointu: rozvržení, uzly, styly, s podrobnými příklady pro rychlou automatizaci snímků."
+description: "Zjistěte, jak v .NET pomocí API Aspose.Slides vytvářet a upravovat SmartArt v PowerPointu: rozvržení, uzly, styly, s postupnými příklady pro rychlou automatizaci snímků."
 ---

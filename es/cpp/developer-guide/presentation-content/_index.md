@@ -1,6 +1,6 @@
 ---
-title: Administrar contenido de presentación en C++
-linktitle: Contenido de presentación
+title: Gestionar contenido de presentaciones en C++
+linktitle: Contenido de la presentación
 type: docs
 weight: 30
 url: /es/cpp/presentation-content/
@@ -8,7 +8,7 @@ keywords:
 - contenido
 - BLOB
 - hipervínculo
-- medios
+- multimedia
 - OLE
 - texto
 - zoom
@@ -23,5 +23,5 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Cree, edite y extraiga contenido de presentación con Aspose.Slides para C++ — obtenga ejemplos de código para texto, imágenes, formas, gráficos; PPT, PPTX y ODP."
+description: "Cree, edite y extraiga contenido de presentaciones con Aspose.Slides para C++ — obtenga ejemplos de código para texto, imágenes, formas, gráficos; PPT, PPTX y ODP."
 ---

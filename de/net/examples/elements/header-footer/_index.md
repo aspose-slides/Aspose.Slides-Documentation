@@ -1,12 +1,14 @@
 ---
-title: Kopfzeile Fußzeile
+title: Kopf- und Fußzeile
 type: docs
 weight: 220
 url: /de/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
-- Kopfzeile Fußzeile
-- Kopfzeile Fußzeile hinzufügen
-- Kopfzeile Fußzeile aktualisieren
+- Kopf- und Fußzeile
+- Kopf- und Fußzeile hinzufügen
+- Kopf- und Fußzeile aktualisieren
 - Codebeispiel
 - PowerPoint
 - OpenDocument
@@ -14,9 +16,9 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Steuern Sie Folienkopfzeilen und -fußzeilen mit Aspose.Slides für .NET: Fügen Sie Datumsangaben, Folienzahlen und benutzerdefinierten Text in PPT, PPTX und ODP mit C#‑Beispielen hinzu."
+description: "Steuern Sie Folien‑Kopf‑ und Fußzeilen mit Aspose.Slides für .NET: Fügen Sie Datumsangaben, Folienzahlen und benutzerdefinierten Text in PPT, PPTX und ODP mit C#‑Beispielen hinzu."
 ---
-Dieser Artikel zeigt, wie man Fußzeilen hinzufügt und Platzhalter für Datum und Uhrzeit aktualisiert, wobei **Aspose.Slides for .NET** verwendet wird.
+Dieser Artikel zeigt, wie Sie Fußzeilen hinzufügen und Platzhalter für Datum und Uhrzeit mit **Aspose.Slides for .NET** aktualisieren.
 
 ## **Fußzeile hinzufügen**
 

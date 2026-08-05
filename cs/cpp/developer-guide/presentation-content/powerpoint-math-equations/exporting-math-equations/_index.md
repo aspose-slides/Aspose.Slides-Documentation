@@ -1,32 +1,35 @@
 ---
-title: Export matematických rovnic z prezentací v С++
+title: Export matematických rovnic z prezentací v C++
 linktitle: Export rovnic
 type: docs
 weight: 30
 url: /cs/cpp/exporting-math-equations/
 keywords:
-- exportovat matematické rovnice
+- export matematických rovnic
 - MathML
 - LaTeX
 - PowerPoint
 - prezentace
-- С++
+- C++
 - Aspose.Slides
-description: "Odhalte bezproblémový export matematických rovnic z PowerPointu do MathML pomocí Aspose.Slides pro С++ — zachovejte formátování a zvyšte kompatibilitu."
+description: "Umožněte snadný export matematických rovnic z PowerPointu do MathML pomocí Aspose.Slides pro C++ — zachovejte formátování a zvyšte kompatibilitu."
 ---
 ## **Úvod**
 
-Aspose.Slides pro C++ vám umožňuje exportovat matematické rovnice z prezentací. Například může být potřeba extrahovat matematické rovnice na snímcích (z konkrétní prezentace) a použít je v jiném programu nebo platformě. 
+Aspose.Slides for C++ umožňuje exportovat matematické rovnice z prezentací. Například můžete potřebovat extrahovat matematické rovnice ze snímků (z konkrétní prezentace) a použít je v jiném programu nebo platformě. 
 
 {{% alert color="primary" %}} 
-Můžete exportovat rovnice do MathML, populárního formátu nebo standardu pro matematické rovnice a podobný obsah, který se objevuje na webu a v mnoha aplikacích. 
+
+Můžete exportovat rovnice do MathML, populárního formátu nebo standardu pro matematické rovnice a podobný obsah, který se vyskytuje na webu a v mnoha aplikacích. 
+
 {{% /alert %}}
 
 ## **Uložit matematické rovnice jako MathML**
 
-Zatímco lidé snadno píší kód pro některé formáty rovnic, jako je LaTeX, mají potíže s psaním kódu pro MathML, protože tento formát má být generován automaticky aplikacemi. Programy snadno čtou a parsují MathML, protože jeho kód je v XML, takže MathML je běžně používáno jako výstupní a tiskový formát v mnoha oblastech. 
+Zatímco lidé snadno zapisují kód pro některé formáty rovnic, jako je LaTeX, mají potíže s psaním kódu pro MathML, protože tento formát má být generován automaticky aplikacemi. Programy snadno čtou a parsují MathML, protože jeho kód je v XML, takže MathML je běžně používán jako výstupní a tiskový formát v mnoha oblastech. 
 
 Tento ukázkový kód vám ukazuje, jak exportovat matematickou rovnici z prezentace do MathML:
+
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -50,22 +53,22 @@ mathParagraph->WriteAsMathMl(stream);
 
 ## **Často kladené otázky**
 
-**Co přesně se exportuje do MathML – odstavec nebo samostatný blok vzorce?**
+**Co přesně je exportováno do MathML - odstavec nebo jednotlivý blok vzorce?**
 
 Můžete exportovat buď celý matematický odstavec ([MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/)) nebo jednotlivý blok ([MathBlock](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathblock/)) do MathML. Oba typy poskytují metodu pro zápis do MathML.
 
-**Jak poznám, že objekt na snímku je matematický vzorec, a ne běžný text nebo obrázek?**
+**Jak mohu rozpoznat, že objekt na snímku je matematický vzorec a ne běžný text nebo obrázek?**
 
-Vzorec se nachází v [MathPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathportion/) a má [MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/). Obrázky a běžné textové části bez [MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/) nejsou exportovatelné vzorce.
+Vzorec existuje v [MathPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathportion/) a má [MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/). Obrázky a běžné textové části bez [MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/) nejsou exportovatelné vzorce.
 
-**Odkud v prezentaci pochází MathML – je specifické pro PowerPoint nebo je to standard?**
+**Odkud v prezentaci pochází MathML - je specifické pro PowerPoint nebo je to standard?**
 
-Export cílí na standardní MathML (XML). Aspose používá Presentation MathML – podmnožinu standardu určenou pro prezentace, která je široce využívána v aplikacích a na webu.
+Export cílí na standardní MathML (XML). Aspose používá Presentation MathML – podmnožinu standardu určenou pro prezentace – která je široce používána napříč aplikacemi a webem.
 
-**Je podporován export vzorců uvnitř tabulek, SmartArt, skupin atd.?**
+**Je podporován export vzorců uvnitř tabulek, SmartArtu, skupin atd.?**
 
-Ano, pokud tyto objekty obsahují textové části s [MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/) (tj. skutečné PowerPoint vzorce), jsou exportovány. Pokud je vzorec vložen jako obrázek, není exportován.
+Ano, pokud tyto objekty obsahují textové části s [MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/) (tj. skutečné PowerPointové vzorce), jsou exportovány. Pokud je vzorec vložen jako obrázek, není.
 
 **Mění export do MathML původní prezentaci?**
 
-Ne. Zápis MathML je serializací obsahu vzorce; neovlivňuje soubor prezentace.
+Ne. Zápis MathML je serializací obsahu vzorce; neprovádí žádné změny v souboru prezentace.

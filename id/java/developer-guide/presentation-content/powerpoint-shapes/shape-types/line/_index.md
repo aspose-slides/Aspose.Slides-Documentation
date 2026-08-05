@@ -1,43 +1,43 @@
 ---
-title: Menambahkan Bentuk Garis ke Presentasi dalam Java
+title: Menambahkan Bentuk Garis ke Presentasi di Java
 linktitle: Garis
 type: docs
 weight: 50
-url: /id/java/Line/
+url: /id/java/line/
 keywords:
 - garis
 - buat garis
 - tambahkan garis
-- garis polos
+- garis biasa
 - konfigurasi garis
-- kustomisasi garis
-- gaya putus-putus
-- ujung panah
+- sesuaikan garis
+- gaya dash
+- kepala panah
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari cara memanipulasi format garis dalam presentasi PowerPoint dengan Aspose.Slides for Java. Temukan properti, metode, dan contoh."
+description: "Pelajari cara memanipulasi format garis dalam presentasi PowerPoint dengan Aspose.Slides untuk Java. Temukan properti, metode, dan contoh."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda menambahkan bentuk garis ke slide PowerPoint secara programatik. Artikel ini menunjukkan cara membuat garis sederhana dan cara menyesuaikan garis sehingga muncul sebagai panah.
+Aspose.Slides memungkinkan Anda menambahkan bentuk garis ke slide PowerPoint secara programatis. Artikel ini menunjukkan cara membuat garis sederhana dan cara menyesuaikan garis sehingga tampil sebagai panah.
 
-Anda akan belajar cara menambahkan bentuk garis ke slide, menyesuaikan penampilan visualnya, dan menyimpan presentasi yang telah diperbarui. Contoh-contoh berfokus pada pengaturan format garis praktis seperti gaya, lebar, pola putus‑putus, opsi ujung panah, dan warna isi.
+Anda akan belajar cara menambahkan bentuk garis ke slide, menyesuaikan penampilannya, dan menyimpan presentasi yang diperbarui. Contoh-contoh berfokus pada pengaturan format garis praktis seperti gaya, lebar, pola dash, opsi kepala panah, dan warna isian.
 
-## **Buat Garis Polos**
+## **Buat Garis Biasa**
 
-Untuk menambahkan sebuah garis polos sederhana ke slide yang dipilih dalam presentasi, ikuti langkah‑langkah di bawah ini:
+Untuk menambahkan garis sederhana ke slide yang dipilih dalam presentasi, ikuti langkah-langkah berikut:
 
 - Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
 - Dapatkan referensi slide dengan menggunakan Indeksnya.
 - Tambahkan AutoShape tipe Line menggunakan metode [addAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) yang disediakan oleh objek [IShapeCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShapeCollection).
-- Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+- Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Dalam contoh di bawah ini, kami telah menambahkan sebuah garis ke slide pertama presentasi.
+Pada contoh di bawah ini, kami telah menambahkan garis ke slide pertama presentasi.
 
 ```java
-// Buat instance kelas PresentationEx yang mewakili file PPTX
+// Membuat instance kelas PresentationEx yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
     // Dapatkan slide pertama
@@ -55,20 +55,20 @@ try {
 
 ## **Buat Garis Berbentuk Panah**
 
-Aspose.Slides for Java juga memungkinkan pengembang mengonfigurasi beberapa properti garis agar terlihat lebih menarik. Mari coba mengonfigurasi beberapa properti garis agar tampak seperti panah. Ikuti langkah‑langkah di bawah ini:
+Aspose.Slides untuk Java juga memungkinkan pengembang mengkonfigurasi beberapa properti garis agar tampak lebih menarik. Mari coba mengkonfigurasi beberapa properti garis supaya tampak seperti panah. Ikuti langkah-langkah berikut untuk melakukannya:
 
 - Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
 - Dapatkan referensi slide dengan menggunakan Indeksnya.
 - Tambahkan AutoShape tipe Line menggunakan metode [addAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) yang disediakan oleh objek [IShapeCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShapeCollection).
-- Setel [Line Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineStyle) ke salah satu gaya yang disediakan oleh Aspose.Slides for Java.
-- Setel Width garis.
-- Setel [Dash Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineDashStyle) garis ke salah satu gaya yang disediakan oleh Aspose.Slides for Java.
-- Setel [Arrow Head Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadStyle) dan [Length](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadLength) titik awal garis.
-- Setel [Arrow Head Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadStyle) dan [Length](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadLength) titik akhir garis.
-- Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+- Atur [Line Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineStyle) ke salah satu gaya yang disediakan oleh Aspose.Slides untuk Java.
+- Atur Width garis.
+- Atur [Dash Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineDashStyle) garis ke salah satu gaya yang disediakan oleh Aspose.Slides untuk Java.
+- Atur [Arrow Head Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadStyle) dan [Length](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadLength) pada titik awal garis.
+- Atur [Arrow Head Style](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadStyle) dan [Length](https://reference.aspose.com/slides/id/java/com.aspose.slides/LineArrowheadLength) pada titik akhir garis.
+- Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 ```java
-// Buat instance kelas PresentationEx yang mewakili file PPTX
+// Membuat instance kelas PresentationEx yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
     // Dapatkan slide pertama
@@ -77,7 +77,7 @@ try {
     // Tambahkan AutoShape tipe line
     IAutoShape shp = sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // Terapkan beberapa format pada garis
+    // Terapkan beberapa pemformatan pada garis
     shp.getLineFormat().setStyle(LineStyle.ThickBetweenThin);
     shp.getLineFormat().setWidth(10);
 
@@ -101,14 +101,14 @@ try {
 
 ## **FAQ**
 
-**Bisakah saya mengonversi garis biasa menjadi konektor sehingga ia “menempel” pada bentuk‑bentuk?**
+**Apakah saya dapat mengubah garis biasa menjadi connector sehingga ia "menempel" pada bentuk?**
 
-Tidak. Garis biasa (sebuah [AutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/autoshape/) tipe [Line](https://reference.aspose.com/slides/id/java/com.aspose.slides/shapetype/)) tidak secara otomatis menjadi konektor. Untuk membuatnya menempel pada bentuk, gunakan tipe [Connector](https://reference.aspose.com/slides/id/java/com.aspose.slides/connector/) khusus dan [API yang sesuai](/slides/id/java/connector/) untuk koneksi.
+Tidak. Garis biasa (sebuah [AutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/autoshape/) bertipe [Line](https://reference.aspose.com/slides/id/java/com.aspose.slides/shapetype/)) tidak secara otomatis menjadi connector. Untuk membuatnya menempel pada bentuk, gunakan tipe [Connector](https://reference.aspose.com/slides/id/java/com.aspose.slides/connector/) khusus dan [API yang bersesuaian](/slides/id/java/connector/) untuk koneksi.
 
 **Apa yang harus saya lakukan jika properti sebuah garis diwarisi dari tema dan sulit menentukan nilai akhirnya?**
 
-Baca [properti efektif](/slides/id/java/shape-effective-properties/) melalui antarmuka [ILineFormatEffectiveData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ilinefillformateffectivedata/) — antarmuka ini sudah memperhitungkan pewarisan dan gaya tema.
+Baca [properti efektif](/slides/id/java/shape-effective-properties/) melalui antarmuka [ILineFormatEffectiveData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ilineformateffectivedata/)/[ILineFillFormatEffectiveData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ilinefillformateffectivedata/) — antarmuka ini sudah mempertimbangkan pewarisan dan gaya tema.
 
-**Bisakah saya mengunci sebuah garis agar tidak dapat diedit (dipindahkan, diubah ukurannya)?**
+**Apakah saya dapat mengunci garis agar tidak dapat diedit (dipindahkan, diubah ukuran)?**
 
-Ya. Bentuk menyediakan [lock objects](https://reference.aspose.com/slides/id/java/com.aspose.slides/autoshape/#getAutoShapeLock--) yang memungkinkan Anda [menolak operasi pengeditan](/slides/id/java/applying-protection-to-presentation/).
+Ya. Shape menyediakan [lock objects](https://reference.aspose.com/slides/id/java/com.aspose.slides/autoshape/#getAutoShapeLock--) yang memungkinkan Anda [menolak operasi pengeditan](/slides/id/java/applying-protection-to-presentation/).

@@ -6,8 +6,8 @@ weight: 70
 url: /pl/androidjava/slide-size/
 keywords:
 - rozmiar slajdu
-- proporcja obrazu
-- standardowy
+- proporcje obrazu
+- standard
 - szerokokątny
 - 4:3
 - 16:9
@@ -18,7 +18,7 @@ keywords:
 - unikalny rozmiar slajdu
 - slajd w pełnym rozmiarze
 - typ ekranu
-- nie skaluj
+- nie skalować
 - zapewnij dopasowanie
 - maksymalizuj
 - PowerPoint
@@ -27,26 +27,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Szybko zmień rozmiar slajdów w plikach PPT, PPTX i ODP przy użyciu Java i Aspose.Slides dla Androida, zoptymalizuj prezentacje pod dowolny ekran bez utraty jakości."
+description: "Szybko zmień rozmiar slajdów w plikach PPT, PPTX i ODP przy użyciu Java i Aspose.Slides dla Androida, optymalizuj prezentacje pod dowolny ekran bez utraty jakości."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides zapewnia kompleksowe narzędzia do dostosowywania rozmiaru slajdu i proporcji obrazu w prezentacjach PowerPoint, co jest istotne zarówno dla druku, jak i wyświetlania na ekranie. 
+Aspose.Slides udostępnia wszechstronne narzędzia do zmiany rozmiaru slajdu i proporcji obrazu w prezentacjach PowerPoint, co jest kluczowe zarówno przy drukowaniu, jak i wyświetlaniu na ekranie. 
 
 Popularne rozmiary slajdów i proporcje:
 
-- **Standard (proporcja 4:3)**: Idealny dla starszych ekranów i urządzeń.
-- **Szerokokątny (proporcja 16:9)**: Zalecany dla nowoczesnych projektorów i wyświetlaczy.
+- **Standard (4:3)**: Idealny dla starszych ekranów i urządzeń.  
+- **Widescreen (16:9)**: Zalecany dla nowoczesnych projektorów i wyświetlaczy.  
 
-Zapewnij spójność w całej prezentacji, ponieważ jeden rozmiar slajdu i jedna proporcja obrazu obowiązują wszystkie slajdy. Dla uzyskania optymalnych wyników ustaw wymiary slajdu na początku procesu tworzenia prezentacji, aby uniknąć komplikacji.
+Zadbaj o spójność w całej prezentacji, ponieważ jeden rozmiar slajdu i jedna proporcja obrazu obowiązują wszystkie slajdy. Aby uzyskać optymalne wyniki, ustaw wymiary slajdu na początku procesu tworzenia prezentacji, aby uniknąć problemów.
 
 {{% alert color="primary" %}} 
-Domyślnie prezentacje tworzone przy użyciu Aspose.Slides używają standardowej proporcji 4:3.
+Domyślnie prezentacje tworzone przy pomocy Aspose.Slides używają standardowej proporcji 4:3.  
 {{% /alert %}}
 
 ## **Zmiana rozmiaru slajdu w prezentacjach**
 
-Ten przykład kodu pokazuje, jak zmienić rozmiar slajdu w prezentacji w języku Java przy użyciu Aspose.Slides:
+ Ten przykładowy kod pokazuje, jak zmienić rozmiar slajdu w prezentacji w języku Java przy użyciu Aspose.Slides:
 
 ```java
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
@@ -58,16 +58,16 @@ try {
 }
 ```
 
-## **Określanie własnych rozmiarów slajdów w prezentacjach**
+## **Określanie własnych rozmiarów slajdu w prezentacjach**
 
-Jeśli standardowe rozmiary slajdów (4:3 i 16:9) nie są dla Ciebie odpowiednie, możesz zdecydować się na użycie konkretnego lub unikatowego rozmiaru slajdu. Na przykład, jeśli planujesz drukować slajdy w pełnym rozmiarze z prezentacji na własnym układzie strony lub zamierzasz wyświetlać prezentację na określonych typach ekranów, prawdopodobnie skorzystasz z ustawienia własnego rozmiaru dla swojej prezentacji. 
+Jeśli standardowe rozmiary slajdów (4:3 i 16:9) nie spełniają Twoich wymagań, możesz zdecydować się na określony lub unikalny rozmiar slajdu. Na przykład, gdy planujesz drukować slajdy w pełnym rozmiarze na niestandardowym układzie strony lub wyświetlać prezentację na określonych typach ekranów, prawdopodobnie skorzystasz z ustawienia własnego rozmiaru slajdu.
 
-Ten przykład kodu pokazuje, jak używać Aspose.Slides dla Androida w Javie, aby określić własny rozmiar slajdu dla prezentacji w języku Java:
+Ten przykładowy kod pokazuje, jak używać Aspose.Slides dla Androida w Javie, aby określić własny rozmiar slajdu w prezentacji:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
 try {
-    pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // Rozmiar papieru A4
+    pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // rozmiar papieru A4
     pres.save("pres-a4-slide-size.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -76,9 +76,9 @@ try {
 
 ## **Obsługa zawartości slajdu po zmianie rozmiaru**
 
-Po zmianie rozmiaru slajdu w prezentacji zawartość slajdów (np. obrazy lub obiekty) może ulec zniekształceniu. Domyślnie obiekty są automatycznie skalowane, aby pasowały do nowego rozmiaru slajdu. Jednak przy zmianie rozmiaru slajdu w prezentacji możesz określić ustawienie, które decyduje, jak Aspose.Slides radzi sobie z zawartością slajdów.
+Po zmianie rozmiaru slajdu w prezentacji zawartość slajdów (np. obrazy lub obiekty) może ulec zniekształceniu. Domyślnie obiekty są automatycznie skalowane, aby dopasować się do nowego rozmiaru slajdu. Jednak przy zmianie rozmiaru slajdu możesz określić ustawienie, które definiuje, w jaki sposób Aspose.Slides radzi sobie z zawartością slajdów.
 
-W zależności od tego, co zamierzasz zrobić lub osiągnąć, możesz użyć dowolnego z tych ustawień:
+W zależności od tego, co chcesz osiągnąć, możesz użyć jednego z następujących ustawień:
 
 - `DoNotScale`
 
@@ -86,13 +86,13 @@ W zależności od tego, co zamierzasz zrobić lub osiągnąć, możesz użyć do
 
 - `EnsureFit`
 
-  Jeśli chcesz skalować do mniejszego rozmiaru slajdu i potrzebujesz, aby Aspose.Slides zmniejszył obiekty slajdów tak, aby wszystkie zmieściły się na slajdach (w ten sposób unikasz utraty zawartości), użyj tego ustawienia. 
+  Jeśli zmniejszasz rozmiar slajdu i potrzebujesz, aby Aspose.Slides zmniejszyło obiekty, aby wszystkie zmieściły się na slajdzie (w ten sposób unikniesz utraty treści), użyj tego ustawienia.
 
 - `Maximize`
 
-  Jeśli chcesz skalować do większego rozmiaru slajdu i potrzebujesz, aby Aspose.Slides powiększył obiekty slajdów, aby były proporcjonalne do nowego rozmiaru slajdu, użyj tego ustawienia. 
+  Jeśli powiększasz rozmiar slajdu i potrzebujesz, aby Aspose.Slides powiększyło obiekty, aby były proporcjonalne do nowego rozmiaru, użyj tego ustawienia.
 
-Ten przykład kodu pokazuje, jak używać ustawienia `Maximize` przy zmianie rozmiaru slajdu w prezentacji:
+Ten przykładowy kod pokazuje, jak używać ustawienia `Maximize` przy zmianie rozmiaru slajdu w prezentacji:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -105,18 +105,18 @@ try {
 
 ## **FAQ**
 
-**Czy mogę ustawić własny rozmiar slajdu używając jednostek innych niż cale (na przykład punktów lub milimetrów)?**
+**Czy mogę ustawić własny rozmiar slajdu używając jednostek innych niż cale (np. punktów lub milimetrów)?**
 
-Tak. Aspose.Slides używa wewnętrznie punktów, gdzie 1 punkt to 1/72 cala. Możesz przekonwertować dowolną jednostkę (taką jak milimetry lub centymetry) na punkty i użyć skonwertowanych wartości do określenia szerokości i wysokości slajdu.
+Tak. Aspose.Slides wewnętrznie używa punktów, gdzie 1 punkt to 1/72 cala. Możesz przeliczyć dowolną jednostkę (np. milimetry lub centymetry) na punkty i użyć przeliczonych wartości do określenia szerokości i wysokości slajdu.
 
-**Czy bardzo duży własny rozmiar slajdu wpłynie na wydajność i zużycie pamięci podczas renderowania?**
+**Czy bardzo duży własny rozmiar slajdu wpływa na wydajność i zużycie pamięci podczas renderowania?**
 
-Tak. Większe wymiary slajdu (w punktach) w połączeniu z wyższą skalą renderowania prowadzą do zwiększonego zużycia pamięci i dłuższego czasu przetwarzania. Dąż do praktycznego rozmiaru slajdu i dostosowuj skalę renderowania tylko w razie potrzeby, aby uzyskać pożądaną jakość wyjścia.
+Tak. Większe wymiary slajdu (w punktach) połączone z wyższą skalą renderowania zwiększają zużycie pamięci i wydłużają czas przetwarzania. Dąż do praktycznego rozmiaru slajdu i dostosowuj skalę renderowania tylko wtedy, gdy jest to konieczne, aby uzyskać pożądaną jakość wyniku.
 
-**Czy mogę zdefiniować jeden niestandardowy rozmiar slajdu, a następnie scalić slajdy z prezentacji o różnych rozmiarach?**
+**Czy mogę zdefiniować jeden niestandardowy rozmiar slajdu, a potem łączyć slajdy z prezentacji o różnych rozmiarach?**
 
-Nie możesz [merge presentations](/slides/pl/androidjava/merge-presentation/) gdy mają różne rozmiary slajdów — najpierw zmień rozmiar jednej prezentacji, aby dopasować ją do drugiej. Podczas zmiany rozmiaru slajdu możesz wybrać, jak istniejąca zawartość ma być obsługiwana, używając opcji [SlideSizeScaleType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesizescaletype/). Po wyrównaniu rozmiarów możesz scalić slajdy zachowując formatowanie.
+Nie możesz [łączyć prezentacji](/slides/pl/androidjava/merge-presentation/), gdy mają różne rozmiary slajdów — najpierw zmień rozmiar jednej prezentacji, aby dopasować go do drugiej. Przy zmianie rozmiaru slajdu możesz wybrać, jak istniejąca zawartość ma być obsłużona, korzystając z opcji [SlideSizeScaleType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesizescaletype/). Po wyrównaniu rozmiarów możesz łączyć slajdy, zachowując formatowanie.
 
-**Czy mogę generować miniatury pojedynczych kształtów lub konkretnych obszarów slajdu i czy będą one respektować nowy rozmiar slajdu?**
+**Czy mogę generować miniatury dla poszczególnych kształtów lub określonych obszarów slajdu i czy będą one respektować nowy rozmiar slajdu?**
 
-Tak. Aspose.Slides może renderować miniatury zarówno [entire slides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) jak i [selected shapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#getImage-int-float-float-). Powstałe obrazy odzwierciedlają bieżący rozmiar slajdu i proporcje, zapewniając spójne kadrowanie i geometrię.
+Tak. Aspose.Slides może renderować miniatury zarówno dla [całych slajdów](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) jak i dla [wybranych kształtów](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#getImage-int-float-float-). Uzyskane obrazy odzwierciedlają aktualny rozmiar i proporcje slajdu, zapewniając spójną ramkę i geometrię.

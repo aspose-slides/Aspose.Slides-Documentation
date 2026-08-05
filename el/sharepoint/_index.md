@@ -1,7 +1,7 @@
 ---
 title: Aspose.Slides for SharePoint
-second_title: Aspose.Slides Τεκμηρίωση
-description: Aspose.Slides for SharePoint είναι μια ευέλικτη λύση που επιτρέπει τη μετατροπή εγγράφων PowerPoint® εντός των Microsoft SharePoint Sites.
+second_title: Aspose.Slides for SharePoint
+description: Το Aspose.Slides for SharePoint είναι μια ευέλικτη λύση που καθιστά δυνατή τη μετατροπή εγγράφων PowerPoint® εντός τοπικών ιστοτόπων Microsoft SharePoint.
 type: docs
 weight: 60
 url: /el/sharepoint/
@@ -13,18 +13,18 @@ is_root: true
 
 **Καλώς ήρθατε στο Aspose.Slides for SharePoint**
 
-Το Aspose.Slides for SharePoint είναι μια ευέλικτη λύση που επιτρέπει τη μετατροπή εγγράφων PowerPoint® εντός των Microsoft SharePoint Sites.
+Το Aspose.Slides for SharePoint είναι μια ευέλικτη λύση που καθιστά δυνατή τη μετατροπή εγγράφων PowerPoint® εντός τοπικών ιστοτόπων Microsoft SharePoint.
 
 {{% /alert %}}
 
-## **Aspose.Slides for SharePoint Πόροι**
+## **Πόροι Aspose.Slides for SharePoint**
 
-Παρακάτω είναι οι σύνδεσμοι προς ορισμένους χρήσιμους πόρους που ίσως χρειαστείτε για την ολοκλήρωση των εργασιών σας.
+Ακολουθούν οι σύνδεσμοι σε ορισμένες χρήσιμες πηγές που ίσως χρειαστείτε για την ολοκλήρωση των εργασιών σας.
 
-- [Τεκμηρίωση Aspose.Slides for SharePoint Online](/slides/el/sharepoint/)
-- [Λειτουργίες Aspose.Slides for SharePoint](/slides/el/sharepoint/features/)
-- [Σημειώσεις έκδοσης Aspose.Slides for SharePoint](https://releases.aspose.com/slides/el/sharepoint/release-notes/)
-- [Σελίδα προϊόντος Aspose.Slides for SharePoint](https://products.aspose.com/slides/el/sharepoint/)
-- [Λήψη Aspose.Slides for SharePoint](https://releases.aspose.com/slides/el/sharepoint/)
-- [Δωρεάν φόρουμ υποστήριξης Aspose.Slides for SharePoint](https://forum.aspose.com/c/slides/el/11)
-- [Γραμμή υποστήριξης Aspose.Slides for SharePoint (πληρωμένη)](https://helpdesk.aspose.com/)
+- [Τεκμηρίωση Aspose.Slides για SharePoint Online](/slides/el/sharepoint/)
+- [Χαρακτηριστικά Aspose.Slides για SharePoint](/slides/el/sharepoint/features/)
+- [Σημειώσεις Έκδοσης Aspose.Slides για SharePoint](https://releases.aspose.com/slides/el/sharepoint/release-notes/)
+- [Σελίδα Προϊόντος Aspose.Slides για SharePoint](https://products.aspose.com/slides/el/sharepoint/)
+- [Λήψη Aspose.Slides για SharePoint](https://releases.aspose.com/slides/el/sharepoint/)
+- [Δωρεάν Φόρουμ Υποστήριξης Aspose.Slides για SharePoint](https://forum.aspose.com/c/slides/el/11)
+- [Πληρωμένο Helpdesk Υποστήριξης Aspose.Slides για SharePoint](https://helpdesk.aspose.com/)

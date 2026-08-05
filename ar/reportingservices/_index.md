@@ -1,31 +1,30 @@
 ---
 title: Aspose.Slides لخدمات التقارير
-second_title: Aspose.Slides for Reporting Services
-description: Aspose.Slides لخدمات التقارير هي الحل الوحيد في السوق الذي يجعل من الممكن إنشاء تقارير PPT و PPS حقيقية في Microsoft SQL Server 2005 و 2008 و 2012 و 2016 و 2017 (32-bit و 64-bit).
+second_title: Aspose.Slides لخدمات التقارير
+description: Aspose.Slides for Reporting Services هو الحل الوحيد في السوق الذي يجعل من الممكن إنشاء تقارير PPT و PPS حقيقية في Microsoft SQL Server 2005 و 2008 و 2012 و 2016 و 2017 Reporting Services (32-bit و 64-bit).
 type: docs
 weight: 50
 url: /ar/reportingservices/
 is_root: true
 ---
-
 {{% alert color="primary" %}}
 
-![شعار منتج Aspose.Slides لخدمات التقارير](home_1.png)
+![شعار منتج Aspose.Slides for Reporting Services](home_1.png)
 
-**مرحبًا بكم في Aspose.Slides لخدمات التقارير**
+**مرحبًا بكم في Aspose.Slides for Reporting Services**
 
-Aspose.Slides لخدمات التقارير هي الحل الوحيد في السوق الذي يجعل من الممكن إنشاء تقارير PPT و PPS حقيقية في Microsoft SQL Server 2005 و 2008 و 2012 و 2016 و 2017 (32-bit و 64-bit). جميع ميزات تقارير RDL، بما في ذلك الجداول والمصفوفات والرسوم البيانية والصور، يتم تحويلها بأعلى درجة من الدقة إلى عروض PowerPoint التقديمية.
+Aspose.Slides for Reporting Services هو الحل الوحيد في السوق الذي يتيح إمكانية إنشاء تقارير PPT و PPS حقيقية في Microsoft SQL Server 2005 و 2008 و 2012 و 2016 و 2017 Reporting Services (32-bit و 64-bit). يتم تحويل جميع ميزات تقارير RDL، بما في ذلك الجداول والمصفوفات والمخططات والصور، بأعلى درجة من الدقة إلى عروض Microsoft PowerPoint.
 
 {{% /alert %}}
 
-## **موارد Aspose.Slides لخدمات التقارير**
+## **موارد Aspose.Slides for Reporting Services**
 
-فيما يلي الروابط لبعض الموارد المفيدة التي قد تحتاجها لإكمال مهامك.
+فيما يلي الروابط إلى بعض الموارد المفيدة التي قد تحتاجها لإنجاز مهامك.
 
-- [وثائق Aspose.Slides لخدمات التقارير عبر الإنترنت](/slides/ar/reportingservices/)
-- [ميزات Aspose.Slides لخدمات التقارير](/slides/ar/reportingservices/features/)
-- [ملاحظات إصدار Aspose.Slides لخدمات التقارير](https://releases.aspose.com/slides/reportingservices/release-notes/)
-- [صفحة منتج Aspose.Slides لخدمات التقارير](https://products.aspose.com/slides/reporting-services/)
-- [تحميل Aspose.Slides لخدمات التقارير](https://releases.aspose.com/slides/reportingservices/)
-- [منتدى الدعم المجاني لـ Aspose.Slides لخدمات التقارير](https://forum.aspose.com/c/slides/11)
-- [مكتب دعم Aspose.Slides لخدمات التقارير المدفوع](https://helpdesk.aspose.com/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides for Reporting Services](/slides/ar/reportingservices/)
+- [ميزات Aspose.Slides for Reporting Services](/slides/ar/reportingservices/features/)
+- [ملاحظات الإصدار لـ Aspose.Slides for Reporting Services](https://releases.aspose.com/slides/ar/reportingservices/release-notes/)
+- [صفحة المنتج لـ Aspose.Slides for Reporting Services](https://products.aspose.com/slides/ar/reporting-services/)
+- [تحميل Aspose.Slides for Reporting Services](https://releases.aspose.com/slides/ar/reportingservices/)
+- [منتدى الدعم المجاني لـ Aspose.Slides for Reporting Services](https://forum.aspose.com/c/slides/ar/11)
+- [مكتب مساعدة الدعم المدفوع لـ Aspose.Slides for Reporting Services](https://helpdesk.aspose.com/)

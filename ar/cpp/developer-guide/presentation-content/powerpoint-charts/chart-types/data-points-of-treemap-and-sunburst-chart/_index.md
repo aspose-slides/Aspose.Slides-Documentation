@@ -1,56 +1,60 @@
 ---
-title: تخصيص نقاط البيانات في مخططات Treemap و Sunburst باستخدام C++
-linktitle: نقاط البيانات في مخططات Treemap و Sunburst
+title: تخصيص نقاط البيانات في مخططَي Treemap وSunburst باستخدام C++
+linktitle: نقاط البيانات في مخططي Treemap وSunburst
 type: docs
 url: /ar/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords:
-- مخطط Treemap
-- مخطط Sunburst
+- مخطط treemap
+- مخطط sunburst
 - نقطة بيانات
 - لون التسمية
 - لون الفرع
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية إدارة نقاط البيانات في مخططات Treemap و Sunburst باستخدام Aspose.Slides لـ C++، المتوافقة مع صيغ PowerPoint."
+description: "تعلم كيفية إدارة نقاط البيانات في مخططي Treemap وSunburst باستخدام Aspose.Slides للـ C++، المتوافق مع صيغ PowerPoint."
 ---
+## **المقدمة**
 
-من بين الأنواع الأخرى لمخططات PowerPoint، هناك نوعان "هرميان" - **Treemap** و **Sunburst** chart (المعروف أيضًا باسم Sunburst Graph أو Sunburst Diagram أو Radial Chart أو Radial Graph أو Multi Level Pie Chart). تُظهر هذه المخططات البيانات الهرمية منظمةً على شكل شجرة - من الأوراق إلى أعلى الفرع. الأوراق تُحدد بنقاط بيانات السلسلة، ويُحدد كل مستوى تجميع متداخل لاحقًا بالفئة المقابلة. Aspose.Slides for C++ يتيح تنسيق نقاط البيانات لمخطط Sunburst وTreemap في C++.
+من بين أنواع مخططات PowerPoint الأخرى، هناك نوعان "هرميان" – مخطط **Treemap** ومخطط **Sunburst** (المعروف أيضًا بمخطط Sunburst Graph أو Sunburst Diagram أو مخطط Radial أو Radial Graph أو مخطط Multi Level Pie). تُظهر هذه المخططات بيانات هرمية منظمة كشجرة – من الأوراق إلى أعلى الفرع. تُعرَّف الأوراق بنقاط بيانات السلسلة، ويُعرّف كل مستوى تجميع متداخل لاحق بالفئة المقابلة. يتيح Aspose.Slides for C++ تنسيق نقاط بيانات مخططي Sunburst وTreemap في C++.
 
-Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, while other columns define hierarchical datapoints:
+إليك مخطط Sunburst، حيث تُعرِّف البيانات في عمود Series1 عقد الأوراق، بينما تُعرِّف الأعمدة الأخرى نقاط البيانات الهرمية:
+
 ![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
 
-Let’s start with adding a new Sunburst chart to the presentation:
+لنبدأ بإضافة مخطط Sunburst جديد إلى العرض التقديمي:
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
 // ...
 ```
 
-
-{{% alert color="primary" title="See also" %}} 
-- [**Creating Sunburst Chart**](/slides/ar/cpp/create-chart/#create-sburst-chart)
+{{% alert color="primary" title="انظر أيضًا" %}} 
+- [**إنشاء مخطط Sunburst**](/slides/ar/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
-If there is a need to format data points of the chart, we should use the following:
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/) classes and [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) method provide access to format data points of Treemap and Sunburst charts.
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) is used for accessing multi-level categories - it represents the container of [**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/) objects. 
-Basically it is a wrapper for [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) with the properties added specific for data points. 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/) class has two methods: [**get_Format()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) and [**get_Label()**](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) which provide access to corresponding settings.
+إذا كان هناك حاجة لتنسيق نقاط بيانات المخطط، ينبغي استخدام ما يلي:
 
-## **Show a Data Point Value**
-Show value of "Leaf 4" data point:
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/)، 
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapointlevel/) والطبقة [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) توفر إمكانية الوصول إلى تنسيق نقاط البيانات في مخططي Treemap وSunburst. 
+يُستخدم [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) للوصول إلى الفئات متعددة المستويات – فهو يمثل الحاوية لكائنات [**IChartDataPointLevel**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapointlevel/). 
+أساسًا هو غلاف لـ [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) مع خصائص مضافة خاصة بنقاط البيانات. 
+تحتوي الطبقة [**IChartDataPointLevel**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapointlevel/) على طريقتين: [**get_Format()**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) و[**get_Label()**](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/) اللتين توفران الوصول إلى الإعدادات المقابلة.
+
+## **إظهار قيمة نقطة البيانات**
+إظهار قيمة نقطة البيانات "Leaf 4":
+
 ``` cpp
 auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
 dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_DataLabelFormat()->set_ShowValue(true);
 ```
 
-
 ![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
-## **Set a Data Point Label and Color**
-Set "Branch 1" data label to show series name ("Series1") instead of category name. Then set text color to yellow:
+## **تعيين تسمية ولون نقطة البيانات**
+تعيين تسمية بيانات "Branch 1" لتظهر اسم السلسلة ("Series1") بدلاً من اسم الفئة. ثم تعيين لون النص إلى الأصفر:
+
 ``` cpp
 auto branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
 branch1Label->get_DataLabelFormat()->set_ShowCategoryName(false);
@@ -60,11 +64,11 @@ branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_
 branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 ```
 
-
 ![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-## **Set the Data Point Branch Color**
+## **تعيين لون فرع نقطة البيانات**
 
-Change color of "Stem 4" branch:
+تغيير لون فرع "Stem 4":
+
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
@@ -77,23 +81,22 @@ stem4branch->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::ge
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**Can I change the order (sorting) of segments in Sunburst/Treemap?**
+**هل يمكنني تغيير ترتيب (الفرز) القطاعات في مخطط Sunburst/Treemap؟**
 
-No. PowerPoint sorts segments automatically (typically by descending values, clockwise). Aspose.Slides mirrors this behavior: you can’t change the order directly; you achieve it by preprocessing the data.
+لا. تقوم PowerPoint بفرز القطاعات تلقائيًا (عادةً حسب القيم المتناقصة، باتجاه عقرب الساعة). يقوم Aspose.Slides بمحاكاة هذا السلوك: لا يمكنك تغيير الترتيب مباشرة؛ بل تتحقق منه عن طريق معالجة البيانات مسبقًا.
 
-**How does the presentation theme affect the colors of segments and labels?**
+**كيف يؤثر سمة العرض التقديمي على ألوان القطاعات والتسميات؟**
 
-Chart colors inherit the presentation’s [theme/palette](/slides/ar/cpp/presentation-theme/) unless you explicitly set fills/fonts. For consistent results, lock in solid fills and text formatting at the required levels.
+توارث ألوان المخطط سمة/لوحة ألوان العرض التقديمي ([theme/palette](/slides/ar/cpp/presentation-theme/)) ما لم تقم بتعيين التعبئة/الخطوط صراحة. للحصول على نتائج متسقة، ثبت التعبئة الصلبة وتنسيق النص في المستويات المطلوبة.
 
-**Will export to PDF/PNG preserve custom branch colors and label settings?**
+**هل سيحافظ التصدير إلى PDF/PNG على ألوان الفروع المخصصة وإعدادات التسميات؟**
 
-Yes. When exporting the presentation, chart settings (fills, labels) are preserved in the output formats because Aspose.Slides renders with the chart’s formatting applied.
+نعم. عند تصدير العرض التقديمي، يتم الحفاظ على إعدادات المخطط (التعبئات، التسميات) في صيغ الإخراج لأن Aspose.Slides يرسم مع تطبيق تنسيق المخطط.
 
-**Can I compute the actual coordinates of a label/element for custom overlay placement on top of the chart?**
+**هل يمكنني حساب الإحداثيات الفعلية لتسمية/عنصر لوضع طبقة مخصصة فوق المخطط؟**
 
-Yes. After the chart layout is validated, actual X and actual Y are available for elements (for example, a [DataLabel](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datalabel/)), which helps with precise positioning of overlays.
+نعم. بعد التحقق من تخطيط المخطط، تتوفر قيم X الفعلية وY الفعلية للعناصر (على سبيل المثال، [DataLabel](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/datalabel/))، مما يساعد في تحديد موضع الطبقات بدقة.

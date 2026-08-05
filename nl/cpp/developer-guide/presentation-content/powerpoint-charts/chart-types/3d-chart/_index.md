@@ -1,43 +1,43 @@
 ---
-title: Pas 3D-grafieken in presentaties aan met С++
-linktitle: 3D-grafiek
+title: 3D‑grafieken aanpassen in presentaties met C++
+linktitle: 3D‑grafiek
 type: docs
 url: /nl/cpp/3d-chart/
 keywords:
-- 3D-grafiek
+- 3D‑grafiek
 - rotatie
 - diepte
 - PowerPoint
 - presentatie
-- С++
+- C++
 - Aspose.Slides
-description: "Leer hoe u 3‑D‑grafieken maakt en aanpast in Aspose.Slides voor С++, met ondersteuning voor PPT‑ en PPTX‑bestanden — verbeter vandaag nog uw presentaties."
+description: "Leer hoe je 3-D-grafieken maakt en aanpast in Aspose.Slides voor C++, met ondersteuning voor PPT- en PPTX-bestanden—geef je presentaties een boost vandaag."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je een 3D-diagram in Aspose.Slides kunt aanpassen door de `Rotation3D`‑instellingen zoals `RotationX`, `RotationY`, `DepthPercents` en `RightAngleAxes` te configureren. Het laat stap voor stap zien hoe je een presentatie maakt, een 3D-diagram met standaardgegevens toevoegt, de vereiste 3D‑weergave‑instellingen toepast en de gewijzigde presentatie opslaat als een PPTX‑bestand.
+Dit artikel legt uit hoe je een 3D‑grafiek in Aspose.Slides kunt aanpassen door de `Rotation3D`‑instellingen zoals `RotationX`, `RotationY`, `DepthPercents` en `RightAngleAxes` te configureren. Het doorloopt het maken van een presentatie, het toevoegen van een 3D‑grafiek met standaardgegevens, het toepassen van de vereiste 3D‑view‑instellingen en het opslaan van de aangepaste presentatie als een PPTX‑bestand.
 
-## **Stel de eigenschappen RotationX, RotationY en DepthPercents van een 3D-diagram in**
-Aspose.Slides voor C++ biedt een eenvoudige API om deze eigenschappen in te stellen. Het volgende artikel helpt je bij het instellen van verschillende eigenschappen zoals X‑, Y‑rotatie, **DepthPercents** enz. De voorbeeldcode past de eerder genoemde eigenschappen toe.
+## **Instellen van RotationX, RotationY en DepthPercents‑eigenschappen van een 3D‑grafiek**
+Aspose.Slides for C++ biedt een eenvoudige API om deze eigenschappen in te stellen. Het onderstaande artikel helpt je bij het instellen van verschillende eigenschappen zoals X‑, Y‑rotatie, **DepthPercents** enz. De voorbeeldcode past de hierboven genoemde eigenschappen toe.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse aan.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse.
 2. Open de eerste dia.
-3. Voeg een diagram toe met standaardgegevens.
-4. Stel de Rotation3D‑eigenschappen in.
-5. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
+3. Voeg een grafiek toe met standaardgegevens.
+4. Stel Rotation3D‑eigenschappen in.
+5. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ManagePropertiesCharts-ManagePropertiesCharts.cpp" >}}
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Welke diagramtypen ondersteunen de 3D‑modus in Aspose.Slides?**
+**Welke grafiektype­n ondersteunen de 3D‑modus in Aspose.Slides?**
 
-Aspose.Slides ondersteunt 3D‑varianten van kolomdiagrammen, waaronder Column 3D, Clustered Column 3D, Stacked Column 3D en 100 % Stacked Column 3D, evenals gerelateerde 3D‑typen die beschikbaar zijn via de [ChartType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/charttype/)‑enumeratie. Voor een exacte, up‑to‑date lijst, bekijk de leden van [ChartType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/charttype/) in de API‑referentie van de geïnstalleerde versie.
+Aspose.Slides ondersteunt 3D‑varianten van staafgrafieken, waaronder Column 3D, Clustered Column 3D, Stacked Column 3D en 100 % Stacked Column 3D, samen met gerelateerde 3D‑typen die via de [ChartType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/charttype/)‑enumeratie worden blootgesteld. Voor een exacte, actuele lijst, controleer de leden van [ChartType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/charttype/) in de API‑referentie van jouw geïnstalleerde versie.
 
-**Kan ik een rasterafbeelding van een 3D-diagram krijgen voor een rapport of het web?**
+**Kan ik een rasterafbeelding van een 3D‑grafiek krijgen voor een rapport of het web?**
 
-Ja. Je kunt een diagram exporteren naar een afbeelding via de [chart API](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shape/getimage/) of [de volledige dia renderen](/slides/nl/cpp/convert-powerpoint-to-png/) naar formaten zoals PNG of JPEG. Dit is handig wanneer je een pixel‑perfecte weergave nodig hebt of het diagram wilt insluiten in documenten, dashboards of webpagina’s zonder dat PowerPoint vereist is.
+Ja. Je kunt een grafiek exporteren naar een afbeelding via de [chart API](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shape/getimage/) of [render the entire slide](/slides/nl/cpp/convert-powerpoint-to-png/) naar formaten zoals PNG of JPEG. Dit is nuttig wanneer je een pixel‑perfecte preview nodig hebt of de grafiek wilt insluiten in documenten, dashboards of webpagina's zonder dat PowerPoint vereist is.
 
-**Hoe presteert het bouwen en renderen van grote 3D‑diagrammen?**
+**Hoe presteert het bouwen en renderen van grote 3D‑grafieken?**
 
-De performance hangt af van de hoeveelheid gegevens en de visuele complexiteit. Voor optimale resultaten houd je 3D‑effecten tot een minimum, vermijd je zware texturen op wanden en plotgebieden, beperk je het aantal datapunten per serie waar mogelijk, en render je naar een output met een passende grootte (resolutie en afmetingen) die overeenkomt met het doel‑display of de afdrukvereisten.
+Prestaties hangen af van de hoeveelheid gegevens en de visuele complexiteit. Voor de beste resultaten, houd 3D‑effecten minimaal, vermijd zware texturen op wanden en plotgebieden, beperk het aantal gegevenspunten per serie waar mogelijk, en render naar een passend formaat (resolutie en afmetingen) dat aansluit bij de doel‑weergave of afdrukbehoeften.

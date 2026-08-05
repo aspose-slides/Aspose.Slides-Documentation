@@ -19,20 +19,20 @@ keywords:
 - Aspose.Slides
 description: "使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 演示文稿中嵌入 TrueType 字体，确保在所有平台上准确渲染。"
 ---
+## **简介**
 
-## **概述**
+PowerPoint 中的嵌入字体有助于确保演示文稿在任何系统或设备上打开时保持预期的外观。 在使用自定义、第三方或非标准字体进行品牌或创意设计时，这一点尤为重要。 如果未嵌入字体，文本可能被替换，布局可能会中断，字符可能显示为不可读的符号或矩形，导致整体设计受损。
 
-**PowerPoint 中的嵌入字体** 有助于确保您的演示文稿在任何系统或设备上打开时保持预期的外观。这在使用自定义、第三方或非标准字体进行品牌或创意设计时尤为重要。如果未嵌入字体，文本可能会被替换，布局可能会中断，字符可能会显示为不可读的符号或方框，从而破坏整体设计。
+Aspose.Slides for C++ 提供了一套强大的 API，以编程方式管理嵌入字体。 您可以使用 [FontsManager](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontsmanager/) 和 [FontData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontdata/) 类来检查、添加或删除演示文件中的嵌入字体。 此外， [Compress](https://reference.aspose.com/slides/zh/cpp/aspose.slides.lowcode/compress/) 类允许您通过压缩字体数据来优化文件大小，而不会影响质量或外观。
 
-Aspose.Slides for C++ 提供了一套强大的 API，以编程方式管理嵌入字体。您可以使用 [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) 和 [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) 类来检查、添加或删除演示文稿中的嵌入字体。此外， [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) 类允许您在不影响质量或外观的情况下，通过压缩字体数据来优化文件大小。
+这些工具让您能够全面控制字体嵌入，在需要时帮助您保持跨平台的一致排版，同时减小文件大小。
 
-这些工具为您提供了对字体嵌入的完全控制，帮助您在保持跨平台一致排版的同时，在需要时降低文件大小。
+## **从演示文稿获取嵌入字体**
 
-## **获取演示文稿中的嵌入字体**
+Aspose.Slides for C++ 通过 [FontsManager](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontsmanager/) 类提供 `GetEmbeddedFonts` 方法，可检索 PowerPoint 演示文稿中嵌入的字体列表。 这对于审计字体使用情况、确保符合品牌指南或在共享文件前验证已正确包含所有必需字体非常有用。
 
-Aspose.Slides for C++ 通过 [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) 类提供 `GetEmbeddedFonts` 方法，允许您检索 PowerPoint 演示文稿中嵌入的字体列表。这对于审计字体使用情况、确保符合品牌指南或在共享文件前验证所有必要字体已正确包含非常有用。
+以下 C++ 代码演示了如何从演示文稿文件获取嵌入字体：
 
-下面的 C++ 代码演示如何从演示文稿文件获取嵌入字体：
 ```cpp
 // 实例化表示演示文稿文件的 Presentation 类。
 auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
@@ -40,7 +40,7 @@ auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 // Get all embedded fonts.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
-// 打印嵌入字体的名称。
+// Print names of the embedded fonts.
 for (auto&& fontData : embeddedFonts)
 {
     Console::WriteLine(fontData->get_FontName());
@@ -49,12 +49,12 @@ for (auto&& fontData : embeddedFonts)
 presentation->Dispose();
 ```
 
-
 ## **向演示文稿添加嵌入字体**
 
-Aspose.Slides for C++ 允许您使用 [AddEmbeddedFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/) 方法将字体嵌入 PowerPoint 演示文稿，该方法提供两种重载以实现灵活使用。您可以通过使用 [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) 枚举来控制嵌入字体的多少——例如，仅嵌入已使用的字符或整个字体集。此功能在准备共享或分发演示文稿时尤为有用，能够确保自定义或非标准字体在所有系统上正确显示，即使这些系统未安装相应字体。
+Aspose.Slides for C++ 允许使用 [AddEmbeddedFont](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontsmanager/addembeddedfont/) 方法将字体嵌入 PowerPoint 演示文稿，该方法提供两个重载以实现灵活使用。 您可以通过使用 [EmbedFontCharacters](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/embedfontcharacters/) 枚举来控制嵌入的字符量——例如，仅嵌入已使用的字符或整个字体集合。 此功能在准备共享或分发演示文稿时尤为有用，可确保自定义或非标准字体在所有系统上正确显示，即使这些系统未安装相应字体。
 
-下面的 C++ 代码检查演示文稿中使用的所有字体，并嵌入任何尚未嵌入的字体。
+以下 C++ 代码检查演示文稿中使用的所有字体，并嵌入尚未嵌入的字体：
+
 ```cpp
 // 加载演示文稿文件。
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -69,7 +69,7 @@ for (auto&& fontData : usedFonts)
             return data == fontData;
         };
 
-    // 检查字体是否已经嵌入。
+    // 检查该字体是否已嵌入。
     bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
     if (!isEmbeddedFont)
     {
@@ -84,12 +84,12 @@ presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 ## **从演示文稿中移除嵌入字体**
 
-Aspose.Slides for C++ 通过 [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) 类提供 `RemoveEmbeddedFont` 方法，使您能够移除 PowerPoint 演示文稿中特定的嵌入字体。这有助于在嵌入的字体不再使用或不需要时降低整体文件大小。移除未使用的字体还能提升性能，并确保演示文稿仅包含必要的资源。
+Aspose.Slides for C++ 通过 [FontsManager](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontsmanager/) 类提供 `RemoveEmbeddedFont` 方法，允许您删除 PowerPoint 演示文稿中已嵌入的特定字体。 这有助于在嵌入的字体不再使用或不需要时减小整体文件大小。 移除未使用的字体还能提升性能，并确保演示文稿仅包含必要的资源。
 
-下面的 C++ 代码演示如何从演示文稿中移除嵌入字体：
+以下 C++ 代码演示了如何从演示文稿中移除嵌入的字体：
+
 ```cpp
 auto fontName = u"Calibri";
 
@@ -114,12 +114,12 @@ presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
 presentation->Dispose();
 ```
 
-
 ## **压缩嵌入字体**
 
-Aspose.Slides for C++ 通过 [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) 类提供 `CompressEmbeddedFonts` 方法，允许您通过优化嵌入的字体数据来减小演示文稿的总体文件大小。当演示文稿包含大型或多个字体且您希望在共享、存储或在线使用时保持文件轻量，而不损失内容的视觉保真度时，此功能尤为有用。
+Aspose.Slides for C++ 通过 [Compress](https://reference.aspose.com/slides/zh/cpp/aspose.slides.lowcode/compress/) 类提供 `CompressEmbeddedFonts` 方法，您可以通过优化嵌入的字体数据来减小演示文稿的整体文件大小。 当演示文稿包含大量或多种字体且希望在共享、存储或在线使用时保持文件轻量化而不影响视觉效果时，此功能尤为实用。
 
-下面的 C++ 代码演示如何压缩 PowerPoint 演示文稿中的嵌入字体：
+以下 C++ 代码演示了如何压缩 PowerPoint 演示文稿中的嵌入字体：
+
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
@@ -129,13 +129,12 @@ presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **常见问题**
 
-## **FAQ**
+**如何判断即使已嵌入，演示文稿中的特定字体在渲染时仍会被替换？**
 
-**如何判断演示文稿中某个特定字体在嵌入后仍会在渲染时被替换？**
+检查字体管理器中的 [替换信息](/slides/zh/cpp/font-substitution/) 以及 [回退/替换规则](/slides/zh/cpp/fallback-font/)：如果字体不可用或受限，将使用回退字体。
 
-检查字体管理器中的 [替换信息](/slides/zh/cpp/font-substitution/) 和 [回退/替换规则](/slides/zh/cpp/fallback-font/)：如果字体不可用或受限，系统会使用回退字体。
+**是否值得嵌入像 Arial/Calibri 这样的“系统”字体？**
 
-**嵌入像 Arial、Calibri 这样的“系统”字体值得吗？**
-
-通常不值得——这些字体几乎始终可用。但在“精简”环境（Docker、未预装字体的 Linux 服务器）中，为了实现完全可移植性，嵌入系统字体可以消除意外替换的风险。
+通常不值得——这些字体几乎总是可用。 但在“精简”环境（Docker、未预装字体的 Linux 服务器）中，为了实现完整的可移植性，嵌入系统字体可以消除意外替换的风险。

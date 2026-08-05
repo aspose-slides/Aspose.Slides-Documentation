@@ -1,47 +1,49 @@
 ---
-title: ".NET'te Sunumlarda Madde İşaretli ve Numaralı Listeleri Yönetme"
+title: ".NET'te Sunumlarda Madde İşaretli ve Numaralı Listeleri Yönet"
 linktitle: "Listeleri Yönet"
 type: docs
 weight: 70
 url: /tr/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- "madde işareti"
-- "madde işaretli liste"
-- "numaralı liste"
-- "sembol madde işareti"
-- "resimli madde işareti"
-- "özel madde işareti"
-- "çok seviyeli liste"
-- "madde işareti oluştur"
-- "madde işareti ekle"
-- "liste ekle"
-- "PowerPoint"
-- "OpenDocument"
-- "sunum"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeleri nasıl oluşturacağınızı ve biçimlendireceğinizi öğrenin."
+  - madde işareti
+  - madde işaretli liste
+  - numaralı liste
+  - sembol madde işareti
+  - resim madde işareti
+  - özel madde işareti
+  - çok seviyeli liste
+  - madde işareti oluştur
+  - madde işareti ekle
+  - liste ekle
+  - PowerPoint
+  - OpenDocument
+  - sunum
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeleri nasıl oluşturup biçimlendireceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for .NET, PowerPoint ve OpenDocument sunumlarında maddeli ve numaralı listeler oluşturmanıza ve biçimlendirmenize olanak tanır. Bir liste öğesi, madde ayarları paragraf biçimi aracılığıyla kontrol edilen bir paragraftır.
+Aspose.Slides for .NET, PowerPoint ve OpenDocument sunumlarında madde işaretli ve numaralı listeler oluşturmanıza ve biçimlendirmenize olanak tanır. Bir liste öğesi, madde işareti ayarları paragraf biçimi aracılığıyla kontrol edilen bir paragraftir.
 
-Paragraf düzeyindeki liste ayarlarına erişmek için [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/paragraphformat/) özelliğini kullanın. Ana giriş noktası, bir [IBulletFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/) nesnesi döndüren [IParagraphFormat.Bullet](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/bullet/) özelliğidir. Bu nesne ile madde tipini, sembolünü, resmini, rengini, boyutunu, numaralandırma stilini ve başlangıç numarasını ayarlayabilirsiniz.
+Paragraf düzeyindeki liste ayarlarına erişmek için [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/paragraphformat/) özelliğini kullanın. Ana giriş noktası [IParagraphFormat.Bullet](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/bullet/)'dır ve bir [IBulletFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/) nesnesi döndürür. Bu nesne ile madde işareti türünü, sembolünü, resmini, rengini, boyutunu, numaralandırma stilini ve başlangıç numarasını ayarlayabilirsiniz.
 
-Bu makale şunları gösterir:
+Bu makale aşağıdakileri gösterir:
 
-- özel bir sembolle maddeli bir liste oluşturma
-- resimli madde oluşturma
-- paragraf derinliğini ayarlayarak çok seviyeli bir liste oluşturma
-- numaralı bir liste oluşturma
-- var olan bir sunumdaki liste biçimlendirmesini inceleme ve değiştirme
+- özel bir sembol ile madde işaretli liste oluşturma
+- resim madde işareti oluşturma
+- paragraf derinliğini ayarlayarak çok düzeyli liste oluşturma
+- numaralı liste oluşturma
+- mevcut bir sunumda liste biçimlendirmesini inceleme ve değiştirme
 
-## **Maddeli Liste Oluşturma**
+## **Madde İşaretli Liste Oluştur**
 
-Maddeli bir liste oluşturmak için, bir [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) içine [IParagraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/) nesneleri ekleyin ve [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) değerini [BulletType.Symbol](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın. Ardından madde görünümünü kontrol etmek için [IBulletFormat.Char](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/color/) ve [IBulletFormat.Height](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/height/) değerlerini belirleyebilirsiniz.
+Madde işaretli bir liste oluşturmak için, bir [ITextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/) içine [IParagraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph/) nesneleri ekleyin ve [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/)'ı [BulletType.Symbol](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın. Ardından madde işaretinin görünümünü kontrol etmek için [IBulletFormat.Char](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/color/), ve [IBulletFormat.Height](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/height/) değerlerini ayarlayabilirsiniz.
 
-Aşağıdaki C# kodu, bir slaytta maddeli bir liste nasıl oluşturulacağını gösterir:
+Aşağıdaki C# kodu, bir slaytta madde işaretli liste oluşturmayı gösterir:
 
 ```csharp
 static Paragraph CreateParagraph(string text)
@@ -76,13 +78,13 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Sembol maddeler](symbol_bullets.png)
+![Sembol madde işaretleri](symbol_bullets.png)
 
-## **Numaralı Liste Oluşturma**
+## **Numaralı Liste Oluştur**
 
-Öğelerin sırası önemli olduğunda numaralı listeler kullanın. [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) değerini [BulletType.Numbered](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın. Ayrıca [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/numberedbulletstyle/) ile bir numaralandırma biçimi seçebilir veya listenin 1 yerine başka bir değerden başlamasını istiyorsanız [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/numberedbulletstartwith/) değerini belirleyebilirsiniz.
+Öğelerin sırası önemli olduğunda numaralı listeler kullanın. [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/)'ı [BulletType.Numbered](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın. Ayrıca, [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/numberedbulletstyle/) ile bir numaralandırma biçimi seçebilir veya listenin 1 dışında bir değerden başlamasını istediğinizde [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/numberedbulletstartwith/)'ı ayarlayabilirsiniz.
 
-Aşağıdaki C# kodu, bir slaytta numaralı bir liste nasıl oluşturulacağını gösterir:
+Aşağıdaki C# kodu, bir slaytta numaralı liste oluşturmayı gösterir:
 
 ```csharp
 using var presentation = new Presentation();
@@ -113,25 +115,25 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Numaralı maddeler](numbered_bullets.png)
+![Numaralı madde işaretleri](numbered_bullets.png)
 
-## **Resimli Madde Oluşturma**
+## **Resim Madde İşareti Oluştur**
 
-Aspose.Slides, normal bir madde simgesini bir görüntüyle değiştirmenize olanak tanır. Resimli maddeler, küçük boyutta bile okunaklı kalan basit görüntülerle, örneğin simgeler veya küçük saydam PNG dosyalarıyla en iyi şekilde çalışır.
+Aspose.Slides, normal bir madde işareti simgesini bir görüntü ile değiştirmenize olanak tanır. Resim madde işaretleri, küçük boyutta okunabilirliğini koruyan basit görseller, örneğin simgeler veya küçük şeffaf PNG dosyaları ile en iyi şekilde çalışır.
 
 {{% alert color="primary" %}}
-İdeal olarak, normal madde simgesini bir görüntüyle değiştirmeyi planlıyorsanız, şeffaf arka plana sahip basit bir grafik seçmek en iyisidir. Bu tür görüntüler, özelleştirilmiş madde sembolleri olarak iyi çalışır.
+İdealde, normal madde işareti simgesini bir resimle değiştirmeyi planlıyorsanız, şeffaf arka plana sahip basit bir grafik seçmek en iyisidir. Bu tür görüntüler, özel madde işareti simgeleri olarak iyi çalışır.
 
-Görüntünün çok küçük bir boyuta ölçeklendirileceğini unutmayın. Bu nedenle, bir listede madde olarak kullanıldığında net ve görsel olarak etkili kalan bir görüntü seçmenizi güçlü bir şekilde öneririz.
+Görselin çok küçük bir boyuta ölçekleneceğini akılda tutun. Bu nedenle, listede madde işareti olarak kullanıldığında net ve görsel olarak etkili kalan bir görsel seçmenizi şiddetle tavsiye ederiz.
 {{% /alert %}}
 
-Resimli madde oluşturmak için, bir görüntüyü [Presentation.Images](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/images/) koleksiyonuna ekleyin ve döndürülen görüntü nesnesini [IBulletFormat.Picture](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/picture/) özelliğine atayın. Görüntüyü atamadan önce [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/) değerini [BulletType.Picture](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın.
+Resim madde işareti oluşturmak için, bir görüntüyü [Presentation.Images](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/images/) içine ekleyin ve döndürülen görüntü nesnesini [IBulletFormat.Picture](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/picture/) atayın. Görüntüyü atamadan önce [IBulletFormat.Type](https://reference.aspose.com/slides/tr/net/aspose.slides/ibulletformat/type/)'ı [BulletType.Picture](https://reference.aspose.com/slides/tr/net/aspose.slides/bullettype/) olarak ayarlayın.
 
-Diyelim ki elimizde "image.png" adlı bir dosya var:
+Diyelim ki elimizde "image.png" var:
 
-![Maddeler için bir resim](picture_for_bullets.png)
+![Madde işaretleri için bir resim](picture_for_bullets.png)
 
-Aşağıdaki C# kodu, bir slaytta resimli maddeler nasıl oluşturulacağını gösterir:
+Aşağıdaki C# kodu, bir slaytta resim madde işaretleri oluşturmayı gösterir:
 
 ```csharp
 static Paragraph CreateParagraph(string text, IPPImage image)
@@ -167,13 +169,13 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Resimli maddeler](picture_bullets.png)
+![Resim madde işaretleri](picture_bullets.png)
 
-## **Çok Seviyeli Liste Oluşturma**
+## **Çok Düzeyli Liste Oluştur**
 
-Liste öğelerini farklı seviyelere yerleştirmek için [IParagraphFormat.Depth](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/depth/) özelliğini kullanın. Seviye 0 en üst seviyedir, seviye 1 onun altında iç içe bir seviyedir ve bu şekilde devam eder.
+Liste öğelerini farklı seviyelere yerleştirmek için [IParagraphFormat.Depth](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/depth/) kullanın. Seviye 0 en üst seviyedir, seviye 1 onun altında iç içe bir seviyedir ve bu şekilde devam eder.
 
-Aşağıdaki C# kodu, çok seviyeli maddeli bir liste nasıl oluşturulacağını gösterir:
+Aşağıdaki C# kodu, çok düzeyli bir madde işaretli liste oluşturmayı gösterir:
 
 ```csharp
 using var presentation = new Presentation();
@@ -209,11 +211,13 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Çok seviyeli liste](multilevel_list.png)
+![Çok düzeyli liste](multilevel_list.png)
 
-## **Var Olan Bir Listeyi Değiştirme**
+## **Mevcut Bir Listeyi Değiştir**
 
-Var olan bir sunumda liste biçimlendirmesini değiştirmek için hedef paragrafı erişin ve onun [IParagraphFormat.Bullet](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/bullet/) ayarlarını güncelleyin. Listeleri oluşturmak için kullanılan aynı özellikler, PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için de kullanılabilir.
+Mevcut bir sunumda liste biçimlendirmesini değiştirmek için hedef paragrafı erişin ve onun [IParagraphFormat.Bullet](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/bullet/) ayarlarını güncelleyin. Listeleri oluşturmak için kullanılan aynı özellikler, PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için de kullanılabilir.
+
+Aşağıdaki C# kodu, bir metin çerçevesindeki ilk paragrafı numaralı liste stiline dönüştürür:
 
 ```csharp
 using var presentation = new Presentation("input.pptx");
@@ -233,14 +237,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **SSS**
 
-**Maddeli ve numaralı listeler PDF veya görüntülere dışa aktarılabilir mi?**
+**Madde işaretli ve numaralı listeler PDF veya görüntülere dışa aktarılabilir mi?**
 
-Evet. Hedef format ilgili metin düzeni ve madde özelliklerini desteklediğinde Aspose.Slides, liste biçimlendirmesini korur.
+Evet. Aspose.Slides, hedef format ilgili metin düzeni ve madde işareti özelliklerini desteklediğinde liste biçimlendirmesini korur.
 
-**Var olan sunumlardaki listeleri düzenleyebilir miyim?**
+**Mevcut sunumlardaki listeleri düzenleyebilir miyim?**
 
-Evet. Sunumu yükleyin, hedef paragrafı erişin, onun [IParagraphFormat.Bullet](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/bullet/) ayarlarını inceleyin veya güncelleyin ve sunumu kaydedin.
+Evet. Sunumu yükleyin, hedef paragrafı erişin, IParagraphFormat.Bullet ayarlarını inceleyin veya güncelleyin ve sunumu kaydedin.
 
 **Listeler Latin dışı metin içerebilir mi?**
 
-Evet. Liste öğesi metni Unicode karakterler içerebilir; bu sayede çok dilli sunumlarda listeler oluşturabilirsiniz. Sunumda kullanılan yazı tiplerinin ihtiyacınız olan karakterleri desteklediğinden emin olun.
+Evet. Liste öğesi metni Unicode karakterler içerebilir, bu yüzden çok dilli sunumlarda listeler oluşturabilirsiniz. Sunumda kullanılan yazı tiplerinin ihtiyacınız olan karakterleri desteklediğinden emin olun.

@@ -4,6 +4,8 @@ linktitle: Converti PowerPoint
 type: docs
 weight: 20
 url: /it/php-java/convert-powerpoint/
+aliases:
+  - /php-java/convert-powerpoint-to-word/
 keywords:
 - converti PowerPoint
 - converti presentazione
@@ -17,5 +19,5 @@ keywords:
 - esporta PPTX
 - PHP
 - Aspose.Slides
-description: "Converti le presentazioni PowerPoint in altri formati usando Aspose.Slides per PHP tramite Java. Conversione rapida, accurata e senza interruzioni di PPT e PPTX."
+description: "Converti le presentazioni PowerPoint in altri formati usando Aspose.Slides per PHP via Java. Conversione PPT e PPTX veloce, accurata e senza interruzioni."
 ---

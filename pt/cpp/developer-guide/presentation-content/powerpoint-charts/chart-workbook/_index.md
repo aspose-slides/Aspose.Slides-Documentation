@@ -1,33 +1,33 @@
 ---
-title: Gerenciar pastas de trabalho de gráfico em apresentações usando C++
-linktitle: Pasta de Trabalho de Gráfico
+title: "Gerenciar pastas de trabalho de gráficos em apresentações usando C++"
+linktitle: "Pasta de Trabalho de Gráfico"
 type: docs
 weight: 70
 url: /pt/cpp/chart-workbook/
 keywords:
-- pasta de trabalho de gráfico
-- dados de gráfico
-- célula de pasta de trabalho
-- rótulo de dados
-- planilha
-- origem de dados
-- pasta de trabalho externa
-- dados externos
-- PowerPoint
-- apresentação
-- C++
-- Aspose.Slides
-description: "Descubra o Aspose.Slides para C++: gerencie facilmente pastas de trabalho de gráfico no PowerPoint e nos formatos OpenDocument para simplificar os dados da sua apresentação."
+- "pasta de trabalho de gráfico"
+- "dados de gráfico"
+- "célula de pasta de trabalho"
+- "rótulo de dados"
+- "planilha"
+- "fonte de dados"
+- "pasta de trabalho externa"
+- "dados externos"
+- "PowerPoint"
+- "apresentação"
+- "C++"
+- "Aspose.Slides"
+description: "Descubra o Aspose.Slides para C++: gerencie facilmente pastas de trabalho de gráficos no PowerPoint e em formatos OpenDocument para simplificar os dados da sua apresentação."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráfico no Aspose.Slides. Ele mostra como ler e gravar dados de gráfico através de fluxos de pasta de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos através de fluxos de pasta de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para valores do gráfico.
 
-Ele também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráfico. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
+Também cobre o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
 ## **Ler e gravar dados de gráfico a partir de uma pasta de trabalho**
 
-Aspose.Slides fornece os métodos [ReadWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Nota** que os dados do gráfico devem estar organizados da mesma maneira ou ter uma estrutura semelhante à fonte.
+Aspose.Slides fornece os métodos [ReadWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Observação** que os dados do gráfico devem estar organizados da mesma forma ou ter uma estrutura semelhante à origem.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -75,23 +75,23 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Definir uma célula de WorkBook como rótulo de dados do gráfico**
+## **Definir uma célula de pasta de trabalho como rótulo de dados do gráfico**
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/).
-1. Obtenha a referência de um slide através de seu índice.
-1. Adicione um gráfico de Bolhas com alguns dados.
-1. Acesse as séries do gráfico.
-1. Defina a célula do workbook como rótulo de dados.
-1. Salve a apresentação.
+2. Obtenha a referência de um slide por meio de seu índice.
+3. Adicione um gráfico de bolhas com alguns dados.
+4. Acesse as séries do gráfico.
+5. Defina a célula da pasta de trabalho como rótulo de dados.
+6. Salve a apresentação.
 
-Este código C++ mostra como definir uma célula de workbook como rótulo de dados do gráfico:
+Este código C++ mostra como definir uma célula de pasta de trabalho como rótulo de dados do gráfico:
 
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// Instancia a classe Presentation que representa um arquivo de apresentação
+// Instancia uma classe Presentation que representa um arquivo de apresentação 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -113,7 +113,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Gerenciar planilhas**
 
-Este código C++ demonstra uma operação onde o método [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) é usado para acessar uma coleção de planilhas:
+Este código C++ demonstra uma operação em que o método [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) é usado para acessar uma coleção de planilhas:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -126,9 +126,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Especificar o tipo de origem de dados**
+## **Especificar o tipo de fonte de dados**
 
-Este código C++ mostra como especificar um tipo para uma origem de dados:
+Este código C++ mostra como especificar um tipo para a fonte de dados:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -145,9 +145,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Detectar formatos de pasta de trabalho incorporada não suportados**
+## **Detectar formatos de pasta de trabalho incorporados não suportados**
 
-Aspose.Slides não oferece suporte ao formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `get_EmbeddedWorkbookType` em [IChartData](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/) junto com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos.
+Aspose.Slides não oferece suporte ao formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `get_EmbeddedWorkbookType` em [IChartData](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -166,7 +166,7 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // Pasta de trabalho incorporada está no formato .xlsb, que não é suportado.
+        // A pasta de trabalho incorporada está no formato .xlsb, que não é suportado.
         continue;
     }
 
@@ -208,9 +208,9 @@ pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 
 ### **Definir uma pasta de trabalho externa**
 
-Usando o método **`IChartData::SetExternalWorkbook`**, você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho para a pasta de trabalho externa (se esta foi movida).
+Usando o método **`IChartData::SetExternalWorkbook`**, você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se esta tiver sido movida).
 
-Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usar tais pastas de trabalho como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente para um caminho completo.
+Embora não seja possível editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda é possível usar essas pastas de trabalho como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente para um caminho completo.
 
 Este código C++ mostra como definir uma pasta de trabalho externa:
 
@@ -238,8 +238,8 @@ pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 
 O parâmetro `updateChartData` (sob o método `SetExternalWorkbook`) é usado para especificar se uma pasta de trabalho Excel será carregada ou não. 
 
-* Quando o valor de `updateChartData` estiver definido como `false`, somente o caminho da pasta de trabalho é atualizado — os dados do gráfico não serão carregados ou atualizados a partir da pasta de trabalho de destino. Você pode usar essa configuração quando a pasta de trabalho de destino não existir ou estiver indisponível. 
-* Quando o valor de `updateChartData` estiver definido como `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
+* Quando o valor de `updateChartData` está definido como `false`, apenas o caminho da pasta de trabalho é atualizado — os dados do gráfico não serão carregados ou atualizados a partir da pasta de trabalho de destino. Você pode usar essa configuração quando a pasta de trabalho de destino não existir ou estiver indisponível. 
+* Quando o valor de `updateChartData` está definido como `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -253,13 +253,13 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Obter o caminho da pasta de trabalho de fonte de dados externa de um gráfico**
+### **Obter o caminho da pasta de trabalho externa de origem de dados de um gráfico**
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) .
-1. Obtenha a referência de um slide através de seu índice.
-1. Crie um objeto para a forma de gráfico.
-1. Crie um objeto para o tipo de origem (`ChartDataSourceType`) que representa a fonte de dados do gráfico.
-1. Especifique a condição relevante com base no tipo de origem sendo o mesmo que o tipo de fonte de dados da pasta de trabalho externa.
+2. Obtenha a referência de um slide por meio de seu índice.
+3. Crie um objeto para a forma do gráfico.
+4. Crie um objeto para o tipo de fonte (`ChartDataSourceType`) que representa a fonte de dados do gráfico.
+5. Especifique a condição relevante com base no tipo de fonte ser o mesmo que o tipo de fonte de dados da pasta de trabalho externa.
 
 Este código C++ demonstra a operação:
 
@@ -304,21 +304,21 @@ const String templatePath = u"../templates/presentation.pptx";
 
 Sim. Um gráfico possui um [tipo de fonte de dados](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Caminhos relativos para pastas de trabalho externas são suportados, e como eles são armazenados?**
+**Caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele é convertido automaticamente para um caminho absoluto. Isso é conveniente para portabilidade de projetos; no entanto, esteja ciente de que a apresentação armazenará o caminho absoluto no arquivo PPTX.
+Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. Isso é conveniente para a portabilidade do projeto; porém, esteja ciente de que a apresentação armazenará o caminho absoluto no arquivo PPTX.
 
-**Posso usar pastas de trabalho localizadas em recursos/rede compartilhada?**
+**Posso usar pastas de trabalho localizadas em recursos/compartilhamentos de rede?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, editar pastas de trabalho remotas diretamente do Aspose.Slides não é suportado—elas podem ser usadas apenas como fonte.
+Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. No entanto, a edição direta de pastas de trabalho remotas a partir do Aspose.Slides não é suportada — elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-Não. A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) e o usa para leitura dos dados. O arquivo externo em si não é modificado ao salvar a apresentação.
+Não. A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) e o usa para leitura dos dados. O arquivo externo em si não é modificado quando a apresentação é salva.
 
 **O que devo fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita uma senha ao vincular. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/cpp/)) e vincular a essa cópia.
+Aspose.Slides não aceita senha ao criar o vínculo. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/cpp/)) e vincular a essa cópia.
 
 **Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
 

@@ -3,6 +3,8 @@ title: Nota
 type: docs
 weight: 240
 url: /es/net/examples/elements/note/
+aliases:
+  - /net/examples/elements/elements/note/
 keywords:
 - nota
 - agregar diapositiva de notas
@@ -16,13 +18,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Trabaje con notas de diapositiva en Aspose.Slides for .NET: agregue, lea, edite y exporte notas del presentador en PPT, PPTX y ODP usando ejemplos claros en C#."
+description: "Trabaje con notas de diapositivas en Aspose.Slides for .NET: agregue, lea, edite y exporte notas del orador en PPT, PPTX y ODP mediante ejemplos claros en C#."
 ---
 Este artículo muestra cómo agregar, leer, eliminar y actualizar diapositivas de notas usando **Aspose.Slides for .NET**.
 
 ## **Agregar una diapositiva de notas**
 
-Crear una diapositiva de notas y asignarle texto.
+Cree una diapositiva de notas y asigne texto a ella.
 
 ```csharp
 static void AddNote()
@@ -37,7 +39,7 @@ static void AddNote()
 
 ## **Acceder a una diapositiva de notas**
 
-Leer el texto de una diapositiva de notas existente.
+Lea el texto de una diapositiva de notas existente.
 
 ```csharp
 static void AccessNote()
@@ -53,7 +55,7 @@ static void AccessNote()
 
 ## **Eliminar una diapositiva de notas**
 
-Eliminar la diapositiva de notas asociada a una diapositiva.
+Elimine la diapositiva de notas asociada a una diapositiva.
 
 ```csharp
 static void RemoveNote()
@@ -67,9 +69,9 @@ static void RemoveNote()
 }
 ```
 
-## **Actualizar el texto de la diapositiva de notas**
+## **Actualizar el texto de notas**
 
-Cambiar el texto de una diapositiva de notas.
+Cambie el texto de una diapositiva de notas.
 
 ```csharp
 static void UpdateNoteText()

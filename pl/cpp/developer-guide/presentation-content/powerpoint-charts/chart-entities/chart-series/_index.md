@@ -15,11 +15,11 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać seriami wykresu w C++ dla PowerPoint (PPT/PPTX) przy użyciu praktycznych przykładów kodu i najlepszych praktyk, aby ulepszyć swoje prezentacje danych."
+description: "Dowiedz się, jak zarządzać seriami wykresu w C++ dla PowerPoint (PPT/PPTX) przy użyciu praktycznych przykładów kodu i najlepszych praktyk, aby wzbogacić swoje prezentacje danych."
 ---
 ## **Przegląd**
 
-Ten artykuł opisuje rolę [ChartSeries](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartseries/) w Aspose.Slides, skupiając się na tym, jak dane są strukturalizowane i wizualizowane w prezentacjach. Obiekty te zapewniają elementy bazowe definiujące indywidualne zestawy punktów danych, kategorie i parametry wyglądu wykresu. Pracując z [ChartSeries](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartseries/), programiści mogą płynnie integrować źródła danych i zachować pełną kontrolę nad sposobem wyświetlania informacji, co skutkuje dynamicznymi, opartymi na danych prezentacjami jasno przekazującymi wnioski i analizy.
+Ten artykuł opisuje rolę [ChartSeries](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartseries/) w Aspose.Slides, koncentrując się na tym, jak dane są strukturyzowane i wizualizowane w prezentacjach. Obiekty te zapewniają podstawowe elementy definiujące indywidualne zestawy punktów danych, kategorie i parametry wyglądu wykresu. Pracując z [ChartSeries](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartseries/), programiści mogą płynnie integrować źródła danych i zachować pełną kontrolę nad sposobem wyświetlania informacji, co skutkuje dynamicznymi, opartymi na danych prezentacjami jasno przekazującymi wnioski i analizy.
 
 Seria to wiersz lub kolumna liczb wykreślona na wykresie.
 
@@ -27,23 +27,23 @@ Seria to wiersz lub kolumna liczb wykreślona na wykresie.
 
 ## **Ustaw nakładanie serii danych**
 
-Za pomocą metody [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) możesz określić, jak bardzo słupki i kolumny mają się nakładać na wykresie 2D (zakres: -100 do 100). Właściwość ta ma zastosowanie do wszystkich serii w grupie serii nadrzędnej: jest to projekcja odpowiedniej właściwości grupy.
+Za pomocą metody [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) możesz określić, jak bardzo słupki i kolumny mają zachodzić na siebie na wykresie 2D (zakres: -100 do 100). Właściwość ta ma zastosowanie do wszystkich serii w grupie serii nadrzędnej: jest to projekcja odpowiedniej właściwości grupy.
 
-Użyj metody `get_ParentSeriesGroup()::set_Overlap()`, aby ustawić preferowaną wartość dla `Overlap`. 
+Użyj metody `get_ParentSeriesGroup()::set_Overlap()`, aby ustawić preferowaną wartość dla `Overlap`.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-1. Dodaj skontenrowany wykres kolumnowy na slajdzie.
+1. Dodaj wykres słupkowy grupowy na slajdzie.
 1. Uzyskaj dostęp do pierwszej serii wykresu.
 1. Uzyskaj dostęp do `ParentSeriesGroup` serii wykresu i ustaw preferowaną wartość nakładania dla serii.
 1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
 
-Ten kod C++ pokazuje, jak ustawić nakładanie dla serii wykresu:
+This C++ code shows you how to set the overlap for a chart series:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// Adds chart
+// Dodaje wykres
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
 auto series = chart->get_ChartData()->get_Series();
 if (series->idx_get(0)->get_Overlap() == 0)
@@ -52,13 +52,13 @@ if (series->idx_get(0)->get_Overlap() == 0)
     series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
 }
 
-// Writes the presentation file to disk
+// Zapisuje plik prezentacji na dysku
 presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Zmień kolor serii danych**
+## **Zmien kolor serii danych**
 
-Aspose.Slides dla C++ umożliwia zmianę koloru serii w następujący sposób:
+Aspose.Slides for C++ umożliwia zmianę koloru serii w następujący sposób:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
 1. Dodaj wykres na slajdzie.
@@ -66,7 +66,7 @@ Aspose.Slides dla C++ umożliwia zmianę koloru serii w następujący sposób:
 1. Ustaw preferowany typ wypełnienia i kolor wypełnienia.
 1. Zapisz zmodyfikowaną prezentację.
 
-Ten kod C++ pokazuje, jak zmienić kolor serii:
+This C++ code shows you how to change a series' color:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
@@ -82,17 +82,15 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Zmień kolor kategorii serii danych**
+## **Zmien kolor kategorii serii danych**
 
-Aspose.Slides dla C++ umożliwia zmianę koloru kategorii serii w następujący sposób:
+Aspose.Slides for C++ umożliwia zmianę koloru kategorii serii w następujący sposób:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
 1. Dodaj wykres na slajdzie.
 1. Uzyskaj dostęp do kategorii serii, której kolor chcesz zmienić.
 1. Ustaw preferowany typ wypełnienia i kolor wypełnienia.
 1. Zapisz zmodyfikowaną prezentację.
-
-Ten kod w C++ pokazuje, jak zmienić kolor kategorii serii:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -106,18 +104,18 @@ point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue
 pres->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Zmień nazwę serii danych** 
+## **Zmien nazwę serii danych**
 
-Domyślnie, nazwy w legendzie wykresu pochodzą z zawartości komórek nad każdą kolumną lub wierszem danych. 
+Domyślnie nazwy w legendzie wykresu pochodzą z zawartości komórek znajdujących się nad każdą kolumną lub wierszem danych.
 
-W naszym przykładzie (obrazek przykładowy),
+W naszym przykładzie (obraz przykładowy),
 
-* kolumny to *Series 1, Series 2,* i *Series 3*;
-* wiersze to *Category 1, Category 2, Category 3,* i *Category 4.* 
+* kolumny to *Series 1, Series 2* i *Series 3*;
+* wiersze to *Category 1, Category 2, Category 3* i *Category 4*.
 
-Aspose.Slides dla C++ umożliwia aktualizację lub zmianę nazwy serii w danych wykresu i legendzie. 
+Aspose.Slides for C++ umożliwia aktualizację lub zmianę nazwy serii w danych wykresu i legendzie.
 
-Ten kod C++ pokazuje, jak zmienić nazwę serii w danych wykresu `ChartDataWorkbook`:
+This C++ code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -131,7 +129,7 @@ seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-Ten kod C++ pokazuje, jak zmienić nazwę serii w legendzie poprzez`Series`:
+Ten kod C++ pokazuje, jak zmienić nazwę serii w legendzie za pomocą `Series`:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -144,23 +142,21 @@ auto name = series->get_Name();
 name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
 ```
 
-## **Ustaw kolor wypełnienia serii danych**
+## **Ustaw wypełnienie koloru serii danych**
 
-Aspose.Slides dla C++ umożliwia ustawienie automatycznego koloru wypełnienia serii wykresu w obszarze wykresu w następujący sposób:
+Aspose.Slides for C++ umożliwia ustawienie automatycznego koloru wypełnienia dla serii wykresu wewnątrz obszaru wykresu w następujący sposób:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres z danymi domyślnymi oparty na wybranym typie (w poniższym przykładzie użyliśmy `ChartType::ClusteredColumn`).
+1. Uzyskaj referencję do slajdu po jego indeksie.
+1. Dodaj wykres z domyślnymi danymi w oparciu o wybrany typ (w poniższym przykładzie użyliśmy `ChartType::ClusteredColumn`).
 1. Uzyskaj dostęp do serii wykresu i ustaw kolor wypełnienia na Automatic.
 1. Zapisz prezentację do pliku PPTX.
-
-Ten kod C++ pokazuje, jak ustawić automatyczny kolor wypełnienia dla serii wykresu:
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 
-// Tworzy wykres kolumnowy skontenrowany
+// Tworzy wykres kolumnowy grupowy
 auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
 
 // Ustawia format wypełnienia serii na automatyczny
@@ -169,21 +165,19 @@ for (const auto& series : chart->get_ChartData()->get_Series())
     series->GetAutomaticSeriesColor();
 }
 
-// Zapisuje plik prezentacji na dysk
+// Zapisuje plik prezentacji na dysku
 presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ustaw odwrócone kolory wypełnienia serii danych**
 
-Aspose.Slides umożliwia ustawienie odwróconego koloru wypełnienia serii wykresu w obszarze wykresu w następujący sposób:
+Aspose.Slides umożliwia ustawienie odwróconego koloru wypełnienia dla serii wykresu wewnątrz obszaru wykresu w następujący sposób:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres z danymi domyślnymi oparty na wybranym typie (w poniższym przykładzie użyliśmy `ChartType::ClusteredColumn`).
+1. Uzyskaj referencję do slajdu po jego indeksie.
+1. Dodaj wykres z domyślnymi danymi w oparciu o wybrany typ (w poniższym przykładzie użyliśmy `ChartType::ClusteredColumn`).
 1. Uzyskaj dostęp do serii wykresu i ustaw kolor wypełnienia na invert.
 1. Zapisz prezentację do pliku PPTX.
-
-Ten kod C++ demonstruje działanie:
 
 ```cpp
 Color inverColor = Color::get_Red();
@@ -198,13 +192,13 @@ auto chartData = chart->get_ChartData();
 chartData->get_Series()->Clear();
 chartData->get_Categories()->Clear();
 
-// Dodaje nowe serie i kategorie
+// Adds new series and categories
 chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
 chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
 chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
 chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
 
-// Pobiera pierwszą serię wykresu i wypełnia jej dane.
+// Takes the first chart series and populates its series data.
 auto series = chartData->get_Series()->idx_get(0);
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
 series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
@@ -219,9 +213,7 @@ pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
 
 ## **Ustaw odwrócony kolor wypełnienia dla serii wykresu**
 
-Aspose.Slides umożliwia ustawienie odwrócenia za pomocą metod`IChartDataPoint::set_InvertIfNegative()` oraz `ChartDataPoint.set_InvertIfNegative()`. Gdy odwrócenie jest ustawione przy użyciu tych metod, punkt danych odwraca swoje kolory przy uzyskaniu wartości ujemnej. 
-
-Ten kod C++ demonstruje działanie:
+Aspose.Slides umożliwia ustawianie odwróceń poprzez metody `IChartDataPoint::set_InvertIfNegative()` oraz `ChartDataPoint.set_InvertIfNegative()`. Gdy odwrócenie zostanie ustawione przy użyciu tych metod, punkt danych zmienia swoje kolory, gdy otrzyma wartość ujemną.
 
 ```cpp
 auto pres = System::MakeObject<Presentation>();
@@ -247,16 +239,14 @@ pres->Save(u"out.pptx", SaveFormat::Pptx);
 
 ## **Wyczyść określone wartości punktów danych**
 
-Aspose.Slides dla C++ umożliwia wyczyszczenie danych `DataPoints` dla określonej serii wykresu w następujący sposób:
+Aspose.Slides for C++ umożliwia wyczyszczenie danych `DataPoints` dla określonej serii wykresu w następujący sposób:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
-2. Uzyskaj odniesienie do slajdu przez jego indeks.
-3. Uzyskaj odniesienie do wykresu przez jego indeks.
-4. Iteruj przez wszystkie `DataPoints` wykresu i ustaw `XValue` oraz `YValue` na null.
+2. Uzyskaj referencję do slajdu poprzez jego indeks.
+3. Uzyskaj referencję do wykresu poprzez jego indeks.
+4. Iteruj wszystkie `DataPoints` wykresu i ustaw `XValue` oraz `YValue` na null.
 5. Wyczyść wszystkie `DataPoints` dla określonej serii wykresu.
 6. Zapisz zmodyfikowaną prezentację do pliku PPTX.
-
-Ten kod C++ demonstruje działanie:
 
 ```cpp
 auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
@@ -278,19 +268,17 @@ pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
 
 ## **Ustaw szerokość przerwy serii danych**
 
-Aspose.Slides dla C++ umożliwia ustawienie szerokości przerwy serii za pomocą metody **`set_GapWidth()`** w następujący sposób:
+Aspose.Slides for C++ umożliwia ustawienie szerokości przerwy (Gap Width) serii poprzez metodę **`set_GapWidth()`** w następujący sposób:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation).
 1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj wykres z danymi domyślnymi.
+1. Dodaj wykres z domyślnymi danymi.
 1. Uzyskaj dostęp do dowolnej serii wykresu.
 1. Ustaw właściwość `GapWidth`.
 1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
 
-Ten kod w C++ pokazuje, jak ustawić szerokość przerwy serii:
-
 ```cpp
-// Tworzy pustą prezentację 
+// Tworzy pustą prezentację
 auto presentation = System::MakeObject<Presentation>();
 
 // Uzyskuje dostęp do pierwszego slajdu prezentacji
@@ -335,10 +323,10 @@ presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Is there a limit to how many series a single chart can contain?**
+**Czy istnieje limit liczby serii, które może zawierać pojedynczy wykres?**
 
-Aspose.Slides nie nakłada stałego limitu na liczbę serii, które możesz dodać. Praktyczny limit określony jest przez czytelność wykresu oraz dostępność pamięci w twojej aplikacji.
+Aspose.Slides nie narzuca stałego limitu liczby dodawanych serii. Praktyczny limit określany jest przez czytelność wykresu oraz dostępna pamięć aplikacji.
 
-**What if the columns within a cluster are too close together or too far apart?**
+**Co zrobić, gdy kolumny w grupie są zbyt blisko siebie lub zbyt odległe?**
 
-Dostosuj ustawienie szerokości przerwy dla tej serii (lub jej grupy serii nadrzędnej). Zwiększenie wartości poszerza odstęp między kolumnami, a zmniejszenie go zbliża kolumny do siebie.
+Dostosuj ustawienie szerokości przerwy (gap width) dla tej serii (lub jej grupy serii nadrzędnej). Zwiększenie wartości zwiększa odstęp między kolumnami, a zmniejszenie go przybliża je do siebie.

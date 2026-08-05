@@ -14,15 +14,15 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++ aby uzyskać bardziej angażujące slajdy."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++, aby uzyskać bardziej angażujące slajdy."
 ---
-## **Wprowadzenie**
+## **Introduction**
 
-Etykiety danych na wykresie wyświetlają szczegóły dotyczące serii danych wykresu lub poszczególnych punktów danych. Umożliwiają czytelnikom szybkie rozpoznanie serii danych i ułatwiają zrozumienie wykresów.
+Etykiety danych na wykresie wyświetlają szczegóły dotyczące serii danych wykresu lub pojedynczych punktów danych. Pozwalają czytelnikom szybko rozpoznać serie danych i ułatwiają zrozumienie wykresów.
 
-## **Ustaw precyzję danych w etykietach wykresu**
+## **Set Data Precision in Chart Data Labels**
 
-Ten kod C++ pokazuje, jak ustawić precyzję danych w etykiecie wykresu:
+Ten kod C++ pokazuje, jak ustawić precyzję danych w etykiecie danych wykresu:
 
 ```c++
 	// Ścieżka do katalogu dokumentów
@@ -37,17 +37,16 @@ Ten kod C++ pokazuje, jak ustawić precyzję danych w etykiecie wykresu:
 	// Dodaje wykres z domyślnymi danymi
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
 
-	// Ustawia format liczb dla serii
+	// Ustawia format liczb serii
 	chart->set_HasDataTable( true);
 	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
 
-	// Zapisuje plik prezentacji na dysku
+	// Zapisuje plik prezentacji na dysk
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Wyświetlaj procenty jako etykiety**
-
-Aspose.Slides for C++ umożliwia ustawianie etykiet procentowych na wyświetlanych wykresach. Ten kod C++ demonstruje działanie:
+## **Display Percentages as Labels**
+Aspose.Slides for C++ umożliwia ustawienie etykiet procentowych na wyświetlanych wykresach. Ten kod C++ demonstruje działanie:
 
 ```c++
 	// Ścieżka do katalogu dokumentów
@@ -104,8 +103,7 @@ Aspose.Slides for C++ umożliwia ustawianie etykiet procentowych na wyświetlany
 	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Ustaw znak procenta w etykietach danych wykresu**
-
+## **Set the Percentage Sign with Chart Data Labels**
 Ten kod C++ pokazuje, jak ustawić znak procenta w etykiecie danych wykresu:
 
 ```c++
@@ -115,7 +113,7 @@ Ten kod C++ pokazuje, jak ustawić znak procenta w etykiecie danych wykresu:
 	// Tworzy instancję klasy Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Pobiera referencję slajdu przez jego indeks
+	// Pobiera odwołanie do slajdu poprzez jego indeks
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Tworzy wykres PercentsStackedColumn na slajdzie
@@ -133,7 +131,7 @@ Ten kod C++ pokazuje, jak ustawić znak procenta w etykiecie danych wykresu:
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// Usuwa domyślnie wygenerowaną serię 
+	// Usuwa domyślnie wygenerowane serie 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 
@@ -149,7 +147,7 @@ Ten kod C++ pokazuje, jak ustawić znak procenta w etykiecie danych wykresu:
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
 
-	// Ustawia kolor wypełnienia serii
+	// Ustawia kolor wypełnienia dla serii
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
@@ -170,7 +168,7 @@ Ten kod C++ pokazuje, jak ustawić znak procenta w etykiecie danych wykresu:
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
 	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
 
-	// Ustawia kolor wypełnienia serii
+	// Ustawia kolor wypełnienia dla serii
 	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 
@@ -183,12 +181,12 @@ Ten kod C++ pokazuje, jak ustawić znak procenta w etykiecie danych wykresu:
 	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
 	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// Zapisuje plik prezentacji na dysku
+	// Zapisuje plik prezentacji na dysk
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-## **Ustaw odległość etykiety od osi**
-
+## **Set Label Distance from Axis**
 Ten kod C++ pokazuje, jak ustawić odległość etykiety od osi kategorii, gdy pracujesz z wykresem rysowanym na osiach:
 
 ```c++
@@ -198,7 +196,7 @@ Ten kod C++ pokazuje, jak ustawić odległość etykiety od osi kategorii, gdy p
 	// Tworzy instancję klasy Presentation
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Pobiera referencję slajdu
+	// Pobiera odwołanie do slajdu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Tworzy wykres na slajdzie
@@ -211,13 +209,13 @@ Ten kod C++ pokazuje, jak ustawić odległość etykiety od osi kategorii, gdy p
 	// Ustawia odległość etykiety od osi
 	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
 
-	// Zapisuje plik prezentacji na dysku
+	// Zapisuje plik prezentacji na dysk
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Dostosuj położenie etykiety**
+## **Adjust Label Location**
 
-Gdy tworzysz wykres, który nie opiera się na żadnej osi, np. wykres kołowy, etykiety danych wykresu mogą znajdować się zbyt blisko krawędzi. W takim przypadku należy dostosować położenie etykiety danych, aby linie prowadzące były wyraźnie widoczne.
+Kiedy tworzysz wykres, który nie opiera się na żadnej osi, np. wykres kołowy, etykiety danych wykresu mogą znajdować się zbyt blisko jego krawędzi. W takim przypadku należy dostosować położenie etykiety, aby linie prowadzące były wyraźnie widoczne.
 
 Ten kod C++ pokazuje, jak dostosować położenie etykiety na wykresie kołowym:
 
@@ -242,14 +240,14 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
+**How can I prevent data labels from overlapping on dense charts?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie prowadzące oraz zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla skrajnych/kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące oraz zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla punktów skrajnych/kluczowych.
 
-**Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
+**How can I disable labels only for zero, negative, or empty values?**
 
-Przefiltruj punkty danych przed włączeniem etykiet i wyłącz ich wyświetlanie dla wartości 0, wartości ujemnych lub brakujących zgodnie z określoną regułą.
+Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości 0, ujemnych lub brakujących zgodnie z określoną regułą.
 
-**Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
+**How can I ensure a consistent label style when exporting to PDF/images?**
 
-Jawnie ustaw czcionki (rodzina, rozmiar) i zweryfikuj, że czcionka jest dostępna po stronie renderującej, aby uniknąć domyślnego zastąpienia.
+Jawnie ustaw czcionki (rodzina, rozmiar) i zweryfikuj, że czcionka jest dostępna po stronie renderowania, aby uniknąć zastępowania.

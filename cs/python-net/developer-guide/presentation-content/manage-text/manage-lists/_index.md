@@ -1,34 +1,36 @@
 ---
-title: Spravovat odrážkové a číslované seznamy v prezentacích v Pythonu
-linktitle: Spravovat seznamy
+title: Správa odrážkových a číslovaných seznamů v prezentacích v Pythonu
+linktitle: Správa seznamů
 type: docs
 weight: 70
 url: /cs/python-net/manage-lists/
+aliases:
+  - /python-net/sprava-bodu-a-ciselnych-seznamu/
 keywords:
-- odrážka
-- odrážkový seznam
-- číslovaný seznam
-- symbolická odrážka
-- obrázková odrážka
-- vlastní odrážka
-- víceúrovňový seznam
-- vytvořit odrážku
-- přidat odrážku
-- přidat seznam
-- PowerPoint
-- OpenDocument
-- prezentace
-- Python
-- Aspose.Slides
-description: "Naučte se, jak vytvářet a formátovat odrážkové, obrázkové, víceúrovňové a číslované seznamy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python přes .NET."
+  - bod
+  - odrážkový seznam
+  - číslovaný seznam
+  - symbolová odrážka
+  - obrázková odrážka
+  - vlastní odrážka
+  - víceúrovňový seznam
+  - vytvořit odrážku
+  - přidat odrážku
+  - přidat seznam
+  - PowerPoint
+  - OpenDocument
+  - prezentace
+  - Python
+  - Aspose.Slides
+description: "Naučte se, jak vytvářet a formátovat odrážkové, obrázkové, víceúrovňové a číslované seznamy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python via .NET."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Python přes .NET vám umožňuje vytvářet a formátovat odrážkové i číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážek je řízeno prostřednictvím formátu odstavce.
+Aspose.Slides pro Python via .NET vám umožňuje vytvářet a formátovat odrážkové a číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážek je řízeno pomocí formátu odstavce.
 
-Pomocí vlastnosti [Paragraph.paragraph_format](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraph/paragraph_format/) získáte nastavení seznamu na úrovni odstavce. Hlavní vstupní bod je [ParagraphFormat.bullet](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/bullet/), který vrací objekt [BulletFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/). S tímto objektem můžete nastavit typ odrážky, symbol, obrázek, barvu, velikost, styl číslování a počáteční číslo.
+Použijte vlastnost [Paragraph.paragraph_format](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraph/paragraph_format/) k přístupu k nastavením seznamu na úrovni odstavce. Hlavním vstupním bodem je [ParagraphFormat.bullet](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/bullet/), který vrací objekt [BulletFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/). S tímto objektem můžete nastavit typ odrážky, symbol, obrázek, barvu, velikost, styl číslování a počáteční číslo.
 
-Tento článek ukazuje, jak:
+Tento článek ukazuje jak:
 
 - vytvořit odrážkový seznam s vlastním symbolem
 - vytvořit obrázkovou odrážku
@@ -38,9 +40,9 @@ Tento článek ukazuje, jak:
 
 ## **Vytvoření odrážkového seznamu**
 
-Chcete‑li vytvořit odrážkový seznam, přidejte objekty [Paragraph](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraph/) do [TextFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/) a nastavte [BulletFormat.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/type/) na [BulletType.SYMBOL](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bullettype/). Poté můžete nastavit [BulletFormat.char](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/color/) a [BulletFormat.height](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/height/) pro úpravu vzhledu odrážky.
+Pro vytvoření odrážkového seznamu přidejte objekty [Paragraph](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraph/) do [TextFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/) a nastavte [BulletFormat.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/type/) na [BulletType.SYMBOL](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bullettype/). Poté můžete nastavit [BulletFormat.char](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/char/), [BulletFormat.color](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/color/) a [BulletFormat.height](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/height/), abyste ovládali vzhled odrážky.
 
-Následující Python kód demonstruje, jak vytvořit odrážkový seznam na snímku:
+Následující kód v Pythonu demonstruje, jak vytvořit odrážkový seznam na snímku:
 
 ```py
 import aspose.slides as slides
@@ -80,9 +82,9 @@ Výsledek:
 
 ## **Vytvoření číslovaného seznamu**
 
-Číslované seznamy použijte, když je pořadí položek důležité. Nastavte [BulletFormat.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/type/) na [BulletType.NUMBERED](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bullettype/). Můžete také zvolit formát číslování pomocí [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/numbered_bullet_style/) nebo nastavit [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), když má seznam začít od hodnoty jiné než 1.
+Číslované seznamy použijte, když je důležité pořadí položek. Nastavte [BulletFormat.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/type/) na [BulletType.NUMBERED](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bullettype/). Můžete také zvolit formát číslování pomocí [BulletFormat.numbered_bullet_style](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/numbered_bullet_style/) nebo nastavit [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/), pokud by seznam měl začínat hodnotou jinou než 1.
 
-Následující Python kód ukazuje, jak vytvořit číslovaný seznam na snímku:
+Následující kód v Pythonu ukazuje, jak vytvořit číslovaný seznam na snímku:
 
 ```py
 import aspose.slides as slides
@@ -118,21 +120,19 @@ Výsledek:
 
 ## **Vytvoření obrázkové odrážky**
 
-Aspose.Slides umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe s jednoduchými obrázky, které zůstávají čitelné v malé velikosti, jako jsou ikony nebo malé průhledné PNG soubory.
+Aspose.Slides vám umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe s jednoduchými obrázky, které jsou i při malé velikosti čitelné, například ikony nebo malé průhledné soubory PNG.
 
 {{% alert color="primary" %}}
-Ideální je, pokud plánujete nahradit běžný symbol odrážky obrázkem, vybrat si jednoduchou grafiku s průhledným pozadím. Takové obrázky dobře fungují jako vlastní symboly odrážek.
-
-Mějte na paměti, že obrázek bude zmenšen na velmi malou velikost. Z tohoto důvodu důrazně doporučujeme zvolit obrázek, který zůstane jasný a vizuálně účinný, když bude použit jako odrážka v seznamu.
+Ideálně, pokud plánujete nahradit běžný symbol odrážky obrázkem, je nejlepší zvolit jednoduchou grafiku s průhledným pozadím. Takové obrázky se dobře hodí jako vlastní symboly odrážek.
 {{% /alert %}}
 
-Chcete‑li vytvořit obrázkovou odrážku, přidejte obrázek do [Presentation.images](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/images/) a přiřaďte vrácený objekt obrázku k [BulletFormat.picture](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/picture/). Nejprve nastavte [BulletFormat.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/type/) na [BulletType.PICTURE](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bullettype/) před přiřazením obrázku.
+Pro vytvoření obrázkové odrážky přidejte obrázek do [Presentation.images](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/images/) a přiřaďte vrácený objekt obrázku k [BulletFormat.picture](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/picture/). Nastavte [BulletFormat.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bulletformat/type/) na [BulletType.PICTURE](https://reference.aspose.com/slides/cs/python-net/aspose.slides/bullettype/) před přiřazením obrázku.
 
-Předpokládejme, že máme soubor „image.png“:
+Předpokládejme, že máme soubor "image.png":
 
 ![Obrázek pro odrážky](picture_for_bullets.png)
 
-Následující Python kód ukazuje, jak vytvořit obrázkové odrážky na snímku:
+Následující kód v Pythonu ukazuje, jak vytvořit obrázkové odrážky na snímku:
 
 ```py
 import aspose.slides as slides
@@ -172,9 +172,9 @@ Výsledek:
 
 ## **Vytvoření víceúrovňového seznamu**
 
-Použijte [ParagraphFormat.depth](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/depth/) k umístění položek seznamu na různé úrovně. Úroveň 0 je nejvyšší, úroveň 1 je pod ní atd.
+Použijte [ParagraphFormat.depth](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/depth/) k umístění položek seznamu na různé úrovně. Úroveň 0 je nejvyšší úroveň, úroveň 1 je pod ní vnořená a tak dále.
 
-Následující Python kód ukazuje, jak vytvořit víceúrovňový odrážkový seznam:
+Následující kód v Pythonu ukazuje, jak vytvořit víceúrovňový odrážkový seznam:
 
 ```py
 import aspose.slides as slides
@@ -215,9 +215,9 @@ Výsledek:
 
 ## **Změna existujícího seznamu**
 
-Chcete‑li změnit formátování seznamu v existující prezentaci, přistupte k cílovému odstavci a aktualizujte jeho nastavení [ParagraphFormat.bullet](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/bullet/). Stejné vlastnosti použité při vytváření seznamů lze použít k prozkoumání nebo úpravě seznamů načtených ze souboru PPT, PPTX nebo ODP.
+Pro změnu formátování seznamu v existující prezentaci přistupte k cílovému odstavci a aktualizujte jeho nastavení [ParagraphFormat.bullet](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/bullet/). Stejné vlastnosti použité při vytváření seznamů lze použít i pro prohlížení nebo úpravu seznamů načtených ze souboru PPT, PPTX nebo ODP.
 
-Následující Python kód změní první odstavec v textovém rámci tak, aby používal číslovaný styl seznamu:
+Následující kód v Pythonu mění první odstavec v textovém rámečku tak, aby používal styl číslovaného seznamu:
 
 ```py
 import aspose.slides as slides
@@ -236,16 +236,16 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("updated_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Časté dotazy**
+## **Často kladené otázky**
 
 **Lze odrážkové a číslované seznamy exportovat do PDF nebo obrázků?**
 
-Ano. Aspose.Slides zachovává formátování seznamů, pokud cílový formát podporuje odpovídající rozložení textu a funkce odrážek.
+Ano. Aspose.Slides zachovává formátování seznamu, pokud cílový formát podporuje odpovídající rozvržení textu a funkce odrážek.
 
-**Mohu upravovat seznamy v existujících prezentacích?**
+**Mohu upravit seznamy v existujících prezentacích?**
 
-Ano. Načtěte prezentaci, přistupte k cílovému odstavci, prozkoumejte nebo aktualizujte jeho nastavení [ParagraphFormat.bullet](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/bullet/) a prezentaci uložte.
+Ano. Načtěte prezentaci, přistupte k cílovému odstavci, prohlédněte nebo aktualizujte jeho nastavení [ParagraphFormat.bullet](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/bullet/), a uložte prezentaci.
 
-**Mohou seznamy obsahovat text v ne‑latinských skriptech?**
+**Mohou seznamy obsahovat ne-latinský text?**
 
-Ano. Text položek seznamu může obsahovat znaky Unicode, takže můžete vytvářet seznamy ve vícejazyčných prezentacích. Ujistěte se, že použité fonty v prezentaci podporují požadované znaky.
+Ano. Text položek seznamu může obsahovat Unicode znaky, takže můžete vytvářet seznamy v vícejazykových prezentacích. Ujistěte se, že písma použité v prezentaci podporují potřebné znaky.

@@ -1,20 +1,23 @@
 ---
-title: مدیریت پاراگراف‌های متن PowerPoint در جاوا
+title: مدیریت پاراگراف‌های متن پاورپوینت در جاوا
 linktitle: مدیریت پاراگراف
 type: docs
 weight: 40
 url: /fa/java/manage-paragraph/
+aliases:
+  - /java/paragraph/
+  - /java/portion/
 keywords:
 - افزودن متن
 - افزودن پاراگراف
 - مدیریت متن
 - مدیریت پاراگراف
-- مدیریت گلوله
+- مدیریت بولت
 - تورفتگی پاراگراف
-- تورفتگی آویزان
-- گلوله پاراگراف
+- تورفتگی معلق
+- بولت پاراگراف
 - فهرست شماره‌دار
-- فهرست گلوله‌ای
+- فهرست بولت‌دار
 - ویژگی‌های پاراگراف
 - وارد کردن HTML
 - متن به HTML
@@ -27,46 +30,48 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "فرمت‌بندی پیشرفته پاراگراف‌ها با Aspose.Slides برای جاوا—بهینه‌سازی تراز، فاصله‌گذاری و سبک در ارائه‌های PPT، PPTX و ODP در جاوا."
+description: "قالب‌بندی پیشرفته پاراگراف‌ها با Aspose.Slides برای جاوا — بهینه‌سازی هم‌ترازی، فواصل و سبک در ارائه‌های PPT، PPTX و ODP در جاوا."
 ---
-## **مقدمه**
+## **Introduction**
 
-Aspose.Slides تمام رابط‌ها و کلاس‌های مورد نیاز شما برای کار با متن‌ها، پاراگراف‌ها و بخش‌های PowerPoint در جاوا را فراهم می‌کند.
+Aspose.Slides تمام رابط‌ها و کلاس‌های مورد نیاز برای کار با متن‌های PowerPoint، پاراگراف‌ها و بخش‌ها در Java را فراهم می‌کند.
 
-* Aspose.Slides رابط [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) را فراهم می‌کند تا بتوانید اشیایی که نمایانگر یک پاراگراف هستند را اضافه کنید. یک شی `ITextFame` می‌تواند یک یا چند پاراگراف داشته باشد (هر پاراگراف از طریق یک بازگشت carriage ایجاد می‌شود).
-* Aspose.Slides رابط [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) را فراهم می‌کند تا بتوانید اشیایی که نمایانگر بخش‌ها هستند را اضافه کنید. یک شی `IParagraph` می‌تواند یک یا چند بخش داشته باشد (مجموعه‌ای از اشیای iPortions).
-* Aspose.Slides رابط [IPortion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iportion/) را فراهم می‌کند تا بتوانید اشیایی که نمایانگر متن‌ها و ویژگی‌های قالب‌بندی آن‌ها هستند را اضافه کنید.
+* Aspose.Slides رابط [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) را فراهم می‌کند تا بتوانید اشیائی که نمایانگر یک پاراگراف هستند را اضافه کنید. یک شیء `ITextFame` می‌تواند یک یا چند پاراگراف داشته باشد (هر پاراگراف از طریق یک بازگشت carriage ایجاد می‌شود).
+* Aspose.Slides رابط [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) را فراهم می‌کند تا بتوانید اشیائی که نمایانگر بخش‌ها هستند را اضافه کنید. یک شیء `IParagraph` می‌تواند یک یا چند بخش داشته باشد (مجموعه‌ای از اشیاء iPortions).
+* Aspose.Slides رابط [IPortion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iportion/) را فراهم می‌کند تا بتوانید اشیائی که نمایانگر متن‌ها و ویژگی‌های قالب‌بندی آن‌ها هستند را اضافه کنید.
 
-یک شی `IParagraph` می‌تواند متون با ویژگی‌های قالب‌بندی متفاوت را از طریق اشیای زیرین `IPortion` آن مدیریت کند.
+یک شیء `IParagraph` قادر است متونی با ویژگی‌های قالب‌بندی متفاوت را از طریق اشیاء زیرین `IPortion` خود مدیریت کند.
 
-## **افزودن چند پاراگراف حاوی چندین بخش**
+## **Add Multiple Paragraphs Containing Multiple Portions**
 
-این مراحل نشان می‌دهد چگونه یک چارچوب متن حاوی ۳ پاراگراف و هر پاراگراف شامل ۳ بخش اضافه کنید:
+این مراحل نحوه افزودن یک فریم متن شامل ۳ پاراگراف و هر پاراگراف شامل ۳ بخش را نشان می‌دهند:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. از طریق ایندکس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. ITextFrame مرتبط با [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) را دریافت کنید.
-5. دو شی [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) ایجاد کنید و آن‌ها را به مجموعه `IParagraphs` از [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اضافه کنید.
-6. برای هر `IParagraph` جدید، سه شی [IPortion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iportion/) ایجاد کنید (دو شی Portion برای پاراگراف پیش‌فرض) و هر شی `IPortion` را به مجموعه IPortion هر `IParagraph` اضافه کنید.
-7. متن مورد نظر را برای هر بخش تنظیم کنید.
-8. ویژگی‌های قالب‌بندی دلخواه خود را به هر بخش با استفاده از ویژگی‌های قالب‌بندی ارائه‌شده توسط شی `IPortion` اعمال کنید.
-9. ارائه اصلاح شده را ذخیره کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+3. یک مستطیل [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
+4. `ITextFrame` مرتبط با [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) را دریافت کنید.
+5. دو شیء [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) ایجاد کنید و به مجموعه `IParagraphs` مربوط به [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اضافه کنید.
+6. برای هر `IParagraph` جدید سه شیء [IPortion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iportion/) (دو شیء Portion برای پاراگراف پیش‌فرض) ایجاد کنید و هر شیء `IPortion` را به مجموعه IPortion مربوط به هر `IParagraph` اضافه کنید.
+7. برای هر بخش متنی تنظیم کنید.
+8. ویژگی‌های قالب‌بندی دلخواه خود را با استفاده از خصوصیات قالب‌بندی موجود در شیء `IPortion` بر هر بخش اعمال کنید.
+9. ارائه تغییر یافته را ذخیره کنید.
+
+این کد Java پیاده‌سازی مراحل افزودن پاراگراف‌های حاوی بخش‌ها است:
 
 ```java
-// یک کلاس Presentation که نمایانگر فایل PPTX است را نمونه‌سازی کنید
+// یک شیء از کلاس Presentation که فایل PPTX را نمایان می‌کند را ایجاد کنید
 Presentation pres = new Presentation();
 try {
-    // دسترسی به اسلاید اول
+    // دسترسی به اولین اسلاید
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // یک AutoShape از نوع Rectangle اضافه کنید
+    // اضافه کردن یک AutoShape از نوع Rectangle
     IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
 
-    // دسترسی به TextFrame اتوشیپ
+    // دسترسی به TextFrame خود AutoShape
     ITextFrame tf = ashp.getTextFrame();
 
-    // ایجاد پاراگراف‌ها و بخش‌ها با قالب‌بندی‌های متنی متفاوت
+    // ایجاد پاراگراف‌ها و Portionها با قالب‌بندی‌های متنی مختلف
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -111,43 +116,45 @@ try {
         }
     }
 
-    //ذخیره PPTX به دیسک
+    // نوشتن PPTX بر روی دیسک
     pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **مدیریت گلوله‌های پاراگراف**
+## **Manage Paragraph Bullets**
 
-فهرست‌های گلوله‌ای به شما کمک می‌کند تا اطلاعات را به سرعت و به‌صورت مؤثر سازماندهی و ارائه دهید. پاراگراف‌های دارای گلوله همیشه خواناتر و قابل درک‌تر هستند.
+فهرست‌های بولت به شما کمک می‌کنند اطلاعات را به‌سرعت و به‌صورت کارآمد سازماندهی و ارائه کنید. پاراگراف‌های بولت‌دار همیشه خواناتر و قابل فهم‌تر هستند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. از طریق ایندکس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
 3. یک [autoshape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) به اسلاید انتخاب شده اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اتوشیپ دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض را در `TextFrame` حذف کنید.
-6. نمونه اولین پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید.
-7. نوع گلوله `Type` پاراگراف را به `Symbol` تنظیم کنید و کاراکتر گلوله را تعیین کنید.
-8. متن پاراگراف `Text` را تنظیم کنید.
-9. تورفتگی `Indent` پاراگراف برای گلوله را تنظیم کنید.
-10. رنگی برای گلوله تنظیم کنید.
-11. ارتفاعی برای گلوله تنظیم کنید.
+4. به `TextFrame` موجود در autoshape دسترسی پیدا کنید.
+5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
+6. اولین نمونه پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید.
+7. `Type` بولت را برای پاراگراف به `Symbol` تنظیم کنید و کاراکتر بولت را تنظیم کنید.
+8. متن پاراگراف را تنظیم کنید.
+9. `Indent` پاراگراف را برای بولت تنظیم کنید.
+10. رنگی برای بولت انتخاب کنید.
+11. ارتفاع بولت را تنظیم کنید.
 12. پاراگراف جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
 13. پاراگراف دوم را اضافه کنید و فرآیند مراحل ۷ تا ۱۳ را تکرار کنید.
 14. ارائه را ذخیره کنید.
 
+این کد Java نشان می‌دهد چگونه یک بولت پاراگرافی اضافه کنید:
+
 ```java
-// یک کلاس Presentation که نمایانگر فایل PPTX است را نمونه‌سازی می‌کند
+// یک کلاس Presentation که فایل PPTX را نمایان می‌کند را ایجاد می‌کند
 Presentation pres = new Presentation();
 try {
-    // دسترسی به اسلاید اول
+    // به اولین اسلاید دسترسی پیدا می‌کند
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // یک Autoshape اضافه می‌کند و به آن دسترسی می‌یابد
+    // یک Autoshape اضافه می‌کند و به آن دسترسی پیدا می‌کند
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // دسترسی به چارچوب متن (TextFrame) اتوشیپ
+    // به فریم متن autoshape دسترسی پیدا می‌کند
     ITextFrame txtFrm = aShp.getTextFrame();
 
     // پاراگراف پیش‌فرض را حذف می‌کند
@@ -156,85 +163,87 @@ try {
     // یک پاراگراف ایجاد می‌کند
     Paragraph para = new Paragraph();
 
-    // سبک گلوله پاراگراف و نماد را تنظیم می‌کند
+    // سبک بولت پاراگراف و نماد آن را تنظیم می‌کند
     para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar((char)8226);
 
     // متن پاراگراف را تنظیم می‌کند
     para.setText("Welcome to Aspose.Slides");
 
-    // تورفتگی گلوله را تنظیم می‌کند
+    // تورفتگی بولت را تنظیم می‌کند
     para.getParagraphFormat().setIndent(25);
 
-    // رنگ گلوله را تنظیم می‌کند
+    // رنگ بولت را تنظیم می‌کند
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // مقدار IsBulletHardColor را به true تنظیم می‌کند تا از رنگ دلخواه گلوله استفاده شود
+    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor را به true تنظیم می‌کند تا از رنگ بولت دلخواه استفاده شود
 
-    // ارتفاع گلوله را تنظیم می‌کند
+    // ارتفاع بولت را تنظیم می‌کند
     para.getParagraphFormat().getBullet().setHeight(100);
 
-    // پاراگراف را به چارچوب متن اضافه می‌کند
+    // پاراگراف را به فریم متن اضافه می‌کند
     txtFrm.getParagraphs().add(para);
 
     // پاراگراف دوم را ایجاد می‌کند
     Paragraph para2 = new Paragraph();
 
-    // نوع و سبک گلوله پاراگراف را تنظیم می‌کند
+    // نوع و سبک بولت پاراگراف را تنظیم می‌کند
     para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
 
     // متن پاراگراف را اضافه می‌کند
     para2.setText("This is numbered bullet");
 
-    // تورفتگی گلوله را تنظیم می‌کند
+    // تورفتگی بولت را تنظیم می‌کند
     para2.getParagraphFormat().setIndent(25);
 
     para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // مقدار IsBulletHardColor را به true تنظیم می‌کند تا از رنگ دلخواه گلوله استفاده شود
+    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor را به true تنظیم می‌کند تا از رنگ بولت دلخواه استفاده شود
 
-    // ارتفاع گلوله را تنظیم می‌کند
+    // ارتفاع بولت را تنظیم می‌کند
     para2.getParagraphFormat().getBullet().setHeight(100);
 
-    // پاراگراف را به چارچوب متن اضافه می‌کند
+    // پاراگراف را به فریم متن اضافه می‌کند
     txtFrm.getParagraphs().add(para2);
     
-    // ارائه اصلاح‌شده را ذخیره می‌کند
+    // ارائه تغییر یافته را ذخیره می‌کند
     pres.save("Bullet_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **مدیریت گلوله‌های تصویری**
+## **Manage Picture Bullets**
 
-فهرست‌های گلوله‌ای به شما کمک می‌کند تا اطلاعات را به سرعت و به‌صورت مؤثر سازماندهی و ارائه دهید. پاراگراف‌های تصویری خواناتر و قابل درک‌تر هستند.
+فهرست‌های بولت به شما کمک می‌کنند اطلاعات را به‌سرعت و به‌صورت کارآمد سازماندهی و ارائه کنید. پاراگراف‌های تصویری خواناتر و قابل فهم‌تر هستند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. از طریق ایندکس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
 3. یک [autoshape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اتوشیپ دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض را در `TextFrame` حذف کنید.
-6. نمونه اولین پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید.
-7. تصویر را در [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ippimage/) بارگذاری کنید.
-8. نوع گلوله را به [Picture](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ippimage/) تنظیم کنید و تصویر را تعیین کنید.
-9. متن پاراگراف `Text` را تنظیم کنید.
-10. تورفتگی `Indent` پاراگراف برای گلوله را تنظیم کنید.
-11. رنگی برای گلوله تنظیم کنید.
-12. ارتفاعی برای گلوله تنظیم کنید.
+4. به `TextFrame` موجود در autoshape دسترسی پیدا کنید.
+5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
+6. اولین نمونه پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید.
+7. تصویر را با استفاده از [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ippimage/) بارگذاری کنید.
+8. نوع بولت را به [Picture](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ippimage/) تنظیم کنید و تصویر را تنظیم کنید.
+9. متن پاراگراف را تنظیم کنید.
+10. `Indent` پاراگراف را برای بولت تنظیم کنید.
+11. رنگی برای بولت انتخاب کنید.
+12. ارتفاع بولت را تنظیم کنید.
 13. پاراگراف جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-14. پاراگراف دوم را اضافه کنید و فرآیند مراحل قبلی را تکرار کنید.
-15. ارائه اصلاح شده را ذخیره کنید.
+14. پاراگراف دوم را اضافه کنید و فرآیند را بر اساس مراحل قبلی تکرار کنید.
+15. ارائه تغییر یافته را ذخیره کنید.
+
+این کد Java نشان می‌دهد چگونه بولت‌های تصویری را اضافه و مدیریت کنید:
 
 ```java
-// یک کلاس Presentation که نمایانگر یک فایل PPTX است را نمونه‌سازی می‌کند
+// یک کلاس Presentation که فایل PPTX را نمایان می‌کند را ایجاد می‌کند
 Presentation presentation = new Presentation();
 try {
-    // به اسلاید اول دسترسی می‌یابد
+    // به اولین اسلاید دسترسی می‌یابد
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // تصویر برای گلوله‌ها را نمونه‌سازی می‌کند
+    // تصویر بولت‌ها را ایجاد می‌کند
     IPPImage picture;
     IImage image = Images.fromFile("bullets.png");
     try {
@@ -242,10 +251,10 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-    // یک Autoshape اضافه می‌کند و به آن دسترسی می‌یابد
+    // Autoshape را اضافه می‌کند و به آن دسترسی می‌یابد
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // به TextFrame اتوشیپ دسترسی می‌یابد
+    // فریم متن autoshape را دسترسی می‌یابد
     ITextFrame textFrame = autoShape.getTextFrame();
 
     // پاراگراف پیش‌فرض را حذف می‌کند
@@ -255,20 +264,20 @@ try {
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
 
-    // سبک گلوله پاراگراف و تصویر را تنظیم می‌کند
+    // سبک بولت پاراگراف و تصویر را تنظیم می‌کند
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // ارتفاع گلوله را تنظیم می‌کند
+    // ارتفاع بولت را تنظیم می‌کند
     paragraph.getParagraphFormat().getBullet().setHeight(100);
 
-    // پاراگراف را به TextFrame اضافه می‌کند
+    // پاراگراف را به فریم متن اضافه می‌کند
     textFrame.getParagraphs().add(paragraph);
 
-    // ارائه را به عنوان یک فایل PPTX ذخیره می‌کند
+    // ارائه را به صورت فایل PPTX ذخیره می‌کند
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-    // ارائه را به عنوان یک فایل PPT ذخیره می‌کند
+    // ارائه را به صورت فایل PPT ذخیره می‌کند
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 } catch (IOException e) {
 } finally {
@@ -276,33 +285,35 @@ try {
 }
 ```
 
-## **مدیریت گلوله‌های چندسطحی**
+## **Manage Multilevel Bullets**
 
-فهرست‌های گلوله‌ای به شما کمک می‌کند تا اطلاعات را به سرعت و به‌صورت مؤثر سازماندهی و ارائه دهید. گلوله‌های چندسطحی خواناتر و قابل درک‌تر هستند.
+فهرست‌های بولت به شما کمک می‌کنند اطلاعات را به‌سرعت و به‌صورت کارآمد سازماندهی و ارائه کنید. بولت‌های چندسطحی خواناتر و قابل فهم‌تر هستند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. از طریق ایندکس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
 3. یک [autoshape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) در اسلاید جدید اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اتوشیپ دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض را در `TextFrame` حذف کنید.
-6. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید و عمق را به ۰ تنظیم کنید.
-7. پاراگراف دوم را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۱ تنظیم کنید.
-8. پاراگراف سوم را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۲ تنظیم کنید.
-9. پاراگراف چهارم را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۳ تنظیم کنید.
+4. به `TextFrame` موجود در autoshape دسترسی پیدا کنید.
+5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
+6. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید و عمق آن را به 0 تنظیم کنید.
+7. دومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق آن را به 1 تنظیم کنید.
+8. سومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق آن را به 2 تنظیم کنید.
+9. چهارمین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق آن را به 3 تنظیم کنید.
 10. پاراگراف‌های جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-11. ارائه اصلاح شده را ذخیره کنید.
+11. ارائه تغییر یافته را ذخیره کنید.
+
+این کد Java نشان می‌دهد چگونه بولت‌های چندسطحی را اضافه و مدیریت کنید:
 
 ```java
-// یک کلاس Presentation که نمایانگر یک فایل PPTX است را نمونه‌سازی می‌کند
+// یک شیء از کلاس Presentation که فایل PPTX را نمایان می‌کند را ایجاد می‌کند
 Presentation pres = new Presentation();
 try {
-    // به اسلاید اول دسترسی می‌یابد
+    // به اولین اسلاید دسترسی می‌یابد
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // یک Autoshape اضافه می‌کند و به آن دسترسی می‌یابد
+    // Autoshape را اضافه می‌کند و به آن دسترسی می‌یابد
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // به فریم متن (TextFrame) اتوشیپ ایجاد شده دسترسی می‌یابد
+    // فریم متن autoshape ایجاد شده را دسترسی می‌یابد
     ITextFrame text = aShp.addTextFrame("");
 
     // پاراگراف پیش‌فرض را پاک می‌کند
@@ -315,7 +326,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar((char)8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // سطح گلوله را تنظیم می‌کند
+    // سطح بولت را تنظیم می‌کند
     para1.getParagraphFormat().setDepth((short)0);
 
     // پاراگراف دوم را اضافه می‌کند
@@ -325,7 +336,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // سطح گلوله را تنظیم می‌کند
+    // سطح بولت را تنظیم می‌کند
     para2.getParagraphFormat().setDepth((short)1);
 
     // پاراگراف سوم را اضافه می‌کند
@@ -335,7 +346,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar((char)8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // سطح گلوله را تنظیم می‌کند
+    // سطح بولت را تنظیم می‌کند
     para3.getParagraphFormat().setDepth((short)2);
 
     // پاراگراف چهارم را اضافه می‌کند
@@ -345,7 +356,7 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // سطح گلوله را تنظیم می‌کند
+    // سطح بولت را تنظیم می‌کند
     para4.getParagraphFormat().setDepth((short)3);
 
     // پاراگراف‌ها را به مجموعه اضافه می‌کند
@@ -361,33 +372,35 @@ try {
 }
 ```
 
-## **مدیریت پاراگراف با فهرست شماره‌گذاری سفارشی**
+## **Manage a Paragraph with a Custom Numbered List**
 
-رابط [IBulletFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/) ویژگی [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) و دیگر ویژگی‌ها را فراهم می‌کند که به شما امکان مدیریت پاراگراف‌ها با شماره‌گذاری یا قالب‌بندی سفارشی را می‌دهد.
+رابط [IBulletFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/) ویژگی [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) و سایر ویژگی‌ها را فراهم می‌کند تا بتوانید پاراگراف‌ها را با شماره‌گذاری یا قالب‌بندی دلخواه مدیریت کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
 2. به اسلاید حاوی پاراگراف دسترسی پیدا کنید.
 3. یک [autoshape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اتوشیپ دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض را در `TextFrame` حذف کنید.
-6. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید و [NumberedBulletStartWith] را به ۲ تنظیم کنید.
-7. پاراگراف دوم را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را به ۳ تنظیم کنید.
-8. پاراگراف سوم را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را به ۷ تنظیم کنید.
+4. به `TextFrame` موجود در autoshape دسترسی پیدا کنید.
+5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
+6. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید و [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) را روی 2 تنظیم کنید.
+7. دومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را روی 3 تنظیم کنید.
+8. سومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را روی 7 تنظیم کنید.
 9. پاراگراف‌های جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-10. ارائه اصلاح شده را ذخیره کنید.
+10. ارائه تغییر یافته را ذخیره کنید.
+
+این کد Java نشان می‌دهد چگونه پاراگراف‌ها را با شماره‌گذاری یا قالب‌بندی دلخواه مدیریت کنید:
 
 ```java
 Presentation presentation = new Presentation();
 try {
     IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // به فریم متن (TextFrame) اتوشیپ ایجاد شده دسترسی می‌یابد
+    // به فریم متن autoshape ایجاد شده دسترسی پیدا می‌کند
     ITextFrame textFrame = shape.getTextFrame();
 
     // پاراگراف پیش‌فرض موجود را حذف می‌کند
     textFrame.getParagraphs().removeAt(0);
 
-    // فهرست اول
+    // لیست اول
     Paragraph paragraph1 = new Paragraph();
     paragraph1.setText("bullet 2");
     paragraph1.getParagraphFormat().setDepth((short)4);
@@ -416,21 +429,23 @@ try {
 }
 ```
 
-## **تنظیم تورفتگی خط اول برای پاراگراف**
+## **Set First-Line Indent for a Paragraph**
 
-از متد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد تنها خط اول را نسبت به حاشیه چپ پاراگراف جابجا می‌کند. مقدار مثبت خط اول را به سمت راست می‌برد، در حالی که خطوط باقی‌مانده به بدنه پاراگراف تراز می‌مانند.
+از متد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به راست می‌برد، در حالی که خطوط باقی‌مانده به بدنه پاراگراف متصل می‌مانند.
 
-زمانی که نیاز به جابجایی کل پاراگراف دارید از [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) استفاده کنید. برای جابجایی فقط خط اول از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) استفاده کنید.
+زمانی که نیاز به جابه‌جایی کل پاراگراف دارید، از [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) استفاده کنید. زمانی که فقط می‌خواهید خط اول جابه‌جا شود، از [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) استفاده کنید.
 
-مثال زیر چند پاراگراف ایجاد می‌کند و مقادیر مختلف تورفتگی را برای نشان دادن تأثیر تورفتگی خط اول بر چینش پاراگراف اعمال می‌کند.
+مثال زیر چند پاراگراف ایجاد می‌کند و مقادیر تورفتگی متفاوتی را برای نشان دادن تأثیر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌نماید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. به اسلاید هدف دسترسی پیدا کنید.
+2. اسلاید هدف را دریافت کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
 4. یک [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframe/) خالی به شکل اضافه کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. چندین پاراگراف ایجاد کنید و مقادیر مختلف [Indent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) را برای آن‌ها تنظیم کنید.
-6. پاراگراف‌ها را به چارچوب متن اضافه کنید.
-7. ارائه اصلاح شده را ذخیره کنید.
+5. چند پاراگراف ایجاد کنید و مقادیر مختلف [Indent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) را برای آن‌ها تنظیم کنید.
+6. پاراگراف‌ها را به فریم متن اضافه کنید.
+7. ارائه تغییر یافته را ذخیره کنید.
+
+این کد نشان می‌دهد چگونه تورفتگی یک پاراگراف را تنظیم کنید:
 
 ```java
 Presentation presentation = new Presentation();
@@ -478,24 +493,28 @@ finally {
 }
 ```
 
+نتیجه:
+
 ![تورفتگی خط اول پاراگراف‌ها](first_line_indent.png)
 
-## **تنظیم تورفتگی آویزان برای پاراگراف**
+## **Set Hanging Indent for a Paragraph**
 
-تورفتگی آویزان یک طرح‌بندی پاراگراف است که در آن خط اول به سمت چپ خطوط باقی‌مانده شروع می‌شود. در Aspose.Slides این اثر را با متد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ایجاد می‌کنید. مقدار منفی به این متد تنظیم کنید تا خط اول نسبت به بدنه پاراگراف به سمت چپ جابه‌جا شود.
+تورفتگی معلق یک چیدمان پاراگراف است که در آن خط اول به سمت چپ خطوط باقی‌مانده شروع می‌شود. در Aspose.Slides این اثر را با متد [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) ایجاد می‌کنید. برای جابه‌جایی خط اول به سمت چپ مقدار منفی به `Indent` بدهید.
 
-در عمل، [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) موقعیت خط اول را نسبت به آن حاشیه مشخص می‌سازد. برای ایجاد تورفتگی آویزان، مقدار مثبت `MarginLeft` و مقدار منفی `Indent` تنظیم کنید.
+در عمل، [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [IParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) موقعیت خط اول نسبت به آن حاشیه را تنظیم می‌کند. برای ایجاد تورفتگی معلق، مقدار `MarginLeft` را مثبت و مقدار `Indent` را منفی تنظیم کنید.
 
-این قالب‌بندی برای کتابشناسی‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنه پاراگراف نه زیر اولین کاراکتر خط اول قرار گیرند، مفید است.
+این قالب‌بندی برای کتابشناسی‌ها، مراجع، واژه‌نامه‌ها و سایر پاراگراف‌هایی که خطوط بسته‌بندی‌شده باید تحت بدنه پاراگراف نه زیر اولین کاراکتر خط اول قرار گیرند، مفید است.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. به اسلاید هدف دسترسی پیدا کنید.
+2. اسلاید هدف را دریافت کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
 4. یک [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframe/) خالی به شکل اضافه کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. پاراگراف‌ها را ایجاد کنید و برای هر پاراگراف مقدار مثبت [MarginLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) تنظیم کنید.
-6. مقدار منفی [Indent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) تنظیم کنید تا اثر تورفتگی آویزان حاصل شود.
-7. پاراگراف‌ها را به چارچوب متن اضافه کنید.
-8. ارائه اصلاح شده را ذخیره کنید.
+5. برای هر پاراگراف مقدار مثبت [MarginLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) تنظیم کنید.
+6. مقدار منفی [Indent](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setIndent-float-) بدهید تا اثر تورفتگی معلق ایجاد شود.
+7. پاراگراف‌ها را به فریم متن اضافه کنید.
+8. ارائه تغییر یافته را ذخیره کنید.
+
+این کد نشان می‌دهد چگونه تورفتگی معلق برای یک پاراگراف تنظیم کنید:
 
 ```java
 Presentation presentation = new Presentation();
@@ -535,17 +554,21 @@ finally {
 }
 ```
 
-![تورفتگی آویزان پاراگراف‌ها](hanging_indent.png)
+نتیجه:
 
-## **مدیریت ویژگی‌های End برای پاراگراف‌ها**
+![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
+
+## **Manage End Paragraph Run Properties**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. مرجع اسلاید شامل پاراگراف را از طریق موقعیت آن دریافت کنید.
-3. یک [autoshape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
-4. یک [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) با دو پاراگراف به مستطیل اضافه کنید.
-5. ارتفاع قلم `FontHeight` و نوع فونت را برای پاراگراف‌ها تنظیم کنید.
-6. ویژگی‌های End را برای پاراگراف‌ها تنظیم کنید.
-7. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
+1. مرجع اسلاید حاوی پاراگراف را از طریق موقعیت آن دریافت کنید.
+1. یک مستطیل [autoshape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
+1. یک [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) با دو پاراگراف به مستطیل اضافه کنید.
+1. `FontHeight` و نوع فونت را برای پاراگراف‌ها تنظیم کنید.
+1. ویژگی‌های End را برای پاراگراف‌ها تنظیم کنید.
+1. ارائه تغییر یافته را به عنوان فایل PPTX بنویسید.
+
+این کد Java نشان می‌دهد چگونه ویژگی‌های End را برای پاراگراف‌ها در PowerPoint تنظیم کنید:
 
 ```java
 Presentation pres = new Presentation();
@@ -572,28 +595,30 @@ try {
 }
 ```
 
-## **وارد کردن متن HTML به پاراگراف‌ها**
+## **Import HTML Text into Paragraphs**
 
 Aspose.Slides پشتیبانی پیشرفته‌ای برای وارد کردن متن HTML به پاراگراف‌ها فراهم می‌کند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-2. از طریق ایندکس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
 3. یک [autoshape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-4. `autoshape` [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) را اضافه و دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض را در `ITextFrame` حذف کنید.
-6. فایل HTML منبع را با استفاده از یک TextReader بخوانید.
+4. `autoshape` را با [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) دسترسی پیدا کنید.
+5. پاراگراف پیش‌فرض در `ITextFrame` را حذف کنید.
+6. فایل HTML منبع را در یک TextReader بخوانید.
 7. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraph/) ایجاد کنید.
-8. محتوای فایل HTML خوانده‌شده از TextReader را به [ParagraphCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphcollection/) چارچوب متن اضافه کنید.
-9. ارائه اصلاح شده را ذخیره کنید.
+8. محتوای فایل HTML را از TextReader خوانده شده به [ParagraphCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphcollection/) فریم متن اضافه کنید.
+9. ارائه تغییر یافته را ذخیره کنید.
+
+این کد Java پیاده‌سازی مراحل وارد کردن متن‌های HTML در پاراگراف‌ها است:
 
 ```java
-// ایجاد یک نمونه خالی از ارائه
+// یک نمونه خالی از ارائه ایجاد کنید
 Presentation pres = new Presentation();
 try {
-    // دسترسی به اسلاید پیش‌فرض اول ارائه
+    // به اسلاید پیش‌فرض اول ارائه دسترسی پیدا کنید
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // افزودن AutoShape برای قرار دادن محتوای HTML
+    // افزودن AutoShape برای دربرگیری محتوای HTML
     IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
             (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
 
@@ -602,52 +627,54 @@ try {
     // افزودن فریم متن به شکل
     ashape.addTextFrame("");
 
-    // پاک‌سازی تمام پاراگراف‌ها در فریم متن اضافه‌شده
+    // پاک کردن تمام پاراگراف‌ها در فریم متن اضافه شده
     ashape.getTextFrame().getParagraphs().clear();
 
     // بارگذاری فایل HTML با استفاده از StreamReader
     TextReader tr = new StreamReader("file.html");
 
-    // افزودن متن از StreamReader HTML به فریم متن
+    // اضافه کردن متن از StreamReader HTML به فریم متن
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
-    // ذخیره‌سازی ارائه
+    // ذخیره ارائه
     pres.save("output_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **صادر کردن متن پاراگراف به HTML**
+## **Export Paragraph Text to HTML**
 
-Aspose.Slides پشتیبانی پیشرفته‌ای برای صادر کردن متون (موجود در پاراگراف‌ها) به HTML فراهم می‌کند.
+Aspose.Slides پشتیبانی پیشرفته‌ای برای استخراج متن‌ها (موجود در پاراگراف‌ها) به HTML فراهم می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید و ارائه موردنظر را بارگذاری کنید.
-2. از طریق ایندکس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید و ارائه مورد نظر را بارگذاری کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
 3. به شکل حاوی متنی که می‌خواهید به HTML صادر شود دسترسی پیدا کنید.
 4. به [TextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframe/) شکل دسترسی پیدا کنید.
 5. یک نمونه از `StreamWriter` ایجاد کنید و فایل HTML جدید را اضافه کنید.
-6. یک شاخص شروع به StreamWriter بدهید و پاراگراف‌های موردنظر خود را صادر کنید.
+6. یک اندیس شروع به StreamWriter بدهید و پاراگراف‌های مورد نظر خود را صادر کنید.
+
+این کد Java نشان می‌دهد چگونه متن‌های پاراگراف PowerPoint را به HTML صادر کنید:
 
 ```java
-// فای�� ارائه را بارگذاری کنید
+// Load the presentation file
 Presentation pres = new Presentation("ExportingHTMLText.pptx");
 try {
-    // به اسلاید پیش‌فرض اول ارائه دسترسی پیدا کنید
+    // Acesss the default first slide of presentation
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // اندیس مورد نظر
+    // Desired index
     int index = 0;
 
-    // دستیابی به شکل اضافه‌شده
+    // Accessing the added shape
     IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
 
-    // ایجاد فایل خروجی HTML
+    // Creating output HTML file
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    //استخراج اولین پاراگراف به صورت HTML
-    // نوشتن داده‌های پاراگراف‌ها به HTML با ارائه ایندکس شروع پاراگراف و تعداد کل پاراگراف‌های قابل کپی
+    //Extracting first paragraph as HTML
+    // Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -656,44 +683,44 @@ try {
 }
 ```
 
-## **ذخیره یک پاراگراف به عنوان تصویر**
+## **Save a Paragraph as an Image**
 
-در این بخش دو مثال بررسی می‌کنیم که نشان می‌دهند چگونه یک پاراگراف متن، که توسط رابط [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) نمایش داده می‌شود، به صورت تصویر ذخیره شود. هر دو مثال شامل به‌دست آوردن تصویر یک شکل حاوی پاراگراف با استفاده از روش‌های `getImage` از رابط [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) است، محاسبه مرزهای پاراگراف داخل شکل و صادر کردن آن به عنوان تصویر بیت‌مپ. این روش‌ها به شما امکان می‌دهند بخش‌های خاصی از متن را از ارائه‌های PowerPoint استخراج و به‌صورت تصاویر جداگانه ذخیره کنید که می‌تواند در سناریوهای مختلف مفید باشد.
+در این بخش، دو مثال برای نشان دادن نحوه ذخیره یک پاراگراف متنی، نمایانده‌شده توسط رابط [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/)، به عنوان تصویر بررسی می‌شوند. هر دو مثال شامل دریافت تصویر شکل حاوی پاراگراف با استفاده از متدهای `getImage` رابط [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/)، محاسبه مرزهای پاراگراف درون شکل و استخراج آن به عنوان تصویر بیت‌مپ هستند. این روش‌ها به شما امکان می‌دهند بخش‌های خاصی از متن را از ارائه‌های PowerPoint استخراج و به‌صورت تصویر ذخیره کنید.
 
-فرض کنیم فایلی به نام sample.pptx با یک اسلاید داریم که اولین شکل آن یک کادر متن حاوی سه پاراگراف است.
+فرض کنید فایلی به نام sample.pptx داریم که شامل یک اسلاید است و اولین شکل آن یک جعبه متن با سه پاراگراف می‌باشد.
 
-![کادر متن با سه پاراگراف](paragraph_to_image_input.png)
+![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
 
 **مثال 1**
 
-در این مثال پاراگراف دوم را به‌عنوان تصویر استخراج می‌کنیم. برای این کار تصویر شکل را از اسلاید اول استخراج می‌کنیم و سپس مرزهای پاراگراف دوم را در چارچوب متن شکل محاسبه می‌کنیم. سپس پاراگراف روی یک تصویر بیت‌مپ جدید بازنگری می‌شود و به صورت PNG ذخیره می‌شود. این روش به‌ویژه زمانی مفید است که بخواهید یک پاراگراف خاص را به‌عنوان تصویر جداگانه ذخیره کنید در حالی که ابعاد و قالب‌بندی دقیق متن حفظ شود.
+در این مثال، دومین پاراگراف به‌صورت تصویر استخراج می‌شود. برای این کار، تصویر شکل را از اسلاید اول استخراج کرده، مرزهای دومین پاراگراف در فریم متن شکل را محاسبه می‌کنیم. سپس پاراگراف روی یک تصویر بیت‌مپ جدید رسم می‌شود و به فرمت PNG ذخیره می‌گردد. این روش زمانی مفید است که نیاز به ذخیره یک پاراگراف مشخص به‌صورت تصویر جداگانه داشته باشید و بخواهید ابعاد و قالب‌بندی دقیق متن حفظ شود.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // شکل را به عنوان یک بیت‌مپ در حافظه ذخیره کنید.
+    // شکل را به صورت یک بیت‌مپ در حافظه ذخیره می‌کند.
     IImage shapeImage = firstShape.getImage();
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // یک بیت‌مپ شکل از حافظه ایجاد کنید.
+    // یک بیت‌مپ شکل را از حافظه ایجاد می‌کند.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // مرزهای پاراگراف دوم را محاسبه کنید.
+    // مرزهای پاراگراف دوم را محاسبه می‌کند.
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     Rectangle2D paragraphRectangle = secondParagraph.getRect();
 
-    // مختصات و اندازه تصویر خروجی را محاسبه کنید (حداقل اندازه - 1x1 پیکسل).
+    // مختصات و اندازه تصویر خروجی را محاسبه می‌کند (حداقل اندازه - 1×1 پیکسل).
     int imageX = (int) Math.floor(paragraphRectangle.getX());
     int imageY = (int) Math.floor(paragraphRectangle.getY());
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
 
-    // بیت‌مپ شکل را برش دهید تا تنها بیت‌مپ پاراگراف به دست آید.
+    // بیت‌مپ شکل را برش می‌دهد تا فقط بیت‌مپ پاراگراف به دست آید.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -703,11 +730,13 @@ try {
 }
 ```
 
+نتیجه:
+
 ![تصویر پاراگراف](paragraph_to_image_output.png)
 
 **مثال 2**
 
-در این مثال رویکرد قبلی را با افزودن عوامل مقیاس به تصویر پاراگراف گسترش می‌دهیم. شکل از ارائه استخراج می‌شود و به‌عنوان تصویر با عامل مقیاس ۲ ذخیره می‌شود. این امکان خروجی با وضوح بالاتر را هنگام صادر کردن پاراگراف فراهم می‌کند. سپس مرزهای پاراگراف با درنظر گرفتن مقیاس محاسبه می‌شود. مقیاس‌بندی می‌تواند زمانی مفید باشد که به تصویر با جزئیات بیشتر نیاز دارید، به‌عنوان مثال برای استفاده در مواد چاپی با کیفیت بالا.
+در این مثال، رویکرد قبلی با افزودن عوامل مقیاس به تصویر پاراگراف گسترش می‌یابد. شکل از ارائه استخراج می‌شود و با عامل مقیاس `2` ذخیره می‌گردد. این کار خروجی با وضوح بالاتر فراهم می‌کند. سپس مرزهای پاراگراف با توجه به مقیاس محاسبه می‌شوند. مقیاس‌گذاری زمانی مفید است که به تصویر دقیق‌تری برای استفاده در مطالب چاپی با کیفیت بالا نیاز داشته باشید.
 
 ```java
 float imageScaleX = 2f;
@@ -717,17 +746,17 @@ Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // شکل را به عنوان یک بیت‌مپ در حافظه ذخیره کنید با مقیاس‌بندی.
+    // شکل را به صورت بیت‌مپ در حافظه ذخیره می‌کند با مقیاس‌بندی.
     IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // یک بیت‌مپ شکل را از حافظه ایجاد کنید.
+    // یک بیت‌مپ شکل را از حافظه ایجاد می‌کند.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // مرزهای پاراگراف دوم را محاسبه کنید.
+    // مرزهای پاراگراف دوم را محاسبه می‌کند.
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     Rectangle2D paragraphRectangle = secondParagraph.getRect();
     paragraphRectangle.setRect(
@@ -737,13 +766,13 @@ try {
             paragraphRectangle.getHeight() * imageScaleY
     );
 
-    // مختصات و اندازه تصویر خروجی را محاسبه کنید (حداقل اندازه - 1x1 پیکسل).
+    // مختصات و اندازه تصویر خروجی را محاسبه می‌کند (حداقل اندازه - 1×1 پیکسل).
     int imageX = (int) Math.floor(paragraphRectangle.getX());
     int imageY = (int) Math.floor(paragraphRectangle.getY());
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
 
-    // بیت‌مپ شکل را برش دهید تا فقط بیت‌مپ پاراگراف به‌دست آید.
+    // بیت‌مپ شکل را برش می‌دهد تا فقط بیت‌مپ پاراگراف به دست آید.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -753,20 +782,20 @@ try {
 }
 ```
 
-## **سؤالات متداول**
+## **FAQ**
 
-**آیا می‌توانم بسته شدن خط داخل یک TextFrame را به‌طور کامل غیرفعال کنم؟**
+**آیا می‌توانم به‌طور کامل بسته شدن خط‌بندی داخل یک فریم متن را غیرفعال کنم؟**
 
-بله. از تنظیمات بسته شدن متن در TextFrame (متد [setWrapText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframeformat/#setWrapText-byte-)) استفاده کنید تا بسته شدن را غیرفعال کنید، بنابراین خطوط در لبه‌های فریم شکسته نمی‌شوند.
+بله. از تنظیم بسته شدن خط فریم متن ([setWrapText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/textframeformat/#setWrapText-byte-)) استفاده کنید تا بسته شدن خاموش شود و خطوط در لبه‌های فریم شکسته نشوند.
 
-**چگونه می‌توانم محدوده دقیق یک پاراگراف خاص را بر روی اسلاید به‌دست آورم؟**
+**چگونه می‌توانم مرزهای دقیق روی اسلاید یک پاراگراف خاص را دریافت کنم؟**
 
-می‌توانید مستطیل محاطی پاراگراف (و حتی یک بخش منفرد) را دریافت کنید تا موقعیت و اندازه دقیق آن را بر روی اسلاید بدانید.
+می‌توانید مستطیل محدوده (Bounding Rectangle) پاراگراف (و حتی یک بخش منفرد) را استخراج کنید تا موقعیت و اندازه دقیق آن را روی اسلاید بدانید.
 
-**قالب‌بندی تراز پاراگراف (چپ/راست/وسط/تعدیل) در کجا کنترل می‌شود؟**
+**کنترل ترازبندی پاراگراف (چپ/راست/وسط/توجیه) کجا انجام می‌شود؟**
 
-[Alignment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphformat/#setAlignment-int-) یک تنظیم در سطح پاراگراف در [ParagraphFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphformat/) است؛ این تنظیم برای کل پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی هر بخش به‌صورت جداگانه.
+[Alignment](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphformat/#setAlignment-int-) یک تنظیم سطح پاراگراف در [ParagraphFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/paragraphformat/) است؛ برای تمام پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی هر بخش جداگانه.
 
-**آیا می‌توانم زبان بررسی املا را فقط برای بخشی از یک پاراگراف (مثلاً یک کلمه) تنظیم کنم؟**
+**آیا می‌توانم زبان بررسی املای را فقط برای بخشی از پاراگراف (مثلاً یک کلمه) تنظیم کنم؟**
 
-بله. زبان در سطح بخش تنظیم می‌شود ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-))، بنابراین می‌توان چند زبان را در یک پاراگراف ترکیب کرد.
+بله. زبان در سطح بخش تنظیم می‌شود ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-))، بنابراین می‌توانید چند زبان مختلف را در یک پاراگراف داشته باشید.

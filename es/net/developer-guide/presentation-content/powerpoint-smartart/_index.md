@@ -5,10 +5,10 @@ type: docs
 weight: 100
 url: /es/net/powerpoint-smartart/
 aliases:
-  - /es/net/examples/elements/smartart/
+  - /net/examples/elements/smartart/
 keywords:
 - SmartArt
-- administrar SmartArt
+- gestionar SmartArt
 - gráfico SmartArt
 - nodo SmartArt
 - PowerPoint
@@ -16,5 +16,5 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda cómo crear y editar SmartArt de PowerPoint en .NET mediante la API Aspose.Slides: diseños, nodos, estilos, con ejemplos paso a paso para automatizar diapositivas rápidamente."
+description: "Aprenda a crear y editar SmartArt de PowerPoint en .NET mediante la API de Aspose.Slides: diseños, nodos, estilos, con ejemplos paso a paso para automatizar diapositivas rápidamente."
 ---

@@ -4,6 +4,8 @@ linktitle: Zarządzaj akapitem
 type: docs
 weight: 40
 url: /pl/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
 keywords:
 - dodaj tekst
 - dodaj akapit
@@ -12,7 +14,7 @@ keywords:
 - zarządzaj wypunktowaniem
 - wcięcie akapitu
 - wcięcie wiszące
-- wypunktowanie akapitu
+- punkt akapitu
 - lista numerowana
 - lista wypunktowana
 - właściwości akapitu
@@ -27,43 +29,43 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Opanuj formatowanie akapitów przy użyciu Aspose.Slides dla PHP poprzez Java — optymalizuj wyrównanie, odstępy i styl w prezentacjach PPT, PPTX i ODP."
+description: "Opanuj formatowanie akapitów z Aspose.Slides dla PHP za pomocą Java — optymalizuj wyrównanie, odstępy i styl w prezentacjach PPT, PPTX i ODP."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides udostępnia wszystkie klasy niezbędne do pracy z tekstami, akapitami i fragmentami w programie PowerPoint.
+Aspose.Slides udostępnia wszystkie klasy potrzebne do pracy z tekstami, akapitami i fragmentami w programie PowerPoint.
 
-* Aspose.Slides udostępnia klasę [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) pozwalającą dodać obiekty reprezentujące akapit. Obiekt `TextFame` może mieć jeden lub wiele akapitów (każdy akapit tworzony jest przez znak powrotu karetki).
-* Aspose.Slides udostępnia klasę [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/) pozwalającą dodać obiekty reprezentujące fragmenty. Obiekt `Paragraph` może mieć jeden lub wiele fragmentów (kolekcja obiektów `Portion`).
-* Aspose.Slides udostępnia klasę [Portion](https://reference.aspose.com/slides/pl/php-java/aspose.slides/portion/) pozwalającą dodać obiekty reprezentujące teksty oraz ich właściwości formatowania.
+* Aspose.Slides udostępnia klasę [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) umożliwiającą dodawanie obiektów reprezentujących akapit. Obiekt `TextFame` może zawierać jeden lub wiele akapitów (każdy akapit jest tworzony poprzez znak powrotu karetki).
+* Aspose.Slides udostępnia klasę [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/) umożliwiającą dodawanie obiektów reprezentujących fragmenty. Obiekt `Paragraph` może zawierać jeden lub wiele fragmentów (kolekcja obiektów `Portion`).
+* Aspose.Slides udostępnia klasę [Portion](https://reference.aspose.com/slides/pl/php-java/aspose.slides/portion/) umożliwiającą dodawanie obiektów reprezentujących teksty i ich właściwości formatowania.
 
-Obiekt `Paragraph` jest w stanie obsługiwać teksty o różnych właściwościach formatowania za pośrednictwem swoich podległych obiektów `Portion`.
+Obiekt `Paragraph` jest w stanie obsługiwać teksty o różnych właściwościach formatowania poprzez leżące pod nim obiekty `Portion`.
 
 ## **Dodawanie wielu akapitów zawierających wiele fragmentów**
 
 Poniższe kroki pokazują, jak dodać ramkę tekstową zawierającą 3 akapity, a każdy akapit zawierający 3 fragmenty:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj odniesienie do odpowiedniego slajdu poprzez jego indeks.
 3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
 4. Pobierz ITextFrame powiązany z [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/).
-5. Utwórz dwa obiekty [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/), a następnie dodaj je do kolekcji akapitów [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/).
-6. Utwórz trzy obiekty [Portion](https://reference.aspose.com/slides/pl/php-java/aspose.slides/portion/) dla każdego nowego `Paragraph` (dwa obiekty `Portion` dla domyślnego akapitu) i dodaj każdy obiekt `Portion` do kolekcji fragmentów odpowiedniego `Paragraph`.
-7. Ustaw nieco tekstu dla każdego fragmentu.
-8. Zastosuj wybrane właściwości formatowania do każdego fragmentu, używając właściwości formatowania udostępnionych przez obiekt `Portion`.
+5. Utwórz dwa obiekty [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/) i dodaj je do kolekcji akapitów w [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/).
+6. Utwórz trzy obiekty [Portion](https://reference.aspose.com/slides/pl/php-java/aspose.slides/portion/) dla każdego nowego `Paragraph` (dwa obiekty `Portion` dla domyślnego akapitu) i dodaj każdy obiekt `Portion` do kolekcji fragmentów każdego `Paragraph`.
+7. Ustaw tekst dla każdego fragmentu.
+8. Zastosuj wybrane funkcje formatowania do każdego fragmentu, używając właściwości formatowania udostępnionych przez obiekt `Portion`.
 9. Zapisz zmodyfikowaną prezentację.
 
 ```php
-# Utwórz instancję klasy Presentation reprezentującej plik PPTX
+# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX
 $pres = new Presentation();
 try {
     # Dostęp do pierwszego slajdu
     $slide = $pres->getSlides()->get_Item(0);
     # Dodaj AutoShape typu Rectangle
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # Pobierz TextFrame AutoShape
+    # Uzyskaj TextFrame AutoShape
     $tf = $ashp->getTextFrame();
-    # Utwórz akapity i fragmenty o różnych formatach tekstu
+    # Utwórz akapity i fragmenty z różnymi formatami tekstu
     $para0 = $tf->getParagraphs()->get_Item(0);
     $port01 = new Portion();
     $port02 = new Portion();
@@ -102,7 +104,7 @@ try {
             }
         }
     }
-    # Zapisz PPTX na dysku
+    # Zapisz PPTX na dysk
     $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -111,32 +113,32 @@ try {
 }
 ```
 
-## **Zarządzanie wypunktowaniem akapitów**
+## **Zarządzanie punktami w akapicie**
 
-Listy wypunktowane pomagają szybko i skutecznie organizować oraz prezentować informacje. Akapity z wypunktowaniem są zawsze łatwiejsze do odczytania i zrozumienia.
+Listy punktowane pomagają szybko i skutecznie organizować oraz prezentować informacje. Akapity z punktami są zawsze łatwiejsze do odczytania i zrozumienia.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj odniesienie do odpowiedniego slajdu poprzez jego indeks.
 3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do wybranego slajdu.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) autoshape.
 5. Usuń domyślny akapit w `TextFrame`.
 6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/).
-7. Ustaw właściwość `Type` wypunktowania akapitu na `Symbol` i określ znak wypunktowania.
+7. Ustaw wartość `Type` punktu na `Symbol` i określ znak punktu.
 8. Ustaw `Text` akapitu.
-9. Ustaw `Indent` akapitu dla wypunktowania.
-10. Ustaw kolor wypunktowania.
-11. Ustaw wysokość wypunktowania.
+9. Ustaw `Indent` akapitu dla punktu.
+10. Ustaw kolor punktu.
+11. Ustaw wysokość punktu.
 12. Dodaj nowy akapit do kolekcji akapitów `TextFrame`.
-13. Dodaj drugi akapit i powtórz proces opisany w krokach od 7 do 13.
+13. Dodaj drugi akapit i powtórz proces opisany w krokach 7‑13.
 14. Zapisz prezentację.
 
 ```php
-# Tworzy instancję klasy Presentation reprezentującej plik PPTX
+# Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 $pres = new Presentation();
 try {
-    # Dostęp do pierwszego slajdu
+    # Uzyskuje dostęp do pierwszego slajdu
     $slide = $pres->getSlides()->get_Item(0);
-    # Dodaje i uzyskuje dostęp do Autoshape
+    # Dodaje i uzyskuje dostęp do AutoShape
     $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     # Uzyskuje dostęp do ramki tekstowej autoshape
     $txtFrm = $aShp->getTextFrame();
@@ -144,36 +146,36 @@ try {
     $txtFrm->getParagraphs()->removeAt(0);
     # Tworzy akapit
     $para = new Paragraph();
-    # Ustawia styl i symbol wypunktowania akapitu
+    # Ustawia styl i symbol punktu akapitu
     $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para->getParagraphFormat()->getBullet()->setChar(8226);
     # Ustawia tekst akapitu
     $para->setText("Welcome to Aspose.Slides");
-    # Ustawia wcięcie wypunktowania
+    # Ustawia wcięcie punktu
     $para->getParagraphFormat()->setIndent(25);
-    # Ustawia kolor wypunktowania
+    # Ustawia kolor punktu
     $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True); // ustaw IsBulletHardColor na true, aby użyć własnego koloru wypunktowania
+    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True); // ustaw IsBulletHardColor na true, aby użyć własnego koloru punktu
 
-    # Ustawia wysokość wypunktowania
+    # Ustawia wysokość punktu
     $para->getParagraphFormat()->getBullet()->setHeight(100);
     # Dodaje akapit do ramki tekstowej
     $txtFrm->getParagraphs()->add($para);
     # Tworzy drugi akapit
     $para2 = new Paragraph();
-    # Ustawia typ i styl wypunktowania akapitu
+    # Ustawia typ i styl punktu akapitu
     $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
     # Dodaje tekst akapitu
     $para2->setText("This is numbered bullet");
-    # Ustawia wcięcie wypunktowania
+    # Ustawia wcięcie punktu
     $para2->getParagraphFormat()->setIndent(25);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True); // ustaw IsBulletHardColor na true, aby użyć własnego koloru wypunktowania
+    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True); // ustaw IsBulletHardColor na true, aby użyć własnego koloru punktu
 
-    # Ustawia wysokość wypunktowania
+    # Ustawia wysokość punktu
     $para2->getParagraphFormat()->getBullet()->setHeight(100);
     # Dodaje akapit do ramki tekstowej
     $txtFrm->getParagraphs()->add($para2);
@@ -186,33 +188,33 @@ try {
 }
 ```
 
-## **Zarządzanie wypunktowaniem obrazkowym**
+## **Zarządzanie punktami graficznymi**
 
-Listy wypunktowane pomagają szybko i skutecznie organizować oraz prezentować informacje. Akapity z obrazkami są łatwe do odczytania i zrozumienia.
+Listy punktowane pomagają szybko i skutecznie organizować oraz prezentować informacje. Akapity z obrazkami są łatwe do odczytania i zrozumienia.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj odniesienie do odpowiedniego slajdu poprzez jego indeks.
 3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) autoshape.
 5. Usuń domyślny akapit w `TextFrame`.
 6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/).
-7. Wczytaj obraz do [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/).
-8. Ustaw typ wypunktowania na [Picture](https://reference.aspose.com/slides/pl/php-java/aspose.slides/bullettype/#Picture) i określ obraz.
+7. Wczytaj obraz przy użyciu [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/).
+8. Ustaw typ punktu na [Picture](https://reference.aspose.com/slides/pl/php-java/aspose.slides/bullettype/#Picture) i przypisz obraz.
 9. Ustaw `Text` akapitu.
-10. Ustaw `Indent` akapitu dla wypunktowania.
-11. Ustaw kolor wypunktowania.
-12. Ustaw wysokość wypunktowania.
+10. Ustaw `Indent` akapitu dla punktu.
+11. Ustaw kolor punktu.
+12. Ustaw wysokość punktu.
 13. Dodaj nowy akapit do kolekcji akapitów `TextFrame`.
 14. Dodaj drugi akapit i powtórz proces na podstawie poprzednich kroków.
 15. Zapisz zmodyfikowaną prezentację.
 
 ```php
-# Tworzy instancję klasy Presentation reprezentującej plik PPTX
+# Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 $presentation = new Presentation();
 try {
     # Uzyskuje dostęp do pierwszego slajdu
     $slide = $presentation->getSlides()->get_Item(0);
-    # Tworzy obraz dla wypunktowań
+    # Tworzy obraz dla punktów
     $picture;
     $image = Images->fromFile("bullets.png");
     try {
@@ -231,10 +233,10 @@ try {
     # Tworzy nowy akapit
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
-    # Ustawia styl wypunktowania akapitu i obraz
+    # Ustawia styl punktu akapitu i obraz
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
     $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # Ustawia wysokość wypunktowania
+    # Ustawia wysokość punktu
     $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
     # Dodaje akapit do ramki tekstowej
     $textFrame->getParagraphs()->add($paragraph);
@@ -250,24 +252,24 @@ try {
 }
 ```
 
-## **Zarządzanie wypunktowaniem wielopoziomowym**
+## **Zarządzanie punktami wielopoziomowymi**
 
-Listy wypunktowane pomagają szybko i skutecznie organizować oraz prezentować informacje. Wypunktowanie wielopoziomowe jest łatwe do odczytania i zrozumienia.
+Listy punktowane pomagają szybko i skutecznie organizować oraz prezentować informacje. Punkty wielopoziomowe są łatwe do odczytania i zrozumienia.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) na nowym slajdzie.
+2. Uzyskaj odniesienie do odpowiedniego slajdu poprzez jego indeks.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) w nowym slajdzie.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) autoshape.
 5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy pomocy klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/) i ustaw głębokość na 0.
-7. Utwórz drugą instancję akapitu przy pomocy klasy `Paragraph` i ustaw głębokość na 1.
-8. Utwórz trzecią instancję akapitu przy pomocy klasy `Paragraph` i ustaw głębokość na 2.
-9. Utwórz czwartą instancję akapitu przy pomocy klasy `Paragraph` i ustaw głębokość na 3.
+6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/) i ustaw głębokość na 0.
+7. Utwórz drugą instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 1.
+8. Utwórz trzecią instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 2.
+9. Utwórz czwartą instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 3.
 10. Dodaj nowe akapity do kolekcji akapitów `TextFrame`.
 11. Zapisz zmodyfikowaną prezentację.
 
 ```php
-# Tworzy instancję klasy Presentation reprezentującej plik PPTX
+# Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 $pres = new Presentation();
 try {
     # Uzyskuje dostęp do pierwszego slajdu
@@ -285,7 +287,7 @@ try {
     $para1->getParagraphFormat()->getBullet()->setChar(8226);
     $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ustawia poziom wypunktowania
+    # Ustawia poziom punktu
     $para1->getParagraphFormat()->setDepth(0);
     # Dodaje drugi akapit
     $para2 = new Paragraph();
@@ -294,7 +296,7 @@ try {
     $para2->getParagraphFormat()->getBullet()->setChar('-');
     $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ustawia poziom wypunktowania
+    # Ustawia poziom punktu
     $para2->getParagraphFormat()->setDepth(1);
     # Dodaje trzeci akapit
     $para3 = new Paragraph();
@@ -303,7 +305,7 @@ try {
     $para3->getParagraphFormat()->getBullet()->setChar(8226);
     $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ustawia poziom wypunktowania
+    # Ustawia poziom punktu
     $para3->getParagraphFormat()->setDepth(2);
     # Dodaje czwarty akapit
     $para4 = new Paragraph();
@@ -312,7 +314,7 @@ try {
     $para4->getParagraphFormat()->getBullet()->setChar('-');
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ustawia poziom wypunktowania
+    # Ustawia poziom punktu
     $para4->getParagraphFormat()->setDepth(3);
     # Dodaje akapity do kolekcji
     $text->getParagraphs()->add($para1);
@@ -337,9 +339,9 @@ Klasa [BulletFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slid
 3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) autoshape.
 5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy pomocy klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/) i ustaw [NumberedBulletStartWith](https://reference.aspose.com/slides/pl/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) na 2.
-7. Utwórz drugą instancję akapitu przy pomocy klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 3.
-8. Utwórz trzecią instancję akapitu przy pomocy klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 7.
+6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/) i ustaw [NumberedBulletStartWith](https://reference.aspose.com/slides/pl/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) na 2.
+7. Utwórz drugą instancję akapitu przy użyciu klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 3.
+8. Utwórz trzecią instancję akapitu przy użyciu klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 7.
 9. Dodaj nowe akapity do kolekcji akapitów `TextFrame`.
 10. Zapisz zmodyfikowaną prezentację.
 
@@ -378,19 +380,19 @@ try {
 }
 ```
 
-## **Ustaw wcięcie pierwszej linii akapitu**
+## **Ustawienie wcięcia pierwszej linii akapitu**
 
-Użyj metody [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/) aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Wartość dodatnia przesuwa pierwszą linię w prawo, natomiast pozostałe linie pozostają wyrównane do treści akapitu.
+Użyj metody [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/) aby kontrolować wcięcie pierwszej linii akapitu. Ta metoda przemieszcza tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do ciała akapitu.
 
-Użyj [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setmarginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/) gdy musisz przesunąć tylko pierwszą linię.
+Użyj [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setmarginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/) gdy potrzebujesz przesunąć tylko pierwszą linię.
 
-Poniższy przykład tworzy kilka akapitów i stosuje różne wartości wcięcia, aby zademonstrować, jak wcięcie pierwszej linii wpływa na układ akapitu.
+Poniższy przykład tworzy kilka akapitów i stosuje różne wartości wcięcia, aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
 3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
 4. Dodaj pusty [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) do kształtu i usuń domyślny akapit.
-5. Utwórz kilka akapitów i ustaw różne wartości [Indent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/) dla nich.
+5. Utwórz kilka akapitów i ustaw dla nich różne wartości [Indent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/).
 6. Dodaj akapity do ramki tekstowej.
 7. Zapisz zmodyfikowaną prezentację.
 
@@ -439,17 +441,15 @@ try {
 }
 ```
 
-Wynik:
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-![Wcięcie pierwszej linii akapitów](first_line_indent.png)
+## **Ustawienie wcięcia wiszącego dla akapitu**
 
-## **Ustaw wcięcie wiszące dla akapitu**
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie w stosunku do pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą metody [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/). Ustaw wcięcie na wartość ujemną, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
 
-Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą metody [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/). Ustaw wcięcie na wartość ujemną, aby przesunąć pierwszą linię w lewo względem treści akapitu.
+W praktyce, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setmarginleft/) definiuje lewą pozycję ciała akapitu, a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/) definiuje pozycję pierwszej linii względem tego marginesu. Aby utworzyć wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
 
-W praktyce [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setmarginleft/) określa lewą pozycję treści akapitu, a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setindent/) definiuje pozycję pierwszej linii względem tego marginesu. Aby utworzyć wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
-
-To formatowanie jest przydatne w bibliografiach, odniesieniach, hasłach słownika i innych akapitach, w których wiersze podzielone muszą być wyrównane pod treścią akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których zwinięte linie muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
@@ -497,19 +497,17 @@ try {
 }
 ```
 
-Wynik:
-
-![Wcięcie wiszące akapitów](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ## **Zarządzanie właściwościami końcowymi akapitu**
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu zawierającego akapit poprzez jego pozycję.
-3. Dodaj prostokątny [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-4. Dodaj [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) z dwoma akapitami do prostokąta.
-5. Ustaw wysokość czcionki oraz typ czcionki dla akapitów.
-6. Ustaw właściwości End dla akapitów.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Uzyskaj odniesienie do slajdu zawierającego akapit poprzez jego pozycję.
+1. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+1. Dodaj [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) z dwoma akapitami do prostokąta.
+1. Ustaw wysokość czcionki i typ czcionki dla akapitów.
+1. Ustaw właściwości End dla akapitów.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```php
 $pres = new Presentation();
@@ -538,13 +536,13 @@ try {
 Aspose.Slides zapewnia rozszerzone wsparcie dla importowania tekstu HTML do akapitów.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj odniesienie do odpowiedniego slajdu poprzez jego indeks.
 3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
 4. Dodaj i uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) autoshape.
 5. Usuń domyślny akapit w `TextFrame`.
-6. Odczytaj źródłowy plik HTML przy użyciu TextReader.
-7. Utwórz pierwszą instancję akapitu przy pomocy klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/).
-8. Dodaj zawartość pliku HTML odczytaną z TextReader do [ParagraphCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphcollection/) ramki tekstowej.
+6. Wczytaj źródłowy plik HTML przy użyciu TextReader.
+7. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/).
+8. Dodaj zawartość pliku HTML odczytaną przez TextReader do [ParagraphCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphcollection/) w TextFrame.
 9. Zapisz zmodyfikowaną prezentację.
 
 ```php
@@ -553,18 +551,18 @@ $pres = new Presentation();
 try {
     # Uzyskaj dostęp do domyślnego pierwszego slajdu prezentacji
     $slide = $pres->getSlides()->get_Item(0);
-    # Dodaj AutoShape, aby pomieścić treść HTML
+    # Dodaj AutoShape, aby pomieścić zawartość HTML
     $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
     $ashape->getFillFormat()->setFillType(FillType::NoFill);
     # Dodaj ramkę tekstową do kształtu
     $ashape->addTextFrame("");
-    # Wyczyść wszystkie akapity w dodanej ramce tekstowej
+    # Czyść wszystkie akapity w dodanej ramce tekstowej
     $ashape->getTextFrame()->getParagraphs()->clear();
-    # Wczytywanie pliku HTML przy użyciu StreamReader
+    # Ładowanie pliku HTML przy użyciu StreamReader
     $tr = new StreamReader("file.html");
-    # Dodaj tekst z czytnika strumienia HTML do ramki tekstowej
+    # Dodawanie tekstu z StreamReader HTML do ramki tekstowej
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
-    # Zapisywanie prezentacji
+    # Zapis prezentacji
     $pres->save("output_out.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) {
@@ -578,11 +576,11 @@ try {
 Aspose.Slides zapewnia rozszerzone wsparcie dla eksportowania tekstów (zawartych w akapitach) do HTML.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) i wczytaj żądaną prezentację.
-2. Uzyskaj dostęp do odpowiedniego slajdu.
-3. Uzyskaj dostęp do kształtu zawierającego tekst, który ma być wyeksportowany do HTML.
+2. Uzyskaj odniesienie do odpowiedniego slajdu poprzez jego indeks.
+3. Uzyskaj dostęp do kształtu zawierającego tekst, który ma zostać wyeksportowany do HTML.
 4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) kształtu.
 5. Utwórz instancję `StreamWriter` i dodaj nowy plik HTML.
-6. Podaj początkowy indeks do `StreamWriter` i wyeksportuj wybrane akapity.
+6. Podaj indeks początkowy do StreamWriter i wyeksportuj wybrane akapity.
 
 ```php
 # Załaduj plik prezentacji
@@ -592,13 +590,13 @@ try {
     $slide = $pres->getSlides()->get_Item(0);
     # Żądany indeks
     $index = 0;
-    # Dostęp do dodanego kształtu
+    # Uzyskanie dostępu do dodanego kształtu
     $ashape = $slide->getShapes()->get_Item($index);
     # Tworzenie pliku wyjściowego HTML
     $os = new Java("java.io.FileOutputStream", "output.html");
     $writer = new OutputStreamWriter($os, "UTF-8");
-    # Wyodrębnianie pierwszego akapitu jako HTML
-    # Zapisywanie danych akapitów do HTML, podając indeks początkowy akapitu i liczbę akapitów do skopiowania
+    # Eksportowanie pierwszego akapitu jako HTML
+    # Zapisywanie danych akapitów do HTML, podając indeks początkowego akapitu i liczbę akapitów do skopiowania
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
     $writer->close();
 } catch (JavaException $e) {
@@ -611,15 +609,15 @@ try {
 
 ## **Zapis akapitu jako obrazu**
 
-W tej sekcji przedstawimy dwa przykłady demonstrujące, jak zapisać akapit tekstowy, reprezentowany przez klasę [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/), jako obraz. Oba przykłady obejmują pobranie obrazu kształtu zawierającego akapit przy użyciu metod `getImage` z klasy [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/), obliczenie granic akapitu w kształcie oraz wyeksportowanie go jako obrazu bitmapowego. Te podejścia umożliwiają wyodrębnienie konkretnych części tekstu z prezentacji PowerPoint i zapisanie ich jako oddzielne obrazy, co może być przydatne w różnych scenariuszach.
+W tej sekcji przedstawimy dwa przykłady demonstrujące, jak zapisać akapit tekstowy, reprezentowany przez klasę [Paragraph](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraph/), jako obraz. Oba przykłady obejmują uzyskanie obrazu kształtu zawierającego akapit przy użyciu metod `getImage` z klasy [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/), obliczenie granic akapitu w kształcie oraz wyeksportowanie go jako obrazu bitmapowego. Te podejścia pozwalają wyodrębnić konkretne fragmenty tekstu z prezentacji PowerPoint i zapisać je jako oddzielne obrazy, co może być przydatne w różnych scenariuszach.
 
-Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, na którym pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
+Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, gdzie pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
 
-![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-**Przykład 1**
+**Example 1**
 
-W tym przykładzie uzyskujemy drugi akapit jako obraz. Aby to zrobić, wyodrębniamy obraz kształtu z pierwszego slajdu prezentacji, a następnie obliczamy granice drugiego akapitu w ramce tekstowej kształtu. Akapit jest następnie rysowany na nowym obrazie bitmapowym, który jest zapisywany w formacie PNG. Metoda ta jest szczególnie przydatna, gdy trzeba zapisać konkretny akapit jako oddzielny obraz, zachowując dokładne wymiary i formatowanie tekstu.
+W tym przykładzie uzyskujemy drugi akapit jako obraz. Aby to zrobić, wyodrębniamy obraz kształtu z pierwszego slajdu prezentacji, a następnie obliczamy granice drugiego akapitu w ramce tekstowej kształtu. Akapit jest następnie rysowany na nowym obrazie bitmapowym, który zapisywany jest w formacie PNG. Metoda ta jest szczególnie przydatna, gdy trzeba zapisać konkretny akapit jako osobny obraz, zachowując dokładne wymiary i formatowanie tekstu.
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -648,7 +646,7 @@ try {
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // Przytnij bitmapę kształtu, aby uzyskać tylko bitmapę akapitu.
+    // Przytnij bitmapę kształtu, aby uzyskać wyłącznie bitmapę akapitu.
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -659,11 +657,13 @@ try {
 }
 ```
 
-![Obraz akapitu](paragraph_to_image_output.png)
+Wynik:
 
-**Przykład 2**
+![The paragraph image](paragraph_to_image_output.png)
 
-W tym przykładzie rozszerzamy poprzednie podejście, dodając współczynniki skalowania do obrazu akapitu. Kształt jest wyodrębniany z prezentacji i zapisywany jako obraz ze współczynnikiem skalowania `2`. Pozwala to uzyskać wyjście o wyższej rozdzielczości przy eksportowaniu akapitu. Granice akapitu są następnie obliczane z uwzględnieniem skali. Skalowanie może być szczególnie przydatne, gdy potrzebny jest bardziej szczegółowy obraz, na przykład do zastosowań w wysokiej jakości materiałach drukowanych.
+**Example 2**
+
+W tym przykładzie rozszerzamy poprzednie podejście, dodając współczynniki skalowania do obrazu akapitu. Kształt jest wyodrębniany z prezentacji i zapisywany jako obraz ze współczynnikiem skali `2`. Dzięki temu uzyskujemy wyjście o wyższej rozdzielczości przy eksporcie akapitu. Granice akapitu są następnie obliczane z uwzględnieniem skali. Skalowanie może być szczególnie przydatne, gdy potrzebny jest bardziej szczegółowy obraz, np. do wysokiej jakości materiałów drukowanych.
 
 ```php
 $imageIO = new Java("javax.imageio.ImageIO");
@@ -701,7 +701,7 @@ try {
     $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
     $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-    // Przytnij bitmapę kształtu, aby uzyskać tylko bitmapę akapitu.
+    // Przytnij bitmapę kształtu, aby uzyskać wyłącznie bitmapę akapitu.
     $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
     $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
@@ -714,18 +714,18 @@ try {
 
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć zawijanie wierszy w ramce tekstowej?**
+**Czy mogę całkowicie wyłączyć zawijanie linii w ramce tekstowej?**
 
-Tak. Użyj ustawienia zawijania ramki tekstowej ([setWrapText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setwraptext/)), aby wyłączyć zawijanie, dzięki czemu wiersze nie będą łamane przy krawędziach ramki.
+Tak. Użyj ustawienia zawijania ramki tekstowej ([setWrapText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setwraptext/)), aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane na krawędziach ramki.
 
 **Jak mogę uzyskać dokładne granice konkretnego akapitu na slajdzie?**
 
-Możesz pobrać prostokąt ograniczający akapit (a nawet pojedynczy fragment), aby poznać jego dokładną pozycję i rozmiar na slajdzie.
+Możesz pobrać prostokąt ograniczający akapit (a nawet pojedynczy fragment), aby poznać jego dokładne położenie i rozmiar na slajdzie.
 
-**Gdzie sterowane jest wyrównanie akapitu (lewo/prawo/środek/wyjustowanie)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe/prawe/środkowe/wyjustowane)?**
 
-[Alignment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setalignment/) jest ustawieniem na poziomie akapitu w [ParagraphFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/); ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+[Alignment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/setalignment/) jest ustawieniem na poziomie akapitu w [ParagraphFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/paragraphformat/); ma zastosowanie do całego akapitu niezależnie od formatowania poszczególnych fragmentów.
 
 **Czy mogę ustawić język sprawdzania pisowni tylko dla części akapitu (np. jednego słowa)?**
 
-Tak. Język jest ustawiany na poziomie fragmentu ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseportionformat/#setLanguageId)), więc w jednym akapicie mogą współistnieć różne języki.
+Tak. Język jest ustawiany na poziomie fragmentu ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseportionformat/#setLanguageId)), dzięki czemu w jednym akapicie mogą współistnieć różne języki.

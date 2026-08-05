@@ -1,72 +1,75 @@
 ---
-title: مدیریت پاراگراف‌های متن PowerPoint در JavaScript
-linktitle: مدیریت پاراگراف
+title: "مدیریت پاراگراف‌های متن پاورپوینت در جاوا اسکریپت"
+linktitle: "مدیریت پاراگراف"
 type: docs
 weight: 40
 url: /fa/nodejs-java/manage-paragraph/
+aliases:
+  - /nodejs-java/paragraph/
+  - /nodejs-java/portion/
 keywords:
-- افزودن متن
-- افزودن پاراگراف
-- مدیریت متن
-- مدیریت پاراگراف
-- مدیریت نقطه‌گذاری
-- تورفتگی پاراگراف
-- تورفتگی معلق
-- نقطه‌گذاری پاراگراف
-- فهرست شماره‌دار
-- فهرست نقطه‌دار
-- ویژگی‌های پاراگراف
-- وارد کردن HTML
-- متن به HTML
-- پاراگراف به HTML
-- پاراگراف به تصویر
-- متن به تصویر
-- صادرات پاراگراف
-- PowerPoint
-- OpenDocument
-- ارائه
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "قالب‌بندی پیشرفته پاراگراف‌ها را با Aspose.Slides برای Node.js از طریق Java - تنظیم تراز، فواصل و سبک در ارائه‌های PPT، PPTX و ODP را در JavaScript بهینه کنید."
+  - "اضافه کردن متن"
+  - "اضافه کردن پاراگراف"
+  - "مدیریت متن"
+  - "مدیریت پاراگراف"
+  - "مدیریت گلوله"
+  - "تورفتگی پاراگراف"
+  - "تورفتگی آویزان"
+  - "گلوله پاراگراف"
+  - "فهرست شماره‌دار"
+  - "فهرست گلوله‌ای"
+  - "ویژگی‌های پاراگراف"
+  - "وارد کردن HTML"
+  - "متن به HTML"
+  - "پاراگراف به HTML"
+  - "پاراگراف به تصویر"
+  - "متن به تصویر"
+  - "صادرات پاراگراف"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "ارائه"
+  - "Node.js"
+  - "جاوا اسکریپت"
+  - "Aspose.Slides"
+description: "قالب‌بندی پاراگراف‌ها را با Aspose.Slides برای Node.js از طریق Java به‌صورت کامل فراگیرید—تراز، فاصله‌گذاری و سبک را در ارائه‌های PPT، PPTX و ODP در جاوا اسکریپت بهینه کنید."
 ---
 ## **مقدمه**
 
-Aspose.Slides تمام کلاس‌ها و مجموعه‌های مورد نیاز شما برای کار با متن‌ها، پاراگراف‌ها و بخش‌های PowerPoint در Java را فراهم می‌کند.
+Aspose.Slides تمام کلاس‌ها و اجزای مورد نیاز برای کار با متون، پاراگراف‌ها و بخش‌های PowerPoint را در Java فراهم می‌کند.
 
-* Aspose.Slides کلاس [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) را فراهم می‌کند تا بتوانید اشیائی که یک پاراگراف را نمایندگی می‌کنند اضافه کنید. یک شیء `TextFame` می‌تواند یک یا چند پاراگراف داشته باشد (هر پاراگراف از طریق یک برگشت‌خط ایجاد می‌شود).
-* Aspose.Slides کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) را فراهم می‌کند تا بتوانید اشیائی که بخش‌ها را نمایندگی می‌کنند اضافه کنید. یک شیء `Paragraph` می‌تواند یک یا چند بخش داشته باشد (مجموعه‌ای از اشیای بخش متن).
-* Aspose.Slides کلاس [Portion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portion/) را فراهم می‌کند تا بتوانید اشیائی که متن‌ها و ویژگی‌های قالب‌بندی آن‌ها را نمایندگی می‌کنند اضافه کنید.
+* Aspose.Slides کلاس [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) را ارائه می‌دهد تا بتوانید شیئی که نمایانگر یک پاراگراف است را اضافه کنید. یک شیء `TextFame` می‌تواند یک یا چند پاراگراف داشته باشد (هر پاراگراف از طریق یک کاراکتر برگشت‌خط ایجاد می‌شود).
+* Aspose.Slides کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) را ارائه می‌دهد تا بتوانید شیئی که نمایانگر بخش‌ها است را اضافه کنید. یک شیء `Paragraph` می‌تواند یک یا چند بخش (مجموعه‌ای از اشیاء بخش متنی) داشته باشد.
+* Aspose.Slides کلاس [Portion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portion/) را ارائه می‌دهد تا بتوانید شیئی که متون و خصوصیات قالب‌بندی آنها را نشان می‌دهد، اضافه کنید.
 
-یک شیء `Paragraph` قادر است متونی با ویژگی‌های قالب‌بندی مختلف را از طریق اشیای زیرمجموعه `Portion` خود مدیریت کند.
+یک شیء `Paragraph` می‌تواند متونی با خصوصیات قالب‌بندی مختلف را از طریق اشیاء `Portion` زیرین خود مدیریت کند.
 
 ## **افزودن چندین پاراگراف حاوی چندین بخش**
 
-این مراحل نشان می‌دهد چگونه یک فریم متن حاوی ۳ پاراگراف و هر پاراگراف حاوی ۳ بخش اضافه کنید:
+این مراحل نشان می‌دهد چگونه یک فریم متن شامل ۳ پاراگراف و هر پاراگراف حاوی ۳ بخش اضافه کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق شاخص، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. مرجع اسلاید مربوطه را از طریق اندیس آن دریافت کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
-4. ITextFrame مرتبط با [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) را دریافت کنید.
-5. دو شیء [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید و آن‌ها را به مجموعه `IParagraphs` از [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) اضافه کنید.
-6. برای هر `Paragraph` جدید، سه شیء [Portion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portion/) ایجاد کنید (برای پاراگراف پیش‌فرض دو شیء Portion) و هر شیء `Portion` را به مجموعه IPortion هر `Paragraph` اضافه کنید.
-7. متنی برای هر بخش تنظیم کنید.
-8. ویژگی‌های قالب‌بندی دلخواه خود را با استفاده از ویژگی‌های قالب‌بندی موجود در شیء `Portion` برای هر بخش اعمال کنید.
-9. ارائه اصلاح‌شده را ذخیره کنید.
+4. `ITextFrame` مرتبط با [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) را دریافت کنید.
+5. دو شیء [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید و آنها را به مجموعه `IParagraphs` از [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) اضافه کنید.
+6. برای هر `Paragraph` جدید سه شیء [Portion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portion/) ایجاد کنید (دو شیء Portion برای پاراگراف پیش‌فرض) و هر شیء `Portion` را به مجموعه IPortion مربوط به هر `Paragraph` اضافه کنید.
+7. برای هر بخش متنی تعیین کنید.
+8. ویژگی‌های قالب‌بندی دلخواه خود را به هر بخش اعمال کنید با استفاده از خصوصیات قالب‌بندی ارائه‌شده توسط شیء `Portion`.
+9. ارائهٔ تغییر یافته را ذخیره کنید.
 
-این کد Javascript پیاده‌سازی مراحل افزودن پاراگراف‌های حاوی بخش‌هاست:
+این کد Javascript پیاده‌سازی مراحل افزودن پاراگراف‌های حاوی بخش‌ها است:
 
 ```javascript
-// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+// یک کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
 var pres = new aspose.slides.Presentation();
 try {
     // دسترسی به اولین اسلاید
     var slide = pres.getSlides().get_Item(0);
     // افزودن یک AutoShape از نوع Rectangle
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
-    // دسترسی به TextFrame خودکارشکل
+    // دسترسی به TextFrame شکل AutoShape
     var tf = ashp.getTextFrame();
-    // ایجاد پاراگراف‌ها و بخش‌ها با قالب‌بندی‌های متنی متفاوت
+    // ایجاد پاراگراف‌ها و بخش‌ها با قالب‌بندی متنی متفاوت
     var para0 = tf.getParagraphs().get_Item(0);
     var port01 = new aspose.slides.Portion();
     var port02 = new aspose.slides.Portion();
@@ -114,73 +117,73 @@ try {
 }
 ```
 
-## **مدیریت لیست‌های نقطه‌ای پاراگراف**
+## **مدیریت گلوله‌های پاراگراف**
 
-لیست‌های نقطه‌ای به شما کمک می‌کند تا اطلاعات را به سرعت و به‌طور مؤثر سازماندهی و ارائه دهید. پاراگراف‌های نقطه‌دار همیشه خواندن و درک آن‌ها آسان‌تر است.
+فهرست‌های گلوله‌ای به شما کمک می‌کند اطلاعات را به‌سرعت و کارآمد سازماندهی و ارائه کنید. پاراگراف‌های گلوله‌ای همیشه خواناتر و قابل درک‌تر هستند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق شاخص، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید انتخابی اضافه کنید.
-4. [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) خودکارشکل را دسترسی پیدا کنید.
+2. مرجع اسلاید مربوطه را از طریق اندیس آن دریافت کنید.
+3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید انتخاب‌شده اضافه کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
 5. پاراگراف پیش‌فرض موجود در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید.
-7. نوع نقطه‌گذاری `Type` پاراگراف را به `Symbol` تنظیم کنید و کاراکتر نقطه را تعیین کنید.
+6. اولین نمونهٔ پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید.
+7. نوع گلوله `Type` را برای پاراگراف به `Symbol` تنظیم کنید و کاراکتر گلوله را تعیین کنید.
 8. متن پاراگراف را تنظیم کنید.
-9. تورفتگی `Indent` پاراگراف برای نقطه را تنظیم کنید.
-10. رنگی برای نقطه تعیین کنید.
-11. ارتفاع نقطه را تنظیم کنید.
+9. تورفتگی `Indent` پاراگراف برای گلوله را تنظیم کنید.
+10. رنگی برای گلوله تعیین کنید.
+11. ارتفاع گلوله را تنظیم کنید.
 12. پاراگراف جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
 13. پاراگراف دوم را اضافه کنید و مراحل ۷ تا ۱۳ را تکرار کنید.
 14. ارائه را ذخیره کنید.
 
-این کد Javascript نشان می‌دهد چگونه یک نقطه لیست پاراگراف اضافه کنید:
+این کد Javascript نشان می‌دهد چگونه یک گلولهٔ پاراگراف اضافه کنید:
 
 ```javascript
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+// یک کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
 var pres = new aspose.slides.Presentation();
 try {
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     var slide = pres.getSlides().get_Item(0);
-    // یک AutoShape اضافه می‌کند و به آن دسترسی می‌یابد
+    // یک Autoshape اضافه می‌کند و به آن دسترسی می‌یابد
     var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // به فریم متن AutoShape دسترسی می‌یابد
+    // به فریم متنی autoshape دسترسی پیدا می‌کند
     var txtFrm = aShp.getTextFrame();
     // پاراگراف پیش‌فرض را حذف می‌کند
     txtFrm.getParagraphs().removeAt(0);
     // یک پاراگراف ایجاد می‌کند
     var para = new aspose.slides.Paragraph();
-    // سبک و نماد نقطه‌گذاری پاراگراف را تنظیم می‌کند
+    // سبک گلوله و نماد پاراگراف را تنظیم می‌کند
     para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para.getParagraphFormat().getBullet().setChar(8226);
     // متن پاراگراف را تنظیم می‌کند
     para.setText("Welcome to Aspose.Slides");
-    // تورفتگی نقطه‌گذاری را تنظیم می‌کند
+    // تورفتگی گلوله را تنظیم می‌کند
     para.getParagraphFormat().setIndent(25);
-    // رنگ نقطه‌گذاری را تنظیم می‌کند
+    // رنگ گلوله را تنظیم می‌کند
     para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// مقدار IsBulletHardColor را به true تنظیم می‌کند تا از رنگ نقطه‌گذاری سفارشی استفاده شود
-    // ارتفاع نقطه‌گذاری را تنظیم می‌کند
+    para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// تنظیم IsBulletHardColor به true برای استفاده از رنگ سفارشی گلوله
+    // ارتفاع گلوله را تنظیم می‌کند
     para.getParagraphFormat().getBullet().setHeight(100);
     // پاراگراف را به فریم متن اضافه می‌کند
     txtFrm.getParagraphs().add(para);
     // پاراگراف دوم را ایجاد می‌کند
     var para2 = new aspose.slides.Paragraph();
-    // نوع و سبک نقطه‌گذاری پاراگراف را تنظیم می‌کند
+    // نوع و سبک گلوله پاراگراف را تنظیم می‌کند
     para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain);
     // متن پاراگراف را اضافه می‌کند
     para2.setText("This is numbered bullet");
-    // تورفتگی نقطه‌گذاری را تنظیم می‌کند
+    // تورفتگی گلوله را تنظیم می‌کند
     para2.getParagraphFormat().setIndent(25);
     para2.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// مقدار IsBulletHardColor را به true تنظیم می‌کند تا از رنگ نقطه‌گذاری سفارشی استفاده شود
-    // ارتفاع نقطه‌گذاری را تنظیم می‌کند
+    para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// تنظیم IsBulletHardColor به true برای استفاده از رنگ سفارشی گلوله
+    // ارتفاع گلوله را تنظیم می‌کند
     para2.getParagraphFormat().getBullet().setHeight(100);
     // پاراگراف را به فریم متن اضافه می‌کند
     txtFrm.getParagraphs().add(para2);
-    // ارائه اصلاح‌شده را ذخیره می‌کند
+    // ارائهٔ تغییر یافته را ذخیره می‌کند
     pres.save("Bullet_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -189,35 +192,35 @@ try {
 }
 ```
 
-## **مدیریت نقطه‌گذاری تصویر**
+## **مدیریت گلوله‌های تصویری**
 
-لیست‌های نقطه‌ای به شما کمک می‌کند تا اطلاعات را به سرعت و به‌طور مؤثر سازماندهی و ارائه دهید. پاراگراف‌های تصویری خواندن و درک آسانی دارند.
+فهرست‌های گلوله‌ای به شما کمک می‌کند اطلاعات را به‌سرعت و کارآمد سازماندهی و ارائه کنید. پاراگراف‌های تصویری خوانا و قابل درک هستند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق شاخص، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. مرجع اسلاید مربوطه را از طریق اندیس آن دریافت کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-4. [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) خودکارشکل را دسترسی پیدا کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
 5. پاراگراف پیش‌فرض موجود در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید.
-7. تصویر را با استفاده از [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ppimage/) بارگذاری کنید.
-8. نوع نقطه‌گذاری را به [Picture](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ppimage/) تنظیم کنید و تصویر را تعیین کنید.
+6. اولین نمونهٔ پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید.
+7. تصویر را در [PPImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ppimage/) بارگذاری کنید.
+8. نوع گلوله را به [Picture](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ppimage/) تنظیم کنید و تصویر را تعیین کنید.
 9. متن پاراگراف را تنظیم کنید.
-10. تورفتگی `Indent` پاراگراف برای تصویر را تنظیم کنید.
-11. رنگی برای تصویر تعیین کنید.
-12. ارتفاع تصویر را تنظیم کنید.
+10. تورفتگی `Indent` پاراگراف برای گلوله را تنظیم کنید.
+11. رنگی برای گلوله تعیین کنید.
+12. ارتفاع گلوله را تنظیم کنید.
 13. پاراگراف جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
 14. پاراگراف دوم را اضافه کنید و فرآیند را بر اساس مراحل قبلی تکرار کنید.
-15. ارائه اصلاح‌شده را ذخیره کنید.
+15. ارائهٔ تغییر یافته را ذخیره کنید.
 
-این کد Javascript نشان می‌دهد چگونه نقطه‌گذاری تصویر اضافه و مدیریت کنید:
+این کد Javascript نشان می‌دهد چگونه گلوله‌های تصویری را اضافه و مدیریت کنید:
 
 ```javascript
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+// یک کلاس Presentation را نمونه‌سازی می‌کند که نمایانگر یک فایل PPTX است
 var presentation = new aspose.slides.Presentation();
 try {
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اسلاید اول دسترسی پیدا می‌کند
     var slide = presentation.getSlides().get_Item(0);
-    // تصویر برای نقطه‌گذاری را ایجاد می‌کند
+    // تصویر برای گلوله‌ها را ایجاد می‌کند
     var picture;
     var image = aspose.slides.Images.fromFile("bullets.png");
     try {
@@ -227,25 +230,25 @@ try {
             image.dispose();
         }
     }
-    // یک AutoShape اضافه می‌کند و به آن دسترسی می‌یابد
+    // یک Autoshape اضافه می‌کند و به آن دسترسی پیدا می‌کند
     var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // به فریم متن AutoShape دسترسی می‌یابد
+    // به فریم متنی autoshape دسترسی پیدا می‌کند
     var textFrame = autoShape.getTextFrame();
     // پاراگراف پیش‌فرض را حذف می‌کند
     textFrame.getParagraphs().removeAt(0);
     // یک پاراگراف جدید ایجاد می‌کند
     var paragraph = new aspose.slides.Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
-    // سبک و تصویر نقطه‌گذاری پاراگراف را تنظیم می‌کند
+    // سبک گلوله پاراگراف و تصویر را تنظیم می‌کند
     paragraph.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Picture);
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-    // ارتفاع نقطه‌گذاری را تنظیم می‌کند
+    // ارتفاع گلوله را تنظیم می‌کند
     paragraph.getParagraphFormat().getBullet().setHeight(100);
-    // پاراگراف را به فریم متن اضافه می‌کند
+    // پاراگراف را به فریم متنی اضافه می‌کند
     textFrame.getParagraphs().add(paragraph);
-    // ارائه را به عنوان فایل PPTX می‌نویسد
+    // ارائه را به عنوان فایل PPTX ذخیره می‌کند
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", aspose.slides.SaveFormat.Pptx);
-    // ارائه را به عنوان فایل PPT می‌نویسد
+    // ارائه را به عنوان فایل PPT ذخیره می‌کند
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", aspose.slides.SaveFormat.Ppt);
 } catch (e) {console.log(e);
 } finally {
@@ -255,33 +258,33 @@ try {
 }
 ```
 
-## **مدیریت نقطه‌گذاری چندسطحی**
+## **مدیریت گلوله‌های چندسطحی**
 
-لیست‌های نقطه‌ای به شما کمک می‌کند تا اطلاعات را به سرعت و به‌طور مؤثر سازماندهی و ارائه دهید. نقطه‌گذاری چندسطحی خواندن و درک آسانی دارد.
+فهرست‌های گلوله‌ای به شما کمک می‌کند اطلاعات را به‌سرعت و کارآمد سازماندهی و ارائه کنید. گلوله‌های چندسطحی خوانا و قابل درک هستند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق شاخص، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. مرجع اسلاید مربوطه را از طریق اندیس آن دریافت کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) در اسلاید جدید اضافه کنید.
-4. [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) خودکارشکل را دسترسی پیدا کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
 5. پاراگراف پیش‌فرض موجود در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید و عمق را به ۰ تنظیم کنید.
-7. دومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۱ تنظیم کنید.
-8. سومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۲ تنظیم کنید.
-9. چهارمین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۳ تنظیم کنید.
+6. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید و عمق را روی ۰ تنظیم کنید.
+7. دومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را روی ۱ تنظیم کنید.
+8. سومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را روی ۲ تنظیم کنید.
+9. چهارمین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را روی ۳ تنظیم کنید.
 10. پاراگراف‌های جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-11. ارائه اصلاح‌شده را ذخیره کنید.
+11. ارائهٔ تغییر یافته را ذخیره کنید.
 
-این کد Javascript نشان می‌دهد چگونه نقطه‌گذاری چندسطحی اضافه و مدیریت کنید:
+این کد Javascript نشان می‌دهد چگونه گلوله‌های چندسطحی را اضافه و مدیریت کنید:
 
 ```javascript
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+// یک کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
 var pres = new aspose.slides.Presentation();
 try {
-    // به اولین اسلاید دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     var slide = pres.getSlides().get_Item(0);
-    // یک AutoShape اضافه می‌کند و به آن دسترسی می‌یابد
+    // یک Autoshape اضافه می‌کند و به آن دسترسی پیدا می‌کند
     var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // به فریم متن AutoShape ایجاد شده دسترسی می‌یابد
+    // به فریم متنی شکل autoshape ایجاد شده دسترسی پیدا می‌کند
     var text = aShp.addTextFrame("");
     // پاراگراف پیش‌فرض را پاک می‌کند
     text.getParagraphs().clear();
@@ -292,7 +295,7 @@ try {
     para1.getParagraphFormat().getBullet().setChar(8226);
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // سطح نقطه‌گذاری را تنظیم می‌کند
+    // سطح گلوله را تنظیم می‌کند
     para1.getParagraphFormat().setDepth(0);
     // پاراگراف دوم را اضافه می‌کند
     var para2 = new aspose.slides.Paragraph();
@@ -301,7 +304,7 @@ try {
     para2.getParagraphFormat().getBullet().setChar('-');
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // سطح نقطه‌گذاری را تنظیم می‌کند
+    // سطح گلوله را تنظیم می‌کند
     para2.getParagraphFormat().setDepth(1);
     // پاراگراف سوم را اضافه می‌کند
     var para3 = new aspose.slides.Paragraph();
@@ -310,7 +313,7 @@ try {
     para3.getParagraphFormat().getBullet().setChar(8226);
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // سطح نقطه‌گذاری را تنظیم می‌کند
+    // سطح گلوله را تنظیم می‌کند
     para3.getParagraphFormat().setDepth(2);
     // پاراگراف چهارم را اضافه می‌کند
     var para4 = new aspose.slides.Paragraph();
@@ -319,14 +322,14 @@ try {
     para4.getParagraphFormat().getBullet().setChar('-');
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // سطح نقطه‌گذاری را تنظیم می‌کند
+    // سطح گلوله را تنظیم می‌کند
     para4.getParagraphFormat().setDepth(3);
     // پاراگراف‌ها را به مجموعه اضافه می‌کند
     text.getParagraphs().add(para1);
     text.getParagraphs().add(para2);
     text.getParagraphs().add(para3);
     text.getParagraphs().add(para4);
-    // ارائه را به صورت فایل PPTX می‌نویسد
+    // ارائه را به صورت فایل PPTX ذخیره می‌کند
     pres.save("MultilevelBullet.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -335,20 +338,20 @@ try {
 }
 ```
 
-## **مدیریت پاراگراف با فهرست شماره‌گذاری سفارشی**
+## **مدیریت پاراگراف با فهرست شماره‌دار سفارشی**
 
-کلاس [BulletFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/bulletformat/) خاصیت [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) و سایر ویژگی‌ها را فراهم می‌کند که به شما امکان مدیریت پاراگراف‌ها با شماره‌گذاری یا قالب‌بندی سفارشی را می‌دهد.
+کلاس [BulletFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/bulletformat/) ویژگی [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) و سایر ویژگی‌ها را فراهم می‌کند تا بتوانید پاراگراف‌ها را با شماره‌گذاری یا قالب‌بندی سفارشی مدیریت کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 2. به اسلاید حاوی پاراگراف دسترسی پیدا کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-4. [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) خودکارشکل را دسترسی پیدا کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
 5. پاراگراف پیش‌فرض موجود در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید و [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) را به ۲ تنظیم کنید.
-7. دومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را به ۳ تنظیم کنید.
-8. سومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را به ۷ تنظیم کنید.
+6. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید و [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) را روی ۲ تنظیم کنید.
+7. دومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را روی ۳ تنظیم کنید.
+8. سومین پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را روی ۷ تنظیم کنید.
 9. پاراگراف‌های جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-10. ارائه اصلاح‌شده را ذخیره کنید.
+10. ارائهٔ تغییر یافته را ذخیره کنید.
 
 این کد Javascript نشان می‌دهد چگونه پاراگراف‌ها را با شماره‌گذاری یا قالب‌بندی سفارشی اضافه و مدیریت کنید:
 
@@ -356,7 +359,7 @@ try {
 var presentation = new aspose.slides.Presentation();
 try {
     var shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // به فریم متن AutoShape ایجاد شده دسترسی می‌یابد
+    // به فریم متنی autoshape ایجاد شده دسترسی پیدا می‌کند
     var textFrame = shape.getTextFrame();
     // پاراگراف پیش‌فرض موجود را حذف می‌کند
     textFrame.getParagraphs().removeAt(0);
@@ -387,23 +390,23 @@ try {
 }
 ```
 
-## **تنظیم تورفتگی خط اول برای پاراگراف**
+## **تنظیم تورفتگی خط اول برای یک پاراگراف**
 
-از متد [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به راست می‌برد، در حالی که بقیه خطوط همانند متن اصلی باقی می‌مانند.
+از متد [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد تنها خط اول را نسبت به حاشیهٔ چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به راست می‌برد، در حالی که بقیه خطوط به بدنهٔ پاراگراف هم‌راستا می‌مانند.
 
-زمانی که می‌خواهید کل پاراگراف را جابه‌جا کنید، از [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) استفاده کنید. وقتی فقط خط اول را می‌خواهید جابه‌جا کنید، از [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) استفاده کنید.
+هنگامی که نیاز به جابه‌جایی کل پاراگراف دارید از [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) استفاده کنید. برای جابه‌جایی تنها خط اول از [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) استفاده کنید.
 
-مثال زیر چندین پاراگراف ایجاد می‌کند و مقادیر مختلف تورفتگی را برای نشان دادن تأثیر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌کند.
+مثال زیر چندین پاراگراف ایجاد می‌کند و مقادیر تورفتگی متفاوتی را برای نشان دادن تأثیر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌نماید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید هدف را دسترسی پیدا کنید.
+2. به اسلاید هدف دسترسی پیدا کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
 4. یک [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) خالی به شکل اضافه کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. چندین پاراگراف ایجاد کنید و مقادیر مختلف [Indent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) را برای آن‌ها تنظیم کنید.
+5. چندین پاراگراف ایجاد کنید و مقادیر مختلف [Indent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) را برای آنها تنظیم کنید.
 6. پاراگراف‌ها را به فریم متن اضافه کنید.
-7. ارائه اصلاح‌شده را ذخیره کنید.
+7. ارائهٔ تغییر یافته را ذخیره کنید.
 
-این کد نشان می‌دهد چگونه تورفتگی پاراگراف تنظیم شود:
+این کد نشان می‌دهد چگونه تورفتگی یک پاراگراف را تنظیم کنید:
 
 ```js
 let presentation = new aspose.slides.Presentation();
@@ -453,26 +456,26 @@ finally {
 
 نتیجه:
 
-![فاصله‌برداری خط اول پاراگراف‌ها](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-## **تنظیم تورفتگی معلق برای پاراگراف**
+## **تنظیم تورفتگی آویزان برای یک پاراگراف**
 
-تورفتگی معلق چیدمان پاراگرافی است که در آن خط اول نسبت به بقیه خطوط به سمت چپ شروع می‌شود. در Aspose.Slides، این اثر را با متد [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) ایجاد می‌کنید. مقدار منفی به `Indent` بدهید تا خط اول نسبت به بدنه پاراگراف به سمت چپ جابه‌جا شود.
+تورفتگی آویزان، چیدمان پاراگرافی است که در آن خط اول به سمت چپ خطوط دیگر می‌آید. در Aspose.Slides این اثر را با استفاده از متد [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) ایجاد می‌کنید. برای جابه‌جایی خط اول به سمت چپ، مقدار تورفتگی را منفی تنظیم کنید.
 
-در عمل، [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) موقعیت چپ بدنه پاراگراف را تعیین می‌کند و [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) موقعیت خط اول را نسبت به آن حاشیه تعیین می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت `MarginLeft` و مقدار منفی `Indent` را تنظیم کنید.
+در عمل، [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) موقعیت سمت چپ بدنهٔ پاراگراف را تعیین می‌کند و [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) موقعیت خط اول را نسبت به آن حاشیه تنظیم می‌کند. برای ایجاد تورفتگی آویزان، مقدار `MarginLeft` را مثبت و مقدار `Indent` را منفی بگذارید.
 
-این قالب‌بندی برای کتابشناسی‌ها، مراجع، واژه‌نامه‌ها و سایر پاراگراف‌هایی که خطوط بسته‌بندی باید زیر بدنه پاراگراف تراز شوند مفید است.
+این قالب‌بندی برای فهرست‌های مراجع، کتاب‌نامه‌ها، واژگان و سایر پاراگراف‌هایی که خطوط بسته‌بندی‌شده باید زیر بدنهٔ پاراگراف قرار گیرند، مفید است.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-2. اسلاید هدف را دسترسی پیدا کنید.
+2. به اسلاید هدف دسترسی پیدا کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
 4. یک [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) خالی به شکل اضافه کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. پاراگراف‌ها را ایجاد کنید و برای هر کدام مقدار مثبت [MarginLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) تنظیم کنید.
-6. مقدار منفی [Indent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) را برای ایجاد اثر تورفتگی معلق تنظیم کنید.
+5. برای هر پاراگراف مقدار مثبت [MarginLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) تنظیم کنید.
+6. مقدار منفی [Indent](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setindent/) را برای ایجاد اثر تورفتگی آویزان تنظیم کنید.
 7. پاراگراف‌ها را به فریم متن اضافه کنید.
-8. ارائه اصلاح‌شده را ذخیره کنید.
+8. ارائهٔ تغییر یافته را ذخیره کنید.
 
-این کد نشان می‌دهد چگونه تورفتگی معلق برای پاراگراف تنظیم شود:
+این کد نشان می‌دهد چگونه تورفتگی آویزان برای یک پاراگراف تنظیم کنید:
 
 ```js
 let presentation = new aspose.slides.Presentation();
@@ -514,19 +517,19 @@ finally {
 
 نتیجه:
 
-![فاصله‌برداری معلق پاراگراف‌ها](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-## **مدیریت ویژگی‌های End برای پاراگراف**
+## **مدیریت ویژگی‌های End Run برای پاراگراف**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
 1. مرجع اسلاید حاوی پاراگراف را از طریق موقعیت آن دریافت کنید.
 1. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) مستطیلی به اسلاید اضافه کنید.
 1. یک [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) با دو پاراگراف به مستطیل اضافه کنید.
-1. `FontHeight` و نوع فونت را برای پاراگراف‌ها تنظیم کنید.
+1. `FontHeight` و نوع قلم را برای پاراگراف‌ها تنظیم کنید.
 1. ویژگی‌های End را برای پاراگراف‌ها تنظیم کنید.
-1. ارائه اصلاح‌شده را به عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ تغییر یافته را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Javascript نشان می‌دهد چگونه ویژگی‌های End برای پاراگراف‌ها در PowerPoint تنظیم شود:
+این کد Javascript نشان می‌دهد چگونه ویژگی‌های End را برای پاراگراف‌ها در PowerPoint تنظیم کنید:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -555,33 +558,33 @@ try {
 Aspose.Slides پشتیبانی پیشرفته‌ای برای وارد کردن متن HTML به پاراگراف‌ها فراهم می‌کند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق شاخص، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+2. مرجع اسلاید مربوطه را از طریق اندیس آن دریافت کنید.
 3. یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) به اسلاید اضافه کنید.
-4. [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) خودکارشکل را اضافه و دسترسی پیدا کنید.
+4. `AutoShape`‌'s [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) را اضافه و دسترسی پیدا کنید.
 5. پاراگراف پیش‌فرض موجود در `TextFrame` را حذف کنید.
 6. فایل HTML منبع را در یک TextReader بخوانید.
-7. اولین نمونه پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید.
+7. اولین پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) ایجاد کنید.
 8. محتوای فایل HTML خوانده‌شده را به [ParagraphCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphcollection/) فریم متن اضافه کنید.
-9. ارائه اصلاح‌شده را ذخیره کنید.
+9. ارائهٔ تغییر یافته را ذخیره کنید.
 
-این کد Javascript پیاده‌سازی مراحل وارد کردن متون HTML در پاراگراف‌هاست:
+این کد Javascript پیاده‌سازی مراحل وارد کردن متون HTML به پاراگراف‌هاست:
 
 ```javascript
 // یک نمونهٔ خالی از ارائه ایجاد می‌کند
 var pres = new aspose.slides.Presentation();
 try {
-    // به اسلاید پیش‌فرض اول ارائه دسترسی می‌یابد
+    // به اسلاید پیش‌فرض اول ارائه دسترسی پیدا می‌کند
     var slide = pres.getSlides().get_Item(0);
-    // افزودن AutoShape برای جایگذاری محتوای HTML
+    // اضافه کردن AutoShape برای جایگیری محتوای HTML
     var ashape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, pres.getSlideSize().getSize().getWidth() - 20, pres.getSlideSize().getSize().getHeight() - 10);
     ashape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // افزودن فریم متن به شکل
+    // افزودن فریم متنی به شکل
     ashape.addTextFrame("");
-    // پاک‌سازی تمام پاراگراف‌ها در فریم متنی اضافه‌شده
+    // پاک‌سازی تمام پاراگراف‌های موجود در فریم متن اضافه‌شده
     ashape.getTextFrame().getParagraphs().clear();
     // بارگذاری فایل HTML با استفاده از StreamReader
     var tr = java.newInstanceSync("StreamReader", "file.html");
-    // افزودن متن از StreamReader HTML به فریم متن
+    // اضافه کردن متن از StreamReader HTML به فریم متن
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
     // ذخیرهٔ ارائه
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
@@ -592,34 +595,34 @@ try {
 }
 ```
 
-## **خروجی متن پاراگراف‌ها به HTML**
+## **صادر کردن متن پاراگراف‌ها به HTML**
 
-Aspose.Slides پشتیبانی پیشرفته‌ای برای خروجی متون (موجود در پاراگراف‌ها) به HTML فراهم می‌کند.
+Aspose.Slides پشتیبانی پیشرفته‌ای برای صادرات متون (موجود در پاراگراف‌ها) به HTML فراهم می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید و ارائه مورد نظر را بارگذاری کنید.
-2. از طریق شاخص، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. شکل حاوی متنی را که به HTML خروجی داده خواهد شد دسترسی پیدا کنید.
-4. [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) شکل را دسترسی پیدا کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ایجاد کنید و ارائهٔ موردنظر را بارگذاری کنید.
+2. مرجع اسلاید مربوطه را از طریق اندیس آن دریافت کنید.
+3. به شکل حاکی از متنی که به HTML صادر خواهد شد دسترسی پیدا کنید.
+4. به [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) شکل دسترسی پیدا کنید.
 5. یک نمونه از `StreamWriter` ایجاد کنید و فایل HTML جدید را اضافه کنید.
-6. یک شاخص شروع به `StreamWriter` بدهید و پاراگراف‌های مورد نظر را خروجی بگیرید.
+6. یک ایندکس شروع به StreamWriter بدهید و پاراگراف‌های دلخواه را صادر کنید.
 
-این کد Javascript نشان می‌دهد چگونه متون پاراگراف‌های PowerPoint را به HTML خروجی بگیرید:
+این کد Javascript نشان می‌دهد چگونه متون پاراگراف‌های PowerPoint را به HTML صادر کنید:
 
 ```javascript
-// فایل ارائه را بارگذاری می‌کند
+// فایل ارائه را بارگذاری کنید
 var pres = new aspose.slides.Presentation("ExportingHTMLText.pptx");
 try {
-    // به اسلاید پیش‌فرض اول ارائه دسترسی می‌یابد
+    // به اسلاید پیش‌فرض اول ارائه دسترسی پیدا می‌کند
     var slide = pres.getSlides().get_Item(0);
-    // شاخص مورد نظر
+    // اندیس موردنظر
     var index = 0;
     // دسترسی به شکل اضافه‌شده
     var ashape = slide.getShapes().get_Item(index);
     // ایجاد فایل خروجی HTML
     var os = java.newInstanceSync("java.io.FileOutputStream", "output.html");
     var writer = java.newInstanceSync("java.io.OutputStreamWriter", os, "UTF-8");
-    // استخراج اولین پاراگراف به صورت HTML
-    // نوشتن داده‌های پاراگراف‌ها به HTML با فراهم کردن شاخص شروع پاراگراف و تعداد کل پاراگراف‌های قابل کپی
+    // استخراج اولین پاراگراف به‌صورت HTML
+    // نوشتن داده‌های پاراگراف‌ها به HTML با ارائه اندیس شروع پاراگراف و تعداد کل پاراگراف‌های قابل کپی
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (e) {console.log(e);
@@ -630,17 +633,17 @@ try {
 }
 ```
 
-## **ذخیره یک پاراگراف به عنوان تصویر**
+## **ذخیره یک پاراگراف به‌صورت تصویر**
 
-در این بخش دو مثال را بررسی می‌کنیم که نشان می‌دهند چگونه یک پاراگراف متن، که توسط کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/) نمایندگی می‌شود، به‌صورت تصویر ذخیره شود. هر دو مثال شامل دریافت تصویر یک شکل حاوی پاراگراف با استفاده از متدهای `getImage` از کلاس [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/) ، محاسبه مرزهای پاراگراف داخل شکل و خروجی آن به‌صورت تصویر بیت‌مپ هستند. این روش‌ها به شما امکان می‌دهند بخش‌های خاصی از متن را از ارائه‌های PowerPoint استخراج کنید و به‌صورت تصاویر جداگانه ذخیره کنید که می‌تواند در سناریوهای مختلف مفید باشد.
+در این بخش دو مثال برای نشان دادن نحوهٔ ذخیرهٔ یک پاراگراف متنی، نمایان‌شده توسط کلاس [Paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/)، به‌صورت تصویر بررسی می‌شود. هر دو مثال شامل دریافت تصویر شکل حاوی پاراگراف با استفاده از متدهای `getImage` از کلاس [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/)، محاسبهٔ محدودهٔ پاراگراف داخل شکل و صادرات آن به‌عنوان تصویر بیت‌مپ است. این روش‌ها به شما امکان می‌دهند بخش‌های خاصی از متن ارائه‌های PowerPoint را استخراج و به‌صورت تصاویر جداگانه ذخیره کنید که می‌تواند در سناریوهای مختلف مفید باشد.
 
-فرض کنیم یک فایل ارائه به نام sample.pptx با یک اسلاید داشته باشیم که اولین شکل آن یک جعبه متن شامل سه پاراگراف باشد.
+فرض کنید فایلی به نام sample.pptx داریم که شامل یک اسلاید است و اولین شکل آن یک باکس متن حاوی سه پاراگراف می‌باشد.
 
-![کادر متن با سه پاراگراف](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-**مثال 1**
+**مثال ۱**
 
-در این مثال پاراگراف دوم را به‌صورت تصویر دریافت می‌کنیم. برای این کار تصویر شکل را از اولین اسلاید ارائه استخراج کرده و سپس مرزهای پاراگراف دوم در فریم متن شکل را محاسبه می‌کنیم. سپس پاراگراف روی یک تصویر بیت‌مپ جدید بازنقاشی می‌شود و به‌صورت PNG ذخیره می‌گردد. این روش به‌ویژه زمانی مفید است که بخواهید یک پاراگراف خاص را به‌عنوان تصویر جداگانه ذخیره کنید در حالی که ابعاد و قالب‌بندی دقیق متن حفظ می‌شود.
+در این مثال، پاراگراف دوم به‌صورت تصویر استخراج می‌شود. برای این کار، تصویر شکل را از اسلاید اول استخراج می‌کنیم، سپس محدودهٔ پاراگراف دوم را در فریم متن شکل محاسبه می‌کنیم. پاراگراف سپس روی یک بیت‌مپ جدید رسم می‌شود و به‌صورت PNG ذخیره می‌گردد. این روش برای ذخیرهٔ پاراگراف خاصی به‌عنوان تصویر جداگانه با حفظ ابعاد و قالب‌بندی دقیق متن مفید است.
 
 ```java
 const imageio = java.import("javax.imageio.ImageIO");
@@ -648,7 +651,7 @@ const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // شکل را در حافظه به صورت بیت‌مپ ذخیره می‌کند.
+    // شکل را به‌عنوان بیت‌مپ در حافظه ذخیره می‌کند.
     const shapeImage = firstShape.getImage();
         
     const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
@@ -656,7 +659,7 @@ try {
     shapeImage.dispose();
     shapeImageStream.flush();
     
-    // یک بیت‌مپ شکل را از حافظه می‌سازد.
+    // بیت‌مپ شکل را از حافظه ایجاد می‌کند.
     const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
     const javaBytes = java.newArray("byte", Array.from(byteBuffer));
     const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
@@ -667,7 +670,7 @@ try {
     const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     const paragraphRectangle = secondParagraph.getRect();
 
-    // مختصات و اندازه تصویر خروجی را محاسبه می‌کند (حداقل اندازه - ۱×۱ پیکسل).
+    // مختصات و اندازهٔ تصویر خروجی را محاسبه می‌کند (حداقل اندازه - 1×1 پیکسل).
     const imageX = Math.floor(paragraphRectangle.getX());
     const imageY = Math.floor(paragraphRectangle.getY());
     const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
@@ -688,11 +691,11 @@ try {
 
 نتیجه:
 
-![تصویر پاراگراف](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-**مثال 2**
+**مثال ۲**
 
-در این مثال، روش قبلی را با افزودن عوامل مقیاس به تصویر پاراگراف گسترش می‌دهیم. شکل از ارائه استخراج می‌شود و با عامل مقیاس `2` به‌عنوان تصویر ذخیره می‌شود. این امکان خروجی با وضوح بالاتر را هنگام خروجی‌گیری پاراگراف فراهم می‌کند. سپس مرزهای پاراگراف با در نظر گرفتن مقیاس محاسبه می‌شوند. مقیاس‌بندی می‌تواند زمانی مفید باشد که تصویری با جزئیات بیشتر نیاز باشد، مثلاً برای استفاده در مواد چاپی با کیفیت بالا.
+در این مثال، رویکرد قبلی با افزودن عوامل مقیاس‌گذاری به تصویر پاراگراف گسترش می‌یابد. شکل از ارائه استخراج می‌شود و با عامل مقیاس `2` به‌عنوان تصویر ذخیره می‌شود. این امکان خروجی با وضوح بالاتر را در زمان صادرات پاراگراف فراهم می‌کند. سپس محدودهٔ پاراگراف با در نظرگیری مقیاس محاسبه می‌شود. مقیاس‌گذاری به‌ویژه هنگام نیاز به تصویر با جزئیات بیشتر، مثلاً برای استفاده در مطالب چاپی با کیفیت بالا، مفید است.
 
 ```java
 const imageScaleX = 2;
@@ -703,13 +706,13 @@ const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // شکل را در حافظه به صورت بیت‌مپ با مقیاس‌گذاری ذخیره می‌کند.
+    // شکل را به‌عنوان بیت‌مپ در حافظه ذخیره می‌کند با مقیاس.
     const shapeImage = firstShape.getImage(aspose.slides.ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
     shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
     shapeImage.dispose();
 
-    // یک بیت‌مپ شکل را از حافظه می‌سازد.
+    // یک بیت‌مپ شکل را از حافظه ایجاد می‌کند.
     const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
     const javaBytes = java.newArray("byte", Array.from(byteBuffer));
     const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
@@ -726,7 +729,7 @@ try {
             paragraphRectangle.getHeight() * imageScaleY
     );
 
-    // مختصات و اندازه تصویر خروجی را محاسبه می‌کند (حداقل اندازه - ۱×۱ پیکسل).
+    // مختصات و اندازه تصویر خروجی را محاسبه می‌کند (حداقل اندازه - 1×1 پیکسل).
     const imageX = Math.floor(paragraphRectangle.getX());
     const imageY = Math.floor(paragraphRectangle.getY());
     const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
@@ -745,19 +748,19 @@ try {
 }
 ```
 
-## **سوالات رایج**
+## **سؤالات متداول**
 
-**آیا می‌توانم کاملاً بسته‌بندی خطوط داخل یک فریم متن را غیرفعال کنم؟**
+**آیا می‌توانم بسته‌بندی خطوط داخل فریم متن را به‌طور کامل غیرفعال کنم؟**
 
-بله. از تنظیم بسته‌بندی فریم متن ([setWrapText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/setwraptext/)) استفاده کنید تا بسته‌بندی را خاموش کنید، بنابراین خطوط در لبه‌های فریم شکسته نمی‌شوند.
+بله. از تنظیمات بسته‌بندی فریم متن ([setWrapText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/setwraptext/)) استفاده کنید تا بسته‌بندی خاموش شود و خطوط در لبه‌های فریم شکسته نشوند.
 
-**چگونه می‌توانم مرزهای دقیق یک پاراگراف خاص را بر روی اسلاید بدست آورم؟**
+**چگونه می‌توانم مرزهای دقیق یک پاراگراف خاص را روی اسلاید بدست آورم؟**
 
-می‌توانید مستطیل محصور کننده پاراگراف (و حتی یک بخش منفرد) را بازیابی کنید تا موقعیت و اندازه دقیق آن را روی اسلاید بدانید.
+می‌توانید مستطیل محدودهٔ پاراگراف (و حتی یک بخش) را برای دانستن موقعیت و اندازهٔ دقیق آن روی اسلاید بازیابی کنید.
 
-**کنترل تراز پاراگراف (چپ/راست/وسط/توزیع) در کجا انجام می‌شود؟**
+**کنترل تراز پاراگراف (چپ/راست/وسط/تراز) در کجا قرار دارد؟**
 
-متد [setAlignment](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setalignment/) تنظیم سطح پاراگراف در [ParagraphFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/) است؛ این تنظیم برای کل پاراگراف اعمال می‌شود صرف‌نظر از قالب‌بندی هر بخش جداگانه.
+[setAlignment](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/setalignment/) متدی برای تنظیم سطح پاراگراف در [ParagraphFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/) است؛ این تنظیم برای کل پاراگراف اعمال می‌شود صرف‌نظر از قالب‌بندی هر بخش جداگانه.
 
 **آیا می‌توانم زبان بررسی املا را فقط برای بخشی از پاراگراف (مثلاً یک کلمه) تنظیم کنم؟**
 

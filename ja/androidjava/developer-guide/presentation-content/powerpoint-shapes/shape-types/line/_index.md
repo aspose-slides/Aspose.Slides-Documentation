@@ -1,16 +1,16 @@
 ---
-title: Android 上のプレゼンテーションに線形状を追加
-linktitle: 線
+title: Android でプレゼンテーションにライン シェイプを追加する
+linktitle: ライン
 type: docs
 weight: 50
 url: /ja/androidjava/line/
 keywords:
-- 線
-- 線の作成
-- 線の追加
-- プレーンライン
-- 線の構成
-- 線のカスタマイズ
+- ライン
+- ラインの作成
+- ラインの追加
+- プレーン ライン
+- ラインの構成
+- ラインのカスタマイズ
 - 破線スタイル
 - 矢じり
 - PowerPoint
@@ -18,33 +18,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して、PowerPoint プレゼンテーションの線の書式設定を操作する方法を学びます。プロパティ、メソッド、および Java の例を紹介します。"
+description: "Aspose.Slides for Android を使用して PowerPoint プレゼンテーションのライン書式設定を操作する方法を学びます。プロパティ、メソッド、Java のサンプルをご紹介します。"
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
+Aspose.Slides を使用すると、プログラムで PowerPoint スライドにライン シェイプを追加できます。この記事では、シンプルなラインの作成方法と、ラインを矢印として表示する方法を示します。
 
-Aspose.Slides for Android via Java は、スライドにさまざまな種類の図形を追加することをサポートしています。このトピックでは、図形の操作を開始するためにスライドに線を追加します。Aspose.Slides for Android via Java を使用すると、開発者は単純な線だけでなく、装飾的な線もスライドに描くことができます。
+スライドにライン シェイプを追加し、外観を調整し、更新されたプレゼンテーションを保存する方法を学びます。例では、スタイル、幅、破線パターン、矢じりオプション、塗りつぶし色など、実用的なライン書式設定に焦点を当てています。
 
-{{% /alert %}} 
+## **プレーン ラインの作成**
 
-## **プレーンラインの作成**
+プレゼンテーションの選択したスライドにシンプルなプレーン ラインを追加するには、以下の手順に従ってください。
 
-プレゼンテーションの選択されたスライドにシンプルなプレーンラインを追加するには、以下の手順に従ってください：
-
-- [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+- [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。
-- [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、Line タイプの AutoShape を追加します。
+- [IShapeCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、ライン タイプの AutoShape を追加します。
 - 変更したプレゼンテーションを PPTX ファイルとして書き出します。
 
-以下の例では、プレゼンテーションの最初のスライドに線を追加しています。
+以下の例では、プレゼンテーションの最初のスライドにラインを追加しています。
+
 ```java
-// PPTX ファイルを表す PresentationEx クラスのインスタンスを作成
+// PPTX ファイルを表す PresentationEx クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得
+    // 最初のスライドを取得する
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // type が line の AutoShape を追加
+    // タイプが line の AutoShape を追加する
     sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
     
     // PPTX をディスクに書き込む
@@ -54,31 +54,31 @@ try {
 }
 ```
 
-
 ## **矢印形状のラインの作成**
 
-Aspose.Slides for Android via Java は、ラインの外観を向上させるためにいくつかのプロパティを設定することも可能です。ラインを矢印のように見せるためにいくつかのプロパティを設定してみましょう。以下の手順に従ってください。
+Aspose.Slides for Android via Java でも、開発者はラインのプロパティを設定して、より魅力的に見せることができます。ラインのいくつかのプロパティを設定して矢印のように見せてみましょう。以下の手順に従ってください。
 
-- [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+- [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。
-- [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、Line タイプの AutoShape を追加します。
-- [Line Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineStyle) を Aspose.Slides for Android via Java が提供するスタイルのいずれかに設定します。
+- [IShapeCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IShapeCollection) オブジェクトが提供する [addAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) メソッドを使用して、ライン タイプの AutoShape を追加します。
+- [Line Style](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/LineStyle) を Aspose.Slides for Android via Java が提供するスタイルのいずれかに設定します。
 - ラインの幅を設定します。
-- [Dash Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineDashStyle) を Aspose.Slides for Android via Java が提供するスタイルのいずれかに設定します。
-- ラインの開始点の [Arrow Head Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) と [Length](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) を設定します。
-- ラインの終了点の [Arrow Head Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) と [Length](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) を設定します。
+- ラインの [Dash Style](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/LineDashStyle) を Aspose.Slides for Android via Java が提供するスタイルのいずれかに設定します。
+- ラインの開始点の [Arrow Head Style](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/LineArrowheadStyle) と [Length](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/LineArrowheadLength) を設定します。
+- ラインの終了点の [Arrow Head Style](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/LineArrowheadStyle) と [Length](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/LineArrowheadLength) を設定します。
 - 変更したプレゼンテーションを PPTX ファイルとして書き出します。
+
 ```java
-// PPTX ファイルを表す PresentationEx クラスのインスタンスを作成
+// PPTX ファイルを表す PresentationEx クラスのインスタンスを作成する
 Presentation pres = new Presentation();
 try {
-    // 最初のスライドを取得
+    // 最初のスライドを取得する
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // line タイプの AutoShape を追加
+    // タイプが line の AutoShape を追加する
     IAutoShape shp = sld.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
 
-    // 線に書式設定を適用
+    // ラインにいくつかの書式設定を適用する
     shp.getLineFormat().setStyle(LineStyle.ThickBetweenThin);
     shp.getLineFormat().setWidth(10);
 
@@ -100,17 +100,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**通常の線をコネクタに変換して図形に「スナップ」させることはできますか？**
+**通常のラインをコネクタに変換して、図形に「スナップ」させることはできますか？**
 
-いいえ。通常の線（[AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) のタイプが [Line](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/) のもの）は自動的にコネクタにはなりません。図形にスナップさせるには、専用の [Connector](https://reference.aspose.com/slides/androidjava/com.aspose.slides/connector/) タイプと接続用の [corresponding APIs](/slides/ja/androidjava/connector/) を使用してください。
+いいえ。通常のライン（タイプが [Line](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/shapetype/) の [AutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/autoshape/)）は自動的にコネクタにはなりません。図形にスナップさせるには、専用の [Connector](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/connector/) タイプと、接続用の [corresponding APIs](/slides/ja/androidjava/connector/) を使用してください。
 
-**テーマから継承された線のプロパティが原因で最終的な値が分かりにくい場合はどうすればよいですか？**
+**ラインのプロパティがテーマから継承されていて最終的な値が判断しづらい場合はどうすればよいですか？**
 
-[ILineFormatEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/) / [ILineFillFormatEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilinefillformateffectivedata/) インターフェイスを通じて [効果的なプロパティ](/slides/ja/androidjava/shape-effective-properties/) を取得してください。これらは継承やテーマスタイルを考慮した上で値を提供します。
+継承およびテーマ スタイルを考慮した、実際のプロパティは [ILineFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ilineformateffectivedata/) / [ILineFillFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ilinefillformateffectivedata/) インターフェイスを使用して [実効プロパティを読む](/slides/ja/androidjava/shape-effective-properties/) ことで取得できます。
 
-**線を編集（移動、サイズ変更）できないようにロックできますか？**
+**ラインの編集（移動、サイズ変更）をロックできますか？**
 
-はい。図形は [ロック オブジェクト](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) を提供しており、編集操作を禁止することができます。
+はい。Shapes は編集操作を禁止できる [lock objects](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/autoshape/#getAutoShapeLock--) を提供しています。

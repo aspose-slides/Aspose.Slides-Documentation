@@ -1,5 +1,5 @@
 ---
-title: จัดการเนื้อหา Presentation ใน С++
+title: จัดการเนื้อหา Presentation ใน C++
 linktitle: เนื้อหา Presentation
 type: docs
 weight: 30
@@ -21,7 +21,7 @@ keywords:
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
-- С++
+- C++
 - Aspose.Slides
-description: "สร้าง แก้ไข และดึงเนื้อหา presentation ด้วย Aspose.Slides สำหรับ С++ — รับตัวอย่างโค้ดสำหรับข้อความ, รูปภาพ, รูปร่าง, แผนภูมิ; PPT, PPTX และ ODP."
+description: "สร้าง, แก้ไข, และดึงข้อมูลการนำเสนอด้วย Aspose.Slides for C++ — รับตัวอย่างโค้ดสำหรับข้อความ, รูปภาพ, รูปร่าง, แผนภูมิ; PPT, PPTX และ ODP."
 ---

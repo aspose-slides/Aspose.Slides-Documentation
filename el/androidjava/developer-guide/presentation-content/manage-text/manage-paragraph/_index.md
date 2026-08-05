@@ -1,9 +1,11 @@
 ---
-title: Διαχείριση παραγράφων κειμένου PowerPoint στο Android
-linktitle: Διαχείριση παραγράφου
+title: Διαχείριση Παραγράφων Κειμένου PowerPoint σε Android
+linktitle: Διαχείριση Παραγράφου
 type: docs
 weight: 40
 url: /el/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
 keywords:
 - προσθήκη κειμένου
 - προσθήκη παραγράφου
@@ -11,7 +13,7 @@ keywords:
 - διαχείριση παραγράφου
 - διαχείριση κουκίδας
 - εσοχή παραγράφου
-- αναρρέουσα εσοχή
+- κρεματή εσοχή
 - κουκίδα παραγράφου
 - αριθμημένη λίστα
 - λίστα με κουκίδες
@@ -28,36 +30,34 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Αποκτήστε τον απόλυτο έλεγχο μορφοποίησης παραγράφων με Aspose.Slides για Android—βελτιστοποιήστε την στοίχιση, το διάστημα & το στυλ σε παρουσιάσεις PPT, PPTX και ODP σε Java."
+description: "Απόλυτος έλεγχος μορφοποίησης παραγράφων με το Aspose.Slides για Android—βελτιστοποίηση στοίχισης, απόστασης & στυλ σε παρουσιάσεις PPT, PPTX και ODP με Java."
 ---
 ## **Εισαγωγή**
 
 Το Aspose.Slides παρέχει όλες τις διεπαφές και κλάσεις που χρειάζεστε για εργασία με κείμενα PowerPoint, παραγράφους και τμήματα στη Java.
 
-* Το Aspose.Slides παρέχει τη διεπαφή [ITextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) για να μπορείτε να προσθέσετε αντικείμενα που αντιπροσωπεύουν μια παράγραφο. Ένα αντικείμενο `ITextFame` μπορεί να έχει μία ή πολλές παραγράφους (κάθε παράγραφος δημιουργείται μέσω αλλαγής γραμμής).
-* Το Aspose.Slides παρέχει τη διεπαφή [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/) για να μπορείτε να προσθέσετε αντικείμενα που αντιπροσωπεύουν τμήματα. Ένα αντικείμενο `IParagraph` μπορεί να έχει ένα ή πολλά τμήματα (συλλογή αντικειμένων iPortions).
-* Το Aspose.Slides παρέχει τη διεπαφή [IPortion](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iportion/) για να μπορείτε να προσθέσετε αντικείμενα που αντιπροσωπεύουν κείμενα και τις ιδιότητές τους μορφοποίησης.
+* Το Aspose.Slides παρέχει τη διεπαφή [ITextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) που σας επιτρέπει να προσθέσετε αντικείμενα που αντιπροσωπεύουν μια παράγραφο. Ένα αντικείμενο `ITextFame` μπορεί να έχει μία ή πολλές παραγράφους (κάθε παράγραφος δημιουργείται μέσω επιστροφής χαρακτήρα).
+* Το Aspose.Slides παρέχει τη διεπαφή [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/) που σας επιτρέπει να προσθέσετε αντικείμενα που αντιπροσωπεύουν τμήματα. Ένα αντικείμενο `IParagraph` μπορεί να έχει ένα ή πολλά τμήματα (συλλογή αντικειμένων iPortions).
+* Το Aspose.Slides παρέχει τη διεπαφή [IPortion](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iportion/) που σας επιτρέπει να προσθέσετε αντικείμενα που αντιπροσωπεύουν κείμενα και τις ιδιότητές τους.
 
-Ένα αντικείμενο `IParagraph` είναι ικανό να χειρίζεται κείμενα με διαφορετικές ιδιότητες μορφοποίησης μέσω των υποκείμενων αντικειμένων `IPortion`.
+Ένα αντικείμενο `IParagraph` είναι σε θέση να διαχειρίζεται κείμενα με διαφορετικές ιδιότητες μορφοποίησης μέσω των υποκείμενων αντικειμένων `IPortion`.
 
-## **Προσθήκη Πολλαπλών Παραγράφων που Περιέχουν Πολλαπλά Τμήματα Κειμένου**
+## **Προσθήκη Πολλαπλών Παραγράφων με Πολλά Τμήματα Κειμένου**
 
-Αυτά τα βήματα σας δείχνουν πώς να προσθέσετε ένα πλαίσιο κειμένου που περιέχει 3 παραγράφους και κάθε παράγραφος που περιέχει 3 τμήματα:
+Αυτά τα βήματα δείχνουν πώς να προσθέσετε ένα πλαίσιο κειμένου που περιέχει 3 παραγράφους και κάθε παράγραφος να περιέχει 3 τμήματα:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα ορθογώνιο [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
-4. Λάβετε το `ITextFrame` που συνδέεται με το [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/).
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
+3. Προσθέστε ένα Rectangle [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
+4. Λάβετε το ITextFrame που σχετίζεται με το [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/).
 5. Δημιουργήστε δύο αντικείμενα [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/) και προσθέστε τα στη συλλογή `IParagraphs` του [ITextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/).
-6. Δημιουργήστε τρία αντικείμενα [IPortion](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iportion/) για κάθε νέο `IParagraph` (δύο αντικείμενα Portion για την προεπιλεγμένη Παράγραφο) και προσθέστε κάθε αντικείμενο `IPortion` στη συλλογή IPortion της αντίστοιχης `IParagraph`.
+6. Δημιουργήστε τρία αντικείμενα [IPortion](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iportion/) για κάθε νέο `IParagraph` (δύο αντικείμενα Portion για την προεπιλεγμένη Παράγραφο) και προσθέστε κάθε αντικείμενο `IPortion` στη συλλογή IPortion της κάθε `IParagraph`.
 7. Ορίστε κάποιο κείμενο για κάθε τμήμα.
-8. Εφαρμόστε τις προτιμητέες ιδιότητες μορφοποίησης σε κάθε τμήμα χρησιμοποιώντας τις ιδιότητες μορφοποίησης που εκτίθενται από το αντικείμενο `IPortion`.
+8. Εφαρμόστε τις προτιμώμενες ιδιότητες μορφοποίησης σε κάθε τμήμα χρησιμοποιώντας τις ιδιότητες μορφοποίησης του αντικειμένου `IPortion`.
 9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας Java είναι μια υλοποίηση των βημάτων για την προσθήκη παραγράφων που περιέχουν τμήματα:
-
 ```java
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
+// Δημιουργία αντικειμένου κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 Presentation pres = new Presentation();
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
@@ -69,7 +69,7 @@ try {
     // Πρόσβαση στο TextFrame του AutoShape
     ITextFrame tf = ashp.getTextFrame();
 
-    // Δημιουργία παραγράφων και τμημάτων με διαφορετικές μορφοποιήσεις κειμένου
+    // Δημιουργία παραγράφων και τμημάτων με διαφορετικές μορφές κειμένου
     IParagraph para0 = tf.getParagraphs().get_Item(0);
     IPortion port01 = new Portion();
     IPortion port02 = new Portion();
@@ -121,41 +121,39 @@ try {
 }
 ```
 
-## **Διαχείριση Κουκίδων Παραγράφου**
+## **Διαχείριση Κουκίδων Παραγράφων**
 
-Οι λίστες με κουκίδες σας βοηθούν να οργανώσετε και να παρουσιάσετε πληροφορίες γρήγορα και αποδοτικά. Οι παραγράφοι με κουκίδες είναι πάντα πιο εύκολα αναγνώσιμα και κατανοητά.
+Οι λίστες με κουκίδες σας βοηθούν να οργανώσετε και να παρουσιάσετε πληροφορίες γρήγορα και αποδοτικά. Οι παραγράφους με κουκίδες είναι πάντα ευκολότερο να διαβαστούν και να κατανοηθούν.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στην επιλεγμένη διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του autoshape.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
+3. Προσθέστε ένα [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
 6. Δημιουργήστε την πρώτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraph/).
-7. Ορίστε τον `Type` της κουκίδας σε `Symbol` και ορίστε το χαρακτήρα της κουκίδας.
+7. Ορίστε τον τύπο της κουκίδας `Type` για την παράγραφο σε `Symbol` και ορίστε τον χαρακτήρα της κουκίδας.
 8. Ορίστε το `Text` της παραγράφου.
 9. Ορίστε το `Indent` της παραγράφου για την κουκίδα.
 10. Ορίστε χρώμα για την κουκίδα.
 11. Ορίστε ύψος για την κουκίδα.
 12. Προσθέστε τη νέα παράγραφο στη συλλογή παραγράφων του `TextFrame`.
-13. Προσθέστε τη δεύτερη παράγραφο και επαναλάβετε τη διαδικασία στα βήματα 7‑13.
+13. Προσθέστε τη δεύτερη παράγραφο και επαναλάβετε τη διαδικασία των βημάτων 7 έως 13.
 14. Αποθηκεύστε την παρουσίαση.
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε μια κουκίδα παραγράφου:
-
 ```java
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
+// Δημιουργεί ένα αντικείμενο κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 Presentation pres = new Presentation();
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Προσθέτει και προσπελάζει το Autoshape
+    // Προσθέτει και αποκτά πρόσβαση στο Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Πρόσβαση στο πλαίσιο κειμένου του Autoshape
+    // Πρόσβαση στο πλαίσιο κειμένου του autoshape
     ITextFrame txtFrm = aShp.getTextFrame();
 
-    // Αφαιρεί την προεπιλεγμένη παράγραφο
+    // Αφαίρεση της προεπιλεγμένης παραγράφου
     txtFrm.getParagraphs().removeAt(0);
 
     // Δημιουργία παραγράφου
@@ -174,7 +172,7 @@ try {
     // Ορίζει το χρώμα της κουκίδας
     para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // ορίζει το IsBulletHardColor σε true για χρήση του δικού χρώματος κουκίδας
+    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // ορίζει το IsBulletHardColor σε true για χρήση δικού χρώματος κουκίδας
 
     // Ορίζει το ύψος της κουκίδας
     para.getParagraphFormat().getBullet().setHeight(100);
@@ -182,14 +180,14 @@ try {
     // Προσθέτει την παράγραφο στο πλαίσιο κειμένου
     txtFrm.getParagraphs().add(para);
 
-    // Δημιουργεί δεύτερη παράγραφο
+    // Δημιουργία δεύτερης παραγράφου
     Paragraph para2 = new Paragraph();
 
     // Ορίζει τον τύπο και το στυλ της κουκίδας της παραγράφου
     para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
 
-    // Προσθέτει το κείμενο της παραγράφου
+    // Προσθέτει κείμενο στην παράγραφο
     para2.setText("This is numbered bullet");
 
     // Ορίζει την εσοχή της κουκίδας
@@ -197,7 +195,7 @@ try {
 
     para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
     para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // ορίζει το IsBulletHardColor σε true για χρήση του δικού χρώματος κουκίδας
+    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // ορίζει το IsBulletHardColor σε true για χρήση δικού χρώματος κουκίδας
 
     // Ορίζει το ύψος της κουκίδας
     para2.getParagraphFormat().getBullet().setHeight(100);
@@ -214,12 +212,12 @@ try {
 
 ## **Διαχείριση Κουκίδων Εικόνας**
 
-Οι λίστες με κουκίδες σας βοηθούν να οργανώσετε και να παρουσιάσετε πληροφορίες γρήγορα και αποδοτικά. Οι παράγραφοι με εικόνες είναι εύκολα αναγνώσιμες και κατανοητές.
+Οι λίστες με κουκίδες σας βοηθούν να οργανώσετε και να παρουσιάσετε πληροφορίες γρήγορα και αποδοτικά. Οι παράγραφοι με εικόνα είναι εύκολες στην ανάγνωση και κατανόηση.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
 3. Προσθέστε ένα [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του autoshape.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
 6. Δημιουργήστε την πρώτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraph/).
 7. Φορτώστε την εικόνα στο [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/).
@@ -229,19 +227,17 @@ try {
 11. Ορίστε χρώμα για την κουκίδα.
 12. Ορίστε ύψος για την κουκίδα.
 13. Προσθέστε τη νέα παράγραφο στη συλλογή παραγράφων του `TextFrame`.
-14. Προσθέστε τη δεύτερη παράγραφο και επαναλάβετε τη διαδικασία βάσει των προηγούμενων βημάτων.
+14. Προσθέστε τη δεύτερη παράγραφο και επαναλάβετε τη διαδικασία με τα προηγούμενα βήματα.
 15. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε και να διαχειριστείτε κουκίδες εικόνας:
-
 ```java
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
+// Δημιουργεί ένα αντικείμενο κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 Presentation presentation = new Presentation();
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Δημιουργεί την εικόνα για τις κουκίδες
+    // Δημιουργία της εικόνας για τις κουκίδες
     IPPImage picture;
     IImage image = Images.fromFile("bullets.png");
     try {
@@ -249,33 +245,33 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-    // Προσθέτει και προσπελάζει το Autoshape
+    // Προσθήκη και πρόσβαση στο Autoshape
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
     // Πρόσβαση στο πλαίσιο κειμένου του autoshape
     ITextFrame textFrame = autoShape.getTextFrame();
 
-    // Αφαιρεί την προεπιλεγμένη παράγραφο
+    // Αφαίρεση της προεπιλεγμένης παραγράφου
     textFrame.getParagraphs().removeAt(0);
 
-    // Δημιουργεί νέα παράγραφο
+    // Δημιουργία νέας παραγράφου
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
 
-    // Ορίζει το στυλ και την εικόνα της κουκίδας της παραγράφου
+    // Ορισμός στυλ και εικόνας κουκίδας της παραγράφου
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
     paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
-    // Ορίζει το ύψος της κουκίδας
+    // Ορισμός ύψους κουκίδας
     paragraph.getParagraphFormat().getBullet().setHeight(100);
 
-    // Προσθέτει την παράγραφο στο πλαίσιο κειμένου
+    // Προσθήκη παραγράφου στο πλαίσιο κειμένου
     textFrame.getParagraphs().add(paragraph);
 
-    // Αποθηκεύει την παρουσίαση ως αρχείο PPTX
+    // Αποθήκευση της παρουσίασης ως αρχείο PPTX
     presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
 
-    // Αποθηκεύει την παρουσίαση ως αρχείο PPT
+    // Αποθήκευση της παρουσίασης ως αρχείο PPT
     presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
 } catch (IOException e) {
 } finally {
@@ -285,12 +281,12 @@ try {
 
 ## **Διαχείριση Πολυεπίπεδων Κουκίδων**
 
-Οι λίστες με κουκίδες σας βοηθούν να οργανώσετε και να παρουσιάσετε πληροφορίες γρήγορα και αποδοτικά. Οι πολυεπίπεδες κουκίδες είναι εύκολα αναγνώσιμες και κατανοητές.
+Οι λίστες με κουκίδες σας βοηθούν να οργανώσετε και να παρουσιάσετε πληροφορίες γρήγορα και αποδοτικά. Οι πολυεπίπεδες κουκίδες είναι εύκολες στην ανάγνωση και κατανόηση.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
 3. Προσθέστε ένα [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη νέα διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του autoshape.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
 6. Δημιουργήστε την πρώτη παράγραφο μέσω της κλάσης [Paragraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraph/) και ορίστε το βάθος σε 0.
 7. Δημιουργήστε τη δεύτερη παράγραφο μέσω της κλάσης `Paragraph` και ορίστε το βάθος σε 1.
@@ -299,16 +295,14 @@ try {
 10. Προσθέστε τις νέες παραγράφους στη συλλογή παραγράφων του `TextFrame`.
 11. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε και να διαχειριστείτε πολυεπίπεδες κουκίδες:
-
 ```java
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
+// Δημιουργεί ένα αντικείμενο κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 Presentation pres = new Presentation();
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Προσθέτει και προσπελάζει το Autoshape
+    // Προσθέτει και αποκτά πρόσβαση στο Autoshape
     IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
     // Πρόσβαση στο πλαίσιο κειμένου του δημιουργημένου autoshape
@@ -374,18 +368,16 @@ try {
 
 Η διεπαφή [IBulletFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibulletformat/) παρέχει την ιδιότητα [NumberedBulletStartWith](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) και άλλες που σας επιτρέπουν να διαχειρίζεστε παραγράφους με προσαρμοσμένη αρίθμηση ή μορφοποίηση.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη διαφάνεια που περιέχει την παράγραφο.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στη διαφάνεια που περιέχει την παράγραφο.
 3. Προσθέστε ένα [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του autoshape.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
 6. Δημιουργήστε την πρώτη παράγραφο μέσω της κλάσης [Paragraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraph/) και ορίστε το [NumberedBulletStartWith](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) σε 2.
 7. Δημιουργήστε τη δεύτερη παράγραφο μέσω της κλάσης `Paragraph` και ορίστε το `NumberedBulletStartWith` σε 3.
 8. Δημιουργήστε την τρίτη παράγραφο μέσω της κλάσης `Paragraph` και ορίστε το `NumberedBulletStartWith` σε 7.
 9. Προσθέστε τις νέες παραγράφους στη συλλογή παραγράφων του `TextFrame`.
 10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε και να διαχειριστείτε παραγράφους με προσαρμοσμένη αρίθμηση ή μορφοποίηση:
 
 ```java
 Presentation presentation = new Presentation();
@@ -395,7 +387,7 @@ try {
     // Πρόσβαση στο πλαίσιο κειμένου του δημιουργημένου autoshape
     ITextFrame textFrame = shape.getTextFrame();
 
-    // Αφαίρεση της προεπιλεγμένης υπάρχουσας παραγράφου
+    // Αφαιρεί την προεπιλεγμένη υπάρχουσα παράγραφο
     textFrame.getParagraphs().removeAt(0);
 
     // Πρώτη λίστα
@@ -429,21 +421,19 @@ try {
 
 ## **Ορισμός Εσοχής Πρώτης Γραμμής για Παράγραφο**
 
-Χρησιμοποιήστε τη μέθοδο [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετακινεί την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
+Χρησιμοποιήστε τη μέθοδο [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
-Χρησιμοποιήστε το [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) όταν πρέπει να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
+Χρησιμοποιήστε το [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές εσοχής για να δείξει πώς η εσοχή της πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
+Το παρακάτω παράδειγμα δημιουργεί αρκετές παραγράφους και εφαρμόζει διαφορετικές τιμές εσοχής για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη στοχευμένη διαφάνεια.
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/autoshape/) στη διαφάνεια.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στη στοχευμένη διαφάνεια.
+3. Προσθέστε μια τετράγωνη [AutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/autoshape/) στη διαφάνεια.
 4. Προσθέστε ένα κενό [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textframe/) στο σχήμα και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [Indent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) για αυτές.
+5. Δημιουργήστε αρκετές παραγράφους και ορίστε διαφορετικές τιμές [Indent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) για αυτές.
 6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
 7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας δείχνει πώς να ορίσετε εσοχή παραγράφου:
 
 ```java
 Presentation presentation = new Presentation();
@@ -495,24 +485,22 @@ finally {
 
 ![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
 
-## **Ορισμός Αναρρέουσας Εσοχής για Παράγραφο**
+## **Ορισμός Κρεματής Εσοχής για Παράγραφο**
 
-Η αναρρέουσα εσοχή είναι μια διάταξη παραγράφου στην οποία η πρώτη γραμμή αρχίζει αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με τη μέθοδο [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Ορίστε την εσοχή σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
+Η κρεματή εσοχή είναι μια διάταξη παραγράφου στην οποία η πρώτη γραμμή ξεκινά αριστερά από τις υπόλοιπες γραμμές. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με τη μέθοδο [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Ορίστε την εσοχή σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή προς τα αριστερά σε σχέση με το σώμα της παραγράφου.
 
-Στην πράξη, το [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) ορίζει τη θέση του αριστερού περιθωρίου του σώματος της παραγράφου, ενώ το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε μια αναρρέουσα εσοχή, ορίστε μια θετική τιμή για το `MarginLeft` και μια αρνητική τιμή για το `Indent`.
+Στην πράξη, το [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) ορίζει τη θέση του αριστερού περιθωρίου του σώματος της παραγράφου, και το [IParagraphFormat.setIndent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ορίζει τη θέση της πρώτης γραμμής σχετικά με αυτό το περιθώριο. Για να δημιουργήσετε κρεματή εσοχή, ορίστε μια θετική τιμή `MarginLeft` και μια αρνητική τιμή `Indent`.
 
-Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, αναφορές, εισαγωγές γλωσσολογικών όρων και άλλες παραγράφους όπου οι περιτυλιγμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, εγγραφές γλωσσολογικών όρων και άλλες παραγράφους όπου οι γραμμές που αρχίζουν πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου παρά κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη στοχευμένη διαφάνεια.
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/autoshape/) στη διαφάνεια.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στη στοχευμένη διαφάνεια.
+3. Προσθέστε μια τετράγωνη [AutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/autoshape/) στη διαφάνεια.
 4. Προσθέστε ένα κενό [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textframe/) στο σχήμα και αφαιρέστε την προεπιλεγμένη παράγραφο.
 5. Δημιουργήστε παραγράφους και ορίστε μια θετική τιμή [MarginLeft](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) για κάθε παράγραφο.
-6. Ορίστε μια αρνητική τιμή [Indent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) για να δημιουργήσετε το εφέ της αναρρέουσας εσοχής.
+6. Ορίστε μια αρνητική τιμή [Indent](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) για να δημιουργήσετε το εφέ κρεματής εσοχής.
 7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
 8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας δείχνει πώς να ορίσετε αναρρέουσα εσοχή για μια παράγραφο:
 
 ```java
 Presentation presentation = new Presentation();
@@ -554,19 +542,17 @@ finally {
 
 Το αποτέλεσμα:
 
-![Η αναρρέουσα εσοχή των παραγράφων](hanging_indent.png)
+![Η κρεματή εσοχή των παραγράφων](hanging_indent.png)
 
-## **Διαχείριση Ιδιοτήτων Τέλους Παραγράφου**
+## **Διαχείριση Ιδιοτήτων Τερματισμού Παραγράφου**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-1. Λάβετε την αναφορά στη διαφάνεια που περιέχει την παράγραφο μέσω της θέσης της.
-1. Προσθέστε ένα ορθογώνιο [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+1. Λάβετε την αναφορά για τη διαφάνεια που περιέχει την παράγραφο μέσω της θέσης της.
+1. Προσθέστε ένα rectangle [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
 1. Προσθέστε ένα [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) με δύο παραγράφους στο Rectangle.
-1. Ορίστε το `FontHeight` και τον τύπο γραμματοσειράς για τις παραγράφους.
+1. Ορίστε το `FontHeight` και το τύπο γραμματοσειράς για τις παραγράφους.
 1. Ορίστε τις ιδιότητες End για τις παραγράφους.
-1. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε τις ιδιότητες End για παραγράφους στο PowerPoint:
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```java
 Presentation pres = new Presentation();
@@ -593,21 +579,19 @@ try {
 }
 ```
 
-## **Εισαγωγή HTML Κειμένου σε Παραγράφους**
+## **Εισαγωγή HTML Κειμένου σε Παράγραφους**
 
-Το Aspose.Slides παρέχει βελτιωμένη υποστήριξη για την εισαγωγή HTML κειμένου σε παραγράφους.
+Το Aspose.Slides παρέχει ενισχυμένη υποστήριξη για την εισαγωγή κειμένου HTML σε παραγράφους.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
 3. Προσθέστε ένα [autoshape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) στη διαφάνεια.
-4. Προσθέστε και προσπελάστε το `autoshape` [ITextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/).
+4. Προσθέστε και αποκτήστε πρόσβαση στο `autoshape` [ITextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/).
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `ITextFrame`.
 6. Διαβάστε το πηγαίο αρχείο HTML σε έναν TextReader.
 7. Δημιουργήστε την πρώτη παράγραφο μέσω της κλάσης [Paragraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraph/).
-8. Προσθέστε το περιεχόμενο του αρχείου HTML, διαβασμένο από το TextReader, στη [ParagraphCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraphcollection/) του TextFrame.
+8. Προσθέστε το περιεχόμενο του αρχείου HTML από τον διαβαστή TextReader στη [ParagraphCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraphcollection/) του TextFrame.
 9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας Java είναι μια υλοποίηση των βημάτων για την εισαγωγή HTML κειμένων σε παραγράφους:
 
 ```java
 // Δημιουργία κενής παρουσίασης
@@ -625,13 +609,13 @@ try {
     // Προσθήκη πλαισίου κειμένου στο σχήμα
     ashape.addTextFrame("");
 
-    // Διαγραφή όλων των παραγράφων στο προστεθέν πλαίσιο κειμένου
+    // Καθαρισμός όλων των παραγράφων στο προστιθέμενο πλαίσιο κειμένου
     ashape.getTextFrame().getParagraphs().clear();
 
-    // Φόρτωση του αρχείου HTML χρησιμοποιώντας StreamReader
+    // Φόρτωση του αρχείου HTML χρησιμοποιώντας stream reader
     TextReader tr = new StreamReader("file.html");
 
-    // Προσθήκη κειμένου από τον HTML StreamReader στο πλαίσιο κειμένου
+    // Προσθήκη κειμένου από το stream reader HTML στο πλαίσιο κειμένου
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
 
     // Αποθήκευση παρουσίασης
@@ -643,16 +627,14 @@ try {
 
 ## **Εξαγωγή Κειμένου Παραγράφου σε HTML**
 
-Το Aspose.Slides παρέχει βελτιωμένη υποστήριξη για την εξαγωγή κειμένων (που περιέχονται σε παραγράφους) σε HTML.
+Το Aspose.Slides παρέχει ενισχυμένη υποστήριξη για την εξαγωγή κειμένων (που περιέχονται σε παραγράφους) σε HTML.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσίαση.
-2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσπελάστε το σχήμα που περιέχει το κείμενο που θα εξαχθεί σε HTML.
-4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textframe/) του σχήματος.
-5. Δημιουργήστε ένα αντικείμενο `StreamWriter` και προσθέστε το νέο αρχείο HTML.
-6. Ορίστε έναν αρχικό δείκτη στο StreamWriter και εξάγετε τις προτιμώμενες παραγράφους.
-
-Αυτός ο κώδικας Java δείχνει πώς να εξάγετε τα κείμενα παραγράφων PowerPoint σε HTML:
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσίαση.
+2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
+3. Πρόσβαση στο σχήμα που περιέχει το κείμενο που θα εξαχθεί σε HTML.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textframe/) του σχήματος.
+5. Δημιουργήστε μια παρουσίαση του `StreamWriter` και προσθέστε το νέο αρχείο HTML.
+6. Ορίστε ένα αρχικό δείκτη στον StreamWriter και εξάγετε τις προτιμώμενες παραγράφους.
 
 ```java
 // Φόρτωση του αρχείου παρουσίασης
@@ -661,7 +643,7 @@ try {
     // Πρόσβαση στην προεπιλεγμένη πρώτη διαφάνεια της παρουσίασης
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Απαιτούμενος δείκτης
+    // Επιθυμητός δείκτης
     int index = 0;
 
     // Πρόσβαση στο προστεθέν σχήμα
@@ -671,8 +653,8 @@ try {
     OutputStream os = new FileOutputStream("output.html");
     Writer writer = new OutputStreamWriter(os, "UTF-8");
 
-    //Εξαγωγή πρώτης παραγράφου ως HTML
-    // Εγγραφή δεδομένων παραγράφων σε HTML παρέχοντας τον αρχικό δείκτη παραγράφου, το σύνολο των παραγράφων που θα αντιγραφούν
+    // Εξαγωγή της πρώτης παραγράφου ως HTML
+    // Γράψιμο των δεδομένων των παραγράφων σε HTML παρέχοντας το αρχικό δείκτη παραγράφου και τον συνολικό αριθμό παραγράφων προς αντιγραφή
     writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
     writer.close();
 } catch (IOException e) {
@@ -683,7 +665,7 @@ try {
 
 ## **Αποθήκευση Παραγράφου ως Εικόνα**
 
-Σε αυτήν την ενότητα, θα εξετάσουμε δύο παραδείγματα που δείχνουν πώς να αποθηκεύσετε μια παράγραφο κειμένου, που αντιπροσωπεύεται από τη διεπαφή [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/), ως εικόνα. Και τα δύο παραδείγματα περιλαμβάνουν την απόκτηση της εικόνας ενός σχήματος που περιέχει την παράγραφο χρησιμοποιώντας τις μεθόδους `getImage` της διεπαφής [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), τον υπολογισμό των ορίων της παραγράφου εντός του σχήματος και την εξαγωγή της ως bitmap εικόνα. Αυτές οι προσεγγίσεις σας επιτρέπουν να εξάγετε συγκεκριμένα τμήματα κειμένου από παρουσιάσεις PowerPoint και να τα αποθηκεύσετε ως ξεχωριστές εικόνες, κάτι που μπορεί να είναι χρήσιμο σε διάφορα σενάρια.
+Σε αυτήν τη χρήση, θα εξετάσουμε δύο παραδείγματα που δείχνουν πώς να αποθηκεύσετε μια παράγραφο κειμένου, η οποία αντιπροσωπεύεται από τη διεπαφή [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/), ως εικόνα. Και τα δύο παραδείγματα περιλαμβάνουν την λήψη της εικόνας ενός σχήματος που περιέχει την παράγραφο χρησιμοποιώντας τις μεθόδους `getImage` από τη διεπαφή [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), τον υπολογισμό των ορίων της παραγράφου εντός του σχήματος και την εξαγωγή της ως bitmap εικόνα. Αυτές οι προσεγγίσεις σας επιτρέπουν να εξάγετε συγκεκριμένα τμήματα κειμένου από παρουσιάσεις PowerPoint και να τα αποθηκεύσετε ως ξεχωριστές εικόνες, τις οποίες μπορείτε να χρησιμοποιήσετε σε διάφορα σενάρια.
 
 Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
 
@@ -691,34 +673,34 @@ try {
 
 **Παράδειγμα 1**
 
-Σε αυτό το παράδειγμα, εξάγουμε τη δεύτερη παράγραφο ως εικόνα. Για να το κάνουμε αυτό, εξάγουμε την εικόνα του σχήματος από την πρώτη διαφάνεια της παρουσίασης και στη συνέχεια υπολογίζουμε τα όρια της δεύτερης παραγράφου στο πλαίσιο κειμένου του σχήματος. Η παράγραφος στη συνέχεια επανασχεδιάζεται σε μια νέα bitmap εικόνα, η οποία αποθηκεύεται σε μορφή PNG. Αυτή η μέθοδος είναι ιδιαίτερα χρήσιμη όταν χρειάζεται να αποθηκεύσετε μια συγκεκριμένη παράγραφο ως ξεχωριστή εικόνα, διατηρώντας τις ακριβείς διαστάσεις και τη μορφοποίηση του κειμένου.
+Σε αυτό το παράδειγμα, λαμβάνουμε τη δεύτερη παράγραφο ως εικόνα. Για να το κάνουμε αυτό, εξάγουμε την εικόνα του σχήματος από την πρώτη διαφάνεια της παρουσίασης και υπολογίζουμε τα όρια της δεύτερης παραγράφου στο πλαίσιο κειμένου του σχήματος. Η παράγραφος στη συνέχεια σχεδιάζεται ξανά σε μια νέα bitmap εικόνα, η οποία αποθηκεύεται σε μορφή PNG. Αυτή η μέθοδος είναι ιδιαίτερα χρήσιμη όταν χρειάζεται να αποθηκεύσετε μια συγκεκριμένη παράγραφο ως ξεχωριστή εικόνα διατηρώντας τις ακριβείς διαστάσεις και μορφοποίηση του κειμένου.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Αποθηκεύει το σχήμα στη μνήμη ως bitmap.
+    // Αποθήκευση του σχήματος στη μνήμη ως bitmap.
     IImage shapeImage = firstShape.getImage();
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // Δημιουργεί ένα bitmap σχήματος από τη μνήμη.
+    // Δημιουργία bitmap σχήματος από τη μνήμη.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // Υπολογίζει τα όρια της δεύτερης παραγράφου.
+    // Υπολογισμός των ορίων της δεύτερης παραγράφου.
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     RectF paragraphRectangle = secondParagraph.getRect();
 
-    // Υπολογίζει τις συντεταγμένες και το μέγεθος της εικόνας εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
+    // Υπολογισμός των συντεταγμένων και του μεγέθους για την εικόνα εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
     int imageX = (int) Math.floor(paragraphRectangle.left);
     int imageY = (int) Math.floor(paragraphRectangle.top);
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // Κόβει το bitmap του σχήματος για να πάρει μόνο το bitmap της παραγράφου.
+    // Κόψιμο του bitmap του σχήματος για να ληφθεί μόνο το bitmap της παραγράφου.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -734,7 +716,7 @@ try {
 
 **Παράδειγμα 2**
 
-Σε αυτό το παράδειγμα, επεκτείνουμε την προγενέστερη προσέγγιση προσθέτοντας παράγοντες κλίμακας στην εικόνα παραγράφου. Το σχήμα εξάγεται από την παρουσίαση και αποθηκεύεται ως εικόνα με παράγοντα κλιμάκωσης `2`. Αυτό επιτρέπει ένα υψηλότερης ανάλυσης αποτέλεσμα κατά την εξαγωγή της παραγράφου. Τα όρια της παραγράφου υπολογίζονται μετά τον υπολογισμό της κλίμακας. Η κλιμάκωση μπορεί να είναι ιδιαίτερα χρήσιμη όταν απαιτείται πιο λεπτομερής εικόνα, για παράδειγμα για χρήση σε υψηλής ποιότητας έντυπο υλικό.
+Σε αυτό το παράδειγμα, επεκτείνουμε την προηγούμενη προσέγγιση προσθέτοντας παράγοντες κλίμακας στην εικόνα της παραγράφου. Το σχήμα εξάγεται από την παρουσίαση και αποθηκεύεται ως εικόνα με παράγοντα κλίμακας `2`. Αυτό επιτρέπει υψηλότερη ανάλυση εξόδου όταν εξάγετε την παράγραφο. Τα όρια της παραγράφου υπολογίζονται λαμβάνοντας υπόψη την κλίμακα. Η κλίμακα μπορεί να είναι ιδιαίτερα χρήσιμη όταν απαιτείται πιο λεπτομερής εικόνα, για παράδειγμα, για χρήση σε υλικά υψηλής ποιότητας εκτύπωσης.
 
 ```java
 float imageScaleX = 2f;
@@ -744,17 +726,17 @@ Presentation presentation = new Presentation("sample.pptx");
 try {
     IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Αποθηκεύει το σχήμα στη μνήμη ως bitmap με κλιμάκωση.
+    // Αποθήκευση του σχήματος στη μνήμη ως bitmap με κλιμάκωση.
     IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
     ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
     shapeImage.save(shapeImageStream, ImageFormat.Png);
     shapeImage.dispose();
 
-    // Δημιουργεί ένα bitmap σχήματος από τη μνήμη.
+    // Δημιουργία bitmap σχήματος από τη μνήμη.
     InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
     BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-    // Υπολογίζει τα όρια της δεύτερης παραγράφου.
+    // Υπολογισμός των ορίων της δεύτερης παραγράφου.
     IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
     RectF paragraphRectangle = secondParagraph.getRect();
     paragraphRectangle.set(
@@ -764,13 +746,13 @@ try {
             paragraphRectangle.bottom * imageScaleY
     );
 
-    // Υπολογίζει τις συντεταγμένες και το μέγεθος της εικόνας εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
+    // Υπολογισμός των συντεταγμένων και του μεγέθους για την εικόνα εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
     int imageX = (int) Math.floor(paragraphRectangle.left);
     int imageY = (int) Math.floor(paragraphRectangle.top);
     int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
     int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
 
-    // Κόβει το bitmap του σχήματος για να πάρει μόνο το bitmap της παραγράφου.
+    // Κοπή του bitmap του σχήματος για να ληφθεί μόνο το bitmap της παραγράφου.
     BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
     ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
@@ -782,18 +764,18 @@ try {
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να απενεργοποιήσω εντελώς τη συρραφή γραμμών μέσα σε ένα πλαίσιο κειμένου;**
+**Μπορώ να απενεργοποιήσω τελείως τη συσπασμένη γραμμή μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Χρησιμοποιήστε τη ρύθμιση συρραφής του πλαισίου κειμένου ([setWrapText](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) για να απενεργοποιήσετε τη συρραφή ώστε οι γραμμές να μην σπάζουν στις άκρες του πλαισίου.
+Ναι. Χρησιμοποιήστε τη ρύθμιση συσπασμένης γραμμής του πλαισίου κειμένου ([setWrapText](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) για να την απενεργοποιήσετε ώστε οι γραμμές να μην σπάζουν στις άκρες του πλαισίου.
 
-**Πώς μπορώ να λάβω τα ακριβή όρια στο slide ενός συγκεκριμένου τμήματος παραγράφου;**
+**Πώς μπορώ να λάβω τα ακριβή όρια σε διαφάνεια ενός συγκεκριμένου τμήματος παραγράφου;**
 
-Μπορείτε να ανακτήσετε το ορθογώνιο περιορισμών της παραγράφου (και ακόμη και ενός μεμονωμένου τμήματος) για να γνωρίζετε τη θέση και το μέγεθός του στην διαφάνεια.
+Μπορείτε να ανακτήσετε το ορθογώνιο περιβάλλον της παραγράφου (και ακόμη και ενός μεμονωμένου τμήματος) για να γνωρίζετε τη ακριβή θέση και μέγεθός του στη διαφάνεια.
 
-**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά/δεξιά/κέντρο/πλήρης δικαιολογία);**
+**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά/δεξιά/κέντρο/πλήρης ευθυγράμμιση);**
 
-Η [Alignment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) είναι ρύθμιση επιπέδου παραγράφου στο [ParagraphFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraphformat/); εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση των επιμέρους τμημάτων.
+Το [Alignment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) είναι ρύθμιση επιπέδου παραγράφου στο [ParagraphFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/paragraphformat/); εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση των επιμέρους τμημάτων.
 
-**Μπορώ να ορίσω γλώσσα ελέγχου ορθογραφίας μόνο για μέρος μιας παραγράφου (π.χ. μια λέξη);**
+**Μπορώ να ορίσω γλώσσα ελέγχου ορθογραφίας για μόνο ένα μέρος μιας παραγράφου (π.χ., μια λέξη);**
 
-Ναι. Η γλώσσα ορίζεται σε επίπεδο τμήματος ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), ώστε να μπορούν να συνυπάρχουν πολλαπλές γλώσσες μέσα σε μια ενιαία παράγραφο.
+Ναι. Η γλώσσα ορίζεται σε επίπεδο τμήματος ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), ώστε να μπορούν να συνυπάρχουν πολλαπλές γλώσσες μέσα σε μία παράγραφο.

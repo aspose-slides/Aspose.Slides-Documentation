@@ -3,6 +3,8 @@ title: 页眉页脚
 type: docs
 weight: 220
 url: /zh/net/examples/elements/header-footer/
+aliases:
+  - /net/examples/elements/elements/header-footer/
 keywords:
 - 页眉页脚
 - 添加页眉页脚
@@ -14,7 +16,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 控制幻灯片的页眉和页脚：在 PPT、PPTX 和 ODP 中添加日期、幻灯片编号和自定义文本，提供 C# 示例。"
+description: "使用 Aspose.Slides for .NET 控制幻灯片的页眉和页脚：在 PPT、PPTX 和 ODP 中使用 C# 示例添加日期、幻灯片编号和自定义文本。"
 ---
 本文演示如何使用 **Aspose.Slides for .NET** 添加页脚并更新日期和时间占位符。
 

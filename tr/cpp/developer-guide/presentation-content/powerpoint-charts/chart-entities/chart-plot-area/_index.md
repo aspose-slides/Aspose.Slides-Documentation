@@ -1,5 +1,5 @@
 ---
-title: С++ Sunum Grafiklerinin Çizim Alanlarını Özelleştirme
+title: C++'ta Sunum Grafiklerinin Çizim Alanlarını Özelleştirme
 linktitle: Çizim Alanı
 type: docs
 url: /tr/cpp/chart-plot-area/
@@ -12,27 +12,27 @@ keywords:
 - düzen modu
 - PowerPoint
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ ile PowerPoint sunumlarındaki grafik çizim alanlarını nasıl özelleştireceğinizi keşfedin. Slayt görsellerinizi zahmetsizce geliştirin."
+description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarındaki grafik çizim alanlarını nasıl özelleştireceğinizi keşfedin. Slayt görsellerinizi zahmetsizce iyileştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'te bir grafiğin çizim alanı (plot area) ile nasıl çalışılacağını gösterir. Grafiğin düzenini doğrulayıp X, Y, genişlik ve yükseklik değerlerini okuyarak çizim alanının gerçek konum ve boyutunu elde etmeyi açıklar.
+Bu makale, Aspose.Slides’de bir grafiğin çizim alanı (plot area) ile nasıl çalışılacağını gösterir. Grafiğin düzenini doğrulayıp X, Y, genişlik ve yükseklik değerlerini okuyarak çizim alanının gerçek konum ve boyutlarını nasıl alacağınızı açıklar.
 
-Ayrıca, düzen manuel olarak ayarlandığında çizim alanının düzenleme modunu nasıl yapılandıracağınızı, çizim alanının iç bölgesi mi yoksa eksenler ve eksen etiketleriyle birlikte dış bölgesi mi kullanılacağını belirlemek için `LayoutTargetType` kullanarak gösterir.
+Ayrıca, düzen manuel olarak ayarlandığında çizim alanının düzen kipini nasıl yapılandıracağınızı, `LayoutTargetType` kullanarak çizim alanının iç bölgesiyle mi yoksa eksenler ve eksen etiketleriyle birlikte dış bölgesiyle mi hesaplanacağını nasıl tanımlayacağınızı gösterir.
 
-## **Bir Grafik Çizim Alanının Genişlik ve Yüksekliğini Alma**
+## **Bir Grafik Çizim Alanının Genişlik ve Yüksekliğini Alın**
 Aspose.Slides for C++ basit bir API sağlar.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-2. İlk slayta erişin.
-3. Varsayılan veri ile bir grafik ekleyin.
-4. Gerçek değerleri almak için IChart::ValidateChartLayout() metodunu çağırın.
-5. Grafik elemanının sol üst köşeye göre gerçek X konumunu (sol) alın.
-6. Grafik elemanının sol üst köşeye göre gerçek üst konumunu alın.
-7. Grafik elemanının gerçek genişliğini alın.
-8. Grafik elemanının gerçek yüksekliğini alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
+2. İlk slayta erişin.  
+3. Varsayılan veriyle bir grafik ekleyin.  
+4. Gerçek değerleri almak için IChart::ValidateChartLayout() metodunu çağırın.  
+5. Grafik öğesinin sol üst köşesine göre gerçek X konumunu (sol) alın.  
+6. Grafik öğesinin sol üst köşesine göre gerçek üst konumunu alın.  
+7. Grafik öğesinin gerçek genişliğini alın.  
+8. Grafik öğesinin gerçek yüksekliğini alın.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"test.Pptx");
@@ -45,15 +45,15 @@ double y = chart->get_PlotArea()->get_ActualY();
 double w = chart->get_PlotArea()->get_ActualWidth();
 double h = chart->get_PlotArea()->get_ActualHeight();
 
-// Grafiği içeren sunumu kaydet
+// Sunumu grafik ile kaydet
 pres->Save(u"Chart_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Bir Grafik Çizim Alanının Düzen Modunu Ayarlama**
-Aspose.Slides for C++ grafik çizim alanının düzen modunu ayarlamak için basit bir API sağlar. **LayoutTargetType** özelliği **ChartPlotArea** ve **IChartPlotArea** sınıflarına eklenmiştir. Çizim alanının düzeni manuel olarak tanımlanmışsa bu özellik, çizim alanının iç (eksen ve eksen etiketleri dahil olmadan) veya dış (eksen ve eksen etiketleri dahil) bölgeye göre düzenlenip düzenlenmeyeceğini belirtir. **LayoutTargetType** enum'unda tanımlı iki olası değer vardır.
+Aspose.Slides for C++ grafik çizim alanının düzen modunu ayarlamak için basit bir API sağlar. **LayoutTargetType** özelliği **ChartPlotArea** ve **IChartPlotArea** sınıflarına eklenmiştir. Çizim alanının düzeni manuel olarak tanımlanmışsa bu özellik, çizim alanının iç (eksen ve eksen etiketleri dahil değil) ya da dış (eksen ve eksen etiketleri dahil) bölgeye göre düzenlenip düzenlenmeyeceğini belirtir. **LayoutTargetType** enumunda tanımlı iki olası değer vardır.
 
-- **LayoutTargetType.Inner** – çizim alanının boyutunun, işaretçileri ve eksen etiketlerini içermeyen çizim alanı boyutunu belirleyeceğini belirtir.
-- **LayoutTargetType.Outer** – çizim alanının boyutunun, işaretçileri ve eksen etiketlerini de içeren çizim alanı boyutunu belirleyeceğini belirtir.
+- **LayoutTargetType.Inner** – çizim alanı boyutunun, tick işaretleri ve eksen etiketleri hariç çizim alanının boyutunu belirleyeceğini belirtir.  
+- **LayoutTargetType.Outer** – çizim alanı boyutunun, tick işaretleri ve eksen etiketleri dahil çizim alanının boyutunu belirleyeceğini belirtir.
 
 Aşağıda örnek kod verilmiştir.
 
@@ -63,16 +63,16 @@ Aşağıda örnek kod verilmiştir.
 
 **ActualX, ActualY, ActualWidth ve ActualHeight hangi birimlerde döndürülür?**
 
-Puan cinsinden; 1 inç = 72 puan. Bunlar Aspose.Slides koordinat birimleridir.
+Puan (point) birimindedir; 1 inç = 72 puan. Bunlar Aspose.Slides koordinat birimleridir.
 
-**Plot Area ile Chart Area içerik bakımından nasıl farklılık gösterir?**
+**Çizim Alanı (Plot Area) İçerik açısından Grafik Alanından (Chart Area) nasıl farklıdır?**
 
-Plot Area, veri çizim bölgesidir (seri, ızgara çizgileri, trend çizgileri vb.); Chart Area ise çevredeki öğeleri (başlık, lejand vb.) içerir. 3B grafiklerde Plot Area ayrıca duvarları/kıtayı ve eksenleri de kapsar.
+Çizim Alanı, veri çizim bölgesidir (seri, ızgara çizgileri, trend çizgileri vb.); Grafik Alanı ise çevre öğeleri (başlık, gösterge, vb.) içerir. 3B grafiklerde Çizim Alanı aynı zamanda duvarları/kavşakları ve eksenleri de kapsar.
 
-**Düzen manuel olduğunda Plot Area’nın X, Y, Width ve Height değerleri nasıl yorumlanır?**
+**Düzen manuel olduğunda Çizim Alanının X, Y, Genişlik ve Yükseklik değerleri nasıl yorumlanır?**
 
-Grafiğin toplam boyutunun kesirleri (0–1) olarak alınır; bu modda otomatik konumlandırma devre dışı bırakılır ve belirlediğiniz kesirler kullanılır.
+Grafiğin toplam boyutunun kesirleri (0–1) olarak kabul edilir; bu kipte otomatik konumlandırma devre dışı bırakılır ve ayarladığınız kesirler kullanılır.
 
-**Lejand eklenip/taşındıktan sonra Plot Area konumu neden değişti?**
+**Gösterge eklenip/taşındıktan sonra Çizim Alanının konumu neden değişti?**
 
-Lejand, Plot Area’nın dışında grafik alanında yer alır ancak düzeni ve kullanılabilir alanı etkiler, bu yüzden otomatik konumlandırma etkili olduğunda Plot Area kayabilir. (Bu, PowerPoint grafiklerinin standart davranışıdır.)
+Gösterge, Çizim Alanının dışındaki grafik alanında yer alır ancak düzeni ve kullanılabilir alanı etkiler; bu nedenle otomatik konumlandırma etkiliyken Çizim Alanı kayabilir. (Bu, PowerPoint grafiklerinde standart bir davranıştır.)

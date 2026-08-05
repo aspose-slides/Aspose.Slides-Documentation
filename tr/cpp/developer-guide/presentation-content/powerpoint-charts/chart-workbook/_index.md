@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda C++ Kullanarak Grafik Çalışma Kitaplarını Yönetme
+title: C++ Kullanarak Sunularda Grafik Çalışma Kitaplarını Yönetme
 linktitle: Grafik Çalışma Kitabı
 type: docs
 weight: 70
@@ -17,17 +17,17 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ı keşfedin: PowerPoint ve OpenDocument biçimlerinde grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi düzenleyin."
+description: "Aspose.Slides for C++'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi kolaylaştırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'te grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini nasıl okuyup yazacağınızı, çalışma kitabı hücrelerini grafik veri etiketi olarak nasıl kullanacağınızı, çalışma sayfası koleksiyonlarına nasıl erişeceğinizi ve grafik değerleri için veri kaynağı türünü nasıl belirteceğinizi gösterir.
+Bu makale Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini nasıl okuyup yazacağınızı, çalışma kitabı hücrelerini grafik veri etiketleri olarak nasıl kullanacağınızı, çalışma sayfası koleksiyonlarına nasıl erişeceğinizi ve grafik değerleri için veri kaynağı türünün nasıl belirtileceğini gösterir.
 
-Ayrıca dış çalışma kitaplarının grafik veri kaynakları olarak kullanılmasını da kapsar. Örnekler, dış bir çalışma kitabı oluşturup atamayı, bir grafikle ilişkili dış çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verilerini düzenlemeyi göstermektedir.
+Ayrıca grafik veri kaynakları olarak harici çalışma kitaplarıyla çalışmayı kapsar. Örnekler, harici bir çalışma kitabının nasıl oluşturulup atanacağını, bir grafikle ilişkilendirilmiş harici çalışma kitabının yolunun nasıl alınacağını ve çalışma kitabı mevcut olduğunda grafik verilerinin nasıl düzenleneceğini gösterir.
 
-## **Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
+## **Bir Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
 
-Aspose.Slides, grafik veri çalışma kitaplarını (Aspose.Cells ile düzenlenmiş grafik verilerini içeren) okuma ve yazma imkanı sunan [ReadWorkbookStream](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) ve [WriteWorkbookStream](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) metodlarını sağlar. **Not** grafik verilerinin aynı şekilde düzenlenmiş olması ya da kaynağa benzer bir yapıya sahip olması gerekir.
+Aspose.Slides, grafik verileri çalışma kitaplarını (Aspose.Cells ile düzenlenmiş) okumanıza ve yazmanıza izin veren [ReadWorkbookStream](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) ve [WriteWorkbookStream](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) yöntemlerini sağlar. **Not**: Grafik verileri aynı şekilde düzenlenmiş olmalı ya da kaynağa benzer bir yapıya sahip olmalıdır.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -43,7 +43,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Bu C++ kodu, bir grafik veri çalışma kitabı ayarlama işlemini gösterir:
+Bu C++ kodu bir grafik veri çalışma kitabını ayarlama işlemini gösterir:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -75,23 +75,23 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
+## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
 
-1. Presentation sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. Birkaç veriyle bir Kabarcık grafiği ekleyin.
-1. Grafik serisine erişin.
-1. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.
+1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. İndeksi aracılığıyla slayt referansını alın.  
+1. Bazı verilerle bir Balon grafiği ekleyin.  
+1. Grafik serisine erişin.  
+1. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.  
 1. Sunumu kaydedin.
 
-Bu C++ kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak ayarlamayı gösterir:
+Bu C++ kodu bir çalışma kitabı hücresini grafik veri etiketi olarak ayarlamayı gösterir:
 
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// Bir sunum dosyasını temsil eden Presentation sınıfını örnekler 
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -113,7 +113,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Çalışma Sayfalarını Yönetme**
 
-Bu C++ kodu, [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) metodunun bir çalışma sayfası koleksiyonuna erişmek için kullanıldığı bir işlemi gösterir:
+Bu C++ kodu, [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) yönteminin bir çalışma sayfası koleksiyonuna erişmek için nasıl kullanıldığını gösterir:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -126,9 +126,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Veri Kaynağı Türünü Belirleme**
+## **Veri Kaynağı Türünü Belirtme**
 
-Bu C++ kodu, bir veri kaynağı için tür nasıl belirtilir gösterir:
+Bu C++ kodu bir veri kaynağı için türün nasıl belirtileceğini gösterir:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -145,9 +145,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algıla**
+## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algılama**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafikleri atlamak için [IChartData](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdata/) üzerindeki `get_EmbeddedWorkbookType` metodunu ve [WorkbookType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/workbooktype/) enumarasyonunu kullanabilirsiniz.
+Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) biçimini desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafikleri atlamak için [IChartData](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdata/) üzerindeki `get_EmbeddedWorkbookType` yöntemini, [WorkbookType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/workbooktype/) enumarasyonu ile birlikte kullanabilirsiniz.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -166,25 +166,25 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // Gömülü çalışma kitabı .xlsb formatında, bu format desteklenmiyor.
+        // Gömülü çalışma kitabı .xlsb formatında ve bu format desteklenmiyor.
         continue;
     }
 
-    // Burada grafik çalışma kitabı verilerini okuyabilir veya değiştirebilirsiniz.
+    // Grafik çalışma kitabı verilerini burada okuyabilir veya değiştirebilirsiniz.
 }
 ```
 
 ## **Harici Çalışma Kitabı**
 
 {{% alert color="primary" %}} 
-[Aspose.Slides](https://releases.aspose.com/slides/tr/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4'te, grafikler için veri kaynağı olarak harici çalışma kitaplarının desteğini uyguladık.
+[ Aspose.Slides](https://releases.aspose.com/slides/tr/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 sürümünde grafikler için veri kaynağı olarak harici çalışma kitapları desteği ekledik. 
 {{% /alert %}} 
 
 ### **Harici Bir Çalışma Kitabı Oluşturma**
 
-**`ReadWorkbookStream`** ve **`SetExternalWorkbook`** metodlarını kullanarak, ya sıfırdan bir harici çalışma kitabı oluşturabilir ya da iç bir çalışma kitabını harici hâle getirebilirsiniz.
+**`ReadWorkbookStream`** ve **`SetExternalWorkbook`** yöntemlerini kullanarak sıfırdan bir harici çalışma kitabı oluşturabilir ya da iç bir çalışma kitabını hariciye dönüştürebilirsiniz.
 
-Bu C++ kodu, harici çalışma kitabı oluşturma sürecini gösterir:
+Bu C++ kodu harici çalışma kitabı oluşturma sürecini gösterir:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -208,11 +208,11 @@ pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 
 ### **Harici Bir Çalışma Kitabını Ayarlama**
 
-**`IChartData::SetExternalWorkbook`** metodunu kullanarak, bir harici çalışma kitabını grafik için veri kaynağı olarak atayabilirsiniz. Bu metod aynı zamanda harici çalışma kitabının yolunu güncellemek için de kullanılabilir (eğer çalışma kitabı taşınmışsa).
+**`IChartData::SetExternalWorkbook`** yöntemini kullanarak bir grafiğe harici bir çalışma kitabını veri kaynağı olarak atayabilirsiniz. Bu yöntem aynı zamanda harici çalışma kitabının yolunu (taşınmışsa) güncellemek için de kullanılabilir.
 
-Uzak konumlarda veya kaynaklarda depolanan çalışma kitaplarının verilerini düzenleyemezsiniz, ancak bu çalışma kitaplarını hâlâ harici bir veri kaynağı olarak kullanabilirsiniz. Harici bir çalışma kitabı için göreceli bir yol sağlanırsa, otomatik olarak tam bir yola dönüştürülür.
+Uzak konumlardaki ya da kaynaklardaki çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu çalışma kitaplarını harici veri kaynağı olarak kullanabilirsiniz. Harici bir çalışma kitabı için göreli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
 
-Bu C++ kodu, harici bir çalışma kitabını nasıl ayarlayacağınızı gösterir:
+Bu C++ kodu harici bir çalışma kitabının nasıl ayarlanacağını gösterir:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -236,10 +236,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-`updateChartData` parametresi (`SetExternalWorkbook` metodunda) bir Excel çalışma kitabının yüklenip yüklenmeyeceğini belirtmek için kullanılır. 
+`SetExternalWorkbook` yöntemindeki `updateChartData` parametresi, Excel çalışma kitabının yüklenecek olup olmadığını belirtmek için kullanılır.
 
-* `updateChartData` değeri `false` olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir—grafik verileri hedef çalışma kitabından yüklenmez veya güncellenmez. Bu ayarı, hedef çalışma kitabı mevcut olmadığında veya erişilemez olduğunda kullanmak isteyebilirsiniz.
-* `updateChartData` değeri `true` olarak ayarlandığında, grafik verileri hedef çalışma kitabından güncellenir.
+* `updateChartData` değeri `false` olarak ayarlandığında yalnızca çalışma kitabı yolu güncellenir—grafik verileri hedef çalışma kitabından yüklenmez veya güncellenmez. Hedef çalışma kitabı mevcut değilse ya da erişilemezse bu ayar kullanılabilir.  
+* `updateChartData` değeri `true` olarak ayarlandığında grafik verileri hedef çalışma kitabından güncellenir.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -255,13 +255,13 @@ pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 
 ### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Alma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. Grafik şekli için bir nesne oluşturun.
-1. Kaynak (`ChartDataSourceType`) türü için, grafiğin veri kaynağını temsil eden bir nesne oluşturun.
-1. Kaynak türünün harici çalışma kitabı veri kaynağı türüyle aynı olmasına göre ilgili koşulu belirtin.
+1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. İndeksi aracılığıyla slayt referansını alın.  
+1. Grafik şekli için bir nesne oluşturun.  
+1. Grafiğin veri kaynağını temsil eden (`ChartDataSourceType`) kaynak nesnesini oluşturun.  
+1. Harici çalışma kitabı veri kaynağı türüyle aynı olduğu koşuluna göre ilgili durumu belirtin.
 
-Bu C++ kodu, bu işlemi gösterir:
+Bu C++ kodu işlemi gösterir:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -274,15 +274,15 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Saves the presentation
+// Sunumu kaydeder
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **Grafik Verisini Düzenleme**
+### **Grafik Verilerini Düzenleme**
 
-Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarının içeriklerini değiştirdiğiniz şekilde düzenleyebilirsiniz. Bir harici çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
+Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarındaki gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
 
-Bu C++ kodu, açıklanan sürecin bir uygulamasıdır:
+Bu C++ kodu açıklanan sürecin bir uygulamasıdır:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
@@ -300,26 +300,20 @@ const String templatePath = u"../templates/presentation.pptx";
 
 ## **SSS**
 
-**Belirli bir grafiğin harici mi yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**
+**Belirli bir grafiğin harici mi yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**  
+Evet. Bir grafiğin bir [veri kaynağı türü](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) ve bir [harici çalışma kitabı yolu](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) vardır; kaynak bir harici çalışma kitabıysa tam yolu okuyarak dış dosyanın kullanıldığını doğrulayabilirsiniz.
 
-Evet. Bir grafiğin bir [veri kaynağı türü](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) ve bir [harici çalışma kitabı yolu](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) vardır; kaynak bir harici çalışma kitabı ise, harici bir dosyanın kullanıldığını doğrulamak için tam yolu okuyabilirsiniz.
+**Harici çalışma kitapları için göreli yollar destekleniyor mu, nasıl depolanıyor?**  
+Evet. Göreli bir yol belirtirseniz otomatik olarak mutlak yola dönüştürülür. Bu, proje taşınabilirliği için uygundur; ancak sunum, PPTX dosyasında mutlak yolu saklar.
 
-**Harici çalışma kitapları için göreceli yollar destekleniyor mu ve nasıl depolanıyor?**
+**Ağ kaynaklarında/paylaşımlarda bulunan çalışma kitaplarını kullanabilir miyim?**  
+Evet, bu çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak Aspose.Slides üzerinden uzak çalışma kitaplarını doğrudan düzenlemek desteklenmez—yalnızca kaynak olarak kullanılabilirler.
 
-Evet. Göreceli bir yol belirttiğinizde, otomatik olarak mutlak bir yola dönüştürülür. Bu, proje taşınabilirliği açısından uygundur; ancak, sunumun PPTX dosyasında mutlak yolu depolayacağını unutmayın.
+**Sunumu kaydederken Aspose.Slides harici XLSX dosyasını üzerine yazıyor mu?**  
+Hayır. Sunum, [harici dosyaya bir bağlantı](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) saklar ve veri okuma için bu bağlantıyı kullanır. Sunum kaydedildiğinde harici dosya kendisi değiştirilmez.
 
-**Ağ kaynaklarında/paylaşımlarda bulunan çalışma kitaplarını kullanabilir miyim?**
+**Harici dosya parola korumalıysa ne yapmalıyım?**  
+Aspose.Slides, bağlanırken parola kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak ya da şifresiz bir kopya hazırlamak (ör. [Aspose.Cells](/cells/cpp/)) ve o kopyaya bağlanmaktır.
 
-Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, Aspose.Slides'tan uzaktaki çalışma kitaplarını doğrudan düzenlemek desteklenmez; yalnızca kaynak olarak kullanılabilirler.
-
-**Aspose.Slides sunumu kaydederken harici XLSX dosyasını üzerine yazar mı?**
-
-Hayır. Sunum bir [harici dosyaya bağlantı](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) saklar ve verileri okurken bunu kullanır. Sunum kaydedildiğinde harici dosya kendisi değiştirilmez.
-
-**Harici dosya şifre korumalıysa ne yapmalıyım?**
-
-Aspose.Slides bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, şifre korumasını önceden kaldırmak veya şifresi çözülmüş bir kopya hazırlamaktır (örneğin, [Aspose.Cells](/cells/cpp/) kullanarak) ve bu kopyaya bağlanmaktır.
-
-**Birden fazla grafik aynı harici çalışma kitabına başvurabilir mi?**
-
-Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki yüklendiğinde her grafikte de yansıtılır.
+**Birden fazla grafik aynı harici çalışma kitabına başvurabilir mi?**  
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki yüklemede her grafikte de yansıtılır.
