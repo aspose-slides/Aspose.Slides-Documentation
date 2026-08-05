@@ -1,11 +1,13 @@
 ---
-title: Android でプレゼンテーションから数式をエクスポート
-linktitle: 数式のエクスポート
+title: Android のプレゼンテーションから数式をエクスポート
+linktitle: 数式をエクスポート
 type: docs
 weight: 30
 url: /ja/androidjava/exporting-math-equations/
 keywords:
-- 数式のエクスポート
+- 数式をエクスポート
+- LaTeX へ数式をエクスポート
+- PowerPoint から LaTeX へ
 - MathML
 - LaTeX
 - PowerPoint
@@ -13,20 +15,71 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java を使用して、PowerPoint の数式を MathML にシームレスにエクスポートし、書式を保持し、互換性を向上させます。"
+description: "Aspose.Slides for Android via Java を使用して、PowerPoint プレゼンテーションから数式を直接 LaTeX または MathML にエクスポートします。"
 ---
+## **はじめに**
 
-## **プレゼンテーションから数式をエクスポート**
-
-Aspose.Slides for Android via Java を使用すると、プレゼンテーションから数式をエクスポートできます。たとえば、特定のプレゼンテーション内のスライドに含まれる数式を抽出し、別のプログラムやプラットフォームで使用する必要がある場合があります。
+Aspose.Slides for Android via Java を使用すると、プレゼンテーションから数式をエクスポートできます。たとえば、特定のプレゼンテーション内のスライド上の数式を抽出し、別のプログラムやプラットフォームで使用する必要がある場合があります。
 
 {{% alert color="primary" %}} 
-数式や Web や多くのアプリケーションで見られる類似コンテンツのための一般的なフォーマットまたは標準である MathML にエクスポートできます。 
+数式は LaTeX または MathML に直接エクスポートできます。MathML は、ウェブや多くのアプリケーションで使用される数式コンテンツの一般的な標準です。
 {{% /alert %}}
 
-LaTeX のような一部の数式フォーマットのコードは人間が簡単に作成できますが、MathML のコードはアプリが自動生成することを前提としているため、作成が難しいです。MathML のコードは XML 形式なので、プログラムは容易に読み取り・解析でき、さまざまな分野で出力や印刷用フォーマットとして広く利用されています。
+## **数式を LaTeX にエクスポート**
 
-このサンプルコードは、プレゼンテーションから数式を MathML にエクスポートする方法を示しています。
+Aspose.Slides は、PowerPoint の数式を直接 LaTeX に変換できます。中間の MathML ファイルや外部コンバータは必要ありません。数式はテキストフレーム内に [IMathPortion](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imathportion/) として格納されます。[IMathPortion.getMathParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) を使用して [IMathParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imathparagraph/) を取得し、次に [IMathParagraph.toLatex](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imathparagraph/#toLatex--) を呼び出します。このメソッドは、保存、表示、別のアプリケーションへの送信、またはさらに処理できる文字列を返します。
+
+次のサンプルは、すべてのスライドのすべてのテキストフレームを調べ、すべての数式部分を検出し、各数式を個別の `.tex` ファイルに書き出します:
+
+```java
+Presentation presentation = new Presentation("equations.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+        int slideNumber = slideIndex + 1;
+        int equationNumber = 1;
+        ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
+
+        for (ITextFrame textFrame : textFrames) {
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (!(portion instanceof IMathPortion))
+                        continue;
+
+                    IMathPortion mathPortion = (IMathPortion) portion;
+                    IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+                    String latexFileName = "slide_" + slideNumber + "_equation_" + equationNumber + ".tex";
+
+                    String latexText = mathParagraph.toLatex();
+                    File latexFile = new File(latexFileName);
+                    byte[] latexBytes = latexText.getBytes(StandardCharsets.UTF_8);
+                    FileOutputStream outputStream = new FileOutputStream(latexFile);
+                    try {
+                        outputStream.write(latexBytes);
+                    } finally {
+                        outputStream.close();
+                    }
+                    equationNumber++;
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-) は、スライド上で見つかったすべてのテキストフレームを返します。[IMathPortion](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imathportion/) の型チェックにより、通常のテキストや画像と区別して、実際に編集可能な数式を分離します。
+
+LaTeX エンジンやドキュメントテンプレートは、すべて同じコマンド、パッケージ、Unicode 文字をサポートしているわけではありません。返された文字列を、アプリケーションで使用している LaTeX エンジンでテストしてください。シンボルや Office Math 要素がその環境で適切に表現できない場合は、返された文字列内でプロジェクト固有のコマンドに置き換えるか、数式をスキップし、その問題を記録してレビューしてください。
+
+## **MathML として数式を保存**
+
+人間は LaTeX のような一部の数式フォーマットのコードは簡単に書くことができますが、MathML のコードを書くのは難しいです。MathML はアプリによって自動生成されることを想定しているためです。MathML はコードが XML 形式であるため、プログラムは簡単に読み取り・解析できます。そのため、MathML は多くの分野で出力や印刷フォーマットとして一般的に使用されています。
+
+このサンプルコードは、プレゼンテーションから数式を MathML にエクスポートする方法を示しています:
+
 ```java
 Presentation pres = new Presentation();
 try {
@@ -49,25 +102,19 @@ try {
 }
 ```
 
-
 ## **よくある質問**
 
-**MathML にエクスポートされるのは、段落全体ですか、個々の数式ブロックですか？**
+**MathML にエクスポートされる対象は正確に何ですか—段落全体ですか、個々の数式ブロックですか？**  
+MathML へは、全体の数式段落（[MathParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/mathparagraph/)）または個別のブロック（[MathBlock](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/mathblock/)）のいずれかをエクスポートできます。両方のタイプには MathML に書き出すためのメソッドが用意されています。
 
-MathML には、全体の数式段落（[MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/)）または個々のブロック（[MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/)）のいずれかをエクスポートできます。両方のタイプに MathML へ書き出すメソッドが用意されています。
+**スライド上のオブジェクトが通常のテキストや画像ではなく数式であるかどうかは、どのように判断できますか？**  
+数式は [MathPortion](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/mathportion/) に存在し、[MathParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/mathparagraph/) を持ちます。[MathParagraph] を持たない画像や通常のテキスト部分は、エクスポート可能な数式ではありません。
 
-**スライド上のオブジェクトが通常のテキストや画像ではなく数式であるかどうかは、どのように判断できますか？**
+**プレゼンテーション内の MathML はどこから来るのですか—PowerPoint 固有ですか、標準ですか？**  
+エクスポートは標準の MathML (XML) を対象としています。Aspose は Presentation MathML を使用します。これは標準のプレゼンテーションサブセットで、アプリケーションやウェブ全体で広く使用されています。
 
-数式は [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) に存在し、[MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) を持っています。[MathParagraph] を持たない画像や通常のテキスト部分はエクスポート可能な数式ではありません。
+**テーブル、SmartArt、グループなど内部の数式のエクスポートはサポートされていますか？**  
+はい。これらのオブジェクトに [MathParagraph] を含むテキスト部分（すなわち実際の PowerPoint 数式）がある場合はエクスポートされます。数式が画像として埋め込まれている場合はエクスポートされません。
 
-**プレゼンテーション内の MathML はどこから来るのですか—PowerPoint 固有のものですか、それとも標準ですか？**
-
-エクスポートは標準の MathML（XML）を対象としています。Aspose は Presentation MathML、すなわち標準のプレゼンテーションサブセットを使用しており、これは多くのアプリケーションやウェブで広く利用されています。
-
-**テーブル、SmartArt、グループなど内部の数式をエクスポートすることはサポートされていますか？**
-
-はい、これらのオブジェクトに [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) を含むテキスト部分（すなわち本物の PowerPoint 数式）がある場合はエクスポートされます。数式が画像として埋め込まれている場合はエクスポートされません。
-
-**MathML へのエクスポートは元のプレゼンテーションを変更しますか？**
-
-いいえ。MathML の書き出しは数式の内容をシリアライズするだけで、プレゼンテーションファイルは変更されません。
+**MathML へのエクスポートは元のプレゼンテーションを変更しますか？**  
+いいえ。MathML の書き出しは数式の内容をシリアライズするだけで、プレゼンテーション ファイルを変更することはありません。

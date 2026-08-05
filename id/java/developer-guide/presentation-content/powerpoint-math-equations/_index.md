@@ -1,5 +1,5 @@
 ---
-title: Menambahkan Persamaan Matematika ke Presentasi PowerPoint dalam Java
+title: Tambahkan Persamaan Matematika ke Presentasi PowerPoint di Java
 linktitle: Persamaan Matematika PowerPoint
 type: docs
 weight: 80
@@ -9,21 +9,21 @@ keywords:
 - simbol matematika
 - rumus matematika
 - teks matematika
-- menambahkan persamaan matematika
-- menambahkan simbol matematika
-- menambahkan rumus matematika
-- menambahkan teks matematika
+- tambahkan persamaan matematika
+- tambahkan simbol matematika
+- tambahkan rumus matematika
+- tambahkan teks matematika
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Menyisipkan dan mengedit persamaan matematika dalam PowerPoint PPT dan PPTX dengan Aspose.Slides untuk Java, mendukung OMML, kontrol pemformatan, dan contoh kode Java yang jelas."
+description: "Sisipkan dan edit persamaan matematika di PowerPoint PPT dan PPTX dengan Aspose.Slides untuk Java, mendukung OMML, kontrol pemformatan, dan contoh kode Java yang jelas."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides for Java, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika berformat.
+PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Java, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
 
-Di PowerPoint, pengguna biasanya menambahkan persamaan melalui **Insert > Equation**:
+Di PowerPoint, pengguna biasanya menambahkan persamaan dari **Insert > Equation**:
 
 ![Tab Insert PowerPoint dengan perintah Equation dipilih](powerpoint-math-equations_1.png)
 
@@ -33,8 +33,8 @@ Hasilnya adalah teks matematika yang dapat diedit pada slide:
 
 Aspose.Slides membangun teks matematika tersebut melalui tiga objek utama:
 
-- Sebuah shape matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), adalah shape yang berisi persamaan.
-- [MathPortion](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathportion/) menyimpan konten matematika di dalam bingkai teks shape.
+- Sebuah bentuk matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), adalah bentuk yang berisi persamaan.
+- [MathPortion](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathportion/) menyimpan konten matematika di dalam bingkai teks bentuk.
 - [MathParagraph](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathparagraph/) berisi satu atau lebih objek [MathBlock](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathblock/).
 
 Sebagian besar contoh di bawah menggunakan [MathematicalText](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathematicaltext/) dan metode fluent dari [IMathElement](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/) untuk menjaga kode tetap singkat dan mudah dibaca.
@@ -43,7 +43,7 @@ Untuk skenario ekspor MathML, lihat [Export Math Equations from Presentations in
 
 ## **Buat Persamaan**
 
-Contoh ini membuat sebuah shape matematika dan menambahkan teorema Pythagoras:
+Contoh ini membuat sebuah bentuk matematika dan menambahkan teorema Pythagoras:
 
 ![Persamaan c kuadrat sama dengan a kuadrat ditambah b kuadrat](powerpoint-math-equations_3.png)
 
@@ -73,7 +73,7 @@ try {
 
 {{% alert color="primary" %}}
 
-`addMathShape` membuat sebuah shape yang sudah berisi sebuah paragraf matematika. Akses `MathPortion` pertama, dapatkan `MathParagraph`‑nya, dan tambahkan blok matematika atau elemen matematika ke dalamnya.
+`addMathShape` membuat sebuah bentuk yang sudah berisi paragraf matematika. Akses `MathPortion` pertama, dapatkan `MathParagraph`‑nya, dan tambahkan blok matematika atau elemen matematika ke dalamnya.
 
 {{% /alert %}}
 
@@ -111,7 +111,7 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **Tambahkan Radikal**
 
-Gunakan `radical` untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi tingkatnya.
+Gunakan `radical` untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajat.
 
 ![Ekspresi radikal akar ke-n dengan x di bawah tanda radikal](powerpoint-math-equations_5.png)
 
@@ -137,9 +137,9 @@ try {
 
 ## **Tambahkan Fungsi dan Limit**
 
-Gunakan `asArgumentOfFunction` atau `function` untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi kustom. Untuk limit, letakkan `lim` dalam sebuah [MathLimit](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathlimit/) atau gunakan `setLowerLimit`.
+Gunakan `asArgumentOfFunction` atau `function` untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk limit, letakkan `lim` dalam sebuah [MathLimit](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathlimit/) atau gunakan `setLowerLimit`.
 
-![Limit dari x ketika x mendekati tak terhingga](powerpoint-math-equations_8.png)
+![Limit dari x saat x mendekati tak terhingga](powerpoint-math-equations_8.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -162,7 +162,7 @@ try {
 }
 ```
 
-Untuk nama fungsi kustom, jadikan nama fungsi sebagai elemen saat ini:
+Untuk nama fungsi khusus, jadikan nama fungsi tersebut elemen saat ini:
 
 ```java
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
@@ -170,9 +170,9 @@ IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 
 ## **Tambahkan Operator N-ary dan Integral**
 
-Gunakan `nary` untuk penjumlahan, union, irisan, dan operator besar lainnya. Gunakan `integral` untuk integral. Kedua metode memungkinkan Anda mengatur limit bawah dan atas.
+Gunakan `nary` untuk penjumlahan, union, interseksi, dan operator besar lainnya. Gunakan `integral` untuk integral. Kedua metode memungkinkan Anda mengatur batas bawah dan atas.
 
-![Penjumlahan dengan limit bawah dan atas](powerpoint-math-equations_7.png)
+![Penjumlahan dengan batas bawah dan atas](powerpoint-math-equations_7.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -197,7 +197,7 @@ try {
 }
 ```
 
-Operator N-ary digunakan untuk operator besar dengan limit opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai `MathematicalText` dan digabungkan ke dalam ekspresi.
+Operator N-ary digunakan untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai `MathematicalText` dan digabungkan ke dalam ekspresi.
 
 Untuk integral, gunakan `integral`:
 
@@ -208,7 +208,7 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **Tambahkan Matriks**
 
-Gunakan [MathMatrix](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks secara default tidak menyertakan tanda kurung, jadi bungkus matriks dengan tanda kurung, kurung siku, atau kurung kurawal bila diperlukan.
+Gunakan [MathMatrix](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan kurung secara default, jadi lingkupi matriks ketika Anda memerlukan tanda kurung, kurung siku, atau kurung kurawal.
 
 ![Matriks matematika dua baris dengan satu sel kosong](powerpoint-math-equations_10.png)
 
@@ -238,7 +238,7 @@ try {
 
 ## **Tambahkan Array Persamaan**
 
-Gunakan `toMathArray` ketika Anda memerlukan persamaan yang diratakan atau tumpukan vertikal dari ekspresi.
+Gunakan `toMathArray` ketika Anda memerlukan persamaan yang rata atau tumpukan vertikal dari ekspresi.
 
 ![Array matematika vertikal dengan x di atas y](powerpoint-math-equations_11.png)
 
@@ -265,7 +265,7 @@ try {
 
 ## **Tambahkan Fungsi Trigonometri**
 
-Gunakan `asArgumentOfFunction` ketika argumen adalah elemen saat ini dan nama fungsi diketahui.
+Gunakan `asArgumentOfFunction` ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
 
 ![Fungsi trigonometri cos diterapkan pada 2x](powerpoint-math-equations_6.png)
 
@@ -315,11 +315,11 @@ try {
 }
 ```
 
-## **Tambahkan Pembatas**
+## **Tambahkan Delimiter**
 
-Gunakan `enclose` untuk menempatkan sebuah ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
+Gunakan `enclose` untuk menempatkan sebuah ekspresi di dalam delimiter. Anda juga dapat menetapkan karakter pemisah untuk ekspresi delimiter yang berisi beberapa elemen.
 
-![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh garis vertikal](powerpoint-math-equations_13.png)
+![Ekspresi delimiter yang berisi x, y, dan z dipisahkan oleh batang vertikal](powerpoint-math-equations_13.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -348,7 +348,7 @@ try {
 
 Gunakan `toBorderBox` ketika persamaan itu sendiri harus dibingkai.
 
-![Persamaan berbingkai yang menunjukkan a kuadrat sama dengan b kuadrat ditambah c kuadrat](powerpoint-math-equations_12.png)
+![Persamaan dalam kotak yang menunjukkan a kuadrat sama dengan b kuadrat ditambah c kuadrat](powerpoint-math-equations_12.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -377,9 +377,9 @@ try {
 
 ## **Kelompokkan Istilah**
 
-Gunakan `group` untuk menempatkan karakter pengelompokkan di atas atau di bawah sebuah ekspresi. Tambahkan limit untuk memberi label pada istilah yang dikelompokkan.
+Gunakan `group` untuk menempatkan karakter pengelompokkan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah yang dikelompokkan.
 
-![Ekspresi x ditambah y dikelompokkan dengan label teks apa pun di bawahnya](powerpoint-math-equations_15.png)
+![Ekspresi x plus y dikelompokkan dengan label teks apa pun di bawahnya](powerpoint-math-equations_15.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -404,7 +404,7 @@ try {
 
 ## **Format Elemen Matematika**
 
-Gunakan pembantu format hanya bila mereka memperjelas rumus. Misalnya, `overbar` menempatkan sebuah garis di atas elemen matematika.
+Gunakan pembantu pemformatan hanya bila mereka memperjelas rumus. Misalnya, `overbar` menempatkan garis di atas sebuah elemen matematika.
 
 ![Ekspresi matematika ABC dengan overbar](powerpoint-math-equations_14.png)
 
@@ -442,7 +442,7 @@ try {
 | Tambahkan penjumlahan dan integral | [nary](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | Tambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/id/java/com.aspose.slides/mathmatrix/) |
 | Tambahkan array persamaan | [toMathArray](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#toMathArray--) |
-| Tambahkan pembatas | [enclose](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| Tambahkan delimiter | [enclose](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#enclose-char-char-) |
 | Tambahkan bar dan bingkai | [overbar](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | Kelompokkan istilah | [group](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
@@ -450,12 +450,12 @@ try {
 
 **Bisakah saya mengedit persamaan PowerPoint yang ada?**
 
-Ya. Buka presentasi, temukan shape yang berisi `MathPortion`, dapatkan `MathParagraph`‑nya, dan perbarui blok matematika dalam paragraf tersebut.
+Ya. Buka presentasi, temukan bentuk yang berisi `MathPortion`, dapatkan `MathParagraph`‑nya, dan perbarui blok matematika di paragraf tersebut.
 
 **Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat diedit?**
 
-Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office math yang dapat diedit.
+Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten matematika Office yang dapat diedit.
 
 **Bisakah saya mengekspor persamaan ke LaTeX?**
 
-Aspose.Slides mengekspor persamaan matematika ke MathML. Jika Anda memerlukan LaTeX, pertama ekspor ke MathML lalu konversi MathML dengan alat yang mendukung dialek LaTeX target Anda.
+Ya. Dapatkan [IMathParagraph](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathparagraph/) dari [IMathPortion](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathportion/)-nya, lalu panggil [IMathParagraph.toLatex](https://reference.aspose.com/slides/id/java/com.aspose.slides/imathparagraph/#toLatex--) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Export Math Equations from Presentations in Java](/slides/id/java/exporting-math-equations/#export-math-equations-to-latex).

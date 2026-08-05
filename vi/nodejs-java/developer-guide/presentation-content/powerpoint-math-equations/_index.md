@@ -1,6 +1,6 @@
 ---
-title: Thêm Phương Trình Toán Học vào Bản Trình Chiếu PowerPoint trong JavaScript
-linktitle: Phương Trình Toán Học PowerPoint
+title: Thêm các Phương trình Toán học vào Bài thuyết trình PowerPoint trong JavaScript
+linktitle: Phương trình Toán học PowerPoint
 type: docs
 weight: 80
 url: /vi/nodejs-java/powerpoint-math-equations/
@@ -14,37 +14,37 @@ keywords:
 - thêm công thức toán học
 - thêm văn bản toán học
 - PowerPoint
-- bản trình chiếu
+- bài thuyết trình
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho Node.js thông qua Java, hỗ trợ OMML, các điều khiển định dạng, và các mẫu mã JavaScript rõ ràng."
+description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho Node.js qua Java, hỗ trợ OMML, các điều khiển định dạng, và các mẫu mã JavaScript rõ ràng."
 ---
 ## **Tổng quan**
 
-PowerPoint lưu trữ các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Node.js thông qua Java, bạn có thể tạo các nội dung toán học tương tự một cách lập trình: phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học được định dạng.
+PowerPoint lưu các công thức dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Node.js via Java, bạn có thể tạo cùng loại nội dung toán học một cách lập trình: phân số, căn bậc, hàm, giới hạn, N-ary operators, ma trận, mảng và các khối toán học định dạng.
 
-Trong PowerPoint, người dùng thường thêm phương trình bằng cách vào **Insert > Equation**:
+Trong PowerPoint, người dùng thường thêm công thức từ **Insert > Equation**:
 
 ![Tab Insert của PowerPoint với lệnh Equation được chọn](powerpoint-math-equations_1.png)
 
 Kết quả là văn bản toán học có thể chỉnh sửa trên slide:
 
-![Một slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
+![Một slide PowerPoint chứa một công thức toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
 
 Aspose.Slides xây dựng văn bản toán học đó thông qua ba đối tượng chính:
 
-- Một hình dạng toán học, được tạo bằng [addMathShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/#addMathShape), là hình dạng chứa phương trình.
-- [MathPortion](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathportion/) lưu trữ nội dung toán học trong khung văn bản của hình dạng.
+- Một hình toán học, được tạo bằng [addMathShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/#addMathShape), là hình chứa công thức.
+- [MathPortion](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathportion/) lưu trữ nội dung toán học trong khung văn bản của hình.
 - [MathParagraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathblock/).
 
-Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathematicaltext/) và các phương thức chuỗi từ [MathElementBase](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để giữ mã ngắn gọn và dễ đọc.
+Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathematicaltext/) và các phương thức fluent từ [MathElementBase](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để giữ cho mã ngắn gọn và dễ đọc.
 
-Đối với các trường hợp xuất MathML, xem [Xuất phương trình toán học từ bản trình chiếu trong Node.js via Java](/slides/vi/nodejs-java/exporting-math-equations/).
+Đối với các kịch bản xuất MathML, xem [Export Math Equations from Presentations in Node.js via Java](/slides/vi/nodejs-java/exporting-math-equations/).
 
-## **Tạo một Phương trình**
+## **Tạo một công thức**
 
-Ví dụ này tạo một hình dạng toán học và thêm định lý Pythagoras:
+Ví dụ này tạo một hình toán học và thêm định lý Pythagoras:
 
 ![Phương trình c bình phương bằng a bình phương cộng b bình phương](powerpoint-math-equations_3.png)
 
@@ -73,14 +73,14 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` tạo một hình dạng đã chứa sẵn một đoạn toán học. Truy cập `MathPortion` đầu tiên, lấy `MathParagraph` của nó và thêm các khối toán học hoặc các phần tử toán học vào đó.
+`addMathShape` tạo một hình đã chứa sẵn một đoạn toán học. Truy cập `MathPortion` đầu tiên, lấy `MathParagraph` của nó, và thêm các khối toán hoặc phần tử toán học vào đó.
 {{% /alert %}}
 
-## **Thêm Phân Số**
+## **Thêm phân số**
 
-Sử dụng [`divide`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để tạo một phân số. Bạn có thể chọn kiểu phân số bằng [MathFractionTypes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathfractiontypes/).
+Sử dụng [`divide`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để tạo một phân số. Bạn có thể chọn kiểu phân số với [MathFractionTypes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathfractiontypes/).
 
-![Một phân số nghiêng hiển thị một chia cho x](powerpoint-math-equations_4.png)
+![Một phân số toán học lệch cho thấy 1 chia cho x](powerpoint-math-equations_4.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-Đối với phân số chồng, sử dụng `MathFractionTypes.Bar`:
+Đối với phân số xếp chồng, sử dụng `MathFractionTypes.Bar`:
 
 ```javascript
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
-## **Thêm Căn Bậc**
+## **Thêm căn bậc**
 
-Sử dụng [`radical`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để tạo căn bậc hai, căn bậc ba hoặc các căn bậc khác. Phần tử hiện tại trở thành cơ số, và đối số trở thành bậc.
+Sử dụng [`radical`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để tạo căn bậc hai, căn bậc ba hoặc các căn khác. Phần tử hiện tại trở thành cơ số và đối số trở thành độ bậc.
 
-![Biểu thức căn bậc n với x nằm dưới dấu căn](powerpoint-math-equations_5.png)
+![Một biểu thức căn bậc n với x dưới dấu căn](powerpoint-math-equations_5.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -134,11 +134,11 @@ try {
 }
 ```
 
-## **Thêm Hàm và Giới Hạn**
+## **Thêm hàm và giới hạn**
 
 Sử dụng [`asArgumentOfFunction`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) hoặc [`function`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) cho các hàm như `sin(x)`, `log(x)`, hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathlimit/) hoặc sử dụng [`setLowerLimit`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/).
 
-![Giới hạn của x khi x tiến tới vô cùng](powerpoint-math-equations_8.png)
+![Giới hạn của x khi x tiến tới vô hạn](powerpoint-math-equations_8.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -167,11 +167,11 @@ try {
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
-## **Thêm Toán tử N-ary và Tích Phân**
+## **Thêm toán tử N-ary và tích phân**
 
-Sử dụng [`nary`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) cho các tổng, hợp, giao và các toán tử lớn khác. Sử dụng [`integral`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) cho tích phân. Cả hai phương thức đều cho phép bạn đặt giới hạn dưới và trên.
+Sử dụng [`nary`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) cho các phép cộng, hợp, giao và các toán tử lớn khác. Sử dụng [`integral`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) cho tích phân. Cả hai phương thức cho phép bạn đặt giới hạn dưới và trên.
 
-![Một tổng có giới hạn dưới và trên](powerpoint-math-equations_7.png)
+![Một tổng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -196,7 +196,7 @@ try {
 }
 ```
 
-Các toán tử N-ary dùng cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn giản như `+`, `-`, và `=` thường được thêm dưới dạng `MathematicalText` và nối vào biểu thức.
+Các toán tử N-ary dành cho các toán tử lớn có thể có giới hạn tùy chọn. Các toán tử đơn giản như `+`, `-`, và `=` thường được thêm dưới dạng `MathematicalText` và ghép vào biểu thức.
 
 Đối với tích phân, sử dụng `integral`:
 
@@ -205,9 +205,9 @@ let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slide
 let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Thêm Ma Trận**
+## **Thêm ma trận**
 
-Sử dụng [MathMatrix](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathmatrix/) cho các hàng và cột. Ma trận mặc định không bao gồm dấu ngoặc, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc đơn, dấu ngoặc vuông hoặc dấu ngoặc nhọn.
+Sử dụng [MathMatrix](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathmatrix/) cho các hàng và cột. Ma trận mặc định không có ngoặc, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc tròn, ngoặc vuông hoặc ngoặc nhọn.
 
 ![Một ma trận toán học hai hàng với một ô trống](powerpoint-math-equations_10.png)
 
@@ -235,11 +235,11 @@ try {
 }
 ```
 
-## **Thêm Mảng Phương Trình**
+## **Thêm mảng công thức**
 
-Sử dụng [`toMathArray`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) khi bạn cần các phương trình căn chỉnh hoặc một chồng dọc các biểu thức.
+Sử dụng [`toMathArray`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) khi bạn cần các công thức căn chỉnh hoặc một chồng dọc các biểu thức.
 
-![Một mảng toán học dọc với x nằm trên y](powerpoint-math-equations_11.png)
+![Một mảng toán học dọc với x phía trên y](powerpoint-math-equations_11.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -262,7 +262,7 @@ try {
 }
 ```
 
-## **Thêm Hàm Lượng Giác**
+## **Thêm hàm lượng giác**
 
 Sử dụng [`asArgumentOfFunction`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) khi đối số là phần tử hiện tại và tên hàm đã biết.
 
@@ -288,11 +288,11 @@ try {
 }
 ```
 
-## **Thêm Chỉ Số Dưới và Chỉ Số Trên**
+## **Thêm chỉ số dưới và chỉ số trên**
 
-Sử dụng các trợ giúp chỉ số dưới và chỉ số trên cho chỉ mục và lũy thừa. Khi chỉ số phải xuất hiện ở phía trái của cơ sở, sử dụng [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/).
+Sử dụng các trợ giúp chỉ số dưới và chỉ số trên cho chỉ mục và lũy thừa. Khi các chỉ số phải xuất hiện ở phía trái của cơ sở, sử dụng [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/).
 
-![Một ký tự Y viết hoa với chỉ số dưới 1 và chỉ số trên n ở phía trái](powerpoint-math-equations_9.png)
+![Một chữ Y in hoa với chỉ số dưới 1 ở phía trái và chỉ số trên n](powerpoint-math-equations_9.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -314,11 +314,11 @@ try {
 }
 ```
 
-## **Thêm Dấu Ngăn**
+## **Thêm dấu bao**
 
-Sử dụng [`enclose`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để đặt một biểu thức bên trong dấu ngăn. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức có dấu ngăn chứa nhiều phần tử.
+Sử dụng [`enclose`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để bao một biểu thức trong dấu bao. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu bao chứa nhiều phần tử.
 
-![Một biểu thức có dấu ngăn chứa x, y và z được phân tách bằng thanh dọc](powerpoint-math-equations_13.png)
+![Một biểu thức dấu bao chứa x, y và z được ngăn cách bằng các dấu gạch đứng](powerpoint-math-equations_13.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -343,11 +343,11 @@ try {
 }
 ```
 
-## **Thêm Khung Viền**
+## **Thêm khung viền**
 
-Sử dụng [`toBorderBox`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) khi phương trình cần được đóng khung.
+Sử dụng [`toBorderBox`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) khi công thức cần được đóng khung.
 
-![Một phương trình được đóng khung thể hiện a bình phương bằng b bình phương cộng c bình phương](powerpoint-math-equations_12.png)
+![Một công thức a bình phương bằng b bình phương cộng c bình phương được đóng khung](powerpoint-math-equations_12.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -374,9 +374,9 @@ try {
 }
 ```
 
-## **Nhóm Các Thuật Ngữ**
+## **Nhóm các thuật ngữ**
 
-Sử dụng [`group`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để đặt ký tự nhóm lên trên hoặc dưới một biểu thức. Thêm giới hạn để gắn nhãn cho các hạng được nhóm.
+Sử dụng [`group`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) để đặt ký tự nhóm phía trên hoặc phía dưới một biểu thức. Thêm giới hạn để gắn nhãn cho các thuật ngữ được nhóm.
 
 ![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản nào ở phía dưới](powerpoint-math-equations_15.png)
 
@@ -401,9 +401,9 @@ try {
 }
 ```
 
-## **Định Dạng Các Phần Tử Toán Học**
+## **Định dạng các phần tử toán học**
 
-Chỉ sử dụng các trợ giúp định dạng khi chúng làm rõ công thức. Ví dụ, [`overbar`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) đặt một thanh trên một phần tử toán học.
+Chỉ sử dụng các trợ giúp định dạng khi chúng làm rõ công thức. Ví dụ, [`overbar`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) đặt một thanh phía trên một phần tử toán học.
 
 ![Một biểu thức toán học ABC có thanh trên](powerpoint-math-equations_14.png)
 
@@ -426,9 +426,9 @@ try {
 }
 ```
 
-## **Tham chiếu nhanh**
+## **Tham khảo nhanh**
 
-| Nhiệm vụ | API chính |
+| Task | Main API |
 | --- | --- |
 | Tạo văn bản toán học | [MathematicalText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathematicaltext/) |
 | Kết hợp các phần tử | [join](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
@@ -437,24 +437,24 @@ try {
 | Thêm hàm | [function](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm căn bậc | [radical](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm giới hạn | [setLowerLimit](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
-| Thêm chỉ số bên trái | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
+| Thêm chỉ số phía trái | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm tổng và tích phân | [nary](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm ma trận | [MathMatrix](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathmatrix/) |
-| Thêm mảng phương trình | [toMathArray](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
-| Thêm dấu ngăn | [enclose](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
+| Thêm mảng công thức | [toMathArray](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
+| Thêm dấu bao | [enclose](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
 | Thêm thanh và viền | [overbar](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
-| Nhóm các hạng | [group](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
+| Nhóm các thuật ngữ | [group](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathelementbase/) |
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
+**Tôi có thể chỉnh sửa một công thức PowerPoint hiện có không?**
 
-Có. Mở bản trình chiếu, tìm hình dạng chứa một `MathPortion`, lấy `MathParagraph` của nó và cập nhật các khối toán học trong đoạn đó.
+Có. Mở bản trình chiếu, tìm hình chứa `MathPortion`, lấy `MathParagraph` của nó và cập nhật các khối toán trong đoạn đó.
 
-**Các phương trình có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
+**Các công thức có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
 
-Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung toán học Office có thể chỉnh sửa.
+Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi công thức dưới dạng nội dung toán học Office có thể chỉnh sửa.
 
-**Tôi có thể xuất các phương trình sang LaTeX không?**
+**Tôi có thể xuất công thức sang LaTeX không?**
 
-Aspose.Slides xuất các phương trình toán học sang MathML. Nếu bạn cần LaTeX, hãy xuất sang MathML trước và sau đó chuyển đổi MathML bằng công cụ hỗ trợ định dạng LaTeX mà bạn muốn.
+Có. Lấy [MathParagraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathparagraph/) của công thức từ [MathPortion](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathportion/), và gọi [MathParagraph.toLatex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mathparagraph/#toLatex--) để xuất trực tiếp. Đối với một ví dụ đầy đủ, xem [Export Math Equations from Presentations in Node.js via Java](/slides/vi/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
