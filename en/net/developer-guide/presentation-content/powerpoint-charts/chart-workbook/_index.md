@@ -313,6 +313,9 @@ If a chart uses an external workbook that is missing or unavailable, Aspose.Slid
 The following C# example opens a presentation whose chart references an unavailable external workbook and accesses the recovered data through [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) and [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 var loadOptions = new LoadOptions
 {
     SpreadsheetOptions = new SpreadsheetOptions

@@ -93,6 +93,8 @@ A sketch effect makes a shape line look hand-drawn. Use [IShape.LineFormat](http
 The following C# code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -115,6 +117,8 @@ sketchFormat.SketchType = LineSketchType.None;
 The value returned by `ISketchFormat.SketchType` represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), access [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), and read [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). The effective value reflects the formatting that is actually applied after inheritance is resolved:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var shape = presentation.Slides[0].Shapes[0];
