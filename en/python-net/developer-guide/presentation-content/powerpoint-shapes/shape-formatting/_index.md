@@ -7,6 +7,8 @@ url: /python-net/shape-formatting/
 keywords:
 - format shape
 - format line
+- sketch effect
+- sketch shape line
 - format join style
 - gradient fill
 - pattern fill
@@ -80,6 +82,50 @@ with slides.Presentation() as presentation:
 The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
+
+## **Apply Sketch Effects to Shape Lines**
+
+A sketch effect makes a shape line look hand-drawn. Use [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) to access the line settings, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) to access the sketch settings, and [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) enumeration.
+
+The following Python code shows how to apply a [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
+
+    # Access the shape's line format and its sketch format.
+    sketch_format = shape.line_format.sketch_format
+
+    # Apply a sketch effect.
+    sketch_format.sketch_type = slides.LineSketchType.CURVED
+
+    # Read the sketch effect assigned directly to the shape.
+    explicit_sketch_type = sketch_format.sketch_type
+    print(f"Explicit sketch type: {explicit_sketch_type}")
+
+    # Remove the sketch effect.
+    sketch_format.sketch_type = slides.LineSketchType.NONE
+```
+
+The value returned by `SketchFormat.sketch_type` represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), access the returned object's `sketch_format` property, and read its `sketch_type` property. The effective value reflects the formatting that is actually applied after inheritance is resolved:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    line_format = shape.line_format
+
+    explicit_sketch_type = line_format.sketch_format.sketch_type
+    effective_line_format = line_format.get_effective()
+    effective_sketch_type = effective_line_format.sketch_format.sketch_type
+
+    print(f"Explicit sketch type: {explicit_sketch_type}")
+    print(f"Effective sketch type: {effective_sketch_type}")
+```
 
 ## **Format Join Styles**
 
@@ -572,14 +618,14 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **FAQ**
 
-### Does shape formatting affect the final presentation file size?
+**Does shape formatting affect the final presentation file size?**
 
 Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
 
-### How can I detect shapes on a slide that share identical formatting so I can group them?
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
 
 Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
 
-### Can I save a set of custom shape styles to a separate file for reuse in other presentations?
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
 
 Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
