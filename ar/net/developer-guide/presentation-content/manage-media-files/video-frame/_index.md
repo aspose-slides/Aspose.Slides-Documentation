@@ -10,7 +10,7 @@ keywords:
 - تضمين فيديو
 - استخراج فيديو
 - استرجاع فيديو
-- إطار الفيديو
+- إطار فيديو
 - مصدر ويب
 - PowerPoint
 - OpenDocument
@@ -18,47 +18,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إضافة وإستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint و OpenDocument باستخدام Aspose.Slides لـ .NET. دليل سريع خطوة بخطوة."
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint و OpenDocument باستخدام Aspose.Slides لـ .NET. دليل سريع عملي."
 ---
-يمكن أن يجعل الفيديو الموضّع بشكل جيد في العرض التقديمي رسالتك أكثر إقناعًا ويزيد من مستوى التفاعل مع جمهورك. 
+## **المقدمة**
 
-PowerPoint يتيح لك إضافة مقاطع فيديو إلى شريحة في عرض تقديمي بطريقتين:
+يمكن للفيديو الموضوع في موضع مناسب داخل عرض تقديمي أن يجعل رسالتك أكثر إقناعًا ويزيد من مستويات التفاعل مع جمهورك. 
 
-* إضافة أو تضمين فيديو محلي (محفوظ على جهازك)
+يتيح لك PowerPoint إضافة مقاطع الفيديو إلى شريحة في عرض تقديمي بطريقتين:
+
+* إضافة أو تضمين فيديو محلي (مخزن على جهازك)
 * إضافة فيديو عبر الإنترنت (من مصدر ويب مثل YouTube).
 
-لتمكينك من إضافة مقاطع فيديو (كائنات فيديو) إلى عرض تقديمي، توفر Aspose.Slides الواجهة [IVideo](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideo/) والواجهة [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) وأنواع ذات صلة أخرى. 
+للسماح لك بإضافة مقاطع الفيديو (كائنات الفيديو) إلى عرض تقديمي، توفر Aspose.Slides واجهة [IVideo](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideo/) وواجهة [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) وأنواع أخرى ذات صلة. 
 
 ## **إنشاء إطار فيديو مضمّن**
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي. 
+إذا كان ملف الفيديو الذي ترغب في إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي. 
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation)class.  
-2. الحصول على مرجع الشريحة من خلال فهرستها.  
-3. إضافة كائن [IVideo](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideo/) وتمرير مسار ملف الفيديو لتضمين الفيديو مع العرض التقديمي.  
-4. إضافة كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) لإنشاء إطار للفيديو.  
-5. حفظ العرض التقديمي المعدل.  
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
+1. الحصول على مرجع الشريحة عبر فهرستها. 
+1. إضافة كائن [IVideo](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideo/) وتمرير مسار ملف الفيديو لتضمينه مع العرض التقديمي. 
+1. إضافة كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) لإنشاء إطار للفيديو.  
+1. حفظ العرض التقديمي المعدل. 
 
-يعرض لك هذا الشيفرة C# كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
+هذا الكود C# يوضح لك كيفية إضافة فيديو مخزن محليًا إلى عرض تقديمي:
 
 ```c#
- // إنشاء كائن من فئة Presentation
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    // تحميل الفيديو
-    using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
-    {
-        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-        
-        // الحصول على الشريحة الأولى وإضافة إطار فيديو
-        pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
-        
-        // حفظ العرض التقديمي إلى القرص
-        pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
-    }
-}
+ // ينشئ فئة Presentation
+ using (Presentation pres = new Presentation("pres.pptx"))
+ {
+     // يقوم بتحميل الفيديو
+     using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
+     {
+         IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+         
+         // يحصل على الشريحة الأولى ويضيف إطار فيديو
+         pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
+         
+         // يحفظ العرض التقديمي إلى القرص
+         pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
+     }
+ }
 ```
-بدلاً من ذلك، يمكنك إضافة فيديو بتمرير مسار ملفه مباشرةً إلى طريقة [AddVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addvideoframe/):
+بدلاً من ذلك، يمكنك إضافة فيديو بتمرير مسار ملفه مباشرة إلى طريقة [AddVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addvideoframe/):
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -69,20 +71,21 @@ using (Presentation pres = new Presentation())
 ```
 
 ## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
-تدعم إصدارات Microsoft [PowerPoint 2013 وما بعدها](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) مقاطع فيديو YouTube في العروض التقديمية. إذا كان الفيديو الذي تريد استخدامه متاحًا عبر الإنترنت (مثلاً على YouTube)، يمكنك إضافته إلى عرضك التقديمي عبر رابط الويب الخاص به. 
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation)class  
-2. الحصول على مرجع الشريحة من خلال فهرستها.  
-3. إضافة كائن [IVideo](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideo/) وتمرير الرابط إلى الفيديو.  
-4. تعيين صورة مصغرة لإطار الفيديو.  
-5. حفظ العرض التقديمي.  
+الإصدارات الأحدث من Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) تدعم مقاطع الفيديو عبر الإنترنت في العروض التقديمية. إذا كان الفيديو الذي ترغب في استخدامه متاحًا على الويب (مثلاً على YouTube)، يمكنك إضافته إلى عرضك التقديمي عبر الرابط الإلكتروني الخاص به.
 
-يظهر لك هذا الشيفرة C# كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint تقديمي:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
+1. الحصول على مرجع الشريحة عبر فهرستها. 
+1. إضافة كائن [IVideo](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideo/) وتمرير الرابط إلى الفيديو.
+1. تعيين صورة مصغرة لإطار الفيديو. 
+1. حفظ العرض التقديمي. 
+
+هذا الكود C# يوضح لك كيفية إضافة فيديو من الويب إلى شريحة في عرض PowerPoint:
 
 ```c#
 public static void Run()
 {
-    // إنشاء كائن Presentation يمثل ملف عرض تقديمي 
+    // ينشئ كائن Presentation الذي يمثل ملف عرض تقديمي 
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -92,11 +95,11 @@ public static void Run()
 
 private static void AddVideoFromYouTube(Presentation pres, string videoId)
 {
-    // إضافة إطار فيديو
+    // يضيف إطار فيديو
     IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 
-    // تحميل الصورة المصغرة
+    // يقوم بتحميل الصورة المصغرة
     using (WebClient client = new WebClient())
     {
         string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
@@ -105,21 +108,75 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **إدارة تسميات الفيديو**
+## **اقتطاع إطار فيديو**
 
-تتيح لك Aspose.Slides إدارة التسميات المغلقة لإطارات الفيديو في عروض PowerPoint التقديمية. تُخزن التسميات بصيغة WebVTT وتُعرض عبر خاصية [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/) .
+تتيح لك Aspose.Slides التحكم في الجزء الذي يتم تشغيله من الفيديو عن طريق تعيين قيمتي trim-from-start و trim-from-end عبر [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/trimfromstart/) و[IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/trimfromend/). تُحدد القيمتان بالميلي ثانية وتُحدد مقدار الوقت المتخطى من بداية الفيديو ونهايته على التوالي. تُغيّر هذه الإعدادات إعدادات تشغيل الفيديو في العرض التقديمي؛ لا تقوم بقص أو تعديل بيانات الفيديو المضمّنة.
+
+**تعيين إعدادات القص**
+
+لإنشاء إطار فيديو وتعيين إعدادات القص الخاصة به:
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+2. إضافة كائن [IVideo](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideo/) إلى العرض التقديمي.
+3. إضافة كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) إلى شريحة.
+4. تعيين قيمتي trim-from-start و trim-from-end عبر [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/trimfromstart/) و[IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/trimfromend/) .
+5. حفظ العرض التقديمي المعدل.
+
+يُظهر المثال التالي كودًا يتخطى أول 2.5 ثانية وآخر ثانية من فيديو مضمّن أثناء التشغيل:
+
+```cs
+using var presentation = new Presentation();
+
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
+
+var slide = presentation.Slides[0];
+var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame.TrimFromStart = 2500f;
+videoFrame.TrimFromEnd = 1000f;
+
+presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
+```
+
+**قراءة إعدادات القص**
+
+لتفقد إعدادات القص الحالية، قم بتحميل عرض تقديمي، وابحث عن كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) بين الأشكال في الشريحة الأولى، واقرأ القيم عبر [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/trimfromstart/) و[IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/trimfromend/) .
+
+يظهر المثال التالي كودًا يعثر على أول إطار فيديو في الشريحة الأولى ويبلغ عن إعدادات القص الخاصة به بالميلي ثانية:
+
+```cs
+using var presentation = new Presentation("video_with_trim.pptx");
+
+var slide = presentation.Slides[0];
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        var trimFromStart = videoFrame.TrimFromStart;
+        var trimFromEnd = videoFrame.TrimFromEnd;
+
+        Console.WriteLine($"Trim from start: {trimFromStart} ms");
+        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
+
+        break;
+    }
+}
+```
+
+## **إدارة توضيحات الفيديو**
+
+تتيح لك Aspose.Slides إدارة التسميات المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزن التسميات بتنسيق WebVTT وتُعرض عبر خاصية [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/) .
 
 **إضافة تسميات إلى إطار فيديو**
 
-لإضافة تسميات إلى إطار فيديو:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+2. إضافة فيديو إلى العرض التقديمي.
+3. إضافة كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) إلى شريحة.
+4. استخدام مجموعة [CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/) لإضافة مسار تسمية WebVTT.
+5. حفظ العرض التقديمي المعدل.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) class.  
-2. إضافة فيديو إلى العرض التقديمي.  
-3. إضافة كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) إلى شريحة.  
-4. استخدام مجموعة [CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/) لإضافة مسار تسميات WebVTT.  
-5. حفظ العرض التقديمي المعدل.  
-
-يعرض لك الشيفرة التالية كيفية إضافة تسميات إلى إطار فيديو:
+يعرض الكود التالي كيفية إضافة تسميات إلى إطار فيديو:
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -135,18 +192,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-توفر الواجهة [ICaptionsCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/icaptionscollection/) أيضًا تحميلًا زائدًا يتيح لك إضافة تسميات من تدفق.
+توفر واجهة [ICaptionsCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/icaptionscollection/) أيضًا نسخة محملة تتيح لك إضافة تسميات من تدفق بيانات.
 
 **استخراج التسميات من إطار فيديو**
 
-لاستخراج التسميات من إطار فيديو:
+1. تحميل العرض التقديمي الذي يحتوي على الفيديو.
+2. العثور على كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) المستهدف.
+3. التكرار عبر مجموعة [CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/) .
+4. حفظ كل مسار تسمية إلى ملف `.vtt` .
 
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.  
-2. البحث عن كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) المستهدف.  
-3. التكرار عبر مجموعة [CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/).  
-4. حفظ كل مسار تسميات إلى ملف `.vtt`.  
-
-يعرض لك الشيفرة التالية كيفية استخراج التسميات من إطار فيديو:
+يعرض الكود التالي كيفية استخراج التسميات من إطار فيديو:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -167,18 +222,16 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 }
 ```
 
-كل كائن [ICaptions](https://reference.aspose.com/slides/ar/net/aspose.slides/icaptions/) يكشف عن معرف التسمية، والملصق، والبيانات الثنائية، ونص التسمية كسلسلة UTF-8.
+كل كائن [ICaptions](https://reference.aspose.com/slides/ar/net/aspose.slides/icaptions/) يكشف عن معرّف التسمية، والوسم، والبيانات الثنائية، ونص التسمية كسلسلة UTF-8.
 
 **إزالة التسميات من إطار فيديو**
 
-لإزالة التسميات من إطار فيديو:
+1. تحميل العرض التقديمي الذي يحتوي على الفيديو.
+2. الحصول على كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) المستهدف.
+3. إزالة مسارات التسميات من مجموعة [CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/) .
+4. حفظ العرض التقديمي المعدل.
 
-1. تحميل العرض التقديمي الذي يحتوي على الفيديو.  
-2. الحصول على كائن [IVideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/) المستهدف.  
-3. إزالة مسارات التسميات من مجموعة [CaptionTracks](https://reference.aspose.com/slides/ar/net/aspose.slides/ivideoframe/captiontracks/).  
-4. حفظ العرض التقديمي المعدل.  
-
-يعرض لك الشيفرة التالية كيفية إزالة جميع التسميات من إطار فيديو:
+يعرض الكود التالي كيفية إزالة جميع التسميات من إطار فيديو:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -193,20 +246,21 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 }
 ```
 
-إذا كنت بحاجة إلى إزالة مسار تسمية واحد فقط، استخدم طريقتي [Remove](https://reference.aspose.com/slides/ar/net/aspose.slides/captionscollection/remove/) أو [RemoveAt](https://reference.aspose.com/slides/ar/net/aspose.slides/captionscollection/removeat/) بدلاً من [Clear](https://reference.aspose.com/slides/ar/net/aspose.slides/captionscollection/clear/).
+إذا كنت بحاجة إلى إزالة مسار تسمية واحد فقط، استخدم طرق [Remove](https://reference.aspose.com/slides/ar/net/aspose.slides/captionscollection/remove/) أو [RemoveAt](https://reference.aspose.com/slides/ar/net/aspose.slides/captionscollection/removeat/) بدلاً من [Clear](https://reference.aspose.com/slides/ar/net/aspose.slides/captionscollection/clear/) .
 
 ## **استخراج فيديو من شريحة**
-بالإضافة إلى إضافة مقاطع فيديو إلى الشرائح، تتيح لك Aspose.Slides استخراج مقاطع الفيديو المضمنة في العروض التقديمية.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) class لتحميل العرض التقديمي الذي يحتوي على الفيديو.  
-2. التكرار عبر جميع كائنات [ISlide](https://reference.aspose.com/slides/ar/net/aspose.slides/islide).  
-3. التكرار عبر جميع كائنات [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape) للعثور على [VideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe).  
-4. حفظ الفيديو إلى القرص.  
+بالإضافة إلى إضافة مقاطع الفيديو إلى الشرائح، تتيح لك Aspose.Slides استخراج مقاطع الفيديو المضمّنة في العروض التقديمية.
 
-يعرض لك هذا الشيفرة C# كيفية استخراج الفيديو من شريحة عرض تقديمي:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) لتحميل العرض التقديمي الذي يحتوي على الفيديو. 
+2. التكرار عبر جميع كائنات [ISlide](https://reference.aspose.com/slides/ar/net/aspose.slides/islide) .
+3. التكرار عبر جميع كائنات [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape) للعثور على [VideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe) .
+4. حفظ الفيديو على القرص.
+
+يعرض هذا الكود C# كيفية استخراج الفيديو الموجود على شريحة عرض تقديمي:
 
 ```c#
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي 
+// ينشئ كائن Presentation الذي يمثل ملف عرض تقديمي 
 Presentation presentation = new Presentation("Video.pptx");
 
 // يتنقل عبر الشرائح
@@ -215,7 +269,7 @@ foreach (ISlide slide in presentation.Slides)
     // يتنقل عبر الأشكال
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // يحفظ الفيديو إلى القرص بمجرد العثور على VideoFrame يحتوي على الفيديو
+        // يحفظ الفيديو إلى القرص بمجرد العثور على VideoFrame يحتوي على فيديو
         if (shape is VideoFrame)
         {
             IVideoFrame vf = shape as IVideoFrame;
@@ -232,16 +286,20 @@ foreach (ISlide slide in presentation.Slides)
 }
 ```
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**ما هي معلمات تشغيل الفيديو التي يمكن تعديلها لإطار الفيديو (VideoFrame)؟**  
-يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/playmode/) (تشغيل تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/playloopmode/). تتوفر هذه الخيارات عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/).
+**ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار فيديو؟**
 
-**هل يضيف إضافة فيديو حجمًا إلى ملف PPTX؟**  
-نعم. عندما تقوم بتضمين فيديو محلي، يتم تضمين البيانات الثنائية في المستند، وبالتالي يزداد حجم العرض التقديمي بما يتناسب مع حجم الملف. عندما تضيف فيديوًا عبر الإنترنت، يتم تضمين رابط وصورة مصغرة، لذا تكون الزيادة في الحجم أصغر.
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/playmode/) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/playloopmode/). تتوفر هذه الخيارات عبر خصائص كائن [VideoFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/) .
 
-**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**  
-نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/embeddedvideo/) داخل الإطار مع الحفاظ على هندسة الشكل؛ وهذا سيناريو شائع لتحديث الوسائط في تنسيق موجود.
+**هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
 
-**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمّن؟**  
-نعم. يحتوي الفيديو المضمّن على [نوع المحتوى](https://reference.aspose.com/slides/ar/net/aspose.slides/video/contenttype/) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.
+نعم. عند تضمين فيديو محلي، تُدرج البيانات الثنائية في المستند، لذا ينمو حجم العرض التقديمي بما يتناسب مع حجم الملف. عند إضافة فيديو عبر الإنترنت، يتم تضمين رابط وصورة مصغرة، لذا يكون الزيادة في الحجم أصغر.
+
+**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**
+
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/ar/net/aspose.slides/videoframe/embeddedvideo/) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+
+**هل يمكن تحديد نوع المحتوى (MIME) لفيديو مضمّن؟**
+
+نعم. يحتوي الفيديو المضمن على [نوع محتوى](https://reference.aspose.com/slides/ar/net/aspose.slides/video/contenttype/) يمكنك قراءته واستخدامه، مثلاً عند حفظه على القرص.

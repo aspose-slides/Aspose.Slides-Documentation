@@ -1,44 +1,46 @@
 ---
-title: Управление видеокадрами в презентациях с использованием PHP
+title: Управление видеокадрами в презентациях с помощью PHP
 linktitle: Видеокадр
 type: docs
 weight: 10
 url: /ru/php-java/video-frame/
 keywords:
-- добавить видео
-- создать видео
+- добавление видео
+- создание видео
 - встраивание видео
 - извлечение видео
-- получить видео
+- получение видео
 - видеокадр
-- веб‑источник
+- веб-источник
 - PowerPoint
 - OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Научитесь программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides for PHP через Java. Быстрое руководство‑по‑действию."
+description: "Изучите, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с использованием Aspose.Slides для PHP через Java. Быстрое практическое руководство."
 ---
+## **Введение**
+
 Хорошо размещённое видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлечённости аудитории. 
 
-PowerPoint позволяет добавлять видео на слайд в презентации двумя способами:
+PowerPoint позволяет добавлять видео на слайд презентации двумя способами:
 
-* Добавить или встроить локальное видео (хранящееся на вашем компьютере)
+* Добавить или встроить локальное видео (хранится на вашем компьютере)
 * Добавить онлайн‑видео (из веб‑источника, например YouTube).
 
-Чтобы позволить вам добавлять видео (объекты video) в презентацию, Aspose.Slides предоставляет класс [Video](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/) , класс [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) , а также другие соответствующие типы.
+Чтобы добавить видео (объекты video) в презентацию, Aspose.Slides предоставляет класс [Video](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/) , класс [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) , а также другие соответствующие типы.
 
 ## **Создание встроенных видеокадров**
 
-Если файл видео, который вы хотите добавить на свой слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в вашу презентацию. 
+Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию. 
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу. 
-1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/) и передайте путь к файлу видео, чтобы встроить его в презентацию. 
-1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) , чтобы создать кадр для видео. 
+1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/) , передав путь к видеофайлу, чтобы встроить видео в презентацию.
+1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) , чтобы создать кадр для видео.
 1. Сохраните изменённую презентацию. 
 
-Этот код PHP показывает, как добавить локально хранящееся видео в презентацию:
+Этот код PHP показывает, как добавить локально сохранённое видео в презентацию:
 
 ```php
   # Создаёт экземпляр класса Presentation
@@ -59,7 +61,7 @@ PowerPoint позволяет добавлять видео на слайд в �
   }
 ```
 
-В качестве альтернативы вы можете добавить видео, передав путь к файлу напрямую в метод [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/addvideoframe/) :
+Кроме того, вы можете добавить видео, передав путь к файлу напрямую в метод [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/addvideoframe/) :
 
 ```php
   $pres = new Presentation();
@@ -73,20 +75,21 @@ PowerPoint позволяет добавлять видео на слайд в �
   }
 ```
 
+
 ## **Создание видеокадров с видео из веб‑источников**
 
 Microsoft [PowerPoint 2013 и новее](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает видео с YouTube в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке. 
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) .
-2. Получите ссылку на слайд по его индексу. 
-3. Добавьте объект [Video](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/) и передайте ссылку на видео. 
-4. Установите миниатюру для видеокадра. 
-5. Сохраните презентацию. 
+1. Получите ссылку на слайд по его индексу. 
+1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/) , передав ссылку на видео.
+1. Установите миниатюру для видеокадра. 
+1. Сохраните презентацию. 
 
-Этот код PHP показывает, как добавить видео из интернета на слайд в презентации PowerPoint:
+Этот код PHP показывает, как добавить видео из интернета на слайд PowerPoint презентации:
 
 ```php
-  # Создаёт объект Presentation, который представляет файл презентации
+  # Создаёт объект Presentation, представляющий файл презентации
   $pres = new Presentation();
   try {
     addVideoFromYouTube($pres, "Tj75Arhq5ho");
@@ -102,19 +105,83 @@ Microsoft [PowerPoint 2013 и новее](https://support.microsoft.com/en-us/of
 
 ```
 
-## **Управление субтитрами видео**
+## **Обрезка видеокадра**
 
-Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+Aspose.Slides позволяет управлять тем, какую часть видео воспроизводить, задавая значения trim‑from‑start и trim‑from‑end через [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#setTrimFromStart) и [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#setTrimFromEnd). Оба значения указываются в миллисекундах и определяют, сколько времени пропустить в начале и в конце видео соответственно. Эти настройки изменяют параметры воспроизведения видео в презентации; они не обрезают и не изменяют бинарные данные встроенного видео.
 
-**Добавить субтитры к видеокадру**
+**Установить параметры обрезки**
 
-Чтобы добавить субтитры к видеокадру:
+Чтобы создать видеокадр и установить его параметры обрезки:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) .
-2. Добавьте видео в презентацию. 
-3. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) на слайд. 
-4. Используйте коллекцию [CaptionsCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/) , возвращаемую методом [getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) , чтобы добавить дорожку субтитров WebVTT. 
-5. Сохраните изменённую презентацию. 
+1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/) в презентацию.
+1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) на слайд.
+1. Задайте значения trim‑from‑start и trim‑from‑end через [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#setTrimFromStart) и [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#setTrimFromEnd) .
+1. Сохраните изменённую презентацию.
+
+Следующий пример кода пропускает первые 2,5 секунды и последнюю секунду встроенного видео во время воспроизведения:
+
+```php
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoStream = new Java("java.io.FileInputStream", "video.mp4");
+    $video = $presentation->getVideos()->addVideo(
+        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
+    }
+    $presentation->dispose();
+}
+```
+
+**Чтение параметров обрезки**
+
+Чтобы просмотреть существующие параметры обрезки, загрузите презентацию, найдите объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) среди фигур на первом слайде и прочитайте значения через [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getTrimFromStart) и [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getTrimFromEnd) .
+
+Следующий пример кода находит первый видеокадр на первом слайде и выводит его параметры обрезки в миллисекундах:
+
+```php
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $trimFromStart = java_values($videoFrame->getTrimFromStart());
+            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+
+            echo "Trim from start: " . $trimFromStart . " ms\n";
+            echo "Trim from end: " . $trimFromEnd . " ms\n";
+            break;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Управление субтитрами видео**
+
+Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в PowerPoint‑презентациях. Субтитры хранятся в формате WebVTT и доступны через метод [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+
+**Добавление субтитров к видеокадру**
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) .
+1. Добавьте видео в презентацию.
+1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) на слайд.
+1. Используйте коллекцию [CaptionsCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/) , полученную через [getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) , чтобы добавить дорожку субтитров WebVTT.
+1. Сохраните изменённую презентацию.
 
 Следующий код показывает, как добавить субтитры к видеокадру:
 
@@ -138,14 +205,12 @@ try {
 
 Класс [CaptionsCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/) также предоставляет перегрузку, позволяющую добавлять субтитры из потока.
 
-**Извлечь субтитры из видеокадра**
+**Извлечение субтитров из видеокадра**
 
-Чтобы извлечь субтитры из видеокадра:
-
-1. Загрузите презентацию, содержащую видео. 
-2. Найдите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) . 
-3. Пройдите по коллекции [getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) . 
-4. Сохраните каждую дорожку субтитров в файл `.vtt` . 
+1. Загрузите презентацию, содержащую видео.
+1. Найдите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) .
+1. Пройдитесь по коллекции, возвращаемой [getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+1. Сохраните каждую дорожку субтитров в файл с расширением `.vtt` .
 
 Следующий код показывает, как извлечь субтитры из видеокадра:
 
@@ -174,14 +239,12 @@ try {
 
 Каждый объект [Captions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров как строку UTF‑8.
 
-**Удалить субтитры из видеокадра**
+**Удаление субтитров из видеокадра**
 
-Чтобы удалить субтитры из видеокадра:
-
-1. Загрузите презентацию, содержащую видео. 
-2. Получите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) . 
-3. Удалите дорожки субтитров из коллекции [getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) . 
-4. Сохраните изменённую презентацию. 
+1. Загрузите презентацию, содержащую видео.
+1. Получите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) .
+1. Удалите дорожки субтитров из коллекции, возвращаемой [getCaptionTracks](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+1. Сохраните изменённую презентацию.
 
 Следующий код показывает, как удалить все субтитры из видеокадра:
 
@@ -200,21 +263,21 @@ try {
 }
 ```
 
-Если необходимо удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/#remove) , [removeAt](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/#removeAt) вместо [clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/#clear) .
+Если необходимо удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/#remove) или [removeAt](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/#removeAt) вместо [clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/captionscollection/#clear) .
 
 ## **Извлечение видео со слайдов**
 
-Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать видео, встроенное в презентации.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) , чтобы загрузить презентацию, содержащую видео. 
-2. Пройдите все объекты [Slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/) . 
-3. Пройдите все объекты [Shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shape/) , чтобы найти [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) . 
-4. Сохраните видео на диск. 
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) , чтобы загрузить презентацию, содержащую видео.
+2. Пройдитесь по всем объектам [Slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/) .
+3. Пройдитесь по всем объектам [Shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shape/) , чтобы найти [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) .
+4. Сохраните видео на диск.
 
 Этот код PHP показывает, как извлечь видео со слайда презентации:
 
 ```php
-  # Создаёт объект Presentation, который представляет файл презентации
+  # Создаёт объект Presentation, представляющий файл презентации
   $pres = new Presentation("VideoSample.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
@@ -242,20 +305,20 @@ try {
   }
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Какие параметры воспроизведения видео можно изменить для VideoFrame?**
 
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/setplaymode/) (авто или по щелчку) и [повтором](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/setplayloopmode/) . Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) .
+Можно управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/setplaymode/) (автоматически или по щелчку) и [цикличностью](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/setplayloopmode/) . Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/) .
 
-**Увеличивает ли добавление видео размер файла PPTX?**
+**Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации возрастает пропорционально размеру файла. При добавлении онлайн‑видео встраивается ссылка и миниатюра, поэтому увеличение размера меньше.
+Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации растёт пропорционально размеру файла. При добавлении онлайн‑видео встраиваются лишь ссылка и миниатюра, поэтому увеличение размера меньше.
 
-**Можно ли заменить видео в существующем VideoFrame, не меняя его позицию и размер?**
+**Могу ли я заменить видео в существующем VideoFrame, не меняя его положение и размер?**
 
-Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию фигуры; это часто используется для обновления медиа в существующем макете.
+Да. Вы можете заменить [содержимое видео](https://reference.aspose.com/slides/ru/php-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию формы; это обычный сценарий обновления медиа в уже существующей раскладке.
 
 **Можно ли определить тип содержимого (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/getcontenttype/) , который можно прочитать и использовать, например при сохранении на диск.
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/ru/php-java/aspose.slides/video/getcontenttype/) , который можно прочитать и использовать, например, при сохранении на диск.

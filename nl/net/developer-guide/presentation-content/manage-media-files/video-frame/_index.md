@@ -18,31 +18,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u programmeermatig video-frames kunt toevoegen en extraheren in PowerPoint- en OpenDocument-dia's met Aspose.Slides voor .NET. Snelle stapsgewijze handleiding."
+description: "Leer hoe u programmatisch video-frames kunt toevoegen en extraheren in PowerPoint- en OpenDocument-slides met Aspose.Slides voor .NET. Snelle how-to gids."
 ---
 ## **Inleiding**
 
-Een goed geplaatste video in een presentatie kan uw boodschap overtuigender maken en de betrokkenheid van uw publiek verhogen.
+Een goed gepositioneerde video in een presentatie kan uw boodschap overtuigender maken en de betrokkenheid van uw publiek verhogen. 
 
-PowerPoint stelt u in staat om video's aan een dia in een presentatie toe te voegen op twee manieren:
+PowerPoint stelt u in staat om video's op twee manieren aan een dia in een presentatie toe te voegen:
 
-* Een lokale video toevoegen of insluiten (opgeslagen op uw computer)
-* Een online video toevoegen (van een webbron zoals YouTube).
+* Voeg een lokale video toe of embedde deze (opgeslagen op uw computer)
+* Voeg een online video toe (van een webbron zoals YouTube).
 
-Om u in staat te stellen video's (videobjecten) aan een presentatie toe te voegen, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideo/) interface, [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) interface en andere relevante types.
+Om u in staat te stellen video's (video‑objecten) aan een presentatie toe te voegen, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideo/) interface, de [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) interface en andere relevante types. 
 
-## **Maak een ingesloten videoframe**
+## **Maak een ingesloten video‑frame**
 
-Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een videoframe maken om de video in uw presentatie in te sluiten.
+Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een video‑frame maken om de video in uw presentatie te embedden. 
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een [IVideo](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideo/)‑object toe en geef het pad naar het videobestand door om de video in de presentatie in te sluiten.  
-4. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/)‑object toe om een frame voor de video te maken.  
-5. Sla de aangepaste presentatie op.  
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
+2. Haal een referentie naar een dia op via de index. 
+3. Voeg een [IVideo](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideo/) object toe en geef het pad naar het videobestand door om de video in de presentatie te embedden. 
+4. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) object toe om een frame voor de video te maken.  
+5. Sla de gewijzigde presentatie op. 
+
+Deze C#‑code toont hoe u een lokaal opgeslagen video aan een presentatie toevoegt:
 
 ```c#
-// Instantieert de Presentation-klasse
+ // Maakt een instantie van de Presentation-klasse
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     // Laadt de video
@@ -58,7 +60,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
     }
 }
 ```
-U kunt ook een video toevoegen door het bestandspad rechtstreeks door te geven aan de [AddVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addvideoframe/)‑methode:
+U kunt ook een video toevoegen door het bestandspad direct door te geven aan de [AddVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addvideoframe/) methode:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -68,19 +70,22 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Maak een videoframe met video van een webbron**
-Microsoft [PowerPoint 2013 en nieuwer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) ondersteunt YouTube‑video’s in presentaties. Als de video die u wilt gebruiken online beschikbaar is (bijv. op YouTube), kunt u deze aan uw presentatie toevoegen via de web‑link.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een [IVideo](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideo/)‑object toe en geef de link naar de video door.  
-4. Stel een miniatuurafbeelding in voor het videoframe.  
-5. Sla de presentatie op.  
+## **Maak een video‑frame met video van een webbron**
+Nieuwere versies van Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunen online video’s in presentaties. Als de video die u wilt gebruiken online beschikbaar is (bijv. op YouTube), kunt u deze via de weblink aan uw presentatie toevoegen.
+
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse
+2. Haal een referentie naar een dia op via de index. 
+3. Voeg een [IVideo](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideo/) object toe en geef de link naar de video door.
+4. Stel een miniatuurafbeelding in voor het video‑frame. 
+5. Sla de presentatie op. 
+
+Deze C#‑code toont hoe u een video van het web aan een dia in een PowerPoint‑presentatie toevoegt:
 
 ```c#
 public static void Run()
 {
-    // Instantieert een Presentation-object dat een presentatiebestand vertegenwoordigt 
+    // Maakt een Presentation-object aan dat een presentatiebestand vertegenwoordigt
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -103,19 +108,77 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **Beheer video‑ondertitels**
+## **Een video‑frame trimmen**
 
-Aspose.Slides stelt u in staat om gesloten ondertitels voor video‑frames in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn beschikbaar via de eigenschap [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/).
+Met Aspose.Slides kunt u bepalen welk deel van een video wordt afgespeeld door de waarden trim‑from‑start en trim‑from‑end in te stellen via [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/trimfromstart/) en [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/trimfromend/). Beide waarden worden gespecificeerd in milliseconden en bepalen hoeveel tijd er respectievelijk aan het begin en einde van de video wordt overgeslagen. Deze instellingen wijzigen de afspeelinstellingen van de video in de presentatie; ze knippen of wijzigen de binaire gegevens van de ingesloten video niet.
 
-**Voeg ondertitels toe aan een videoframe**
+**Triminstellingen instellen**
 
-Om ondertitels toe te voegen aan een videoframe:
+Om een video‑frame te maken en de triminstellingen in te stellen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse.  
-2. Voeg een video toe aan de presentatie.  
-3. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/)‑object toe aan een dia.  
-4. Gebruik de [CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/)‑collectie om een WebVTT‑ondertiteltrack toe te voegen.  
-5. Sla de aangepaste presentatie op.  
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse.
+2. Voeg een [IVideo](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideo/) object toe aan de presentatie.
+3. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) object toe aan een dia.
+4. Stel de trim‑from‑start en trim‑from‑end waarden in via [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/trimfromstart/) en [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/trimfromend/).
+5. Sla de gewijzigde presentatie op.
+
+De volgende code‑voorbeeld slaat de eerste 2,5 seconde en de laatste seconde van een ingesloten video over tijdens het afspelen:
+
+```cs
+using var presentation = new Presentation();
+
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
+
+var slide = presentation.Slides[0];
+var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame.TrimFromStart = 2500f;
+videoFrame.TrimFromEnd = 1000f;
+
+presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
+```
+
+**Triminstellingen lezen**
+
+Om bestaande triminstellingen te inspecteren, laadt u een presentatie, vindt u een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) object onder de vormen op de eerste dia en leest u de waarden via [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/trimfromstart/) en [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/trimfromend/).
+
+Het volgende code‑voorbeeld vindt het eerste video‑frame op de eerste dia en rapporteert de triminstellingen in milliseconden:
+
+```cs
+using var presentation = new Presentation("video_with_trim.pptx");
+
+var slide = presentation.Slides[0];
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        var trimFromStart = videoFrame.TrimFromStart;
+        var trimFromEnd = videoFrame.TrimFromEnd;
+
+        Console.WriteLine($"Trim from start: {trimFromStart} ms");
+        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
+
+        break;
+    }
+}
+```
+
+## **Video‑bijschriften beheren**
+
+Met Aspose.Slides kunt u ondertitels voor video‑frames in PowerPoint‑presentaties beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn beschikbaar via de eigenschap [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/).
+
+**Ondertitels aan een video‑frame toevoegen**
+
+Om ondertitels aan een video‑frame toe te voegen:
+
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse.
+2. Voeg een video toe aan de presentatie.
+3. Voeg een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) object toe aan een dia.
+4. Gebruik de [CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/) collectie om een WebVTT‑ondertiteltrack toe te voegen.
+5. Sla de gewijzigde presentatie op.
+
+De volgende code toont hoe u ondertitels aan een video‑frame toevoegt:
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -127,22 +190,22 @@ using (Presentation presentation = new Presentation())
     IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
 
     // Voegt een nieuw ondertiteltrack toe vanuit een WebVTT-bestand.
-    videoFrame.CaptionTracks.Add("English", "track.vtt");
-
     presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 }
 ```
 
-De interface [ICaptionsCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/icaptionscollection/) biedt ook een overload waarmee u ondertitels vanuit een stream kunt toevoegen.
+De [ICaptionsCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/icaptionscollection/) interface biedt ook een overload waarmee u ondertitels vanuit een stream kunt toevoegen.
 
-**Extraheer ondertitels uit een videoframe**
+**Ondertitels uit een video‑frame extraheren**
 
-Om ondertitels uit een videoframe te extraheren:
+Om ondertitels uit een video‑frame te extraheren:
 
-1. Laad de presentatie die de video bevat.  
-2. Zoek het gewenste [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/)‑object.  
-3. Doorloop de [CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/)‑collectie.  
-4. Sla elke ondertiteltrack op naar een `.vtt`‑bestand.  
+1. Laad de presentatie die de video bevat.
+2. Zoek het doel-[IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) object.
+3. Itereer door de [CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/) collectie.
+4. Sla elke ondertiteltrack op in een `.vtt`‑bestand.
+
+De volgende code toont hoe u ondertitels uit een video‑frame kunt extraheren:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -154,7 +217,7 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
         {
             foreach (ICaptions captionTrack in videoFrame.CaptionTracks)
             {
-                // Slaat het ondertiteltrack op naar een WebVTT-bestand.
+                // Slaat de ondertiteltrack op naar een WebVTT-bestand.
                 string filePath = $"{captionTrack.CaptionId}.vtt";
                 File.WriteAllBytes(filePath, captionTrack.BinaryData);
             }
@@ -163,16 +226,18 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 }
 ```
 
-Elk [ICaptions](https://reference.aspose.com/slides/nl/net/aspose.slides/icaptions/)‑object geeft de ondertitel‑identifier, het label, de binaire gegevens en de ondertiteltekst als een UTF‑8‑string weer.
+Elk [ICaptions](https://reference.aspose.com/slides/nl/net/aspose.slides/icaptions/) object geeft de ondertitel‑identificator, label, binaire gegevens en ondertiteltekst weer als een UTF‑8‑string.
 
-**Verwijder ondertitels uit een videoframe**
+**Ondertitels uit een video‑frame verwijderen**
 
-Om ondertitels uit een videoframe te verwijderen:
+Om ondertitels uit een video‑frame te verwijderen:
 
-1. Laad de presentatie die de video bevat.  
-2. Haal het gewenste [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/)‑object op.  
-3. Verwijder ondertitel‑tracks uit de [CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/)‑collectie.  
-4. Sla de aangepaste presentatie op.  
+1. Laad de presentatie die de video bevat.
+2. Haal het doel-[IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) object op.
+3. Verwijder ondertitel‑tracks uit de [CaptionTracks](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/captiontracks/) collectie.
+4. Sla de gewijzigde presentatie op.
+
+De volgende code toont hoe u alle ondertitels uit een video‑frame verwijdert:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -180,7 +245,7 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
     ISlide slide = presentation.Slides[0];
     IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
 
-    // Verwijdert alle ondertitels uit het videoframe.
+    // Verwijdert alle ondertitels van het video-frame.
     videoFrame.CaptionTracks.Clear();
 
     presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -189,55 +254,57 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 
 Als u slechts één ondertiteltrack wilt verwijderen, gebruik dan de methoden [Remove](https://reference.aspose.com/slides/nl/net/aspose.slides/captionscollection/remove/) of [RemoveAt](https://reference.aspose.com/slides/nl/net/aspose.slides/captionscollection/removeat/) in plaats van [Clear](https://reference.aspose.com/slides/nl/net/aspose.slides/captionscollection/clear/).
 
-## **Video extraheren van een dia**
-Naast het toevoegen van video's aan dia’s stelt Aspose.Slides u in staat om video’s die in presentaties zijn ingesloten te extraheren.
+## **Video uit een dia extraheren**
+Naast het toevoegen van video's aan dia's, stelt Aspose.Slides u in staat om video's die in presentaties zijn ingesloten te extraheren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse om de presentatie met de video te laden.  
-2. Doorloop alle [ISlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide)‑objecten.  
-3. Doorloop alle [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape)‑objecten om een [VideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe) te vinden.  
-4. Sla de video op op schijf.  
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse om de presentatie die de video bevat te laden. 
+2. Itereer door alle [ISlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide) objecten.
+3. Itereer door alle [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape) objecten om een [VideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe) te vinden. 
+4. Sla de video op schijf.
+
+Deze C#‑code toont hoe u de video van een presentatiedia kunt extraheren:
 
 ```c#
- // Instantieert een Presentation-object dat een presentatiebestand vertegenwoordigt 
- Presentation presentation = new Presentation("Video.pptx");
+// Maakt een Presentation-object aan dat een presentiebestand representeert
+Presentation presentation = new Presentation("Video.pptx");
 
- // Doorloopt de dia's
- foreach (ISlide slide in presentation.Slides)
- {
-     // Doorloopt de vormen
-     foreach (IShape shape in presentation.Slides[0].Shapes)
-     {
-         // Slaat de video op naar schijf zodra een VideoFrame met video wordt gevonden
-         if (shape is VideoFrame)
-         {
-             IVideoFrame vf = shape as IVideoFrame;
-             String type = vf.EmbeddedVideo.ContentType;
-             int ss = type.LastIndexOf('/');
-             type = type.Remove(0, type.LastIndexOf('/') + 1);
-             Byte[] buffer = vf.EmbeddedVideo.BinaryData;
-             using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
-             {                                                     
-                 stream.Write(buffer, 0, buffer.Length);
-             }
-         }
-     }
- }
+// Doorloopt de dia's
+foreach (ISlide slide in presentation.Slides)
+{
+    // Doorloopt de vormen
+    foreach (IShape shape in presentation.Slides[0].Shapes)
+    {
+        // Slaat de video op schijf zodra een VideoFrame met video gevonden wordt
+        if (shape is VideoFrame)
+        {
+            IVideoFrame vf = shape as IVideoFrame;
+            String type = vf.EmbeddedVideo.ContentType;
+            int ss = type.LastIndexOf('/');
+            type = type.Remove(0, type.LastIndexOf('/') + 1);
+            Byte[] buffer = vf.EmbeddedVideo.BinaryData;
+            using (FileStream stream = new FileStream("NewVideo_out." + type, FileMode.Create, FileAccess.Write, FileShare.Read))
+            {                                                     
+                stream.Write(buffer, 0, buffer.Length);
+            }
+        }
+    }
+}
 ```
 
 ## **FAQ**
 
-**Welke afspeelparameters van een videoframe kunnen worden aangepast?**
+**Welke video‑afspeelparameters kunnen worden aangepast voor een VideoFrame?**
 
-U kunt de [afspeelmodus](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/playmode/) (automatisch of bij klik) en de [loopmodus](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/playloopmode/) regelen. Deze opties zijn beschikbaar via de eigenschappen van het [VideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/)‑object.
+U kunt de [afspeelmodus](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/playmode/) (automatisch of bij klikken) en [herhaling](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/playloopmode/) controleren. Deze opties zijn beschikbaar via de eigenschappen van het [VideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/) object.
 
 **Heeft het toevoegen van een video invloed op de bestandsgrootte van de PPTX?**
 
-Ja. Wanneer u een lokale video insluit, worden de binaire gegevens in het document opgenomen, waardoor de presentatiegrootte evenredig toeneemt met de bestandsgrootte. Wanneer u een online video toevoegt, worden alleen een link en een miniatuurafbeelding ingesloten, waardoor de toename kleiner is.
+Ja. Wanneer u een lokale video embedt, worden de binaire gegevens in het document opgenomen, waardoor de presentatiegrootte evenredig met de bestandsgrootte toeneemt. Wanneer u een online video toevoegt, worden een link en een miniatuurafbeelding ingesloten, waardoor de grootte‑toename kleiner is.
 
-**Kan ik de video in een bestaande VideoFrame vervangen zonder de positie en grootte te wijzigen?**
+**Kan ik de video in een bestaand VideoFrame vervangen zonder de positie en grootte te wijzigen?**
 
-Ja. U kunt de [video‑inhoud](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/embeddedvideo/) binnen het frame verwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay‑out.
+Ja. U kunt de [videoinhoud](https://reference.aspose.com/slides/nl/net/aspose.slides/videoframe/embeddedvideo/) binnen het frame vervangen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
 
-**Kan het inhoudstype (MIME) van een ingesloten video worden bepaald?**
+**Kan het content‑type (MIME) van een ingesloten video worden bepaald?**
 
-Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/nl/net/aspose.slides/video/contenttype/) dat u kunt uitlezen en gebruiken, bijvoorbeeld bij het opslaan op schijf.
+Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/nl/net/aspose.slides/video/contenttype/) dat u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan op schijf.

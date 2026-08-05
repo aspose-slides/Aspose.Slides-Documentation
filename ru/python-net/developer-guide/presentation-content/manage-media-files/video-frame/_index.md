@@ -7,7 +7,7 @@ url: /ru/python-net/video-frame/
 keywords:
 - добавить видео
 - создать видео
-- вставить видео
+- встроить видео
 - извлечь видео
 - получить видео
 - видеокадр
@@ -17,28 +17,30 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Научитесь программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET. Быстрое руководство."
+description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET. Краткое практическое руководство."
 ---
-Грамотно размещённое видео в презентации делает ваше сообщение более убедительным и повышает уровень вовлечённости аудитории. 
+## **Введение**
 
-PowerPoint позволяет добавлять видео на слайд в презентации двумя способами:
+Хорошо размещённое видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлечённости аудитории. 
 
-* Добавить или вставить локальное видео (хранящееся на вашем компьютере)
+PowerPoint позволяет добавлять видео на слайд презентации двумя способами:
+
+* Добавить или встроить локальное видео (хранящееся на вашем компьютере)
 * Добавить онлайн‑видео (из веб‑источника, например YouTube).
 
-Чтобы вы могли добавлять видео (видеобъекты) в презентацию, Aspose.Slides предоставляет класс [Video](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/), класс [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) и другие соответствующие типы. 
+Чтобы вы могли добавлять видео (объекты video) в презентацию, Aspose.Slides предоставляет классы [Video](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/) , [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) и другие соответствующие типы. 
 
-## **Создать встроенный видеокадр**
+## **Создание встроенного видео‑кадра**
 
-Если файл видео, который вы хотите добавить на слайд, находится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию. 
+Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр для встраивания видео в презентацию. 
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте объект [Video](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/) и передайте путь к файлу видео, чтобы встроить его в презентацию.  
-4. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/), чтобы создать кадр для видео.  
-5. Сохраните изменённую презентацию.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу. 
+3. Добавьте объект [Video](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/) и передайте путь к файлу видео для встраивания его в презентацию. 
+4. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) , чтобы создать кадр для видео.  
+5. Сохраните изменённую презентацию. 
 
-Этот пример кода на Python показывает, как добавить локальное видео в презентацию:
+Этот код на Python показывает, как добавить локальное видео в презентацию:
 
 ```python
 import aspose.slides as slides
@@ -48,13 +50,13 @@ with slides.Presentation(path + "pres.pptx") as pres:
         video = pres.videos.add_video(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
 
         # Получает первый слайд и добавляет видеокадр
-        # Сохраняет презентацию на диск
         pres.slides[0].shapes.add_video_frame(10, 10, 150, 250, video)
 
+        # Сохраняет презентацию на диск
         pres.save(path + "pres-with-video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Кроме того, вы можете добавить видео, передав путь к файлу непосредственно в метод `add_video_frame(x, y, width, height, fname)`:
+В качестве альтернативы можно добавить видео, передав путь к файлу напрямую в метод `add_video_frame(x, y, width, height, fname)`:
 
 ``` python
 import aspose.slides as slides
@@ -64,17 +66,18 @@ with slides.Presentation() as pres:
     vf = sld.shapes.add_video_frame(50, 150, 300, 150, "video1.avi")
 ```
 
-## **Создать видеокадр с видео из веб‑источника**
 
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает видео YouTube в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке. 
+## **Создание видеокадра с видео из веб‑источника**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/)  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте объект [Video](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/) и передайте ссылку на видео.  
-4. Установите миниатюру для видеокадра.  
-5. Сохраните презентацию.  
+Новые версии Microsoft [PowerPoint](https://support.microsoft.com/en-us/office/insert-a-video-from-youtube-or-another-site-8340ec69-4cee-4fe1-ab96-4849154bc6db) поддерживают онлайн‑видео в презентациях. Если нужное вам видео доступно в интернете (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке.
 
-Этот пример кода на Python показывает, как добавить видео из интернете на слайд в презентации PowerPoint:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу. 
+3. Добавьте объект [Video](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/) и передайте ссылку на видео.
+4. Установите миниатюру для видеокадра. 
+5. Сохраните презентацию. 
+
+Этот код на Python показывает, как добавить видео из интернета на слайд в презентации PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -96,19 +99,75 @@ with slides.Presentation() as pres:
     pres.save("AddVideoFrameFromWebSource_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Обрезка видеокадра**
+
+Aspose.Slides позволяет контролировать, какая часть видео воспроизводится, задавая значения trim‑from‑start и trim‑from‑end через [VideoFrame.trim_from_start](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/trim_from_start/) и [VideoFrame.trim_from_end](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/trim_from_end/). Оба значения указываются в миллисекундах и определяют, сколько времени пропускается с начала и конца видео соответственно. Эти настройки меняют параметры воспроизведения видео в презентации; они не обрезают и иным способом не изменяют бинарные данные встроенного видео.
+
+**Установка параметров обрезки**
+
+Чтобы создать видеокадр и задать ему параметры обрезки:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) .
+2. Добавьте объект [Video](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/) в презентацию.
+3. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) на слайд.
+4. Установите значения trim‑from‑start и trim‑from‑end через [VideoFrame.trim_from_start](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/trim_from_start/) и [VideoFrame.trim_from_end](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/trim_from_end/) .
+5. Сохраните изменённую презентацию.
+
+В следующем примере кода пропускаются первые 2,5 секунды и последняя секунда встроенного видео при воспроизведении:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    with open("video.mp4", "rb") as video_stream:
+        video_data = video_stream.read()
+
+    video = presentation.videos.add_video(video_data)
+
+    slide = presentation.slides[0]
+    video_frame = slide.shapes.add_video_frame(50, 50, 640, 360, video)
+
+    video_frame.trim_from_start = 2500.0
+    video_frame.trim_from_end = 1000.0
+
+    presentation.save("video_with_trim.pptx", slides.export.SaveFormat.PPTX)
+```
+
+**Чтение параметров обрезки**
+
+Чтобы просмотреть существующие параметры обрезки, загрузите презентацию, найдите объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) среди фигур на первом слайде и прочитайте значения через [VideoFrame.trim_from_start](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/trim_from_start/) и [VideoFrame.trim_from_end](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/trim_from_end/) .
+
+В следующем примере кода находится первый видеокадр на первом слайде и выводятся его параметры обрезки в миллисекундах:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("video_with_trim.pptx") as presentation:
+    slide = presentation.slides[0]
+    for shape in slide.shapes:
+        if isinstance(shape, slides.VideoFrame):
+            video_frame = shape
+            trim_from_start = video_frame.trim_from_start
+            trim_from_end = video_frame.trim_from_end
+
+            print(f"Trim from start: {trim_from_start} ms")
+            print(f"Trim from end: {trim_from_end} ms")
+            break
+```
+
 ## **Управление субтитрами видео**
 
-Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через свойство [VideoFrame.caption_tracks](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/caption_tracks/).  
+Aspose.Slides позволяет управлять закрывающими субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через свойство [VideoFrame.caption_tracks](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/caption_tracks/) .
 
-**Добавить субтитры к видеокадру**
+**Добавление субтитров к видеокадру**
 
 Чтобы добавить субтитры к видеокадру:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).  
-2. Добавьте видео в презентацию.  
-3. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) на слайд.  
-4. Используйте объект [CaptionsCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/), возвращаемый свойством [caption_tracks](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/caption_tracks/), чтобы добавить дорожку субтитров WebVTT.  
-5. Сохраните изменённую презентацию.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) .
+2. Добавьте видео в презентацию.
+3. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) на слайд.
+4. Используйте [CaptionsCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/) , возвращаемую через [caption_tracks](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/caption_tracks/) , чтобы добавить дорожку субтитров в формате WebVTT.
+5. Сохраните изменённую презентацию.
 
 Следующий код показывает, как добавить субтитры к видеокадру:
 
@@ -130,16 +189,16 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Класс [CaptionsCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/) также предоставляет перегрузку, позволяющую добавлять субтитры из потока.  
+Класс [CaptionsCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/) также предоставляет перегрузку, позволяющую добавлять субтитры из потока.
 
-**Извлечь субтитры из видеокадра**
+**Извлечение субтитров из видеокадра**
 
 Чтобы извлечь субтитры из видеокадра:
 
-1. Загрузите презентацию, содержащую видео.  
-2. Найдите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/).  
-3. Пройдитесь по коллекции [caption_tracks](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/caption_tracks/).  
-4. Сохраните каждую дорожку субтитров в файл с расширением `.vtt`.  
+1. Загрузите презентацию, содержащую видео.
+2. Найдите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) .
+3. Пройдитесь по коллекции [caption_tracks](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/caption_tracks/) .
+4. Сохраните каждую дорожку субтитров в файл с расширением `.vtt` .
 
 Следующий код показывает, как извлечь субтитры из видеокадра:
 
@@ -157,16 +216,16 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
                     track_stream.write(bytes(caption_track.binary_data))
 ```
 
-Каждый объект [Captions](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров в виде строки UTF‑8.  
+Каждый объект [Captions](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captions/) раскрывает идентификатор субтитра, метку, бинарные данные и текст субтитра в виде строки UTF-8.
 
-**Удалить субтитры из видеокадра**
+**Удаление субтитров из видеокадра**
 
 Чтобы удалить субтитры из видеокадра:
 
-1. Загрузите презентацию, содержащую видео.  
-2. Получите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/).  
-3. Удалите дорожки субтитров из [CaptionsCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/).  
-4. Сохраните изменённую презентацию.  
+1. Загрузите презентацию, содержащую видео.
+2. Получите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) .
+3. Удалите дорожки субтитров из [CaptionsCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/) .
+4. Сохраните изменённую презентацию.
 
 Следующий код показывает, как удалить все субтитры из видеокадра:
 
@@ -175,7 +234,7 @@ import aspose.slides as slides
 
 with slides.Presentation("video_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
-    video_frame = slide.shapes[0]  # type: slides.VideoFrame
+    video_frame = slide.shapes[0]  # тип: slides.VideoFrame
 
     # Удаляет все субтитры из видеокадра.
     video_frame.caption_tracks.clear()
@@ -183,23 +242,23 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Если нужно удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/remove/) или [remove_at](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/remove_at/) вместо [clear](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/clear/).  
+Если необходимо удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/remove/) или [remove_at](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/remove_at/) вместо [clear](https://reference.aspose.com/slides/ru/python-net/aspose.slides/captionscollection/clear/) .
 
-## **Извлечь видео со слайда**
+## **Извлечение видео со слайда**
 
-Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать видео, встроенное в презентации.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) для загрузки презентации, содержащей видео.  
-2. Пройдитесь по всем объектам [Slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/).  
-3. Пройдитесь по всем объектам [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/) в поисках [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/).  
-4. Сохраните видео на диск.  
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) , чтобы загрузить презентацию, содержащую видео. 
+2. Пройдитесь по всем объектам [Slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/) .
+3. Пройдитесь по всем объектам [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/) в поиске [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) . 
+4. Сохраните видео на диск.
 
-Этот пример кода на Python показывает, как извлечь видео со слайда презентации:
+Этот код на Python показывает, как извлечь видео со слайда презентации:
 
 ```python
 import aspose.slides as slides
 
-# Создаёт объект Presentation, который представляет файл презентации
+# Создает объект Presentation, представляющий файл презентации
 with slides.Presentation(path + "Video.pptx") as presentation:
     for shape in presentation.slides[0].shapes:
         if type(shape) is slides.VideoFrame:
@@ -213,16 +272,16 @@ with slides.Presentation(path + "Video.pptx") as presentation:
 
 **Какие параметры воспроизведения видео можно изменить для VideoFrame?**
 
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/play_mode/) (авто или по щелчку) и [цикличностью](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/play_loop_mode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/).  
+Можно управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/play_mode/) (авто или по щелчку) и [цикличностью](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/play_loop_mode/) . Эти варианты доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/) .
 
 **Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации растёт пропорционально размеру файла. При добавлении онлайн‑видео встраиваются только ссылка и миниатюра, поэтому увеличение размера меньше.  
+Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации растёт пропорционально размеру файла. При добавлении онлайн‑видео встраиваются только ссылка и миниатюра, поэтому увеличение объёма меньше.
 
-**Можно ли заменить видео в существующем VideoFrame, не меняя его позицию и размеры?**
+**Могу ли я заменить видео в существующем VideoFrame, не меняя его положение и размер?**
 
-Да. Вы можете заменить [video content](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/embedded_video/) внутри кадра, сохранив геометрию формы; это часто используется для обновления медиа в уже существующем макете.  
+Да. Можно заменить [видеоконтент](https://reference.aspose.com/slides/ru/python-net/aspose.slides/videoframe/embedded_video/) внутри кадра, сохранив геометрию фигуры; это типичная ситуация при обновлении медиа в уже существующей раскладке.
 
-**Можно ли определить тип контента (MIME) встроенного видео?**
+**Можно ли определить тип содержимого (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [content type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/content_type/), который можно считать и использовать, например, при сохранении его на диск.
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/ru/python-net/aspose.slides/video/content_type/) , который можно прочитать и использовать, например, при сохранении на диск.

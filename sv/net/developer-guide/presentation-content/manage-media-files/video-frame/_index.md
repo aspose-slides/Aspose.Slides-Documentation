@@ -1,28 +1,28 @@
 ---
-title: Hantera video-ramar i presentationer i .NET
-linktitle: Video-ram
+title: "Hantera videoramar i presentationer i .NET"
+linktitle: "Videoram"
 type: docs
 weight: 10
 url: /sv/net/video-frame/
 keywords:
-- lägga till video
-- skapa video
-- bädda in video
-- extrahera video
-- hämta video
-- video-ram
-- webbkälla
-- PowerPoint
-- OpenDocument
-- presentation
-- .NET
-- C#
-- Aspose.Slides
-description: "Lär dig programatiskt lägga till och extrahera video-ramar i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för .NET. Snabb guide."
+- "lägga till video"
+- "skapa video"
+- "bädda in video"
+- "extrahera video"
+- "hämta video"
+- "videoram"
+- "webbkälla"
+- "PowerPoint"
+- "OpenDocument"
+- "presentation"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Lär dig programatiskt lägga till och extrahera videoramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för .NET. Snabb steg-för-steg-guide."
 ---
 ## **Introduktion**
 
-En välplacerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsnivåerna hos din publik. 
+En välplacerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsgraden hos din publik. 
 
 PowerPoint låter dig lägga till videor på en bild i en presentation på två sätt:
 
@@ -31,18 +31,20 @@ PowerPoint låter dig lägga till videor på en bild i en presentation på två 
 
 För att du ska kunna lägga till videor (videoobjekt) i en presentation tillhandahåller Aspose.Slides [IVideo](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideo/)‑gränssnittet, [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)‑gränssnittet och andra relevanta typer. 
 
-## **Skapa en inbäddad video‑ram**
+## **Skapa en inbäddad videoram**
 
-Om videofilen du vill lägga till på din bild är sparad lokalt kan du skapa en video‑ram för att bädda in videon i din presentation. 
+Om videofilen du vill lägga till på din bild lagras lokalt kan du skapa en videoram för att bädda in videon i din presentation. 
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
-1. Hämta en bilds referens via dess index. 
-1. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideo/)‑objekt och skicka videofilens sökväg för att bädda in videon i presentationen. 
-1. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)‑objekt för att skapa en ram för videon.  
-1. Spara den ändrade presentationen. 
+2. Hämta en bilds referens via dess index. 
+3. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideo/)-objekt och skicka videofilens sökväg för att bädda in videon i presentationen. 
+4. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)-objekt för att skapa en ram för videon.  
+5. Spara den förändrade presentationen. 
+
+Denna C#‑kod visar hur du lägger till en lokalt lagrad video i en presentation:
 
 ```c#
-// Skapar en instans av Presentation-klassen
+ // Instansierar Presentation-klassen
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     // Laddar videon
@@ -50,7 +52,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
     {
         IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
         
-        // Hämtar den första bilden och lägger till en video-ram
+        // Hämtar den första bilden och lägger till en videoram
         pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
         
         // Sparar presentationen till disk
@@ -68,20 +70,22 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Skapa en video‑ram med video från en webbkälla**
 
-Microsoft [PowerPoint 2013 och nyare](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) stöder YouTube‑videor i presentationer. Om videon du vill använda finns tillgänglig online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk. 
+## **Skapa en videoram med video från en webbkälla**
+Nyare versioner av Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stöder online‑videor i presentationer. Om videon du vill använda finns online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
-1. Hämta en bilds referens via dess index. 
-1. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideo/)‑objekt och skicka länken till videon.
-1. Ställ in en miniatyr för video‑ramen. 
-1. Spara presentationen. 
+2. Hämta en bilds referens via dess index. 
+3. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideo/)-objekt och skicka länken till videon.
+4. Ange en miniatyr för videoramen. 
+5. Spara presentationen. 
+
+Denna C#‑kod visar hur du lägger till en video från webben på en bild i en PowerPoint‑presentation:
 
 ```c#
 public static void Run()
 {
-    // Skapar ett Presentation-objekt som representerar en presentationsfil 
+    // Instansierar ett Presentation-objekt som representerar en presentationsfil 
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -104,19 +108,77 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **Hantera video‑undertexter**
+## **Trimma en videoram**
 
-Aspose.Slides låter dig hantera stängda undertexter för video‑ramar i PowerPoint‑presentationer. Undertexter lagras i WebVTT‑format och exponeras via egenskapen [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/).
+Aspose.Slides låter dig kontrollera vilken del av en video som spelas genom att ställa in värdena trim‑from‑start och trim‑from‑end via [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/trimfromstart/) och [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/trimfromend/). Båda värdena anges i millisekunder och definierar hur mycket tid som hoppas över i början respektive slutet av videon. Dessa inställningar ändrar uppspelningsinställningarna i presentationen; de klipper inte eller på annat sätt modifierar den inbäddade video‑binärdatan.
 
-**Lägg till undertexter på en video‑ram**
+**Ange triminställningar**
 
-För att lägga till undertexter på en video‑ram:
+För att skapa en videoram och ange dess triminställningar:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) .
-1. Lägg till en video i presentationen.
-1. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)‑objekt på en bild.
-1. Använd samlingen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/) för att lägga till ett WebVTT‑undertextspår.
-1. Spara den ändrade presentationen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
+2. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideo/)-objekt i presentationen.
+3. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)-objekt på en bild.
+4. Ställ in värdena trim‑from‑start och trim‑from‑end via [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/trimfromstart/) och [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/trimfromend/).
+5. Spara den ändrade presentationen.
+
+Följande kodexempel hoppar över de första 2,5 sekunderna och den sista sekunden av en inbäddad video under uppspelning:
+
+```cs
+using var presentation = new Presentation();
+
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
+
+var slide = presentation.Slides[0];
+var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame.TrimFromStart = 2500f;
+videoFrame.TrimFromEnd = 1000f;
+
+presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
+```
+
+**Läs triminställningar**
+
+För att granska befintliga triminställningar, ladda en presentation, hitta ett [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)‑objekt bland formerna på den första bilden och läs värdena via [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/trimfromstart/) och [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/trimfromend/).
+
+Följande kodexempel hittar den första videoramen på den första bilden och rapporterar dess triminställningar i millisekunder:
+
+```cs
+using var presentation = new Presentation("video_with_trim.pptx");
+
+var slide = presentation.Slides[0];
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        var trimFromStart = videoFrame.TrimFromStart;
+        var trimFromEnd = videoFrame.TrimFromEnd;
+
+        Console.WriteLine($"Trim from start: {trimFromStart} ms");
+        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
+
+        break;
+    }
+}
+```
+
+## **Hantera videobeskrivningar**
+
+Aspose.Slides låter dig hantera stängda undertexter för videoramar i PowerPoint‑presentationer. Undertexter lagras i WebVTT‑format och exponeras via egenskapen [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/).
+
+**Lägg till undertexter i en videoram**
+
+För att lägga till undertexter i en videoram:
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
+2. Lägg till en video i presentationen.
+3. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)‑objekt på en bild.
+4. Använd samlingen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/) för att lägga till ett WebVTT‑undertextspår.
+5. Spara den ändrade presentationen.
+
+Följande kod visar hur du lägger till undertexter i en videoram:
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -134,16 +196,18 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Gränssnittet [ICaptionsCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptionscollection/) erbjuder också en överlagring som låter dig lägga till undertexter från en ström.
+Gränssnittet [ICaptionsCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptionscollection/) tillhandahåller också en överlagring som låter dig lägga till undertexter från en ström.
 
-**Extrahera undertexter från en video‑ram**
+**Extrahera undertexter från en videoram**
 
-För att extrahera undertexter från en video‑ram:
+För att extrahera undertexter från en videoram:
 
 1. Läs in presentationen som innehåller videon.
-1. Hitta mål‑objektet [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) .
-1. Iterera genom samlingen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/) .
-1. Spara varje undertextspår till en `.vtt`‑fil.
+2. Hitta mål‑[IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)-objektet.
+3. Iterera genom samlingen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/).
+4. Spara varje undertextspår till en `.vtt`‑fil.
+
+Följande kod visar hur du extraherar undertexter från en videoram:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -164,16 +228,18 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 }
 ```
 
-Varje [ICaptions](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptions/)‑objekt exponerar undertextens identifierare, etikett, binärdata och undertexten som en UTF‑8‑sträng.
+Varje [ICaptions](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptions/)‑objekt exponerar undertextens identifierare, etikett, binärdata och undertextens text som en UTF‑8‑sträng.
 
-**Ta bort undertexter från en video‑ram**
+**Ta bort undertexter från en videoram**
 
-För att ta bort undertexter från en video‑ram:
+För att ta bort undertexter från en videoram:
 
 1. Läs in presentationen som innehåller videon.
-1. Hämta mål‑objektet [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) .
-1. Ta bort undertextspår från samlingen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/) .
-1. Spara den ändrade presentationen.
+2. Hämta mål‑[IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/)-objektet.
+3. Ta bort undertextspår från samlingen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/captiontracks/).
+4. Spara den ändrade presentationen.
+
+Följande kod visar hur du tar bort alla undertexter från en videoram:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -181,7 +247,7 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
     ISlide slide = presentation.Slides[0];
     IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
 
-    // Tar bort alla undertexter från video-ramen.
+    // Tar bort alla undertexter från videoramen.
     videoFrame.CaptionTracks.Clear();
 
     presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -191,15 +257,17 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 Om du bara behöver ta bort ett undertextspår, använd metoderna [Remove](https://reference.aspose.com/slides/sv/net/aspose.slides/captionscollection/remove/) eller [RemoveAt](https://reference.aspose.com/slides/sv/net/aspose.slides/captionscollection/removeat/) istället för [Clear](https://reference.aspose.com/slides/sv/net/aspose.slides/captionscollection/clear/).
 
 ## **Extrahera video från en bild**
-Förutom att lägga till videor på bilder tillåter Aspose.Slides dig att extrahera videor som är inbäddade i presentationer.
+Förutom att lägga till videor på bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) för att läsa in presentationen som innehåller videon. 
-2. Iterera igenom alla [ISlide](https://reference.aspose.com/slides/sv/net/aspose.slides/islide)‑objekt.
-3. Iterera igenom alla [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape)‑objekt för att hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe). 
+2. Iterera genom alla [ISlide](https://reference.aspose.com/slides/sv/net/aspose.slides/islide)-objekt.
+3. Iterera genom alla [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape)-objekt för att hitta en [VideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe). 
 4. Spara videon till disk.
 
+Denna C#‑kod visar hur du extraherar videon på en presentationsbild:
+
 ```c#
-// Skapar ett Presentation-objekt som representerar en presentationsfil 
+// Instansierar ett Presentation-objekt som representerar en presentationsfil 
 Presentation presentation = new Presentation("Video.pptx");
 
 // Itererar genom bilder
@@ -225,19 +293,19 @@ foreach (ISlide slide in presentation.Slides)
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Vilka videouppspelningsparametrar kan ändras för en VideoFrame?**
 
-Du kan styra [playback mode](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/playmode/) (auto eller vid klick) och [looping](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/playloopmode/). Dessa alternativ är tillgängliga via egenskaperna för objektet [VideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/).
+Du kan styra [uppspelningsläget](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/playmode/) (automatiskt eller vid klick) och [loopning](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/playloopmode/). Dessa alternativ finns tillgängliga via objektets egenskaper för [VideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/).
 
 **Påverkar tillägg av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas binärdata i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du lägger till en online‑video bäddas en länk och en miniatyr in, så storleksökningen blir mindre.
+Ja. När du bäddar in en lokal video inkluderas binärdata i dokumentet, vilket gör att presentationens storlek ökar i proportion till filens storlek. När du lägger till en online‑video bäddas en länk och en miniatyr in, så ökningen blir mindre.
 
 **Kan jag ersätta videon i en befintlig VideoFrame utan att ändra dess position och storlek?**
 
-Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/embeddedvideo/) i ramen samtidigt som du behåller figurens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
+Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/sv/net/aspose.slides/videoframe/embeddedvideo/) inom ramen samtidigt som du bevarar formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
 
 **Kan innehållstypen (MIME) för en inbäddad video bestämmas?**
 

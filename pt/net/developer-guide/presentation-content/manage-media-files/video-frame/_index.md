@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Frames de Vídeo em Apresentações em .NET
-linktitle: Frame de Vídeo
+title: Gerenciar Quadros de Vídeo em Apresentações no .NET
+linktitle: Quadro de Vídeo
 type: docs
 weight: 10
 url: /pt/net/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - incorporar vídeo
 - extrair vídeo
 - recuperar vídeo
-- frame de vídeo
+- quadro de vídeo
 - fonte web
 - PowerPoint
 - OpenDocument
@@ -18,30 +18,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a adicionar e extrair programaticamente frames de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para .NET. Guia rápido de como‑fazer."
+description: "Aprenda a adicionar e extrair programaticamente quadros de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para .NET. Guia rápido de como-fazer."
 ---
 ## **Introdução**
 
-Um vídeo bem colocado em uma apresentação pode tornar sua mensagem mais atraente e aumentar os níveis de engajamento com seu público. 
+Um vídeo bem colocado em uma apresentação pode tornar sua mensagem mais impactante e aumentar os níveis de engajamento com o seu público. 
 
 O PowerPoint permite que você adicione vídeos a um slide em uma apresentação de duas maneiras:
 
 * Adicionar ou incorporar um vídeo local (armazenado em sua máquina)
 * Adicionar um vídeo online (de uma fonte web como o YouTube).
 
-Para permitir que você adicione vídeos (objetos de vídeo) a uma apresentação, o Aspose.Slides fornece as interfaces [IVideo](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideo/) e [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/), além de outros tipos relevantes. 
+Para permitir que você adicione vídeos (objetos de vídeo) a uma apresentação, o Aspose.Slides fornece a interface [IVideo](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideo/) , a interface [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) e outros tipos relevantes. 
 
-## **Criar um Frame de Vídeo Incorporado**
+## **Criar um Quadro de Vídeo Incorporado**
 
-Se o arquivo de vídeo que você deseja adicionar ao seu slide estiver armazenado localmente, você pode criar um frame de vídeo para incorporar o vídeo na sua apresentação. 
+Se o arquivo de vídeo que você deseja adicionar ao seu slide estiver armazenado localmente, você pode criar um quadro de vídeo para incorporar o vídeo em sua apresentação. 
 
-1. Crie uma instância da [Presentation ](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation)classe.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
 1. Obtenha a referência de um slide através de seu índice. 
-1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideo/) e passe o caminho do arquivo de vídeo para incorporá‑lo à apresentação. 
-1. Adicione um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) para criar um frame para o vídeo.  
+1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideo/) e passe o caminho do arquivo de vídeo para incorporar o vídeo à apresentação. 
+1. Adicione um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) para criar um quadro para o vídeo.  
 1. Salve a apresentação modificada. 
 
-Este código C# mostra como adicionar um vídeo armazenado localmente a uma apresentação:
+Este código C# demonstra como adicionar um vídeo armazenado localmente a uma apresentação:
 
 ```c#
 // Instancia a classe Presentation
@@ -60,7 +60,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
     }
 }
 ```
-Como alternativa, você pode adicionar um vídeo passando diretamente o caminho do arquivo para o método [AddVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/addvideoframe/):
+Alternativamente, você pode adicionar um vídeo passando seu caminho de arquivo diretamente para o método [AddVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/addvideoframe/):
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -71,16 +71,16 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Criar um Frame de Vídeo com Vídeo de uma Fonte Web**
-O Microsoft [PowerPoint 2013 e versões mais recentes](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) oferece suporte a vídeos do YouTube em apresentações. Se o vídeo que você deseja usar estiver disponível online (por exemplo, no YouTube), você pode adicioná‑lo à sua apresentação por meio de seu link web. 
+## **Criar um Quadro de Vídeo com Vídeo de uma Fonte Web**
+Versões mais recentes do Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) suportam vídeos online em apresentações. Se o vídeo que você deseja usar estiver disponível online (por exemplo, no YouTube), você pode adicioná-lo à sua apresentação através do seu link web.
 
-1. Crie uma instância da [Presentation ](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation)classe
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
 1. Obtenha a referência de um slide através de seu índice. 
 1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideo/) e passe o link para o vídeo.
-1. Defina uma miniatura para o frame de vídeo. 
+1. Defina uma miniatura para o quadro de vídeo. 
 1. Salve a apresentação. 
 
-Este código C# mostra como adicionar um vídeo da web a um slide em uma apresentação PowerPoint:
+Este código C# demonstra como adicionar um vídeo da web a um slide em uma apresentação do PowerPoint:
 
 ```c#
 public static void Run()
@@ -108,21 +108,77 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
+## **Cortar um Quadro de Vídeo**
+
+O Aspose.Slides permite que você controle qual parte de um vídeo é reproduzida definindo os valores trim‑from‑start e trim‑from‑end através de [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/trimfromstart/) e [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/trimfromend/). Ambos os valores são especificados em milissegundos e definem quanto tempo é ignorado do início e do fim do vídeo, respectivamente. Essas configurações alteram as propriedades de reprodução do vídeo na apresentação; elas não cortam nem modificam os dados binários do vídeo incorporado.
+
+**Definir Configurações de Corte**
+
+Para criar um quadro de vídeo e definir suas configurações de corte:
+
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) .
+1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideo/) à apresentação.
+1. Adicione um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) a um slide.
+1. Defina os valores trim‑from‑start e trim‑from‑end através de [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/trimfromstart/) e [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/trimfromend/).
+1. Salve a apresentação modificada.
+
+O exemplo de código a seguir ignora os primeiros 2,5 segundos e o último segundo de um vídeo incorporado durante a reprodução:
+
+```cs
+using var presentation = new Presentation();
+
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
+
+var slide = presentation.Slides[0];
+var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame.TrimFromStart = 2500f;
+videoFrame.TrimFromEnd = 1000f;
+
+presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
+```
+
+**Ler Configurações de Corte**
+
+Para inspecionar as configurações de corte existentes, carregue uma apresentação, encontre um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) entre as formas do primeiro slide e leia os valores através de [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/trimfromstart/) e [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/trimfromend/).
+
+O exemplo de código a seguir encontra o primeiro quadro de vídeo no primeiro slide e relata suas configurações de corte em milissegundos:
+
+```cs
+using var presentation = new Presentation("video_with_trim.pptx");
+
+var slide = presentation.Slides[0];
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        var trimFromStart = videoFrame.TrimFromStart;
+        var trimFromEnd = videoFrame.TrimFromEnd;
+
+        Console.WriteLine($"Trim from start: {trimFromStart} ms");
+        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
+
+        break;
+    }
+}
+```
+
 ## **Gerenciar Legendas de Vídeo**
 
-O Aspose.Slides permite que você gerencie legendas fechadas para frames de vídeo em apresentações PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas por meio da propriedade [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/).
+O Aspose.Slides permite que você gerencie legendas fechadas para quadros de vídeo em apresentações PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas através da propriedade [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/).
 
-**Adicionar Legendas a um Frame de Vídeo**
+**Adicionar Legendas a um Quadro de Vídeo**
 
-Para adicionar legendas a um frame de vídeo:
+Para adicionar legendas a um quadro de vídeo:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) .
 1. Adicione um vídeo à apresentação.
 1. Adicione um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) a um slide.
-1. Use a coleção [CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/) para adicionar uma trilha de legenda WebVTT.
+1. Use a coleção [CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/) para adicionar uma faixa de legenda WebVTT.
 1. Salve a apresentação modificada.
 
-O código a seguir mostra como adicionar legendas a um frame de vídeo:
+O código a seguir mostra como adicionar legendas a um quadro de vídeo:
 
 ```cs
 using (Presentation presentation = new Presentation())
@@ -133,25 +189,25 @@ using (Presentation presentation = new Presentation())
     ISlide slide = presentation.Slides[0];
     IVideoFrame videoFrame = slide.Shapes.AddVideoFrame(0, 0, 100, 100, video);
 
-    // Adiciona uma nova trilha de legendas a partir de um arquivo WebVTT.
+    // Adiciona uma nova faixa de legendas a partir de um arquivo WebVTT.
     videoFrame.CaptionTracks.Add("English", "track.vtt");
 
     presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 }
 ```
 
-A interface [ICaptionsCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/icaptionscollection/) também fornece uma sobrecarga que permite adicionar legendas a partir de um fluxo.
+A interface [ICaptionsCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/icaptionscollection/) também fornece uma sobrecarga que permite adicionar legendas a partir de um stream.
 
-**Extrair Legendas de um Frame de Vídeo**
+**Extrair Legendas de um Quadro de Vídeo**
 
-Para extrair legendas de um frame de vídeo:
+Para extrair legendas de um quadro de vídeo:
 
 1. Carregue a apresentação que contém o vídeo.
 1. Encontre o objeto [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) alvo.
-1. Itere pela coleção [CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/).
-1. Salve cada trilha de legenda em um arquivo `.vtt`.
+1. Percorra a coleção [CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/).
+1. Salve cada faixa de legenda em um arquivo `.vtt`.
 
-O código a seguir mostra como extrair legendas de um frame de vídeo:
+O código a seguir mostra como extrair legendas de um quadro de vídeo:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -163,7 +219,7 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
         {
             foreach (ICaptions captionTrack in videoFrame.CaptionTracks)
             {
-                // Salva a trilha de legendas em um arquivo WebVTT.
+                // Salva a faixa de legendas em um arquivo WebVTT.
                 string filePath = $"{captionTrack.CaptionId}.vtt";
                 File.WriteAllBytes(filePath, captionTrack.BinaryData);
             }
@@ -172,18 +228,18 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 }
 ```
 
-Cada objeto [ICaptions](https://reference.aspose.com/slides/pt/net/aspose.slides/icaptions/) expõe o identificador da legenda, rótulo, dados binários e o texto da legenda como uma string UTF-8.
+Cada objeto [ICaptions](https://reference.aspose.com/slides/pt/net/aspose.slides/icaptions/) expõe o identificador da legenda, o rótulo, os dados binários e o texto da legenda como uma string UTF‑8.
 
-**Remover Legendas de um Frame de Vídeo**
+**Remover Legendas de um Quadro de Vídeo**
 
-Para remover legendas de um frame de vídeo:
+Para remover legendas de um quadro de vídeo:
 
 1. Carregue a apresentação que contém o vídeo.
 1. Obtenha o objeto [IVideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/) alvo.
-1. Remova as trilhas de legendas da coleção [CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/).
+1. Remova as faixas de legenda da coleção [CaptionTracks](https://reference.aspose.com/slides/pt/net/aspose.slides/ivideoframe/captiontracks/).
 1. Salve a apresentação modificada.
 
-O código a seguir mostra como remover todas as legendas de um frame de vídeo:
+O código a seguir mostra como remover todas as legendas de um quadro de vídeo:
 
 ```cs
 using (Presentation presentation = new Presentation("video_with_captions.pptx"))
@@ -191,24 +247,24 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
     ISlide slide = presentation.Slides[0];
     IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
 
-    // Remove todas as legendas do frame de vídeo.
+    // Remove todas as legendas do quadro de vídeo.
     videoFrame.CaptionTracks.Clear();
 
     presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 }
 ```
 
-Se precisar remover apenas uma trilha de legenda, use os métodos [Remove](https://reference.aspose.com/slides/pt/net/aspose.slides/captionscollection/remove/) ou [RemoveAt](https://reference.aspose.com/slides/pt/net/aspose.slides/captionscollection/removeat/) em vez de [Clear](https://reference.aspose.com/slides/pt/net/aspose.slides/captionscollection/clear/).
+Se precisar remover apenas uma faixa de legenda, use os métodos [Remove](https://reference.aspose.com/slides/pt/net/aspose.slides/captionscollection/remove/) ou [RemoveAt](https://reference.aspose.com/slides/pt/net/aspose.slides/captionscollection/removeat/) em vez de [Clear](https://reference.aspose.com/slides/pt/net/aspose.slides/captionscollection/clear/).
 
 ## **Extrair Vídeo de um Slide**
-Além de adicionar vídeos aos slides, o Aspose.Slides permite extrair vídeos incorporados em apresentações.
+Além de adicionar vídeos a slides, o Aspose.Slides permite extrair vídeos incorporados em apresentações.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation) para carregar a apresentação que contém o vídeo. 
-2. Itere por todos os objetos [ISlide](https://reference.aspose.com/slides/pt/net/aspose.slides/islide).
-3. Itere por todos os objetos [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape) para encontrar um [VideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe). 
+2. Percorra todos os objetos [ISlide](https://reference.aspose.com/slides/pt/net/aspose.slides/islide).
+3. Percorra todos os objetos [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape) para encontrar um [VideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe). 
 4. Salve o vídeo no disco.
 
-Este código C# mostra como extrair o vídeo de um slide de apresentação:
+Este código C# demonstra como extrair o vídeo de um slide de apresentação:
 
 ```c#
 // Instancia um objeto Presentation que representa um arquivo de apresentação 
@@ -220,7 +276,7 @@ foreach (ISlide slide in presentation.Slides)
     // Itera pelas formas
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Salva o vídeo no disco quando um VideoFrame contendo vídeo é encontrado
+        // Salva o vídeo no disco assim que um VideoFrame contendo o vídeo for encontrado
         if (shape is VideoFrame)
         {
             IVideoFrame vf = shape as IVideoFrame;
@@ -241,16 +297,16 @@ foreach (ISlide slide in presentation.Slides)
 
 **Quais parâmetros de reprodução de vídeo podem ser alterados para um VideoFrame?**
 
-Você pode controlar o [playback mode](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/playmode/) (automático ou ao clicar) e o [looping](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/playloopmode/). Essas opções estão disponíveis nas propriedades do objeto [VideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/).
+Você pode controlar o [modo de reprodução](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/playmode/) (automático ou ao clicar) e o [looping](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/playloopmode/). Essas opções estão disponíveis através das propriedades do objeto [VideoFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/).
 
 **Adicionar um vídeo afeta o tamanho do arquivo PPTX?**
 
-Sim. Quando você incorpora um vídeo local, os dados binários são incluídos no documento, portanto o tamanho da apresentação cresce proporcionalmente ao tamanho do arquivo. Quando você adiciona um vídeo online, um link e uma miniatura são incorporados, de modo que o aumento de tamanho é menor.
+Sim. Quando você incorpora um vídeo local, os dados binários são incluídos no documento, portanto o tamanho da apresentação aumenta proporcionalmente ao tamanho do arquivo. Quando você adiciona um vídeo online, um link e uma miniatura são incorporados, de modo que o aumento de tamanho é menor.
 
 **Posso substituir o vídeo em um VideoFrame existente sem alterar sua posição e tamanho?**
 
-Sim. Você pode trocar o [video content](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/embeddedvideo/) dentro do frame mantendo a geometria da forma; este é um cenário comum para atualizar mídia em um layout existente.
+Sim. Você pode trocar o [conteúdo do vídeo](https://reference.aspose.com/slides/pt/net/aspose.slides/videoframe/embeddedvideo/) dentro do quadro preservando a geometria da forma; esse é um cenário comum para atualizar mídia em um layout existente.
 
 **É possível determinar o tipo de conteúdo (MIME) de um vídeo incorporado?**
 
-Sim. Um vídeo incorporado possui um [content type](https://reference.aspose.com/slides/pt/net/aspose.slides/video/contenttype/) que você pode ler e usar, por exemplo ao salvá‑lo no disco.
+Sim. Um vídeo incorporado possui um [tipo de conteúdo](https://reference.aspose.com/slides/pt/net/aspose.slides/video/contenttype/) que pode ser lido e usado, por exemplo, ao salvá‑lo no disco.
