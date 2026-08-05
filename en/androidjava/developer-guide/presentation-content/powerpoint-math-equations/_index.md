@@ -50,8 +50,6 @@ This example creates a math shape and adds the Pythagorean theorem:
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -88,8 +86,6 @@ Use `divide` to create a fraction. You can choose a fraction style with [MathFra
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -112,8 +108,6 @@ try {
 For a stacked fraction, use `MathFractionTypes.Bar`:
 
 ```java
-import com.aspose.slides.*;
-
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
@@ -124,8 +118,6 @@ Use `radical` to create a square root, cube root, or other root. The current ele
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -152,8 +144,6 @@ Use `asArgumentOfFunction` or `function` for functions such as `sin(x)`, `log(x)
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -177,8 +167,6 @@ try {
 For a custom function name, make the function name the current element:
 
 ```java
-import com.aspose.slides.*;
-
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
@@ -189,8 +177,6 @@ Use `nary` for summations, unions, intersections, and other large operators. Use
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -218,8 +204,6 @@ N-ary operators are for large operators with optional limits. Simple operators s
 For an integral, use `integral`:
 
 ```java
-import com.aspose.slides.*;
-
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
@@ -231,8 +215,6 @@ Use [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slid
 ![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -263,8 +245,6 @@ Use `toMathArray` when you need aligned equations or a vertical stack of express
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -292,8 +272,6 @@ Use `asArgumentOfFunction` when the argument is the current element and the func
 ![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -320,8 +298,6 @@ Use the subscript and superscript helpers for indexes and powers. When the index
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -348,8 +324,6 @@ Use `enclose` to put an expression inside delimiters. You can also set a separat
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -379,8 +353,6 @@ Use `toBorderBox` when the equation itself should be framed.
 ![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -412,8 +384,6 @@ Use `group` to place a grouping character above or below an expression. Add a li
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -441,8 +411,6 @@ Use formatting helpers only where they clarify the formula. For example, `overba
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```java
-import com.aspose.slides.*;
-
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -482,14 +450,14 @@ try {
 
 ## **FAQ**
 
-### Can I edit an existing PowerPoint equation?
+**Can I edit an existing PowerPoint equation?**
 
 Yes. Open the presentation, find the shape that contains a `MathPortion`, get its `MathParagraph`, and update the math blocks in that paragraph.
 
-### Are equations saved as editable PowerPoint math?
+**Are equations saved as editable PowerPoint math?**
 
 Yes. When you save to PPTX, Aspose.Slides writes the equation as editable Office math content.
 
-### Can I export equations to LaTeX?
+**Can I export equations to LaTeX?**
 
-Yes. Call `toLatex` on the `MathParagraph` to get its equations as a LaTeX string. Aspose.Slides also exports math equations to MathML through `writeAsMathMl`.
+Yes. Get the equation's [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) from its [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/), and call [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) to export it directly. For a complete example, see [Export Math Equations from Presentations in Android via Java](/slides/androidjava/exporting-math-equations/#export-math-equations-to-latex).

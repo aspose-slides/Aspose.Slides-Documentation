@@ -475,14 +475,14 @@ try {
 
 ## **FAQ**
 
-### Can I edit an existing PowerPoint equation?
+**Can I edit an existing PowerPoint equation?**
 
 Yes. Open the presentation, find the shape that contains a `MathPortion`, get its `MathParagraph`, and update the math blocks in that paragraph.
 
-### Are equations saved as editable PowerPoint math?
+**Are equations saved as editable PowerPoint math?**
 
 Yes. When you save to PPTX, Aspose.Slides writes the equation as editable Office math content.
 
-### Can I export equations to LaTeX?
+**Can I export equations to LaTeX?**
 
-Aspose.Slides exports math equations to MathML. If you need LaTeX, export to MathML first and then convert MathML with a tool that supports your target LaTeX dialect.
+Yes. Get the equation's [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) from its [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), and call [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) to export it directly. For a complete example, see [Export Math Equations from Presentations in PHP via Java](/slides/php-java/exporting-math-equations/#export-math-equations-to-latex).
