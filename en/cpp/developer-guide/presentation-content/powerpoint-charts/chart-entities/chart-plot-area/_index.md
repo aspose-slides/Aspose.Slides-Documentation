@@ -36,6 +36,18 @@ Aspose.Slides for C++ provides a simple API for . 
 1. Gets actual height of the chart element.
 
 ``` cpp
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"test.Pptx");
     
 auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 500.0f, 350.0f));

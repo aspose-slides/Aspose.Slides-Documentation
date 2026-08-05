@@ -39,6 +39,21 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 The following C++ example shows how to set a blue solid color as the background for a normal slide:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // Create an instance of the Presentation class.
 auto presentation = MakeObject<Presentation>();
 
@@ -67,6 +82,21 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 The following C++ example shows how to set a solid color (forest green) as the background for a master slide:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // Create an instance of the Presentation class.
 auto presentation = MakeObject<Presentation>();
 
@@ -95,6 +125,20 @@ A gradient is a graphical effect created by a gradual change in color. When used
 The following C++ example shows how to set a gradient color as the background for a slide:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/TileFlip.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Create an instance of the Presentation class.
 auto presentation = MakeObject<Presentation>();
 
@@ -125,6 +169,24 @@ In addition to solid and gradient fills, Aspose.Slides allows you to use images 
 The following C++ example shows how to set an image as the background for a slide:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Create an instance of the Presentation class.
 auto presentation = MakeObject<Presentation>();
 
@@ -151,6 +213,26 @@ presentation->Dispose();
 The following code sample shows how to set the background fill type to a tiled picture and modify the tiling properties:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/TileFlip.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 auto firstSlide = presentation->get_Slide(0);
@@ -192,7 +274,27 @@ Read more: [**Tile Picture As Texture**](/slides/cpp/shape-formatting/#tile-pict
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following C++ code shows you how to change the transparency for a slide background image:
 
 ```cpp
+#include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto transparencyValue = 30; // For example.
+
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+auto slide = presentation->get_Slide(0);
 
 // Get the collection of picture transform operations.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
@@ -217,6 +319,10 @@ else
 {
     transparencyOperation->set_Amount(100.0f - transparencyValue);
 }
+
+// Save the presentation to disk.
+presentation->Save(u"TransparentBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Get the Slide Background Value**
@@ -228,6 +334,18 @@ Using the [BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/base
 The following C++ example shows how to get a slide’s effective background value:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IBackgroundEffectiveData.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Create an instance of the Presentation class.
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 

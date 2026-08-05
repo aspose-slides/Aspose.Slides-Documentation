@@ -38,6 +38,13 @@ Using the [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentat
 This C++ code demonstrates how to convert a PowerPoint presentation to TIFF:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 auto presentation = MakeObject<Presentation>(u"Demo_File.pptx");
 
@@ -58,6 +65,16 @@ Let's say we have a "sample.pptx" file with the following slide:
 This C++ code demonstrates how to convert the colored slide to a black-and-white TIFF:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/BlackWhiteConversionMode.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffCompressionTypes.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto tiffOptions = MakeObject<TiffOptions>();
 tiffOptions->set_CompressionType(TiffCompressionTypes::CCITT4);
 tiffOptions->set_BwConversionMode(BlackWhiteConversionMode::Dithering);
@@ -79,6 +96,17 @@ If you require a TIFF image with specific dimensions, you can set your desired v
 This C++ code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffCompressionTypes.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
@@ -122,6 +150,15 @@ Using the [set_PixelFormat](https://reference.aspose.com/slides/cpp/aspose.slide
 This C++ code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/ImagePixelFormat.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 auto presentation = MakeObject<Presentation>(u"Demo_File.pptx");
 

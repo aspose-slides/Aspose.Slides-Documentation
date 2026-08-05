@@ -28,6 +28,19 @@ This article shows how to get the bounding rectangle of a portion by using [IPor
 Use [IPortion::GetRect](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getrect/) to retrieve the bounding rectangle of a text portion:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <drawing/rectangle_f.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"Shapes.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -56,6 +69,19 @@ presentation->Dispose();
 Use [IPortion::GetCoordinates](https://reference.aspose.com/slides/cpp/aspose.slides/iportion/getcoordinates/) to retrieve the coordinates of the beginning of a text portion:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <drawing/rectangle_f.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"Shapes.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));

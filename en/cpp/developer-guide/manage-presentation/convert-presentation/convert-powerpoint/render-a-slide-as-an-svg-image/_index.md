@@ -60,6 +60,17 @@ You may want to try out our [free web application](https://products.aspose.app/s
 This sample code in C++ shows you how to convert PPT to SVG using Aspose.Slides:
 
 ``` cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/io/file_access.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
         
 for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)

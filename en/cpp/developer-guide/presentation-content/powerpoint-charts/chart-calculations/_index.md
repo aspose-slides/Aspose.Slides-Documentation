@@ -30,6 +30,18 @@ In addition, the article demonstrates how to get the actual position of parent c
 Aspose.Slides for C++ provides a simple API for getting these properties. This will help you to calculate actual values of chart elements. The actual values include position of elements that implement IActualLayout interface (IActualLayout::get_ActualX(), IActualLayout::get_ActualY(), IActualLayout::get_ActualWidth(), IActualLayout::get_ActualHeight()) and actual axes values (IAxis::get_ActualMaxValue(), IAxis::get_ActualMinValue(), IAxis::get_ActualMajorUnit(), IAxis::get_ActualMinorUnit(), IAxis::get_ActualMajorUnitScale(), IAxis::get_ActualMinorUnitScale()).
 
 ``` cpp
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"test.pptx");
     
 auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 500.0f, 350.0f));
@@ -49,6 +61,16 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 Aspose.Slides for C++ provides a simple API for getting these properties. Methods of IActualLayout provide information about actual position of parent chart element. It is necessary to call method IChart::ValidateChartLayout() previously to fill properties with actual values.
 
 ``` cpp
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 // Creating empty presentation
 auto pres = System::MakeObject<Presentation>();
 

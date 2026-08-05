@@ -21,12 +21,27 @@ This article demonstrates how to create simple animations and manage their seque
 Create a rectangle shape and apply a fade-in effect triggered on click.
 
 ```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
 static void AddAnimation()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 100, 100);
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f);
 
     // Fade effect.
     slide->get_Timeline()->get_MainSequence()->AddEffect(
@@ -41,12 +56,27 @@ static void AddAnimation()
 Retrieve the first animation effect from the slide timeline.
 
 ```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
 static void AccessAnimation()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 100, 100);
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f);
 
     slide->get_Timeline()->get_MainSequence()->AddEffect(
         shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
@@ -63,12 +93,27 @@ static void AccessAnimation()
 Remove an animation effect from the sequence.
 
 ```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
 static void RemoveAnimation()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 100, 100);
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f);
 
     auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(
         shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
@@ -85,13 +130,28 @@ static void RemoveAnimation()
 Add multiple effects and demonstrate the order in which animations occur.
 
 ```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
 static void SequenceAnimations()
 {
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 100, 100);
-    auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 200, 50, 100, 100);
+    auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f);
+    auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 200.0f, 50.0f, 100.0f, 100.0f);
 
     auto sequence = slide->get_Timeline()->get_MainSequence();
     sequence->AddEffect(shape1, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);

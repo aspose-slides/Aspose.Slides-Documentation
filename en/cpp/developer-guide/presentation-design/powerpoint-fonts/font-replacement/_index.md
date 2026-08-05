@@ -38,6 +38,13 @@ Aspose.Slides allows you to replace a font this way:
 This C++ code demonstrates font replacement:
 
 ``` cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Loads a presentation
 auto presentation = System::MakeObject<Presentation>(u"Fonts.pptx");
 

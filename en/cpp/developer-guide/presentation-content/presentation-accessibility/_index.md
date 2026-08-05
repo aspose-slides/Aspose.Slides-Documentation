@@ -28,6 +28,13 @@ Mark as decorative flags purely ornamental visuals so screen readers skip them, 
 The following code sample shows how to determine whether a shape is marked as decorative.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 auto shape = presentation->get_Slide(0)->get_Shape(0);

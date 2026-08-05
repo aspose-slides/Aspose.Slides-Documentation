@@ -32,9 +32,11 @@ This article explains how to convert PowerPoint presentations to HTML5 using Asp
 This C++ code shows how you to export a presentation to HTML5.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.html", SaveFormat::Html5);
 ```
@@ -48,6 +50,9 @@ In this case, you get clean HTML.
 You may want to specify settings for shape animations and slide transitions this way:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/Html5Options.h>
+#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
@@ -63,9 +68,11 @@ pres->Save(u"pres.html", SaveFormat::Html5, options);
 This C++ demonstrates the standard PowerPoint to HTML process:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.html", SaveFormat::Html);
 ```
@@ -95,6 +102,12 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This C++ code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/Html5Options.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto html5Options = System::MakeObject<Html5Options>();
 html5Options->set_AnimateShapes(true);
@@ -114,8 +127,21 @@ When you convert a PowerPoint presentation to an HTML5 document, you can easily 
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/Html5Options.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutingOptions->set_CommentsPosition(CommentsPositions::Right);
+
 auto html5Options = MakeObject<Html5Options>();
-html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
+html5Options->set_SlidesLayoutOptions(layoutingOptions);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.html", SaveFormat::Html5, html5Options);

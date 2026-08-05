@@ -21,6 +21,11 @@ Examples for managing presentation sections—add, access, remove, and rename th
 Create a section that starts at a specific slide.
 
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddSection()
 {
     auto presentation = MakeObject<Presentation>();
@@ -38,6 +43,12 @@ static void AddSection()
 Read section information from a presentation.
 
 ```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessSection()
 {
     auto presentation = MakeObject<Presentation>();
@@ -58,6 +69,11 @@ static void AccessSection()
 Delete a previously added section.
 
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveSection()
 {
     auto presentation = MakeObject<Presentation>();
@@ -77,6 +93,12 @@ static void RemoveSection()
 Change the name of an existing section.
 
 ```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RenameSection()
 {
     auto presentation = MakeObject<Presentation>();

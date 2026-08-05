@@ -21,6 +21,20 @@ This article demonstrates how to work with **Layout Slides** in Aspose.Slides fo
 You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddLayoutSlide()
 {
     auto presentation = MakeObject<Presentation>();
@@ -53,6 +67,14 @@ static void AddLayoutSlide()
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessLayoutSlide()
 {
     auto presentation = MakeObject<Presentation>();
@@ -72,6 +94,14 @@ static void AccessLayoutSlide()
 You can remove a specific layout slide if it's no longer needed.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveLayoutSlide()
 {
     auto presentation = MakeObject<Presentation>();
@@ -89,6 +119,12 @@ static void RemoveLayoutSlide()
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveUnusedLayoutSlides()
 {
     auto presentation = MakeObject<Presentation>();
@@ -105,6 +141,14 @@ static void RemoveUnusedLayoutSlides()
 You can duplicate a layout slide using the `AddClone` method.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void CloneLayoutSlides()
 {
     auto presentation = MakeObject<Presentation>();

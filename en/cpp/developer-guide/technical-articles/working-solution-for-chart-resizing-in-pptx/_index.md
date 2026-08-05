@@ -45,31 +45,61 @@ In this approach, we will learn how to set the window size of the embedded Excel
 Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we want to place an OLE frame containing an embedded Excel workbook. In this scenario, the size of the OLE object frame is predefined—it matches the size of the shape at index 2 in the template. All we need to do is set the workbook’s window size equal to that shape’s size. The following code snippet serves this purpose:
 
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+#include <system/array.h>
+#include "Aspose.Cells/Vector.h"
 
-    return outputStream;
+// Aspose.Cells for C++ hands back raw buffers as Aspose::Cells::Vector<uint8_t>, while
+// Aspose.Slides for C++ consumes System::ArrayPtr<uint8_t>. This helper copies between them.
+System::ArrayPtr<uint8_t> ToSlidesArray(const Aspose::Cells::Vector<uint8_t>& buffer)
+{
+    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+    std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), outputBuffer->data_ptr());
+
+    return outputBuffer;
 }
 ```
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/WorkbookSettings.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// The workbook holding the chart and the template presentation come from the previous article.
+Aspose::Cells::Workbook workbook(u"chart.xls");
+Aspose::Cells::Charts::Chart chart = workbook.GetWorksheets().Get(0).GetCharts().Get(0);
+
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"template.pptx");
+System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
+
 // Define the chart size with a window. 
-chart->SetSizeWithWindow(true);
+chart.SetSizeWithWindow(true);
 
 auto shape = slide->get_Shape(2);
 
 // Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 pixels per inch).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+workbook.GetSettings().SetWindowWidthInch(shape->get_Width() / 72.f);
 
 // Set the window height of the workbook in inches.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+workbook.GetSettings().SetWindowHeightInch(shape->get_Height() / 72.f);
 
-// Save the workbook to a memory stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
+// Save the workbook to a buffer.
+Aspose::Cells::Vector<uint8_t> workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ToSlidesArray(workbookData), u"xls");
 
 // Create an OLE object frame with the embedded Excel data.
 System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
@@ -92,18 +122,18 @@ int32_t desiredHeight = 288; // 4 inch (4 * 72)
 int32_t desiredWidth = 684; // 9.5 inch (9.5 * 72)
 
 // Define the chart size with a window. 
-chart->SetSizeWithWindow(true);
+chart.SetSizeWithWindow(true);
 
 // Set the window width of the workbook in inches.
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
+workbook.GetSettings().SetWindowWidthInch(desiredWidth / 72.f);
 
 // Set the window height of the workbook in inches.
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
+workbook.GetSettings().SetWindowHeightInch(desiredHeight / 72.f);
 
-// Save the workbook to a memory stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+// Save the workbook to a buffer.
+Aspose::Cells::Vector<uint8_t> workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ToSlidesArray(workbookData), u"xls");
 
 // Create an OLE object frame with the embedded Excel data.
 System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
@@ -123,24 +153,50 @@ In this approach, we will learn how to set the size of the chart in the embedded
 Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we intend to place an OLE frame containing an embedded Excel workbook. In this scenario, the OLE frame size is predefined—matching the size of the shape at index 2 in the template. All we need to do is set the chart size in the workbook to equal the shape’s size. The following code snippet serves this purpose:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// The workbook holding the chart and the template presentation come from the previous article.
+Aspose::Cells::Workbook workbook(u"chart.xls");
+Aspose::Cells::Charts::Chart chart = workbook.GetWorksheets().Get(0).GetCharts().Get(0);
+
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"template.pptx");
+System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
+
 // Define the chart size without a window. 
-chart->SetSizeWithWindow(false);
+chart.SetSizeWithWindow(false);
 
 auto shape = slide->get_Shape(2);
 
 // Set the chart width in pixels (multiply by 96 as Excel uses 96 pixels per inch).    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
+chart.GetChartObject().SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
 
 // Set the chart height in pixels.
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
+chart.GetChartObject().SetHeight((int32_t)(shape->get_Height() / 72.f * 96.f));
 
 // Define the chart print size.
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
+chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
 
-// Save the workbook to a memory stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+// Save the workbook to a buffer.
+Aspose::Cells::Vector<uint8_t> workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ToSlidesArray(workbookData), u"xls");
 
 // Create an OLE object frame with the embedded Excel data.
 System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
@@ -163,18 +219,18 @@ int32_t desiredHeight = 288; // 4 inch (4 * 576)
 int32_t desiredWidth = 684; // 9.5 inch(9.5 * 576)
 
 // Define the chart size without a window. 
-chart->SetSizeWithWindow(false);
+chart.SetSizeWithWindow(false);
 
 // Set the chart width in pixels.    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
+chart.GetChartObject().SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
 
 // Set the chart height in pixels.
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
+chart.GetChartObject().SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
 
-// Save the workbook to a memory stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+// Save the workbook to a buffer.
+Aspose::Cells::Vector<uint8_t> workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ToSlidesArray(workbookData), u"xls");
 
 // Create an OLE object frame with the embedded Excel data.
 System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(

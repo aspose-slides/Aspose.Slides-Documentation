@@ -47,17 +47,29 @@ Use `GetImage` to render a single slide or shape. Use `GetImages` to render seve
 A typical scenario of using the new API may look as follows:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <Util/Images.h>
+#include <drawing/size.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-        
-// instantiate a disposable instance of IImage from the file on the disk.  
+
+// instantiate a disposable instance of IImage from the file on the disk.
 System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
-            
+
 // create a PowerPoint image by adding an instance of IImage to the presentation's images.
 System::SharedPtr<IPPImage> ppImage = pres->get_Images()->AddImage(image);
-        
+
 // add a picture shape on the slide #1
 pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, ppImage);
-        
+
 // get an instance of the IImage representing slide #1.
 auto slideImage = pres->get_Slide(0)->GetImage(System::Drawing::Size(1920, 1080));
 
@@ -74,6 +86,10 @@ For ease of transition, the interface of the new [IImage](https://reference.aspo
 Legacy/deprecated API:
 
 ``` cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->GetThumbnail()->Save(u"slide1.png");
@@ -82,6 +98,11 @@ pres->get_Slide(0)->GetThumbnail()->Save(u"slide1.png");
 Modern API:
 
 ``` cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->GetImage()->Save(u"slide1.png");
@@ -92,6 +113,11 @@ pres->get_Slide(0)->GetImage()->Save(u"slide1.png");
 Legacy/deprecated API:
 
 ``` cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->get_Shape(0)->GetThumbnail()->Save(u"shape.png");
@@ -100,6 +126,12 @@ pres->get_Slide(0)->get_Shape(0)->GetThumbnail()->Save(u"shape.png");
 Modern API:
 
 ``` cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 pres->get_Slide(0)->get_Shape(0)->GetImage()->Save(u"shape.png");
@@ -110,6 +142,12 @@ pres->get_Slide(0)->get_Shape(0)->GetImage()->Save(u"shape.png");
 Legacy/deprecated API:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/RenderingOptions.h>
+#include <drawing/bitmap.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto bitmaps = pres->GetThumbnails(System::MakeObject<RenderingOptions>(), System::Drawing::Size(1980, 1028));
@@ -124,6 +162,14 @@ for (int32_t index = 0; index < bitmaps->get_Length(); index++)
 Modern API:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto images = pres->GetImages(System::MakeObject<RenderingOptions>(), System::Drawing::Size(1980, 1028));
@@ -140,6 +186,15 @@ for (int32_t index = 0; index < images->get_Length(); index++)
 Legacy/deprecated API:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/image.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<System::Drawing::Image> image = System::Drawing::Image::FromFile(u"image.png");
@@ -152,6 +207,16 @@ pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rec
 Modern API:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<Aspose::Slides::IImage> image = Aspose::Slides::Images::FromFile(u"image.png");

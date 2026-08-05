@@ -67,6 +67,18 @@ To customize the appearance and structure of your slides, you may need to add ne
 The following C++ code demonstrates how to add a slide layout to a PowerPoint presentation:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PowerPoint file.
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
@@ -140,6 +152,15 @@ Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.c
 The following C++ code shows how to remove a layout slide from a PowerPoint presentation:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
 Compress::RemoveUnusedLayoutSlides(presentation);
@@ -170,6 +191,18 @@ This manager contains methods for the following placeholder types:
 The following C++ code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 // Get the Blank layout slide.
@@ -209,6 +242,16 @@ In PowerPoint presentations, footer elements like date, slide number, and custom
 The following C++ code shows how to set the visibility of a slide footer and perform related tasks:
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
 auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
 
@@ -248,6 +291,15 @@ presentation->Dispose();
 The following C++ code demonstrates this operation:
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();

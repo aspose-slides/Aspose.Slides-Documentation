@@ -21,6 +21,14 @@ This article demonstrates how to embed video frames and set playback options usi
 Insert an empty video frame onto a slide.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AddVideo()
 {
     auto presentation = MakeObject<Presentation>();
@@ -38,6 +46,16 @@ static void AddVideo()
 Retrieve the first video frame added to a slide.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void AccessVideo()
 {
     auto presentation = MakeObject<Presentation>();
@@ -65,6 +83,14 @@ static void AccessVideo()
 Delete a video frame from the slide.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void RemoveVideo()
 {
     auto presentation = MakeObject<Presentation>();
@@ -84,6 +110,15 @@ static void RemoveVideo()
 Configure the video to play automatically when the slide is displayed.
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 static void SetVideoPlayback()
 {
     auto presentation = MakeObject<Presentation>();

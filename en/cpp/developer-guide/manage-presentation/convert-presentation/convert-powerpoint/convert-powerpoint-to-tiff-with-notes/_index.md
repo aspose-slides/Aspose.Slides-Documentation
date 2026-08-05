@@ -49,6 +49,16 @@ Let's say we have a "speaker_notes.pptx" file with the following slide:
 The code snippet below demonstrates how to convert the presentation to a TIFF image in Notes Slide view using the [set_SlidesLayoutOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/) method.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a presentation file.
 auto presentation = MakeObject<Presentation>(u"speaker_notes.pptx");
 

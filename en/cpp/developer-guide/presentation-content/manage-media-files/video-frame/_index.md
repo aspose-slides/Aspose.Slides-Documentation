@@ -44,6 +44,18 @@ If the video file you want to add to your slide is stored locally, you can creat
 This C++ code shows you how to add a video stored locally to a presentation:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideo.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LoadingStreamBehavior.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 // Loads the video
@@ -60,6 +72,13 @@ pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
 Alternatively, you can add a video by passing its file path directly to the [AddVideoFrame()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) method:
 
 ``` c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<ISlide> sld = pres->get_Slide(0);
@@ -80,6 +99,18 @@ Newer versions of Microsoft [PowerPoint](https://support.microsoft.com/en-us/pow
 This C++ code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/VideoPlayModePreset.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // The path to the documents directory.
 const String outPath = u"../out/AddVideoFrameFromWebSource_out.pptx";
 const String filePath = u"../templates/video1.avi";
@@ -117,6 +148,19 @@ To create a video frame and set its trim settings:
 The following code example skips the first 2.5 seconds and the last second of an embedded video during playback:
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
@@ -139,10 +183,20 @@ To inspect existing trim settings, load a presentation, find an [IVideoFrame](ht
 The following code example finds the first video frame on the first slide and reports its trim settings in milliseconds:
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
 
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+for (auto&& shape : System::IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
@@ -177,6 +231,20 @@ To add captions to a video frame:
 The following code shows you how to add captions to a video frame:
 
 ```cpp
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 
 auto videoData = File::ReadAllBytes(u"video.mp4");
@@ -206,15 +274,28 @@ To extract captions from a video frame:
 The following code shows you how to extract captions from a video frame:
 
 ```cpp
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : slide->get_Shapes())
+for (auto&& shape : System::IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IVideoFrame>(shape))
     {
         auto videoFrame = ExplicitCast<IVideoFrame>(shape);
-        for (auto&& captionTrack : videoFrame->get_CaptionTracks())
+        for (auto&& captionTrack : System::IterateOver(videoFrame->get_CaptionTracks()))
         {
             // Saves the captions track to a WebVTT file.
             auto filePath = captionTrack->get_CaptionId().ToString() + u".vtt";
@@ -240,6 +321,16 @@ To remove captions from a video frame:
 The following code shows you how to remove all captions from a video frame:
 
 ```cpp
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
 auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
@@ -265,14 +356,29 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 This C++ code shows you how to extract the video on a presentation slide:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideo.h>
+#include <DOM/Presentation.h>
+#include <DOM/VideoFrame.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file_access.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_share.h>
+#include <system/io/file_stream.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System::IO;
+
 // The path to the documents directory.
 const System::String templatePath = u"../templates/Video.pptx";
 const System::String outPath = u"../out/Video_out";
 
 auto presentation = System::MakeObject<Presentation>(templatePath);
-for (auto&& slide : presentation->get_Slides())
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : slide->get_Shapes())
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
     {
         if (System::ObjectExt::Is<VideoFrame>(shape))
         {

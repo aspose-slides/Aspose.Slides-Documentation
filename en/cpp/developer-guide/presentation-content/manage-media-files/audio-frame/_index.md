@@ -35,6 +35,21 @@ Aspose.Slides for C++ allows you to add audio files to slides. The audio files a
 This C++ code shows you how to add an embedded audio frame to a slide:
 
 ``` cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file_access.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 // Instantiates a Presentation class that represents a presentation file
 auto pres = System::MakeObject<Presentation>();
 
@@ -62,6 +77,22 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 This C++ code shows you how to change an audio frame's thumbnail or preview image:
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_access.h>
+#include <system/io/file_mode.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>();
         
 auto slide = presentation->get_Slides()->idx_get(0);
@@ -118,6 +149,17 @@ This is how you change the Audio Play options:
 This C++ code demonstrates an operation in which an audio's options are adjusted:
 
 ``` cpp 
+#include <DOM/AudioFrame.h>
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
 
 // GetS a shape
@@ -151,6 +193,19 @@ pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
 This C++ example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
 ```cpp
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto pres = MakeObject<Presentation>();
 auto slide = pres->get_Slide(0);
 
@@ -175,6 +230,15 @@ pres->Dispose();
 The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
     
 // Gets an audio frame shape
@@ -196,6 +260,20 @@ Aspose.Slides allows you to add closed captions to an audio frame through the [g
 Use the [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/) method to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
 
 ```cpp
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 
 auto audioData = File::ReadAllBytes(u"audio.mp3");
@@ -216,14 +294,27 @@ presentation->Dispose();
 You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
     if (ObjectExt::Is<IAudioFrame>(shape))
     {
         auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        for (auto&& captionTrack : IterateOver(audioFrame->get_CaptionTracks()))
         {
             // Save each caption track as a .vtt file.
             auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
@@ -239,6 +330,16 @@ presentation->Dispose();
 To remove captions from an audio frame, use the methods provided by [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/), such as [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/), or [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/). The following example removes all caption tracks from an audio frame.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
 auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
@@ -261,6 +362,16 @@ Aspose.Slides allows you to extract the sound used in slide show transitions. Fo
 This C++ code shows you how to extract the audio used in a slide:
 
 ``` cpp
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 String presName = u"AudioSlide.pptx";
 
 // Instantiates a Presentation class that represents a presentation file

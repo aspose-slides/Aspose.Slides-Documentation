@@ -57,6 +57,20 @@ The file system path and the browser URL are separate concerns. For example, the
 The following C++ example creates an output directory, saves the HTML file there, and stores linked resources in an `assets` subdirectory. The controller links common image, font, audio, video, and CSS resources when Aspose.Slides provides or can infer a safe file extension. Resources that are not recognized remain embedded.
 
 ```cpp
+#include <Export/ILinkEmbedController.h>
+#include <Export/LinkEmbedDecision.h>
+#include <system/collections/dictionary.h>
+#include <system/io/directory.h>
+#include <system/io/file_access.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
 class ExternalResourceController : public ILinkEmbedController
 {
 public:
@@ -253,28 +267,47 @@ private:
 };
 ```
 ```cpp
-auto inputFilePath = String(u"presentation.pptx");
-auto outputDirectory = String(u"html-output");
-auto assetDirectoryName = String(u"assets");
-auto assetDirectory = Path::Combine(outputDirectory, assetDirectoryName);
+#include <DOM/Presentation.h>
+#include <Export/HtmlFormatter.h>
+#include <Export/HtmlOptions.h>
+#include <Export/SVGOptions.h>
+#include <Export/SaveFormat.h>
+#include <Export/SlideImageFormat.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-Directory::CreateDirectory_(outputDirectory);
-Directory::CreateDirectory_(assetDirectory);
+int main()
+{
+    auto inputFilePath = String(u"presentation.pptx");
+    auto outputDirectory = String(u"html-output");
+    auto assetDirectoryName = String(u"assets");
+    auto assetDirectory = Path::Combine(outputDirectory, assetDirectoryName);
 
-auto assetUrlPrefix = assetDirectoryName + u"/";
-auto controller = MakeObject<ExternalResourceController>(assetDirectory, assetUrlPrefix);
-auto svgOptions = MakeObject<SVGOptions>(controller);
-auto slideImageFormat = SlideImageFormat::Svg(svgOptions);
+    Directory::CreateDirectory_(outputDirectory);
+    Directory::CreateDirectory_(assetDirectory);
 
-auto htmlOptions = MakeObject<HtmlOptions>(controller);
-htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(String::Empty, false));
-htmlOptions->set_SlideImageFormat(slideImageFormat);
+    auto assetUrlPrefix = assetDirectoryName + u"/";
+    auto controller = MakeObject<ExternalResourceController>(assetDirectory, assetUrlPrefix);
+    auto svgOptions = MakeObject<SVGOptions>(controller);
+    auto slideImageFormat = SlideImageFormat::Svg(svgOptions);
 
-auto presentation = MakeObject<Presentation>(inputFilePath);
+    auto htmlOptions = MakeObject<HtmlOptions>(controller);
+    htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(String::Empty, false));
+    htmlOptions->set_SlideImageFormat(slideImageFormat);
 
-auto htmlFilePath = Path::Combine(outputDirectory, u"presentation.html");
-presentation->Save(htmlFilePath, SaveFormat::Html, htmlOptions);
-presentation->Dispose();
+    auto presentation = MakeObject<Presentation>(inputFilePath);
+
+    auto htmlFilePath = Path::Combine(outputDirectory, u"presentation.html");
+    presentation->Save(htmlFilePath, SaveFormat::Html, htmlOptions);
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 After the export, the output folder has this structure:

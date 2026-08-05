@@ -23,32 +23,48 @@ This article demonstrates how to create, modify, and manage master slides using 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
 ```cpp
-static void AddMasterSlide()
-{
-    auto presentation = MakeObject<Presentation>();
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System;
 
-    // Clone the default master slide.
-    auto defaultMasterSlide = presentation->get_Master(0);
-    auto newMasterSlide = presentation->get_Masters()->AddClone(defaultMasterSlide);
+auto presentation = MakeObject<Presentation>();
 
-    // Add a banner with company name to the top of the master slide.
-    auto textBox = newMasterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 720, 25);
-    textBox->get_TextFrame()->set_Text(u"Company Name");
-    auto paragraph = textBox->get_TextFrame()->get_Paragraph(0);
-    auto textFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
-    textFormat->get_FillFormat()->set_FillType(FillType::Solid);
-    textFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-    textBox->get_FillFormat()->set_FillType(FillType::NoFill);
+// Clone the default master slide.
+auto defaultMasterSlide = presentation->get_Master(0);
+auto newMasterSlide = presentation->get_Masters()->AddClone(defaultMasterSlide);
 
-    // Assign the new master slide to a layout slide.
-    auto layoutSlide = presentation->get_LayoutSlide(0);
-    layoutSlide->set_MasterSlide(newMasterSlide);
+// Add a banner with company name to the top of the master slide.
+auto textBox = newMasterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 720, 25);
+textBox->get_TextFrame()->set_Text(u"Company Name");
+auto paragraph = textBox->get_TextFrame()->get_Paragraph(0);
+auto textFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+textFormat->get_FillFormat()->set_FillType(FillType::Solid);
+textFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
+textBox->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // Assign the layout slide to the first slide in the presentation.
-    presentation->get_Slide(0)->set_LayoutSlide(layoutSlide);
+// Assign the new master slide to a layout slide.
+auto layoutSlide = presentation->get_LayoutSlide(0);
+layoutSlide->set_MasterSlide(newMasterSlide);
 
-    presentation->Dispose();
-}
+// Assign the layout slide to the first slide in the presentation.
+presentation->get_Slide(0)->set_LayoutSlide(layoutSlide);
+
+presentation->Dispose();
 ```
 
 > 💡 **Note 1:** Master slides provide a way to apply consistent branding or shared design elements across all slides. Any changes made to the master will automatically reflect on dependent layout and normal slides.
@@ -63,17 +79,21 @@ static void AddMasterSlide()
 You can access master slides using the presentation master collection. Here’s how to retrieve and work with them:
 
 ```cpp
-static void AccessMasterSlide()
-{
-    auto presentation = MakeObject<Presentation>();
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
 
-    auto firstMasterSlide = presentation->get_Master(0);
+auto presentation = MakeObject<Presentation>();
 
-    // Change the background type.
-    firstMasterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+auto firstMasterSlide = presentation->get_Master(0);
 
-    presentation->Dispose();
-}
+// Change the background type.
+firstMasterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+
+presentation->Dispose();
 ```
 
 ## **Remove a Master Slide**
@@ -81,19 +101,22 @@ static void AccessMasterSlide()
 Master slides can be removed either by index or by reference.
 
 ```cpp
-static void RemoveMasterSlide()
-{
-    auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
 
-    // Remove a master slide by index.
-    presentation->get_Masters()->RemoveAt(0);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-    // Remove a master slide by reference.
-    auto firstMasterSlide = presentation->get_Master(0);
-    presentation->get_Masters()->Remove(firstMasterSlide);
+// Remove a master slide by index.
+presentation->get_Masters()->RemoveAt(0);
 
-    presentation->Dispose();
-}
+// Remove a master slide by reference.
+auto firstMasterSlide = presentation->get_Master(0);
+presentation->get_Masters()->Remove(firstMasterSlide);
+
+presentation->Dispose();
 ```
 
 ## **Remove Unused Master Slides**
@@ -101,13 +124,15 @@ static void RemoveMasterSlide()
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```cpp
-static void RemoveUnusedMasterSlide()
-{
-    auto presentation = MakeObject<Presentation>();
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
 
-    // Remove all unused master slides (even those marked as Preserve).
-    presentation->get_Masters()->RemoveUnused(true);
+auto presentation = MakeObject<Presentation>();
 
-    presentation->Dispose();
-}
+// Remove all unused master slides (even those marked as Preserve).
+presentation->get_Masters()->RemoveUnused(true);
+
+presentation->Dispose();
 ```

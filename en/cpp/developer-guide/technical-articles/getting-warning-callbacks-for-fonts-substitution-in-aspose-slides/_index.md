@@ -32,6 +32,13 @@ Aspose.Slides for C++ provides straightforward APIs for receiving warning callba
 
 ```cpp
 #include <Warnings/IWarningCallback.h>
+#include <Warnings/IWarningInfo.h>
+#include <Warnings/ReturnAction.h>
+#include <Warnings/WarningType.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides::Warnings;
+using namespace System;
 
 class FontWarningHandler : public IWarningCallback
 {
@@ -57,13 +64,23 @@ ReturnAction FontWarningHandler::Warning(SharedPtr<IWarningInfo> warning)
 **Generate a Slide Thumbnail:**
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Set up a warning callback to handle font-related warnings during slide rendering.
 auto options = MakeObject<RenderingOptions>();
 options->set_WarningCallback(MakeObject<FontWarningHandler>());
 
 // Load the presentation from the specified file path.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-    
+
 // Generate a thumbnail image for each slide in the presentation.
 for(auto&& slide : presentation->get_Slides())
 {
@@ -80,6 +97,16 @@ presentation->Dispose();
 **Export to PDF Format:**
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 // Set up a warning callback to handle font-related warnings during PDF export.
 auto options = MakeObject<PdfOptions>();
 options->set_WarningCallback(MakeObject<FontWarningHandler>());
@@ -99,6 +126,16 @@ presentation->Dispose();
 **Export to HTML Format:**
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/HtmlOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 // Set up a warning callback to handle font-related warnings during HTML export.
 auto options = MakeObject<HtmlOptions>();
 options->set_WarningCallback(MakeObject<FontWarningHandler>());

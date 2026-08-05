@@ -79,6 +79,12 @@ In general, Aspose.Slides for C++ can easily handle presentation files of around
 
 **A**: This issue might indicate that the fonts used in the presentation are missing from the operating system on which the code was executed. You should install the fonts on the operating system or load them as external fonts using the [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) class as shown below:
 ```cpp
+#include <DOM/Fonts/FontsLoader.h>
+#include <system/array.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto folders = MakeObject<Array<String>>(1, "path_to_a_folder_with_fonts");
 FontsLoader::LoadExternalFonts(folders);
 ```

@@ -33,6 +33,17 @@ The following example includes these steps:
 1. With [Presentation::Save()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to FontsManager, these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <DOM/Fonts/FontFallBackRulesCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Create new instance of a rules collection
 auto rulesList = MakeObject<FontFallBackRulesCollection>();
 
@@ -46,7 +57,7 @@ for (const auto& fallBackRule : rulesList)
 	fallBackRule->Remove(u"Tahoma");
 
 	// And to update of rules for specified range
-	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) && 
+	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) &&
 		(fallBackRule->get_RangeStartIndex() < static_cast<uint32_t>(0x5000)))
 	{
 		fallBackRule->AddFallBackFonts(u"Verdana");
@@ -65,7 +76,7 @@ pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
 // Rendering of thumbnail with using of initialized rules collection and saving to PNG
 auto image = pres->get_Slide(0)->GetImage(1.f, 1.f);
-image->Save(u"Slide_0.png", ImageFormat::Png);
+image->Save(u"Slide_0.png", Aspose::Slides::ImageFormat::Png);
 image->Dispose();
 
 pres->Dispose();

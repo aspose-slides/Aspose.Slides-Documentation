@@ -53,14 +53,33 @@ As mentioned earlier, each shape class has an associated shape-lock class for pr
 The code sample that follow apply protection to all shape types in a presentation.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PPTX file.
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
 // Traversing all the slides in the presentation.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))	{
 
 	// Traversing all the shapes in the slide.
-	for (auto&& shape : slide->get_Shapes()) {
+	for (auto&& shape : System::IterateOver(slide->get_Shapes())) {
 
 		if (ObjectExt::Is<IAutoShape>(shape)) {
 			// Type-casting the shape to an autoshape and obtaining its shape lock.
@@ -112,14 +131,33 @@ presentation->Dispose();
 To unlock a shape, set the applied lock’s value to `false`. The following code sample shows how to unlock shapes in a locked presentation.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instantiate the Presentation class that represents a PPTX file.
 auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
 // Traversing all the slides in the presentation.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))	{
 
 	// Traversing all the shapes in the slide.
-	for (auto&& shape : slide->get_Shapes()) {
+	for (auto&& shape : System::IterateOver(slide->get_Shapes())) {
 
 		if (ObjectExt::Is<IAutoShape>(shape)) {
 			// Type-casting the shape to an autoshape and obtaining its shape lock.

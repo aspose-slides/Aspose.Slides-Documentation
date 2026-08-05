@@ -21,6 +21,15 @@ This article demonstrates applying slide transition effects and timings with **A
 Apply a fade transition effect to the first slide.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
+using namespace System;
+
 static void AddSlideTransition()
 {
     auto presentation = MakeObject<Presentation>();
@@ -39,6 +48,15 @@ static void AddSlideTransition()
 Read the transition type currently assigned to a slide.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
+using namespace System;
+
 static void AccessSlideTransition()
 {
     auto presentation = MakeObject<Presentation>();
@@ -59,6 +77,15 @@ static void AccessSlideTransition()
 Clear any transition effect by setting the type to `None`.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
+using namespace System;
+
 static void RemoveSlideTransition()
 {
     auto presentation = MakeObject<Presentation>();
@@ -79,6 +106,15 @@ static void RemoveSlideTransition()
 Specify how long the slide is displayed before advancing automatically.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
+using namespace System;
+
 static void SetTransitionDuration()
 {
     auto presentation = MakeObject<Presentation>();

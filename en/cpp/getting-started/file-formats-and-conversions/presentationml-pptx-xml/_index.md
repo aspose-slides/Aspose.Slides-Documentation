@@ -27,7 +27,7 @@ Let us take an example of a PresentationML document having single slide with one
 ## **Example**
 
 
-``` cpp
+``` xml
 
  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 

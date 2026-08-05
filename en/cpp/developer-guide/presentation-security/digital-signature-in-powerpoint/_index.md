@@ -35,6 +35,13 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ``` cpp
+#include <DOM/DigitalSignature.h>
+#include <DOM/IDigitalSignatureCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 // Create DigitalSignature object with PFX file and PFX password 
@@ -53,6 +60,14 @@ pres->Save(u"SomePresentationSigned.pptx", SaveFormat::Pptx);
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
 ``` cpp
+#include <DOM/IDigitalSignature.h>
+#include <DOM/IDigitalSignatureCollection.h>
+#include <DOM/Presentation.h>
+#include <security/cryptography/x509_certificates/x509_certificate_2.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Open presentation
 auto pres = System::MakeObject<Presentation>(u"SomePresentationSigned.pptx");
 
