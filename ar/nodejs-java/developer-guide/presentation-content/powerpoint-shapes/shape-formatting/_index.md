@@ -1,71 +1,74 @@
 ---
-title: تنسيق أشكال PowerPoint في JavaScript
-linktitle: تنسيق الأشكال
+title: تنسيق أشكال PowerPoint باستخدام JavaScript
+linktitle: تنسيق الشكل
 type: docs
 weight: 20
 url: /ar/nodejs-java/shape-formatting/
 keywords:
 - تنسيق الشكل
 - تنسيق الخط
-- تنسيق نمط الوصل
+- تأثير تخطيط
+- خط الشكل التخطيطي
+- تنسيق نمط الانضمام
 - تعبئة تدرجية
-- تعبئة بنمط
+- تعبئة نمطية
 - تعبئة صورة
 - تعبئة نسيج
 - تعبئة بلون صلب
 - شفافية الشكل
 - تدوير الشكل
-- تأثير الحافة ثلاثية الأبعاد
-- تأثير الدوران ثلاثي الأبعاد
-- إعادة تعيين التنسيق
+- تأثير انحناء ثلاثي الأبعاد
+- تأثير تدوير ثلاثي الأبعاد
+- إعادة ضبط التنسيق
 - PowerPoint
-- العرض التقديمي
-- Java
+- عرض تقديمي
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "تعرف على كيفية تنسيق أشكال PowerPoint في JavaScript باستخدام Aspose.Slides—اضبط أنماط التعبئة والخط والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
+description: "تنسيق أشكال PowerPoint باستخدام JavaScript عبر Aspose.Slides—تعيين أنماط التعبئة والخط والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. بما أن الأشكال مكوَّنة من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال بتحديد الإعدادات التي تتحكم في كيفية تعبئة داخلها.
 
-في PowerPoint، يمكنك إضافة الأشكال إلى الشرائح. بما أن الأشكال تتكون من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال بتحديد إعدادات تتحكم في كيفية ملء داخلها.
+![تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
-
-Aspose.Slides for Node.js via Java يوفر فئات وطرق تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
+يوفر Aspose.Slides for Node.js عبر Java فئات وأساليب تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل. الخطوات التالية توضح الإجراء:
+باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل ما. الخطوات التالية توضح الإجراء:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. تعيين [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) للشكل.
-5. تعيين عرض الخط.
-6. تعيين [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) للخط.
-7. تعيين لون الخط للشكل.
-8. حفظ العرض المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين [line style](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/linestyle/) للشكل.
+1. تعيين عرض الخط.
+1. تعيين [dash style](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/linedashstyle/) للخط.
+1. تعيين لون الخط للشكل.
+1. حفظ العرض المعدل كملف PPTX.
 
-الكود التالي يوضح كيفية تنسيق مستطيل `AutoShape`:
+الشفرة التالية توضح كيفية تنسيق مستطيل `AutoShape`:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
     let slide = presentation.getSlides().get_Item(0);
 
-    // إضافة شكل تلقائي من نوع المستطيل.
+    // إضافة شكل تلقائي من نوع Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // تعيين لون التعبئة للشكل المستطيل.
+    // تعيين لون التعبئة لشكل المستطيل.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // تطبيق التنسيق على خطوط المستطيل.
+    // تطبيق تنسيق على خطوط المستطيل.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
 
-    // تعيين اللون لخط المستطيل.
+    // تعيين لون خط المستطيل.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
@@ -76,91 +79,139 @@ try {
 }
 ```
 
-
 النتيجة:
 
-![الخطوط المُنسقة في العرض التقديمي](formatted-lines.png)
+![الخطوط المنسقة في العرض](formatted-lines.png)
 
-## **تنسيق أنماط الانضمام**
+## **تطبيق تأثيرات الرسم التخطيطي على خطوط الشكل**
 
-إليك خيارات ثلاثة لأنماط الوصل:
+يُضفي تأثير الرسم التخطيطي مظهرًا يدويًا على خط الشكل. استخدم [Shape.getLineFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) للوصول إلى إعدادات الخط، و[LineFormat.getSketchFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/lineformat/) للوصول إلى إعدادات الرسم التخطيطي، و[SketchFormat.setSketchType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sketchformat/) لاختيار قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/linesketchtype/).
 
-* مستدير
-* زاوية
-* مشطوف
+الشفرة التالية بلغة JavaScript توضح كيفية تطبيق تأثير [LineSketchType.Curved](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/linesketchtype/) وقراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.None](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/linesketchtype/):
 
-افتراضيًا، عندما يربط PowerPoint خطين بزاوية (مثل زاوية الشكل)، يستخدم إعداد **مستدير**. ومع ذلك، إذا كنت ترسم شكلًا بزويا حادة، قد تفضل خيار **زاوية**.
-
-![نمط الوصل في العرض التقديمي](join-style-powerpoint.png)
-
-الكود التالي في JavaScript يوضح كيفية إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات نوع الوصل الزاوية، المشطوف، والمستدير:
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
-    // الحصول على الشريحة الأولى.
     let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // إضافة ثلاثة أشكال تلقائية من نوع المستطيل.
-    let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
-    let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
-    let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+    // الوصول إلى تنسيق خط الشكل وتنسيق الرسم التخطيطي الخاص به.
+    let sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // تعيين لون التعبئة لكل شكل مستطيل.
-    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    // تطبيق تأثير رسم تخطيطي.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
 
-    // تعيين عرض الخط.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    // قراءة تأثير الرسم التخطيطي المعين مباشرةً إلى الشكل.
+    let explicitSketchType = sketchFormat.getSketchType();
+    console.log("Explicit sketch type: " + explicitSketchType);
 
-    // تعيين اللون لخط كل مستطيل.
-    shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-
-    // تعيين نمط الوصل.
-    shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
-    shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
-    shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
-
-    // إضافة نص إلى كل مستطيل.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
-
-    // حفظ ملف PPTX إلى القرص.
-    presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
+    // إزالة تأثير الرسم التخطيطي.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
+القيمة التي تُرجعها [SketchFormat.getSketchType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sketchformat/) تمثل الإعداد المعين مباشرةً إلى الشكل. إذا كان يمكن وراثة تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [LineFormat.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/lineformat/)، ثم استدعِ `getSketchFormat` على الكائن المرتجع، ثم استدعِ طريقة `getSketchType` الخاصة به. القيمة الفعّالة تعكس التنسيق المطبق فعليًا بعد حل الوراثة:
+
+```js
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    let lineFormat = shape.getLineFormat();
+
+    let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    let effectiveLineFormat = lineFormat.getEffective();
+    let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    console.log("Explicit sketch type: " + explicitSketchType);
+    console.log("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تنسيق أنماط الانضمام**
+
+إليك ثلاثة خيارات لنوع الانضمام:
+
+* Round
+* Miter
+* Bevel
+
+بشكل افتراضي، عندما يجمع PowerPoint خطين بزاوية (مثل زاوية شكل)، يستخدم الإعداد **Round**. ومع ذلك، إذا كنت ترسم شكلاً بزاوٍ حادة، قد تفضّل خيار **Miter**.
+
+![نمط الانضمام في العرض](join-style-powerpoint.png)
+
+الشفرة التالية بلغة JavaScript توضح كيفية إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات نوع الانضمام Miter وBevel وRound:
+
+```js
+    // إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
+    let presentation = new aspose.slides.Presentation();
+    try {
+        // الحصول على الشريحة الأولى.
+        let slide = presentation.getSlides().get_Item(0);
+
+        // إضافة ثلاثة أشكال تلقائية من نوع Rectangle.
+        let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
+        let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
+        let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+
+        // تعيين لون التعبئة لكل شكل مستطيل.
+        shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+
+        // تعيين عرض الخط.
+        shape1.getLineFormat().setWidth(15);
+        shape2.getLineFormat().setWidth(15);
+        shape3.getLineFormat().setWidth(15);
+
+        // تعيين لون خط كل مستطيل.
+        shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+        // تعيين نمط الانضمام.
+        shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
+        shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
+
+        // إضافة نص إلى كل مستطيل.
+        shape1.getTextFrame().setText("Miter Join Style");
+        shape2.getTextFrame().setText("Bevel Join Style");
+        shape3.getTextFrame().setText("Round Join Style");
+
+        // حفظ ملف PPTX إلى القرص.
+        presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+```
 
 ## **تعبئة تدرجية**
 
-في PowerPoint، التعبئة التدرجية هي خيار تنسيق يتيح لك تطبيق تدرج مستمر من الألوان على الشكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بحيث يتلاشى أحدهما تدريجيًا إلى الآخر.
+في PowerPoint، تُعد تعبئة التدرج خيارًا تنسيقيًا يسمح لك بتطبيق مزيج مستمر من الألوان على شكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بحيث يتلاشى أحدهما تدريجيًا إلى الآخر.
 
-إليك كيفية تطبيق تعبئة تدرجية على شكل باستخدام Aspose.Slides:
+إليك كيفية تطبيق تعبئة تدرج على شكل باستخدام Aspose.Slides:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) للشكل إلى `Gradient`.
-5. إضافة اللونين المفضلين لديك مع تحديد المواقع باستخدام طرق `add` لمجموعة نقاط التدرج التي يوفرها الفئة [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/) .
-6. حفظ العرض المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) للشكل إلى `Gradient`.
+1. إضافة اللونين المفضلين لديك مع تحديد المواقع باستخدام طرق `add` لمجموعة نقاط التدرج التي يُظهرها فئة [GradientFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/gradientformat/) .
+1. حفظ العرض المعدل كملف PPTX.
 
-الكود التالي في JavaScript يوضح كيفية تطبيق تأثير تعبئة تدرجية على قطع بيضاوي:
+الشفرة التالية بلغة JavaScript توضح كيفية تطبيق تأثير تعبئة تدرج على إهليلج:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
@@ -169,7 +220,7 @@ try {
     // إضافة شكل تلقائي من نوع Ellipse.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // تطبيق تنسيق تدرج على الشكل البيضاوي.
+    // تطبيق تنسيق التدرج على الشكل البيضاوي.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
@@ -187,31 +238,31 @@ try {
 }
 ```
 
-
 النتيجة:
 
-![القطع البيضاوي مع تعبئة تدرجية](gradient-fill.png)
+![الإهليلج مع تعبئة تدرجية](gradient-fill.png)
 
-## **تعبئة بنمط**
+## **تعبئة نمطية**
 
-في PowerPoint، تعبئة بنمط هي خيار تنسيق يتيح لك تطبيق تصميم بلونين—مثل النقاط أو الخطوط أو التماسك أو المربعات—على الشكل. يمكنك اختيار ألوان مخصصة لخلفية والنمط الأمامي.
+في PowerPoint، تُعد تعبئة النمط خيارًا تنسيقيًا يتيح لك تطبيق تصميم ثنائي اللون—مثل النقاط أو الخطوط المتقطعة أو التخطط المتقاطع أو الشيكات—على شكل. يمكنك اختيار ألوان مخصصة لمقدمة النمط وخلفيته.
 
-Aspose.Slides يوفر أكثر من 45 نمطًا مسبقًا يمكنك تطبيقها على الأشكال لتحسين المظهر البصري لعروضك. وحتى بعد اختيار نمط مسبق، يمكنك تحديد الألوان الدقيقة التي سيستخدمها.
+يوفر Aspose.Slides أكثر من 45 نمطًا مسبقًا يمكنك تطبيقها على الأشكال لتعزيز الجاذبية البصرية لعروضك. حتى بعد اختيار نمط مسبق، يمكنك تحديد الألوان الدقيقة التي يجب أن يستخدمها.
 
-إليك كيفية تطبيق تعبئة بنمط على شكل باستخدام Aspose.Slides:
+إليك كيفية تطبيق تعبئة نمطية على شكل باستخدام Aspose.Slides:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) للشكل إلى `Pattern`.
-5. اختيار نمط نمط من الخيارات المسبقة.
-6. تعيين [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) للنمط.
-7. تعيين [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) للنمط.
-8. حفظ العرض المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) للشكل إلى `Pattern`.
+1. اختيار نمط نمطي من الخيارات المسبقة.
+1. تعيين [Background Color](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/patternformat/#getBackColor--) للنمط.
+1. تعيين [Foreground Color](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/patternformat/#getForeColor--) للنمط.
+1. حفظ العرض المعدل كملف PPTX.
 
-الكود التالي في JavaScript يوضح كيفية تطبيق تعبئة بنمط على مستطيل:
+الشفرة التالية بلغة JavaScript توضح كيفية تطبيق تعبئة نمطية على مستطيل:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
@@ -237,33 +288,33 @@ try {
 }
 ```
 
-
 النتيجة:
 
-![المستطيل مع تعبئة بنمط](pattern-fill.png)
+![المستطيل مع تعبئة نمطية](pattern-fill.png)
 
-## **تعبئة بصورة**
+## **تعبئة صورة**
 
-في PowerPoint، تعبئة بصورة هي خيار تنسيق يسمح لك بإدراج صورة داخل الشكل—بشكل فعّال كخلفية للشكل.
+في PowerPoint، تُعد تعبئة الصورة خيارًا تنسيقيًا يسمح لك بإدراج صورة داخل شكل—وبالتالي استخدام الصورة كخلفية للشكل.
 
 إليك كيفية استخدام Aspose.Slides لتطبيق تعبئة صورة على شكل:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) للشكل إلى `Picture`.
-5. تعيين وضع تعبئة الصورة إلى `Tile` (أو أي وضع آخر مفضل).
-6. إنشاء كائن [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) من الصورة التي تريد استخدامها.
-7. تمرير الصورة إلى طريقة `ISlidesPicture.setImage` .
-8. حفظ العرض المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) للشكل إلى `Picture`.
+1. تعيين وضع تعبئة الصورة إلى `Tile` (أو أي وضع مفضل آخر).
+1. إنشاء كائن [PPImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ppimage/) من الصورة التي تريد استخدامها.
+1. تمرير الصورة إلى طريقة `ISlidesPicture.setImage`.
+1. حفظ العرض المعدل كملف PPTX.
 
-لنفترض أن لدينا ملف "lotus.png" مع الصورة التالية:
+لنفترض أن لدينا ملف "lotus.png" بالصورة التالية:
 
 ![صورة اللوتس](lotus.png)
 
-الكود التالي في JavaScript يوضح كيفية تعبئة شكل بالصورة:
+الشفرة التالية بلغة JavaScript توضح كيفية تعبئة شكل بالصورة:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
@@ -293,26 +344,26 @@ try {
 }
 ```
 
-
 النتيجة:
 
 ![الشكل مع تعبئة صورة](picture-fill.png)
 
-### **تعبئة الصورة كملمس متكرر**
+### **استخدام صورة متكررة كنقش**
 
-إذا أردت ضبط صورة متكررة كملمس وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من فئة [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) :
+إذا رغبت في تعيين صورة متكررة كنقش وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من فئة [PictureFillFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): يحدد وضع تعبئة الصورة—إما `Tile` أو `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): يحدد محاذاة القوالب داخل الشكل.
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): يتحكم فيما إذا كانت القالب تُقلب أفقيًا أو رأسيًا أو كليهما.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): يحدد الإزاحة أفقية للقالب (بالنقاط) من أصل الشكل.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): يحدد الإزاحة العمودية للقالب (بالنقاط) من أصل الشكل.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): يحدد مقياس القالب الأفقي كنسبة مئوية.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): يحدد مقياس القالب العمودي كنسبة مئوية.
+- [setPictureFillMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): يحدد وضع تعبئة الصورة—إما `Tile` أو `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): يحدد محاذاة التكرارات داخل الشكل.
+- [setTileFlip](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): يتحكم فيما إذا كانت التكرارة مقلوبة أفقيًا أو عموديًا أو كليهما.
+- [setTileOffsetX](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): يحدد إزاحة التكرارة أفقًا (بالنقاط) من أصل الشكل.
+- [setTileOffsetY](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): يحدد إزاحة التكرارة عموديًا (بالنقاط) من أصل الشكل.
+- [setTileScaleX](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): يحدد مقياس التكرارة أفقيًا كنسبة مئوية.
+- [setTileScaleY](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): يحدد مقياس التكرارة عموديًا كنسبة مئوية.
 
-الكود التالي يوضح كيفية إضافة شكل مستطيل مع تعبئة صورة متكررة وتكوين خيارات القالب:
+الشفرة التالية توضح كيفية إضافة شكل مستطيل بتعبئة صورة متكررة وتكوين خيارات التكرار:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
@@ -329,7 +380,7 @@ try {
     let presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // إسناد الصورة إلى الشكل.
+    // تعيين الصورة إلى الشكل.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
@@ -349,27 +400,27 @@ try {
 }
 ```
 
-
 النتيجة:
 
-![خيارات القالب](tile-options.png)
+![خيارات التكرار](tile-options.png)
 
 ## **تعبئة بلون صلب**
 
-في PowerPoint، تعبئة بلون صلب هي خيار تنسيق يملأ الشكل بلون موحد واحد. يتم تطبيق هذا اللون الخلفي دون أي تدرجات أو خامات أو أنماط.
+في PowerPoint، تُعد تعبئة بلون صلب خيارًا تنسيقيًا يملأ الشكل بلون موحد واحد. يُطبق هذا اللون الخلفي البسيط دون أي تدرجات أو قوام أو أنماط.
 
 لتطبيق تعبئة بلون صلب على شكل باستخدام Aspose.Slides، اتبع الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) للشكل إلى `Solid`.
-5. تعيين اللون المفضل كملء للشكل.
-6. حفظ العرض المعدل كملف PPTX.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) للشكل إلى `Solid`.
+1. تعيين اللون المفضل للتعبئة إلى الشكل.
+1. حفظ العرض المعدل كملف PPTX.
 
-الكود التالي في JavaScript يوضح كيفية تطبيق تعبئة بلون صلب على مستطيل في شريحة PowerPoint:
+الشفرة التالية بلغة JavaScript توضح كيفية تطبيق تعبئة بلون صلب على مستطيل في شريحة PowerPoint:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
@@ -391,36 +442,36 @@ try {
 }
 ```
 
-
 النتيجة:
 
 ![الشكل مع تعبئة بلون صلب](solid-color-fill.png)
 
-## **تعيين الشفافية**
+## **ضبط الشفافية**
 
-في PowerPoint، عند تطبيق تعبئة بلون صلب أو تدرج أو صورة أو خامة على الأشكال، يمكنك أيضًا تعيين مستوى الشفافية للتحكم في مدى وضوح التعبئة. كلما ارتفع قيمة الشفافية، يصبح الشكل أكثر شفافية، مما يسمح برؤية الخلفية أو الكائنات الموجودة تحته جزئيًا.
+في PowerPoint، عند تطبيق تعبئة بلون صلب أو تدرج أو صورة أو قوام على الأشكال، يمكنك أيضًا ضبط مستوى الشفافية للتحكم في درجة وضوح التعبئة. كلما ارتفعت قيمة الشفافية، يصبح الشكل أكثر شفافية، مما يسمح للخلفية أو الكائنات الموجودة تحته بأن تُرى جزئيًا.
 
-Aspose.Slides يتيح لك ضبط مستوى الشفافية عن طريق تعديل قيمة ألفا في اللون المستخدم للتعبئة. إليك الطريقة:
+يتيح لك Aspose.Slides ضبط مستوى الشفافية عن طريق تعديل قيمة alfa في اللون المستخدم للتعبئة. إليك الطريقة:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. تعيين [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) إلى `Solid`.
-5. استخدام `Color` لتحديد لون مع شفافية (المكوّن `alpha` يتحكم في الشفافية).
-6. حفظ العرض.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين [FillType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/filltype/) إلى `Solid`.
+1. استخدام `Color` لتحديد لون مع شفافية (المكوّن `alpha` يتحكم في الشفافية).
+1. حفظ العرض.
 
-الكود التالي في JavaScript يوضح كيفية تطبيق لون تعبئة شفاف على مستطيل:
+الشفرة التالية بلغة JavaScript توضح كيفية تطبيق لون تعبئة شفاف على مستطيل:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
     let slide = presentation.getSlides().get_Item(0);
 
-    // إضافة شكل تلقائي مستطيل صلب.
+    // إضافة شكل مستطيل صلب تلقائي.
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // إضافة شكل تلقائي مستطيل شفاف فوق الشكل الصلب.
+    // إضافة شكل مستطيل شفاف تلقائي فوق الشكل الصلب.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
@@ -432,26 +483,26 @@ try {
 }
 ```
 
-
 النتيجة:
 
 ![الشكل الشفاف](shape-transparency.png)
 
 ## **تدوير الأشكال**
 
-Aspose.Slides يتيح لك تدوير الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية وفقًا لمحاذاة أو احتياجات تصميم معينة.
+يتيح لك Aspose.Slides تدوير الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية وفقًا لمحاذاة أو متطلبات تصميم معينة.
 
 لتدوير شكل على شريحة، اتبع الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. تعيين خاصية دوران الشكل إلى الزاوية المطلوبة.
-5. حفظ العرض.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تعيين خاصية تدوير الشكل إلى الزاوية المطلوبة.
+1. حفظ العرض.
 
-الكود التالي في JavaScript يوضح كيفية تدوير شكل بزاوية 5 درجات:
+الشفرة التالية بلغة JavaScript توضح كيفية تدوير شكل بزاوية 5 درجات:
+
 ```js
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+// إنشاء فئة Presentation التي تمثل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation();
 try {
     // الحصول على الشريحة الأولى.
@@ -470,26 +521,26 @@ try {
 }
 ```
 
-
 النتيجة:
 
-![دوران الشكل](shape-rotation.png)
+![تدوير الشكل](shape-rotation.png)
 
-## **إضافة تأثيرات الحواف ثلاثية الأبعاد**
+## **إضافة تأثيرات انحناء ثلاثية الأبعاد**
 
-Aspose.Slides يسمح لك بتطبيق تأثيرات حواف ثلاثية الأبعاد على الأشكال عن طريق ضبط خصائص [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) .
+يتيح لك Aspose.Slides تطبيق تأثيرات انحناء ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/) الخاصة بها.
 
-لإضافة تأثيرات حواف ثلاثية الأبعاد إلى شكل، اتبع الخطوات التالية:
+لإضافة تأثيرات انحناء ثلاثية الأبعاد إلى شكل، اتبع الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. ضبط [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) للشكل لتحديد إعدادات الحواف.
-5. حفظ العرض.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. تكوين [ThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/) للشكل لتحديد إعدادات الانحناء.
+1. حفظ العرض.
 
-الكود التالي في JavaScript يوضح كيفية تطبيق تأثيرات حواف ثلاثية الأبعاد على شكل:
+الشفرة التالية بلغة JavaScript توضح كيفية تطبيق تأثيرات انحناء ثلاثية الأبعاد على شكل:
+
 ```js
-// إنشاء كائن من فئة Presentation.
+// إنشاء نسخة من فئة Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -511,33 +562,33 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // حفظ العرض كملف PPTX.
+    // حفظ العرض التقديمي كملف PPTX.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 النتيجة:
 
-![تأثير الحافة ثلاثية الأبعاد](3D-bevel-effect.png)
+![تأثير الانحناء ثلاثي الأبعاد](3D-bevel-effect.png)
 
-## **إضافة تأثيرات الدوران ثلاثية الأبعاد**
+## **إضافة تأثيرات تدوير ثلاثية الأبعاد**
 
-Aspose.Slides يسمح لك بتطبيق تأثيرات دوران ثلاثية الأبعاد على الأشكال عن طريق ضبط خصائص [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) .
+يتيح لك Aspose.Slides تطبيق تأثيرات تدوير ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/threedformat/) الخاصة بها.
 
-لتطبيق دوران ثلاثي الأبعاد على شكل:
+لتطبيق تدوير ثلاثي الأبعاد على شكل:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
-4. استخدام [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) و [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) لتحديد دوران ثلاثي الأبعاد.
-5. حفظ العرض.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة بحسب فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) إلى الشريحة.
+1. استخدام [setCameraType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/camera/#setCameraType) و[setLightType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/lightrig/#setLightType) لتحديد التدوير ثلاثي الأبعاد.
+1. حفظ العرض.
 
-الكود التالي في JavaScript يوضح كيفية تطبيق تأثيرات دوران ثلاثية الأبعاد على شكل:
+الشفرة التالية بلغة JavaScript توضح كيفية تطبيق تأثيرات تدوير ثلاثية الأبعاد على شكل:
+
 ```js
-// إنشاء كائن من فئة Presentation.
+// إنشاء نسخة من فئة Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -550,27 +601,27 @@ try {
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // حفظ العرض كملف PPTX.
+    // حفظ العرض التقديمي كملف PPTX.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 النتيجة:
 
-![تأثير الدوران ثلاثي الأبعاد](3D-rotation-effect.png)
+![تأثير التدوير ثلاثي الأبعاد](3D-rotation-effect.png)
 
 ## **إعادة تعيين التنسيق**
 
-الكود التالي في Java يوضح كيفية إعادة تعيين تنسيق شريحة وإرجاع موضع وحجم وتنسيق جميع الأشكال ذات العناصر النائبة على [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) إلى إعداداتها الافتراضية:
+الشفرة التالية بلغة Java توضح كيفية إعادة تعيين تنسيق شريحة وإرجاع الموضع والحجم وتنسيق جميع الأشكال التي تحتوي على عناصر نائبة في [LayoutSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/) إلى إعداداتها الافتراضية:
+
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // إعادة تعيين كل شكل على الشريحة الذي يحتوي على عنصر نائب في التخطيط.
+        // إعادة ضبط كل شكل على الشريحة الذي يحتوي على عنصر نائب في التخطيط.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -579,17 +630,16 @@ try {
 }
 ```
 
-
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **هل يؤثر تنسيق الشكل على حجم ملف العرض النهائي؟**
 
-التأثير طفيف جدًا. معظم حجم الملف يُستحوذ عليه الصور والوسائط المضمنة، في حين تُخزن معلمات الشكل مثل الألوان والتأثيرات والتدرجات كبيانات وصفية ولا تضيف حجمًا كبيرًا.
+القليل فقط. الصور المدمجة والوسائط تشغل معظم مساحة الملف، بينما تُخزن معلمات الشكل مثل الألوان والتأثيرات والتدرجات كبيانات وصفية ولا تضيف حجمًا كبيرًا عمليًا.
 
 **كيف يمكنني اكتشاف الأشكال على شريحة التي تشترك في نفس التنسيق لتجميعها؟**
 
-قارن خصائص التنسيق الرئيسية لكل شكل—الإملء، والحد، وإعدادات التأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متطابقة وقم بتجميع هذه الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
+قارن خصائص التنسيق الرئيسية لكل شكل—الإعدادات الخاصة بالتعبئة والخط والتأثير. إذا تطابقت جميع القيم المقابلة، فاعتبر أن أنماطها متطابقة وقم بتجميع هذه الأشكال منطقيًا، مما يبسّط إدارة الأنماط لاحقًا.
 
-**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض أخرى؟**
+**هل يمكنني حفظ مجموعة من أنماط الشكل المخصَّصة في ملف منفصل لإعادة استخدامها في عروض أخرى؟**
 
-نعم. احفظ الأشكال النموذجية التي تحمل الأنماط المطلوبة في مجموعة شرائح قالب أو ملف .POTX. عند إنشاء عرض جديد، افتح القالب، استنسخ الأشكال ذات الأنماط المطلوبة، وأعد تطبيق تنسيقها حسب الحاجة.
+نعم. احفظ أشكالًا نموذجية بالأنماط المطلوبة في شريحة قالب أو ملف قالب .POTX. عند إنشاء عرض جديد، افتح القالب، انسخ الأشكال المنمَّطة التي تحتاجها، وطبق تنسيقها حيثما يلزم.

@@ -1,61 +1,63 @@
 ---
 title: Formattare le forme PowerPoint in .NET
-linktitle: Formattazione forme
+linktitle: Formattazione della forma
 type: docs
 weight: 20
 url: /it/net/shape-formatting/
 keywords:
-- format shape
-- format line
-- format join style
-- gradient fill
-- pattern fill
-- picture fill
-- texture fill
-- solid color fill
-- shape transparency
-- rotate shape
-- 3d bevel effect
-- 3d rotation effect
-- reset formatting
+- formattare forma
+- formattare linea
+- effetto schizzo
+- linea forma schizzo
+- formattare stile unione
+- riempimento gradiente
+- riempimento a motivo
+- riempimento immagine
+- riempimento trama
+- riempimento a colore solido
+- trasparenza forma
+- ruotare forma
+- effetto smusso 3D
+- effetto rotazione 3D
+- ripristinare formattazione
 - PowerPoint
-- presentation
+- presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Scopri come formattare le forme PowerPoint in C# usando Aspose.Slides — imposta riempimenti, linee e stili di effetto per file PPT e PPTX con precisione e controllo totale."
+description: "Scopri come formattare le forme PowerPoint in C# usando Aspose.Slides—imposta riempimenti, linee e stili di effetto per file PPT e PPTX con precisione e pieno controllo."
 ---
 ## **Introduzione**
 
-In PowerPoint, è possibile aggiungere forme alle diapositive. Poiché le forme sono composte da linee, è possibile formattarle modificando o applicando effetti ai loro contorni. Inoltre, è possibile formattare le forme specificando le impostazioni che controllano come vengono riempiti i loro interni.
+In PowerPoint, è possibile aggiungere forme alle diapositive. Poiché le forme sono composte da linee, è possibile formattarle modificando o applicando effetti ai loro contorni. Inoltre, è possibile formattare le forme specificando impostazioni che controllano come vengono riempiti gli interni.
 
-![formattazione della forma PowerPoint](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides per .NET fornisce interfacce e proprietà che consentono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
+Aspose.Slides for .NET fornisce interfacce e proprietà che consentono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
 
 ## **Formattare le linee**
 
-Utilizzando Aspose.Slides, è possibile specificare uno stile di linea personalizzato per una forma. I passaggi seguenti descrivono la procedura:
+Con Aspose.Slides, è possibile specificare uno stile di linea personalizzato per una forma. I passaggi seguenti illustrano la procedura:
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
 1. Ottieni un riferimento a una diapositiva tramite il suo indice.
 1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) alla diapositiva.
-1. Imposta lo [stile di linea](https://reference.aspose.com/slides/it/net/aspose.slides/linestyle/) della forma.
+1. Imposta lo [line style](https://reference.aspose.com/slides/it/net/aspose.slides/linestyle/) della forma.
 1. Imposta la larghezza della linea.
-1. Imposta lo [stile tratteggiato](https://reference.aspose.com/slides/it/net/aspose.slides/linedashstyle/) della linea.
+1. Imposta lo [dash style](https://reference.aspose.com/slides/it/net/aspose.slides/linedashstyle/) della linea.
 1. Imposta il colore della linea per la forma.
 1. Salva la presentazione modificata come file PPTX.
 
 Il seguente codice C# dimostra come formattare un `AutoShape` rettangolare:
 
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
     ISlide slide = presentation.Slides[0];
 
-    // Aggiungi una forma automatica di tipo Rettangolo.
+    // Aggiungi una forma automatica di tipo Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Imposta il colore di riempimento per la forma rettangolare.
@@ -79,6 +81,48 @@ Il risultato:
 
 ![Le linee formattate nella presentazione](formatted-lines.png)
 
+## **Applicare effetti schizzo alle linee della forma**
+
+Un effetto schizzo rende la linea di una forma simile a un disegno a mano. Usa [IShape.LineFormat](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/lineformat/) per accedere alle impostazioni della linea, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/it/net/aspose.slides/ilineformat/sketchformat/) per accedere alle impostazioni dello schizzo e [ISketchFormat.SketchType](https://reference.aspose.com/slides/it/net/aspose.slides/isketchformat/sketchtype/) per selezionare un valore dall'enumerazione [LineSketchType](https://reference.aspose.com/slides/it/net/aspose.slides/linesketchtype/).
+
+Il seguente codice C# mostra come applicare un effetto [LineSketchType.Curved](https://reference.aspose.com/slides/it/net/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType.None](https://reference.aspose.com/slides/it/net/aspose.slides/linesketchtype/):
+
+```csharp
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+
+// Access the shape's line format and its sketch format.
+var sketchFormat = shape.LineFormat.SketchFormat;
+
+// Apply a sketch effect.
+sketchFormat.SketchType = LineSketchType.Curved;
+
+// Read the sketch effect assigned directly to the shape.
+var explicitSketchType = sketchFormat.SketchType;
+Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
+
+// Remove the sketch effect.
+sketchFormat.SketchType = LineSketchType.None;
+```
+
+Il valore restituito da `ISketchFormat.SketchType` rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una diapositiva master o da una diapositiva layout, usa [ILineFormat.GetEffective](https://reference.aspose.com/slides/it/net/aspose.slides/ilineformat/geteffective/), accedi a [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/it/net/aspose.slides/ilineformateffectivedata/sketchformat/) e leggi [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/it/net/aspose.slides/isketchformateffectivedata/sketchtype/). Il valore efficace riflette la formattazione effettivamente applicata dopo la risoluzione dell'ereditarietà:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var shape = presentation.Slides[0].Shapes[0];
+var lineFormat = shape.LineFormat;
+
+var explicitSketchType = lineFormat.SketchFormat.SketchType;
+var effectiveLineFormat = lineFormat.GetEffective();
+var effectiveSketchType = effectiveLineFormat.SketchFormat.SketchType;
+
+Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
+Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
+```
+
 ## **Formattare gli stili di giunzione**
 
 Ecco le tre opzioni di tipo di giunzione:
@@ -87,18 +131,20 @@ Ecco le tre opzioni di tipo di giunzione:
 * Miter
 * Bevel
 
-Per impostazione predefinita, quando PowerPoint unisce due linee ad un angolo (ad esempio nell'angolo di una forma), utilizza l'impostazione **Round**. Tuttavia, se stai disegnando una forma con angoli acuti, potresti preferire l'opzione **Miter**.
+Per impostazione predefinita, quando PowerPoint unisce due linee ad angolo (ad esempio nell'angolo di una forma), utilizza l'impostazione **Round**. Tuttavia, se stai disegnando una forma con angoli acuti, potresti preferire l'opzione **Miter**.
 
-![Stile di giunzione nella presentazione](join-style-powerpoint.png)
+![Lo stile di giunzione nella presentazione](join-style-powerpoint.png)
 
-Il seguente codice C# dimostra come sono stati creati tre rettangoli (come mostrato nell'immagine sopra) utilizzando le impostazioni di tipo di giunzione Miter, Bevel e Round:
+Il seguente codice C# dimostra come tre rettangoli (come mostrato nell'immagine sopra) siano stati creati utilizzando le impostazioni di tipo di giunzione Miter, Bevel e Round:
 
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
-    // Aggiungi tre forme automatiche di tipo Rettangolo.
+    ISlide slide = presentation.Slides[0];
+
+    // Aggiungi tre forme automatiche di tipo Rectangle.
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
@@ -139,54 +185,56 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Riempimento a gradiente**
+## **Riempimento gradiente**
 
-In PowerPoint, il Riempimento a gradiente è un'opzione di formattazione che consente di applicare una fusione continua di colori a una forma. Ad esempio, è possibile applicare due o più colori in modo che uno sfumi gradualmente nell'altro.
+In PowerPoint, il Riempimento Gradiente è un'opzione di formattazione che consente di applicare una transizione continua di colori a una forma. Ad esempio, è possibile applicare due o più colori in modo che uno sfumi gradualmente nell'altro.
 
-Ecco come applicare un riempimento a gradiente a una forma utilizzando Aspose.Slides:
+Ecco come applicare un riempimento gradiente a una forma utilizzando Aspose.Slides:
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
 1. Ottieni un riferimento a una diapositiva tramite il suo indice.
 1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) alla diapositiva.
 1. Imposta il [FillType](https://reference.aspose.com/slides/it/net/aspose.slides/filltype/) della forma su `Gradient`.
-1. Aggiungi i due colori preferiti con posizioni definite utilizzando i metodi `Add` della collezione di gradient stop esposta dall'interfaccia [IGradientFormat](https://reference.aspose.com/slides/it/net/aspose.slides/igradientformat/).
+1. Aggiungi i due colori preferiti con posizioni definite usando i metodi `Add` della raccolta di fermate gradiente esposta dall'interfaccia [IGradientFormat](https://reference.aspose.com/slides/it/net/aspose.slides/igradientformat/).
 1. Salva la presentazione modificata come file PPTX.
 
+Il seguente codice C# dimostra come applicare un effetto di riempimento gradiente a un'ellisse:
+
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
-using (Presentation presentation = new Presentation())
-{
-    // Ottieni la prima diapositiva.
-    ISlide slide = presentation.Slides[0];
+ // Istantiare la classe Presentation che rappresenta un file di presentazione.
+ using (Presentation presentation = new Presentation())
+ {
+     // Ottieni la prima diapositiva.
+     ISlide slide = presentation.Slides[0];
 
-    // Aggiungi una forma automatica di tipo Ellipse.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
+     // Aggiungi una forma automatica di tipo Ellipse.
+     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Applica la formattazione gradiente all'ellisse.
-    shape.FillFormat.FillType = FillType.Gradient;
-    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+     // Applica la formattazione a gradiente all'ellisse.
+     shape.FillFormat.FillType = FillType.Gradient;
+     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
-    // Imposta la direzione del gradiente.
-    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
+     // Imposta la direzione del gradiente.
+     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // Aggiungi due fermate del gradiente.
-    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
-    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
+     // Aggiungi due fermate del gradiente.
+     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
-    // Salva il file PPTX su disco.
-    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
-}
+     // Salva il file PPTX su disco.
+     presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
+ }
 ```
 
 Il risultato:
 
-![L'ellisse con riempimento a gradiente](gradient-fill.png)
+![L'ellisse con riempimento sfumato](gradient-fill.png)
 
 ## **Riempimento a motivo**
 
-In PowerPoint, il Riempimento a motivo è un'opzione di formattazione che consente di applicare un design a due colori — come punti, righe, tratteggi incrociati o quadretti — a una forma. È possibile scegliere colori personalizzati per il primo piano e lo sfondo del motivo.
+In PowerPoint, il Riempimento a Motivo è un'opzione di formattazione che consente di applicare un disegno a due colori—come punti, strisce, incroci o scacchi—a una forma. È possibile scegliere colori personalizzati per il primo piano e lo sfondo del motivo.
 
-Aspose.Slides offre più di 45 stili di motivo predefiniti che è possibile applicare alle forme per migliorare l'aspetto visivo delle presentazioni. Anche dopo aver selezionato un motivo predefinito, è ancora possibile specificare i colori esatti da utilizzare.
+Aspose.Slides fornisce oltre 45 stili di motivo predefiniti che è possibile applicare alle forme per migliorare l'aspetto visivo delle presentazioni. Anche dopo aver selezionato un motivo predefinito, è ancora possibile specificare i colori esatti da utilizzare.
 
 Ecco come applicare un riempimento a motivo a una forma utilizzando Aspose.Slides:
 
@@ -199,8 +247,10 @@ Ecco come applicare un riempimento a motivo a una forma utilizzando Aspose.Slide
 1. Imposta il [Foreground Color](https://reference.aspose.com/slides/it/net/aspose.slides/ipatternformat/forecolor/) del motivo.
 1. Salva la presentazione modificata come file PPTX.
 
+Il seguente codice C# dimostra come applicare un riempimento a motivo a un rettangolo:
+
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
@@ -230,7 +280,7 @@ Il risultato:
 
 ## **Riempimento immagine**
 
-In PowerPoint, il Riempimento immagine è un'opzione di formattazione che consente di inserire un'immagine all'interno di una forma — utilizzando effettivamente l'immagine come sfondo della forma.
+In PowerPoint, il Riempimento Immagine è un'opzione di formattazione che consente di inserire un'immagine all'interno di una forma—utilizzando effettivamente l'immagine come sfondo della forma.
 
 Ecco come utilizzare Aspose.Slides per applicare un riempimento immagine a una forma:
 
@@ -245,10 +295,12 @@ Ecco come utilizzare Aspose.Slides per applicare un riempimento immagine a una f
 
 Supponiamo di avere un file "lotus.png" con l'immagine seguente:
 
-![L'immagine del lotus](lotus.png)
+![L'immagine del loto](lotus.png)
+
+Il seguente codice C# dimostra come riempire una forma con l'immagine:
 
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
@@ -280,22 +332,22 @@ Il risultato:
 
 ![La forma con riempimento immagine](picture-fill.png)
 
-### **Immagine a tasselli come trama**
+### **Piastrellare l'immagine come trama**
 
-Se vuoi impostare un'immagine a tasselli come trama e personalizzare il comportamento del tassellamento, puoi utilizzare le seguenti proprietà dell'interfaccia [IPictureFillFormat](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/) e della classe [PictureFillFormat](https://reference.aspose.com/slides/it/net/aspose.slides/picturefillformat/):
+Se desideri impostare un'immagine a piastrellatura come trama e personalizzare il comportamento della piastrellatura, puoi utilizzare le seguenti proprietà dell'interfaccia [IPictureFillFormat](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/) e della classe [PictureFillFormat](https://reference.aspose.com/slides/it/net/aspose.slides/picturefillformat/):
 
-- [PictureFillMode](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/picturefillmode/): Imposta la modalità di riempimento immagine — `Tile` o `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tilealignment/): Specifica l'allineamento dei tasselli all'interno della forma.
-- [TileFlip](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tileflip/): Controlla se il tassello è capovolto orizzontalmente, verticalmente o entrambi.
-- [TileOffsetX](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tileoffsetx/): Imposta lo spostamento orizzontale del tassello (in punti) dall'origine della forma.
-- [TileOffsetY](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tileoffsety/): Imposta lo spostamento verticale del tassello (in punti) dall'origine della forma.
-- [TileScaleX](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tilescalex/): Definisce la scala orizzontale del tassello come percentuale.
-- [TileScaleY](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tilescaley/): Definisce la scala verticale del tassello come percentuale.
+- [PictureFillMode](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/picturefillmode/): Imposta la modalità di riempimento immagine—`Tile` o `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tilealignment/): Specifica l'allineamento delle piastrelle all'interno della forma.
+- [TileFlip](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tileflip/): Controlla se la piastrella è capovolta orizzontalmente, verticalmente o entrambi.
+- [TileOffsetX](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tileoffsetx/): Imposta lo spostamento orizzontale della piastrella (in punti) dall'origine della forma.
+- [TileOffsetY](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tileoffsety/): Imposta lo spostamento verticale della piastrella (in punti) dall'origine della forma.
+- [TileScaleX](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tilescalex/): Definisce la scala orizzontale della piastrella in percentuale.
+- [TileScaleY](https://reference.aspose.com/slides/it/net/aspose.slides/ipicturefillformat/tilescaley/): Definisce la scala verticale della piastrella in percentuale.
 
-Il seguente esempio di codice mostra come aggiungere una forma rettangolare con riempimento immagine a tasselli e configurare le opzioni del tassello:
+Il seguente esempio di codice mostra come aggiungere una forma rettangolare con riempimento immagine a piastrellatura e configurare le opzioni di piastrellatura:
 
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
@@ -316,7 +368,7 @@ using (Presentation presentation = new Presentation())
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Configura la modalità di riempimento immagine e le proprietà di tassellamento.
+    // Configura la modalità di riempimento immagine e le proprietà di piastrellatura.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -332,23 +384,25 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![Le opzioni di tassello](tile-options.png)
+![Le opzioni di piastrellatura](tile-options.png)
 
 ## **Riempimento a colore solido**
 
-In PowerPoint, il Riempimento a colore solido è un'opzione di formattazione che riempie una forma con un unico colore uniforme. Questo colore di sfondo semplice viene applicato senza gradienti, trame o motivi.
+In PowerPoint, il Riempimento a Colore Solido è un'opzione di formattazione che riempie una forma con un unico colore uniforme. Questo colore di sfondo semplice è applicato senza gradienti, trame o motivi.
 
-Per applicare un riempimento a colore solido a una forma utilizzando Aspose.Slides, segui questi passaggi:
+Per applicare un riempimento a colore solido a una forma usando Aspose.Slides, segui questi passaggi:
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
 1. Ottieni un riferimento a una diapositiva tramite il suo indice.
 1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) alla diapositiva.
 1. Imposta il [FillType](https://reference.aspose.com/slides/it/net/aspose.slides/filltype/) della forma su `Solid`.
-1. Assegna il colore di riempimento preferito alla forma.
+1. Assegna alla forma il colore di riempimento desiderato.
 1. Salva la presentazione modificata come file PPTX.
 
+Il seguente codice C# dimostra come applicare un riempimento a colore solido a un rettangolo in una diapositiva PowerPoint:
+
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
@@ -374,21 +428,23 @@ Il risultato:
 
 ## **Impostare la trasparenza**
 
-In PowerPoint, quando applichi un riempimento di colore solido, a gradiente, immagine o trama a delle forme, puoi anche impostare un livello di trasparenza per controllare l'opacità del riempimento. Un valore di trasparenza più elevato rende la forma più trasparente, consentendo allo sfondo o agli oggetti sottostanti di essere parzialmente visibili.
+In PowerPoint, quando applichi un riempimento a colore solido, gradiente, immagine o trama a delle forme, puoi anche impostare un livello di trasparenza per controllare l'opacità del riempimento. Un valore di trasparenza più alto rende la forma più traslucida, permettendo allo sfondo o agli oggetti sottostanti di essere parzialmente visibili.
 
-Aspose.Slides consente di impostare il livello di trasparenza regolando il valore alfa nel colore usato per il riempimento. Ecco come fare:
+Aspose.Slides consente di impostare il livello di trasparenza regolando il valore alfa del colore usato per il riempimento. Ecco come fare:
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
 1. Ottieni un riferimento a una diapositiva tramite il suo indice.
 1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) alla diapositiva.
-1. Imposta il [FillType](https://reference.aspose.com/slides/it/net/aspose.slides/filltype/) su `Solid`.
+1. Imposta il [FillType](https://reference.aspose.com/slides/it/net/aspose.slides/filltype/) della forma su `Solid`.
 1. Usa `Color.FromArgb(alpha, baseColor)` per definire un colore con trasparenza (il componente `alpha` controlla la trasparenza).
 1. Salva la presentazione.
+
+Il seguente codice C# dimostra come applicare un colore di riempimento trasparente a un rettangolo:
 
 ```c#
 const int alpha = 128;
 
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
@@ -423,8 +479,10 @@ Per ruotare una forma su una diapositiva, segui questi passaggi:
 1. Imposta la proprietà `Rotation` della forma sull'angolo desiderato.
 1. Salva la presentazione.
 
+Il seguente codice C# dimostra come ruotare una forma di 5 gradi:
+
 ```c#
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
+// Istantiare la classe Presentation che rappresenta un file di presentazione.
 using (Presentation presentation = new Presentation())
 {
     // Ottieni la prima diapositiva.
@@ -443,11 +501,11 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![La rotazione della forma](shape-rotation.png)
+![Rotazione della forma](shape-rotation.png)
 
 ## **Aggiungere effetti di smusso 3D**
 
-Aspose.Slides consente di applicare effetti di smusso 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/net/aspose.slides/threedformat/).
+Aspose.Slides consente di applicare effetti di smusso 3D alle forme configurando le proprietà del loro [ThreeDFormat](https://reference.aspose.com/slides/it/net/aspose.slides/threedformat/).
 
 Per aggiungere effetti di smusso 3D a una forma, segui questi passaggi:
 
@@ -456,6 +514,8 @@ Per aggiungere effetti di smusso 3D a una forma, segui questi passaggi:
 1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) alla diapositiva.
 1. Configura il [ThreeDFormat](https://reference.aspose.com/slides/it/net/aspose.slides/threedformat/) della forma per definire le impostazioni di smusso.
 1. Salva la presentazione.
+
+Il seguente codice C# mostra come applicare effetti di smusso 3D a una forma:
 
 ```c#
 // Crea un'istanza della classe Presentation.
@@ -487,19 +547,21 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![L'effetto di smusso 3D](3D-bevel-effect.png)
+![Effetto smusso 3D](3D-bevel-effect.png)
 
 ## **Aggiungere effetti di rotazione 3D**
 
-Aspose.Slides consente di applicare effetti di rotazione 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/net/aspose.slides/threedformat/).
+Aspose.Slides consente di applicare effetti di rotazione 3D alle forme configurando le proprietà del loro [ThreeDFormat](https://reference.aspose.com/slides/it/net/aspose.slides/threedformat/).
 
-Per applicare una rotazione 3D a una forma:
+Per applicare la rotazione 3D a una forma:
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
 1. Ottieni un riferimento a una diapositiva tramite il suo indice.
 1. Aggiungi un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) alla diapositiva.
 1. Imposta il [CameraType](https://reference.aspose.com/slides/it/net/aspose.slides/icamera/cameratype/) e il [LightType](https://reference.aspose.com/slides/it/net/aspose.slides/ilightrig/lighttype/) della forma per definire la rotazione 3D.
 1. Salva la presentazione.
+
+Il seguente codice C# dimostra come applicare effetti di rotazione 3D a una forma:
 
 ```c#
 // Crea un'istanza della classe Presentation.
@@ -522,7 +584,7 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![L'effetto di rotazione 3D](3D-rotation-effect.png)
+![Effetto di rotazione 3D](3D-rotation-effect.png)
 
 ## **Ripristinare la formattazione**
 
@@ -533,7 +595,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Ripristina ogni forma sulla diapositiva che ha un segnaposto nel layout.
+        // Ripristina ogni forma sulla diapositiva che ha un segnaposto sul layout.
         slide.Reset();
     }
 
@@ -545,12 +607,12 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 **La formattazione delle forme influisce sulla dimensione finale del file della presentazione?**
 
-Solo in minima parte. Le immagini e i media incorporati occupano la maggior parte dello spazio del file, mentre i parametri delle forme come colori, effetti e gradienti sono memorizzati come metadati e aggiungono praticamente nessuna dimensione extra.
+Solo marginalmente. Le immagini e i media incorporati occupano la maggior parte dello spazio del file, mentre i parametri delle forme come colori, effetti e gradienti sono memorizzati come metadati e aggiungono praticamente nessuna dimensione extra.
 
-**Come posso rilevare le forme su una diapositiva che condividono la stessa formattazione per poterle raggruppare?**
+**Come posso individuare le forme su una diapositiva che condividono la stessa formattazione per raggrupparle?**
 
-Confronta le proprietà chiave di formattazione di ciascuna forma — impostazioni di riempimento, linea ed effetto. Se tutti i valori corrispondenti coincidono, considera i loro stili identici e raggruppa logicamente tali forme, semplificando la gestione successiva degli stili.
+Confronta le proprietà chiave di formattazione di ciascuna forma—impostazioni di riempimento, linea ed effetti. Se tutti i valori corrispondenti coincidono, considera i loro stili identici e raggruppa logicamente quelle forme, semplificando la gestione degli stili in seguito.
 
-**Posso salvare un insieme di stili di forma personalizzati in un file separato per riutilizzarli in altre presentazioni?**
+**Posso salvare un insieme di stili di forma personalizzati in un file separato per riutilizzarlo in altre presentazioni?**
 
-Sì. Salva le forme di esempio con gli stili desiderati in un set di diapositive modello o in un file modello .POTX. Quando crei una nuova presentazione, apri il modello, clona le forme formattate di cui hai bisogno e riapplica la loro formattazione dove necessario.
+Sì. Conserva le forme di esempio con gli stili desiderati in un modello di presentazione o in un file .POTX. Quando crei una nuova presentazione, apri il modello, clona le forme stilizzate di cui hai bisogno e riapplica la loro formattazione dove necessario.

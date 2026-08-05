@@ -1,76 +1,78 @@
 ---
-title: قالب‌بندی اشکال پاورپوینت در اندروید
-linktitle: قالب‌بندی شکل
+title: "قالب‌بندی اشکال پاورپوینت در اندروید"
+linktitle: "قالب‌بندی شکل"
 type: docs
 weight: 20
 url: /fa/androidjava/shape-formatting/
 keywords:
 - قالب‌بندی شکل
 - قالب‌بندی خط
-- قالب‌بندی سبک پیوند
+- افکت اسکیچ
+- خط اسکیچ شکل
+- قالب‌بندی سبک پیوست
 - پر کردن گرادیان
 - پر کردن الگو
 - پر کردن تصویر
 - پر کردن بافت
-- پر کردن رنگ واحد
+- پر کردن رنگ جامد
 - شفافیت شکل
 - چرخاندن شکل
-- اثر برش 3 بعدی
-- اثر چرخش 3 بعدی
+- افکت برجسته ۳بعدی
+- افکت چرخش ۳بعدی
 - بازنشانی قالب‌بندی
 - پاورپوینت
 - ارائه
 - اندروید
 - جاوا
 - Aspose.Slides
-description: "بیاموزید چگونه اشکال پاورپوینت را در اندروید با استفاده از Aspose.Slides قالب‌بندی کنید—پر کردن، خط و سبک افکت‌ها را برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل تنظیم کنید."
+description: "یاد بگیرید چگونه اشکال پاورپوینت را در اندروید با استفاده از Aspose.Slides قالب‌بندی کنید—پر، خط و سبک‌های افکت را برای فایل‌های PPT، PPTX و ODP با دقت و کنترل کامل تنظیم نمایید."
 ---
 ## **معرفی**
 
-در PowerPoint می‌توانید اشکال را به اسلایدها اضافه کنید. از آنجا که اشکال از خطوط تشکیل شده‌اند، می‌توانید آن‌ها را با اصلاح یا اعمال افکت‌ها به خطوط مرزی‌شان قالب‌بندی کنید. همچنین می‌توانید با تنظیماتی که نحوه پر کردن داخلی آن‌ها را کنترل می‌کند، اشکال را قالب‌بندی کنید.
+در پاورپوینت، می‌توانید اشکال را به اسلایدها اضافه کنید. از آنجا که اشکال از خطوط تشکیل شده‌اند، می‌توانید آن‌ها را با تغییر یا اعمال افکت‌ها بر حاشیه‌هایشان قالب‌بندی کنید. علاوه بر این، می‌توانید اشکال را با تعیین تنظیماتی که نحوه پر شدن داخلی آن‌ها را کنترل می‌کند، قالب‌بندی کنید.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![فرمت‌کردن شکل در پاورپوینت](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java رابط‌ها و روش‌هایی ارائه می‌دهد که به شما امکان می‌دهد اشکال را با همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
+Aspose.Slides for Android via Java رابط‌ها و متدهایی را فراهم می‌کند که به شما امکان می‌دهد اشکال را با استفاده از همان گزینه‌های موجود در پاورپوینت قالب‌بندی کنید.
 
 ## **قالب‌بندی خطوط**
 
-با استفاده از Aspose.Slides می‌توانید یک سبک خط سفارشی برای یک شکل مشخص کنید. مراحل زیر این فرایند را توضیح می‌دهند:
+با استفاده از Aspose.Slides، می‌توانید یک سبک خط سفارشی برای یک شکل مشخص کنید. مراحل زیر روش را توضیح می‌دهند:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [سبک خط](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/linestyle/) شکل را تنظیم کنید.
-1. ضخامت خط را تنظیم کنید.
-1. [سبک خط‌چین](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/linedashstyle/) را تنظیم کنید.
-1. رنگ خط برای شکل را تعیین کنید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
+1. قالب [line style](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/linestyle/) شکل را تنظیم کنید.
+1. عرض خط را تنظیم کنید.
+1. قالب [dash style](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/linedashstyle/) خط را تنظیم کنید.
+1. رنگ خط شکل را تنظیم کنید.
+1. ارائهٔ تغییر یافته را به عنوان فایل PPTX ذخیره کنید.
 
-کد زیر نشان می‌دهد چگونه یک `AutoShape` مستطیلی را قالب‌بندی کنید:
+کد زیر نشان می‌دهد چگونه یک `AutoShape` مستطیل را قالب‌بندی کنید:
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // افزودن یک شکل خودکار از نوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // رنگ پر کردن برای شکل مستطیل را تنظیم کنید.
+    // تنظیم رنگ پر برای شکل مستطیل.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // قالب‌بندی را بر خطوط مستطیل اعمال کنید.
+    // اعمال قالب‌بندی بر خطوط مستطیل.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // رنگ خط مستطیل را تنظیم کنید.
+    // تنظیم رنگ برای خط مستطیل.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -81,33 +83,81 @@ try {
 
 ![خطوط قالب‌بندی‌شده در ارائه](formatted-lines.png)
 
-## **قالب‌بندی انواع پیوند**
+## **اعمال افکت‌های Sketch بر خطوط شکل**
 
-سه گزینه نوع پیوند وجود دارد:
+یک افکت sketch باعث می‌شود خط شکل مانند دست‌نویس به نظر برسد. از [IShape.getLineFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) برای دسترسی به تنظیمات خط، [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilineformat/) برای دسترسی به تنظیمات sketch، و [ISketchFormat.setSketchType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isketchformat/) برای انتخاب مقداری از شمارش [LineSketchType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/linesketchtype/) استفاده کنید.
 
-* گرد
-* میتر
-* زاویه‌دار
-
-به‌طور پیش‌فرض، وقتی PowerPoint دو خط را در زاویه‌ای (مانند گوشهٔ یک شکل) به هم متصل می‌کند، از تنظیم **گرد** استفاده می‌کند. با این حال، اگر شکلی با زوایای تیز رسم می‌کنید، ممکن است گزینه **میتر** را ترجیح دهید.
-
-![سبک پیوند در ارائه](join-style-powerpoint.png)
-
-کد زیر نشان می‌دهد چگونه سه مستطیل (همان‌طور که در تصویر بالا می‌بینید) با استفاده از تنظیمات پیوند میتر، زاویه‌دار و گرد ایجاد شدند:
+کد Java زیر نشان می‌دهد چگونه یک افکت [LineSketchType.Curved](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/linesketchtype/) اعمال کنید، مقدار به‌طور صریح اختصاص داده شده را بخوانید، و افکت را با [LineSketchType.None](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/linesketchtype/) حذف کنید:
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // دسترسی به قالب خط شکل و قالب اسکیچ آن.
+    ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // اعمال یک افکت اسکیچ.
+    sketchFormat.setSketchType(LineSketchType.Curved);
+
+    // خواندن افکت اسکیچ اختصاصی به شکل.
+    int explicitSketchType = sketchFormat.getSketchType();
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+
+    // حذف افکت اسکیچ.
+    sketchFormat.setSketchType(LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+مقدار بازگشتی توسط [ISketchFormat.getSketchType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isketchformat/) نشان‌دهنده تنظیمی است که مستقیماً به شکل اختصاص داده شده است. اگر قالب‌بندی خط می‌تواند از یک تم، اسلاید اصلی یا اسلاید چیدمان به ارث برده شود، از [ILineFormat.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilineformat/) استفاده کنید، به [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilineformateffectivedata/) دسترسی پیدا کنید، و مقدار [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isketchformateffectivedata/) را بخوانید. مقدار مؤثر نمایانگر قالب‌بندی است که پس از حل ارث‌بری واقعاً اعمال می‌شود:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ILineFormat lineFormat = shape.getLineFormat();
+
+    int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
+    int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+    System.out.println("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **قالب‌بندی سبک‌های پیوست**
+
+در اینجا سه گزینهٔ نوع پیوست وجود دارد:
+
+* Round
+* Miter
+* Bevel
+
+به‌طور پیش‌فرض، وقتی پاورپوینت دو خط را در یک زاویه (مانند گوشهٔ یک شکل) به‌هم می‌پیوندد، تنظیم **Round** را به‌کار می‌برد. اما اگر شما شکلی با زاویه‌های تیز می‌کشید، ممکن است گزینهٔ **Miter** را ترجیح دهید.
+
+![سبک پیوست در ارائه](join-style-powerpoint.png)
+
+کد Java زیر نشان می‌دهد چگونه سه مستطیل (همان‌طور که در تصویر بالا دیده می‌شود) با استفاده از تنظیمات سبک پیوست Miter، Bevel و Round ایجاد شده‌اند:
+
+```java
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
+Presentation presentation = new Presentation();
+try {
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // سه شکل خودکار از نوع Rectangle اضافه کنید.
+    // افزودن سه شکل خودکار از نوع Rectangle.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // رنگ پر کردن برای هر شکل مستطیل را تنظیم کنید.
+    // تنظیم رنگ پر برای هر شکل مستطیل.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -115,12 +165,12 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // عرض خط را تنظیم کنید.
+    // تنظیم عرض خط.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // رنگ خط هر مستطیل را تنظیم کنید.
+    // تنظیم رنگ برای خط هر مستطیل.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -128,17 +178,17 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // سبک پیوند را تنظیم کنید.
+    // تنظیم سبک پیوست.
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // متن را به هر مستطیل اضافه کنید.
+    // افزودن متن به هر مستطیل.
     shape1.getTextFrame().setText("Miter Join Style");
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -147,47 +197,44 @@ try {
 
 ## **پر کردن گرادیان**
 
-در PowerPoint، پر کردن گرادیان یک گزینه قالب‌بندی است که به شما امکان می‌دهد ترکیبی پیوسته از رنگ‌ها را روی یک شکل اعمال کنید. به‌عنوان مثال، می‌توانید دو یا چند رنگ را به‌گونه‌ای اعمال کنید که یکی به تدریج به دیگری محو شود.
+در پاورپوینت، پر کردن گرادیان یک گزینهٔ قالب‌بندی است که به شما امکان می‌دهد ترکیبی پیوسته از رنگ‌ها را بر روی یک شکل اعمال کنید. به‌عنوان مثال، می‌توانید دو یا چند رنگ را به‌طوری اعمال کنید که یکی به‌تدریج به دیگری محو شود.
 
-در ادامه نحوه اعمال پر کردن گرادیان به یک شکل با استفاده از Aspose.Slides آورده شده است:
+در اینجا نحوهٔ اعمال پر کردن گرادیان به یک شکل با استفاده از Aspose.Slides آمده است:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. `FillType` شکل را به `Gradient` تنظیم کنید.
-1. دو رنگ مورد نظر خود را با موقعیت‌های تعریف‌شده با استفاده از متدهای `add` مجموعهٔ نقاط توقف گرادیان که توسط رابط [IGradientFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/igradientformat/) فراهم می‌شود، اضافه کنید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه یک اثر پر کردن گرادیان را روی یک بیضی اعمال کنید:
+1. ویژگی [FillType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/filltype/) شکل را به `Gradient` تنظیم کنید.
+1. دو رنگ دلخواه خود را با موقعیت‌های تعریف‌شده با استفاده از متدهای `add` از مجموعه توقف گرادیان که توسط رابط [IGradientFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/igradientformat/) ارائه می‌شود، اضافه کنید.
+1. ارائهٔ تغییر یافته را به عنوان فایل PPTX ذخیره کنید.
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار از نوع Ellipse اضافه کنید.
+    // افزودن یک شکل خودکار از نوع Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // قالب‌بندی گرادیان را بر روی بیضی اعمال کنید.
+    // اعمال قالب‌بندی گرادیان به بیضی.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // جهت گرادیان را تنظیم کنید.
+    // تنظیم جهت گرادیان.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // دو نقطه توقف گرادیان اضافه کنید.
+    // افزودن دو توقف گرادیان.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 نتیجه:
 
@@ -195,44 +242,42 @@ try {
 
 ## **پر کردن الگو**
 
-در PowerPoint، پر کردن الگو یک گزینه قالب‌بندی است که به شما اجازه می‌دهد طراحی دو‌رنگی—مانند نقاط، خطوط، خطوط متقاطع یا شطرنجی—را روی یک شکل اعمال کنید. می‌توانید رنگ‌های دلخواه برای پیش‌زمینه و پس‌زمینه الگو انتخاب کنید.
+در پاورپوینت، پر کردن الگو یک گزینهٔ قالب‌بندی است که به شما اجازه می‌دهد طرحی دو‌رنگ‌ مانند نقطه‌ها، خط‌ها، خطوط متقاطع یا شطرنجی را بر روی یک شکل اعمال کنید. می‌توانید رنگ‌های دلخواه برای پیش‌زمینه و پس‌زمینهٔ الگو انتخاب کنید.
 
-Aspose.Slides بیش از ۴۵ سبک الگوی از پیش تعریف‌شده ارائه می‌دهد که می‌توانید آن‌ها را روی اشکال اعمال کنید تا جذابیت بصری ارائه‌های خود را افزایش دهید. حتی پس از انتخاب یک الگوی از پیش تعریف‌شده، می‌توانید رنگ‌های دقیق مورد استفاده را مشخص کنید.
+Aspose.Slides بیش از ۴۵ سبک الگوی پیش‌فرض را فراهم می‌کند که می‌توانید به اشکال اعمال کنید تا ظاهر ارائه‌هایتان بهبود یابد. حتی پس از انتخاب یک الگوی از پیش تعریف شده، می‌توانید رنگ‌های دقیق مورد استفاده را مشخص کنید.
 
-در ادامه نحوه اعمال پر کردن الگو به یک شکل با استفاده از Aspose.Slides آمده است:
+در اینجا نحوهٔ اعمال پر کردن الگو به یک شکل با استفاده از Aspose.Slides آمده است:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. `FillType` شکل را به `Pattern` تنظیم کنید.
-1. یک سبک الگو از گزینه‌های از پیش تعریف‌شده انتخاب کنید.
-1. [رنگ پس‌زمینه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/patternformat/#getBackColor--) الگو را تنظیم کنید.
-1. [رنگ پیش‌زمینه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/patternformat/#getForeColor--) الگو را تنظیم کنید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه یک پر کردن الگو را روی یک مستطیل اعمال کنید:
+1. ویژگی [FillType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/filltype/) شکل را به `Pattern` تنظیم کنید.
+1. یک سبک الگو از گزینه‌های پیش‌تعریف‌شده انتخاب کنید.
+1. رنگ [Background Color](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/patternformat/#getBackColor--) الگو را تنظیم کنید.
+1. رنگ [Foreground Color](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/patternformat/#getForeColor--) الگو را تنظیم کنید.
+1. ارائهٔ تغییر یافته را به عنوان فایل PPTX ذخیره کنید.
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // افزودن یک شکل خودکار از نوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // نوع پر کردن را به Pattern تنظیم کنید.
+    // تنظیم نوع پر کردن به Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // سبک الگو را تنظیم کنید.
+    // تنظیم سبک الگو.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // رنگ زمینه و پیش‌زمینه الگو را تنظیم کنید.
+    // تنظیم رنگ‌های پس‌زمینه و پیش‌زمینهٔ الگو.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -245,50 +290,48 @@ try {
 
 ## **پر کردن تصویر**
 
-در PowerPoint، پر کردن تصویر یک گزینه قالب‌بندی است که به شما امکان می‌دهد یک تصویر را داخل یک شکل قرار دهید—در واقع تصویر را به‌عنوان پس‌زمینهٔ شکل استفاده کنید.
+در پاورپوینت، پر کردن تصویر یک گزینهٔ قالب‌بندی است که به شما امکان می‌دهد یک تصویر را داخل یک شکل قرار دهید—به‌طور مؤثری تصویر را به‌عنوان پس‌زمینهٔ شکل استفاده می‌کند.
 
-در ادامه نحوه استفاده از Aspose.Slides برای اعمال پر کردن تصویر به یک شکل آورده شده است:
+در اینجا نحوهٔ استفاده از Aspose.Slides برای اعمال پر کردن تصویر به یک شکل آمده است:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. `FillType` شکل را به `Picture` تنظیم کنید.
+1. ویژگی [FillType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/filltype/) شکل را به `Picture` تنظیم کنید.
 1. حالت پر کردن تصویر را به `Tile` (یا حالت دلخواه دیگر) تنظیم کنید.
 1. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ippimage/) از تصویری که می‌خواهید استفاده کنید، ایجاد کنید.
-1. تصویر را به متد `ISlidesPicture.setImage` پاس بدهید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
+1. تصویر را به متد `ISlidesPicture.setImage` منتقل کنید.
+1. ارائهٔ تغییر یافته را به عنوان فایل PPTX ذخیره کنید.
 
-فرض کنید فایلی به نام «lotus.png» با تصویر زیر داریم:
+![عکس لوتوس](lotus.png)
 
-![تصویر لوتوس](lotus.png)
-
-کد زیر نشان می‌دهد چگونه یک شکل را با تصویر پر کنید:
+کد Java زیر نشان می‌دهد چگونه یک شکل را با تصویر پر کنید:
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // افزودن یک شکل خودکار از نوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // نوع پر کردن را به Picture تنظیم کنید.
+    // تنظیم نوع پر کردن به Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // حالت پر کردن تصویر را تنظیم کنید.
+    // تنظیم حالت پر کردن تصویر.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // یک تصویر را بارگذاری کرده و به منابع ارائه اضافه کنید.
+    // بارگذاری یک تصویر و افزودن آن به منابع ارائه.
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
 
-    // تصویر را تنظیم کنید.
+    // تنظیم تصویر.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -297,45 +340,45 @@ try {
 
 نتیجه:
 
-![شکل با پر شدن تصویر](picture-fill.png)
+![شکل با پر کردن تصویر](picture-fill.png)
 
-### **کاشی کردن تصویر به‌عنوان بافت**
+### **کاشی تصویر به‌عنوان بافت**
 
-اگر می‌خواهید یک تصویر کاشی‌شده را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌بندی را سفارشی کنید، می‌توانید از روش‌های زیر رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/picturefillformat/) استفاده کنید:
+اگر می‌خواهید تصویر کاشی‌شده‌ای را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌گذاری را سفارشی کنید، می‌توانید از متدهای زیر رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/picturefillformat/) استفاده کنید:
 
 - [setPictureFillMode](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): حالت پر کردن تصویر را تنظیم می‌کند—یا `Tile` یا `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): تراز کاشی‌ها داخل شکل را مشخص می‌کند.
-- [setTileFlip](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): مشخص می‌سازد که آیا کاشی به‌صورت افقی، عمودی یا هر دو معکوس شود.
-- [setTileOffsetX](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): افست افقی کاشی (بر حسب نقاط) از مبدأ شکل را تنظیم می‌کند.
-- [setTileOffsetY](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): افست عمودی کاشی (بر حسب نقاط) از مبدأ شکل را تنظیم می‌کند.
+- [setTileAlignment](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): تراز کاشی‌ها درون شکل را مشخص می‌کند.
+- [setTileFlip](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): تعیین می‌کند که کاشی به صورت افقی، عمودی یا هر دو معکوس شود.
+- [setTileOffsetX](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): افست افقی کاشی (برحسب نقطه) از مبدأ شکل را تنظیم می‌کند.
+- [setTileOffsetY](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): افست عمودی کاشی (برحسب نقطه) از مبدأ شکل را تنظیم می‌کند.
 - [setTileScaleX](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): مقیاس افقی کاشی را به‌صورت درصد تعریف می‌کند.
 - [setTileScaleY](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): مقیاس عمودی کاشی را به‌صورت درصد تعریف می‌کند.
 
-نمونه کد زیر نشان می‌دهد چگونه یک شکل مستطیل با پر شدن تصویر کاشی‌شده اضافه کنید و گزینه‌های کاشی را پیکربندی کنید:
+نمونه کد زیر نشان می‌دهد چگونه یک شکل مستطیل با پر کردن تصویر کاشی‌شده اضافه کنید و گزینه‌های کاشی را پیکربندی کنید:
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار مستطیل اضافه کنید.
+    // افزودن یک شکل خودکار مستطیل.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // نوع پر کردن شکل را به Picture تنظیم کنید.
+    // تنظیم نوع پر کردن شکل به Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // تصویر را بارگذاری کرده و به منابع ارائه اضافه کنید.
+    // بارگذاری تصویر و افزودن آن به منابع ارائه.
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // تصویر را به شکل اختصاص دهید.
+    // اختصاص تصویر به شکل.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // حالت پر کردن تصویر و مشخصات کاشی‌بندی را تنظیم کنید.
+    // پیکربندی حالت پر کردن تصویر و ویژگی‌های کاشی‌گذاری.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -344,7 +387,7 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -355,38 +398,36 @@ try {
 
 ![گزینه‌های کاشی](tile-options.png)
 
-## **پر کردن رنگ واحد**
+## **پر کردن رنگ جامد**
 
-در PowerPoint، پر کردن رنگ واحد یک گزینه قالب‌بندی است که یک شکل را با یک رنگ یکنواخت پر می‌کند. این رنگ پس‌زمینه ساده بدون هیچ گرادیان، بافت یا الگویی اعمال می‌شود.
+در پاورپوینت، پر کردن رنگ جامد یک گزینهٔ قالب‌بندی است که یک شکل را با یک رنگ یکدست و یکنواخت پر می‌کند. این رنگ پس‌زمینه ساده بدون هیچ‌گونه گرادیان، بافت یا الگو اعمال می‌شود.
 
-برای اعمال پر کردن رنگ واحد به یک شکل با استفاده از Aspose.Slides، مراحل زیر را دنبال کنید:
+برای اعمال پر کردن رنگ جامد به یک شکل با استفاده از Aspose.Slides، مراحل زیر را اجرا کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. `FillType` شکل را به `Solid` تنظیم کنید.
+1. ویژگی [FillType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/filltype/) شکل را به `Solid` تنظیم کنید.
 1. رنگ پر کردن دلخواه خود را به شکل اختصاص دهید.
-1. ارائه تغییر یافته را به عنوان یک فایل PPTX ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه یک پر کردن رنگ واحد را روی یک مستطیل در اسلاید PowerPoint اعمال کنید:
+1. ارائهٔ تغییر یافته را به عنوان فایل PPTX ذخیره کنید.
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // افزودن یک شکل خودکار از نوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // نوع پر کردن را به Solid تنظیم کنید.
+    // تنظیم نوع پر کردن به Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // رنگ پر کردن را تنظیم کنید.
+    // تنظیم رنگ پر کردن.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -395,39 +436,37 @@ try {
 
 نتیجه:
 
-![شکل با پر کردن رنگ واحد](solid-color-fill.png)
+![شکل با پر کردن رنگ جامد](solid-color-fill.png)
 
 ## **تنظیم شفافیت**
 
-در PowerPoint، وقتی یک پر کردن رنگی، گرادیان، تصویر یا بافت را بر روی اشکال اعمال می‌کنید، می‌توانید سطح شفافیت را تنظیم کنید تا میزان مات بودن پر شدن را کنترل کنید. مقدار شفافیت بالاتر باعث می‌شود شکل بیشتر شفاف باشد و پس‌زمینه یا اشیای زیرین به‌طور جزئی قابل مشاهده شوند.
+در پاورپوینت، هنگامی که پر کردن رنگ ثابت، گرادیان، تصویر یا بافت را به اشکال اعمال می‌کنید، می‌توانید سطح شفافیت را نیز تنظیم کنید تا میزان کدورت پر کردن را کنترل نمایید. مقدار بالاتر شفافیت باعث می‌شود شکل بیشتر شفاف باشد و پس‌زمینه یا اشیای زیرین به‌صورت جزئی دیده شوند.
 
-Aspose.Slides به شما اجازه می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ استفاده‌شده برای پر کردن تنظیم کنید. در ادامه نحوه انجام این کار آورده شده است:
+Aspose.Slides به شما امکان می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ مورد استفاده برای پر کردن تنظیم کنید. در اینجا نحوهٔ انجام آن آمده است:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. `FillType` را به `Solid` تنظیم کنید.
-1. از `Color` برای تعریف یک رنگ با شفافیت (مولفهٔ `alpha` شفافیت را کنترل می‌کند) استفاده کنید.
+1. ویژگی [FillType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/filltype/) را به `Solid` تنظیم کنید.
+1. از `Color` برای تعریف رنگی با شفافیت (مؤلفهٔ آلفا شفافیت را کنترل می‌کند) استفاده کنید.
 1. ارائه را ذخیره کنید.
 
-کد زیر نشان می‌دهد چگونه یک رنگ پر کردن شفاف را بر روی یک مستطیل اعمال کنید:
-
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار مستطیل ثابت اضافه کنید.
+    // افزودن یک شکل خودکار مستطیل جامد.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // یک شکل خودکار مستطیل شفاف بالای شکل ثابت اضافه کنید.
+    // افزودن یک شکل خودکار مستطیل شفاف بر روی شکل جامد.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -440,32 +479,30 @@ try {
 
 ## **چرخاندن اشکال**
 
-Aspose.Slides به شما امکان می‌دهد اشکال را در ارائه‌های PowerPoint بچرخانید. این می‌تواند هنگام موقعیت‌یابی عناصر بصری با نیازهای خاص تراز یا طراحی مفید باشد.
+Aspose.Slides به شما امکان می‌دهد اشکال را در ارائه‌های پاورپوینت چرخانید. این کار می‌تواند هنگام موقعیت‌دهی به عناصر بصری با نیازهای خاص هم‌ترازی یا طراحی مفید باشد.
 
-برای چرخاندن یک شکل در یک اسلاید، مراحل زیر را دنبال کنید:
+برای چرخاندن یک شکل در اسلاید، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. ویژگی چرخش شکل را به زاویهٔ مورد نیاز تنظیم کنید.
+1. ویژگی چرخش شکل را به زاویهٔ مورد نظر تنظیم کنید.
 1. ارائه را ذخیره کنید.
 
-کد زیر نشان می‌دهد چگونه یک شکل را به‌صورت 5 درجه بچرخانید:
-
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد کنید.
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت کنید.
+    // دریافت اولین اسلاید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار از نوع Rectangle اضافه کنید.
+    // افزودن یک شکل خودکار از نوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // شکل را به اندازه 5 درجه بچرخانید.
+    // چرخاندن شکل به‌ میزان 5 درجه.
     shape.setRotation(5);
 
-    // فایل PPTX را بر روی دیسک ذخیره کنید.
+    // ذخیرهٔ فایل PPTX به دیسک.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -476,19 +513,17 @@ try {
 
 ![چرخش شکل](shape-rotation.png)
 
-## **افزودن اثرات برش 3 بعدی**
+## **افکت‌های برجسته 3D را اضافه کنید**
 
-Aspose.Slides به شما امکان می‌دهد اثرات برش 3 بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/) آنها.
+Aspose.Slides به شما امکان می‌دهد افکت‌های برجستهٔ 3 بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/) آن‌ها.
 
-برای افزودن اثرات برش 3 بعدی به یک شکل، مراحل زیر را انجام دهید:
+برای افزودن افکت‌های برجستهٔ 3 بعدی به یک شکل، مراحل زیر را اجرا کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/) شکل را تنظیم کنید تا تنظیمات برش را تعریف کنید.
+1. ویژگی [ThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/) شکل را برای تعریف تنظیمات برجسته پیکربندی کنید.
 1. ارائه را ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه اثرات برش 3 بعدی را به یک شکل اعمال کنید:
 
 ```java
 // یک نمونه از کلاس Presentation ایجاد کنید.
@@ -513,7 +548,7 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // ارائه را به عنوان فایل PPTX ذخیره کنید.
+    // ارائه را به صورت فایل PPTX ذخیره کنید.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -522,21 +557,19 @@ try {
 
 نتیجه:
 
-![اثر برش 3 بعدی](3D-bevel-effect.png)
+![اثر برجستگی 3D](3D-bevel-effect.png)
 
-## **افزودن اثرات چرخش 3 بعدی**
+## **افکت‌های چرخش 3D را اضافه کنید**
 
-Aspose.Slides به شما امکان می‌دهد اثرات چرخش 3 بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/) آنها.
+Aspose.Slides به شما امکان می‌دهد افکت‌های چرخش 3 بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/threedformat/) آن‌ها.
 
 برای اعمال چرخش 3 بعدی به یک شکل:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلایدی بر اساس اندیس آن دریافت کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. از متدهای [setCameraType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icamera/#setCameraType-int-) و [setLightType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) برای تعریف چرخش 3 بعدی استفاده کنید.
+1. برای تعریف چرخش 3 بعدی از متدهای [setCameraType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icamera/#setCameraType-int-) و [setLightType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) استفاده کنید.
 1. ارائه را ذخیره کنید.
-
-کد زیر نشان می‌دهد چگونه اثرات چرخش 3 بعدی را به یک شکل اعمال کنید:
 
 ```java
 // یک نمونه از کلاس Presentation ایجاد کنید.
@@ -561,17 +594,17 @@ try {
 
 نتیجه:
 
-![اثر چرخش 3 بعدی](3D-rotation-effect.png)
+![اثر چرخش 3D](3D-rotation-effect.png)
 
 ## **بازنشانی قالب‌بندی**
 
-کد زیر نشان می‌دهد چگونه قالب‌بندی یک اسلاید را بازنشانی کنید و موقعیت، اندازه و قالب‌بندی تمام اشکالی که دارای نگهدارنده‌ها در [LayoutSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/layoutslide/) هستند، به تنظیمات پیش‌فرض برگردانید:
+کد Java زیر نشان می‌دهد چگونه قالب‌بندی یک اسلاید را بازنشانی کنید و موقعیت، اندازه و قالب‌بندی تمام اشکال با نگهدارنده‌ها در [LayoutSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/layoutslide/) را به تنظیمات پیش‌فرض برگردانید:
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // بازنشانی هر شکلی در اسلاید که یک نگه‌دارنده در طرح‌بندی دارد.
+        // بازنشانی هر شکلی در اسلاید که در طرح‌بندی دارای نگهدارنده است.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -580,16 +613,16 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا قالب‌بندی شکل بر حجم نهایی فایل ارائه تأثیر می‌گذارد؟**
+**آیا قالب‌بندی اشکال بر حجم نهایی فایل ارائه تأثیر می‌گذارد؟**
 
-تقریبا نه. تصاویر و رسانه‌های جاسازی‌شده بیشترین فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌عنوان متادیتا ذخیره می‌شوند و به‌طور قابل‌توجهی حجم اضافی اضافه نمی‌کنند.
+فقط به‌صورت کمینه. تصاویر و رسانه‌های جاسازی‌شده بیشترین فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌عنوان متاداده ذخیره می‌شوند و به‌طور واقعی حجم اضافی اضافه نمی‌کنند.
 
-**چگونه می‌توانم اشکالی را در اسلاید که قالب‌بندی یکسانی دارند شناسایی کنم تا بتوانم آن‌ها را گروه‌بندی کنم؟**
+**چگونه می‌توانم اشکالی را در یک اسلاید شناسایی کنم که قالب‌بندی یکسانی دارند تا بتوانم آن‌ها را گروه‌بندی کنم؟**
 
-خواص کلیدی قالب‌بندی هر شکل—تنظیمات پر کردن، خط و افکت—را مقایسه کنید. اگر تمام مقادیر متناظر مطابقت داشته باشند، سبک آن‌ها را یکسان در نظر بگیرید و به‌صورت منطقی آن اشکال را گروه‌بندی کنید که مدیریت سبک‌ها را بعداً ساده می‌سازد.
+ویژگی‌های کلیدی قالب‌بندی هر شکل—مانند تنظیمات پر، خط و افکت‌ها—را مقایسه کنید. اگر تمام مقادیر متناظر برابر باشند، سبک آن‌ها را یکسان در نظر بگیرید و منطقی آن‌ها را گروه‌بندی کنید؛ این کار مدیریت سبک‌ها را در مراحل بعدی ساده می‌کند.
 
-**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در یک فایل جداگانه ذخیره کنم تا در ارائه‌های دیگر دوباره استفاده کنم؟**
+**آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در یک فایل جداگانه ذخیره کنم تا در ارائه‌های دیگر استفاده مجدد کنم؟**
 
-بله. اشکال نمونه با سبک‌های مورد نظر را در یک اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائه جدید، قالب را باز کنید، اشکال سبک‌دار مورد نیاز را کلون کنید و قالب‌بندی آن‌ها را در هر جایی که نیاز باشد، دوباره اعمال کنید.
+بله. اشکال نمونه با سبک‌های دلخواه را در یک اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد ارائهٔ جدید، قالب را باز کنید، اشکال قالب‌دار مورد نیاز را کلون کنید و قالب‌بندی آن‌ها را در هر جایی که لازم است دوباره اعمال کنید.

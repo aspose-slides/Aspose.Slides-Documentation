@@ -1,76 +1,78 @@
 ---
-title: Formattare forme PowerPoint in JavaScript
-linktitle: Formattazione forme
+title: Formattare le forme di PowerPoint in JavaScript
+linktitle: Formattazione della forma
 type: docs
 weight: 20
 url: /it/nodejs-java/shape-formatting/
 keywords:
 - formattare forma
 - formattare linea
-- formattare stile di giunzione
-- riempimento gradiente
-- riempimento a motivo
+- effetto schizzo
+- linea forma schizzo
+- formattare stile di unione
+- riempimento sfumato
+- riempimento pattern
 - riempimento immagine
 - riempimento texture
-- riempimento a colore solido
+- riempimento colore solido
 - trasparenza forma
 - ruotare forma
-- effetto smussatura 3D
+- effetto smusso 3D
 - effetto rotazione 3D
-- ripristinare formattazione
+- reimpostare formattazione
 - PowerPoint
 - presentazione
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Formatta forme PowerPoint in JavaScript usando Aspose.Slides—imposta stili di riempimento, linea ed effetto per file PPT, PPTX e ODP con precisione e pieno controllo."
+description: "Formattare le forme di PowerPoint in JavaScript usando Aspose.Slides—imposta riempimenti, linee e stili di effetti per file PPT, PPTX e ODP con precisione e pieno controllo."
 ---
 ## **Introduzione**
 
-In PowerPoint è possibile aggiungere forme alle diapositive. Poiché le forme sono composte da linee, è possibile formattarle modificando o applicando effetti ai loro contorni. Inoltre, è possibile formattare le forme specificando impostazioni che controllano il modo in cui gli interni sono riempiti.
+In PowerPoint è possibile aggiungere forme alle diapositive. Poiché le forme sono costituite da linee, è possibile formattarle modificando o applicando effetti ai loro contorni. Inoltre, è possibile formattare le forme specificando impostazioni che controllano come vengono riempiti gli interni.
 
-![formattazione-forma-powerpoint](format-shape-powerpoint.png)
+![formato-forma-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides per Node.js tramite Java fornisce classi e metodi che consentono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
+Aspose.Slides per Node.js tramite Java fornisce classi e metodi che consentono di formattare le forme usando le stesse opzioni disponibili in PowerPoint.
 
 ## **Formattare le linee**
 
-Utilizzando Aspose.Slides, è possibile specificare uno stile di linea personalizzato per una forma. I seguenti passaggi descrivono la procedura:
+Utilizzando Aspose.Slides, è possibile specificare uno stile di linea personalizzato per una forma. I passaggi seguenti descrivono la procedura:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
 1. Impostare lo [stile della linea](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/linestyle/) della forma.
-1. Impostare la larghezza della linea.
-1. Impostare lo [stile del tratto](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/linedashstyle/) della linea.
+1. Impostare lo spessore della linea.
+1. Impostare lo [stile tratteggiato](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/linedashstyle/) della linea.
 1. Impostare il colore della linea per la forma.
 1. Salvare la presentazione modificata come file PPTX.
 
 Il codice seguente dimostra come formattare un rettangolo `AutoShape`:
 
 ```js
-// Istanziare la classe Presentation che rappresenta un file di presentazione.
+// Instanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica di tipo Rettangolo.
+    // Aggiungi una forma automatica di tipo Rettangolo.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Impostare il colore di riempimento per la forma rettangolo.
+    // Imposta il colore di riempimento per la forma rettangolo.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Applicare la formattazione alle linee del rettangolo.
+    // Applica la formattazione alle linee del rettangolo.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
 
-    // Impostare il colore per la linea del rettangolo.
+    // Imposta il colore per la linea del rettangolo.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -81,33 +83,81 @@ Il risultato:
 
 ![Le linee formattate nella presentazione](formatted-lines.png)
 
-## **Formattare gli stili di giunzione**
+## **Applicare effetti schizzo alle linee della forma**
 
-Ecco le tre opzioni di tipo di giunzione:
+Un effetto schizzo rende la linea di una forma simile a un disegno a mano libera. Utilizzare [Shape.getLineFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/) per accedere alle impostazioni della linea, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/lineformat/) per accedere alle impostazioni dello schizzo e [SketchFormat.setSketchType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/sketchformat/) per selezionare un valore dall'enumerazione [LineSketchType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/linesketchtype/).
 
-* Rotondo
-* Smussato
-* Angolo
+Il codice JavaScript seguente mostra come applicare l'effetto [LineSketchType.Curved](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType.None](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/linesketchtype/):
 
-Per impostazione predefinita, quando PowerPoint collega due linee con un angolo (come in un angolo di forma), utilizza l'impostazione **Rotondo**. Tuttavia, se si disegna una forma con angoli acuti, potrebbe essere preferibile l'opzione **Angolo**.
+```js
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-![Lo stile di giunzione nella presentazione](join-style-powerpoint.png)
+    // Accedi al formato linea della forma e al suo formato schizzo.
+    let sketchFormat = shape.getLineFormat().getSketchFormat();
 
-Il codice JavaScript seguente dimostra come tre rettangoli (come mostrato nell'immagine sopra) siano stati creati utilizzando le impostazioni di giunzione Angolo, Smussato e Rotondo:
+    // Applica un effetto schizzo.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
+
+    // Leggi l'effetto schizzo assegnato direttamente alla forma.
+    let explicitSketchType = sketchFormat.getSketchType();
+    console.log("Explicit sketch type: " + explicitSketchType);
+
+    // Rimuovi l'effetto schizzo.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il valore restituito da [SketchFormat.getSketchType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/sketchformat/) rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una diapositiva master o da una diapositiva layout, utilizzare [LineFormat.getEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/lineformat/), chiamare `getSketchFormat` sull'oggetto restituito e poi chiamare il suo metodo `getSketchType`. Il valore effettivo riflette la formattazione realmente applicata dopo la risoluzione delle eredità:
+
+```js
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    let lineFormat = shape.getLineFormat();
+
+    let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    let effectiveLineFormat = lineFormat.getEffective();
+    let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    console.log("Explicit sketch type: " + explicitSketchType);
+    console.log("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Formattare gli stili di unione**
+
+Ecco le tre opzioni di tipo di unione:
+
+* Round
+* Miter
+* Bevel
+
+Per impostazione predefinita, quando PowerPoint unisce due linee con un angolo (ad esempio nell'angolo di una forma), utilizza l'impostazione **Round**. Tuttavia, se si disegna una forma con angoli acuti, è possibile preferire l'opzione **Miter**.
+
+![Lo stile di unione nella presentazione](join-style-powerpoint.png)
+
+Il codice JavaScript seguente dimostra come tre rettangoli (come mostrato nell'immagine sopra) siano stati creati utilizzando le impostazioni di tipo di unione Miter, Bevel e Round:
 
 ```js
 // Istanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere tre forme automatiche di tipo Rettangolo.
+    // Aggiungi tre forme automatiche di tipo Rettangolo.
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Impostare il colore di riempimento per ciascuna forma rettangolare.
+    // Imposta il colore di riempimento per ciascuna forma rettangolo.
     shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -115,12 +165,12 @@ try {
     shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // Impostare la larghezza della linea.
+    // Imposta lo spessore della linea.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // Impostare il colore per la linea di ciascun rettangolo.
+    // Imposta il colore per la linea di ciascun rettangolo.
     shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -128,60 +178,60 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Impostare lo stile di giunzione.
+    // Imposta lo stile di unione.
     shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
     shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
     shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
 
-    // Aggiungere testo a ciascun rettangolo.
+    // Aggiungi testo a ciascun rettangolo.
     shape1.getTextFrame().setText("Miter Join Style");
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Riempimento gradiente**
+## **Riempimento sfumato**
 
-In PowerPoint, il Riempimento gradiente è un'opzione di formattazione che consente di applicare una fusione continua di colori a una forma. Ad esempio, è possibile applicare due o più colori in modo che uno sfumi gradualmente nell'altro.
+In PowerPoint, il Riempimento sfumato è un’opzione di formattazione che consente di applicare una sfumatura continua di colori a una forma. Ad esempio, è possibile applicare due o più colori in modo che uno sfumi gradualmente nell'altro.
 
-Ecco come applicare un riempimento gradiente a una forma utilizzando Aspose.Slides:
+Ecco come applicare un riempimento sfumato a una forma usando Aspose.Slides:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Gradient`.
-1. Aggiungere i due colori preferiti con posizioni definite usando i metodi `add` della raccolta di fermate gradiente esposta dalla classe [GradientFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/gradientformat/).
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Impostare la proprietà [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Gradient`.
+1. Aggiungere i due colori preferiti con le posizioni definite usando i metodi `add` della collezione di fermate sfumate esposta dalla classe [GradientFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/gradientformat/).
 1. Salvare la presentazione modificata come file PPTX.
 
-Il codice JavaScript seguente dimostra come applicare un effetto di riempimento gradiente a un'ellisse:
+Il codice JavaScript seguente dimostra come applicare un effetto di riempimento sfumato a un'ellisse:
 
 ```js
-// Istanziare la classe Presentation che rappresenta un file di presentazione.
+// Instanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica di tipo Ellisse.
+    // Aggiungi una forma automatica di tipo Ellisse.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Applicare la formattazione gradiente all'ellisse.
+    // Applica la formattazione a gradiente all'ellisse.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
-    // Impostare la direzione del gradiente.
+    // Imposta la direzione del gradiente.
     shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
 
-    // Aggiungere due fermate del gradiente.
+    // Aggiungi due fermate di gradiente.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -190,48 +240,48 @@ try {
 
 Il risultato:
 
-![L'ellisse con riempimento gradiente](gradient-fill.png)
+![L’ellisse con riempimento sfumato](gradient-fill.png)
 
-## **Riempimento a motivo**
+## **Riempimento pattern**
 
-In PowerPoint, il Riempimento a motivo è un'opzione di formattazione che consente di applicare un disegno a due colori—come punti, strisce, tratteggi incrociati o quadretti—a una forma. È possibile scegliere colori personalizzati per il primo piano e lo sfondo del motivo.
+In PowerPoint, il Riempimento pattern è un’opzione di formattazione che consente di applicare un disegno a due colori—come punti, strisce, tratteggi incrociati o quadretti—a una forma. È possibile scegliere colori personalizzati per il primo piano e lo sfondo del pattern.
 
-Aspose.Slides fornisce oltre 45 stili di motivo predefiniti che è possibile applicare alle forme per migliorare l'aspetto visivo delle presentazioni. Anche dopo aver selezionato un motivo predefinito, è ancora possibile specificare i colori esatti da utilizzare.
+Aspose.Slides fornisce oltre 45 stili di pattern predefiniti che è possibile applicare alle forme per migliorare l’aspetto visivo delle presentazioni. Anche dopo aver selezionato un pattern predefinito, è possibile specificare i colori esatti da utilizzare.
 
-Ecco come applicare un riempimento a motivo a una forma usando Aspose.Slides:
+Ecco come applicare un riempimento pattern a una forma usando Aspose.Slides:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Pattern`.
-1. Scegliere uno stile di motivo tra le opzioni predefinite.
-1. Impostare il [Colore di sfondo](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/patternformat/#getBackColor--) del motivo.
-1. Impostare il [Colore di primo piano](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/patternformat/#getForeColor--) del motivo.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Impostare la proprietà [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Pattern`.
+1. Scegliere uno stile di pattern tra le opzioni predefinite.
+1. Impostare il [Background Color](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/patternformat/#getBackColor--) del pattern.
+1. Impostare il [Foreground Color](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/patternformat/#getForeColor--) del pattern.
 1. Salvare la presentazione modificata come file PPTX.
 
-Il codice JavaScript seguente dimostra come applicare un riempimento a motivo a un rettangolo:
+Il codice JavaScript seguente dimostra come applicare un riempimento pattern a un rettangolo:
 
 ```js
 // Istanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica di tipo Rectangle.
+    // Aggiungi una forma automatica di tipo Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Impostare il tipo di riempimento su Pattern.
+    // Imposta il tipo di riempimento su Pattern.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 
-    // Impostare lo stile del motivo.
+    // Imposta lo stile del pattern.
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
 
-    // Impostare i colori di sfondo e di primo piano del motivo.
+    // Imposta i colori di sfondo e di primo piano del pattern.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -240,54 +290,54 @@ try {
 
 Il risultato:
 
-![Il rettangolo con riempimento a motivo](pattern-fill.png)
+![Il rettangolo con riempimento pattern](pattern-fill.png)
 
 ## **Riempimento immagine**
 
-In PowerPoint, il Riempimento immagine è un'opzione di formattazione che consente di inserire un'immagine all'interno di una forma—utilizzando effettivamente l'immagine come sfondo della forma.
+In PowerPoint, il Riempimento immagine è un’opzione di formattazione che consente di inserire un’immagine all’interno di una forma, utilizzandola effettivamente come sfondo della forma.
 
-Ecco come utilizzare Aspose.Slides per applicare un riempimento immagine a una forma:
+Ecco come usare Aspose.Slides per applicare un riempimento immagine a una forma:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Picture`.
-1. Impostare la modalità di riempimento immagine su `Tile` (o un'altra modalità preferita).
-1. Creare un oggetto [PPImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/) dall'immagine da utilizzare.
-1. Passare l'immagine al metodo `ISlidesPicture.setImage`.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Impostare la proprietà [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Picture`.
+1. Impostare la modalità di riempimento immagine su `Tile` (o un’altra modalità preferita).
+1. Creare un oggetto [PPImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/) dall’immagine che si desidera utilizzare.
+1. Passare l’immagine al metodo `ISlidesPicture.setImage`.
 1. Salvare la presentazione modificata come file PPTX.
 
-Supponiamo di avere un file "lotus.png" con l'immagine seguente:
+Supponiamo di avere il file “lotus.png” con l’immagine seguente:
 
-![L'immagine di loto](lotus.png)
+![L’immagine del loto](lotus.png)
 
-Il codice JavaScript seguente dimostra come riempire una forma con l'immagine:
+Il codice JavaScript seguente dimostra come riempire una forma con l’immagine:
 
 ```js
 // Istanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica di tipo Rectangle.
+    // Aggiungi una forma automatica di tipo Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Impostare il tipo di riempimento su Picture.
+    // Imposta il tipo di riempimento su Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Impostare la modalità di riempimento immagine.
+    // Imposta la modalità di riempimento immagine.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // Caricare un'immagine e aggiungerla alle risorse della presentazione.
+    // Carica un'immagine e aggiungila alle risorse della presentazione.
     let image = aspose.slides.Images.fromFile("lotus.png");
     let picture = presentation.getImages().addImage(image);
     image.dispose();
 
-    // Impostare l'immagine.
+    // Imposta l'immagine.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -298,43 +348,43 @@ Il risultato:
 
 ![La forma con riempimento immagine](picture-fill.png)
 
-### **Immagine a tasselli come texture**
+### **Tile Picture As Texture**
 
-Se si desidera impostare un'immagine a tasselli come texture e personalizzare il comportamento del tassellamento, è possibile utilizzare i seguenti metodi della classe [PictureFillFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/):
+Se si desidera impostare un’immagine a tasselli come texture e personalizzare il comportamento di tassellatura, è possibile utilizzare i seguenti metodi della classe [PictureFillFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): imposta la modalità di riempimento immagine—`Tile` o `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): specifica l'allineamento dei tasselli all'interno della forma.
-- [setTileFlip](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): controlla se il tassello è capovolto orizzontalmente, verticalmente o in entrambi i modi.
-- [setTileOffsetX](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): imposta lo spostamento orizzontale del tassello (in punti) dall'origine della forma.
-- [setTileOffsetY](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): imposta lo spostamento verticale del tassello (in punti) dall'origine della forma.
-- [setTileScaleX](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): definisce la scala orizzontale del tassello in percentuale.
-- [setTileScaleY](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): definisce la scala verticale del tassello in percentuale.
+- [setPictureFillMode](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Imposta la modalità di riempimento immagine—`Tile` o `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Specifica l’allineamento delle tessere all’interno della forma.
+- [setTileFlip](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Controlla se la tessera è ribaltata orizzontalmente, verticalmente o su entrambi gli assi.
+- [setTileOffsetX](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Imposta lo spostamento orizzontale della tessera (in punti) dall’origine della forma.
+- [setTileOffsetY](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Imposta lo spostamento verticale della tessera (in punti) dall’origine della forma.
+- [setTileScaleX](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definisce la scala orizzontale della tessera in percentuale.
+- [setTileScaleY](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definisce la scala verticale della tessera in percentuale.
 
-Il campione di codice seguente mostra come aggiungere una forma rettangolare con riempimento immagine a tasselli e configurare le opzioni del tassello:
+Il seguente esempio di codice mostra come aggiungere una forma rettangolare con riempimento immagine a tessere e configurare le opzioni di tassellatura:
 
 ```js
-// Istanziare la classe Presentation che rappresenta un file di presentazione.
+// Instanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica rettangolare.
+    // Aggiungi una forma automatica rettangolare.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Impostare il tipo di riempimento della forma su Picture.
+    // Imposta il tipo di riempimento della forma su Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Caricare l'immagine e aggiungerla alle risorse della presentazione.
+    // Carica l'immagine e aggiungila alle risorse della presentazione.
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
     let presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // Assegnare l'immagine alla forma.
+    // Assegna l'immagine alla forma.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Configurare la modalità di riempimento immagine e le proprietà di tassellamento.
+    // Configura la modalità di riempimento immagine e le proprietà di tassellatura.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -343,7 +393,7 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -352,40 +402,40 @@ try {
 
 Il risultato:
 
-![Le opzioni di tassellamento](tile-options.png)
+![Le opzioni di tassellatura](tile-options.png)
 
-## **Riempimento a colore solido**
+## **Riempimento colore solido**
 
-In PowerPoint, il Riempimento a colore solido è un'opzione di formattazione che riempie una forma con un unico colore uniforme. Questo colore di sfondo semplice viene applicato senza gradienti, texture o motivi.
+In PowerPoint, il Riempimento colore solido è un’opzione di formattazione che riempie una forma con un unico colore uniforme. Questo colore di sfondo semplice viene applicato senza sfumature, trame o pattern.
 
-Per applicare un riempimento a colore solido a una forma usando Aspose.Slides, seguire questi passaggi:
+Per applicare un riempimento colore solido a una forma usando Aspose.Slides, seguire questi passaggi:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Solid`.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Impostare la proprietà [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) della forma su `Solid`.
 1. Assegnare alla forma il colore di riempimento desiderato.
 1. Salvare la presentazione modificata come file PPTX.
 
-Il codice JavaScript seguente dimostra come applicare un riempimento a colore solido a un rettangolo in una diapositiva PowerPoint:
+Il codice JavaScript seguente dimostra come applicare un riempimento colore solido a un rettangolo in una diapositiva PowerPoint:
 
 ```js
 // Istanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica di tipo Rectangle.
+    // Aggiungi una forma automatica di tipo Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Impostare il tipo di riempimento su Solid.
+    // Imposta il tipo di riempimento su Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 
-    // Impostare il colore di riempimento.
+    // Imposta il colore di riempimento.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -394,18 +444,18 @@ try {
 
 Il risultato:
 
-![La forma con riempimento a colore solido](solid-color-fill.png)
+![La forma con riempimento colore solido](solid-color-fill.png)
 
 ## **Impostare la trasparenza**
 
-In PowerPoint, quando si applica un riempimento a colore solido, gradiente, immagine o texture a forme, è possibile impostare anche un livello di trasparenza per controllare l'opacità del riempimento. Un valore di trasparenza più alto rende la forma più trasparente, consentendo allo sfondo o agli oggetti sottostanti di essere parzialmente visibili.
+In PowerPoint, quando si applica un riempimento di colore solido, sfumato, immagine o trama a una forma, è possibile impostare anche un livello di trasparenza per controllare l’opacità del riempimento. Un valore di trasparenza più elevato rende la forma più trasparente, consentendo allo sfondo o agli oggetti sottostanti di essere parzialmente visibili.
 
-Aspose.Slides consente di impostare il livello di trasparenza regolando il valore alfa nel colore utilizzato per il riempimento. Ecco come fare:
+Aspose.Slides consente di impostare il livello di trasparenza regolando il valore alfa del colore usato per il riempimento. Ecco come fare:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Impostare il [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) su `Solid`.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Impostare la proprietà [FillType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/filltype/) su `Solid`.
 1. Utilizzare `Color` per definire un colore con trasparenza (il componente `alpha` controlla la trasparenza).
 1. Salvare la presentazione.
 
@@ -415,18 +465,18 @@ Il codice JavaScript seguente dimostra come applicare un colore di riempimento t
 // Istanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica rettangolare solida.
+    // Aggiungi una forma automatica rettangolare solida.
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Aggiungere una forma automatica rettangolare trasparente sopra la forma solida.
+    // Aggiungi una forma automatica rettangolare trasparente sopra la forma solida.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -443,10 +493,10 @@ Aspose.Slides consente di ruotare le forme nelle presentazioni PowerPoint. Quest
 
 Per ruotare una forma su una diapositiva, seguire questi passaggi:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Impostare la proprietà di rotazione della forma sull'angolo desiderato.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Impostare la proprietà di rotazione della forma sull’angolo desiderato.
 1. Salvare la presentazione.
 
 Il codice JavaScript seguente dimostra come ruotare una forma di 5 gradi:
@@ -455,16 +505,16 @@ Il codice JavaScript seguente dimostra come ruotare una forma di 5 gradi:
 // Istanziare la classe Presentation che rappresenta un file di presentazione.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Ottenere la prima diapositiva.
+    // Ottieni la prima diapositiva.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma automatica di tipo Rectangle.
+    // Aggiungi una forma automatica di tipo Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Ruotare la forma di 5 gradi.
+    // Ruota la forma di 5 gradi.
     shape.setRotation(5);
 
-    // Salvare il file PPTX su disco.
+    // Salva il file PPTX su disco.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -475,27 +525,27 @@ Il risultato:
 
 ![La rotazione della forma](shape-rotation.png)
 
-## **Aggiungere effetti di smussatura 3D**
+## **Aggiungere effetti di smusso 3D**
 
-Aspose.Slides consente di applicare effetti di smussatura 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/threedformat/).
+Aspose.Slides permette di applicare effetti di smusso 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/threedformat/).
 
-Per aggiungere effetti di smussatura 3D a una forma, seguire questi passaggi:
+Per aggiungere effetti di smusso 3D a una forma, seguire questi passaggi:
 
-1. Istanziare la classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Configurare il [ThreeDFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/threedformat/) della forma per definire le impostazioni di smussatura.
-1. Salvare la presentazione.
+1. Istanziate la classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenete un riferimento a una diapositiva per indice.
+1. Aggiungete un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Configurate il [ThreeDFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/threedformat/) della forma per definire le impostazioni di smusso.
+1. Salvate la presentazione.
 
-Il codice JavaScript seguente mostra come applicare effetti di smussatura 3D a una forma:
+Il codice JavaScript seguente mostra come applicare effetti di smusso 3D a una forma:
 
 ```js
-// Creare un'istanza della classe Presentation.
+// Crea un'istanza della classe Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // Aggiungere una forma alla diapositiva.
+    // Aggiungi una forma alla diapositiva.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
@@ -503,7 +553,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
     shape.getLineFormat().setWidth(2.0);
 
-    // Impostare le proprietà ThreeDFormat della forma.
+    // Imposta le proprietà ThreeDFormat della forma.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -512,7 +562,7 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // Salvare la presentazione come file PPTX.
+    // Salva la presentazione come file PPTX.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -521,24 +571,24 @@ try {
 
 Il risultato:
 
-![L'effetto di smussatura 3D](3D-bevel-effect.png)
+![L’effetto di smusso 3D](3D-bevel-effect.png)
 
 ## **Aggiungere effetti di rotazione 3D**
 
 Aspose.Slides consente di applicare effetti di rotazione 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/threedformat/).
 
-Per applicare la rotazione 3D a una forma:
+Per applicare una rotazione 3D a una forma:
 
-1. Creare un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
-1. Ottenere un riferimento a una diapositiva per il suo indice.
-1. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
-1. Utilizzare i metodi [setCameraType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/camera/#setCameraType) e [setLightType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/lightrig/#setLightType) per definire la rotazione 3D.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva per indice.
+1. Aggiungere un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) alla diapositiva.
+1. Utilizzare [setCameraType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/camera/#setCameraType) e [setLightType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/lightrig/#setLightType) per definire la rotazione 3D.
 1. Salvare la presentazione.
 
 Il codice JavaScript seguente dimostra come applicare effetti di rotazione 3D a una forma:
 
 ```js
-// Creare un'istanza della classe Presentation.
+// Crea un'istanza della classe Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -551,7 +601,7 @@ try {
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // Salvare la presentazione come file PPTX.
+    // Salva la presentazione come file PPTX.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -560,18 +610,18 @@ try {
 
 Il risultato:
 
-![L'effetto di rotazione 3D](3D-rotation-effect.png)
+![L’effetto di rotazione 3D](3D-rotation-effect.png)
 
-## **Ripristinare la formattazione**
+## **Reimpostare la formattazione**
 
-Il codice Java seguente mostra come ripristinare la formattazione di una diapositiva e riportare posizione, dimensione e formattazione di tutte le forme con segnaposto nella [LayoutSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/layoutslide/) alle impostazioni predefinite:
+Il codice Java seguente mostra come reimpostare la formattazione di una diapositiva e ripristinare posizione, dimensione e formattazione di tutte le forme con segnaposto sul [LayoutSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/layoutslide/) alle impostazioni predefinite:
 
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Reimposta ciascuna forma sulla diapositiva che ha un segnaposto nel layout.
+        // Ripristina ogni forma sulla diapositiva che ha un segnaposto sul layout.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -584,12 +634,12 @@ try {
 
 **La formattazione delle forme influisce sulla dimensione finale del file della presentazione?**
 
-Solo in minima parte. Le immagini e i contenuti multimediali incorporati occupano la maggior parte dello spazio, mentre i parametri delle forme come colori, effetti e gradienti sono memorizzati come metadati e aggiungono praticamente nessuna dimensione extra.
+Solo marginalmente. Le immagini e i contenuti multimediali incorporati occupano la maggior parte dello spazio, mentre i parametri delle forme come colori, effetti e sfumature vengono memorizzati come metadata e aggiungono praticamente nessuna dimensione extra.
 
-**Come posso individuare forme su una diapositiva che condividono la stessa formattazione per raggrupparle?**
+**Come posso individuare le forme su una diapositiva che condividono una formattazione identica per raggrupparle?**
 
-Confrontare le proprietà chiave di formattazione di ciascuna forma—impostazioni di riempimento, linea ed effetti. Se tutti i valori corrispondenti coincidono, trattare i loro stili come identici e raggruppare logicamente tali forme, semplificando la gestione successiva degli stili.
+Confrontare le principali proprietà di formattazione di ciascuna forma—impostazioni di riempimento, linea ed effetto. Se tutti i valori corrispondono, trattare gli stili come identici e raggruppare logicamente quelle forme, semplificando la gestione successiva degli stili.
 
 **Posso salvare un set di stili di forma personalizzati in un file separato per riutilizzarlo in altre presentazioni?**
 
-Sì. Conservare forme di esempio con gli stili desiderati in una presentazione modello o in un file modello .POTX. Quando si crea una nuova presentazione, aprire il modello, clonare le forme stilizzate necessarie e riapplicare la loro formattazione dove richiesto.
+Sì. Salvare forme di esempio con gli stili desiderati in una presentazione modello o in un file modello .POTX. Quando si crea una nuova presentazione, aprire il modello, clonare le forme stilizzate necessarie e ri‑applicare la loro formattazione dove richiesto.
