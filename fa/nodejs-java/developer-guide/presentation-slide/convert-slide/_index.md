@@ -1,12 +1,12 @@
 ---
-title: تبدیل اسلایدهای ارائه به تصویر در JavaScript
+title: تبدیل اسلایدهای ارائه به تصاویر در جاوااسکریپت
 linktitle: اسلاید به تصویر
 type: docs
 weight: 35
 url: /fa/nodejs-java/convert-slide/
-keywords:
+keywords: 
 - تبدیل اسلاید
-- صادر کردن اسلاید
+- صادرات اسلاید
 - اسلاید به تصویر
 - ذخیره اسلاید به عنوان تصویر
 - اسلاید به PNG
@@ -19,34 +19,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "اسلایدها را از فرمت‌های PPT، PPTX و ODP به تصویر در JavaScript تبدیل کنید با استفاده از Aspose.Slides برای Node.js via Java — رندر سریع و با کیفیت بالا با مثال‌های کد واضح."
+description: "اسلایدها را از فرمت‌های PPT، PPTX و ODP به تصاویر در جاوااسکریپت با استفاده از Aspose.Slides برای Node.js via Java تبدیل کنید — رندر سریع، با کیفیت بالا و همراه با مثال‌های واضح کد."
 ---
-## **مقدمه**
+## **معرفی**
 
-Aspose.Slides for Node.js via Java به شما امکان می‌دهد به راحتی اسلایدهای ارائه PowerPoint و OpenDocument را به قالب‌های مختلف تصویر تبدیل کنید، از جمله BMP، PNG، JPG (JPEG)، GIF و دیگران.
+Aspose.Slides for Node.js via Java به شما امکان می‌دهد به راحتی اسلایدهای ارائه PowerPoint و OpenDocument را به فرمت‌های تصویر مختلف از جمله BMP، PNG، JPG (JPEG)، GIF و سایر فرمت‌ها تبدیل کنید.
 
-برای تبدیل یک اسلاید به تصویر، مراحل زیر را دنبال کنید:
+برای تبدیل اسلاید به تصویر، مراحل زیر را دنبال کنید:
 
-1. تنظیمات تبدیل مورد نظر را تعریف کنید و اسلایدهای مورد نظر برای صادرات را با استفاده از زیر انتخاب کنید:
-    - کلاس [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) یا
-    - کلاس [RenderingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/renderingoptions/) .
+1. تنظیمات تبدیل مورد نظر را تعریف کنید و اسلایدهایی که می‌خواهید استخراج کنید را با استفاده از یکی از موارد زیر انتخاب کنید:
+    - کلاس [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/)
+    - کلاس [RenderingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/renderingoptions/)
 2. تصویر اسلاید را با فراخوانی متد [getImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/#getImage) تولید کنید.
 
-در Aspose.Slides برای Node.js via Java، کلاس [IImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/iimage/) کلاسی است که به شما امکان می‌دهد با تصاویری که بر پایه داده‌های پیکسل تعریف شده‌اند کار کنید. می‌توانید از این کلاس برای ذخیره‌سازی تصاویر در انواع مختلف قالب‌ها (BMP، JPG، PNG و غیره) استفاده کنید.
+در Aspose.Slides for Node.js via Java، یک [IImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/iimage/) یک کلاس است که به شما امکان کار با تصاویری را می‌دهد که توسط داده‌های پیکسلی تعریف شده‌اند. می‌توانید از این کلاس برای ذخیره‌سازی تصاویر در طیف وسیعی از فرمت‌ها (BMP، JPG، PNG و غیره) استفاده کنید.
 
-## **تبدیل اسلایدها به بیت‌مپ و ذخیره تصاویر در PNG**
+## **تبدیل اسلایدها به بیت‌مپ و ذخیره تصاویر به صورت PNG**
 
-می‌توانید یک اسلاید را به شیء بیت‌مپ تبدیل کنید و مستقیماً در برنامه خود استفاده کنید. همچنین می‌توانید اسلاید را به بیت‌مپ تبدیل کنید و سپس تصویر را در JPEG یا هر قالب دلخواه دیگری ذخیره کنید.
+می‌توانید اسلاید را به یک شی بیت‌مپ تبدیل کنید و مستقیماً در برنامه خود استفاده کنید. به‌طور جایگزین، می‌توانید اسلاید را به بیت‌مپ تبدیل کرده و سپس تصویر را به فرمت JPEG یا هر فرمت دلخواه دیگر ذخیره کنید.
 
-این کد JavaScript نشان می‌دهد چگونه اولین اسلاید یک ارائه را به شیء بیت‌مپ تبدیل کرده و سپس تصویر را در قالب PNG ذخیره کنید:
+کد JavaScript زیر نشان می‌دهد چگونه اولین اسلاید یک ارائه را به یک شی بیت‌مپ تبدیل کرده و سپس تصویر را به فرمت PNG ذخیره کنید:
 
 ```js
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // اسلاید اول ارائه را به بیت‌مپ تبدیل کنید.
+    // اولین اسلاید ارائه را به یک بیت‌مپ تبدیل کنید.
     let image = presentation.getSlides().get_Item(0).getImage();
     try {
-        // تصویر را در قالب PNG ذخیره کنید.
+        // تصویر را در فرمت PNG ذخیره کنید.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +56,21 @@ try {
 }
 ```
 
-## **تبدیل اسلایدها به تصویر با اندازه‌های سفارشی**
+## **تبدیل اسلایدها به تصاویر با اندازه‌های سفارشی**
 
-ممکن است به تصویر با اندازه‌ای خاص نیاز داشته باشید. با استفاده از یک overload از متد [getImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/#getImage)، می‌توانید یک اسلاید را به تصویری با ابعاد مشخص (عرض و ارتفاع) تبدیل کنید.
+ممکن است نیاز داشته باشید تصویر با اندازهٔ خاصی دریافت کنید. با استفاده از یک overload از متد [getImage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/#getImage) می‌توانید اسلاید را به تصویر با ابعاد مشخص (عرض و ارتفاع) تبدیل کنید.
 
-این کد نمونه نشان می‌دهد چگونه این کار را انجام دهید:
+این نمونه کد این کار را نشان می‌دهد:
 
 ```js
 let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // اسلاید اول ارائه را با اندازه مشخص به بیت‌مپ تبدیل کنید.
+    // اولین اسلاید ارائه را به یک بیت‌مپ با اندازهٔ مشخص تبدیل کنید.
     let image = presentation.getSlides().get_Item(0).getImage(imageSize);
     try {
-        // تصویر را در قالب JPEG ذخیره کنید.
+        // تصویر را در فرمت JPEG ذخیره کنید.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,21 +80,21 @@ try {
 }
 ```
 
-## **تبدیل اسلایدهای دارای یادداشت و نظرات به تصویر**
+## **تبدیل اسلایدهای حاوی یادداشت‌ها و نظرات به تصاویر**
 
-برخی اسلایدها ممکن است شامل یادداشت و نظرات باشند.
+برخی از اسلایدها ممکن است شامل یادداشت‌ها و نظرات باشند.
 
-Aspose.Slides دو کلاس—[TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) و [RenderingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/renderingoptions/)—را فراهم می‌کند که به شما اجازه می‌دهد رندر اسلایدهای ارائه به تصویر را کنترل کنید. هر دو کلاس شامل متد `setSlidesLayoutOptions` هستند که به شما امکان می‌دهد رندر یادداشت‌ها و نظرات روی یک اسلاید هنگام تبدیل به تصویر را پیکربندی کنید.
+Aspose.Slides دو کلاس—[TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) و [RenderingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/renderingoptions/)—را فراهم می‌کند که به شما امکان کنترل رندر اسلایدهای ارائه به تصاویر را می‌دهند. هر دو کلاس شامل متد `setSlidesLayoutOptions` هستند که به شما اجازه می‌دهد رندر یادداشت‌ها و نظرات بر روی اسلاید هنگام تبدیل به تصویر را تنظیم کنید.
 
-با کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود را برای یادداشت‌ها و نظرات در تصویر خروجی مشخص کنید.
+با کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود برای یادداشت‌ها و نظرات در تصویر نهایی مشخص کنید.
 
-این کد JavaScript نشان می‌دهد چگونه یک اسلاید با یادداشت و نظرات را تبدیل کنید:
+کد JavaScript زیر نشان می‌دهد چگونه اسلایدی همراه با یادداشت‌ها و نظرات را تبدیل کنید:
 
 ```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// یک فایل ارائه را بارگذاری کنید.
+// Load a presentation file.
 let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
@@ -103,14 +103,14 @@ try {
     notesCommentsOptions.setCommentsAreaWidth(500);                                                       // عرض ناحیه نظرات را تنظیم کنید.
     notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // رنگ ناحیه نظرات را تنظیم کنید.
 
-    // گزینه‌های رندرینگ را ایجاد کنید.
+    // گزینه‌های رندر را ایجاد کنید.
     let options = new aspose.slides.RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
  
-    // اسلاید اول ارائه را به تصویر تبدیل کنید.
+    // اولین اسلاید ارائه را به تصویر تبدیل کنید.
     let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
     try {
-        // تصویر را در قالب GIF ذخیره کنید.
+        // تصویر را در فرمت GIF ذخیره کنید.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -121,14 +121,14 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-در هر فرآیند تبدیل اسلاید به تصویر، متد [setNotesPosition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) نمی‌تواند مقدار `BottomFull` را اعمال کند (برای مشخص کردن موقعیت یادداشت) زیرا متن یادداشت ممکن است بسیار بزرگ باشد و نتواند در اندازه تصویر مشخص شده جا بگیرد.
+در هر فرآیند تبدیل اسلاید به تصویر، متد [setNotesPosition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) نمی‌تواند `BottomFull` (برای مشخص کردن موقعیت یادداشت‌ها) را اعمال کند، زیرا متن یک یادداشت ممکن است بسیار بزرگ باشد و نتواند در اندازهٔ تصویر تعیین‌شده جای بگیرد.
 {{% /alert %}} 
 
-## **تبدیل اسلایدها به تصویر با استفاده از گزینه‌های TIFF**
+## **تبدیل اسلایدها به تصاویر با استفاده از گزینه‌های TIFF**
 
-کلاس [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) کنترل بیشتری بر تصویر TIFF خروجی فراهم می‌کند با این امکان که پارامترهایی مانند اندازه، وضوح، پالت رنگ و موارد دیگر را مشخص کنید.
+کلاس [TiffOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/tiffoptions/) کنترل بیشتری بر تصویر TIFF حاصل فراهم می‌آورد، به‌طوری که می‌توانید پارامترهایی مانند اندازه، وضوح، پالت رنگ و موارد دیگر را مشخص کنید.
 
-این کد JavaScript یک فرآیند تبدیل را نشان می‌دهد که در آن گزینه‌های TIFF برای خروجی یک تصویر سیاه‑سفید با وضوح 300 DPI و اندازه 2160 × 2800 استفاده می‌شود:
+این کد JavaScript یک فرآیند تبدیل را نشان می‌دهد که در آن گزینه‌های TIFF برای خروجی یک تصویر سیاه‑سفید با وضوح 300 DPI و اندازهٔ 2160 × 2800 استفاده می‌شود:
 
 ```js
 // یک فایل ارائه را بارگذاری کنید.
@@ -141,13 +141,13 @@ try {
     let tiffOptions = new aspose.slides.TiffOptions();
     tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // اندازه تصویر را تنظیم کنید.
     tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // فرمت پیکسل را تنظیم کنید (سیاه و سفید).
-    tiffOptions.setDpiX(300);                                                          // رزولوشن افقی را تنظیم کنید.
-    tiffOptions.setDpiY(300);                                                          // رزولوشن عمودی را تنظیم کنید.
+    tiffOptions.setDpiX(300);                                                          // وضوح افقی را تنظیم کنید.
+    tiffOptions.setDpiY(300);                                                          // وضوح عمودی را تنظیم کنید.
 
-    // اسلاید را با گزینه‌های مشخص به تصویر تبدیل کنید.
+    // اسلاید را با گزینه‌های مشخص شده به تصویر تبدیل کنید.
     let image = slide.getImage(tiffOptions);
     try {
-        // تصویر را در قالب TIFF ذخیره کنید.
+        // تصویر را در فرمت TIFF ذخیره کنید.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -158,14 +158,14 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-پشتیبانی از TIFF در نسخه‌های قبل از JDK 9 تضمین نمی‌شود.
+پشتیبانی از TIFF در نسخه‌های قبلی JDK 9 تضمین نشده است.
 {{% /alert %}} 
 
-## **تبدیل تمام اسلایدها به تصویر**
+## **تبدیل تمام اسلایدها به تصاویر**
 
-Aspose.Slides به شما امکان می‌دهد تمام اسلایدهای یک ارائه را به تصویر تبدیل کنید، به‌طوری که کل ارائه به مجموعه‌ای از تصاویر تبدیل می‌شود.
+Aspose.Slides به شما امکان می‌دهد تمام اسلایدهای یک ارائه را به تصاویر تبدیل کنید و به‌طور مؤثری کل ارائه را به مجموعه‌ای از تصاویر تبدیل نمایید.
 
-این کد نمونه نشان می‌دهد چگونه تمام اسلایدهای یک ارائه را در JavaScript به تصویر تبدیل کنید:
+این نمونه کد نشان می‌دهد چگونه تمام اسلایدهای یک ارائه را به تصاویر در JavaScript تبدیل کنید:
 
 ```js
 const scaleX = 2;
@@ -173,7 +173,7 @@ const scaleY = scaleX;
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // ارائه را اسلاید به اسلاید به تصویر رندر کنید.
+    // ارائه را به صورت اسلاید به اسلاید به تصاویر تبدیل کنید.
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         // اسلایدهای مخفی را کنترل کنید (اسلایدهای مخفی رندر نشوند).
         if (presentation.getSlides().get_Item(i).getHidden()) {
@@ -183,7 +183,7 @@ try {
         // اسلاید را به تصویر تبدیل کنید.
         let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
         try {
-            // تصویر را در قالب JPEG ذخیره کنید.
+            // تصویر را در فرمت JPEG ذخیره کنید.
             image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
@@ -194,16 +194,22 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **رندر ایموجی‌های رنگی**
 
-**آیا Aspose.Slides از رندر اسلایدها با انیمیشن پشتیبانی می‌کند؟**
+{{% alert title="Note" color="warning" %}} 
+برای رندر صحیح ایموجی‌های رنگی هنگام تبدیل اسلایدهای ارائه به تصاویر، فونت‌های ایموجی مورد استفاده در ارائه باید بر روی سیستمی که تبدیل را انجام می‌دهد نصب و در دسترس باشند. به‌عنوان مثال، اگر ارائه از **Segoe UI Emoji** استفاده کند و این فونت موجود نباشد، ایموجی‌ها ممکن است به‌صورت تک‌رنگ در تصاویر خروجی ظاهر شوند.
+{{% /alert %}}
 
-خیر، متد `getImage` تنها یک تصویر ثابت از اسلاید را ذخیره می‌کند و انیمیشن‌ها را شامل نمی‌شود.
+## **سؤالات متداول**
 
-**آیا می‌توان اسلایدهای مخفی را به عنوان تصویر صادر کرد؟**
+**آیا Aspose.Slides از رندر اسلایدهای دارای انیمیشن پشتیبانی می‌کند؟**
 
-بله، اسلایدهای مخفی می‌توانند همانند اسلایدهای معمولی پردازش شوند. فقط مطمئن شوید که در حلقه پردازش گنجانده شده‌اند.
+خیر، متد `getImage` فقط یک تصویر ثابت از اسلاید ذخیره می‌کند و انیمیشن‌ها را شامل نمی‌شود.
+
+**آیا اسلایدهای پنهان می‌توانند به عنوان تصویر صادر شوند؟**
+
+بله، اسلایدهای پنهان می‌توانند همانند اسلایدهای معمولی پردازش شوند. فقط مطمئن شوید که در حلقهٔ پردازش گنجانده شوند.
 
 **آیا می‌توان تصاویر را با سایه‌ها و افکت‌ها ذخیره کرد؟**
 
-بله، Aspose.Slides هنگام ذخیره اسلایدها به عنوان تصویر از رندر سایه‌ها، شفافیت و سایر افکت‌های گرافیکی پشتیبانی می‌کند.
+بله، Aspose.Slides از رندر سایه‌ها، شفافیت و سایر افکت‌های گرافیکی هنگام ذخیره اسلایدها به عنوان تصویر پشتیبانی می‌کند.

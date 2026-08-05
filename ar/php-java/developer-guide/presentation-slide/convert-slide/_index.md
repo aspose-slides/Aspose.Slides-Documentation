@@ -1,48 +1,48 @@
 ---
-title: تحويل شرائح العروض التقديمية إلى صور في PHP
-linktitle: الشريحة إلى صورة
+title: تحويل شرائح العرض التقديمي إلى صور في PHP
+linktitle: شريحة إلى صورة
 type: docs
 weight: 35
 url: /ar/php-java/convert-slide/
 keywords:
-- تحويل الشريحة
-- تصدير الشريحة
-- الشريحة إلى صورة
+- تحويل شريحة
+- تصدير شريحة
+- شريحة إلى صورة
 - حفظ الشريحة كصورة
-- الشريحة إلى PNG
-- الشريحة إلى JPEG
-- الشريحة إلى bitmap
-- الشريحة إلى TIFF
+- شريحة إلى PNG
+- شريحة إلى JPEG
+- شريحة إلى Bitmap
+- شريحة إلى TIFF
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تحويل الشرائح من PPT وPPTX وODP إلى صور باستخدام Aspose.Slides for PHP عبر Java — تحويل سريع وعالي الجودة مع أمثلة شفرة واضحة."
+description: "تحويل الشرائح من PPT وPPTX وODP إلى صور باستخدام Aspose.Slides for PHP عبر Java — تصوير سريع وعالي الجودة مع أمثلة شفرة واضحة."
 ---
+## **مقدمة**
 
-## **نظرة عامة**
-
-تمكنك Aspose.Slides for PHP via Java من تحويل شرائح PowerPoint وOpenDocument إلى صيغ صور متنوعة، بما في ذلك BMP وPNG وJPG (JPEG) وGIF وغيرها.
+تمكنك Aspose.Slides for PHP عبر Java من تحويل شرائح عروض PowerPoint وOpenDocument بسهولة إلى صيغ صور مختلفة، بما في ذلك BMP وPNG وJPG (JPEG) وGIF وغيرها.
 
 لتحويل شريحة إلى صورة، اتبع الخطوات التالية:
 
-1. عرّف إعدادات التحويل المطلوبة وحدد الشرائح التي تريد تصديرها باستخدام:
-    - الفئة [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/)، أو
-    - الفئة [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/) .
-2. أنشئ صورة الشريحة عن طريق استدعاء طريقة [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) .
+1. حدد إعدادات التحويل المطلوبة واختر الشرائح التي تريد تصديرها باستخدام:
+    - الفئة [TiffOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/tiffoptions/) أو
+    - الفئة [RenderingOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/renderingoptions/) .
+2. أنشئ صورة الشريحة عن طريق استدعاء الطريقة [getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/#getImage).
 
-في Aspose.Slides for PHP via Java، تُعد الفئة [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) فئة تُتيح لك العمل مع الصور المعرفة ببيانات البكسل. يمكنك استخدام هذه الفئة لحفظ الصور بصيغ متعددة (BMP وJPG وPNG وغيرها).
+في Aspose.Slides for PHP عبر Java، تُعد فئة [IImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/iimage/) فئة تتيح لك التعامل مع الصور المعرفة ببيانات البكسل. يمكنك استخدام هذه الفئة لحفظ الصور بمجموعة واسعة من الصيغ (BMP، JPG، PNG، إلخ).
 
 ## **تحويل الشرائح إلى صور نقطية وحفظ الصور بصيغة PNG**
 
-يمكنك تحويل شريحة إلى كائن bitmap واستخدامه مباشرة في تطبيقك. بدلاً من ذلك، يمكنك تحويل الشريحة إلى bitmap ثم حفظ الصورة بصيغة JPEG أو أي صيغة أخرى تفضلها.
+يمكنك تحويل شريحة إلى كائن Bitmap واستخدامه مباشرة في تطبيقك. بدلاً من ذلك، يمكنك تحويل شريحة إلى Bitmap ثم حفظ الصورة بصيغة JPEG أو أي صيغة مفضلة أخرى.
 
-يوضح هذا الكود كيفية تحويل الشريحة الأولى في العرض التقديمي إلى كائن bitmap ثم حفظ الصورة بصيغة PNG:
+يظهر هذا المثال كيفية تحويل الشريحة الأولى في العرض التقديمي إلى كائن Bitmap ثم حفظ الصورة بصيغة PNG:
+
 ```php
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // تحويل الشريحة الأولى في العرض التقديمي إلى كائن bitmap.
+    // تحويل الشريحة الأولى في العرض التقديمي إلى صورة نقطية.
     $image = $presentation->getSlides()->get_Item(0)->getImage();
     try {
         // حفظ الصورة بصيغة PNG.
@@ -55,18 +55,18 @@ try {
 }
 ```
 
-
 ## **تحويل الشرائح إلى صور بأحجام مخصصة**
 
-قد تحتاج إلى الحصول على صورة بحجم معين. باستخدام أحد إصدارات طريقة [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage)، يمكنك تحويل شريحة إلى صورة بأبعاد محددة (العرض والارتفاع).
+قد تحتاج إلى الحصول على صورة بحجم معين. باستخدام نسخة مُحمَّلة من الطريقة [getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/#getImage)، يمكنك تحويل شريحة إلى صورة بأبعاد محددة (العرض والارتفاع).
 
-يوضح هذا المثال كيفية القيام بذلك:
+يعرض هذا المثال البرمجي كيفية القيام بذلك:
+
 ```php
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // تحويل الشريحة الأولى في العرض التقديمي إلى كائن bitmap بالحجم المحدد.
+    // تحويل الشريحة الأولى في العرض التقديمي إلى صورة نقطية بالحجم المحدد.
     $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
     try {
         // حفظ الصورة بصيغة JPEG.
@@ -79,16 +79,16 @@ try {
 }
 ```
 
-
-## **تحويل الشرائح مع الملاحظات والتعليقات إلى صور**
+## **تحويل الشرائح التي تحتوي على ملاحظات وتعليقات إلى صور**
 
 قد تحتوي بعض الشرائح على ملاحظات وتعليقات.
 
-توفر Aspose.Slides فئتين[TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) و[RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/)—تسمحان لك بالتحكم في تحويل شرائح العرض إلى صور. كلا الفئتين تتضمنان طريقة `setSlidesLayoutOptions`، والتي تمكنك من ضبط طريقة عرض الملاحظات والتعليقات على الشريحة عند تحويلها إلى صورة.
+توفر Aspose.Slides فئتين [TiffOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/tiffoptions/) و[RenderingOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/renderingoptions/) تسمحان بالتحكم في تحويل شرائح العرض التقديمي إلى صور. تتضمن كلتا الفئتين طريقة `setSlidesLayoutOptions`، التي تمكنك من تكوين تحويل الملاحظات والتعليقات على الشريحة عند تحويلها إلى صورة.
 
-باستخدام الفئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/)، يمكنك تحديد موضعك المفضل للملاحظات والتعليقات في الصورة الناتجة.
+باستخدام الفئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/notescommentslayoutingoptions/)، يمكنك تحديد الموضع المفضل للملاحظات والتعليقات في الصورة الناتجة.
 
-يوضح هذا الكود كيفية تحويل شريحة تحتوي على ملاحظات وتعليقات:
+يظهر هذا المثال كيفية تحويل شريحة تحتوي على ملاحظات وتعليقات:
+
 ```php
 $scaleX = 2;
 $scaleY = $scaleX;
@@ -96,16 +96,16 @@ $scaleY = $scaleX;
 $presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     $notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // تحديد موضع الملاحظات.
-    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // تحديد موضع التعليقات.
-    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // تحديد عرض مساحة التعليقات.
-    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // تحديد لون مساحة التعليقات.
+    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // تعيين موضع الملاحظات.
+    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // تعيين موضع التعليقات.
+    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // تحديد عرض منطقة التعليقات.
+    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // تحديد اللون لمنطقة التعليقات.
 
-    // إنشاء خيارات الإخراج.
+    // إنشاء خيارات التصيير.
     $options = new RenderingOptions();
     $options->setSlidesLayoutOptions($notesCommentsOptions);
 
-    // تحويل الشريحة الأولى من العرض إلى صورة.
+    // تحويل الشريحة الأولى من العرض التقديمي إلى صورة.
     $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
     try {
         // حفظ الصورة بصيغة GIF.
@@ -118,18 +118,18 @@ try {
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
 
-في أي عملية تحويل من شريحة إلى صورة، لا يمكن لطريقة [setNotesPosition](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) تطبيق `BottomFull` (لتحديد موضع الملاحظات) لأنه قد يكون نص الملاحظة كبيرًا جدًا ولا يستطيع أن يتناسب مع حجم الصورة المحدد.
+في أي عملية تحويل شريحة إلى صورة، لا يجوز للطريقة [setNotesPosition](https://reference.aspose.com/slides/ar/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) تطبيق القيمة `BottomFull` (لتحديد موضع الملاحظات) لأن نص الملاحظة قد يكون كبيرًا جدًا، مما يجعله غير قادر على الالتحاق بالحجم المحدد للصورة.
 
 {{% /alert %}} 
 
 ## **تحويل الشرائح إلى صور باستخدام خيارات TIFF**
 
-توفر فئة [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) تحكمًا أكبر في الصورة TIFF الناتجة من خلال السماح لك بتحديد معلمات مثل الحجم والدقة ولوحة الألوان وغيرها.
+توفر الفئة [TiffOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/tiffoptions/) تحكمًا أكبر في صورة TIFF الناتجة من خلال السماح لك بتحديد معلمات مثل الحجم، الدقة، لوحة الألوان، وغيرها.
 
-يوضح هذا الكود عملية تحويل حيث تُستخدم خيارات TIFF لإنتاج صورة بالأبيض والأسود بدقة 300 DPI وحجم 2160 × 2800:
+يظهر هذا المثال عملية تحويل يتم فيها استخدام خيارات TIFF لإنتاج صورة بالأبيض والأسود بدقة 300 نقطة في البوصة (DPI) وحجم 2160 × 2800:
+
 ```php
 // تحميل ملف عرض تقديمي.
 $presentation = new Presentation("sample.pptx");
@@ -137,7 +137,7 @@ try {
     // الحصول على الشريحة الأولى من العرض التقديمي.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // تهيئة إعدادات صورة TIFF الناتجة.
+    // تكوين إعدادات صورة TIFF الناتجة.
     $options = new TiffOptions();
     $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // تحديد حجم الصورة.
     $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // تحديد تنسيق البكسل (أبيض وأسود).
@@ -157,7 +157,6 @@ try {
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
 
 دعم TIFF غير مضمون في الإصدارات الأقدم من JDK 9.
@@ -166,18 +165,19 @@ try {
 
 ## **تحويل جميع الشرائح إلى صور**
 
-تمكنك Aspose.Slides من تحويل جميع الشرائح في عرض تقديمي إلى صور، مما يجعل من الممكن تحويل العرض بأكمله إلى سلسلة من الصور.
+تسمح لك Aspose.Slides بتحويل جميع الشرائح في عرض تقديمي إلى صور، مما يحول العرض التقديمي بالكامل إلى سلسلة من الصور.
 
-يوضح هذا المثال كيفية تحويل جميع الشرائح في عرض تقديمي إلى صور باستخدام PHP:
+يعرض هذا المثال البرمجي كيفية تحويل جميع الشرائح في عرض تقديمي إلى صور باستخدام PHP:
+
 ```php
 $scaleX = 2;
 $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // تحويل العرض التقديمي إلى صور شريحة بشريحة.
+    // تصيير العرض التقديمي إلى صور شريحة بشريحة.
     for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // التحكم في الشرائح المخفية (عدم تحويل الشرائح المخفية).
+        // التحكم في الشرائح المخفية (عدم تصيير الشرائح المخفية).
         if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
             continue;
         }
@@ -196,17 +196,22 @@ try {
 }
 ```
 
+## **عرض الرموز التعبيرية الملونة**
 
-## **FAQ**
+{{% alert title="Note" color="warning" %}} 
+لعرض الرموز التعبيرية الملونة بشكل صحيح عند تحويل شرائح العروض التقديمية إلى صور، يجب تثبيت خطوط الرموز التعبيرية المستخدمة في العرض وتوافرها على النظام الذي يُجري التحويل. على سبيل المثال، إذا كان العرض يستخدم **Segoe UI Emoji** وكان هذا الخط غير موجود، قد تظهر الرموز التعبيرية بالأبيض والأسود في الصور الناتجة.
+{{% /alert %}}
 
-**هل تدعم Aspose.Slides تحويل الشرائح التي تحتوي على رسوم متحركة؟**
+## **الأسئلة المتكررة**
 
-لا، طريقة `getImage` تحفظ صورة ثابتة فقط للشفرة، دون أي رسوم متحركة.
+**هل تدعم Aspose.Slides عرض الشرائح المتحركة؟**
+
+لا، طريقة `getImage` تحفظ فقط صورة ثابتة للشريحة، دون أي رسومات متحركة.
 
 **هل يمكن تصدير الشرائح المخفية كصور؟**
 
-نعم، يمكن معالجة الشرائح المخفية مثل الشرائح العادية. فقط تأكد من تضمينها في حلقة المعالجة.
+نعم، يمكن معالجة الشرائح المخفية بنفس طريقة الشرائح العادية. فقط تأكد من تضمينها في حلقة المعالجة.
 
-**هل يمكن حفظ الصور بظلال وتأثيرات؟**
+**هل يمكن حفظ الصور مع الظلال والتأثيرات؟**
 
-نعم، تدعم Aspose.Slides عرض الظلال والشفافية وغيرها من التأثيرات الرسومية عند حفظ الشرائح كصور.
+نعم، تدعم Aspose.Slides عرض الظلال، الشفافية، وغيرها من التأثيرات الرسومية عند حفظ الشرائح كصور.

@@ -1,46 +1,49 @@
 ---
-title: تحويل شرائح PowerPoint إلى صور باستخدام JavaScript
-linktitle: شريحة إلى صورة
+title: تحويل شرائح العرض التقديمي إلى صور باستخدام JavaScript
+linktitle: الشريحة إلى صورة
 type: docs
 weight: 35
 url: /ar/nodejs-java/convert-slide/
 keywords:
-- تحويل الشريحة
-- تحويل الشريحة إلى صورة
-- تصدير الشريحة كصورة
-- حفظ الشريحة كصورة
+- تحويل شريحة
+- تصدير شريحة
 - شريحة إلى صورة
+- حفظ الشريحة كصورة
 - شريحة إلى PNG
 - شريحة إلى JPEG
 - شريحة إلى bitmap
+- شريحة إلى TIFF
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم كيفية تحويل شرائح PowerPoint وOpenDocument إلى صيغ متعددة باستخدام Aspose.Slides لـ Node.js عبر Java. صدّر بسهولة شرائح PPTX وODP إلى BMP وPNG وJPEG وTIFF وغيرها مع نتائج عالية الجودة."
+description: "تحويل الشرائح من PPT وPPTX وODP إلى صور باستخدام JavaScript عبر Aspose.Slides for Node.js via Java - سريع، تصيير عالي الجودة مع أمثلة شفرة واضحة."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
-
-Aspose.Slides for Node.js via Java يتيح لك بسهولة تحويل شرائح عروض PowerPoint وOpenDocument إلى صيغ صور مختلفة، بما في ذلك BMP وPNG وJPG (JPEG) وGIF وغيرها.
+يتيح لك Aspose.Slides for Node.js عبر Java تحويل شرائح العروض التقديمية PowerPoint وOpenDocument بسهولة إلى تنسيقات صورة متعددة، بما في ذلك BMP وPNG وJPG (JPEG) وGIF وغيرها.
 
 لتحويل شريحة إلى صورة، اتبع الخطوات التالية:
 
-1. حدد إعدادات التحويل المطلوبة واختر الشرائح التي تريد تصديرها باستخدام:
-    - فئة [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) أو
-    - فئة [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/renderingoptions/) .
-2. قم بإنشاء صورة الشريحة عن طريق استدعاء طريقة [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage).
+1. تعريف إعدادات التحويل المطلوبة واختيار الشرائح التي تريد تصديرها باستخدام:
+    - الفئة [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/) ، أو
+    - الفئة [RenderingOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/renderingoptions/) .
+2. إنشاء صورة الشريحة عن طريق استدعاء طريقة [getImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/#getImage).
 
-في Aspose.Slides for Node.js via Java، فإن [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) هي فئة تتيح لك العمل مع الصور المعرفة ببيانات البكسل. يمكنك استخدام هذه الفئة لحفظ الصور في مجموعة واسعة من الصيغ (BMP، JPG، PNG، إلخ).
+في Aspose.Slides for Node.js عبر Java، تُعد الفئة [IImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/iimage/) فئةً تتيح لك التعامل مع الصور المعرفة ببيانات البكسل. يمكنك استخدام هذه الفئة لحفظ الصور في مجموعة واسعة من التنسيقات (BMP، JPG، PNG، إلخ).
 
-## **تحويل الشرائح إلى Bitmap وحفظ الصور بصيغة PNG**
+## **تحويل الشرائح إلى bitmap وحفظ الصور بصيغة PNG**
 
-يمكنك تحويل شريحة إلى كائن bitmap واستخدامه مباشرة في تطبيقك. بدلاً من ذلك، يمكنك تحويل شريحة إلى bitmap ثم حفظ الصورة بصيغة JPEG أو أي صيغة مفضلة أخرى.
+يمكنك تحويل شريحة إلى كائن bitmap واستخدامه مباشرةً في تطبيقك. بدلاً من ذلك، يمكنك تحويل شريحة إلى bitmap ثم حفظ الصورة بصيغة JPEG أو أي صيغة أخرى مفضلة.
 
-يوضح هذا الكود JavaScript كيفية تحويل الشريحة الأولى من العرض إلى كائن bitmap ثم حفظ الصورة بصيغة PNG:
+يوضح هذا الكود JavaScript كيفية تحويل الشريحة الأولى من العرض التقديمي إلى كائن bitmap ثم حفظ الصورة بصيغة PNG:
+
 ```js
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // تحويل الشريحة الأولى في العرض إلى bitmap.
+    // تحويل الشريحة الأولى في العرض التقديمي إلى bitmap.
     let image = presentation.getSlides().get_Item(0).getImage();
     try {
         // حفظ الصورة بصيغة PNG.
@@ -53,18 +56,18 @@ try {
 }
 ```
 
-
 ## **تحويل الشرائح إلى صور بأحجام مخصصة**
 
-قد تحتاج إلى الحصول على صورة بحجم معين. باستخدام نسخة مُحمّلة من [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getImage)، يمكنك تحويل شريحة إلى صورة بأبعاد محددة (العرض والارتفاع). 
+قد تحتاج إلى الحصول على صورة بحجم معين. باستخدام أحد التحميلات المتعددة لطريقة [getImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/#getImage)، يمكنك تحويل شريحة إلى صورة بأبعاد محددة (العرض والارتفاع).
 
-يوضح هذا الكود النموذجي كيفية القيام بذلك:
+يوضح مثال الكود التالي كيفية القيام بذلك:
+
 ```js
 let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // تحويل الشريحة الأولى في العرض إلى bitmap بالحجم المحدد.
+    // تحويل الشريحة الأولى في العرض التقديمي إلى bitmap بالحجم المحدد.
     let image = presentation.getSlides().get_Item(0).getImage(imageSize);
     try {
         // حفظ الصورة بصيغة JPEG.
@@ -77,16 +80,16 @@ try {
 }
 ```
 
-
 ## **تحويل الشرائح مع الملاحظات والتعليقات إلى صور**
 
-بعض الشرائح قد تحتوي على ملاحظات وتعليقات.
+قد تحتوي بعض الشرائح على ملاحظات وتعليقات.
 
-توفر Aspose.Slides فئتين—[TiffOptions] و[RenderingOptions]—تتيحان لك التحكم في تحويل شرائح العرض إلى صور. كلا الفئتين تضم طريقة `setSlidesLayoutOptions`، التي تمكنك من تكوين عرض الملاحظات والتعليقات على الشريحة عند تحويلها إلى صورة.
+توفر Aspose.Slides فئتين—[TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/) و[RenderingOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/renderingoptions/)—تسمحان لك بالتحكم في تصيير شرائح العرض إلى صور. تضم الفئتين طريقة `setSlidesLayoutOptions` التي تمكّنك من تكوين تصيير الملاحظات والتعليقات على الشريحة عند تحويلها إلى صورة.
 
-باستخدام فئة [NotesCommentsLayoutingOptions]، يمكنك تحديد الموضع المفضل للملاحظات والتعليقات في الصورة الناتجة.
+باستخدام الفئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/notescommentslayoutingoptions/)، يمكنك تحديد الموقع المفضل للملاحظات والتعليقات في الصورة الناتجة.
 
 يوضح هذا الكود JavaScript كيفية تحويل شريحة تحتوي على ملاحظات وتعليقات:
+
 ```js
 const scaleX = 2;
 const scaleY = scaleX;
@@ -97,14 +100,14 @@ try {
     let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // تعيين موضع الملاحظات.
     notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // تعيين موضع التعليقات.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // تعيين عرض منطقة التعليقات.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // تعيين لون منطقة التعليقات.
+    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // تعيين عرض مساحة التعليقات.
+    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // تعيين لون مساحة التعليقات.
 
-    // إنشاء خيارات العرض.
+    // إنشاء خيارات التصيير.
     let options = new aspose.slides.RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
  
-    // تحويل الشريحة الأولى من العرض إلى صورة.
+    // تحويل الشريحة الأولى من العرض التقديمي إلى صورة.
     let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
     try {
         // حفظ الصورة بصيغة GIF.
@@ -117,21 +120,21 @@ try {
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-في أي عملية تحويل شريحة إلى صورة، لا يمكن لطريقة [setNotesPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) تطبيق `BottomFull` (لتحديد موضع الملاحظات) لأن نص الملاحظة قد يكون كبيرًا جدًا، مما يجعله لا يستطيع الملاءمة ضمن حجم الصورة المحدد.
+في أي عملية تحويل شريحة إلى صورة، لا يمكن لطريقة [setNotesPosition](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) تطبيق `BottomFull` (لتحديد موضع الملاحظات) لأن نص الملاحظة قد يكون كبيرًا جدًا، مما يجعله غير قادر على التناسب مع حجم الصورة المحدد.
 {{% /alert %}} 
 
 ## **تحويل الشرائح إلى صور باستخدام خيارات TIFF**
 
-توفر فئة [TiffOptions] تحكمًا أكبر في صورة TIFF الناتجة من خلال السماح لك بتحديد معلمات مثل الحجم، الدقة، لوحة الألوان، وأكثر.
+توفر الفئة [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/) سيطرة أكبر على صورة TIFF الناتجة من خلال السماح لك بتحديد معلمات مثل الحجم، الدقة، لوحة الألوان، وأكثر.
 
-يوضح هذا الكود JavaScript عملية تحويل حيث تُستخدم خيارات TIFF لإخراج صورة بالأبيض والأسود بدقة 300 DPI وبحجم 2160 × 2800:
+يوضح هذا الكود JavaScript عملية تحويل حيث تُستخدم خيارات TIFF لإنتاج صورة بالأبيض والأسود بدقة 300 DPI وحجم 2160 × 2800:
+
 ```js
 // تحميل ملف عرض تقديمي.
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    // الحصول على الشريحة الأولى من العرض.
+    // الحصول على الشريحة الأولى من العرض التقديمي.
     let slide = presentation.getSlides().get_Item(0);
 
     // تكوين إعدادات صورة TIFF الناتجة.
@@ -154,25 +157,25 @@ try {
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-الدعم لتنسيق Tiff غير مضمون في الإصدارات السابقة لـ JDK 9.
+لا يُضمن دعم TIFF في الإصدارات الأقدم من JDK 9.
 {{% /alert %}} 
 
 ## **تحويل جميع الشرائح إلى صور**
 
-تتيح لك Aspose.Slides تحويل جميع الشرائح في عرض تقديمي إلى صور، مما يحول العرض بالكامل إلى سلسلة من الصور.
+تسمح لك Aspose.Slides بتحويل جميع الشرائح في عرض تقديمي إلى صور، مما يحول العرض بالكامل إلى مجموعة من الصور.
 
-يوضح هذا الكود النموذجي كيفية تحويل جميع الشرائح في عرض تقديمي إلى صور باستخدام JavaScript:
+يوضح مثال الكود التالي كيفية تحويل جميع الشرائح في عرض تقديمي إلى صور باستخدام JavaScript:
+
 ```js
 const scaleX = 2;
 const scaleY = scaleX;
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // تحويل العرض إلى صور شريحة بشريحة.
+    // تصيير العرض التقديمي إلى صور شريحة بشريحة.
     for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // التحكم في الشرائح المخفية (عدم عرض الشرائح المخفية).
+        // التحكم في الشرائح المخفية (عدم تصيير الشرائح المخفية).
         if (presentation.getSlides().get_Item(i).getHidden()) {
             continue;
         }
@@ -191,17 +194,22 @@ try {
 }
 ```
 
+## **تصيير الرموز التعبيرية الملونة**
 
-## **FAQ**
+{{% alert title="Note" color="warning" %}} 
+لتصrender الرموز التعبيرية الملونة بشكل صحيح عند تحويل شرائح العرض إلى صور، يجب تثبيت خطوط الرموز التعبيرية المستخدمة في العرض وتوافرها على النظام الذي يقوم بالتحويل. على سبيل المثال، إذا كان العرض يستخدم **Segoe UI Emoji** وكان هذا الخط غير موجود، فقد تظهر الرموز التعبيرية بالأبيض والأسود في الصور الناتجة.
+{{% /alert %}} 
 
-**هل تدعم Aspose.Slides عرض الشرائح مع الرسوم المتحركة؟**
+## **الأسئلة الشائعة**
 
-لا، طريقة `getImage` تحفظ صورة ثابتة فقط للشريحة، دون رسوم متحركة.
+**هل تدعم Aspose.Slides تصيير الشرائح مع الرسوم المتحركة؟**
 
-**هل يمكن تصدير الشرائح المخفية كصور؟**
+لا، طريقة `getImage` تحفظ صورة ثابتة فقط للشريحة، دون الرسوم المتتحركة.
 
-نعم، يمكن معالجة الشرائح المخفية كما يتم معالجة الشرائح العادية. فقط تأكد من تضمينها في حلقة المعالجة.
+**هل يمكن معالجة الشرائح المخفية كصور؟**
 
-**هل يمكن حفظ الصور مع الظلال والمؤثرات؟**
+نعم، يمكن معالجة الشرائح المخفية مثل الشرائح العادية. فقط تأكد من تضمينها في حلقة المعالجة.
 
-نعم، تدعم Aspose.Slides عرض الظلال، الشفافية، وغيرها من المؤثرات الرسومية عند حفظ الشرائح كصور.
+**هل يمكن حفظ الصور مع الظلال والتأثيرات؟**
+
+نعم، تدعم Aspose.Slides تصيير الظلال والشفافية وغيرها من التأثيرات الرسومية عند حفظ الشرائح كصور.

@@ -19,34 +19,34 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertieren Sie Folien von PPT, PPTX und ODP in Bilder mithilfe von Aspose.Slides für Android – schnelle, qualitativ hochwertige Darstellung mit klaren Java-Codebeispielen."
+description: "Konvertieren Sie Folien von PPT, PPTX und ODP in Bilder mit Aspose.Slides für Android - schnelle, hochwertige Bildrenderung mit klaren Java-Codebeispielen."
 ---
+## **Einführung**
 
-## **Übersicht**
+Aspose.Slides für Android über Java ermöglicht es Ihnen, PowerPoint‑ und OpenDocument‑Präsentationsfolien problemlos in verschiedene Bildformate zu konvertieren, darunter BMP, PNG, JPG (JPEG), GIF und weitere.
 
-Aspose.Slides for Android via Java ermöglicht es Ihnen, PowerPoint- und OpenDocument-Präsentationsfolien einfach in verschiedene Bildformate zu konvertieren, darunter BMP, PNG, JPG (JPEG), GIF und andere.
+Um eine Folie in ein Bild zu konvertieren, führen Sie die folgenden Schritte aus:
 
-Um eine Folie in ein Bild zu konvertieren, gehen Sie wie folgt vor:
+1. Definieren Sie die gewünschten Konvertierungseinstellungen und wählen Sie die Folien aus, die Sie exportieren möchten, indem Sie:
+    - Die [ITiffOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiffoptions/) Schnittstelle, oder
+    - Die [IRenderingOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/irenderingoptions/) Schnittstelle.
+2. Generieren Sie das Folienbild, indem Sie die Methode [getImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islide/#getImage--) aufrufen.
 
-1. Definieren Sie die gewünschten Konvertierungseinstellungen und wählen Sie die Folien aus, die Sie exportieren möchten, indem Sie verwenden:
-    - Die [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) Schnittstelle, oder
-    - Die [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/) Schnittstelle.
-2. Erzeugen Sie das Folienbild, indem Sie die [getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage--) Methode aufrufen.
-
-In Aspose.Slides for Android via Java ist ein [IImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/) eine Schnittstelle, die es Ihnen ermöglicht, mit Bildern zu arbeiten, die durch Pixeldaten definiert sind. Sie können diese Schnittstelle verwenden, um Bilder in einer Vielzahl von Formaten zu speichern (BMP, JPG, PNG usw.).
+In Aspose.Slides für Android über Java ist ein [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) eine Schnittstelle, die es Ihnen ermöglicht, mit Bildern zu arbeiten, die durch Pixeldaten definiert sind. Sie können diese Schnittstelle verwenden, um Bilder in einer breiten Palette von Formaten zu speichern (BMP, JPG, PNG usw.).
 
 ## **Folien in Bitmaps konvertieren und die Bilder im PNG-Format speichern**
 
-Sie können eine Folie in ein Bitmap‑Objekt konvertieren und es direkt in Ihrer Anwendung verwenden. Alternativ können Sie eine Folie in ein Bitmap konvertieren und das Bild dann im JPEG‑ oder einem anderen gewünschten Format speichern.
+Sie können eine Folie in ein Bitmap‑Objekt konvertieren und direkt in Ihrer Anwendung verwenden. Alternativ können Sie eine Folie in ein Bitmap konvertieren und das Bild dann im JPEG‑Format oder einem anderen gewünschten Format speichern.
 
-Dieser Code zeigt, wie man die erste Folie einer Präsentation in ein Bitmap‑Objekt konvertiert und das Bild anschließend im PNG‑Format speichert:
+Dieser Code demonstriert, wie die erste Folie einer Präsentation in ein Bitmap‑Objekt konvertiert und das Bild anschließend im PNG‑Format gespeichert wird:
+
 ```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertiere die erste Folie in der Präsentation in ein Bitmap.
+    // Konvertieren Sie die erste Folie der Präsentation in ein Bitmap.
     IImage image = presentation.getSlides().get_Item(0).getImage();
     try {
-        // Speichere das Bild im PNG-Format.
+        // Speichern Sie das Bild im PNG-Format.
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,22 +56,22 @@ try {
 }
 ```
 
-
 ## **Folien in Bilder mit benutzerdefinierten Größen konvertieren**
 
-Möglicherweise benötigen Sie ein Bild in einer bestimmten Größe. Durch die Verwendung einer Überladung von [getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) können Sie eine Folie in ein Bild mit spezifischen Abmessungen (Breite und Höhe) konvertieren. 
+Möglicherweise benötigen Sie ein Bild mit einer bestimmten Größe. Mit einer Überladung der [getImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) können Sie eine Folie in ein Bild mit spezifischen Abmessungen (Breite und Höhe) konvertieren.
 
 Dieser Beispielcode zeigt, wie das geht:
+
 ```java 
 Size imageSize = new Size(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertiere die erste Folie in der Präsentation in ein Bitmap mit der angegebenen Größe.
+    // Konvertieren Sie die erste Folie der Präsentation in ein Bitmap mit der angegebenen Größe.
     IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
 
     try {
-        // Speichere das Bild im JPEG-Format.
+        // Speichern Sie das Bild im JPEG-Format.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -81,38 +81,38 @@ try {
 }
 ```
 
-
 ## **Folien mit Notizen und Kommentaren in Bilder konvertieren**
 
 Einige Folien können Notizen und Kommentare enthalten.
 
-Aspose.Slides stellt zwei Schnittstellen—[ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) und [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/)—zur Verfügung, die es Ihnen ermöglichen, das Rendern von Präsentationsfolien in Bilder zu steuern. Beide Schnittstellen enthalten die Methode `setSlidesLayoutOptions`, mit der Sie das Rendern von Notizen und Kommentaren auf einer Folie beim Konvertieren in ein Bild konfigurieren können.
+Aspose.Slides stellt zwei Schnittstellen—[ITiffOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiffoptions/) und [IRenderingOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/irenderingoptions/)—zur Verfügung, mit denen Sie die Darstellung von Präsentationsfolien als Bilder steuern können. Beide Schnittstellen enthalten die Methode `setSlidesLayoutOptions`, mit der Sie die Darstellung von Notizen und Kommentaren einer Folie beim Konvertieren in ein Bild konfigurieren können.
 
-Mit der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) können Sie die gewünschte Position für Notizen und Kommentare im resultierenden Bild festlegen.
+Mit der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/notescommentslayoutingoptions/) können Sie die gewünschte Position für Notizen und Kommentare im Ergebnisbild festlegen.
 
-Dieser Code demonstriert, wie man eine Folie mit Notizen und Kommentaren konvertiert:
+Dieser Code demonstriert, wie eine Folie mit Notizen und Kommentaren konvertiert wird:
+
 ```java 
 float scaleX = 2;
 float scaleY = scaleX;
 
-// Präsentationsdatei laden.
+// Lädt eine Präsentationsdatei.
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Position der Notizen festlegen.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Position der Kommentare festlegen.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Breite des Kommentarbereichs festlegen.
-    notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // Farbe des Kommentarbereichs festlegen.
+    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Setzt die Position der Notizen.
+    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Setzt die Position der Kommentare.
+    notesCommentsOptions.setCommentsAreaWidth(500);                         // Setzt die Breite des Kommentarbereichs.
+    notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // Setzt die Farbe des Kommentarbereichs.
 
-    // Rendering-Optionen erstellen.
+    // Erstellt die Rendering-Optionen.
     RenderingOptions options = new RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
 
-    // Erste Folie der Präsentation in ein Bild konvertieren.
+    // Konvertiert die erste Folie der Präsentation in ein Bild.
     IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
 
     try {
-        // Bild im GIF-Format speichern.
+        // Speichert das Bild im GIF-Format.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -122,35 +122,35 @@ try {
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-Im gesamten Folie-zu-Bild-Konvertierungsprozess kann die [setNotesPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) Methode `BottomFull` (zur Angabe der Position für Notizen) nicht anwenden, weil der Text einer Notiz zu groß sein kann, sodass er nicht in die angegebene Bildgröße passt.
-{{% /alert %}} 
+Im gesamten Folie‑zu‑Bild‑Konvertierungsprozess kann die Methode [setNotesPosition](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) nicht `BottomFull` anwenden (um die Position für Notizen anzugeben), weil der Text einer Notiz zu groß sein kann, um in die angegebene Bildgröße zu passen.
+{{% /alert %}}
 
-## **Folien in Bilder mit TIFF-Optionen konvertieren**
+## **Folien mit TIFF‑Optionen in Bilder konvertieren**
 
-Die [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) Schnittstelle bietet mehr Kontrolle über das resultierende TIFF‑Bild, indem Sie Parameter wie Größe, Auflösung, Farbpalette und mehr festlegen können.
+Die [ITiffOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiffoptions/) Schnittstelle bietet eine größere Kontrolle über das resultierende TIFF‑Bild, indem Sie Parameter wie Größe, Auflösung, Farbpalette und mehr festlegen können.
 
 Dieser Code demonstriert einen Konvertierungsprozess, bei dem TIFF‑Optionen verwendet werden, um ein Schwarz‑weiß‑Bild mit 300 DPI Auflösung und einer Größe von 2160 × 2800 auszugeben:
-```java
-// Präsentationsdatei laden.
+
+```java 
+// Lade eine Präsentationsdatei.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Erste Folie aus der Präsentation holen.
+    // Hole die erste Folie aus der Präsentation.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Einstellungen des Ausgabebildes im TIFF-Format konfigurieren.
+    // Konfiguriere die Einstellungen des Ausgabebildes im TIFF-Format.
     TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Size(2160, 2880));                  // Bildgröße festlegen.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Pixelformat festlegen (schwarz‑weiß).
-    tiffOptions.setDpiX(300);                                        // Horizontale Auflösung festlegen.
-    tiffOptions.setDpiY(300);                                        // Vertikale Auflösung festlegen.
+    tiffOptions.setImageSize(new Size(2160, 2880));                  // Setze die Bildgröße.
+    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Setze das Pixel-Format (schwarz‑weiß).
+    tiffOptions.setDpiX(300);                                        // Setze die horizontale Auflösung.
+    tiffOptions.setDpiY(300);                                        // Setze die vertikale Auflösung.
 
-    // Folie mit den angegebenen Optionen in ein Bild konvertieren.
+    // Konvertiere die Folie in ein Bild mit den angegebenen Optionen.
     IImage image = slide.getImage(tiffOptions);
 
     try {
-        // Bild im TIFF-Format speichern.
+        // Speichere das Bild im TIFF-Format.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -160,30 +160,30 @@ try {
 }
 ```
 
-
 ## **Alle Folien in Bilder konvertieren**
 
-Aspose.Slides ermöglicht es Ihnen, alle Folien einer Präsentation in Bilder zu konvertieren, wodurch die gesamte Präsentation in eine Reihe von Bildern umgewandelt wird.
+Aspose.Slides ermöglicht es Ihnen, alle Folien einer Präsentation in Bilder zu konvertieren und damit die gesamte Präsentation in eine Bildreihe umzuwandeln.
 
-Dieser Beispielcode zeigt, wie man alle Folien einer Präsentation in Java in Bilder konvertiert:
+Dieser Beispielcode zeigt, wie Sie alle Folien einer Präsentation in Java in Bilder konvertieren:
+
 ```java 
 float scaleX = 2;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Präsentation Folie für Folie in Bilder rendern.
+    // Rendert die Präsentation Folie für Folie zu Bildern.
     for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
-        // Versteckte Folien steuern (keine versteckten Folien rendern).
+        // Steuert ausgeblendete Folien (rendert keine ausgeblendeten Folien).
         if (presentation.getSlides().get_Item(i).getHidden())
             continue;
 
-        // Folie in ein Bild konvertieren.
+        // Konvertiert die Folie in ein Bild.
         IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
 
         try {
-            // Bild im JPEG-Format speichern.
+            // Speichert das Bild im JPEG-Format.
             image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
@@ -194,16 +194,21 @@ try {
 }
 ```
 
+## **Farbige Emoji‑Darstellung**
+
+{{% alert title="Note" color="warning" %}} 
+Um farbige Emojis beim Konvertieren von Präsentationsfolien in Bilder korrekt darzustellen, müssen die in der Präsentation verwendeten Emoji‑Schriften auf dem System, das die Konvertierung durchführt, installiert und verfügbar sein. Beispielsweise können Emojis in den Ausgabebildern monochrom erscheinen, wenn die Präsentation **Segoe UI Emoji** verwendet und diese Schrift fehlt.
+{{% /alert %}}
 
 ## **FAQ**
 
 **Unterstützt Aspose.Slides das Rendern von Folien mit Animationen?**
 
-Nein, die `getImage`‑Methode speichert nur ein statisches Bild der Folie, ohne Animationen.
+Nein, die Methode `getImage` speichert nur ein statisches Bild der Folie, ohne Animationen.
 
 **Können ausgeblendete Folien als Bilder exportiert werden?**
 
-Ja, ausgeblendete Folien können wie reguläre behandelt werden. Stellen Sie lediglich sicher, dass sie in die Verarbeitungsschleife aufgenommen werden.
+Ja, ausgeblendete Folien können wie reguläre Folien verarbeitet werden. Stellen Sie lediglich sicher, dass sie in die Verarbeitungsschleife einbezogen werden.
 
 **Können Bilder mit Schatten und Effekten gespeichert werden?**
 
