@@ -25,6 +25,8 @@ Shows how to add, read, remove, and update notes slides using **Aspose.Slides fo
 Create a notes slide and assign text to it.
 
 ```py
+import aspose.slides as slides
+
 def add_note():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -40,6 +42,8 @@ def add_note():
 Read text from an existing notes slide.
 
 ```py
+import aspose.slides as slides
+
 def access_note():
     with slides.Presentation("note.pptx") as presentation:
         slide = presentation.slides[0]
@@ -53,6 +57,8 @@ def access_note():
 Remove the notes slide associated with a slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_note():
     with slides.Presentation("note.pptx") as presentation:
         slide = presentation.slides[0]
@@ -68,6 +74,8 @@ def remove_note():
 Change the text of a notes slide.
 
 ```py
+import aspose.slides as slides
+
 def update_note_text():
     with slides.Presentation("note.pptx") as presentation:
         slide = presentation.slides[0]

@@ -29,6 +29,8 @@ Each example below includes a brief explanation followed by a code snippet in Py
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
 ```py
+import aspose.slides as slides
+
 def add_slide():
     with slides.Presentation() as presentation:
         # Each slide is based on a layout, which itself is based on a master slide.
@@ -50,6 +52,8 @@ def add_slide():
 You can access slides using their index. This is useful for iterating through or modifying specific slides.
 
 ```py
+import aspose.slides as slides
+
 def access_slide():
     with slides.Presentation("slide.pptx") as presentation:
         # Access a slide by index.
@@ -61,6 +65,8 @@ def access_slide():
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
 ```py
+import aspose.slides as slides
+
 def clone_slide():
     with slides.Presentation("slide.pptx") as presentation:
         slide = presentation.slides[0]
@@ -76,6 +82,8 @@ def clone_slide():
 You can change the order of slides by moving one to a new index. In this case, we move a slide to the first position.
 
 ```py
+import aspose.slides as slides
+
 def reorder_slide():
     with slides.Presentation("slide.pptx") as presentation:
         slide = presentation.slides[1]
@@ -91,6 +99,8 @@ def reorder_slide():
 To remove a slide, simply reference it and call `remove`. This example removes the first slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_slide():
     with slides.Presentation("slide.pptx") as presentation:
         slide = presentation.slides[0]

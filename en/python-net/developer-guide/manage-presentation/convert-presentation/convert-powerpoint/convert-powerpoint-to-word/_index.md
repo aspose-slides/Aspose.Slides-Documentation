@@ -64,6 +64,7 @@ The following Python code example demonstrates how to convert the PowerPoint pre
 ```py
 import aspose.slides as slides
 import aspose.words as words
+from io import BytesIO
 
 # Load a presentation file.
 with slides.Presentation("sample.pptx") as presentation:
@@ -87,7 +88,11 @@ with slides.Presentation("sample.pptx") as presentation:
     scale_y = 2
 
     # Go through all the presentation slides.
-    for slide in presentation.slides:
+    for index, slide in enumerate(presentation.slides):
+
+        # Start every slide except the first one on a new page.
+        if index > 0:
+            builder.insert_break(words.BreakType.PAGE_BREAK)
 
         # Generate a slide image and save it to a memory stream.
         with slide.get_image(scale_x, scale_y) as image:
@@ -99,8 +104,6 @@ with slides.Presentation("sample.pptx") as presentation:
         image_width = builder.page_setup.page_width
         image_height = builder.page_setup.page_height
         builder.insert_image(image_stream.read(), image_width, image_height)
-
-        builder.insert_break(words.BreakType.PAGE_BREAK)
 
     # Save the Word document to a file.
     document.save("output.docx")

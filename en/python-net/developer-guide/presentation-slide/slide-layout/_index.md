@@ -97,7 +97,7 @@ with slides.Presentation("sample.pptx") as presentation:
             if layout_slide is None:
                 layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
                 if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
+                    layout_slide = layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
     # Add an empty slide using the added layout slide.
     presentation.slides.insert_empty_slide(0, layout_slide)
@@ -198,7 +198,7 @@ with slides.Presentation("sample.pptx") as presentation:
     header_footer_manager.set_footer_text("Footer text") 
     header_footer_manager.set_date_time_text("Date and time text") 
 
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Set Child Footer Visibility for a Slide**

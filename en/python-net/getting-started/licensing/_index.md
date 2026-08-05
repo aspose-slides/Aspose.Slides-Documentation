@@ -106,7 +106,8 @@ import aspose.slides as slides
 license = slides.License()
 
 # Set the license from a stream.
-license.set_license(stream)
+with open("Aspose.Slides.lic", "rb") as stream:
+    license.set_license(stream)
 ```
 
 ## **Validating a License**

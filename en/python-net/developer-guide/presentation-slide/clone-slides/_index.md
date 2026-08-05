@@ -58,7 +58,7 @@ If you want to clone a slide within the same presentation and place it at a diff
 1. Call the `insert_clone` method on the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), passing the slide to be cloned and the target index for its new position.
 1. Save the modified presentation.
 
-In the example below, the slide at index 0 (position 1) is cloned to index 1 (position 2) within the same presentation.
+In the example below, the slide at index 1 (position 2) is cloned to index 2 (position 3) within the same presentation.
 
 ```py
 import aspose.slides as slides
@@ -106,7 +106,7 @@ If you need to clone a slide from one presentation and insert it into another pr
 1. Call the `insert_clone` method on the destination [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), passing the slide from the source presentation and the desired target index.
 1. Save the modified destination presentation.
 
-In the example below, the slide at index 0 in the source presentation is cloned to index 1 (position 2) in the destination presentation.
+In the example below, the slide at index 0 in the source presentation is cloned to index 2 (position 3) in the destination presentation.
 
 ```py
 import aspose.slides as slides

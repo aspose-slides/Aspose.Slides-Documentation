@@ -41,7 +41,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as pres:
     # Create DigitalSignature object with PFX file and PFX password 
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+    signature = slides.DigitalSignature("testsignature1.pfx", "testpass1")
 
     # Comment new digital signature
     signature.comments = "Aspose.Slides digital signing test."
@@ -60,6 +60,8 @@ Now its possible to check if the presentation was digitally signed and has not 
 
 
 ```py
+import aspose.slides as slides
+
 # Open presentation
 with slides.Presentation("SomePresentationSigned.pptx") as pres:
     if len(pres.digital_signatures) > 0:
@@ -68,8 +70,9 @@ with slides.Presentation("SomePresentationSigned.pptx") as pres:
         print("Signatures used to sign the presentation: ")
         # Check if all digital signatures are valid
         for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
+            status = "VALID" if signature.is_valid else "INVALID"
+            print(signature.comments + ", "
+                    + signature.sign_time.strftime("%Y-%m-%d %H:%M") + " -- " + status)
             allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
         
 

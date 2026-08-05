@@ -25,6 +25,8 @@ Shows how to create simple animations and manage their sequence using **Aspose.S
 Create a rectangle shape and apply a fade effect triggered on click.
 
 ```py
+import aspose.slides as slides
+
 def add_animation():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -45,6 +47,8 @@ def add_animation():
 Retrieve the first animation effect from the slide timeline.
 
 ```py
+import aspose.slides as slides
+
 def access_animation():
     with slides.Presentation("animation.pptx") as presentation:
         slide = presentation.slides[0]
@@ -58,6 +62,8 @@ def access_animation():
 Remove an animation effect from the sequence.
 
 ```py
+import aspose.slides as slides
+
 def remove_animation():
     with slides.Presentation("animation.pptx") as presentation:
         slide = presentation.slides[0]
@@ -76,6 +82,8 @@ def remove_animation():
 Add multiple effects and demonstrate the order in which animations occur.
 
 ```py
+import aspose.slides as slides
+
 def sequence_animations():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]

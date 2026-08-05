@@ -26,6 +26,8 @@ Examples for managing presentation sections—add, access, remove, and rename th
 Create a section that starts at a specific slide.
 
 ```py
+import aspose.slides as slides
+
 def add_section():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -41,6 +43,8 @@ def add_section():
 Get a section from a presentation.
 
 ```py
+import aspose.slides as slides
+
 def access_section():
     with slides.Presentation("section.pptx") as presentation:
 
@@ -53,6 +57,8 @@ def access_section():
 Delete a previously added section.
 
 ```py
+import aspose.slides as slides
+
 def remove_section():
     with slides.Presentation("section.pptx") as presentation:
         section = presentation.sections[0]
@@ -68,6 +74,8 @@ def remove_section():
 Change the name of an existing section.
 
 ```py
+import aspose.slides as slides
+
 def rename_section():
     with slides.Presentation("section.pptx") as presentation:
         section = presentation.sections[0]

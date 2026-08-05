@@ -24,6 +24,8 @@ Illustrates how to add, access, and remove VBA macros using **Aspose.Slides for 
 Create a presentation with a VBA project and a simple macro module.
 
 ```py
+import aspose.slides as slides
+
 def add_vba_macro():
     with slides.Presentation() as presentation:
         # Initialize a VBA project.
@@ -41,6 +43,8 @@ def add_vba_macro():
 Retrieve the first module from the VBA project.
 
 ```py
+import aspose.slides as slides
+
 def access_vba_macro():
     with slides.Presentation("vba_macro.pptm") as presentation:
         first_module = presentation.vba_project.modules[0]
@@ -51,6 +55,8 @@ def access_vba_macro():
 Delete a module from the VBA project.
 
 ```py
+import aspose.slides as slides
+
 def remove_vba_macro():
     with slides.Presentation("vba_macro.pptm") as presentation:
 
@@ -60,5 +66,5 @@ def remove_vba_macro():
         # Remove the module from the project.
         presentation.vba_project.modules.remove(module)
 
-        presentation.save("vba_macro_removed.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("vba_macro_removed.pptm", slides.export.SaveFormat.PPTM)
 ```

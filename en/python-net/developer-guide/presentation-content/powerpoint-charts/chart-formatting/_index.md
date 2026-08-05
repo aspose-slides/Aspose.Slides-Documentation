@@ -43,7 +43,6 @@ Aspose.Slides provides a simple API for managing chart elements and applying cus
    1. Set the **min, max, major, and minor units** for the value axis.
    1. Set the **text properties** for value-axis labels.
    1. Set the **title** for the value axis.
-   1. Set the **line format** for the value axis.
 1. Access the chart’s category axis and set the following:
    1. Set the **line format** for category-axis major gridlines.
    1. Set the **line format** for category-axis minor gridlines.
@@ -52,14 +51,8 @@ Aspose.Slides provides a simple API for managing chart elements and applying cus
    1. Set the **label positioning** for the category axis.
    1. Set the **rotation angle** for category-axis labels.
 1. Access the chart legend and set its **text properties**.
-1. Show the chart legend without overlapping the chart.
-1. Access the chart’s **secondary value axis** and set the following:
-   1. Enable the secondary **value axis**.
-   1. Set the **line format** for the secondary value axis.
-   1. Set the **number format** for the secondary value axis.
-   1. Set the **min, max, major, and minor units** for the secondary value axis.
-1. Plot the first chart series on the secondary value axis.
-1. Set the chart back-wall fill color.
+1. Show the chart legend overlapping the chart.
+1. Set the chart back-wall and floor fill colors.
 1. Set the chart plot-area fill color.
 1. Write the modified presentation to a PPTX file.
 
@@ -85,8 +78,8 @@ with slides.Presentation() as presentation:
     chart_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
     chart_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
     chart_title.portion_format.font_height = 20
-    chart_title.portion_format.font_bold = 1
-    chart_title.portion_format.font_italic = 1
+    chart_title.portion_format.font_bold = slides.NullableBool.TRUE
+    chart_title.portion_format.font_italic = slides.NullableBool.TRUE
 
     # Set major gridline format for the value axis.
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
@@ -117,9 +110,9 @@ with slides.Presentation() as presentation:
 
     # Set value-axis text properties.
     vertical_axis_portion_format = chart.axes.vertical_axis.text_format.portion_format
-    vertical_axis_portion_format.font_bold = 1
+    vertical_axis_portion_format.font_bold = slides.NullableBool.TRUE
     vertical_axis_portion_format.font_height = 16
-    vertical_axis_portion_format.font_italic = 1
+    vertical_axis_portion_format.font_italic = slides.NullableBool.TRUE
     vertical_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
     vertical_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_green
     vertical_axis_portion_format.latin_font = slides.FontData("Times New Roman")
@@ -132,8 +125,8 @@ with slides.Presentation() as presentation:
     vertical_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
     vertical_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
     vertical_axis_title.portion_format.font_height = 20
-    vertical_axis_title.portion_format.font_bold = 1
-    vertical_axis_title.portion_format.font_italic = 1
+    vertical_axis_title.portion_format.font_bold = slides.NullableBool.TRUE
+    vertical_axis_title.portion_format.font_italic = slides.NullableBool.TRUE
 
     # Set major gridline format for the category axis.
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
@@ -147,9 +140,9 @@ with slides.Presentation() as presentation:
 
     # Set category-axis text properties.
     horizontal_axis_portion_format = chart.axes.horizontal_axis.text_format.portion_format
-    horizontal_axis_portion_format.font_bold = 1
+    horizontal_axis_portion_format.font_bold = slides.NullableBool.TRUE
     horizontal_axis_portion_format.font_height = 16
-    horizontal_axis_portion_format.font_italic = 1
+    horizontal_axis_portion_format.font_italic = slides.NullableBool.TRUE
     horizontal_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
     horizontal_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.blue
     horizontal_axis_portion_format.latin_font = slides.FontData("Arial")
@@ -163,8 +156,8 @@ with slides.Presentation() as presentation:
     horizontal_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
     horizontal_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
     horizontal_axis_title.portion_format.font_height = 20
-    horizontal_axis_title.portion_format.font_bold = 1
-    horizontal_axis_title.portion_format.font_italic = 1
+    horizontal_axis_title.portion_format.font_bold = slides.NullableBool.TRUE
+    horizontal_axis_title.portion_format.font_italic = slides.NullableBool.TRUE
 
     # Set the category-axis label position.
     chart.axes.horizontal_axis.tick_label_position = charts.TickLabelPositionType.LOW
@@ -174,9 +167,9 @@ with slides.Presentation() as presentation:
 
     # Set legend text properties.
     legend_portion_format = chart.legend.text_format.portion_format
-    legend_portion_format.font_bold = 1
+    legend_portion_format.font_bold = slides.NullableBool.TRUE
     legend_portion_format.font_height = 16
-    legend_portion_format.font_italic = 1
+    legend_portion_format.font_italic = slides.NullableBool.TRUE
     legend_portion_format.fill_format.fill_type = slides.FillType.SOLID 
     legend_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_red
 
@@ -231,11 +224,8 @@ Aspose.Slides for Python provides a simple API for managing chart data formats:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Obtain a reference to the slide by its index.
 1. Add a chart with default data of any desired type.
-1. Set a preset number format from the available preset values.
+1. Choose a preset number format from the available preset values.
 1. Traverse the chart data cells in each series and set the number format.
-1. Save the presentation.
-1. Set a custom number format.
-1. Traverse the chart data cells in each series and set a different number format.
 1. Save the presentation.
 
 ```py
@@ -308,7 +298,7 @@ Aspose.Slides for Python supports configuring the chart area using the `Chart.ha
 
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
 2. Add a chart to the slide.
-3. Set the chart’s fill type and fill color.
+3. Set the fill type and style of the chart border line.
 4. Set the rounded-corners property to `True`.
 5. Save the modified presentation.
 

@@ -28,46 +28,53 @@ It is **not** safe to load, save, and/or clone an instance of a [Presentation](h
 
 ## **Convert Presentation Slides to Images in Parallel**
 
-Let's say we want to convert all the slides from a PowerPoint presentation to PNG images in parallel. Since it is unsafe to use a single `Presentation` instance in multiple threads, we split the presentation slides into separate presentations and convert the slides to images in parallel, using each presentation in a separate thread. The following code example shows how to do this.
+Let's say we want to convert all the slides from a PowerPoint presentation to PNG images in parallel. Since it is unsafe to use a single `Presentation` instance in multiple threads, we first split the presentation slides into separate presentations—cloning, like loading, must stay on a single thread—and only then convert the slides to images in parallel, using each presentation in a separate thread. The following code example shows how to do this.
 
 ```py
+import aspose.slides as slides
+from concurrent.futures import ThreadPoolExecutor
+
 input_file_path = "sample.pptx"
 output_file_path_template = "slide_{0}.png"
 image_scale = 2
 
-presentation = Presentation(input_file_path)
+slide_presentations = []
 
-slide_count = len(presentation.slides)
-slide_size = presentation.slide_size.size
+# Extract every slide into a separate presentation. This runs on a single thread
+# because loading and cloning a presentation must not be done in parallel.
+with slides.Presentation(input_file_path) as presentation:
+    slide_size = presentation.slide_size.size
 
-conversion_tasks = []
+    for source_slide in presentation.slides:
+        slide_presentation = slides.Presentation()
+        slide_presentation.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.DO_NOT_SCALE)
+        slide_presentation.slides.remove_at(0)
+        slide_presentation.slides.add_clone(source_slide)
+
+        slide_presentations.append(slide_presentation)
 
 
 def convert_slide(slide_index):
-    # Extract slide i into a separate presentation.
-    with Presentation() as slide_presentation:
-        slide_presentation.slide_size.set_size(slide_size.width, slide_size.height, SlideSizeScaleType.DO_NOT_SCALE)
-        slide_presentation.slides.remove_at(0)
-        slide_presentation.slides.add_clone(presentation.slides[slide_index])
-
+    # Each thread works with its own presentation instance.
+    with slide_presentations[slide_index] as slide_presentation:
         slide_number = slide_index + 1
         slide = slide_presentation.slides[0]
 
         # Convert the slide to an image.
         with slide.get_image(image_scale, image_scale) as image:
             image_file_path = output_file_path_template.format(slide_number)
-            image.save(image_file_path, ImageFormat.PNG)
+            image.save(image_file_path, slides.ImageFormat.PNG)
 
+
+conversion_tasks = []
 
 with ThreadPoolExecutor() as thread_executor:
-    for index in range(slide_count):
+    for index in range(len(slide_presentations)):
         conversion_tasks.append(thread_executor.submit(convert_slide, index))
 
 # Wait for all tasks to complete.
 for task in conversion_tasks:
     task.result()
-
-del presentation
 ```
 
 ## **FAQ**

@@ -93,7 +93,8 @@ with slides.Presentation("PresentationTemplate.pptx") as template_presentation:
             department_portion = paragraphs[1].portions[0]
             department_portion.text = department_portion.text.replace("{{Department}}", department)
 
-            years_of_service = str(workbook.get_cell(worksheet_index, row_index, 2).value)
+            # Numeric Excel cells are returned as floats, so convert the whole number back to an integer.
+            years_of_service = str(int(workbook.get_cell(worksheet_index, row_index, 2).value))
             years_portion = paragraphs[2].portions[0]
             years_portion.text = years_portion.text.replace("{{YearsOfService}}", years_of_service)
 
@@ -110,6 +111,8 @@ In the second example, we simply copy data from an Excel table and display it on
 In this example, we reuse the same Excel workbook from the first example, which contains a simple employee table.
 
 ```py
+import aspose.slides as slides
+
 # Load the Excel workbook containing the employee data.
 workbook = slides.excel.ExcelDataWorkbook("TemplateData.xlsx")
 worksheet_index = 0
@@ -127,7 +130,9 @@ with slides.Presentation() as presentation:
     # Fill the PowerPoint table with data from the Excel workbook.
     for row_index in range(0, 5):
         for column_index in range(0, 3):
-            cell_value = str(workbook.get_cell(worksheet_index, row_index, column_index).value)
+            value = workbook.get_cell(worksheet_index, row_index, column_index).value
+            # Numeric Excel cells are returned as floats, so show whole numbers without a decimal part.
+            cell_value = str(int(value)) if isinstance(value, float) and value.is_integer() else str(value)
             table.columns[column_index][row_index].text_frame.text = cell_value
 
     # Save the resulting presentation to a file.
@@ -145,6 +150,8 @@ First, we add a Pie chart to the Excel workbook based on the employees table.
 ![Excel Chart example](example3_image0.png)
 
 ```py
+import aspose.slides as slides
+
 # Create a new PowerPoint presentation.
 with slides.Presentation() as presentation:
     # Get the shapes collection of the first slide.
@@ -167,6 +174,8 @@ Let's imagine you have an Excel workbook full of charts and you need to import t
 The following code iterates through all worksheets in the source Excel file, extracts the charts from each worksheet, and adds each chart to a separate slide using a blank slide layout. In the resulting presentation, only the chart data will be embedded, not the entire workbook.
 
 ```py
+import aspose.slides as slides
+
 # Load the Excel workbook containing the employee data.
 workbook = slides.excel.ExcelDataWorkbook("ExcelWithCharts.xlsx")
 

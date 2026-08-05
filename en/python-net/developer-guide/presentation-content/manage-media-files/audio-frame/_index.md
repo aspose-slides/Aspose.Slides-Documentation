@@ -55,7 +55,7 @@ with slides.Presentation() as pres:
     sld = pres.slides[0]
 
     # Loads the wav sound file to stream
-    with open(path + "sampleaudio.wav", "rb") as in_file:
+    with open("sampleaudio.wav", "rb") as in_file:
         # Adds the Audio Frame
         audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
 
@@ -162,6 +162,8 @@ with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
 This Python example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as pres:
     slide = pres.slides[0]
 
@@ -187,6 +189,8 @@ with slides.Presentation() as pres:
 The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
     # Gets an audio frame shape
     audio_frame = pres.slides[0].shapes[0]
@@ -206,6 +210,8 @@ Aspose.Slides allows you to add closed captions to an audio frame through the [c
 Use the [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/caption_tracks/) property to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     with open("audio.mp3", "rb") as audio_stream:
         audio = presentation.audios.add_audio(audio_stream.read())
@@ -224,6 +230,8 @@ with slides.Presentation() as presentation:
 You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("audio_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
     for shape in slide.shapes:
@@ -240,6 +248,8 @@ with slides.Presentation("audio_with_captions.pptx") as presentation:
 To remove captions from an audio frame, use the methods provided by [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/), such as [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/), [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/), or [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/). The following example removes all caption tracks from an audio frame.
 
 ```py
+import aspose.slides as slides
+
 with slides.Presentation("audio_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
     audio_frame = slide.shapes[0]  # type: slides.AudioFrame
@@ -258,13 +268,12 @@ Aspose.Slides for Python via .NET allows you to extract the sound used in slide 
 3. Access the slideshow transitions for the slide.
 4. Extract the sound in byte data.
 
-This Python code shows you how to extract the audio used in a slide:
+This Python code shows you how to extract the audio used in a slide. Note that `slide_show_transition.sound` is `None` unless the slide's transition actually has a sound attached, so `AudioSlide.pptx` here is a presentation whose first slide carries a transition sound—an audio frame placed on a slide is a different object and is read through [AudioFrame.embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/) instead:
 
 ```python
 import aspose.slides as slides
 
-#with slides.Presentation("AudioSlide.pptx") as pres:
-with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
+with slides.Presentation("AudioSlide.pptx") as pres:
     # Accesses the desired slide
     slide = pres.slides[0]  
 

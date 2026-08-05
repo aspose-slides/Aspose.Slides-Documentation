@@ -72,7 +72,7 @@ with slides.Presentation() as pres:
     autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
     textFrame = autoShape.text_frame
-    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+    textFrame.text = "First paragraph \r\nSecond paragraph \r\n Third paragraph"
 
     # Gets the main sequence of the slide.
     sequence = sld.timeline.main_sequence
@@ -106,14 +106,13 @@ This Python code shows you how to apply the `Fly` effect to a picture frame:
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 
 # Instantiates a presentation class that represents a presentation file.
 with slides.Presentation() as pres:
-    # Load Image to be added in presentaiton image collection
-    img = draw.Bitmap("aspose-logo.jpg")
-    image = pres.images.add_image(img)
+    # Load Image to be added in presentation image collection
+    with slides.Images.from_file("aspose-logo.jpg") as img:
+        image = pres.images.add_image(img)
 
     # Adds picture frame to slide
     picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
@@ -241,6 +240,12 @@ def print_effects(effects):
         print(effect.type.name, effect.subtype.name)
 ```
 ```py
+import aspose.slides as slides
+
+def print_effects(effects):
+    for effect in effects:
+        print(effect.type.name, effect.subtype.name)
+
 with slides.Presentation("sample.pptx") as presentation:
     slide = presentation.slides[0]
 
@@ -330,7 +335,7 @@ This Python code shows you how to add an animation effect sound and stop it when
 ```python
 import aspose.slides as slides
 
-with Presentation("AnimExample_out.pptx") as pres:
+with slides.Presentation("AnimExample_out.pptx") as pres:
     # Adds audio to presentation audio collection
     effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
@@ -404,6 +409,7 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
 This Python code shows you how to change an after animation effect:
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Instantiates a presentation class that represents a presentation file
@@ -414,10 +420,10 @@ with slides.Presentation("AnimImage_out.pptx") as pres:
     first_effect = first_slide.timeline.main_sequence[0]
 
     # Changes the after animation type to Color
-    first_effect.after_animation_type = AfterAnimationType.COLOR
+    first_effect.after_animation_type = slides.animation.AfterAnimationType.COLOR
 
     # Sets the after animation dim color
-    first_effect.after_animation_color.color = Color.alice_blue
+    first_effect.after_animation_color.color = draw.Color.alice_blue
 
     # Writes the PPTX file to disk
     pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
@@ -445,7 +451,7 @@ This Python code demonstrates the operation:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimTextBox_out.pptx") as pres:
+with slides.Presentation("AnimText_out.pptx") as pres:
     first_slide = pres.slides[0]
 
     # Gets the first effect of the main sequence

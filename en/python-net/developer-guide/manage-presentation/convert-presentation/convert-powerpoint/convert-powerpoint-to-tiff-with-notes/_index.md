@@ -45,6 +45,8 @@ Let's say we have a "speaker_notes.pptx" file with the following slide:
 The code snippet below demonstrates how to convert the presentation to a TIFF image in Notes Slide view using the [slides_layout_options](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/slides_layout_options/) property.
 
 ```py
+import aspose.slides as slides
+
 # Instantiate the Presentation class that represents a presentation file.
 with slides.Presentation("speaker_notes.pptx") as presentation:
     

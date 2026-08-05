@@ -226,32 +226,34 @@ The following code example shows how to do this:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
-	chart.chart_data.series.clear()
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
+    chart.chart_data.series.clear()
 
-	series = series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
+    workbook = chart.chart_data.chart_data_workbook
+    series = chart.chart_data.series.add(workbook.get_cell(0, "B1"), chart.type)
 
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B2", -5))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B3", 3))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B4", -3))
+    series.data_points.add_data_point_for_bar_series(workbook.get_cell(0, "B5", 1))
 
-	series.invert_if_negative = False
-	series.data_points[2].invert_if_negative = True
+    series.invert_if_negative = False
+    series.data_points[2].invert_if_negative = True
 
-	presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Clear Data for Specific Data Points**
 
-Sometimes a chart contains test values, outliers, or obsolete entries that you need to remove without rebuilding the entire series. Aspose.Slides for Python lets you target any data point by index, clear its contents, and instantly refresh the plot so the remaining points shift and the axes rescale automatically.
+Sometimes a chart contains test values, outliers, or obsolete entries that you need to remove without rebuilding the entire series. Aspose.Slides for Python lets you empty the workbook cells behind the data points of a series and then drop the points, so the plot and its axes refresh automatically.
 
-The following code exammple demonstrates the operation:
+`x_value` and `y_value` are backed by worksheet cells only in chart types that store an X and a Y value for every point, such as scatter and bubble charts. In a category chart (column, bar, line, pie) each point carries a single value, so use `data_point.value.as_cell` there; `data_point.x_value.as_cell` is `None`.
+
+The following code example demonstrates the operation on a scatter chart:
 
 ```py
 import aspose.slides as slides

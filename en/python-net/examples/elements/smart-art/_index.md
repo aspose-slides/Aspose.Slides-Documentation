@@ -25,6 +25,8 @@ Shows how to add SmartArt graphics, access them, remove them, and change layouts
 Insert a SmartArt graphic using one of the built-in layouts.
 
 ```py
+import aspose.slides as slides
+
 def add_smart_art():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -39,6 +41,8 @@ def add_smart_art():
 Retrieve the first SmartArt object on a slide.
 
 ```py
+import aspose.slides as slides
+
 def access_smart_art():
     with slides.Presentation("smart_art.pptx") as presentation:
         slide = presentation.slides[0]
@@ -52,6 +56,8 @@ def access_smart_art():
 Delete a SmartArt shape from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_smart_art():
     with slides.Presentation("smart_art.pptx") as presentation:
         slide = presentation.slides[0]
@@ -69,6 +75,8 @@ def remove_smart_art():
 Update the layout type of an existing SmartArt graphic.
 
 ```py
+import aspose.slides as slides
+
 def change_smart_art_layout():
     with slides.Presentation("smart_art.pptx") as presentation:
         slide = presentation.slides[0]

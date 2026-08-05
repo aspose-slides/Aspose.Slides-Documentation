@@ -27,6 +27,8 @@ This article demonstrates how to create, modify, and manage master slides using 
 This example shows how to create a new master slide by cloning the default one.
 
 ```py
+import aspose.slides as slides
+
 def add_master_slide():
     with slides.Presentation() as presentation:
 
@@ -49,6 +51,8 @@ def add_master_slide():
 You can access master slides using the `Presentation.masters` collection. Here’s how to retrieve and work with them:
 
 ```py
+import aspose.slides as slides
+
 def access_master_slide():
     with slides.Presentation("master_slide.pptx") as presentation:
         # Access the first master slide.
@@ -57,18 +61,20 @@ def access_master_slide():
 
 ## **Remove a Master Slide**
 
-Master slides can be removed either by index or by reference.
+Master slides can be removed either by index or by reference. A master slide that is still used by a layout slide or a normal slide cannot be removed — only unused master slides can. In the presentation saved above, the cloned master at index 1 is the unused one.
 
 ```py
+import aspose.slides as slides
+
 def remove_master_slide():
     with slides.Presentation("master_slide.pptx") as presentation:
 
-        # Remove by index.
-        presentation.masters.remove_at(0)
+        # Remove an unused master slide by index.
+        presentation.masters.remove_at(1)
 
-        # Or remove by reference.
-        first_master_slide = presentation.masters[0]
-        presentation.masters.remove(first_master_slide)
+        # Or remove an unused master slide by reference.
+        # unused_master_slide = presentation.masters[1]
+        # presentation.masters.remove(unused_master_slide)
 
         presentation.save("master_slide_removed.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -78,6 +84,8 @@ def remove_master_slide():
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```py
+import aspose.slides as slides
+
 def remove_unused_master_slides():
     with slides.Presentation("master_slide.pptx") as presentation:
 

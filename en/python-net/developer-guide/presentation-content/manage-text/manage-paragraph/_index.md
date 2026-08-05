@@ -105,12 +105,12 @@ with slides.Presentation() as presentation:
             if j == 0:
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
-                text_frame.paragraphs[i].portions[j].portion_format.font_bold = 1
+                text_frame.paragraphs[i].portions[j].portion_format.font_bold = slides.NullableBool.TRUE
                 text_frame.paragraphs[i].portions[j].portion_format.font_height = 15
             elif j == 1:
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-                text_frame.paragraphs[i].portions[j].portion_format.font_italic = 1
+                text_frame.paragraphs[i].portions[j].portion_format.font_italic = slides.NullableBool.TRUE
                 text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
 
     # Save the PPTX to disk.
@@ -173,7 +173,7 @@ with slides.Presentation() as presentation:
     # Set the bullet color.
     paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph.paragraph_format.bullet.is_bullet_hard_color = 1 
+    paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
 
     # Set the bullet height.
     paragraph.paragraph_format.bullet.height = 100
@@ -186,7 +186,7 @@ with slides.Presentation() as presentation:
 
     # Set the paragraph's bullet type and style.
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
+    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
 
     # Set the paragraph text.
     paragraph2.text = "This is numbered bullet"
@@ -197,7 +197,7 @@ with slides.Presentation() as presentation:
     # Set the bullet color.
     paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph2.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph2.paragraph_format.bullet.is_bullet_hard_color = 1
+    paragraph2.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
 
     # Set the bullet height.
     paragraph2.paragraph_format.bullet.height = 100
@@ -218,22 +218,17 @@ Bulleted lists help you organize and present information quickly and efficiently
 1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
 1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
-1. Load an image into an [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
-1. Set the bullet type to [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) and assign the image.
-1. Set the paragraph text.
-1. Set the paragraph indent for the bullet.
-1. Set the bullet color.
+1. Create a paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class and set its text.
+1. Load an image and add it to the presentation's image collection as a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+1. Set the bullet type to `PICTURE` and assign the [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) to the bullet.
 1. Set the bullet height.
 1. Add the new paragraph to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)’s paragraph collection.
-1. Add a second paragraph and repeat steps 8–12.
 1. Save the presentation.
 
 This Python code shows how to add and manage picture bullets:
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
 
@@ -241,8 +236,8 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     # Load the bullet image.
-    image = draw.Bitmap("bullets.png")
-    pp_image = presentation.images.add_image(image)
+    with slides.Images.from_file("bullets.png") as image:
+        pp_image = presentation.images.add_image(image)
 
     # Add and access an AutoShape.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
@@ -305,7 +300,7 @@ with slides.Presentation() as presentation:
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
     # Access the TextFrame of the created AutoShape.
-    text_frame = auto_shape.text_frame
+    text_frame = shape.text_frame
     
     # Clear the default paragraph.
     text_frame.paragraphs.clear()
@@ -504,6 +499,9 @@ This formatting is useful for bibliographies, references, glossary entries, and 
 This code shows you how to set a hanging indent for a paragraph:
 
 ```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -560,6 +558,9 @@ import aspose.slides as slides
 with slides.Presentation("presentation.pptx") as presentation:
 	shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
 
+	# Remove the default paragraph.
+	shape.text_frame.paragraphs.clear()
+
 	paragraph1 = slides.Paragraph()
 	paragraph1.portions.add(slides.Portion("Sample text"))
 
@@ -587,7 +588,6 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 1. Access the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) of the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 1. Read the source HTML file.
-1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
 1. Add the HTML content to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)’s paragraph collection.
 1. Save the modified presentation.
 

@@ -25,11 +25,13 @@ Examples for adding, accessing, removing, and updating different chart types wit
 This method adds a simple area chart to the first slide.
 
 ```py
+import aspose.slides as slides
+
 def add_chart():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
 
-        # Add a simple column chart to the first slide.
+        # Add a simple area chart to the first slide.
         chart = slide.shapes.add_chart(slides.charts.ChartType.AREA, 50, 50, 400, 300)
 
         presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
@@ -40,6 +42,8 @@ def add_chart():
 The following code retrieves a chart from the shape collection.
 
 ```py
+import aspose.slides as slides
+
 def access_chart():
     with slides.Presentation("chart.pptx") as presentation:
         slide = presentation.slides[0]
@@ -57,6 +61,8 @@ def access_chart():
 The following code removes a chart from a slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_chart():
     with slides.Presentation("chart.pptx") as presentation:
         slide = presentation.slides[0]
@@ -75,6 +81,8 @@ def remove_chart():
 You can change chart properties such as the title.
 
 ```py
+import aspose.slides as slides
+
 def update_chart_data():
     with slides.Presentation("chart.pptx") as presentation:
         slide = presentation.slides[0]
@@ -82,7 +90,8 @@ def update_chart_data():
         # Assuming the first shape is a chart.
         chart = slide.shapes[0]
 
-        # Change the chart title.
+        # Show the chart title and change its text.
+        chart.has_title = True
         chart.chart_title.add_text_frame_for_overriding("Sales Report")
 
         presentation.save("chart_updated.pptx", slides.export.SaveFormat.PPTX)

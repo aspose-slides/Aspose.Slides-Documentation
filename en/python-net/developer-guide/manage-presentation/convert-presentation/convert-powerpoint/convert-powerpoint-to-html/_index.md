@@ -240,9 +240,9 @@ For a full image-linking discussion, see [Export Presentations to HTML with Exte
 
 - `path`: the directory where generated media files will be written.
 - `file_name`: the HTML file name being generated.
-- `base_uri`: the absolute URI prefix used in the HTML links to media files.
+- `base_uri`: an absolute URI that describes where the generated files will be published.
 
-If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `base_uri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
+The exported HTML links each generated media file by its plain file name (for example, `<source src="video0.mp4">`), and the browser resolves that name against the location of the HTML document. Point `path` at the directory that contains the generated HTML file so the links resolve. `base_uri` must be an absolute URI: build a `file:///` URI from the output directory for local preview, or use the absolute URL of the published directory for a deployed application.
 
 ```python
 import os
@@ -251,12 +251,10 @@ from pathlib import Path
 import aspose.slides as slides
 
 output_directory = os.path.join(os.getcwd(), "html-output")
-media_directory = os.path.join(output_directory, "media")
 os.makedirs(output_directory, exist_ok=True)
-os.makedirs(media_directory, exist_ok=True)
 
 html_file_name = "presentation.html"
-media_base_uri = Path(media_directory).as_uri() + "/"
+media_base_uri = Path(output_directory).as_uri() + "/"
 
 with slides.Presentation() as presentation:
     with open("intro.mp4", "rb") as video_stream:
@@ -268,7 +266,7 @@ with slides.Presentation() as presentation:
     slide.shapes.add_video_frame(20, 20, 480, 270, video)
 
     controller = slides.export.VideoPlayerHtmlController(
-        media_directory,
+        output_directory,
         html_file_name,
         media_base_uri)
 
@@ -324,7 +322,7 @@ These values do not indicate a real visual font-size change. They are only a mat
 
 ### How should I choose base_uri for media export?
 
-Choose `base_uri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with `Path(media_directory).as_uri() + "/"`. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `base_uri` do not have to be the same string, but they must describe the same resource location.
+Pass `base_uri` as an absolute URI; the constructor rejects relative values. For local preview, you can derive it from the output directory with `Path(output_directory).as_uri() + "/"`. For deployment, use the absolute URL of the published directory. Because the exported HTML references generated media by plain file name, `path` must be the directory that holds the HTML file, and `base_uri` should describe that same location from the browser's point of view.
 
 ### Can I include hidden slides?
 

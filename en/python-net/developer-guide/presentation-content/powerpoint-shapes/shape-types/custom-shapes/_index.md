@@ -68,68 +68,147 @@ The following methods are used for simple editing operations.
 **Add a line** to the end of a path:
 
 ```py
-line_to(point)
-line_to(x, y)
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+
+point = draw.PointF(100, 0)
+geometry_path.line_to(point)    # end point of the line
+geometry_path.line_to(100, 50)  # X and Y coordinates of the end point
 ```
 
 **Add a line** at a specified position in a path:
 
 ```py    
-line_to(point, index)
-line_to(x, y, index)
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+geometry_path.line_to(100, 0)
+
+point = draw.PointF(100, 50)
+geometry_path.line_to(point, 1)    # end point and the index of the segment in the path
+geometry_path.line_to(100, 50, 1)  # X and Y coordinates of the end point and the segment index
 ```
 
 **Add a cubic Bezier curve** to the end of a path:
 
 ```py
-cubic_bezier_to(point1, point2, point3)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3)
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+
+point1 = draw.PointF(20, 60)  # first direction point
+point2 = draw.PointF(80, 60)  # second direction point
+point3 = draw.PointF(100, 0)  # end point
+
+geometry_path.cubic_bezier_to(point1, point2, point3)
+geometry_path.cubic_bezier_to(20, 60, 80, 60, 100, 0)
 ```
 
 **Add a cubic Bezier curve** at a specified position in a path:
 
 ```py
-cubic_bezier_to(point1, point2, point3, index)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+geometry_path.line_to(100, 0)
+
+point1 = draw.PointF(20, 60)  # first direction point
+point2 = draw.PointF(80, 60)  # second direction point
+point3 = draw.PointF(100, 0)  # end point
+
+geometry_path.cubic_bezier_to(point1, point2, point3, 1)
+geometry_path.cubic_bezier_to(20, 60, 80, 60, 100, 0, 1)
 ```
 
 **Add a quadratic Bezier curve** to the end of a path:
 
 ```py
-quadratic_bezier_to(point1, point2)
-quadratic_bezier_to(x1, y1, x2, y2)
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+
+point1 = draw.PointF(50, 60)  # direction point
+point2 = draw.PointF(100, 0)  # end point
+
+geometry_path.quadratic_bezier_to(point1, point2)
+geometry_path.quadratic_bezier_to(50, 60, 100, 0)
 ```
 
 **Add a quadratic Bezier curve** at a specified position in a path:
 
 ```py
-quadratic_bezier_to(point1, point2, index)
-quadratic_bezier_to(x1, y1, x2, y2, index)
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+geometry_path.line_to(100, 0)
+
+point1 = draw.PointF(50, 60)  # direction point
+point2 = draw.PointF(100, 0)  # end point
+
+geometry_path.quadratic_bezier_to(point1, point2, 1)
+geometry_path.quadratic_bezier_to(50, 60, 100, 0, 1)
 ```
 
 **Append an arc** to a path:
 
 ```py
-arc_to(width, heigth, startAngle, sweepAngle)
+import aspose.slides as slides
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+
+geometry_path.arc_to(100, 50, 180, -90)  # width, height, start angle, sweep angle
 ```
 
 **Close the current figure** in a path:
 
 ```py
-close_figure()
+import aspose.slides as slides
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+geometry_path.line_to(100, 0)
+geometry_path.line_to(100, 50)
+
+geometry_path.close_figure()
 ```
 
 **Set the position for the next point**:
 
 ```py
-move_to(point)
-move_to(x, y)
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+geometry_path = slides.GeometryPath()
+
+point = draw.PointF(100, 50)
+geometry_path.move_to(point)    # position of the next point
+geometry_path.move_to(100, 50)  # X and Y coordinates of the next point
 ```
 
 **Remove the path segment** at a given index:
 
 ```py
-remove_at(index)
+import aspose.slides as slides
+
+geometry_path = slides.GeometryPath()
+geometry_path.move_to(0, 0)
+geometry_path.line_to(100, 0)
+
+geometry_path.remove_at(1)  # index of the segment to remove
 ```
 
 ## **Add Custom Points to Shapes**
@@ -341,6 +420,8 @@ with slides.Presentation() as presentation:
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```py
+import aspose.slides as slides
+
 def is_geometry_closed(geometry_shape):
     is_closed = None
 
@@ -350,7 +431,7 @@ def is_geometry_closed(geometry_shape):
             continue
 
         last_segment = geometry_path.path_data[data_length - 1]
-        is_closed = last_segment.path_command == PathCommandType.CLOSE
+        is_closed = last_segment.path_command == slides.PathCommandType.CLOSE
 
         if not is_closed:
             return False

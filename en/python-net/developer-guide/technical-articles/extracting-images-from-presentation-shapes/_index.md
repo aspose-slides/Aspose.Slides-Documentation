@@ -117,6 +117,9 @@ def make_safe_file_name_part(value):
 Use this approach for pictures inserted as standalone objects. A [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) stores its picture in `picture_format.picture.image`, which returns a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "extracted-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -140,6 +143,9 @@ with slides.Presentation(input_path) as presentation:
 Shapes can use a picture as their fill. Check the shape's fill type first: if it is not [FillType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/), there is no picture to extract from that fill. The example below handles [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) objects and saves each image as PNG through the `image` property of [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "shape-fill-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -162,6 +168,9 @@ with slides.Presentation(input_path) as presentation:
 An [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) can have a substitute picture that PowerPoint uses as the object's preview on a slide. This image is available through `substitute_picture_format.picture.image`. Extracting this picture gives you the preview image, not the embedded OLE package contents.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "ole-preview-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -187,6 +196,9 @@ with slides.Presentation(input_path) as presentation:
 A [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) can also store a preview image in `picture_format.picture.image`. This is the poster or thumbnail shown on the slide, not a frame decoded from the video stream.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "video-preview-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -212,6 +224,9 @@ with slides.Presentation(input_path) as presentation:
 An [AudioFrame](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/) can store a thumbnail in `picture_format.picture.image`. This is the image shown for the audio object on the slide.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "audio-preview-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -237,6 +252,9 @@ with slides.Presentation(input_path) as presentation:
 [ZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/zoomframe/) and [SectionZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/sectionzoomframe/) shapes can use custom images. Read `zoom_image` from the zoom frame.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "zoom-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -266,6 +284,9 @@ with slides.Presentation(input_path) as presentation:
 A [SummaryZoomFrame](https://reference.aspose.com/slides/python-net/aspose.slides/summaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `zoom_image` property.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "summary-zoom-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -294,6 +315,9 @@ with slides.Presentation(input_path) as presentation:
 A [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) is a shape. Images in a table are usually stored as picture fills in table cells.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "table-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -324,6 +348,10 @@ with slides.Presentation(input_path) as presentation:
 A [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) is a shape. The example below extracts an image from the chart area's picture fill.
 
 ```py
+from pathlib import Path
+import aspose.slides.charts as charts
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "chart-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -350,6 +378,10 @@ with slides.Presentation(input_path) as presentation:
 A [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) object is a shape. Depending on the SmartArt layout, images may be stored in node bullet fills or in the fill formats of node shapes.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+import aspose.slides.smartart as smartart
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "smartart-images"
 output_directory.mkdir(parents=True, exist_ok=True)
@@ -386,6 +418,9 @@ with slides.Presentation(input_path) as presentation:
 Grouped shapes contain their own shape collections. The shared `enumerate_shapes` helper has an `include_grouped_shapes` option. Set it to `True` when you want to inspect shapes inside [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
 
 ```py
+from pathlib import Path
+import aspose.slides as slides
+
 input_path = "sample.pptx"
 output_directory = Path.cwd() / "all-shape-images"
 output_directory.mkdir(parents=True, exist_ok=True)

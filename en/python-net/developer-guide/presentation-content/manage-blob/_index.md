@@ -75,7 +75,7 @@ loadOptions.blob_management_options = slides.BlobManagementOptions()
 loadOptions.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 loadOptions.blob_management_options.is_temporary_files_allowed = True
 
-with slides.Presentation(path + "Video.pptx", loadOptions) as pres:
+with slides.Presentation("Video.pptx", loadOptions) as pres:
 	# Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
 	# to transfer the data from the presentation's video stream to a stream for a newly created video file.
 	# byte[] buffer = new byte[8 * 1024];
@@ -114,7 +114,10 @@ with slides.Presentation() as pres:
     with open("img.jpeg", "br") as fileStream:
         img = pres.images.add_image(fileStream, slides.LoadingStreamBehavior.KEEP_LOCKED)
         pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, 300, 200, img)
-    pres.save("presentationWithLargeImage.pptx", slides.export.SaveFormat.PPTX)
+
+        # The KeepLocked behavior reads the stream when the presentation is saved,
+        # so the save must happen while the stream is still open.
+        pres.save("presentationWithLargeImage.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Memory and Large Presentations**
@@ -172,7 +175,7 @@ When you use `temp_files_root_path`, Aspose.Slides does not automatically create
 
 When processing large presentations, ensure that the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance is properly disposed so that the memory it occupied is released. The recommended way is to use the context manager (`with slides.Presentation(...) as presentation:`) as shown in the examples above; it automatically closes the presentation and frees unmanaged resources when the block exits.
 
-If you create a presentation without a `with` block, explicitly call `presentation.dispose()` after you have finished using it, and remove any remaining references so that Python’s garbage collector can reclaim the memory.
+If you create a presentation without a `with` block, close it explicitly by calling `presentation.__exit__(None, None, None)` after you have finished using it, and remove any remaining references so that Python’s garbage collector can reclaim the memory.
 
 ```py
 import aspose.slides as slides
@@ -183,7 +186,7 @@ presentation = slides.Presentation("large.pptx")
 presentation.save("large.pdf", slides.export.SaveFormat.PDF)
 
 # Explicitly release resources.
-presentation.dispose()
+presentation.__exit__(None, None, None)
 ```
 
 ## **FAQ**

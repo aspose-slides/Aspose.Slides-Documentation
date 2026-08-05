@@ -25,11 +25,13 @@ Demonstrates how to add, access, remove, and configure ActiveX controls in a pre
 Insert a new ActiveX control.
 
 ```py
+import aspose.slides as slides
+
 def add_activex():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
 
-        # Add a new ActiveX control (TextBox).
+        # Add a new ActiveX control (Windows Media Player).
         control = slide.controls.add_control(slides.ControlType.WINDOWS_MEDIA_PLAYER, 50, 50, 100, 50)
 
         presentation.save("activex.pptm", slides.export.SaveFormat.PPTM)
@@ -40,6 +42,8 @@ def add_activex():
 Read information from the first ActiveX control on the slide.
 
 ```py
+import aspose.slides as slides
+
 def access_activex():
     with slides.Presentation("activex.pptm") as presentation:
         slide = presentation.slides[0]
@@ -56,6 +60,8 @@ def access_activex():
 Delete an existing ActiveX control from the slide.
 
 ```py
+import aspose.slides as slides
+
 def remove_activex():
     with slides.Presentation("activex.pptm") as presentation:
         slide = presentation.slides[0]
@@ -69,9 +75,11 @@ def remove_activex():
 
 ## **Set ActiveX Properties**
 
-Configure several ActiveX properties.
+Configure several properties of the Windows Media Player control.
 
 ```py
+import aspose.slides as slides
+
 def set_activex_properties():
     with slides.Presentation("activex.pptm") as presentation:
         slide = presentation.slides[0]
@@ -79,8 +87,12 @@ def set_activex_properties():
         # Assuming the Control collection contains at least one Control.
         control = slide.controls[0]
 
-        control.properties.add("Caption", "Click Me")
-        control.properties.add("Enabled", "true")
+        # A property must be removed before it can be set to a new value.
+        control.properties.remove("autoStart")
+        control.properties.add("autoStart", "false")
+
+        control.properties.remove("uiMode")
+        control.properties.add("uiMode", "none")
 
         presentation.save("activex_properties.pptm", slides.export.SaveFormat.PPTM)
 ```

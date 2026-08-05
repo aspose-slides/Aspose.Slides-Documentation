@@ -26,6 +26,8 @@ Illustrates how to embed audio frames and control playback with **Aspose.Slides 
 The code example below adds an audio frame on a presentation slide.
 
 ```py
+import aspose.slides as slides
+
 def add_audio():
     with slides.Presentation() as presentation:
         slide = presentation.slides[0]
@@ -41,6 +43,8 @@ def add_audio():
 This code retrieves the first audio frame from the slide.
 
 ```py
+import aspose.slides as slides
+
 def access_audio():
     with slides.Presentation("audio.pptx") as presentation:
         slide = presentation.slides[0]
@@ -57,6 +61,8 @@ def access_audio():
 Delete a previously added audio frame.
 
 ```py
+import aspose.slides as slides
+
 def remove_audio():
     with slides.Presentation("audio.pptx") as presentation:
         slide = presentation.slides[0]
@@ -75,6 +81,8 @@ def remove_audio():
 Configure the audio frame to play automatically when the slide appears.
 
 ```py
+import aspose.slides as slides
+
 def set_audio_playback():
     with slides.Presentation("audio.pptx") as presentation:
         slide = presentation.slides[0]

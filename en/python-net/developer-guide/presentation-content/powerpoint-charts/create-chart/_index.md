@@ -91,9 +91,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Set the first series to show values.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
     # Set the index of the chart data sheet.
     worksheet_index = 0
 
@@ -279,9 +276,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Set the first series to show values.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
     # Set the index of the chart data sheet.
     worksheet_index = 0
 
@@ -376,10 +370,6 @@ Line charts (also known as line graphs) are best used in situations where you wa
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Get a reference to a slide using its index.
 1. Add a chart with default data and specify the `ChartType.LINE` type.
-1. Access the chart's data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Clear the default series and categories.
-1. Add new series and categories.
-1. Add new chart data for the chart series.
 1. Save the modified presentation as a PPTX file.
 
 This Python code shows you how to create a line chart:
@@ -396,10 +386,15 @@ with slides.Presentation() as presentation:
 By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, you can specify your preferred dash type as follows:
 
 ```python
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+import aspose.slides as slides
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The result:
@@ -725,7 +720,7 @@ Histogram charts are used to represent the distribution of numerical data by gro
 1. Add a chart with some data and specify the `ChartType.HISTOGRAM` type.
 1. Access the chart data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
 1. Clear the default series and categories.
-1. Add new series and categories.
+1. Add a new series and populate it with data points. A histogram has no categories; the bins are calculated from the values.
 1. Save the modified presentation as a PPTX file.
 
 This Python code shows you how to create a histogram chart:
@@ -776,7 +771,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 The result:
@@ -878,6 +873,10 @@ A combination chart (or combo chart) combines two or more chart types in a singl
 The following Python code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])
