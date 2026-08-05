@@ -109,6 +109,9 @@ To encrypt or password protect a presentation, you have to use the encrypt metho
 This sample code shows you how to encrypt a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().encrypt("123123");
@@ -129,6 +132,9 @@ You can add a mark stating “Do not modify” to a presentation. This way, you 
 To set a write protection, you have to use the [setWriteProtection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setWriteProtection-java.lang.String-) method. This sample code shows you how to set a write protection to a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().setWriteProtection("123123");
@@ -147,6 +153,9 @@ Aspose.Slides allow you to load an encrypted file by passing its password. To de
 This sample code shows you how to decrypt a presentation: 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setPassword("123123");
 var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
@@ -166,6 +175,9 @@ You can remove the encryption or password protection on a presentation. This way
 To remove encryption or password protection, you have to call the [removeEncryption](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) method. This sample code shows you to remove encryption from a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setPassword("123123");
 var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
@@ -186,6 +198,9 @@ You can use Aspose.Slides to remove the write protection used on a presentation 
 You can remove the write protection from a presentation by using the [removeWriteProtection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#removeWriteProtection--) method. This sample code shows you to remove the write protection from a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().removeWriteProtection();
@@ -206,6 +221,9 @@ Typically, users struggle to retrieve the document properties of an encrypted or
 If you want users to retain the ability to access the properties of an encrypted presentation, pass `false` to `setEncryptDocumentProperties` on [ProtectionManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/protectionmanager/). This sample code shows you how to encrypt a presentation while still providing users access to its document properties:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().setEncryptDocumentProperties(false);
@@ -225,6 +243,9 @@ To inspect the metadata of an encrypted presentation without loading its slides 
 The following code example reads built-in and custom document properties through `getDocumentProperties` on [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setOnlyLoadDocumentProperties(true);
 
@@ -259,6 +280,9 @@ Before you load a presentation, you might want to check and confirm that the pre
 This JavaScript code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentationInfo = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");
 console.log("The presentation is password protected: " + presentationInfo.isPasswordProtected());
 ```
@@ -270,6 +294,9 @@ Aspose.Slides allows you to check whether a presentation is encrypted. To perfor
 This sample code shows you how to check whether a presentation is encrypted:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     var isEncrypted = presentation.getProtectionManager().isEncrypted();
@@ -287,6 +314,9 @@ Aspose.Slides allows you to check whether a presentation is write-protected. To 
 This sample code shows you how to check whether a presentation is write-protected:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     var isEncrypted = presentation.getProtectionManager().isWriteProtected();
@@ -304,6 +334,9 @@ You may want to check and confirm that a specific password has been used to prot
 This sample code shows you how to validate a password:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("pres.pptx");
 try {
     // check if "pass" is matched with

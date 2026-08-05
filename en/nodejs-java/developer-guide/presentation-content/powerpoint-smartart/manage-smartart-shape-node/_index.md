@@ -41,6 +41,10 @@ Aspose.Slides for Node.js via Java has provided the simplest API to manage the S
 1. Save the Presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Load the desired the presentation
 var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
 try {
@@ -81,6 +85,9 @@ In the following sample code we have explained how to add the child nodes belong
 1. Save the Presentation
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creating a presentation instance
 var pres = new aspose.slides.Presentation();
 try {
@@ -114,6 +121,10 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
 1. Access and display information like SmartArt Node position, level and Text.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation Class
 var pres = new aspose.slides.Presentation("SmartArtShape.pptx");
 try {
@@ -155,6 +166,10 @@ The following sample code will help to access the child nodes belonging to respe
 1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getChildNodes--) position, level and Text.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation Class
 var pres = new aspose.slides.Presentation("AccessChildNodes.pptx");
 try {
@@ -200,6 +215,9 @@ In this example, we will learn to access the child nodes at some particular posi
 1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getChildNodes--) position, level and Text.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate the presentation
 var pres = new aspose.slides.Presentation();
 try {
@@ -234,6 +252,10 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 1. Save the Presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Load the desired the presentation
 var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
 try {
@@ -274,6 +296,10 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 1. Save the Presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Load the desired the presentation
 var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
 try {
@@ -307,6 +333,10 @@ try {
 Now Aspose.Slides for Node.js via Java support for setting [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setX-float-) and [Y](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setY-float-) properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes. Also with custom position settings, user may set the nodes as per requirements.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation Class
 var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
 try {
@@ -314,16 +344,16 @@ try {
     // Move SmartArt shape to new position
     var node = smart.getAllNodes().get_Item(1);
     var shape = node.getShapes().get_Item(1);
-    shape.setX(shape.getX() + (shape.getWidth() * 2));
-    shape.setY(shape.getY() - (shape.getHeight() * 2));
+    shape.setX(java.newFloat(shape.getX() + (shape.getWidth() * 2)));
+    shape.setY(java.newFloat(shape.getY() - (shape.getHeight() * 2)));
     // Change SmartArt shape's widths
     node = smart.getAllNodes().get_Item(2);
     shape = node.getShapes().get_Item(1);
-    shape.setWidth(shape.getWidth() + (shape.getWidth() * 2));
+    shape.setWidth(java.newFloat(shape.getWidth() + (shape.getWidth() * 2)));
     // Change SmartArt shape's height
     node = smart.getAllNodes().get_Item(3);
     shape = node.getShapes().get_Item(1);
-    shape.setHeight(shape.getHeight() + (shape.getHeight() * 2));
+    shape.setHeight(java.newFloat(shape.getHeight() + (shape.getHeight() * 2)));
     // Change SmartArt shape's rotation
     node = smart.getAllNodes().get_Item(4);
     shape = node.getShapes().get_Item(1);
@@ -358,6 +388,10 @@ In the following sample code we will investigate how to identify **Assistant Nod
 1. Save the Presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creating a presentation instance
 var pres = new aspose.slides.Presentation("AddNodes.pptx");
 try {
@@ -374,7 +408,7 @@ try {
                 // Check if node is Assistant node
                 if (node.isAssistant()) {
                     // Setting Assistant node to false and making it normal node
-                    node.isAssistant();
+                    node.setAssistant(false);
                 }
             }
         }
@@ -404,6 +438,10 @@ Please follow the steps below:
 1. Write the modified presentation as a PPTX file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate the presentation
 var pres = new aspose.slides.Presentation();
 try {
@@ -438,6 +476,9 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 1. Save the thumbnail image in any desired image format.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents the PPTX file
 var pres = new aspose.slides.Presentation();
 try {

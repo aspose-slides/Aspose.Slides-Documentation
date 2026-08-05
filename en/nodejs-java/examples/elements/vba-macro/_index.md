@@ -23,6 +23,9 @@ This article demonstrates how to add, access, and remove VBA macros using **Aspo
 Create a presentation with a VBA project and a simple macro module.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addVbaMacro() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -43,6 +46,9 @@ function addVbaMacro() {
 Retrieve the first module from the VBA project.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessVbaMacro() {
     let presentation = new aspose.slides.Presentation("vba_macro.pptm");
     try {
@@ -59,6 +65,9 @@ function accessVbaMacro() {
 Delete a module from the VBA project.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeVbaMacro() {
     let presentation = new aspose.slides.Presentation("vba_macro.pptm");
     try {

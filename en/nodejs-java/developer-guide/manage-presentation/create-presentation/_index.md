@@ -38,6 +38,9 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation();
 try {

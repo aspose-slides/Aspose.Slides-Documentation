@@ -22,6 +22,9 @@ This article demonstrates how to embed video frames and set playback options usi
 Add a video frame to a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addVideo() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -42,6 +45,10 @@ function addVideo() {
 Retrieve the first video frame added to a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessVideo() {
     let presentation = new aspose.slides.Presentation("video.pptx"); 
     try { 
@@ -67,6 +74,9 @@ function accessVideo() {
 Delete a video frame from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeVideo() {
     let presentation = new aspose.slides.Presentation("video.pptx");
     try {
@@ -90,6 +100,9 @@ function removeVideo() {
 Configure the video to play automatically when the slide is displayed.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function setVideoPlayback() {
     let presentation = new aspose.slides.Presentation("video.pptx");
     try {

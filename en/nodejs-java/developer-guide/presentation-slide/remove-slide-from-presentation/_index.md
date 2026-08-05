@@ -31,6 +31,9 @@ If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides
 This JavaScript code shows you how to remove a slide through its reference:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -55,6 +58,9 @@ try {
 This JavaScript code shows you how to remove a slide through its index:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -72,6 +78,9 @@ try {
 Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused layout slides. This JavaScript code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     aspose.slides.Compress.removeUnusedLayoutSlides(pres);
@@ -88,6 +97,9 @@ try {
 Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This JavaScript code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(pres);

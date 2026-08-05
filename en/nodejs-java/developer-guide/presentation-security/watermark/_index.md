@@ -50,6 +50,9 @@ You can design the watermark in any way; however, there are usually common featu
 To add a text watermark in PPT, PPTX, or ODP, you can first add a shape to the slide, then add a text frame to this shape. The text frame is represented by the [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) type. This type is not inherited from [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape), which has a wide set of properties for positioning the watermark in a flexible way. Therefore, the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) object is wrapped in an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object. To add watermark text to the shape, use the [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) method with watermark text passed into it:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const watermarkText = "CONFIDENTIAL";
 
 let presentation = new aspose.slides.Presentation();
@@ -70,6 +73,9 @@ presentation.dispose();
 If you want to add a text watermark to the entire presentation (i.e., all slides at once), add it to the [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide). The rest of the logic is the same as when adding a watermark to a single slide — create an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object and then add the watermark to it using the [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) method:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const watermarkText = "CONFIDENTIAL";
 
 let presentation = new aspose.slides.Presentation();
@@ -90,8 +96,18 @@ presentation.dispose();
 By default, the rectangle shape is styled with fill and line colors. The following lines of code make the shape transparent.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+let slide = presentation.getSlides().get_Item(0);
+let watermarkShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 watermarkShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+presentation.dispose();
 ```
 
 ### **Set the Font for a Text Watermark**
@@ -99,9 +115,21 @@ watermarkShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.s
 You can change the font of the text watermark as shown below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const watermarkText = "CONFIDENTIAL";
+
+let presentation = new aspose.slides.Presentation();
+let slide = presentation.getSlides().get_Item(0);
+let watermarkShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 40);
+let watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+
 let textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new aspose.slides.FontData("Arial"));
 textFormat.setFontHeight(50);
+
+presentation.dispose();
 ```
 
 ### **Set the Watermark Text Color**
@@ -125,6 +153,15 @@ It is possible to center watermark on a slide and for that you can do the follow
 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const watermarkText = "CONFIDENTIAL";
+
+let presentation = new aspose.slides.Presentation();
+let masterSlide = presentation.getMasters().get_Item(0);
+let slideSize = presentation.getSlideSize().getSize();
+
 const watermarkWidth = 400;
 const watermarkHeight = 40;
 const watermarkX = (slideSize.getWidth() - watermarkWidth) / 2;
@@ -132,8 +169,10 @@ const watermarkY = (slideSize.getHeight() - watermarkHeight) / 2;
 
 let watermarkShape = masterSlide.getShapes().addAutoShape(
         aspose.slides.ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
-        
+
 let watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+
+presentation.dispose();
 ```
 
 The image below shows the final result.
@@ -147,14 +186,22 @@ The image below shows the final result.
 To add image watermark into all presentation slides, you may do the following:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+let masterSlide = presentation.getMasters().get_Item(0);
+let watermarkShape = masterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 40);
+
 let watermarkImage = aspose.slides.Images.fromFile("watermark.png");
 let image = presentation.getImages().addImage(watermarkImage);
-
-// ...
 
 watermarkShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+
+presentation.dispose();
 ```
 
 ### **Lock a Watermark from Editing**
@@ -162,12 +209,21 @@ watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.
 If it is necessary to prevent a watermark from being edited, use the [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#getShapeLock--) method on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation();
+let slide = presentation.getSlides().get_Item(0);
+let watermarkShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 40);
+
 // Lock the watermark shape from modifying
 watermarkShape.getShapeLock().setSelectLocked(true);
 watermarkShape.getShapeLock().setSizeLocked(true);
 watermarkShape.getShapeLock().setTextLocked(true);
 watermarkShape.getShapeLock().setPositionLocked(true);
 watermarkShape.getShapeLock().setGroupingLocked(true);
+
+presentation.dispose();
 ```
 
 ### **Bring a Watermark to Front**
@@ -175,8 +231,17 @@ watermarkShape.getShapeLock().setGroupingLocked(true);
 In Aspose.Slides, the Z-order of shapes can be set via the [**SlideCollection.reorder**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#reorder-int-aspose.slides.ISlide...-) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation();
+let slide = presentation.getSlides().get_Item(0);
+let watermarkShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 40);
+
 let shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+
+presentation.dispose();
 ```
 
 ### **Set Watermark Rotation**
@@ -184,9 +249,19 @@ slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 Here is a code example of how to adjust the rotation of the watermark so that it is positioned diagonally across the slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation();
+let slide = presentation.getSlides().get_Item(0);
+let slideSize = presentation.getSlideSize().getSize();
+let watermarkShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 40);
+
 const diagonalAngle = Math.atan(slideSize.getHeight() / slideSize.getWidth()) * 180 / Math.PI;
 
 watermarkShape.setRotation(diagonalAngle);
+
+presentation.dispose();
 ```
 
 ### **Set a Name for a Watermark**
@@ -194,7 +269,16 @@ watermarkShape.setRotation(diagonalAngle);
 Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [**AutoShape.getName**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) method:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation();
+let slide = presentation.getSlides().get_Item(0);
+let watermarkShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.setName("watermark");
+
+presentation.dispose();
 ```
 
 ### **Remove a Watermark**
@@ -202,12 +286,20 @@ watermarkShape.setName("watermark");
 To remove the watermark shape, use the [AutoShape.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) method to find it in the slide shapes. Then, pass the watermark shape into the [**ShapeCollection.remove**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#remove-aspose.slides.IShape-) method:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("watermark.pptx");
+let slide = presentation.getSlides().get_Item(0);
+
 for (var i = 0; i < slide.getShapes().size(); i++) {
     var shape = slide.getShapes().get_Item(i);
     if ("watermark" == shape.getName()) {
-        slide.getShapes().remove(watermarkShape);
+        slide.getShapes().remove(shape);
     }
 }
+
+presentation.dispose();
 ```
 
 ## **FAQ**

@@ -35,6 +35,9 @@ The Read-Only recommendation is a simple yet effective deterrent that discourage
 Aspose.Slides for Node.js via Java allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in JavaScript using Aspose.Slides:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getProtectionManager().setReadOnlyRecommended(true);

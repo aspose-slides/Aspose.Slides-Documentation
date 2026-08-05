@@ -26,7 +26,7 @@ It also demonstrates how to configure the plot area’s layout mode when the lay
 
 ## **Get Width, Height of Chart Plot Area**
 
-Aspose.Slides for Node.js via Java provides a simple API for . 
+Aspose.Slides for Node.js via Java provides a simple API for reading the actual position and size of a chart plot area. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access first slide.
@@ -38,6 +38,9 @@ Aspose.Slides for Node.js via Java provides a simple API for . 
 1. Gets actual height of the chart element.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -64,15 +67,19 @@ Aspose.Slides for Node.js via Java provides a simple API to set the layout mode 
 Sample code is given below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
-    chart.getPlotArea().setX(0.2);
-    chart.getPlotArea().setY(0.2);
-    chart.getPlotArea().setWidth(0.7);
-    chart.getPlotArea().setHeight(0.7);
+    chart.getPlotArea().setX(java.newFloat(0.2));
+    chart.getPlotArea().setY(java.newFloat(0.2));
+    chart.getPlotArea().setWidth(java.newFloat(0.7));
+    chart.getPlotArea().setHeight(java.newFloat(0.7));
     chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
     pres.save("SetLayoutMode_outer.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

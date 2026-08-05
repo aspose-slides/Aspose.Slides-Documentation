@@ -35,6 +35,11 @@ Aspose.Slides can convert a PowerPoint math equation directly to LaTeX; an inter
 The following example examines every text frame on every slide, finds all math portions, and writes each equation to a separate `.tex` file:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("equations.pptx");
 try {
     const slideCount = presentation.getSlides().size();
@@ -81,6 +86,9 @@ While humans easily write the code for some equation formats like LaTeX, they st
 This sample code shows you how to export a math equation from a presentation to MathML:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);

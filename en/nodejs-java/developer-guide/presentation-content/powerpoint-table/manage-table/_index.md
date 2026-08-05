@@ -34,7 +34,7 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-ja
 4. Define an array of `rowHeight`.
 5. Add an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object to the slide through the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) method.
 6. Iterate through each [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) to apply formatting to the top, bottom, right, and left borders.
-7. Merge the first two cells of the table's first row. 
+7. Merge the four cells in the table's top-left corner (the first two columns of the first two rows) into a single cell. 
 8. Access an [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/)'s [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 9. Add some text to the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 10. Save the modified presentation.
@@ -42,6 +42,10 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-ja
 This JavaScript code shows you how to create a table in a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -70,7 +74,7 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Merges cells 1 & 2 of row 1
+    // Merges the top-left 2x2 block of cells into one cell
     tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
     // Adds some text to the merged cell
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
@@ -98,6 +102,10 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 This JavaScript code shows you how to specify the numbering for cells in a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation();
 try {
@@ -148,13 +156,17 @@ try {
 
    If you suspect the slide you are dealing with contains a single table, you can simply check all the shapes it contains. When a shape is identified as a table, you can typecast it as a [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object. But if the slide you are dealing with contains several tables, then you are better off searching for the table you need through its [setAlternativeText(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).
 
-5. Use the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object to work with the table. In the example below, we added a new row to the table.
+5. Use the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object to work with the table. In the example below, we set the text of a cell in the table.
 
 6. Save the modified presentation.
 
 This JavaScript code shows you how to access and work with an existing table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates the Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
@@ -194,6 +206,10 @@ try {
 This JavaScript code shows you how to align the text in a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -218,8 +234,8 @@ try {
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Aligns the text vertically
     var cell = tbl.get_Item(0, 0);
-    cell.setTextAnchorType(aspose.slides.TextAnchorType.Center);
-    cell.setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
+    cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
+    cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
     // Saves the presentation to disk
     pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -242,6 +258,10 @@ try {
 This JavaScript code shows you how to apply your preferred formatting options to the text in a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation("simpletable.pptx");
 try {
@@ -258,7 +278,7 @@ try {
     someTable.setTextFormat(paragraphFormat);
     // Sets the table cells' text vertical type
     var textFrameFormat = new aspose.slides.TextFrameFormat();
-    textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
+    textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
     someTable.setTextFormat(textFrameFormat);
     pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -268,11 +288,15 @@ try {
 }
 ```
 
-## **Get Table Style Properties**
+## **Set Table Style Preset**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This JavaScript code shows you how to get the style properties from a table preset style:
+Aspose.Slides ships the built-in PowerPoint table styles as the [TableStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/) enumeration, so you can apply the same look to any table. This JavaScript code shows you how to replace a table's default style with a preset style:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
@@ -292,6 +316,9 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 This JavaScript code shows you how to lock the aspect ratio for a table:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);

@@ -22,6 +22,9 @@ This article demonstrates how to connect shapes with connectors and change their
 Insert a connector shape between two points on the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addConnector() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -41,6 +44,10 @@ function addConnector() {
 Retrieve the first connector shape added to a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessConnector() {
     let presentation = new aspose.slides.Presentation("connector.pptx");
     try {
@@ -66,6 +73,9 @@ function accessConnector() {
 Delete a connector from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeConnector() {
     let presentation = new aspose.slides.Presentation("connector.pptx");
     try {
@@ -86,6 +96,9 @@ function removeConnector() {
 Attach a connector to two shapes by assigning start and end targets.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function reconnectShapes() {
     let presentation = new aspose.slides.Presentation();
     try {

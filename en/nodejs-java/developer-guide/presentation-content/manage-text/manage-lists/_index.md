@@ -45,6 +45,10 @@ To create a bulleted list, add [Paragraph](https://reference.aspose.com/slides/n
 The following JavaScript code demonstrates how to create a bulleted list in a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createParagraph(text, bulletColor) {
     const paragraph = new aspose.slides.Paragraph();
     const paragraphFormat = paragraph.getParagraphFormat();
@@ -94,6 +98,10 @@ Use numbered lists when the order of items matters. Set `BulletFormat.setType` t
 The following JavaScript code shows how to create a numbered list in a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
@@ -148,6 +156,10 @@ Let's say we have an "image.png":
 The following JavaScript code shows how to create picture bullets in a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createParagraph(text, image) {
     const paragraph = new aspose.slides.Paragraph();
     const paragraphFormat = paragraph.getParagraphFormat();
@@ -200,6 +212,10 @@ Use `ParagraphFormat.setDepth` to place list items on different levels. Level 0 
 The following JavaScript code shows how to create a multilevel bulleted list:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
@@ -245,6 +261,10 @@ To change list formatting in an existing presentation, access the target paragra
 The following JavaScript code changes the first paragraph in a text frame to use a numbered list style:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);

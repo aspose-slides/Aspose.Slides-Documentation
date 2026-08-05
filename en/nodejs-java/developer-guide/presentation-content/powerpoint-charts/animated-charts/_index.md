@@ -37,6 +37,9 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart series.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents a presentation file
 var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
@@ -60,7 +63,7 @@ try {
 ```
 
 ## **Chart Category Animation**
-If you want to animate a chart series, write the code according to the steps listed below:
+If you want to animate a chart category, write the code according to the steps listed below:
 
 1. Load a presentation.
 1. Get reference of the chart object.
@@ -70,6 +73,9 @@ If you want to animate a chart series, write the code according to the steps lis
 In the example given below, we animated chart category.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents a presentation file
 var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
@@ -100,6 +106,9 @@ If you want to animate series elements, write the code according to the steps li
 In the example given below, we have animated series' elements.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents a presentation file
 var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
@@ -141,6 +150,9 @@ If you want to animate categories elements, write the code according to the step
 In the example given below, we have animated categories elements.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents a presentation file
 var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {

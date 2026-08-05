@@ -27,6 +27,9 @@ Data labels on a chart show details about the chart data series or individual da
 This JavaScript code shows you how to set the data precision in a chart data label:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
@@ -45,6 +48,10 @@ try {
 Aspose.Slides for Node.js via Java allows you to set percentage labels on displayed charts. This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -52,7 +59,7 @@ try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
     var series;
-    var total_for_Cat = new double[chart.getChartData().getCategories().size()];
+    var total_for_Cat = new Array(chart.getChartData().getCategories().size()).fill(0);
     for (var k = 0; k < chart.getChartData().getCategories().size(); k++) {
         var cat = chart.getChartData().getCategories().get_Item(k);
         for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
@@ -67,7 +74,7 @@ try {
             var lbl = series.getDataPoints().get_Item(j).getLabel();
             dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
             var port = new aspose.slides.Portion();
-            port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
+            port.setText(java.callStaticMethodSync("java.lang.String", "format", "%.2f %%", dataPontPercent));
             port.getPortionFormat().setFontHeight(8.0);
             lbl.getTextFrameForOverriding().setText("");
             var para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
@@ -93,6 +100,10 @@ try {
 This JavaScript code shows you to set the percentage sign for a chart data label:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -153,6 +164,9 @@ try {
 This JavaScript code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Creates an instance of the Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -178,6 +192,10 @@ When you create a chart that does not rely on any axis such as a pie chart, the 
 This JavaScript code shows you how to adjust the label location on a pie chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
@@ -185,8 +203,8 @@ try {
     var label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
-    label.setX(0.71);
-    label.setY(0.04);
+    label.setX(java.newFloat(0.71));
+    label.setY(java.newFloat(0.04));
     pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

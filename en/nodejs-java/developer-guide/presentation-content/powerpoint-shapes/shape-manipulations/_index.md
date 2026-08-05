@@ -39,12 +39,15 @@ This topic will describe a simple technique to make it easier for developers to 
 After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Node.js via Java and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation class that represents the presentation file
 var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     // Alternative text of the shape to be found
-    var shape = findShape(slide, "Shape1");
+    var shape = aspose.slides.SlideUtil.findShape(slide, "Shape1");
     if (shape != null) {
         console.log("Shape Name: " + shape.getName());
     }
@@ -80,14 +83,18 @@ To clone a shape to a slide using Aspose.Slides for Node.js via Java:
 1. Clone shapes from the source slide shape collection to the new slide.
 1. Save the modified presentation as a PPTX file.
 
-The example below adds a group shape to a slide.
+The example below clones shapes from the first slide onto a new slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation class
 var pres = new aspose.slides.Presentation("Source Frame.pptx");
 try {
     var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
+    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
     var destSlide = pres.getSlides().addEmptySlide(blankLayout);
     var destShapes = destSlide.getShapes();
     destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
@@ -112,6 +119,9 @@ Aspose.Slides for Node.js via Java allows developers to remove any shape. To rem
 1. Save file to disk.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Create Presentation object
 var pres = new aspose.slides.Presentation();
 try {
@@ -119,12 +129,14 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Add autoshape of rectangle type
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    var moon = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    // Tag the shape that has to be removed
+    moon.setAlternativeText("User Defined");
     var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
+    // Walk backwards so removing an item does not shift the indexes still to be visited
+    for (var i = sld.getShapes().size() - 1; i >= 0; i--) {
+        var ashp = sld.getShapes().get_Item(i);
+        if (altText === ashp.getAlternativeText()) {
             sld.getShapes().remove(ashp);
         }
     }
@@ -147,6 +159,9 @@ Aspose.Slides for Node.js via Java allows developers to hide any shape. To hide 
 1. Save file to disk.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate Presentation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -154,7 +169,9 @@ try {
     var sld = pres.getSlides().get_Item(0);
     // Add autoshape of rectangle type
     sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    var moon = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+    // Tag the shape that has to be hidden
+    moon.setAlternativeText("User Defined");
     var alttext = "User Defined";
     var iCount = sld.getShapes().size();
     for (var i = 0; i < iCount; i++) {
@@ -184,6 +201,10 @@ Aspose.Slides for Node.js via Java allows developers to reorder the shapes. Reor
 1. Save file to disk.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -207,6 +228,9 @@ try {
 Aspose.Slides for Node.js via Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) was added to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) classs and [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // Getting unique shape identifier in slide scope
@@ -235,6 +259,10 @@ To set the AlternateText of a shape, please follow the steps below:
 1. Save file to disk.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation class that represents the PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -266,6 +294,9 @@ Aspose.Slides for Node.js via Java provides a simple API to access layout format
 Below sample code is given.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
@@ -287,6 +318,10 @@ try {
 Now Aspose.Slides for Node.js via Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class and [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
 try {
     var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
@@ -313,6 +348,10 @@ Aspose.Slides allows to align shapes either relative to the slide margins or rel
 Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -332,6 +371,9 @@ try {
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("example.pptx");
 try {
     aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
@@ -355,6 +397,9 @@ Let’s say we have a sample.pptx file in which the first slide contains a singl
 The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
 
 ```js
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new asposeSlides.Presentation("sample.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);

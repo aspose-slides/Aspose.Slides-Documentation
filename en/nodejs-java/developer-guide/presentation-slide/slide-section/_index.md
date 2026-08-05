@@ -37,6 +37,9 @@ To add a section that will house slides in a presentation, Aspose.Slides for Nod
 This sample code shows you to create a section in a presentation in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var defaultSlide = pres.getSlides().get_Item(0);
@@ -66,6 +69,9 @@ After you create a section in a PowerPoint presentation, you may decide to chang
 This sample code shows you how to change the name of a section in a presentation in JavaScript using Aspose.Slides:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var section = pres.getSections().get_Item(0);

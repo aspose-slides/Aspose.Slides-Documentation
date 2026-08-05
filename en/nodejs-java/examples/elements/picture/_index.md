@@ -22,6 +22,10 @@ This article demonstrates how to insert and access pictures using **Aspose.Slide
 This code reads an image from a file and inserts it as a picture frame on the first slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addPicture() {
     const FileInputStream = java.import("java.io.FileInputStream");
 
@@ -49,6 +53,10 @@ function addPicture() {
 This example ensures a slide contains a picture frame and then accesses the first one it finds.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessPicture() {
     let presentation = new aspose.slides.Presentation("picture.pptx");
     try {

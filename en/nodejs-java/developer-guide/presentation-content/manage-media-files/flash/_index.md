@@ -25,6 +25,9 @@ This article explains how to extract Flash objects from presentations by using A
 Aspose.Slides for Node.js via Java provides a facility for extracting flash objects from a presentation. You can access the flash control by name and extract it from the presentation and including store SWF object data.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var controls = pres.getSlides().get_Item(0).getControls();

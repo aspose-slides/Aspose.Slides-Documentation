@@ -29,9 +29,24 @@ Aspose.Slides allows you to manage header and footer settings in PowerPoint pres
 You can also manage headers and footers for handout and notes slides. This includes changing the visibility and text of header, footer, slide number, and date-time placeholders for the notes master, all child notes slides, or an individual notes slide.
 
 ## **Manage Header and Footer in Presentation**
-Notes of some specific slide could be removed as shown in example below:
+The footer text and visibility of all slides, and the header text of the master notes slide, can be set as shown in the example below:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+function updateHeaderFooterText(master) {
+    let shapes = master.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        let shape = shapes.get_Item(i);
+        if (shape.getPlaceholder() !== null) {
+            if (shape.getPlaceholder().getType() === aspose.slides.PlaceholderType.Header) {
+                shape.getTextFrame().setText("HI there new header");
+            }
+        }
+    }
+}
+
 // Load Presentation
 var pres = new aspose.slides.Presentation("headerTest.pptx");
 try {
@@ -52,12 +67,15 @@ try {
 }
 ```
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateHeaderFooterText(master) {
     let shapes = master.getShapes();
     for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
+        let shape = shapes.get_Item(i);
         if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
+            if (shape.getPlaceholder().getType() === aspose.slides.PlaceholderType.Header) {
                 shape.getTextFrame().setText("HI there new header");
             }
         }
@@ -81,6 +99,9 @@ Aspose.Slides for Node.js via Java supports Header and Footer in Handout and not
 Code Snippet provided in below Example.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("presentation.pptx");
 try {
     // Change Header and Footer settings for notes master and all notes slides

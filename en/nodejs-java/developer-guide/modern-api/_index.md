@@ -31,7 +31,7 @@ As of version 24.4, this public API is declared deprecated.
 
 In order to get rid of dependencies on these classes, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html). [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) is declared deprecated and its support is removed from the public Slides API.
 
-In current versions, treat the public API that depends on java.awt types as legacy/deprecated. Use the Modern API for new code and when migrating existing image-processing workflows.
+In current versions, the java.awt-based methods have been removed from the public API altogether. The "Legacy/deprecated API" snippets below are shown only so that you can recognize the old code and find its replacement — they no longer run against the current package. Use the Modern API for new code and when migrating existing image-processing workflows.
 
 ## **Modern API**
 
@@ -48,6 +48,10 @@ Use `getImage` to render a single slide or shape. Use `getImages` to render seve
 A typical scenario of using the new API may look as follows:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ppImage;
@@ -83,18 +87,36 @@ In general, you will need to replace calls that use [BufferedImage](https://docs
 
 Legacy/deprecated API:
 ``` javascript
-var imageio = java.import("javax.imageio.ImageIO");
-var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
-var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
-var file = java.newInstanceSync("java.io.File", "image.png");
-imageio.write(slideImage, "PNG", file);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var imageio = java.import("javax.imageio.ImageIO");
+    var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
+    var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
+    var file = java.newInstanceSync("java.io.File", "image.png");
+    imageio.write(slideImage, "PNG", file);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 Modern API:
 ``` javascript
-var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
-var slideImage = pres.getSlides().get_Item(0).getImage(size);
-slideImage.save("image.png", aspose.slides.ImageFormat.Png);
-slideImage.dispose();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
+    var slideImage = pres.getSlides().get_Item(0).getImage(size);
+    slideImage.save("image.png", aspose.slides.ImageFormat.Png);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ### **Getting a Slide Thumbnail**
@@ -102,6 +124,10 @@ slideImage.dispose();
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var slideImage = pres.getSlides().get_Item(0).getThumbnail();
@@ -116,6 +142,9 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var slideImage = pres.getSlides().get_Item(0).getImage();
@@ -131,6 +160,10 @@ try {
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
@@ -145,6 +178,9 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
@@ -160,6 +196,10 @@ try {
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var size = java.newInstanceSync("java.awt.Dimension", 1980, 1028);
@@ -179,6 +219,10 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var size = java.newInstanceSync("java.awt.Dimension", 1980, 1028);
@@ -205,6 +249,10 @@ try {
 Legacy/deprecated API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var imageio = java.import("javax.imageio.ImageIO");
@@ -221,6 +269,9 @@ try {
 Modern API:
 
 ``` javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var image = aspose.slides.Images.fromFile("image.png");
@@ -257,7 +308,7 @@ try {
 | public final BufferedImage getThumbnail() | public final IImage getImage() |
 | public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
+| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options, float scaleX, float scaleY) |
 | public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
 | public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
 | public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
@@ -294,7 +345,7 @@ try {
 
 ## **API Support for Graphics2D**
 
-Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) are declared deprecated and have no direct Modern API replacement.
+Methods that render to [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) have been removed from the public API and have no direct Modern API replacement.
 
 Use the Modern API image-rendering methods instead of the API that renders to [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html):
 

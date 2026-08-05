@@ -61,6 +61,10 @@ A shape usually needs four kinds of settings before it looks convincingly 3D:
 The following example creates a rectangle, adds text to its front face, applies 3D formatting, saves the presentation as PPTX, and renders the slide to a PNG image.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();
@@ -108,8 +112,19 @@ In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, a
 In Aspose.Slides, set the camera type and rotation through the 3D format returned by `shape.getThreeDFormat()`:
 
 ```javascript
-shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
@@ -123,11 +138,23 @@ Extrusion makes a shape look thick by extending it behind the front face. In Pow
 Set the extrusion height for the thickness and the extrusion color for the side color:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const extrusionColor = java.newInstanceSync("java.awt.Color", 128, 0, 128);
 
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Use the depth setting when you need to work with PowerPoint's depth value directly or combine depth with bevel, material, and text effects. In many shape scenarios, extrusion height is the clearer setting because it directly expresses the visible extrusion.
@@ -139,6 +166,10 @@ Use the depth setting when you need to work with PowerPoint's depth value direct
 This example applies a gradient fill to the shape and a darker extrusion color to the sides:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();
@@ -181,22 +212,34 @@ The rendered output keeps the gradient on the front face and renders the extrusi
 To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
 
 ```javascript
-const sourceImage = aspose.slides.Images.fromFile("image.jpg");
-let presentationImage;
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    presentationImage = presentation.getImages().addImage(sourceImage);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
+
+    const sourceImage = aspose.slides.Images.fromFile("image.jpg");
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(presentationImage);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+
+    const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(darkOrangeColor);
 } finally {
-    sourceImage.dispose();
+    presentation.dispose();
 }
-
-shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(presentationImage);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-
-const darkOrangeColor = java.newInstanceSync("java.awt.Color", 255, 140, 0);
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(darkOrangeColor);
 ```
 
 The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:
@@ -210,6 +253,10 @@ Shape 3D formatting affects the shape body. Text 3D formatting affects the text 
 The following example creates text with a pattern fill, applies a WordArt transform, and configures 3D settings on [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const imageScale = 2;
 
 const presentation = new aspose.slides.Presentation();

@@ -36,6 +36,10 @@ The markers can be set on chart data points inside particular series. In order t
 In the example given below, we have set the chart marker options on data points level.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creating empty presentation
 var pres = new aspose.slides.Presentation();
 try {
@@ -59,16 +63,16 @@ try {
     var series = chart.getChartData().getSeries().get_Item(0);
     // Add new point (1:3) there.
     var point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 4.5));
-    point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
+    point.getMarker().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Picture));
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx1);
     point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 2.5));
-    point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
+    point.getMarker().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Picture));
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx2);
     point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 3.5));
-    point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
+    point.getMarker().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Picture));
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx1);
     point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 4, 1, 4.5));
-    point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
+    point.getMarker().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Picture));
     point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx2);
     // Changing the chart series marker
     series.getMarker().setSize(15);

@@ -34,12 +34,16 @@ Aspose.Slides for Node.js via Java provides support for changing color of catego
  Below sample example is given. 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Creating empty presentation
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

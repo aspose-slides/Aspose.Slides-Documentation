@@ -28,6 +28,10 @@ SmartArt is a PowerPoint diagram made from nodes, node shapes, and a layout. Wit
 A SmartArt node can contain one or more shapes. To read the visible text, iterate through [SmartArt.getAllNodes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/#getAllNodes--), then read the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) returned by [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartshape/#getTextFrame--).
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -60,6 +64,9 @@ try {
 The SmartArt layout controls how nodes are arranged and connected. The following example creates a SmartArt object with the [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `BasicBlockList` value, changes it to the `BasicProcess` value, and saves the presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
@@ -80,6 +87,9 @@ try {
 The following example adds a node to a SmartArt object that uses the [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `RadialCycle` value and checks the node's hidden state.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
@@ -105,6 +115,9 @@ For SmartArt diagrams that use an organization chart layout, [SmartArtNode.getOr
 The following example creates an organization chart and sets the layout for the first node to the [OrganizationChartLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/organizationchartlayouttype/) `LeftHanging` value.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(
@@ -124,6 +137,9 @@ try {
 A picture organization chart is a SmartArt layout designed for hierarchy diagrams that include image placeholders. Use the [SmartArtLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartlayouttype/) `PictureOrganizationChart` value when adding the SmartArt object to a slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     let smartArt = presentation.getSlides().get_Item(0).getShapes().addSmartArt(

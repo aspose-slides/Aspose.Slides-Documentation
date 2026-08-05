@@ -33,6 +33,9 @@ This article explains how to convert PowerPoint presentations to HTML5 using Asp
 This JavaScript code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.save("pres.html", aspose.slides.SaveFormat.Html5);
@@ -52,6 +55,9 @@ In this case, you get clean HTML.
 You may want to specify settings for shape animations and slide transitions this way:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var html5Options = new aspose.slides.Html5Options();
@@ -70,6 +76,9 @@ try {
 This JavaScript demonstrates the standard PowerPoint to HTML process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     pres.save("pres.html", aspose.slides.SaveFormat.Html);
@@ -105,6 +114,9 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This JavaScript code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var html5Options = new aspose.slides.Html5Options();
@@ -126,12 +138,18 @@ Let's say we have the following PowerPoint presentation saved in the "sample.ppt
 
 ![Two comments on the presentation slide](two_comments_pptx.png)
 
-When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `notes_comments_layouting` property of the [Html5Options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/) class.
+When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, pass a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notescommentslayoutingoptions/) object with the required comment position to [Html5Options.setSlidesLayoutOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setSlidesLayoutOptions-aspose.slides.ISlidesLayoutOptions-).
 
 The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let notesCommentsLayouting = new aspose.slides.NotesCommentsLayoutingOptions();
+notesCommentsLayouting.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+
 let html5Options = new aspose.slides.Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(aspose.slides.CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(notesCommentsLayouting);
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 presentation.save("output.html", aspose.slides.SaveFormat.Html5, html5Options);
@@ -150,7 +168,7 @@ Yes, HTML5 provides separate options to enable or disable [shape animations](htt
 
 ### Is the output of comments supported, and where can they be placed relative to the slide?
 
-Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setNotesCommentsLayouting) for notes and comments.
+Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/#setSlidesLayoutOptions-aspose.slides.ISlidesLayoutOptions-) for notes and comments.
 
 ### Can I skip links that invoke JavaScript for security or CSP reasons?
 

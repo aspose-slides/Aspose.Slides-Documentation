@@ -24,6 +24,10 @@ This article demonstrates how to create, modify, and manage master slides using 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addMasterSlide() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -71,6 +75,10 @@ function addMasterSlide() {
 You can access master slides using the presentation master collection. Here’s how to retrieve and work with them:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessMasterSlide() {
     let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {
@@ -87,18 +95,21 @@ function accessMasterSlide() {
 
 ## **Remove a Master Slide**
 
-Master slides can be removed either by index or by reference.
+Master slides can be removed either by index or by reference. A master slide that is still used by a slide cannot be removed—Aspose.Slides throws a `PptxEditException` with the message "this master slide is used in presentation". In `master_slide.pptx` the master at index 0 is the one no slide uses, so it is the one that can be removed.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeMasterSlide() {
     let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {
         // Remove a master slide by index.
         presentation.getMasters().removeAt(0);
 
-        // Remove a master slide by reference.
-        let firstMasterSlide = presentation.getMasters().get_Item(0);
-        presentation.getMasters().remove(firstMasterSlide);
+        // The same master slide can be removed by reference instead:
+        // let firstMasterSlide = presentation.getMasters().get_Item(0);
+        // presentation.getMasters().remove(firstMasterSlide);
 
         presentation.save("master_slide_removed.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -112,6 +123,9 @@ function removeMasterSlide() {
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeUnusedMasterSlides() {
     let presentation = new aspose.slides.Presentation("master_slide.pptx");
     try {

@@ -52,6 +52,9 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 You can add one or several images on your computer onto a slide in a presentation. This sample code in JavaScript shows you how to add an image to a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -80,19 +83,31 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     // Accesses the first slide
     var sld = pres.getSlides().get_Item(0);
-    // Loads an excel file to stream
-    var readStream = fs.readFileSync("book1.xlsx");
-    var byteArray = Array.from(readStream);
-    // Creates a data object for embedding
-    var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-    // Adds an Ole Object Frame shape
-    var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
+    // Opens a stream on the image hosted on the web
+    var url = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
+    var stream = url.openStream();
+    // Creates an image from the stream and adds it to the presentation image collection
+    var picture;
+    var image = aspose.slides.Images.fromStream(stream);
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) {
+            image.dispose();
+        }
+    }
+    // Adds a picture frame holding the downloaded image
+    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
     // Writes the PPTX file to disk
-    pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
     if (pres != null) {
@@ -108,6 +123,9 @@ A slide master is the top slide that stores and controls information (theme, lay
 This JavaScript sample code shows you how to add an image to a slide master:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -145,10 +163,14 @@ To create an image object based on SVG image, you can do it this way:
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
 // Instantiate Presentation class that represents PPTX file
 var pres = new aspose.slides.Presentation();
 try {
-    var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
+    var svgContent = fs.readFileSync("image.svg", "utf8");
     var svgImage = new aspose.slides.SvgImage(svgContent);
     var ppImage = pres.getImages().addImage(svgImage);
     pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
@@ -171,6 +193,10 @@ The functionality is provided by one of the overloads of the [addGroupShape](htt
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create new presentation
 var presentation = new aspose.slides.Presentation();
 try {
@@ -198,6 +224,10 @@ Aspose.Slides for Node.js via Java allows you to generate EMF images from excel 
 This sample code shows you how to perform the described task:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
 var sheet = book.getWorksheets().get(0);
 var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
@@ -248,6 +278,11 @@ Follow the steps below:
 1. Write the modified presentation as a PPTX file.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
 // Instantiate the Presentation class that represents a presentation file.
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {

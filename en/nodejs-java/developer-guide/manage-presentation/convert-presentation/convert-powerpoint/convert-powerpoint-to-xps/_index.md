@@ -76,6 +76,9 @@ When converting a presentation to XPS, you have to save the presentation using e
 This sample code in JavaScript shows you how to convert a presentation to an XPS document using standard settings:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("Convert_XPS.pptx");
 try {
@@ -93,10 +96,13 @@ try {
 This sample code shows you how to convert a presentation to an XPS document using custom settings in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("Convert_XPS_Options.pptx");
 try {
-    // Instantiate the TiffOptions class
+    // Instantiate the XpsOptions class
     var options = new aspose.slides.XpsOptions();
     // Save MetaFiles as PNG
     options.setSaveMetafilesAsPng(true);

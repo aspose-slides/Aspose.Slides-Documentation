@@ -45,6 +45,10 @@ Aspose.Slides for Node.js via Java provides a simple API for managing different 
 The following code is used to create a chart with Trend Lines.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -66,15 +70,15 @@ try {
     // Adding MovingAverage trend line for chart series 2
     var tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.MovingAverage);
     tredLineMovAvg.setTrendlineType(aspose.slides.TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod(3);
+    tredLineMovAvg.setPeriod(java.newByte(3));
     tredLineMovAvg.setTrendlineName("New TrendLine Name");
     // Adding Polynomial trend line for chart series 3
     var tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(aspose.slides.TrendlineType.Polynomial);
     tredLinePol.setTrendlineType(aspose.slides.TrendlineType.Polynomial);
     tredLinePol.setForward(1);
-    tredLinePol.setOrder(3);
+    tredLinePol.setOrder(java.newByte(3));
     // Adding Power trend line for chart series 3
-    var tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Power);
+    var tredLinePower = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(aspose.slides.TrendlineType.Power);
     tredLinePower.setTrendlineType(aspose.slides.TrendlineType.Power);
     tredLinePower.setBackward(1);
     // Saving presentation
@@ -100,6 +104,10 @@ Aspose.Slides for Node.js via Java provides a simple API to add custom lines in 
 The following code is used to create a chart with Custom Lines.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Create an instance of Presentation class
 var pres = new aspose.slides.Presentation();
 try {

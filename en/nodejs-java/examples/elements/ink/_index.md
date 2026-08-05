@@ -24,6 +24,10 @@ This article provides examples of accessing existing ink shapes and removing the
 Retrieve the first ink shape on a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessInk() {
     let presentation = new aspose.slides.Presentation("ink.pptx");
     try {
@@ -48,6 +52,9 @@ function accessInk() {
 Delete an ink shape from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeInk() {
     let presentation = new aspose.slides.Presentation("ink.pptx");
     try {

@@ -57,6 +57,8 @@ Method [getAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 An example is given below shows how can you access [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) properties for a presentation.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation();
 try {
@@ -89,6 +91,9 @@ In order to set the view properties. Please follow the steps below:
    In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     // Setting the view properties of the presentation

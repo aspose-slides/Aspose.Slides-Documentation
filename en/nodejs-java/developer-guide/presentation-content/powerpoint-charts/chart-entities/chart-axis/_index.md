@@ -46,6 +46,9 @@ Aspose.Slides for Node.js via Java allows you to obtain the minimum and maximum 
 This sample code—an implementation of the steps above—shows you how to get the required values in JavaScript:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
@@ -54,6 +57,8 @@ try {
     var minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
     var majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
     var minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+    var majorUnitScale = chart.getAxes().getHorizontalAxis().getActualMajorUnitScale();
+    var minorUnitScale = chart.getAxes().getHorizontalAxis().getActualMinorUnitScale();
     // Saves the presentation
     pres.save("MaxValuesVerticalAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -70,6 +75,9 @@ Aspose.Slides allows you to quickly swap the data between axes—the data repres
 This JavaScript code shows you how to perform the data swap task between axes on a chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
@@ -89,6 +97,9 @@ try {
 This JavaScript code shows you how to hide the vertical axis for a line chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
@@ -106,6 +117,9 @@ try {
 This code shows you how to hide the horizontal axis for a line chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
@@ -123,6 +137,9 @@ try {
 Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in JavaScript demonstrates the operation: 
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -143,6 +160,20 @@ try {
 Aspose.Slides for Node.js via Java allows you to set the date format for a category axis value. The operation is demonstrated in this JavaScript code:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const dayjs = require("dayjs");
+
+function convertToOADate(date) {
+    const baseDate = dayjs("1899-12-30");
+    const days = date.diff(baseDate, "day");
+    const fractionalDay = (date.hour() / 24) +
+                          (date.minute() / (60 * 24)) +
+                          (date.second() / (60 * 24 * 60));
+
+    return days + fractionalDay;
+}
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 50, 50, 450, 300);
@@ -150,10 +181,10 @@ try {
     wb.clear(0);
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(java.newInstanceSync("GregorianCalendar", 2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(java.newInstanceSync("GregorianCalendar", 2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(java.newInstanceSync("GregorianCalendar", 2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(java.newInstanceSync("GregorianCalendar", 2018, 1, 1))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(dayjs("2015-01-01"))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(dayjs("2016-01-01"))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(dayjs("2017-01-01"))));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(dayjs("2018-01-01"))));
     var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
     series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
     series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
@@ -183,7 +214,7 @@ function convertToOADate(date) {
 
     const oaDate = days + fractionalDay;
 
-    return String(oaDate);
+    return oaDate;
 }
 ```
 
@@ -192,6 +223,9 @@ function convertToOADate(date) {
 Aspose.Slides for Node.js via Java allows you to set the rotation angle for a chart axis title. This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -210,6 +244,9 @@ try {
 Aspose.Slides for Node.js via Java allows you to set the position axis in a category or value axis. This JavaScript code shows how to perform the task:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
@@ -227,6 +264,9 @@ try {
 Aspose.Slides for Node.js via Java allows you to configure a chart to show a unit label on its chart value axis. This JavaScript code demonstrates the operation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);

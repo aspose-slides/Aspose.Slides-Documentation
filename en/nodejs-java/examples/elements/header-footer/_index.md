@@ -23,13 +23,18 @@ This article demonstrates how to add footers and update date and time placeholde
 Add text to the footer area of a slide and make it visible.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addHeaderFooter() {
     let presentation = new aspose.slides.Presentation();
     try {
         let slide = presentation.getSlides().get_Item(0);
 
-        slide.getHeaderFooterManager().setFooterText("My footer");
+        // Make the placeholder visible first - setting the text on a hidden
+        // footer has no effect.
         slide.getHeaderFooterManager().setFooterVisibility(true);
+        slide.getHeaderFooterManager().setFooterText("My footer");
 
         presentation.save("header_footer.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -43,13 +48,18 @@ function addHeaderFooter() {
 Modify the date and time placeholder on a slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateDateTime() {
     let presentation = new aspose.slides.Presentation("header_footer.pptx");
     try {
         let slide = presentation.getSlides().get_Item(0);
 
-        slide.getHeaderFooterManager().setDateTimeText("01/01/2024");
+        // Make the placeholder visible first - setting the text on a hidden
+        // date and time placeholder has no effect.
         slide.getHeaderFooterManager().setDateTimeVisibility(true);
+        slide.getHeaderFooterManager().setDateTimeText("01/01/2024");
 
         presentation.save("header_footer_updated.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

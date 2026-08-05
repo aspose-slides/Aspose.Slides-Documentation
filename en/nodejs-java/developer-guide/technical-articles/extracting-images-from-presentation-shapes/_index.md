@@ -37,6 +37,7 @@ const fileSystem = require("fs");
 const pathModule = require("path");
 const cryptoModule = require("crypto");
 const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
 
 class ShapeReference {
     constructor(shape, namePart) {
@@ -163,7 +164,14 @@ function makeSafeFileNamePart(value) {
 
 Use this approach for pictures inserted as standalone objects. A [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) stores its picture in `getPictureFormat().getPicture().getImage()`, which returns a [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) object.
 
+Note that [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) and [AudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/) derive from `PictureFrame`, so the type check below also matches media frames and saves their preview images. Test for the media types first if you want ordinary picture frames only—see [Include Images Inside Grouped Shapes](#include-images-inside-grouped-shapes) for that ordering.
+
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "extracted-images");
@@ -200,6 +208,11 @@ try {
 Shapes can use a picture as their fill. Check the shape's fill type first: if it is not [FillType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), there is no picture to extract from that fill. The example below handles [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) objects and saves each image as PNG through [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) and its `getImage()` method.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "shape-fill-images");
@@ -237,6 +250,11 @@ try {
 An [OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) can have a substitute picture that PowerPoint uses as the object's preview on a slide. This image is available through `getSubstitutePictureFormat().getPicture().getImage()`. Extracting this picture gives you the preview image, not the embedded OLE package contents.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "ole-preview-images");
@@ -276,6 +294,11 @@ try {
 A [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) can also store a preview image in `getPictureFormat().getPicture().getImage()`. This is the poster or thumbnail shown on the slide, not a frame decoded from the video stream.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "video-preview-images");
@@ -315,6 +338,11 @@ try {
 An [AudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/) can store a thumbnail in `getPictureFormat().getPicture().getImage()`. This is the image shown for the audio object on the slide.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "audio-preview-images");
@@ -354,6 +382,11 @@ try {
 [ZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zoomframe/) and [SectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sectionzoomframe/) shapes can use custom images. Read `getZoomImage()` from the zoom frame.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "zoom-images");
@@ -404,6 +437,11 @@ try {
 A [SummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/summaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `getZoomImage()` method.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "summary-zoom-images");
@@ -449,6 +487,11 @@ try {
 A [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) is a shape. Images in a table are usually stored as picture fills in table cells.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "table-images");
@@ -498,6 +541,11 @@ try {
 A [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) is a shape. The example below extracts an image from the chart area's picture fill.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "chart-images");
@@ -538,6 +586,11 @@ try {
 A [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/) object is a shape. Depending on the SmartArt layout, images may be stored in node bullet fills or in the fill formats of node shapes.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "smartart-images");
@@ -598,6 +651,11 @@ try {
 Grouped shapes contain their own shape collections. The shared `enumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
 
 ```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+const java = require("java");
+const pathModule = require("path");
+
 const inputPath = "sample.pptx";
 const currentDirectory = process.cwd();
 const outputDirectory = pathModule.join(currentDirectory, "all-shape-images");

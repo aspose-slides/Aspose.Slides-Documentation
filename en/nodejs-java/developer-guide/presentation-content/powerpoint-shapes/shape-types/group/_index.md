@@ -33,6 +33,10 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 The example below adds a group shape to a slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation class
 var pres = new aspose.slides.Presentation();
 try {
@@ -48,7 +52,7 @@ try {
     groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 300, 100, 100);
     groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 300, 100, 100);
     // Adding group shape frame
-    groupShape.setFrame(new aspose.slides.ShapeFrame(100, 300, 500, 40, aspose.slides.NullableBool.False, aspose.slides.NullableBool.False, 0));
+    groupShape.setFrame(new aspose.slides.ShapeFrame(100, 300, 500, 40, java.newByte(aspose.slides.NullableBool.False), java.newByte(aspose.slides.NullableBool.False), 0));
     // Write the PPTX file to disk
     pres.save("GroupShape.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -70,6 +74,10 @@ This topic shows simple steps, complete with code examples, for adding a group s
 The example below accesses alternative text of group shape.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate Presentation class that represents PPTX file
 var pres = new aspose.slides.Presentation("AltText.pptx");
 try {

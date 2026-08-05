@@ -50,6 +50,10 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 This JavaScript code shows you how to set the color for a brush:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var ink = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -69,6 +73,10 @@ try {
 This JavaScript code shows you how to set the size for a brush:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var ink = pres.getSlides().get_Item(0).getShapes().get_Item(0);

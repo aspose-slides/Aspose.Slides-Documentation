@@ -43,6 +43,9 @@ Tags are essentially string-key pair values.
 In slides, a tag corresponds to the [DocumentProperties.getKeywords()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getKeywords--) and [DocumentProperties.setKeywords()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for Node.js via Java for [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var keywords = pres.getDocumentProperties().getKeywords();
@@ -65,6 +68,9 @@ If you need to classify some presentations based on a specific rule or property,
 This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) using Aspose.Slides for Node.js via Java:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var tags = pres.getCustomData().getTags();
@@ -79,6 +85,9 @@ try {
 Tags also can be set for [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -93,6 +102,9 @@ try {
 Or any individual [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);

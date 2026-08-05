@@ -38,6 +38,9 @@ Each [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slide
 Here is an examples how to create fallback fonts rules collection and assign in into the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) of a certain presentation:  
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var userRulesList = new aspose.slides.FontFallBackRulesCollection();

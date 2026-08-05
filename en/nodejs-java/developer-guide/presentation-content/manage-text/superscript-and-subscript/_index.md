@@ -46,6 +46,9 @@ This property returns or sets the superscript or subscript text (value from -100
 The implementation of the above steps is given below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation class that represents a PPTX
 var pres = new aspose.slides.Presentation();
 try {

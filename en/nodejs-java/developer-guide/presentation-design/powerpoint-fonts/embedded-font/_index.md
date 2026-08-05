@@ -25,7 +25,7 @@ description: "Embed TrueType fonts in PowerPoint and OpenDocument presentations 
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
 
-The [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class, and their classs contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
+The [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class, and related classes contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
 
 ## **Get or Remove Embedded Fonts from Presentation**
 
@@ -34,10 +34,14 @@ Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slide
 This JavaScript code shows you how to get and remove embedded fonts from a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("EmbeddedFonts.pptx");
 try {
-    // Renders a slide containing a text frame that uses embedded "FunSized"
+    // Renders a slide containing a text frame that uses the embedded "Calibri" font
     var slideImage = pres.getSlides().get_Item(0).getImage(java.newInstanceSync("java.awt.Dimension", 960, 720));
     // Save the image to disk in JPEG format
     try {
@@ -85,6 +89,9 @@ try {
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/#addEmbeddedFont-aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This JavaScript code shows you how to embed and add fonts to a presentation:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Loads the presentation
 var pres = new aspose.slides.Presentation("Fonts.pptx");
 try {
@@ -119,6 +126,9 @@ To allow you to compress the fonts embedded in a presentation and reduce its fil
 This JavaScript code shows you how to compress embedded PowerPoint fonts:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     aspose.slides.Compress.compressEmbeddedFonts(pres);

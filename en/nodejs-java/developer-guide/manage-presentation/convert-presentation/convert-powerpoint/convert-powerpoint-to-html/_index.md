@@ -48,6 +48,9 @@ By default, HTML export produces a self-contained HTML document where most resou
 To export a presentation to HTML, load it with [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and save it with [SaveFormat.Html](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveformat/).
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.save("presentation.html", aspose.slides.SaveFormat.Html);
@@ -77,6 +80,10 @@ The following sections show the most common options separately so you can combin
 The `Presentation.save` overload that accepts slide numbers uses 1-based slide positions. The loop below saves every slide to a separate HTML file.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideCount = presentation.getSlides().size();
@@ -100,6 +107,9 @@ Use this pattern when a website or application needs one HTML page per slide. If
 [ResponsiveHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/responsivehtmlcontroller/) provides responsive HTML output through [HtmlFormatter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/htmlformatter/). Use it when the exported page should adapt better to browser width.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let controller = new aspose.slides.ResponsiveHtmlController();
@@ -117,6 +127,9 @@ try {
 For SVG-based responsive layout, set `SvgResponsiveLayout` on [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/htmloptions/). This is useful when the slide content is exported as scalable SVG markup.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let htmlOptions = new aspose.slides.HtmlOptions();
@@ -139,6 +152,9 @@ Suppose the source presentation contains speaker notes:
 The following code exports the slide content with speaker notes below the slide.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
@@ -164,6 +180,9 @@ To export comments, set `CommentsPosition`, for example to `CommentsPositions.Ri
 HTML export can compress slide images to reduce output size. Set `PicturesCompression` to a value from [PicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturescompression/) when you need higher image quality.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let htmlOptions = new aspose.slides.HtmlOptions();
@@ -178,6 +197,9 @@ try {
 By default, cropped areas of images may be removed from the exported output. Keep cropped data only when users must be able to recover or inspect those hidden image parts. Keeping it can increase the HTML size.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let htmlOptions = new aspose.slides.HtmlOptions();
@@ -194,6 +216,9 @@ try {
 For simple styling, pass a CSS string to `HtmlFormatter.createDocumentFormatter`. This changes the surrounding HTML document while Aspose.Slides continues to render the slide content.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
@@ -215,6 +240,10 @@ For a custom document header, a linked CSS file, or custom markup around slides 
 If the target environment may not have the presentation fonts installed, embed fonts in the HTML with [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/embedallfontshtmlcontroller/). Embedding improves visual fidelity but increases output size.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let fontNamesToExclude = java.newArray("java.lang.String", ["Arial"]);
@@ -251,20 +280,23 @@ Self-contained HTML is easy to move around, but embedded Base64 resources can ma
 
 - `path`: the directory where generated media files will be written.
 - `fileName`: the HTML file name being generated.
-- `baseUri`: the absolute URI prefix used in the HTML links to media files.
+- `baseUri`: an absolute URI that describes the same location as `path`.
 
-If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
+The generated HTML references each media file by file name only, so the browser resolves it relative to the HTML document. Point `path` at the directory that will hold the generated HTML file, otherwise the media links will not resolve. Build `baseUri` from that same directory: a `file:///` URI for local preview, or the absolute URL of the published directory for a deployed application.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fs = require("fs");
 let path = require("path");
 
 let outputDirectory = path.join(process.cwd(), "html-output");
-let mediaDirectory = path.join(outputDirectory, "media");
-fs.mkdirSync(mediaDirectory, { recursive: true });
+fs.mkdirSync(outputDirectory, { recursive: true });
 
 let htmlFileName = "presentation.html";
-let mediaBaseUri = "file:///" + mediaDirectory.replace(/\\/g, "/") + "/";
+let mediaBaseUri = "file:///" + outputDirectory.replace(/\\/g, "/") + "/";
 
 let presentation = new aspose.slides.Presentation();
 try {
@@ -276,7 +308,7 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     slide.getShapes().addVideoFrame(20, 20, 480, 270, video);
 
-    let controller = new aspose.slides.VideoPlayerHtmlController(mediaDirectory, htmlFileName, mediaBaseUri);
+    let controller = new aspose.slides.VideoPlayerHtmlController(outputDirectory, htmlFileName, mediaBaseUri);
     let formatter = aspose.slides.HtmlFormatter.createCustomFormatter(controller);
     let svgOptions = new aspose.slides.SVGOptions(controller);
     let slideImageFormat = aspose.slides.SlideImageFormat.svg(svgOptions);
@@ -332,7 +364,7 @@ These values do not indicate a real visual font-size change. They are only a mat
 
 ### How should I choose baseUri for media export?
 
-Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with a `file:///` URI. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same resource location.
+Pass `baseUri` as an absolute URI that describes the same location as the file system `path`: derive it from the output directory with a `file:///` URI for local preview, or use the absolute URL of the published directory for deployment. Because the generated HTML links media files by file name only, `path` must be the directory that holds the generated HTML file.
 
 ### Can I include hidden slides?
 

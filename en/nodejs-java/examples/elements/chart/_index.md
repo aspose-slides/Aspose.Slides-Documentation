@@ -22,6 +22,9 @@ Examples for adding, accessing, removing, and updating different chart types wit
 This method adds a simple area chart to the first slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function addChart() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -42,6 +45,10 @@ function addChart() {
 After creating a chart, you can retrieve it through the shape collection.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function accessChart() {
     let presentation = new aspose.slides.Presentation("chart.pptx");
     try {
@@ -67,6 +74,9 @@ function accessChart() {
 The following code removes the chart from the slide.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeChart() {
     let presentation = new aspose.slides.Presentation("chart.pptx");
     try {
@@ -87,13 +97,18 @@ function removeChart() {
 You can change chart properties such as the title.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateChartData() {
     let presentation = new aspose.slides.Presentation("chart.pptx");
     try {
         let slide = presentation.getSlides().get_Item(0);
         let chart = slide.getShapes().get_Item(0);
 
-        // Change the chart title.
+        // Change the chart title. The title must be turned on, otherwise
+        // its text is dropped when the presentation is saved.
+        chart.setTitle(true);
         chart.getChartTitle().addTextFrameForOverriding("Sales Report");
 
         presentation.save("chart_title.pptx", aspose.slides.SaveFormat.Pptx);

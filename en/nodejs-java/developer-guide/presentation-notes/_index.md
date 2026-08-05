@@ -31,6 +31,9 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic,
 Notes of some specific slide could be removed as shown in example below:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
@@ -50,6 +53,9 @@ try {
 Notes of all the slides of a presentation could be removed as shown in example below:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
@@ -72,6 +78,10 @@ try {
 [getNotesStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) method has been added to [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide) class and [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instantiate a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -81,7 +91,7 @@ try {
         var notesStyle = notesMaster.getNotesStyle();
         // Set symbol bullet for the first level paragraphs
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

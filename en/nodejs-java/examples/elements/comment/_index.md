@@ -22,6 +22,10 @@ This article demonstrates adding, reading, removing, and replying to modern comm
 Create a comment authored by a user and save the presentation.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function addModernComment() {
     let presentation = new aspose.slides.Presentation();
     try {
@@ -45,6 +49,9 @@ function addModernComment() {
 Read a modern comment from an existing presentation.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function accessModernComment() {
     let presentation = new aspose.slides.Presentation("modern_comment.pptx");
     try {
@@ -63,6 +70,9 @@ function accessModernComment() {
 Remove a comment and save the updated file.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function removeModernComment() {
     let presentation = new aspose.slides.Presentation("modern_comment.pptx");
     try {
@@ -83,6 +93,10 @@ function removeModernComment() {
 Add replies to a parent modern comment.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function replyToModernComment() {
     let presentation = new aspose.slides.Presentation("modern_comment.pptx");
     try {

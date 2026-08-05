@@ -32,6 +32,9 @@ In addition, the article demonstrates how to get the actual position of parent c
 Aspose.Slides for Node.js via Java provides a simple API for getting these properties. Properties of [Axis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis) class provide information about actual position of axis chart element ([Axis.getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMaxValue--), [Axis.getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinValue--), [Axis.getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnit--), [Axis.getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnit--), [Axis.getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMajorUnitScale--), [Axis.getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Axis#getActualMinorUnitScale--)). It is necessary to call method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) previously to fill properties with actual values.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
@@ -52,6 +55,9 @@ try {
 Aspose.Slides for Node.js via Java provides a simple API for getting these properties. Properties of `ActualLayout` class provide information about actual position of parent chart element `ActualLayout.getActualX`, `ActualLayout.getActualY`, `ActualLayout.getActualWidth`, `ActualLayout.getActualHeight`. It is necessary to call method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) previously to fill properties with actual values.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 350);
@@ -69,9 +75,13 @@ try {
 
 ## **Hide Information from Chart**
 
-This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Node.js via Java you can hide **Title, Vertical Axis, Horizontal Axis** and **Grid Lines** from chart. Below code example shows how to use these properties.
+This topic helps you to understand how to hide information from chart. Using Aspose.Slides for Node.js via Java you can hide **Title, Vertical Axis, Horizontal Axis, Legend** and **Grid Lines** from chart. Below code example shows how to use these properties.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -86,8 +96,9 @@ try {
     chart.setLegend(false);
     // Hiding MajorGridLines
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().removeAt(i);
+    // Keeping only the first series on the chart
+    while (chart.getChartData().getSeries().size() > 1) {
+        chart.getChartData().getSeries().removeAt(1);
     }
     var series = chart.getChartData().getSeries().get_Item(0);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
@@ -97,7 +108,7 @@ try {
     // Setting series line color
     series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Solid);
+    series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
     pres.save("HideInformationFromChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
