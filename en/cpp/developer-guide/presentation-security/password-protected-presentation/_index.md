@@ -201,13 +201,13 @@ presentation->get_ProtectionManager()->RemoveWriteProtection();
 presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Get the Properties of an Encrypted Presentation**
+## **Get Properties of an Encrypted Presentation**
 
-Typically, users struggle to get the document properties of an encrypted or password-protected presentation. Aspose.Slides, however, offers a mechanism that allows you to password protect a presentation while retaining the means for users to access the properties of that presentation.
+Typically, users struggle to retrieve the document properties of an encrypted or password-protected presentation. However, Aspose.Slides provides a mechanism that allows you to password protect a presentation while still enabling access to its document properties.
 
-**Note** that when Aspose.Slides encrypts a presentation, the presentation’s document properties get password protected too by default. But if you need to make the presentation’s properties accessible (even after the presentation gets encrypted), Aspose.Slides allows you to do precisely that. 
+**Note:** By default, when Aspose.Slides encrypts a presentation, the presentation’s document properties are also password protected. If you need to make the document properties accessible even after encryption, Aspose.Slides allows you to do precisely that.
 
-If you want users to retain the ability to access the properties of a presentation you encrypted, you can pass `true` to the [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d) method. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
+If you want users to retain the ability to access the properties of an encrypted presentation, pass `false` to the `set_EncryptDocumentProperties` method of [IProtectionManager](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/). This sample code shows you how to encrypt a presentation while still providing users access to its document properties:
 
 ``` cpp
 #include <DOM/IProtectionManager.h>
@@ -216,9 +216,47 @@ using namespace Aspose::Slides;
 
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
+presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
 presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+## **Load Only Document Properties from an Encrypted Presentation**
+
+To inspect the metadata of an encrypted presentation without loading its slides or other content, create a [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) object and set [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) to `true`. In this mode, Aspose.Slides ignores the password and loads only the document properties that are publicly accessible.
+
+The following code example reads built-in and custom document properties through [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
+
+``` cpp
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+auto documentProperties = presentation->get_DocumentProperties();
+
+// Read built-in document properties.
+auto title = documentProperties->get_Title();
+auto author = documentProperties->get_Author();
+Console::WriteLine(String(u"Title: ") + title);
+Console::WriteLine(String(u"Author: ") + author);
+
+// Read custom document properties.
+int customPropertyCount = documentProperties->get_CountOfCustomProperties();
+
+for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+{
+    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
+    auto propertyValue = documentProperties->idx_get(propertyName);
+    auto propertyValueText = ObjectExt::ToString(propertyValue);
+
+    Console::WriteLine(propertyName + u": " + propertyValueText);
+}
+
+presentation->Dispose();
+```
+
+This workflow works only when the document properties were left unencrypted (public) when the presentation was encrypted. If the document properties are encrypted, setting `LoadOptions::set_OnlyLoadDocumentProperties` to `true` causes an exception because the password is ignored in this mode. To access encrypted document properties or load the complete presentation, including its slides and other content, provide the correct password with `LoadOptions::set_Password` in [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/).
 
 ## **Check Whether a Presentation Is Password Protected**
 
@@ -295,14 +333,14 @@ It returns `true` if the presentation has been encrypted with the specified pass
 
 ## **FAQ**
 
-### What encryption methods are supported by Aspose.Slides?
+**What encryption methods are supported by Aspose.Slides?**
 
 Aspose.Slides supports modern encryption methods, including AES-based algorithms, ensuring a high level of data security for your presentations.
 
-### What happens if an incorrect password is entered when attempting to open a presentation?
+**What happens if an incorrect password is entered when attempting to open a presentation?**
 
 An exception is thrown if an incorrect password is used, alerting you that access to the presentation is denied. This helps prevent unauthorized access and protects the presentation content.
 
-### Are there any performance implications when working with password-protected presentations?
+**Are there any performance implications when working with password-protected presentations?**
 
 The encryption and decryption process may introduce a slight overhead during opening and saving operations. In most cases, this performance impact is minimal and does not significantly affect the overall processing time of your presentation tasks.

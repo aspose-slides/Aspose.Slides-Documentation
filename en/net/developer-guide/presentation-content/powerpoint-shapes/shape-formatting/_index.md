@@ -7,6 +7,8 @@ url: /net/shape-formatting/
 keywords:
 - format shape
 - format line
+- sketch effect
+- sketch shape line
 - format join style
 - gradient fill
 - pattern fill
@@ -79,6 +81,48 @@ using (Presentation presentation = new Presentation())
 The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
+
+## **Apply Sketch Effects to Shape Lines**
+
+A sketch effect makes a shape line look hand-drawn. Use [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) to access the line settings, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) to access the sketch settings, and [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) enumeration.
+
+The following C# code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
+
+```csharp
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+
+// Access the shape's line format and its sketch format.
+var sketchFormat = shape.LineFormat.SketchFormat;
+
+// Apply a sketch effect.
+sketchFormat.SketchType = LineSketchType.Curved;
+
+// Read the sketch effect assigned directly to the shape.
+var explicitSketchType = sketchFormat.SketchType;
+Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
+
+// Remove the sketch effect.
+sketchFormat.SketchType = LineSketchType.None;
+```
+
+The value returned by `ISketchFormat.SketchType` represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), access [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), and read [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). The effective value reflects the formatting that is actually applied after inheritance is resolved:
+
+```csharp
+using var presentation = new Presentation("presentation.pptx");
+
+var shape = presentation.Slides[0].Shapes[0];
+var lineFormat = shape.LineFormat;
+
+var explicitSketchType = lineFormat.SketchFormat.SketchType;
+var effectiveLineFormat = lineFormat.GetEffective();
+var effectiveSketchType = effectiveLineFormat.SketchFormat.SketchType;
+
+Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
+Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
+```
 
 ## **Format Join Styles**
 
@@ -562,14 +606,14 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **FAQ**
 
-### Does shape formatting affect the final presentation file size?
+**Does shape formatting affect the final presentation file size?**
 
 Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
 
-### How can I detect shapes on a slide that share identical formatting so I can group them?
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
 
 Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
 
-### Can I save a set of custom shape styles to a separate file for reuse in other presentations?
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
 
 Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.

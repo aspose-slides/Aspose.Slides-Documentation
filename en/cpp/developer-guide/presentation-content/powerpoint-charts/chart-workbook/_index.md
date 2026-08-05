@@ -13,6 +13,8 @@ keywords:
 - data source
 - external workbook
 - external data
+- chart cache
+- workbook recovery
 - PowerPoint
 - presentation
 - C++
@@ -468,28 +470,55 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **Recover a Workbook from the Chart Cache**
+
+If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), configure it with [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), and call [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) with `true` before opening the presentation.
+
+The following C++ example opens a presentation whose chart references an unavailable external workbook and accesses the recovered data through [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) and [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Read or modify the recovered workbook data here.
+
+presentation->Dispose();
+```
+
+If the external workbook is unavailable and recovery is disabled, Aspose.Slides throws a `System::InvalidOperationException`. Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
+
 ## **FAQ**
 
-### Can I determine whether a specific chart is linked to an external or an embedded workbook?
+**Can I determine whether a specific chart is linked to an external or an embedded workbook?**
 
 Yes. A chart has a [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) and a [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); if the source is an external workbook, you can read the full path to make sure an external file is being used.
 
-### Are relative paths to external workbooks supported, and how are they stored?
+**Are relative paths to external workbooks supported, and how are they stored?**
 
 Yes. If you specify a relative path, it is automatically converted to an absolute path. This is convenient for project portability; however, be aware that the presentation will store the absolute path in the PPTX file.
 
-### Can I use workbooks located on network resources/shares?
+**Can I use workbooks located on network resources/shares?**
 
 Yes, such workbooks can be used as an external data source. However, editing remote workbooks directly from Aspose.Slides is not supported—they can only be used as a source.
 
-### Does Aspose.Slides overwrite the external XLSX when saving the presentation?
+**Does Aspose.Slides overwrite the external XLSX when saving the presentation?**
 
 No. The presentation stores a [link to the external file](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) and uses it for reading data. The external file itself is not modified when the presentation is saved.
 
-### What should I do if the external file is password-protected?
+**What should I do if the external file is password-protected?**
 
 Aspose.Slides does not accept a password when linking. A common approach is to remove protection in advance or prepare a decrypted copy (for example, using [Aspose.Cells](/cells/cpp/)) and link to that copy.
 
-### Can multiple charts reference the same external workbook?
+**Can multiple charts reference the same external workbook?**
 
 Yes. Each chart stores its own link. If they all point to the same file, updating that file will be reflected in each chart the next time the data is loaded.
