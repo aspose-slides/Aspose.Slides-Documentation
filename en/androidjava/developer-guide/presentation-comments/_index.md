@@ -48,6 +48,10 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for Andr
 This Java code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation();
 try {
@@ -69,7 +73,7 @@ try {
     // Accesses ISlide 1
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // When null is passed as an argument, comments from all authors are brought to the selected slide
+    // Gets the comments added by this author to the selected slide (pass null to get comments from all authors)
     IComment[] Comments = slide.getSlideComments(author);
 
     // Accesses the comment at index 0 for slide 1
@@ -92,6 +96,8 @@ try {
 This Java code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates the Presentation class
 Presentation pres = new Presentation("Comments1.pptx");
 try {
@@ -117,6 +123,10 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 This Java code shows you how to add comments and get replies to them:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
 Presentation pres = new Presentation();
 try {
     // Adds a comment
@@ -184,6 +194,10 @@ Aspose.Slides supports modern comments by the [ModernComment](https://reference.
 This Java code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
 Presentation pres = new Presentation();
 try {
     ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
@@ -202,6 +216,8 @@ try {
 This Java code shows you how to remove all comments and authors in a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("example.pptx");
 try {
     // Deletes all comments from the presentation
@@ -224,6 +240,11 @@ try {
 This Java code shows you how to delete specific comments on a slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Date;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);

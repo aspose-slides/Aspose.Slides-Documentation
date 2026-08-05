@@ -42,7 +42,6 @@ Aspose.Slides for Android via Java provides a simple API for managing different 
    1. Setting **Min, Max, Major and Minor units** for Value Axis
    1. Setting **Text Properties** for Value Axis data
    1. Setting **Title** for Value Axis
-   1. Setting **Line Format** for Value Axis
 1. Access the chart Category Axis and set the following properties:
    1. Setting **Line format** for Category Axis Major Grid lines
    1. Setting **Line format** for Category Axis Minor Grid lines
@@ -63,6 +62,9 @@ Aspose.Slides for Android via Java provides a simple API for managing different 
 1. Write the modified presentation to a PPTX file
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -73,7 +75,7 @@ try {
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
     // Setting Chart Title
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -95,15 +97,15 @@ try {
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
     // Setting value axis number format
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
     // Setting chart maximum, minimum values
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
@@ -116,11 +118,11 @@ try {
     txtVal.setFontHeight(16);
     txtVal.setFontItalic(NullableBool.True);
     txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
+    txtVal.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
     txtVal.setLatinFont(new FontData("Times New Roman"));
 
     // Setting value axis title
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
     IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     valtitle.setText("Primary Axis");
@@ -150,7 +152,7 @@ try {
     txtCat.setLatinFont(new FontData("Arial"));
 
     // Setting Category Title
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
     IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
@@ -173,29 +175,28 @@ try {
     txtleg.setFontHeight(16);
     txtleg.setFontItalic(NullableBool.True);
     txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    txtleg.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
     // Set show chart legends without overlapping chart
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
+    chart.getLegend().setOverlay(false);
 
     chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
     // Setting secondary value axis
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
+    chart.getAxes().getSecondaryVerticalAxis().setVisible(true);
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
     chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
 
     // Setting secondary value axis Number format
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
     chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
 
     // Setting chart maximum, minimum values
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
     chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
@@ -211,7 +212,7 @@ try {
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     // Setting Plot area color
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
 
     // Save Presentation
     pres.save("FormattedChart.pptx", SaveFormat.Pptx);
@@ -231,6 +232,8 @@ Aspose.Slides for Android via Java provides support for setting the font related
 Below sample example is given.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -254,11 +257,10 @@ Aspose.Slides for Android via Java provides a simple API for managing chart data
 1. Set the preset number format from the possible preset values.
 1. Traverse through the chart data cell in every chart series and set the chart data number format.
 1. Save the presentation.
-1. Set the custom number format.
-1. Traverse through chart data cell inside every chart series and setting a different chart data number format.
-1. Save the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -335,13 +337,15 @@ Aspose.Slides for Android via Java provides support for setting chart area. Met
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
-1. Set fill type and fill color of chart
+1. Set the fill type and style of the chart border line
 1. Set round corner property True.
 1. Save modified presentation.
 
 Below sample example is given. 
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

@@ -27,6 +27,8 @@ In addition to the basic image export workflow, the article also addresses commo
 Aspose.Slides for Android via Java provides support for extracting image of specific chart. Below sample example is given. 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
@@ -34,7 +36,8 @@ try {
     IImage slideImage = chart.getImage();
 
     try {
-          slideImage.save("image.jpg", ImageFormat.Jpeg);
+          // The chart image has a transparent background, so save it in a format that supports alpha.
+          slideImage.save("image.png", ImageFormat.Png);
     } finally {
          if (slideImage != null) slideImage.dispose();
     }

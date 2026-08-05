@@ -39,6 +39,8 @@ Using the [save](https://reference.aspose.com/slides/androidjava/com.aspose.slid
 This code demonstrates how to convert a PowerPoint presentation to TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -60,6 +62,8 @@ Let's say we have a "sample.pptx" file with the following slide:
 This code demonstrates how to convert the colored slide to a black-and-white TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 TiffOptions tiffOptions = new TiffOptions();
 tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
@@ -83,6 +87,9 @@ If you require a TIFF image with specific dimensions, you can set your desired v
 This code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
 
 ```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -109,7 +116,7 @@ try {
     // Set the image size.
     tiffOptions.setImageSize(new Size(1728, 1078));
 
-    INotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
@@ -127,6 +134,8 @@ Using the [setPixelFormat](https://reference.aspose.com/slides/androidjava/com.a
 This code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -142,7 +151,7 @@ try {
         Format32bppArgb   - 32 bits per pixel, ARGB.
     */
     
-    // Save the presentation as TIFF with the specified image size.
+    // Save the presentation as TIFF with the specified pixel format.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();

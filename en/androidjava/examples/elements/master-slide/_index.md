@@ -24,6 +24,9 @@ This article demonstrates how to create, modify, and manage master slides using 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void addMasterSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -63,6 +66,8 @@ static void addMasterSlide() {
 You can access master slides using the presentation master collection. Here’s how to retrieve and work with them:
 
 ```java
+import com.aspose.slides.*;
+
 static void accessMasterSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -81,6 +86,8 @@ static void accessMasterSlide() {
 Master slides can be removed either by index or by reference.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeMasterSlide() {
     Presentation presentation = new Presentation("sample.pptx");
     try {
@@ -101,6 +108,8 @@ static void removeMasterSlide() {
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeUnusedMasterSlide() {
     Presentation presentation = new Presentation();
     try {

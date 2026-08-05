@@ -33,6 +33,8 @@ In order to set the legend properties. Please follow the steps below:
 In the example given below, we have set the position and size for Chart legend.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -66,6 +68,8 @@ The Aspose.Slides for Android via Java lets developers allow to set font size of
 - Write presentation to disk.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -91,11 +95,12 @@ The Aspose.Slides for Android via Java lets developers allow to set font size of
 - Creating the default chart.
 - Access legend entry.
 - Set the Font Size.
-- Set minimum axis value.
-- Set maximum axis value.
 - Write presentation to disk.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {

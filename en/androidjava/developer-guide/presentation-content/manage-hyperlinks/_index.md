@@ -48,6 +48,8 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 This Java code shows you how to add a website hyperlink to a text:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -69,6 +71,8 @@ try {
 This sample code in Java shows you how to add a website hyperlink to a shape:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -89,15 +93,17 @@ Aspose.Slides allows you to add hyperlinks to images, audio, and video files.
 This sample code shows you how to add a hyperlink to an **image**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Adds image to presentation
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
 	// Creates picture frame on slide 1 based on previously added image
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
@@ -106,7 +112,6 @@ try {
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -115,6 +120,11 @@ try {
 This sample code shows you how to add a hyperlink to an **audio file**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -133,6 +143,11 @@ try {
 This sample code shows you how to add a hyperlink to a **video**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -161,6 +176,9 @@ Since hyperlinks allow you to add references to objects or places, you can use t
 This sample code shows you how to create a table of contents with hyperlinks:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -198,6 +216,9 @@ With the [ColorSource](https://reference.aspose.com/slides/androidjava/com.aspos
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -225,14 +246,16 @@ try {
 This Java code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -254,7 +277,9 @@ try {
 This Java code shows you how to remove the hyperlink from a shape in a presentation slide: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -280,6 +305,8 @@ The [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slide
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -289,6 +316,9 @@ try {
 	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
+
+	// Changes the tooltip of the hyperlink that has already been added
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
 
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {

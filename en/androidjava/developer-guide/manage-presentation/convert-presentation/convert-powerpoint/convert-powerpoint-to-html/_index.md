@@ -48,6 +48,8 @@ By default, HTML export produces a self-contained HTML document where most resou
 To export a presentation to HTML, load it with [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) and save it with [SaveFormat.Html](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.save("presentation.html", SaveFormat.Html);
@@ -77,6 +79,8 @@ The following sections show the most common options separately so you can combin
 The `Presentation.save` overload that accepts slide numbers uses 1-based slide positions. The loop below saves every slide to a separate HTML file.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     int slideCount = presentation.getSlides().size();
@@ -100,6 +104,8 @@ Use this pattern when a website or application needs one HTML page per slide. If
 [ResponsiveHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/responsivehtmlcontroller/) provides responsive HTML output through [HtmlFormatter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/htmlformatter/). Use it when the exported page should adapt better to browser width.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ResponsiveHtmlController controller = new ResponsiveHtmlController();
@@ -117,6 +123,8 @@ try {
 For SVG-based responsive layout, set `SvgResponsiveLayout` on [HtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/htmloptions/). This is useful when the slide content is exported as scalable SVG markup.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     HtmlOptions htmlOptions = new HtmlOptions();
@@ -139,6 +147,8 @@ Suppose the source presentation contains speaker notes:
 The following code exports the slide content with speaker notes below the slide.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
@@ -164,6 +174,8 @@ To export comments, set `CommentsPosition`, for example to `CommentsPositions.Ri
 HTML export can compress slide images to reduce output size. Set `PicturesCompression` to a value from [PicturesCompression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturescompression/) when you need higher image quality.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     HtmlOptions htmlOptions = new HtmlOptions();
@@ -178,6 +190,8 @@ try {
 By default, cropped areas of images may be removed from the exported output. Keep cropped data only when users must be able to recover or inspect those hidden image parts. Keeping it can increase the HTML size.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     HtmlOptions htmlOptions = new HtmlOptions();
@@ -194,6 +208,8 @@ try {
 For simple styling, pass a CSS string to `HtmlFormatter.createDocumentFormatter`. This changes the surrounding HTML document while Aspose.Slides continues to render the slide content.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     String cssRules = "body { margin: 0; background: #f7f7f7; } .slide { margin: 24px auto; }";
@@ -215,6 +231,8 @@ For a custom document header, a linked CSS file, or custom markup around slides 
 If the target environment may not have the presentation fonts installed, embed fonts in the HTML with [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedallfontshtmlcontroller/). Embedding improves visual fidelity but increases output size.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     String[] fontNamesToExclude = { "Arial", "Calibri" };
@@ -237,6 +255,10 @@ Exclude fonts only when you are confident that the target browsers or systems al
 To reduce the HTML file size, you can write font data to separate WOFF files and add `@font-face` rules to the HTML. The helper below extends [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedallfontshtmlcontroller/) and overrides `writeFont`.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileOutputStream;
+
 class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
     private final String fontOutputDirectory;
     private final String fontUrlPrefix;
@@ -306,8 +328,6 @@ class LinkedFontsHtmlController extends EmbedAllFontsHtmlController {
 
 String outputDirectory = System.getProperty("user.dir") + "/html-output";
 String fontsDirectory = outputDirectory + "/fonts";
-File dir = new File("path/to/folder");
-dir.mkdir();
 
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -318,7 +338,7 @@ try {
     htmlOptions.setHtmlFormatter(formatter);
 
     String htmlFilePath = outputDirectory + "/presentation.html";
-    presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
+    presentation.save(htmlFilePath, SaveFormat.Html, htmlOptions);
 } finally {
     presentation.dispose();
 }
@@ -341,24 +361,29 @@ When you externalize resources, choose two paths deliberately:
 
 - `path`: the directory where generated media files will be written.
 - `fileName`: the HTML file name being generated.
-- `baseUri`: the absolute URI prefix used in the HTML links to media files.
+- `baseUri`: an absolute URI for the media directory. It must parse as a URI, so pass a `file:///` or `http(s)://` string, not a plain file system path.
 
-If the HTML file is `html-output/presentation.html` and media files are saved in `html-output/media`, `path` should point to the media directory on disk, while `baseUri` should point to the same directory from the browser's point of view. For local preview, you can build a `file:///` URI from the media directory. For a deployed application, use the absolute URL of the published media directory.
+Exported media files are referenced in the generated HTML by file name only, relative to the HTML document. So `path` must be the directory that also holds the HTML file, otherwise the browser cannot resolve the links. For local preview, build the `file:///` URI with `Paths.get(mediaDirectory).toUri().toString()`. For a deployed application, use the absolute URL of the published media directory.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 String outputDirectory = System.getProperty("user.dir") + "/html-output";
-String mediaDirectory = outputDirectory + "/media";
 File outDir = new File(outputDirectory);
 outDir.mkdir();
-File mediaDir = new File(mediaDirectory);
-mediaDir.mkdir();
 
 String htmlFileName = "presentation.html";
-String mediaBaseUri = mediaDirectory;
+
+// Media files are linked by name relative to the HTML document, so write them next to it.
+String mediaDirectory = outputDirectory;
+String mediaBaseUri = Paths.get(mediaDirectory).toUri().toString();
 
 Presentation presentation = new Presentation();
 try {
-    byte[] videoData = ...;// intro.mp4
+    byte[] videoData = Files.readAllBytes(Paths.get("intro.mp4"));
 
     IVideo video = presentation.getVideos().addVideo(videoData);
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -375,7 +400,7 @@ try {
     htmlOptions.setSlideImageFormat(slideImageFormat);
 
     String htmlFilePath = outputDirectory + "/" + htmlFileName;
-    presentation.save(htmlFilePath.toString(), SaveFormat.Html, htmlOptions);
+    presentation.save(htmlFilePath, SaveFormat.Html, htmlOptions);
 } finally {
     presentation.dispose();
 }
@@ -421,7 +446,7 @@ These values do not indicate a real visual font-size change. They are only a mat
 
 ### How should I choose baseUri for media export?
 
-Choose `baseUri` from the browser's point of view and pass it as an absolute URI. For local preview, you can derive it from the output directory with `mediaDirectory.toUri().toString()`. For deployment, use the absolute URL of the published media directory. The file system `path` and browser `baseUri` do not have to be the same string, but they must describe the same resource location.
+Pass `baseUri` as an absolute URI. A plain file system path or a relative path raises a URI format error in the [VideoPlayerHtmlController](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplayerhtmlcontroller/) constructor. For local preview, derive it from the output directory with `Paths.get(mediaDirectory).toUri().toString()`. For deployment, use the absolute URL of the published media directory. Note that the generated `<video>` and `<img>` elements reference exported media by file name relative to the HTML document, so the file system `path` still has to be the directory that holds the HTML file.
 
 ### Can I include hidden slides?
 

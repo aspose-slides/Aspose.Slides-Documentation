@@ -53,6 +53,8 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/andr
 This Java code shows you how to add a VBA macro from scratch to a presentation:
 
 ```java
+import com.aspose.slides.*;
+
 // Creates an instance of the presentation class
 Presentation pres = new Presentation();
 try {
@@ -100,6 +102,8 @@ Using the [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspos
 This Java code shows you how to remove a VBA macro:
 
 ```java
+import com.aspose.slides.*;
+
 // Loads the presentation containing the macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -122,6 +126,8 @@ try {
 This Java code shows you how to extract VBA macros from a presentation containing macros:
 
 ```java
+import com.aspose.slides.*;
+
 // Loads the presentation containing the macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -147,6 +153,8 @@ Using the [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/
 3. Check whether the VBA project is password-protected to view its properties.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // Check whether the presentation contains a VBA project.

@@ -36,6 +36,8 @@ Aspose.Slides for Android via Java now supports second plot options for Pie of P
 In the example given below, we have set different properties of Pie of Pie chart.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -56,22 +58,24 @@ try {
 ```
 
 ## **Set Automatic Pie Chart Slice Colors**
-Aspose.Slides for Android via Java provides a simple API for setting automatic pie chart slide colors. The sample code applies setting the above said properties.
+Aspose.Slides for Android via Java provides a simple API for setting automatic pie chart slice colors. The sample code applies setting the above said properties.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Set chart Title.
-1. Set first series to Show Values.
 1. Set the index of chart data sheet.
 1. Getting the chart data worksheet.
 1. Delete default generated series and categories.
 1. Add new categories.
 1. Add new series.
+1. Set the new series to Show Values.
 
 Write the modified presentation to a PPTX file.
 
 ```java
+import com.aspose.slides.*;
+
 // Create an instance of Presentation class
 Presentation pres = new Presentation();
 try {
@@ -83,9 +87,6 @@ try {
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-
-    // Set first series to Show Values
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
 
     // Setting the index of chart data sheet
     int defaultWorksheetIndex = 0;
@@ -109,6 +110,9 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
+
+    // Set the new series to Show Values
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
 
     series.getParentSeriesGroup().setColorVaried(true);
     pres.save("Pie.pptx", SaveFormat.Pptx);

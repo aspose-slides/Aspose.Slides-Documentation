@@ -39,6 +39,8 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 This Java code shows how to change the text in a placeholder:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantiates a Presentation class
 Presentation pres = new Presentation("ReplacingText.pptx");
 try {
@@ -68,10 +70,12 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This Java code shows you how to set the prompt text in a placeholder:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Iterates through the slide
+    for (IShape shape : slide.getLayoutSlide().getShapes()) // Iterates through the slide layout, where prompt texts live
     {
         if (shape.getPlaceholder() != null && shape instanceof AutoShape)
         {
@@ -83,6 +87,10 @@ try {
             else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Adds subtitle
             {
                 text = "Add Subtitle";
+            }
+            else // Leaves the date, footer and slide number placeholders untouched
+            {
+                continue;
             }
 
             ((IAutoShape)shape).getTextFrame().setText(text);
@@ -103,22 +111,36 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This Java code shows you how to set the transparency for a picture background (inside a shape):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("example.pptx");
 
 IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
 IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+int alphaValue = 40;
+
+// Look for a fixed-percentage transparency effect already applied to the picture.
+AlphaModulateFixed alphaModulate = null;
 for (int i = 0; i < operationCollection.size(); i++)
 {
     if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
     {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
+        alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
         float currentValue = 100 - alphaModulate.getAmount();
         System.out.println("Current transparency value: " + currentValue);
-
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+        break;
     }
+}
+
+if (alphaModulate == null)
+{
+    // The picture has no transparency effect yet, so add one.
+    operationCollection.addAlphaModulateFixedEffect(100 - alphaValue);
+}
+else
+{
+    alphaModulate.setAmount(100 - alphaValue);
 }
 
 presentation.save("example_out.pptx", SaveFormat.Pptx);

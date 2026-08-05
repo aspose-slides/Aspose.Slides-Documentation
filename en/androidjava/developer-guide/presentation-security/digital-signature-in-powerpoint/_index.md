@@ -20,7 +20,7 @@ description: "Learn how to digitally sign PowerPoint & OpenDocument files with A
 
 ## **Introduction**
 
-**Digital certificate** is used to create a password protected powerpoint presentation, marked as created by a particular organization or person. Digital certificate can be obtained by contacting an authorized organization - a certificate authority. After installing digital certificate into the system, it can be used to add a digital signature to the presentation via File -> Info -> Protect Presentation:
+**Digital certificate** is used to sign a PowerPoint presentation, marking it as created by a particular organization or person. Digital certificate can be obtained by contacting an authorized organization - a certificate authority. After installing digital certificate into the system, it can be used to add a digital signature to the presentation via File -> Info -> Protect Presentation:
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
 
@@ -36,6 +36,8 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```java
+import com.aspose.slides.*;
+
 // Opening the presentation file
 Presentation pres = new Presentation();
 try {
@@ -58,6 +60,8 @@ try {
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
 ```java
+import com.aspose.slides.*;
+
 // Open presentation
 Presentation pres = new Presentation("SomePresentationSigned.pptx");
 try {

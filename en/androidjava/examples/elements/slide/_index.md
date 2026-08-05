@@ -24,6 +24,8 @@ Each example below includes a brief explanation followed by a code snippet in Ja
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
 ```java
+import com.aspose.slides.*;
+
 static void addSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -45,6 +47,8 @@ static void addSlide() {
 You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
 
 ```java
+import com.aspose.slides.*;
+
 static void accessSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -70,6 +74,8 @@ static void accessSlide() {
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
 ```java
+import com.aspose.slides.*;
+
 static void cloneSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -89,6 +95,8 @@ static void cloneSlide() {
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
 ```java
+import com.aspose.slides.*;
+
 static void reorderSlide() {
     Presentation presentation = new Presentation();
     try {
@@ -108,6 +116,8 @@ static void reorderSlide() {
 To remove a slide, simply reference it and call `remove`. This example adds a second slide and then removes the original, leaving only the new one.
 
 ```java
+import com.aspose.slides.*;
+
 static void removeSlide() {
     Presentation presentation = new Presentation();
     try {
