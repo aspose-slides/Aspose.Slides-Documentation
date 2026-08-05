@@ -7,6 +7,8 @@ url: /php-java/shape-formatting/
 keywords:
 - format shape
 - format line
+- sketch effect
+- sketch shape line
 - format join style
 - gradient fill
 - pattern fill
@@ -80,6 +82,54 @@ try {
 The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
+
+## **Apply Sketch Effects to Shape Lines**
+
+A sketch effect makes a shape line look hand-drawn. Use [Shape.getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) to access the line settings, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) to access the sketch settings, and [SketchFormat.setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) enumeration.
+
+The following PHP code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+
+    // Access the shape's line format and its sketch format.
+    $sketchFormat = $shape->getLineFormat()->getSketchFormat();
+
+    // Apply a sketch effect.
+    $sketchFormat->setSketchType(LineSketchType::Curved);
+
+    // Read the sketch effect assigned directly to the shape.
+    $explicitSketchType = $sketchFormat->getSketchType();
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+
+    // Remove the sketch effect.
+    $sketchFormat->setSketchType(LineSketchType::None);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The value returned by [SketchFormat.getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/), access the returned object's `getSketchFormat` method, and read its `getSketchType` value. The effective value reflects the formatting that is actually applied after inheritance is resolved:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $lineFormat = $shape->getLineFormat();
+
+    $explicitSketchType = $lineFormat->getSketchFormat()->getSketchType();
+    $effectiveLineFormat = $lineFormat->getEffective();
+    $effectiveSketchType = $effectiveLineFormat->getSketchFormat()->getSketchType();
+
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+    echo "Effective sketch type: " . $effectiveSketchType . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **Format Join Styles**
 
@@ -582,14 +632,14 @@ try {
 
 ## **FAQ**
 
-### Does shape formatting affect the final presentation file size?
+**Does shape formatting affect the final presentation file size?**
 
 Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
 
-### How can I detect shapes on a slide that share identical formatting so I can group them?
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
 
 Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
 
-### Can I save a set of custom shape styles to a separate file for reuse in other presentations?
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
 
 Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
