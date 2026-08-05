@@ -13,6 +13,8 @@ keywords:
 - data source
 - external workbook
 - external data
+- chart cache
+- workbook recovery
 - PowerPoint
 - presentation
 - Python
@@ -246,28 +248,49 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Recover a Workbook from the Chart Cache**
+
+If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), then enable [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) through [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/) before opening the presentation.
+
+The following Python example opens a presentation whose chart references an unavailable external workbook and accesses the recovered data through [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) and [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.recover_workbook_from_chart_cache = True
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    chart = presentation.slides[0].shapes[0]
+    recovered_workbook = chart.chart_data.chart_data_workbook
+
+    # Read or modify the recovered workbook data here.
+```
+
+If the external workbook is unavailable and recovery is disabled, Aspose.Slides raises an exception. Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
+
 ## **FAQ**
 
-### Can I determine whether a specific chart is linked to an external or an embedded workbook?
+**Can I determine whether a specific chart is linked to an external or an embedded workbook?**
 
 Yes. A chart has a [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) and a [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); if the source is an external workbook, you can read the full path to make sure an external file is being used.
 
-### Are relative paths to external workbooks supported, and how are they stored?
+**Are relative paths to external workbooks supported, and how are they stored?**
 
 Yes. If you specify a relative path, it is automatically converted to an absolute path. This is convenient for project portability; however, be aware that the presentation will store the absolute path in the PPTX file.
 
-### Can I use workbooks located on network resources/shares?
+**Can I use workbooks located on network resources/shares?**
 
 Yes, such workbooks can be used as an external data source. However, editing remote workbooks directly from Aspose.Slides is not supported—they can only be used as a source.
 
-### Does Aspose.Slides overwrite the external XLSX when saving the presentation?
+**Does Aspose.Slides overwrite the external XLSX when saving the presentation?**
 
 Only if you edited the chart data. The presentation stores a [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) and uses it for reading data, so opening and saving a presentation leaves the workbook untouched. However, values you change through the chart data (see [Edit Chart Data](#edit-chart-data) above) are written back into the external workbook when the presentation is saved—work on a copy if the original must stay intact.
 
-### What should I do if the external file is password-protected?
+**What should I do if the external file is password-protected?**
 
 Aspose.Slides does not accept a password when linking. A common approach is to remove protection in advance or prepare a decrypted copy (for example, using [Aspose.Cells](/cells/python-net/)) and link to that copy.
 
-### Can multiple charts reference the same external workbook?
+**Can multiple charts reference the same external workbook?**
 
 Yes. Each chart stores its own link. If they all point to the same file, updating that file will be reflected in each chart the next time the data is loaded.
