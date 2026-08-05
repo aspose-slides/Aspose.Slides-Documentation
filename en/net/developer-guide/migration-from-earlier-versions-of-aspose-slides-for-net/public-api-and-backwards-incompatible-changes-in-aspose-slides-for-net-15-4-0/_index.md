@@ -35,6 +35,9 @@ See examples [here](/slides/net/adding-and-formatting-text/#managing-paragraph-b
 Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the Reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -63,6 +66,9 @@ Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the s
 Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, MasterSlide or LayoutSlide by slide Id.
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides;
+
 
  using (Presentation presentation = new Presentation())
 
@@ -81,6 +87,9 @@ Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, 
 Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connection sites on the shape.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -117,6 +126,10 @@ Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connecti
 Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -126,7 +139,7 @@ Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the stat
 
   smart.IsReversed = true;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -135,6 +148,10 @@ Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the stat
 Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes in SmartArt object.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -146,7 +163,7 @@ Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -155,6 +172,10 @@ Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes
 Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node is a hidden node in the data model.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -174,7 +195,7 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node
 
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -183,6 +204,10 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node
 Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get or sets organization chart type associated with current node.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -192,7 +217,7 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 
@@ -201,6 +226,10 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get
 The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been added.It allows change layout type of an existing diagram.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -210,7 +239,7 @@ The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been add
 
   smart.Layout = SmartArtLayoutType.BasicProcess;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 

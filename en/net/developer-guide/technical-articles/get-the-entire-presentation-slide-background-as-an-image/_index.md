@@ -42,6 +42,8 @@ Aspose.Slides for .NET does not provide a simple method to extract the entire pr
 
 The following code example extracts the entire presentation slide background as an image.
 ```cs
+using Aspose.Slides;
+
 var slideIndex = 0;
 var imageScale = 1;
 

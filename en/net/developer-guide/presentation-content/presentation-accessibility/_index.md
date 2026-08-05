@@ -29,6 +29,8 @@ Mark as decorative flags purely ornamental visuals so screen readers skip them, 
 The following code sample shows how to determine whether a shape is marked as decorative.
 
 ```cs
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var shape = presentation.Slides[0].Shapes[0];

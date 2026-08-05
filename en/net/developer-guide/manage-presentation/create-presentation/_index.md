@@ -37,6 +37,9 @@ To add a simple plain line to a selected slide of the presentation, please follo
 In the example given below, we have added a line to the first slide of the presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation())
 {
@@ -57,6 +60,9 @@ using (Presentation presentation = new Presentation())
 2. Save _Presentation_ to any format supported by [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation presentation = new Presentation();
 
 presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
@@ -70,6 +76,9 @@ presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
 2. Save _Presentation_ to any format supported by [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load any supported file in Presentation e.g. ppt, pptx, odp etc.
 Presentation presentation = new Presentation("Sample.odp");
 

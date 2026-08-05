@@ -38,6 +38,9 @@ Aspose.Slides for .NET now facilitates to add custom SmartArt shapes in their sl
 - Write the modified presentation as a PPTX file.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 // Instantiate the presentation
 using (Presentation pres = new Presentation())
 {
@@ -59,6 +62,9 @@ using (Presentation pres = new Presentation())
 The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a SmartArt shape. If shape is of SmartArt type then we will typecast that to SmartArt instance.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 // Load the desired the presentation
 using (Presentation pres = new Presentation("AccessSmartArtShape.pptx"))
 {
@@ -90,6 +96,9 @@ The following sample code will help to access the SmartArt shape with particular
 - Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
     // Traverse through every shape inside first slide
@@ -125,6 +134,10 @@ The following sample code will help to access the SmartArt shape with particular
 - Save the Presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
     // Traverse through every shape inside first slide
@@ -164,6 +177,10 @@ In this example, we will learn to change the color style for any SmartArt shape.
 - Save the Presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 using (Presentation presentation = new Presentation("AccessSmartArtShape.pptx"))
 {
     // Traverse through every shape inside first slide

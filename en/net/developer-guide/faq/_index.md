@@ -78,6 +78,8 @@ In general, Aspose.Slides for .NET can easily handle presentation files of aroun
 
 **A**: This issue might indicate that the fonts used in the presentation are missing from the operating system on which the code was executed. You should install the fonts on the operating system or load them as external fonts using the [FontsLoader](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/) class as shown below:
 ```cs
+using Aspose.Slides;
+
 var folders = new string[] { "path_to_a_folder_with_fonts" };
 FontsLoader.LoadExternalFonts(folders);
 ```

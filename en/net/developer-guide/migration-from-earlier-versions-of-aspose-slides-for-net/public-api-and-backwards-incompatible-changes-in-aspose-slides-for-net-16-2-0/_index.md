@@ -63,19 +63,23 @@ There's also a SlideText class which implements the ISlideText interface.
 The new API can be used like this:
 
 ``` csharp
+using System;
+using Aspose.Slides;
 
- PresentationText text1 = Presentation.GetPresentationText("presentation.ppt");
+// Extract the text with no respect to its position on the slide (the fastest mode).
+IPresentationText text1 = PresentationFactory.Instance.GetPresentationText(
+    "presentation.ppt", TextExtractionArrangingMode.Unarranged);
 
 Console.WriteLine(text1.SlidesText[0].Text);
-
 Console.WriteLine(text1.SlidesText[0].LayoutText);
-
 Console.WriteLine(text1.SlidesText[0].MasterText);
-
 Console.WriteLine(text1.SlidesText[0].NotesText);
 
-PresentationText text2 = Presentation.GetPresentationText("presentation.pptx", ExtractionMode.Unarranged)
+// Extract the text positioned in the same order as on the slide.
+IPresentationText text2 = PresentationFactory.Instance.GetPresentationText(
+    "presentation.pptx", TextExtractionArrangingMode.Arranged);
 
+Console.WriteLine(text2.SlidesText[0].Text);
 ``` 
 #### **ILegacyDiagram Interface and LegacyDiagram Class Have Been Added**
 Interface Aspose.Slides.ILegacyDiagram and class Aspose.Slides.LegacyDiagram have added to represent legacy diagram object. Legacy diagram object is an old format of diagrams from PowerPoint 97-2003.
@@ -92,53 +96,54 @@ EmbeddedFileName - Returns the path of embedded OLE object
 Property CategoryAxisType specifies type of category axis.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation(sourcePptxFileName))
+string sourcePptxFileName = "chart.pptx";
+string pptxOutPath = "chart_out.pptx";
 
+using (Presentation pres = new Presentation(sourcePptxFileName))
 {
+    IChart chart = pres.Slides[0].Shapes[0] as IChart;
 
-   IChart chart = pres.Slides[0].Shapes[0] as IChart;
+    chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
+    chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
+    chart.Axes.HorizontalAxis.MajorUnit = 1;
+    chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
 
-   chart.Axes.HorizontalAxis.CategoryAxisType = CategoryAxisType.Date;
-
-   chart.Axes.HorizontalAxis.IsAutomaticMajorUnit = false;
-
-   chart.Axes.HorizontalAxis.MajorUnit = 1;
-
-   chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
-
-   pres.Save(pptxOutPath, SaveFormat.Pptx);
-
+    pres.Save(pptxOutPath, SaveFormat.Pptx);
 }
-
 ``` 
 #### **New Property ShowLabelAsDataCallout Has Been Added to DataLabelFormat Class and IDataLabelFormat Interface**
 Property ShowLabelAsDataCallout determines either specified chart's data label will be displayed as data callout or as data label.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
+string pptxFileName = "callout_labels.pptx";
 
+using (Presentation pres = new Presentation())
 {
+    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
 
-   IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 500, 400);
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowLabelAsDataCallout = true;
+    chart.ChartData.Series[0].Labels[2].DataLabelFormat.ShowLabelAsDataCallout = false;
 
-   chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-   chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowLabelAsDataCallout = true;
-
-   chart.ChartData.Series[0].Labels[2].DataLabelFormat.ShowLabelAsDataCallout = false;
-
-   pres.Save(pptxFileName, SaveFormat.Pptx);
-
+    pres.Save(pptxFileName, SaveFormat.Pptx);
 }
-
 ``` 
 #### **Property DrawSlidesFrame Has Been Added to PdfOptions and XpsOptions**
 Boolean property DrawSlidesFrame has been added to interfaces Aspose.Slides.Export.IPdfOptions, Aspose.Slides.Export.IXpsOptions and to related classes Aspose.Slides.Export.PdfOptions, Aspose.Slides.Export.XpsOptions.
 The black frame around each slide will be drawn if this property set 'true'.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation("input.pptx"))
 

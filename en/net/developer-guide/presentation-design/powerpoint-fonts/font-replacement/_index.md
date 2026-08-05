@@ -39,6 +39,9 @@ Aspose.Slides allows you to replace a font this way:
 This C# code demonstrates font replacement:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Loads a presentation
 Presentation presentation = new Presentation("Fonts.pptx");
 

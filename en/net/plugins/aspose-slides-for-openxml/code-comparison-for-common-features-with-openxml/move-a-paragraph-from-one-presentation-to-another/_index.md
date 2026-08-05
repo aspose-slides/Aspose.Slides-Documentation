@@ -7,14 +7,15 @@ url: /net/move-a-paragraph-from-one-presentation-to-another/
 
 ## **OpenXML Presentation**
 ``` csharp
+public static void Main()
+{
+    string FilePath = @"..\..\..\..\Sample Files\";
 
-  string FilePath = @"..\..\..\..\Sample Files\";
+    string FileName = FilePath + "Move a Paragraph from One Presentation to Another 1.pptx";
 
-string FileName = FilePath + "Move a Paragraph from One Presentation to Another 1.pptx";
+    string DestFileName = FilePath + "Move a Paragraph from One Presentation to Another 2.pptx";
 
-string DestFileName = FilePath + "Move a Paragraph from One Presentation to Another 2.pptx";
-
-MoveParagraphToPresentation(FileName, DestFileName);
+    MoveParagraphToPresentation(FileName, DestFileName);
 
 }
 
@@ -62,7 +63,7 @@ using (PresentationDocument sourceDoc = PresentationDocument.Open(sourceFile, tr
 
         // Clone the source paragraph and insert the cloned. paragraph into the target TextBody shape.
 
-        // Passing "true" creates a deep clone, which creates a copy of the 
+        // Passing "true" creates a deep clone, which creates a copy of the
 
         // Paragraph object and everything directly or indirectly referenced by that object.
 
@@ -118,14 +119,19 @@ return slidePart;
 It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. Whether extracting text from one slide or an entire presentation, Aspose.Slides uses the PresentationScanner Class and the static methods it exposes. They are all packed under the namespace [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil).
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- string FilePath = @"..\..\..\..\Sample Files\";
+public static void Main()
+{
+    string FilePath = @"..\..\..\..\Sample Files\";
 
-string FileName = FilePath + "Move a Paragraph from One Presentation to Another 1.pptx";
+    string FileName = FilePath + "Move a Paragraph from One Presentation to Another 1.pptx";
 
-string DestFileName = FilePath + "Move a Paragraph from One Presentation to Another 2.pptx";
+    string DestFileName = FilePath + "Move a Paragraph from One Presentation to Another 2.pptx";
 
-MoveParagraphToPresentation(FileName, DestFileName);
+    MoveParagraphToPresentation(FileName, DestFileName);
+}
 
 // Moves a paragraph range in a TextBody shape in the source document
 
@@ -137,49 +143,51 @@ public static void MoveParagraphToPresentation(string sourceFile, string targetF
 
     string Text = "";
 
-    //Instantiate Presentation class that represents PPTX//Instantiate Presentation class that represents PPTX
+    //Instantiate Presentation class that represents PPTX
 
-    Presentation sourcePres = new Presentation(sourceFile);
+    using (Presentation sourcePres = new Presentation(sourceFile))
 
-    //Access first shape in first slide
-
-    IShape shp = sourcePres.Slides[0].Shapes[0];
-
-    if (shp.Placeholder != null)
+    using (Presentation destPres = new Presentation(targetFile))
 
     {
 
-        //Get text from placeholder
+        //Access first shape in first slide
 
-        Text = ((IAutoShape)shp).TextFrame.Text;
+        IShape shp = sourcePres.Slides[0].Shapes[0];
 
-        ((IAutoShape)shp).TextFrame.Text = "";
+        if (shp.Placeholder != null)
+
+        {
+
+            //Get text from placeholder
+
+            Text = ((IAutoShape)shp).TextFrame.Text;
+
+            ((IAutoShape)shp).TextFrame.Text = "";
+
+        }
+
+        //Access first shape in first slide of the destination presentation
+
+        IShape destshp = destPres.Slides[0].Shapes[0];
+
+        if (destshp.Placeholder != null)
+
+        {
+
+            //Put text into placeholder
+
+            ((IAutoShape)destshp).TextFrame.Text += Text;
+
+        }
+
+        sourcePres.Save(sourceFile, SaveFormat.Pptx);
+
+        destPres.Save(targetFile, SaveFormat.Pptx);
 
     }
-
-    Presentation destPres = new Presentation(targetFile);
-
-    //Access first shape in first slide
-
-    IShape destshp = sourcePres.Slides[0].Shapes[0];
-
-    if (destshp.Placeholder != null)
-
-    {
-
-        //Get text from placeholder
-
-        ((IAutoShape)destshp).TextFrame.Text += Text;
-
-    }
-
-    sourcePres.Save(sourceFile, Aspose.Slides.Export.SaveFormat.Pptx);
-
-    destPres.Save(targetFile, Aspose.Slides.Export.SaveFormat.Pptx);
 
 }
-
-}   
 
 ``` 
 ## **Download Running Code Example**

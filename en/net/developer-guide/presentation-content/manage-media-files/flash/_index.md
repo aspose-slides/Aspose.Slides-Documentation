@@ -24,6 +24,8 @@ This article explains how to extract Flash objects from presentations by using A
 Aspose.Slides for .NET provides a facility for extracting flash objects from presentation. You can access the flash control by name and extract it from presentation and including store SWF object data.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("withFlash.pptm"))
 {
     IControlCollection controls = pres.Slides[0].Controls;

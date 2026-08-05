@@ -38,6 +38,8 @@ Before working on a presentation, you may want to find out what format (PPT, PPT
 You can check a presentation's format without loading the presentation. See this C# code:
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
 
@@ -53,6 +55,8 @@ Console.WriteLine(info3.LoadFormat); // ODP
 This C# code shows you how to get presentation properties (information about the presentation):
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
 Console.WriteLine(props.CreatedTime);
@@ -74,6 +78,8 @@ Let's say we have a PowerPoint presentation with the document properties shown b
 This code example shows you how to edit some presentation properties:
 
 ```c#
+using Aspose.Slides;
+
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);

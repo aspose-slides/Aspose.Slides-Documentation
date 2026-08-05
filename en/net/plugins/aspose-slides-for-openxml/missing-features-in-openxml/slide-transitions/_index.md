@@ -12,6 +12,10 @@ To make it easier to understand, we have demonstrated the use of Aspose.Slides f
 - Write the modified presentation file.
 ## **Example**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

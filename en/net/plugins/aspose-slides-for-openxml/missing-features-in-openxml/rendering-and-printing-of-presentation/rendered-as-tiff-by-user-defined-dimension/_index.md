@@ -8,6 +8,10 @@ url: /net/rendered-as-tiff-by-user-defined-dimension/
 The following example shows how to convert a presentation into TIFF document with customized image size using **TiffOptions** class.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

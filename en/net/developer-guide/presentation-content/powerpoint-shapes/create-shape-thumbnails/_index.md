@@ -39,6 +39,8 @@ To generate a shape thumbnail from any slide using Aspose.Slides for .NET:
 The example below generating shape thumbnail.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
     IShape shape = presentation.Slides[0].Shapes[0];
@@ -61,6 +63,8 @@ To generate the shape thumbnail of any slide shape using Aspose.Slides for .NET:
 The example below generate a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```c#
+using Aspose.Slides;
+
 ShapeThumbnailBounds bounds = ShapeThumbnailBounds.Shape;
 float scale = 1; // Scaling along X and Y axes.
 
@@ -86,6 +90,8 @@ This method for creating thumbnails of shapes allows developers to generate a th
 The example below create a thumbnail with generating a thumbnail with user defined scaling factor.
 
 ```c#
+using Aspose.Slides;
+
 ShapeThumbnailBounds bounds = ShapeThumbnailBounds.Appearance;
 float scale = 1; // Scaling along X and Y axes.
 
@@ -110,6 +116,9 @@ Use [GetVisualBounds](https://reference.aspose.com/slides/net/aspose.slides/shap
 The following example gets and compares the frame and visual bounds:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
 using var presentation = new Presentation("example.pptx");
 
 var slide = presentation.Slides[0];

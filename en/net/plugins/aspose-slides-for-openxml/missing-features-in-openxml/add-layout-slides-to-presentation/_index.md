@@ -15,6 +15,9 @@ Aspose.Slides for .NET allows developers to add new Layout slides in presentatio
 - Finally, write the presentation file using the Presentation object
 ## **Example**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  string FilePath = @"..\..\..\Sample Files\";
 

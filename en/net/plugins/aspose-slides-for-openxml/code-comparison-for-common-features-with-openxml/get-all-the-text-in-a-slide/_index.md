@@ -215,59 +215,41 @@ public static string[] GetAllTextInSlide(SlidePart slidePart)
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
 
- string FilePath = @"..\..\..\..\Sample Files\";
+string filePath = @"..\..\..\..\Sample Files\";
+string fileName = filePath + "Get all the text in a slide.pptx";
 
-string FileName = FilePath + "Get all the text in a slide.pptx";
-
-foreach (string s in GetAllTextInSlide(FileName, 0))
-
-Console.WriteLine(s);
-
-Console.ReadKey();
+foreach (string text in GetAllTextInSlide(fileName, 0))
+{
+    Console.WriteLine(text);
+}
 
 // Get all the text in a slide.
-
-public static List<string> GetAllTextInSlide(string presentationFile, int slideIndex)
-
+static List<string> GetAllTextInSlide(string presentationFile, int slideIndex)
 {
+    // Create a new list of strings.
+    List<string> texts = new List<string>();
 
-// Create a new linked list of strings.
+    // Instantiate the Presentation class that represents a PPTX file.
+    using (Presentation presentation = new Presentation(presentationFile))
+    {
+        // Access the slide.
+        ISlide slide = presentation.Slides[slideIndex];
 
-List<string> texts = new List<string>();
-
-//Instantiate PresentationEx class that represents PPTX
-
-using (Presentation pres = new Presentation(presentationFile))
-
-{
-
-    //Access the slide
-
-    ISlide sld = pres.Slides[slideIndex];
-
-    //Iterate through shapes to find the placeholder
-
-    foreach (Shape shp in sld.Shapes)
-
-        if (shp.Placeholder != null)
-
+        // Iterate through the shapes to find the placeholders.
+        foreach (IShape shape in slide.Shapes)
         {
-
-            //get the text of each placeholder
-
-            texts.Add(((AutoShape)shp).TextFrame.Text);
-
+            if (shape.Placeholder != null && shape is IAutoShape autoShape)
+            {
+                // Get the text of each placeholder.
+                texts.Add(autoShape.TextFrame.Text);
+            }
         }
+    }
 
+    return texts;
 }
-
-// Return an array of strings.
-
-return texts;
-
-}
-
 ``` 
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsOpenXML1.1)

@@ -58,6 +58,11 @@ In the example below, we added a chart from an Excel file to a slide as an [OleO
 **Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -81,6 +86,9 @@ Aspose.Slides for .NET allows you to add an [OleObjectFrame](https://reference.a
 This C# code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) with a linked Excel file to a slide:
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -105,6 +113,8 @@ If an OLE object is already embedded in a slide, you can easily find or access i
 In the example below, an OLE object frame (an Excel chart object embedded in a slide) and its file data are accessed.
 
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -132,6 +142,8 @@ Aspose.Slides allows you to access linked OLE object frame properties.
 This C# code shows you how to check if an OLE object is linked and then obtain the path to the linked file:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
@@ -178,6 +190,10 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 In the example below, an OLE object frame (an Excel chart object embedded in a slide) is accessed, and its file data is modified to update the chart data.
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -190,7 +206,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
             // Read the OLE object data as a Workbook object.
-            Workbook workbook = new Workbook(oleStream);
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
@@ -200,7 +216,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
                 // Change the OLE frame object data.
@@ -221,6 +237,10 @@ Besides Excel charts, Aspose.Slides for .NET allows you to embed other types of 
 This C# code shows you how to embed HTML and ZIP into a slide:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -246,6 +266,10 @@ When working with presentations, you may need to replace old OLE objects with ne
 This C# code shows you how to set the file type for an embedded OLE object to `zip`:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -270,6 +294,9 @@ After embedding an OLE object, a preview consisting of an icon image is added au
 This C# code shows you how to set the icon image and title for an embedded object: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -293,7 +320,18 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `UpdateAutomatic` property of the [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) interface to `false`:
 
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Keep the OLE object frame size and position when PowerPoint updates the link.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Extract Embedded Files**
@@ -306,6 +344,8 @@ Aspose.Slides for .NET allows you to extract the files embedded in slides as OLE
 This C# code shows you how to extract files embedded in a slide as OLE objects:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];

@@ -87,49 +87,49 @@ The following steps add a table to a Microsoft PowerPoint slide using Aspose.Sli
 - Write the presentation to disk.
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- //Create a presentation
+//Create a presentation
+using (Presentation pres = new Presentation())
+{
+	//Access first slide
+	ISlide sld = pres.Slides[0];
 
-Presentation pres = new Presentation();
+	//Define the columns and the rows of a 15 x 15 table
+	double[] columnWidths = new double[15];
+	double[] rowHeights = new double[15];
 
-//Access first slide
-
-Slide sld = pres.GetSlideByPosition(1);
-
-//Add a table
-
-Aspose.Slides.Table tbl = sld.Shapes.AddTable(50, 50, pres.SlideSize.Width - 100, pres.SlideSize.Height - 100, 15, 15);
-
-//Loop through rows
-
-for (int i = 0; i < tbl.RowsNumber; i++)
-
-	//Loop through cells
-
-	for (int j = 0; j < tbl.ColumnsNumber; j++)
-
+	for (int i = 0; i < 15; i++)
 	{
-
-		//Get text frame of each cell
-
-		TextFrame tf = tbl.GetCell(j, i).TextFrame;
-
-		//Add some text
-
-		tf.Text = "T" + i.ToString() + j.ToString();
-
-		//Set font size of 10
-
-		tf.Paragraphs[0].Portions[0].FontHeight = 10;
-
-		tf.Paragraphs[0].HasBullet = false;
-
+		columnWidths[i] = (pres.SlideSize.Size.Width - 100) / 15;
+		rowHeights[i] = (pres.SlideSize.Size.Height - 100) / 15;
 	}
 
-//Write the presentation to the disk
+	//Add a table
+	ITable tbl = sld.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-pres.Write("tblSLD.ppt");
+	//Loop through rows
+	for (int i = 0; i < rowHeights.Length; i++)
 
+		//Loop through cells
+		for (int j = 0; j < columnWidths.Length; j++)
+		{
+			//Get text frame of each cell
+			ITextFrame tf = tbl[j, i].TextFrame;
+
+			//Add some text
+			tf.Text = "T" + i.ToString() + j.ToString();
+
+			//Set font size of 10
+			tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
+
+			tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
+		}
+
+	//Write the presentation to the disk
+	pres.Save("tblSLD.pptx", SaveFormat.Pptx);
+}
 ``` 
 ## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Creating.a.Table.on.PowerPoint.Slide.Aspose.Slides.zip)

@@ -48,6 +48,9 @@ Implementation steps:
 The following C# code implements these steps:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     // Get the first slide.

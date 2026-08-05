@@ -73,49 +73,37 @@ foreach (PowerPoint.Slide sld in pres.Slides)
 ``` 
 ## **Aspose.Slides**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
- private static void findReplaceText(string strToFind, string strToReplaceWith)
-
+static void findReplaceText(string strToFind, string strToReplaceWith)
 {
-
 	//Open the presentation
+	using Presentation pres = new Presentation("mytextone.ppt");
 
-	Presentation pres = new Presentation("mytextone.ppt");
+	//Get all text frames in the presentation
+	ITextFrame[] textFrames = SlideUtil.GetAllTextFrames(pres, false);
 
-	//Get all text boxes in the presentation
-
-	ITextBox[] tb = PresentationScanner.GetAllTextBoxes(pres, false);
-
-	for (int i = 0; i < tb.Length; i++)
-
-		foreach (Paragraph para in tb[i].Paragraphs)
-
-			foreach (Portion port in para.Portions)
+	for (int i = 0; i < textFrames.Length; i++)
+		foreach (IParagraph para in textFrames[i].Paragraphs)
+			foreach (IPortion port in para.Portions)
+			{
+				string str = port.Text;
+				int idx = str.IndexOf(strToFind);
 
 				//Find text to be replaced
-
-				if (port.Text.Contains(strToFind))
-
-				//Replace exisitng text with the new text
-
+				if (idx >= 0)
+				//Replace exisitng text with the new text, the portion formatting is kept
 				{
-
-					string str = port.Text;
-
-					int idx = str.IndexOf(strToFind);
-
 					string strStartText = str.Substring(0, idx);
-
-					string strEndText = str.Substring(idx + strToFind.Length, str.Length - 1 - (idx + strToFind.Length - 1));
-
+					string strEndText = str.Substring(idx + strToFind.Length);
 					port.Text = strStartText + strToReplaceWith + strEndText;
-
 				}
+			}
 
-	pres.Write("myTextOneAspose.ppt");
-
+	pres.Save("myTextOneAspose.ppt", SaveFormat.Ppt);
 }
-
 ``` 
 ## **Download Sample Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/download/AsposeSlidesVsVSTOv1.1/Find.and.Replace.Text.without.Losing.Format.Aspose.Slides.zip)

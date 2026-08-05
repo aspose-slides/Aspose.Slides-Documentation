@@ -41,15 +41,19 @@ This article explains how to convert PowerPoint presentations to SWF by using As
 The [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method exposed by [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class can be used to convert the whole presentation into SWF document.  You can also include comments in generated SWF by using [SWFOptions](https://reference.aspose.com/slides/net/aspose.slides.export/swfoptions) class and [INotesCommentsLayoutingOptions ](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions)interface. The following example shows how to convert a presentation into SWF document by using options provided by SWFOptions class.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 {
     SwfOptions swfOptions = new SwfOptions();
     swfOptions.ViewerIncluded = false;
 
-
-    INotesCommentsLayoutingOptions notesOptions = swfOptions.NotesCommentsLayouting;
-    notesOptions.NotesPosition = NotesPositions.BottomFull;
+    swfOptions.SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomFull
+    };
 
     // Saving presentation and notes pages
     presentation.Save("SaveAsSwf_out.swf", SaveFormat.Swf, swfOptions);

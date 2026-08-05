@@ -38,6 +38,9 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Create DigitalSignature object with PFX file and PFX password 
@@ -61,6 +64,8 @@ Now its possible to check if the presentation was digitally signed and has not 
 
 
 ```c#
+using Aspose.Slides;
+
 // Open presentation
 using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
 {

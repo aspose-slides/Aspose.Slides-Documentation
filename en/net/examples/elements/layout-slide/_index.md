@@ -27,6 +27,8 @@ This article demonstrates how to work with **Layout Slides** in Aspose.Slides fo
 You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddLayoutSlide()
 {
     using var presentation = new Presentation();
@@ -58,6 +60,8 @@ static void AddLayoutSlide()
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessLayoutSlide()
 {
     using var presentation = new Presentation();
@@ -75,6 +79,8 @@ static void AccessLayoutSlide()
 You can remove a specific layout slide if it's no longer needed.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveLayoutSlide()
 {
     using var presentation = new Presentation();
@@ -90,6 +96,8 @@ static void RemoveLayoutSlide()
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveUnusedLayoutSlides()
 {
     using var presentation = new Presentation();
@@ -104,6 +112,8 @@ static void RemoveUnusedLayoutSlides()
 You can duplicate a layout slide using the `AddClone` method.
 
 ```csharp
+using Aspose.Slides;
+
 static void CloneLayoutSlides()
 {
     using var presentation = new Presentation();

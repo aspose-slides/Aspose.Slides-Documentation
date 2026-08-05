@@ -34,6 +34,9 @@ To add a simple ellipse to a selected slide of the presentation, please follow t
 In the example given below, we have added an ellipse to the first slide.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -66,6 +69,10 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {

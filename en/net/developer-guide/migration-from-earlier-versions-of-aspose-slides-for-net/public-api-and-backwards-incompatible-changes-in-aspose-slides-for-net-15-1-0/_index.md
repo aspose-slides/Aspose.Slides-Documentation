@@ -45,6 +45,9 @@ Using to persistently replace font in the presentation. 
 The following example shows how to replace font in the presentation:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -62,6 +65,8 @@ The following example shows how to replace font in the presentation:
 Another example, demonstrates font substitution for rendering when inaccessible:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -81,6 +86,6 @@ Another example, demonstrates font substitution for rendering when inaccessible:
 
             // Arial font will be used instead of SomeRareFont when inaccessible
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ``` 

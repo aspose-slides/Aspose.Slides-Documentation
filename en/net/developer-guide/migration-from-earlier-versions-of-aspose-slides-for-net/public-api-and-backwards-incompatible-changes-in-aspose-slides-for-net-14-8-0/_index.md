@@ -37,6 +37,10 @@ Also, you can create a new VBA project using the VbaProject class which implemen
 The following example shows the creation of a simple VBA project containing one module and adding two required references to the libraries.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
 
  using (Presentation pres = new Presentation())
 
@@ -87,6 +91,9 @@ The following example shows the creation of a simple VBA project containing one 
 This example shows how to copy a VBA project from an existing presentation to a new one.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
 
  using (Presentation pres1 = new Presentation("PresentationWithMacroses.pptm"), pres2 = new Presentation())
 
@@ -107,6 +114,9 @@ This is the property not only of this series but of all series in the parent ser
 - Use the ParentSeriesGroup.Overlap read/write property to change value.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
  using (Presentation pres = new Presentation())
 
@@ -131,6 +141,9 @@ This is the property not only of this series but of all series in the parent ser
 The Aspose.Slides.Charts.IChartSeriesGroup.Overlap property specifies how much bars and columns should overlap on 2D charts (from -100 to 100).
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
 
 
@@ -151,17 +164,13 @@ using (Presentation pres = new Presentation())
 This method of shape thumbnail creation allows you to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by slide bounds.
 
 ``` csharp
-
-
+using Aspose.Slides;
 
 using (Presentation p = new Presentation("Presentation.pptx"))
-
 {
-
-    Bitmap st = p.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
-
-    st.Save("ShapeThumbnail.png", ImageFormat.Png);
-
+    using (IImage image = p.Slides[0].Shapes[0].GetImage(ShapeThumbnailBounds.Appearance, 1, 1))
+    {
+        image.Save("ShapeThumbnail.png", ImageFormat.Png);
+    }
 }
-
 ``` 

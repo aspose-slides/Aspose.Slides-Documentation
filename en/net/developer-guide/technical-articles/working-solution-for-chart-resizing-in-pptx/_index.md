@@ -45,26 +45,29 @@ In this approach, we will learn how to set the window size of the embedded Excel
 Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we want to place an OLE frame containing an embedded Excel workbook. In this scenario, the size of the OLE object frame is predefined—it matches the size of the shape at index 2 in the template. All we need to do is set the workbook’s window size equal to that shape’s size. The following code snippet serves this purpose:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 // Define the chart size with a window. 
 chart.SizeWithWindow = true;
 
 // Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 pixels per inch).
-workbook.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
+workbook.Settings.WindowWidthInch = slide.Shapes[2].Width / 72f;
 
 // Set the window height of the workbook in inches.
-workbook.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
+workbook.Settings.WindowHeightInch = slide.Shapes[2].Height / 72f;
 
 // Save the workbook to a memory stream.
 MemoryStream workbookStream = workbook.SaveToStream();
 
 // Create an OLE object frame with the embedded Excel data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
+OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     slide.Shapes[2].X,
     slide.Shapes[2].Y,
     slide.Shapes[2].Width,
     slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+	dataInfo);
 ```
 
 **Scenario 2** 
@@ -72,6 +75,9 @@ Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
 Let’s say we want to create a presentation from scratch and include an OLE object frame of any size with an embedded Excel workbook. In the following code snippet, we create an OLE object frame 4 inches high and 9.5 inches wide at x = 0.5 inches and y = 1 inch on the slide. We then set the Excel workbook window to the same size—4 inches high and 9.5 inches wide.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 // Our desired height.
 int desiredHeight = 288; // 4 inch (4 * 72)
 
@@ -82,22 +88,22 @@ int desiredWidth = 684;//9.5 inch (9.5 * 72)
 chart.SizeWithWindow = true;
 
 // Set the window width of the workbook in inches.
-workbook.Worksheets.WindowWidthInch = desiredWidth / 72f;
+workbook.Settings.WindowWidthInch = desiredWidth / 72f;
 
 // Set the window height of the workbook in inches.
-workbook.Worksheets.WindowHeightInch = desiredHeight / 72f;
+workbook.Settings.WindowHeightInch = desiredHeight / 72f;
 
 // Save the workbook to a memory stream.
 MemoryStream workbookStream = workbook.SaveToStream();
 
 // Create an OLE object frame with the embedded Excel data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
+OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     36,
     72,
     desiredWidth,
     desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+	dataInfo);
 ```
 
 ## **Second Approach**
@@ -109,6 +115,9 @@ In this approach, we will learn how to set the size of the chart in the embedded
 Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we intend to place an OLE frame containing an embedded Excel workbook. In this scenario, the OLE frame size is predefined—matching the size of the shape at index 2 in the template. All we need to do is set the chart size in the workbook to equal the shape’s size. The following code snippet serves this purpose:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 // Define the chart size without a window. 
 chart.SizeWithWindow = false;
 
@@ -119,19 +128,19 @@ chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
 chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
 
 // Define the chart print size.
-chart.PrintSize = PrintSizeType.Custom;
+chart.PrintSize = Aspose.Cells.PrintSizeType.Custom;
 
 // Save the workbook to a memory stream.
 MemoryStream workbookStream = workbook.SaveToStream();
 
 // Create an OLE object frame with the embedded Excel data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
+OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     slide.Shapes[2].X,
     slide.Shapes[2].Y,
     slide.Shapes[2].Width,
     slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+	dataInfo);
 ```
 
 **Scenario 2** 
@@ -139,6 +148,9 @@ Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
 Suppose we want to create a presentation from scratch and include an OLE object frame of any size with an embedded Excel workbook. In the following code snippet, we create an OLE object frame with a height of 4 inches and a width of 9.5 inches on the slide at x = 0.5 inches and y = 1 inch. We also set the corresponding chart size to the same dimensions: a height of 4 inches and a width of 9.5 inches.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
  // Our desired height.
 int desiredHeight = 288; // 4 inch (4 * 576)
 
@@ -158,13 +170,13 @@ chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
 MemoryStream workbookStream = workbook.SaveToStream();
 
 // Create an OLE object frame with the embedded Excel data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
+OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
     36,
     72,
     desiredWidth,
     desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+	dataInfo);
 ```
 
 ## **Conclusion**

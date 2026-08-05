@@ -35,6 +35,9 @@ Like previous topics, this one is also about adding a shape and this time the sh
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {
@@ -65,6 +68,9 @@ To add a formatted rectangle to a slide, please follow the steps below:
    The above steps are implemented in the example given below.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 // Instantiate Prseetation class that represents the PPTX
 using (Presentation pres = new Presentation())
 {

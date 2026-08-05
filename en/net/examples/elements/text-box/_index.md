@@ -27,6 +27,9 @@ This guide explains how to add, access, and remove text boxes programmatically.
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
 public static void AddTextBox()
 {
     using var presentation = new Presentation();
@@ -57,6 +60,8 @@ public static void AddTextBox()
 To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
 
 ```csharp
+using Aspose.Slides;
+
 public static void AccessTextBox()
 {
     using var presentation = new Presentation();
@@ -81,6 +86,8 @@ public static void AccessTextBox()
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 
 ```csharp
+using Aspose.Slides;
+
 public static void RemoveTextBox()
 {
     using var presentation = new Presentation();

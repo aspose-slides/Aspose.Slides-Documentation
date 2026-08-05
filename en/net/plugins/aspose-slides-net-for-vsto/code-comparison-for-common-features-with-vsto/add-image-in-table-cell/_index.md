@@ -9,6 +9,8 @@ url: /net/add-image-in-table-cell/
 Below is the code for adding image in Table cell:
 
 ``` csharp
+using Aspose.Slides;
+
 
     //Open Prsentation class that contains the table
 
@@ -41,62 +43,48 @@ Below is the code for adding image in Table cell:
 
 ``` 
 ## **Aspose.Slides**
-Aspose.Slides for .NET has provided the simplest API to create tables in an easiest way. To add image in a table cell while creating a new table, please follow the steps below:
+Aspose.Slides for .NET has provided the simplest API to work with tables in an easiest way. To add image in a cell of a table that already exists in a presentation, please follow the steps below:
 
-- Create an instance of Presentation class
+- Create an instance of Presentation class from the file that contains the table
 - Obtain the reference of a slide by using its Index
-- Define Array of Columns with Width
-- Define Array of Rows with Height
-- Add a Table to the slide using AddTable method exposed by IShapes object
-- Create a Bitmap object to hold the image file
-- Add the Bitmap image to IPPImage Object
+- Load the image file into an IImage object using the Images.FromFile method
+- Add the loaded image to the presentation's image collection to get an IPPImage object
+- Find the table among the shapes of the slide
 - Set Fill Format of the Table Cell as Picture
 - Add the image to the first cell of the table
 - Save the modified presentation as a PPTX file
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-   string FileName = "Adding Image in Table Cell.pptx";
+string fileName = "Adding Image in Table Cell.pptx";
+string imageFile = "AsposeLogo.jpg";
 
-  string ImageFile = "AsposeLogo.jpg";
+using Presentation presentation = new Presentation(fileName);
 
-  Presentation MyPresentation = new Presentation(FileName);
+//Get First Slide
+ISlide sld = presentation.Slides[0];
 
-  //Get First Slide
+//Load the image file
+using IImage image = Images.FromFile(imageFile);
 
-  ISlide sld = MyPresentation.Slides[0];
+//Create an IPPImage object using the loaded image
+IPPImage imgx1 = presentation.Images.AddImage(image);
 
-  //Creating a Bitmap Image object to hold the image file
+foreach (IShape shp in sld.Shapes)
+{
+    if (shp is ITable tbl)
+    {
+        //Add image to first table cell
+        tbl[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+        tbl[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+        tbl[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = imgx1;
+    }
+}
 
-  using IImage image = Images.FromFile(ImageFile);
-
-  //Create an IPPImage object using the bitmap object
-
-  IPPImage imgx1 = MyPresentation.Images.AddImage(image);
-
-  foreach (IShape shp in sld.Shapes)
-
-  if (shp is ITable)
-
-  {
-
-     ITable tbl = (ITable)shp;
-
-     //Add image to first table cell
-
-     tbl[0, 0].FillFormat.FillType = FillType.Picture;
-
-     tbl[0, 0].FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-
-     tbl[0, 0].FillFormat.PictureFillFormat.Picture.Image = imgx1;
-
-   }
-
-  //Save PPTX to Disk
-
-  MyPresentation.Save(FileName, Export.SaveFormat.Pptx);
-
-
+//Save PPTX to Disk
+presentation.Save(fileName, SaveFormat.Pptx);
 ``` 
 ## **Download Running Code**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/AsposeSlidesVsVSTOv1.1)

@@ -34,6 +34,9 @@ Aspose.Slides for .NET offers Presentation class that represents a presentation 
 <a name="csharp-odp-to-powerpoint" id="csharp-odp-to-powerpoint"><strong>Steps: Convert ODP to PowerPoint in C#</strong></a>
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Open the ODP file
 Presentation pres = new Presentation("AccessOpenDoc.odp");
 

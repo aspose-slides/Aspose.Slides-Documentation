@@ -26,6 +26,8 @@ This article demonstrates adding, accessing, removing, and updating hyperlinks o
 Create a rectangle shape with a hyperlink pointing to an external website.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddHyperlink()
 {
     using var presentation = new Presentation();
@@ -44,6 +46,8 @@ static void AddHyperlink()
 Read hyperlink information from a shape's text portion.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessHyperlink()
 {
     using var presentation = new Presentation();
@@ -64,6 +68,8 @@ static void AccessHyperlink()
 Clear the hyperlink from a shape's text.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveHyperlink()
 {
     using var presentation = new Presentation();
@@ -84,6 +90,8 @@ static void RemoveHyperlink()
 Change the target of an existing hyperlink. Use `HyperlinkManager` to modify text that already contains a hyperlink, which mimics how PowerPoint updates hyperlinks safely.
 
 ```csharp
+using Aspose.Slides;
+
 static void UpdateHyperlink()
 {
     using var presentation = new Presentation();

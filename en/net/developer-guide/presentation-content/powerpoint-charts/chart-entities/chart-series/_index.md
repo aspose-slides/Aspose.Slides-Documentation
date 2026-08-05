@@ -34,6 +34,10 @@ The [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.
 Below is a C# example that demonstrates how to create a presentation, add a clustered column chart, access the first chart series, configure the overlap setting, and then save the result as a PPTX file:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 sbyte overlap = 30;
 
 using (Presentation presentation = new Presentation())
@@ -66,6 +70,11 @@ Aspose.Slides makes it straightforward to customize the fill colors of chart ser
 The following C# code example shows how to change the color of the first series:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Color seriesColor = Color.Blue;
 
 using (Presentation presentation = new Presentation())
@@ -96,6 +105,10 @@ Aspose.Slides offers a simple way to modify the names of chart series, making it
 Below is a C# code snippet demonstrating this process in action.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 string seriesName = "New name";
 
 using (Presentation presentation = new Presentation())
@@ -117,6 +130,10 @@ using (Presentation presentation = new Presentation())
 The following C# code shows an alternative way to change the series name:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 string seriesName = "New name";
 
 using (Presentation presentation = new Presentation())
@@ -146,6 +163,10 @@ Aspose.Slides for .NET allows you to get the automatic fill color for chart seri
 The C# code below demonstrates this process in detail.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -176,6 +197,11 @@ When your data series contains both positive and negative values, simply colorin
 The following code example demonstrates the operation:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Color inverColor = Color.Red;
 
 using (Presentation presentation = new Presentation())
@@ -221,6 +247,10 @@ You can invert the fill color for a single data point rather than the whole seri
 The following code example shows how to do this:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -250,6 +280,10 @@ Sometimes a chart contains test values, outliers, or obsolete entries that you n
 The following code exammple demonstrates the operation:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test_chart.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -275,6 +309,10 @@ GapÂ width controls the amount of empty space between adjacent columns or barsâ€
 The following code example shows how to set the gap width for a series:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 ushort gapWidth = 30;
 
 // Create an empty presentation.

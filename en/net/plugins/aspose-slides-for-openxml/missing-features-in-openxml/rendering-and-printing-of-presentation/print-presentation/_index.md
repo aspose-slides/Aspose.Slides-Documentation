@@ -12,8 +12,14 @@ Printing of the presentation to the default printer is quite simple in Aspose.Sl
 - Call the Print method with no parameters as exposed by the Presentation object
 
 ``` csharp
+using Aspose.Slides;
 
- PrintByDefaultPrinter();
+
+public static void Main(string[] args)
+
+{
+
+    PrintByDefaultPrinter();
 
     PrintBySpecificPrinter();
 
@@ -49,6 +55,7 @@ public static void PrintBySpecificPrinter()
 
     asposePresentation.Print("LaserJet1100");
 
+}
 
 ``` 
 ## **Print to a Specific Printer**
@@ -58,6 +65,8 @@ Printing of the presentation to the specific printer requires the name of the pr
 - Call the Print method of the Presentation class with printer name as string parameter to the Print method
 
 ``` csharp
+using Aspose.Slides;
+
 
  public static void PrintBySpecificPrinter()
 

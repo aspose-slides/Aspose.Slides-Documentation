@@ -74,6 +74,9 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Create a presentation
 Presentation pres = new Presentation();
 
@@ -88,6 +91,6 @@ ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 ((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
 //Write output to disk
-pres.Save("c:\\data\\outAsposeSlides.pptx", SaveFormat.Ppt);
+pres.Save("outAsposeSlides.pptx", SaveFormat.Ppt);
 ```
 

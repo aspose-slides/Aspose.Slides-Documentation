@@ -56,6 +56,10 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 This C# code shows you how to create a picture frame:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
@@ -101,6 +105,9 @@ By altering an image's relative scaling, you can create a more complicated pictu
 This C# code shows you how to create a picture frame with relative scale:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -126,6 +133,8 @@ using (Presentation presentation = new Presentation())
 You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```c#
+using Aspose.Slides;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var firstSlide = presentation.Slides[0];
@@ -133,8 +142,8 @@ using (var presentation = new Presentation("sample.pptx"))
 
     if (firstShape is IPictureFrame pictureFrame)
     {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
+        var ppImage = pictureFrame.PictureFormat.Picture.Image;
+        ppImage.Image.Save("slide_1_shape_1.png", ImageFormat.Png);
     }
 }
 ```
@@ -146,6 +155,8 @@ When a presentation contains SVG graphics placed inside [PictureFrame](https
 The following code example demonstrates how to extract an SVG image from a picture frame:
 
 ```cs
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -166,6 +177,9 @@ if (shape is IPictureFrame pictureFrame)
 Aspose.Slides allows you to get the transparency effect applied to an image. This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+
 using (var presentation = new Presentation("Test.pptx"))
 {
     var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
@@ -188,6 +202,9 @@ Aspose.Slides allows you to get the brightness and contrast effect applied to an
 This C# code demonstrates how to get the brightness and contrast settings from a picture frame:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -235,6 +252,10 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 This C# code demonstrates the picture frame formatting process:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
@@ -271,6 +292,9 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This C# code shows you how to add an image and video into a placeholder:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("input.pptx"))
 {
     var shapesToRemove = new List<IShape>();
@@ -325,10 +349,13 @@ using (var presentation = new Presentation("input.pptx"))
 This C# code shows you how to crop an existing image on a slide:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     // Creates a new image object
-    IImage image = Images.FromFile(imagePath);
+    IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage newImage = presentation.Images.AddImage(image);
     image.Dispose();
 
@@ -354,6 +381,9 @@ If you want to delete the cropped areas of an image contained in a frame, you ca
 This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -387,6 +417,9 @@ It adjusts the picture’s size and resolution similarly to PowerPoint’s **Pic
 The following C# examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -412,6 +445,9 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 Or using a custom DPI value directly:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -438,6 +474,8 @@ If you want a shape containing an image to retain its aspect ratio even after yo
 This C# code shows you how to lock a shape's aspect ratio:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
@@ -479,6 +517,9 @@ When stretching is specified for an image, a source rectangle is scaled to fit t
 This C# code demonstrates a process in which a StretchOff property is used:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IImage image = Images.FromFile("image.png");

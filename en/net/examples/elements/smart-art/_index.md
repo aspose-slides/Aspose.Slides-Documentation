@@ -26,6 +26,9 @@ This article demonstrates how to add SmartArt graphics, access them, remove them
 Insert a SmartArt graphic using one of the built-in layouts.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 static void AddSmartArt()
 {
     using var presentation = new Presentation();
@@ -40,6 +43,9 @@ static void AddSmartArt()
 Retrieve the first SmartArt object on a slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 static void AccessSmartArt()
 {
     using var presentation = new Presentation();
@@ -56,6 +62,9 @@ static void AccessSmartArt()
 Delete a SmartArt shape from the slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 static void RemoveSmartArt()
 {
     using var presentation = new Presentation();
@@ -72,6 +81,9 @@ static void RemoveSmartArt()
 Update the layout type of an existing SmartArt graphic.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
 static void ChangeSmartArtLayout()
 {
     using var presentation = new Presentation();

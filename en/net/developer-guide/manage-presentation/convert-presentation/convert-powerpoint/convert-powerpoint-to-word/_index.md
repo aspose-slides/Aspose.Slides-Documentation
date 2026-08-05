@@ -59,6 +59,9 @@ Let's say we have a presentation "sample.pptx" that looks like this:
 The following C# code example demonstrates how to convert the PowerPoint presentation to a Word document:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Words;
+
 // Load a presentation file.
 using var presentation = new Presentation("sample.pptx");
 

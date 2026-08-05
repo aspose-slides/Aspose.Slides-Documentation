@@ -35,6 +35,10 @@ Aspose.Slides can convert a PowerPoint math equation directly to LaTeX; an inter
 The following example examines every text frame on every slide, finds all math portions, and writes each equation to a separate `.tex` file:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+using Aspose.Slides.Util;
+
 using var presentation = new Presentation("equations.pptx");
 
 for (var slideIndex = 0; slideIndex < presentation.Slides.Count; slideIndex++)
@@ -76,6 +80,9 @@ While humans easily write the code for some equation formats like LaTeX, they st
 This sample code shows you how to export a math equation from a presentation to MathML:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+
 using (Presentation pres = new Presentation())
         {
             var autoShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 500, 50);

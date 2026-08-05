@@ -27,11 +27,16 @@ Data labels on a chart show details about the chart data series or individual da
 This C# code shows you how to set the data precision in a chart data label:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
 	chart.HasDataTable = true;
 	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+	chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 }
@@ -41,6 +46,10 @@ using (Presentation pres = new Presentation())
 Aspose.Slides for .NET allows you to set percentage labels on displayed charts. This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
 
@@ -94,6 +103,11 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 This C# code shows you to set the percentage sign for a chart data label:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
 
@@ -158,6 +172,10 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 This C# code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
 
@@ -181,6 +199,10 @@ When you create a chart that does not rely on any axis such as a pie chart, the 
 This C# code shows you how to adjust the label location on a pie chart: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);

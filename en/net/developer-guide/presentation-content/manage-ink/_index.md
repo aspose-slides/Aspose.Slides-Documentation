@@ -50,6 +50,10 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 This C# code shows you how to set the color for a brush:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Ink;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     IInk ink = (IInk)pres.Slides[0].Shapes[0];
@@ -65,6 +69,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 This C# code shows you how to set the size for a brush:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Ink;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     IInk ink = (IInk)pres.Slides[0].Shapes[0];

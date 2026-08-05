@@ -252,6 +252,9 @@ In **Aspose.Slides** for .NET, the PPT slide comment collection is included in e
 In the following example, we have added the code snippet for adding the slide comments.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+
 
  string FilePath = @"..\..\..\..\Sample Files\";
 

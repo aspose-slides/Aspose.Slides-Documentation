@@ -61,6 +61,10 @@ A shape usually needs four kinds of settings before it looks convincingly 3D:
 The following example creates a rectangle, adds text to its front face, applies 3D formatting, saves the presentation as PPTX, and renders the slide to a PNG image.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const float imageScale = 2;
 
 using var presentation = new Presentation();
@@ -100,6 +104,13 @@ In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, a
 In Aspose.Slides, set the camera type and rotation through [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera):
 
 ```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
 shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 ```
@@ -115,6 +126,14 @@ Extrusion makes a shape look thick by extending it behind the front face. In Pow
 Set [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) for the thickness and [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) for the side color:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
@@ -129,6 +148,9 @@ Use [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/
 This example applies a gradient fill to the shape and a darker extrusion color to the sides:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
 const float imageScale = 2;
 
 using var presentation = new Presentation();
@@ -161,6 +183,14 @@ The rendered output keeps the gradient on the front face and renders the extrusi
 To use a picture fill instead, add the image to the presentation and assign it to the shape fill:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
 var imageData = File.ReadAllBytes("image.jpg");
 var image = presentation.Images.AddImage(imageData);
 
@@ -184,6 +214,10 @@ Shape 3D formatting affects the shape body. Text 3D formatting affects the text 
 The following example creates text with a pattern fill, applies a WordArt transform, and configures 3D settings on [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat):
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const float imageScale = 2;
 
 using var presentation = new Presentation();

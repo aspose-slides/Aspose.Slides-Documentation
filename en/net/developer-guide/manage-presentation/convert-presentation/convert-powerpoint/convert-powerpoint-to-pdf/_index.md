@@ -70,6 +70,9 @@ The standard PowerPoint-to-PDF conversion process uses default options. In this 
 This C# code shows you how to convert a presentation (PPT, PPTX, ODP, etc.) to PDF:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 using var presentation = new Presentation("PowerPoint.ppt");
 
@@ -94,6 +97,9 @@ Using custom conversion options, you can define your preferred quality setting f
 The code example below demonstrates how to convert a PowerPoint presentation to PDF with several custom options.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the PdfOptions class.
 var pdfOptions = new PdfOptions
 {
@@ -127,6 +133,9 @@ If a presentation contains hidden slides, you can use the [ShowHiddenSlides](htt
 This C# code shows how to convert a PowerPoint presentation to PDF with hidden slides included:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
@@ -145,6 +154,9 @@ presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 This C# code demonstrates how to convert a PowerPoint presentation into a password-protected PDF using the protection parameters from the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
@@ -166,6 +178,10 @@ Aspose.Slides provides the [WarningCallback](https://reference.aspose.com/slides
 This C# code shows how to detect font substitutions:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Warnings;
+
 public static void Main()
 {
     // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file. 
@@ -208,6 +224,9 @@ For more information on font substitution, see the [Font Substitution](/slides/n
 This C# code demonstrates how to convert only specific slides from a PowerPoint presentation to PDF:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
@@ -223,6 +242,9 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 This C# code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var slideWidth = 612;
 var slideHeight = 792;
 
@@ -239,8 +261,11 @@ resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleTyp
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// Save the resized presentation to a PDF with notes.
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+
+// Save the resized presentation as a PDF.
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
@@ -248,6 +273,9 @@ resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
 This C# code demonstrates how to convert a PowerPoint presentation to a PDF that includes notes:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Load a PowerPoint presentation.
 using var presentation = new Presentation("NotesFile.pptx");
 
@@ -271,6 +299,9 @@ Aspose.Slides allows you to use a conversion procedure that complies with [Web C
 This C# code demonstrates a PowerPoint-to-PDF conversion process that produces multiple PDFs based on different compliance standards:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("pres.pptx");
 
 presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions

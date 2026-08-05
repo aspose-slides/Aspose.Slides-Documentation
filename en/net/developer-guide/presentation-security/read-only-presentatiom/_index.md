@@ -35,6 +35,9 @@ The Read-Only recommendation is a simple yet effective deterrent that discourage
 Aspose.Slides for .NET allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in C# using Aspose.Slides:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     pres.ProtectionManager.ReadOnlyRecommended = true;

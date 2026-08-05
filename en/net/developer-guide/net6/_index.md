@@ -71,6 +71,8 @@ static Slides::System.Drawing.Image GetThumbnail(Presentation pres)
 Starting with version 24.8, the deprecated public API with dependencies on System.Drawing has been removed. Regarding the code example above, you can get the slide image as below.
 
 ```cs
+using Aspose.Slides;
+
 static Aspose.Slides.IImage GetThumbnail(Presentation presentation)
 {
     return presentation.Slides[0].GetImage();

@@ -40,6 +40,8 @@ A PowerPoint theme uses a specific set of colors for different elements on a sli
 This C# code shows you how to change the accent color for a theme:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -54,21 +56,38 @@ using (Presentation pres = new Presentation())
 You can determine the resulting color's effective value this way:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
+}
 ```
 
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
 The new color is applied automatically on both elements.
@@ -86,6 +105,9 @@ When you apply luminance transformations to the main theme color(1), colors from
 This C# code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -171,23 +193,33 @@ To allow you select fonts for themes and other purposes, Aspose.Slides uses thes
 This C# code shows you how to assign the Latin font to a theme element:
 
 ```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using Aspose.Slides;
 
-Paragraph paragraph = new Paragraph();
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.Portions.Add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+    paragraph.Portions.Add(portion);
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
 This C# code shows you how to change the presentation theme font:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
 ```
 
 The font in all text boxes will be updated.
@@ -207,6 +239,8 @@ By default, the PowerPoint app provides 12 predefined backgrounds but only 3 fro
 For example, after you save a presentation in the PowerPoint app, you can run this C# code to find out the number predefined backgrounds in the presentation:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -225,7 +259,12 @@ Using the [BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.
 This C# code shows you how to set the background for a presentation:
 
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
 **Index guide**: 0 is used for no fill. The index starts from 1.
@@ -247,6 +286,10 @@ Using 3 properties ([FillStyles](https://reference.aspose.com/slides/net/aspose.
 This C# code shows you how to change a theme effect by altering parts of elements:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;

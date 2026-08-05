@@ -44,6 +44,11 @@ Aspose.Slides for .NET provides a simple API for managing different chart Trend 
 The following code is used to create a chart with Trend Lines.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Creating empty presentation
 Presentation pres = new Presentation();
 
@@ -80,7 +85,7 @@ tredLinePol.Forward = 1;
 tredLinePol.Order = 3;
 
 // Adding Power trend line for chart series 3
-ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
+ITrendline tredLinePower = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Power);
 tredLinePower.TrendlineType = TrendlineType.Power;
 tredLinePower.Backward = 1;
 
@@ -103,6 +108,11 @@ Aspose.Slides for .NET provides a simple API to add custom lines in a chart. To 
 The following code is used to create a chart with Custom Lines.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);

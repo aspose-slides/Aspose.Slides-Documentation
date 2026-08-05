@@ -26,6 +26,8 @@ This article explains how to get the bounds, size, and coordinates of paragraphs
 Use [IParagraph.GetRect](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/getrect/) to get the bounding rectangle of a paragraph.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("Shapes.pptx");
 var slide = presentation.Slides[0];
 var shape = (IAutoShape)slide.Shapes[0];
@@ -40,6 +42,10 @@ To get the size and coordinates of an [IParagraph](https://reference.aspose.com/
 The following example gets paragraph bounds inside a table cell and draws rectangles on the slide to visualize those bounds:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("source.pptx");
 var slide = presentation.Slides[0];
 var table = (ITable)slide.Shapes[0];

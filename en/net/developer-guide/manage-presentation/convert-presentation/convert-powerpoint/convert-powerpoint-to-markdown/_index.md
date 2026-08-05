@@ -51,6 +51,9 @@ PowerPoint-to-Markdown export is **without images** by default. If you want to e
 This C# code shows you how to convert PowerPoint to markdown:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.md", SaveFormat.Md);
@@ -64,6 +67,9 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This C# code shows you how to convert PowerPoint to CommonMark:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.md", SaveFormat.Md, new MarkdownSaveOptions
@@ -84,6 +90,9 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/net/aspose.slides.
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This C# code shows you how to convert a presentation containing images to markdown:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions
@@ -106,9 +115,12 @@ If you want the images to appear together in the resulting markdown, you have to
 This C# code demonstrates the operation:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
-    const string outPath = "c:\\documents";
+    const string outPath = "output";
     pres.Save(Path.Combine(outPath, "pres.md"), SaveFormat.Md, new MarkdownSaveOptions
     { 
         ExportType = MarkdownExportType.Visual,

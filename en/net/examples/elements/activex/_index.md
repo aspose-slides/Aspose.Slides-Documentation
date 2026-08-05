@@ -24,6 +24,9 @@ This article demonstrates how to add, access, remove, and configure ActiveX cont
 Insert a new ActiveX control and optionally set its properties.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static void AddActiveX()
 {
     using var presentation = new Presentation();
@@ -44,6 +47,8 @@ static void AddActiveX()
 Read information from the first ActiveX control on the slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessActiveX()
 {
     using var presentation = new Presentation("add_activex.pptm");
@@ -64,6 +69,9 @@ static void AccessActiveX()
 Delete an existing ActiveX control from the slide.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static void RemoveActiveX()
 {
     using var presentation = new Presentation("add_activex.pptm");
@@ -84,6 +92,9 @@ static void RemoveActiveX()
 Add a control and configure several ActiveX properties.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static void SetActiveXProperties()
 {
     using var presentation = new Presentation();

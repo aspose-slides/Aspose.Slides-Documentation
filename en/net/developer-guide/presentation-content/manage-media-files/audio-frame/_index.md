@@ -36,6 +36,9 @@ Aspose.Slides for .NET allows you to add audio files to slides. The audio files 
 This C# code shows you how to add an embedded audio frame to a slide:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiates a presentation class that represents a presentation file
 using (Presentation pres = new Presentation())
 {
@@ -64,6 +67,9 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 This C# code shows you how to change an audio frame's thumbnail or preview image:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var slide = presentation.Slides[0];
@@ -121,6 +127,9 @@ This is how you change the Audio Play options:
 This C# code demonstrates an operation in which an audio's options are adjusted:
 
 ``` csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
     // Gets the AudioFrame shape
@@ -152,6 +161,9 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 This C# example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -177,6 +189,9 @@ using (Presentation pres = new Presentation())
 The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
     // Gets an audio frame shape
@@ -198,6 +213,9 @@ Aspose.Slides allows you to add closed captions to an audio frame through the [C
 Use the [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/) property to attach one or more caption tracks to an audio frame. In the following example, an audio file is added to a slide, and then a new caption track is loaded from a `.vtt` file.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     byte[] audioData = File.ReadAllBytes("audio.mp3");
@@ -218,6 +236,8 @@ using (Presentation presentation = new Presentation())
 You can iterate through the caption tracks associated with an audio frame and save them as `.vtt` files. Each caption track exposes its binary data and unique identifier, which can be used when exporting captions.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -240,6 +260,9 @@ using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
 To remove captions from an audio frame, use the methods provided by [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/), such as [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/), or [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/). The following example removes all caption tracks from an audio frame.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -263,6 +286,8 @@ Aspose.Slides for .NET allows you to extract the sound used in slide show transi
 This C# code shows you how to extract the audio used in a slide:
 
 ```c#
+using Aspose.Slides;
+
 string presName = "AudioSlide.pptx";
 
 // Instantiates a Presentation class that represents a presentation file

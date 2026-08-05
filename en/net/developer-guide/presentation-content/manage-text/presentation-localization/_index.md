@@ -31,11 +31,13 @@ This article explains how to set the `LanguageId` for text in a presentation by 
 The implementation of the above steps is demonstrated below in an example.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("test0.pptx"))
 {
     IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
     shape.AddTextFrame("Text to apply spellcheck language");
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId = "en-EN";
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId = "en-US";
 
     pres.Save("test1.pptx",Aspose.Slides.Export.SaveFormat.Pptx);
 }

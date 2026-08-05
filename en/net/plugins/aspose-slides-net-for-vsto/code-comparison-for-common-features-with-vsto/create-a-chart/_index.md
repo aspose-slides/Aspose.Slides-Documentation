@@ -304,6 +304,10 @@ Using Aspose.Slides for .NET, the following steps are performed:
 1. Save the presentation to PPTX format.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
  public static void GEN_ASPOSE_Chart()
 
@@ -311,21 +315,21 @@ Using Aspose.Slides for .NET, the following steps are performed:
 
 	//Create empty presentation
 
-	using (PresentationEx pres = new PresentationEx())
+	using (Presentation pres = new Presentation())
 
 	{
 
 		//Accessing first slide
 
-		SlideEx slide = pres.Slides[0];
+		ISlide slide = pres.Slides[0];
 
 		//Addding default chart
 
-		ChartEx ppChart = slide.Shapes.AddChart(ChartTypeEx.ClusteredColumn3D, 20F, 30F, 400F, 300F);
+		IChart ppChart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20F, 30F, 400F, 300F);
 
 		//Getting Chart data
 
-		ChartDataEx chartData = ppChart.ChartData;
+		IChartData chartData = ppChart.ChartData;
 
 		//Removing Extra default series
 
@@ -335,60 +339,64 @@ Using Aspose.Slides for .NET, the following steps are performed:
 
 		//Modifying chart categories names
 
-		chartData.Categories[0].ChartDataCell.Value = "Bikes";
+		chartData.Categories[0].AsCell.Value = "Bikes";
 
-		chartData.Categories[1].ChartDataCell.Value = "Accessories";
+		chartData.Categories[1].AsCell.Value = "Accessories";
 
-		chartData.Categories[2].ChartDataCell.Value = "Repairs";
+		chartData.Categories[2].AsCell.Value = "Repairs";
 
-		chartData.Categories[3].ChartDataCell.Value = "Clothing";
+		chartData.Categories[3].AsCell.Value = "Clothing";
 
 		//Modifying chart series values for first category
 
-		chartData.Series[0].Values[0].Value = 1000;
+		IChartSeries series = chartData.Series[0];
 
-		chartData.Series[0].Values[1].Value = 2500;
+		series.DataPoints[0].Value.AsCell.Value = 1000;
 
-		chartData.Series[0].Values[2].Value = 4000;
+		series.DataPoints[1].Value.AsCell.Value = 2500;
 
-		chartData.Series[0].Values[3].Value = 3000;
+		series.DataPoints[2].Value.AsCell.Value = 4000;
+
+		series.DataPoints[3].Value.AsCell.Value = 3000;
 
 		//Setting Chart title
 
 		ppChart.HasTitle = true;
 
-		ppChart.ChartTitle.Text.Text = "2007 Sales";
+		ppChart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
 
-		PortionFormatEx format = ppChart.ChartTitle.Text.Paragraphs[0].Portions[0].PortionFormat;
+		IPortionFormat format = ppChart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
 
 		format.FontItalic = NullableBool.True;
 
 		format.FontHeight = 18;
 
-		format.FillFormat.FillType = FillTypeEx.Solid;
+		format.FillFormat.FillType = FillType.Solid;
 
 		format.FillFormat.SolidFillColor.Color = Color.Black;
 
 
 		//Setting Axis values
 
-		ppChart.ValueAxis.IsAutomaticMaxValue = false;
+		IAxis valueAxis = ppChart.Axes.VerticalAxis;
 
-		ppChart.ValueAxis.IsAutomaticMinValue = false;
+		valueAxis.IsAutomaticMaxValue = false;
 
-		ppChart.ValueAxis.IsAutomaticMajorUnit = false;
+		valueAxis.IsAutomaticMinValue = false;
 
-		ppChart.ValueAxis.IsAutomaticMinorUnit = false;
+		valueAxis.IsAutomaticMajorUnit = false;
 
-		ppChart.ValueAxis.MaxValue = 4000.0F;
+		valueAxis.IsAutomaticMinorUnit = false;
 
-		ppChart.ValueAxis.MinValue = 0.0F;
+		valueAxis.MaxValue = 4000.0F;
 
-		ppChart.ValueAxis.MajorUnit = 2000.0F;
+		valueAxis.MinValue = 0.0F;
 
-		ppChart.ValueAxis.MinorUnit = 1000.0F;
+		valueAxis.MajorUnit = 2000.0F;
 
-		ppChart.ValueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+		valueAxis.MinorUnit = 1000.0F;
+
+		valueAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
 		//Setting Chart rotation
 
@@ -398,9 +406,11 @@ Using Aspose.Slides for .NET, the following steps are performed:
 
 		//Saving Presentation
 
-		pres.Write("AsposeSampleChart.pptx");
+		pres.Save("AsposeSampleChart.pptx", SaveFormat.Pptx);
 
 	}
+
+}
 
 ``` 
 ## **Download Sample Code**

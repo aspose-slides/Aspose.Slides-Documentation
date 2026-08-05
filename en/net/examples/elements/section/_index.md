@@ -27,6 +27,8 @@ Examples for managing presentation sections—add, access, remove, and rename th
 Create a section that starts at a specific slide.
 
 ```csharp
+using Aspose.Slides;
+
 static void AddSection()
 {
     using var presentation = new Presentation();
@@ -42,6 +44,8 @@ static void AddSection()
 Read section information from a presentation.
 
 ```csharp
+using Aspose.Slides;
+
 static void AccessSection()
 {
     using var presentation = new Presentation();
@@ -60,6 +64,8 @@ static void AccessSection()
 Delete a previously added section.
 
 ```csharp
+using Aspose.Slides;
+
 static void RemoveSection()
 {
     using var presentation = new Presentation();
@@ -77,6 +83,8 @@ static void RemoveSection()
 Change the name of an existing section.
 
 ```csharp
+using Aspose.Slides;
+
 static void RenameSection()
 {
     using var presentation = new Presentation();

@@ -15,147 +15,54 @@ Images are added in slide background and shapes. Sometimes, it is required to ex
 In **Aspose.Slides for .NET**, images can be added to slide shape and slide background. The images are added in **ImageCollectionEx** of the presentation. In this example we will traverse through each shape inside every slide of presentation and see if there is any image added in slide shape. If the image will be found for any shape, we will extract that and will save it in file.The following code snippet will serve the purpose.
 
 ``` csharp
+using System.IO;
+using Aspose.Slides;
 
- //Accessing the presentation
-
-PresentationEx pres = new PresentationEx("RenderImageFromShape.pptx");
-
-ImageEx img = null;
-
-int slideIndex = 0;
-
-String ImageType = "";
-
-bool ifImageFound = false;
-
-for (int i = 0; i < pres.Slides.Count; i++)
-
+//Accessing the presentation
+using (Presentation pres = new Presentation("RenderImageFromShape.pptx"))
 {
+	int imageIndex = 0;
 
-	slideIndex++;
-
-	//Accessing the first slide
-
-	SlideEx sl = pres.Slides[i];
-
-	System.Drawing.Imaging.ImageFormat Format = System.Drawing.Imaging.ImageFormat.Jpeg;
-
-	for (int j = 0; j < sl.Shapes.Count; j++)
-
+	foreach (ISlide slide in pres.Slides)
 	{
-
-		// Accessing the shape with picture
-
-		ShapeEx sh = sl.Shapes[j];
-
-		if (sh is AutoShapeEx)
-
+		foreach (IShape shape in slide.Shapes)
 		{
+			IPPImage image = null;
 
-			AutoShapeEx ashp = (AutoShapeEx)sh;
-
-			if (ashp.FillFormat.FillType == FillTypeEx.Picture)
-
+			//The picture an AutoShape is filled with
+			IAutoShape autoShape = shape as IAutoShape;
+			if (autoShape != null && autoShape.FillFormat.FillType == FillType.Picture)
 			{
-
-				img = ashp.FillFormat.PictureFillFormat.Picture.Image;
-
-				ImageType = img.ContentType;
-
-				ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
-
-				ifImageFound = true;
-
+				image = autoShape.FillFormat.PictureFillFormat.Picture.Image;
+			}
+			else
+			{
+				//The picture of a PictureFrame
+				IPictureFrame pictureFrame = shape as IPictureFrame;
+				if (pictureFrame != null)
+					image = pictureFrame.PictureFormat.Picture.Image;
 			}
 
+			if (image == null)
+				continue;
+
+			//ContentType is a MIME type like "image/jpeg", so the part after the
+			//slash gives the file extension
+			string imageType = image.ContentType.Substring(image.ContentType.IndexOf("/") + 1);
+
+			//Save the picture with its original encoding
+			File.WriteAllBytes("ResultedImage" + imageIndex + "." + imageType, image.BinaryData);
+			imageIndex++;
 		}
-
-		else if (sh is PictureFrameEx)
-
-		{
-
-			PictureFrameEx pf = (PictureFrameEx)sh;
-
-			if (pf.FillFormat.FillType == FillTypeEx.Picture)
-
-			{
-
-				img = pf.PictureFormat.Picture.Image;
-
-				ImageType = img.ContentType;
-
-				ImageType = ImageType.Remove(0, ImageType.IndexOf("/") + 1);
-
-				ifImageFound = true;
-
-			}
-
-		}
-
-
-		//
-
-		//Setting the desired picture format
-
-		if (ifImageFound)
-
-		{
-
-			switch (ImageType)
-
-			{
-
-				case "jpeg":
-
-					Format = System.Drawing.Imaging.ImageFormat.Jpeg;
-
-					break;
-
-				case "emf":
-
-					Format = System.Drawing.Imaging.ImageFormat.Emf;
-
-					break;
-
-				case "bmp":
-
-					Format = System.Drawing.Imaging.ImageFormat.Bmp;
-
-					break;
-
-				case "png":
-
-					Format = System.Drawing.Imaging.ImageFormat.Png;
-
-					break;
-
-				case "wmf":
-
-					Format = System.Drawing.Imaging.ImageFormat.Wmf;
-
-					break;
-
-				case "gif":
-
-					Format = System.Drawing.Imaging.ImageFormat.Gif;
-
-					break;
-
-			}
-
-			//
-
-			img.Image.Save(path+"ResultedImage"+"." + ImageType, Format);
-
-		}
-
-		ifImageFound = false;
-
+	}
+}
 ``` 
 ## **Download Sample Code**
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extract Shapes as Image Files**
 ```cs
+using Aspose.Slides;
+
 //Instantiate the Presentation object that represents a PPT file
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 

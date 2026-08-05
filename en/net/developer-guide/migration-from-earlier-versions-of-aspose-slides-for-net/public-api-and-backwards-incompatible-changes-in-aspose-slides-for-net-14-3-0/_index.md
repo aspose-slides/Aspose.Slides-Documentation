@@ -28,6 +28,8 @@ The Aspose.Slides.IShape.UniqueId property gets unique in a presentation scope s
 Signature of the IChartCategoryLevelsManager method
 
 ``` csharp
+using Aspose.Slides.Charts;
+
 
  void SetGroupingItem(int level, IChartDataCell value);
 

@@ -39,6 +39,9 @@ Experience high-quality conversions with the [**Aspose.Slides Conversion tool**]
 {{% /alert %}}
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate a Presentation object representing a PPTX file
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 

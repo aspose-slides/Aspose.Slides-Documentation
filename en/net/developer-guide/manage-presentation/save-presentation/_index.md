@@ -34,6 +34,9 @@ description: "Discover how to save presentations in .NET using Aspose.Slides—e
 Save a presentation to a file by calling the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class’s `Save` method. Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -49,6 +52,9 @@ using (Presentation presentation = new Presentation())
 You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class’s `Save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
@@ -65,6 +71,9 @@ using (Presentation presentation = new Presentation())
 Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/) class. Set the [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/lastview/) property to a value from the [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) enumeration.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.ViewProperties.LastView = ViewType.SlideMasterView;
@@ -79,6 +88,9 @@ Aspose.Slides lets you save a presentation in the Strict Office Open XML format.
 The example below creates a presentation and saves it in the Strict Office Open XML format.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 PptxOptions options = new PptxOptions()
 {
     Conformance = Conformance.Iso29500_2008_Strict
@@ -107,6 +119,9 @@ This property provides the following modes:
 The following code demonstrates how to save a presentation as a PPTX file with ZIP64 format extensions enabled:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
@@ -143,6 +158,9 @@ The following compression levels are available:
 
 The following example demonstrates how to save a presentation as a PPTX file *without compression*:
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
     pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
@@ -154,6 +172,9 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 
 This example shows how to save a presentation as a PPTX file with *maximum compression*:
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
     pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
@@ -173,6 +194,9 @@ The [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/net/aspos
 In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
@@ -195,6 +219,9 @@ The [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/ip
 The following code snippets show how to use `IProgressCallback`.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 ISaveOptions saveOptions = new PdfOptions();
 saveOptions.ProgressCallback = new ExportProgressHandler();
 
@@ -205,6 +232,8 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 ```cs
+using Aspose.Slides;
+
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)

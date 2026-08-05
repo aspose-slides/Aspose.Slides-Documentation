@@ -33,6 +33,9 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 The example below adds a group shape to a slide.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instantiate Prseetation class 
 using (Presentation pres = new Presentation())
 {
@@ -73,6 +76,8 @@ This topic shows simple steps, complete with code examples, for adding a group s
 The example below accesses alternative text of group shape.
 
 ```c#
+using Aspose.Slides;
+
 // Instantiate Presentation class that represents PPTX file
 Presentation pres = new Presentation("AltText.pptx");
 

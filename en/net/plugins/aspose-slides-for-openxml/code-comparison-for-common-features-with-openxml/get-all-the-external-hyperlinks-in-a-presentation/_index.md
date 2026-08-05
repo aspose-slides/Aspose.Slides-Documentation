@@ -84,6 +84,8 @@ return ret;
 Aspose.Slides for .NET allows developers to manage the hyperlinks in presentation on the presentation, slide and text frame level.The **IHyperlinkQueries** class helps to manage hyperlinks in a presentation.
 
 ``` csharp
+using Aspose.Slides;
+
 
  string FilePath = @"..\..\..\..\Sample Files\";
 
