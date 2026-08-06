@@ -10,44 +10,76 @@ keywords:
 - thay đổi hoạt ảnh
 - xóa hoạt ảnh
 - quản lý hoạt ảnh
-- điều khiển hoạt ảnh
+- kiểm soát hoạt ảnh
 - hiệu ứng hoạt ảnh
 - hoạt ảnh PowerPoint
 - dòng thời gian hoạt ảnh
 - hoạt ảnh tương tác
 - hoạt ảnh tùy chỉnh
 - hoạt ảnh hình dạng
-- biểu đồ được hoạt ảnh
-- văn bản được hoạt ảnh
-- hình dạng được hoạt ảnh
-- đối tượng OLE được hoạt ảnh
-- hình ảnh được hoạt ảnh
-- bảng được hoạt ảnh
+- biểu đồ động
+- văn bản động
+- hình dạng động
+- đối tượng OLE động
+- hình ảnh động
+- bảng động
 - bài thuyết trình PowerPoint
 - Python
 - Aspose.Slides
-description: "Khám phá khả năng của Aspose.Slides cho Python qua .NET trong việc xử lý các hoạt ảnh PowerPoint. Tổng quan chung này nêu bật các tính năng chính và cung cấp những hiểu biết để nâng cao bài thuyết trình của bạn."
+description: "Khám phá khả năng của Aspose.Slides for Python via .NET trong việc xử lý hoạt ảnh PowerPoint. Tổng quan chung này nêu bật các tính năng chính và cung cấp những hiểu biết để nâng cao các bài thuyết trình của bạn."
 ---
 ## **Giới thiệu**
 
-Bản trình bày được thiết kế để truyền đạt thông tin, vì vậy hình ảnh trực quan và hành vi tương tác là những yếu tố then chốt khi tạo ra.
+Bản trình chiếu được thiết kế để truyền tải thông tin, vì vậy hình ảnh trực quan và hành vi tương tác là những yếu tố quan trọng cần xem xét khi tạo.
 
-**PowerPoint animation** đóng vai trò quan trọng trong việc làm cho bản trình bày thu hút và lôi cuốn người xem. Aspose.Slides for Python via .NET cung cấp nhiều tùy chọn để thêm hoạt ảnh vào bản trình bày PowerPoint. Bạn có thể:
+**PowerPoint animation** đóng vai trò quan trọng trong việc làm cho bản trình chiếu thu hút và hấp dẫn người xem. Aspose.Slides for Python via .NET cung cấp nhiều tùy chọn để thêm hoạt hình vào bản trình chiếu PowerPoint. Bạn có thể:
 
-- Áp dụng các hiệu ứng hoạt ảnh khác nhau cho các hình dạng, biểu đồ, bảng, đối tượng OLE và các yếu tố khác.
-- Sử dụng nhiều hiệu ứng hoạt ảnh trên một hình dạng duy nhất.
-- Kiểm soát các hiệu ứng qua dòng thời gian hoạt ảnh.
-- Tạo hoạt ảnh tùy chỉnh.
+- Áp dụng các hiệu ứng hoạt hình đa dạng cho hình dạng, biểu đồ, bảng, đối tượng OLE và các yếu tố khác.
+- Sử dụng nhiều hiệu ứng hoạt hình cho cùng một hình dạng.
+- Kiểm soát các hiệu ứng thông qua dòng thời gian hoạt hình.
+- Tạo các hoạt hình tùy chỉnh.
 
-Trong Aspose.Slides for Python via .NET, các hiệu ứng hoạt ảnh có thể được áp dụng cho các hình dạng. Vì mỗi yếu tố trên một slide — bao gồm văn bản, hình ảnh, đối tượng OLE và bảng — đều được coi là một hình dạng, bạn có thể áp dụng hiệu ứng hoạt ảnh cho bất kỳ yếu tố nào trên slide.
+Trong Aspose.Slides for Python via .NET, các hiệu ứng hoạt hình có thể được áp dụng cho hình dạng. Vì mọi yếu tố trên một slide — bao gồm văn bản, hình ảnh, đối tượng OLE và bảng — đều được coi là một hình dạng, bạn có thể áp dụng hiệu ứng hoạt hình cho bất kỳ yếu tố nào trên slide.
 
-The [aspose.slides.animation](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/) namespace provides the classes for working with PowerPoint animations.
+Tên không gian [aspose.slides.animation](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/) cung cấp các lớp để làm việc với hoạt hình PowerPoint.
 
-## **Hiệu Ứng Hoạt Ảnh**
+## **Cài đặt**
 
-Aspose.Slides hỗ trợ **150+ animation effects**, bao gồm các hiệu ứng cơ bản như Bounce, PathFootball và Zoom, cũng như các hiệu ứng chuyên biệt như OLEObjectShow và OLEObjectOpen. Bạn có thể xem danh sách đầy đủ trong enumeration [EffectType](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttype/).
+```bash
+pip install aspose.slides
+```
 
-Ngoài ra, các hiệu ứng hoạt ảnh này có thể được kết hợp với các hiệu ứng sau:
+## **Thêm hiệu ứng hoạt hình vào hình dạng trong Python**
+
+Các hiệu ứng hoạt hình tồn tại trong chuỗi chính của slide. Thêm một hình dạng, sau đó gọi `add_effect` trên `slide.timeline.main_sequence`, truyền vào kiểu hiệu ứng, phụ kiểu và trình kích hoạt bắt đầu nó.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 100)
+    shape.text_frame.text = "Animated shape"
+
+    sequence = slide.timeline.main_sequence
+    effect = sequence.add_effect(
+        shape,
+        slides.animation.EffectType.FLY,
+        slides.animation.EffectSubtype.LEFT,
+        slides.animation.EffectTriggerType.ON_CLICK,
+    )
+    effect.timing.duration = 2.0
+
+    presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Tệp đã lưu chứa một hiệu ứng trên slide đầu tiên: hình chữ nhật bay vào từ bên trái trong hai giây khi người thuyết trình nhấn chuột. Khi mở lại và đọc `slide.timeline.main_sequence` sẽ trả về hiệu ứng đó, do đó hoạt hình tồn tại qua quá trình lưu‑đọc thay vì chỉ tồn tại trong bộ nhớ.
+
+## **Hiệu ứng hoạt hình**
+
+Aspose.Slides hỗ trợ **hơn 150 hiệu ứng hoạt hình**, bao gồm các hiệu ứng cơ bản như Bounce, PathFootball và Zoom, cũng như các hiệu ứng chuyên biệt như OLEObjectShow và OLEObjectOpen. Bạn có thể xem danh sách đầy đủ trong enum [EffectType](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttype/).
+
+Ngoài ra, các hiệu ứng hoạt hình này có thể được kết hợp với các hiệu ứng sau:
 
 - [ColorEffect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/commandeffect/)
@@ -58,58 +90,64 @@ Ngoài ra, các hiệu ứng hoạt ảnh này có thể được kết hợp v�
 - [ScaleEffect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/scaleeffect/)
 - [SetEffect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/seteffect/)
 
-## **Hoạt Ảnh Tùy Chỉnh**
+## **Hoạt hình tùy chỉnh**
 
-Bạn có thể tạo **custom animations** của riêng mình trong Aspose.Slides bằng cách kết hợp nhiều hành vi thành một hiệu ứng duy nhất.
+Bạn có thể tạo **hoạt hình tùy chỉnh** của riêng mình trong Aspose.Slides bằng cách kết hợp nhiều hành vi thành một hiệu ứng duy nhất.
 
-[Behavior](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/behavior/) là khối xây dựng cơ bản của bất kỳ hiệu ứng hoạt ảnh PowerPoint nào. Mỗi hiệu ứng hoạt ảnh thực chất là một tập hợp các hành vi được sắp xếp thành một chiến lược hoặc dòng thời gian. Bạn có thể lắp ráp các hành vi thành một hoạt ảnh tùy chỉnh một lần và tái sử dụng nó trong các bản trình bày khác. Nếu bạn thêm một hành vi mới vào một hiệu ứng hoạt ảnh tiêu chuẩn, nó trở thành một hoạt ảnh tùy chỉnh — ví dụ, thêm hành vi lặp lại để làm cho hoạt ảnh phát nhiều lần.
+[Behavior](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/behavior/) là khối xây dựng cơ bản của bất kỳ hiệu ứng hoạt hình PowerPoint nào. Mỗi hiệu ứng hoạt hình thực chất là một tập hợp các hành vi được sắp xếp thành một chiến lược hoặc dòng thời gian. Bạn có thể lắp ráp các hành vi thành một hoạt hình tùy chỉnh một lần và sử dụng lại trong các bản trình chiếu khác. Nếu bạn thêm một hành vi mới vào một hiệu ứng hoạt hình PowerPoint tiêu chuẩn, nó sẽ trở thành một hoạt hình tùy chỉnh — ví dụ, thêm hành vi lặp lại để làm cho hoạt hình phát nhiều lần.
 
 [Animation Point](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/point/) đánh dấu thời điểm hoặc vị trí mà một hành vi được áp dụng (một keyframe).
 
-## **Dòng Thời Gian Hoạt Ảnh**
+## **Dòng thời gian hoạt hình**
 
-[Sequence](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/) là một tập hợp các hiệu ứng hoạt ảnh được áp dụng cho một hình dạng cụ thể.
+[Sequence](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/) là một tập hợp các hiệu ứng hoạt hình được áp dụng cho một hình dạng cụ thể.
 
-[Timeline](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/animationtimeline/) là tập hợp các sequence được sử dụng trên một slide cụ thể. Nó được giới thiệu trong PowerPoint 2002. Trong các phiên bản PowerPoint trước đó, việc thêm các hiệu ứng hoạt ảnh rất khó và thường phải dùng các giải pháp tạm thời. Timeline thay thế lớp `AnimationSettings` cũ và cung cấp một mô hình đối tượng rõ ràng hơn cho hoạt ảnh PowerPoint. Mỗi slide chỉ có thể có một dòng thời gian hoạt ảnh.
+[Timeline](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/animationtimeline/) là tập hợp các sequence được sử dụng trên một slide cụ thể. Nó được giới thiệu trong PowerPoint 2002. Trong các phiên bản PowerPoint trước đó, việc thêm hiệu ứng hoạt hình rất khó và thường cần các giải pháp tạm thời. Timeline thay thế lớp `AnimationSettings` cũ và cung cấp mô hình đối tượng rõ ràng hơn cho hoạt hình PowerPoint. Mỗi slide chỉ có thể có một dòng thời gian hoạt hình duy nhất.
 
-## **Hoạt Ảnh Tương Tác**
+## **Hoạt hình tương tác**
 
-[Trigger](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttriggertype/) cho phép bạn định nghĩa các hành động của người dùng (ví dụ: nhấp vào nút) để bắt đầu một hoạt ảnh cụ thể. Triggers chỉ được thêm vào trong các phiên bản PowerPoint mới nhất.
+[Trigger](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttriggertype/) cho phép bạn định nghĩa các hành động của người dùng (ví dụ: nhấp nút) để khởi động một hoạt hình cụ thể. Triggers chỉ được thêm vào trong các phiên bản PowerPoint mới nhất.
 
-## **Hoạt Ảnh Hình Dạng**
+## **Hoạt hình hình dạng**
 
-Aspose.Slides cho phép bạn áp dụng hoạt ảnh cho các hình dạng — chẳng hạn như văn bản, hình chữ nhật, đường thẳng, khung, đối tượng OLE và nhiều hơn nữa.
-
-{{% alert color="primary" %}}
-Đọc thêm [**Về Hoạt Ảnh Hình Dạng**](/slides/vi/python-net/shape-animation/).
-{{% /alert %}}
-
-## **Biểu Đồ Được Hoạt Ảnh**
-
-Để tạo biểu đồ động, hãy sử dụng cùng các lớp như bạn dùng cho các hình dạng. Tuy nhiên, hoạt ảnh PowerPoint chỉ có thể được áp dụng cho các danh mục biểu đồ hoặc các chuỗi biểu đồ. Bạn cũng có thể áp dụng một hiệu ứng hoạt ảnh cho một phần tử danh mục riêng lẻ hoặc phần tử chuỗi riêng lẻ.
+Aspose.Slides cho phép bạn áp dụng hoạt hình cho các hình dạng — như văn bản, hình chữ nhật, đường thẳng, khung, đối tượng OLE và nhiều hơn nữa.
 
 {{% alert color="primary" %}}
-Đọc thêm [**Về Biểu Đồ Được Hoạt Ảnh**](/slides/vi/python-net/animated-charts/).
+
+Read more [**Về hoạt hình hình dạng**](/slides/vi/python-net/shape-animation/).
+
 {{% /alert %}}
 
-## **Văn Bản Được Hoạt Ảnh**
+## **Biểu đồ động**
 
-Ngoài việc hoạt ảnh cho văn bản, bạn cũng có thể áp dụng hoạt ảnh cho một đoạn văn.
+Để tạo biểu đồ động, sử dụng cùng các lớp như khi làm việc với hình dạng. Tuy nhiên, hoạt hình PowerPoint chỉ có thể được áp dụng cho các danh mục biểu đồ hoặc chuỗi biểu đồ. Bạn cũng có thể áp dụng hiệu ứng hoạt hình cho một phần tử danh mục riêng lẻ hoặc phần tử chuỗi.
 
 {{% alert color="primary" %}}
-Đọc thêm [**Về Văn Bản Được Hoạt Ảnh**](/slides/vi/python-net/animated-text/).
+
+Read more [**Về biểu đồ động**](/slides/vi/python-net/animated-charts/).
+
 {{% /alert %}}
 
-## **Câu Hỏi Thường Gặp**
+## **Văn bản động**
 
-**Các hoạt ảnh có được giữ nguyên khi xuất sang PDF không?**
+Ngoài việc hoạt hình hóa văn bản, bạn còn có thể áp dụng hoạt hình cho một đoạn văn.
 
-Không. PDF là định dạng tĩnh, vì vậy các hoạt ảnh và [slide transitions](/slides/vi/python-net/slide-transition/) không được phát. Nếu bạn cần chuyển động, hãy xuất sang [HTML5](/slides/vi/python-net/export-to-html5/), [animated GIF](/slides/vi/python-net/convert-powerpoint-to-animated-gif/), hoặc [video](/slides/vi/python-net/convert-powerpoint-to-video/) thay thế.
+{{% alert color="primary" %}}
 
-**Tôi có thể chuyển một bản trình bày có hoạt ảnh thành video và kiểm soát tốc độ khung hình và kích thước khung hình không?**
+Read more [**Về văn bản động**](/slides/vi/python-net/animated-text/).
 
-Có. Bạn có thể [render the presentation as frames](/slides/vi/python-net/convert-powerpoint-to-video/) và mã hoá chúng thành video (ví dụ: bằng ffmpeg), lựa chọn FPS và độ phân giải. Các hoạt ảnh và chuyển tiếp slide sẽ được phát trong quá trình render.
+{{% /alert %}}
 
-**Các hoạt ảnh có vẫn giữ nguyên khi làm việc với ODP (không chỉ PPTX) không?**
+## **FAQ**
 
-PPT, PPTX và ODP đều được hỗ trợ để [reading](/slides/vi/python-net/open-presentation/) và [writing](/slides/vi/python-net/save-presentation/), nhưng sự khác biệt về định dạng có thể khiến một số hiệu ứng hiển thị hoặc hoạt động hơi khác nhau. Hãy kiểm tra các trường hợp quan trọng bằng các mẫu thực tế.
+### Các hoạt hình có được giữ lại khi xuất sang PDF không?
+
+Không. PDF là định dạng tĩnh, do đó các hoạt hình và [slide transitions](/slides/vi/python-net/slide-transition/) không phát. Nếu bạn cần chuyển động, hãy xuất sang [HTML5](/slides/vi/python-net/export-to-html5/), [animated GIF](/slides/vi/python-net/convert-powerpoint-to-animated-gif/), hoặc [video](/slides/vi/python-net/convert-powerpoint-to-video/) thay thế.
+
+### Bạn có thể chuyển bản trình chiếu động thành video và kiểm soát tốc độ khung hình và kích thước khung hình không?
+
+Có. Bạn có thể [render the presentation as frames](/slides/vi/python-net/convert-powerpoint-to-video/) và mã hoá chúng thành video (ví dụ, qua ffmpeg), chọn FPS và độ phân giải. Các hoạt hình và chuyển đổi slide sẽ được phát trong quá trình render.
+
+### Hoạt hình sẽ vẫn nguyên vẹn khi làm việc với ODP (không chỉ PPTX) không?
+
+PPT, PPTX và ODP đều được hỗ trợ để [reading](/slides/vi/python-net/open-presentation/) và [writing](/slides/vi/python-net/save-presentation/), nhưng sự khác nhau về định dạng có nghĩa là một số hiệu ứng có thể hiển thị hoặc hoạt động hơi khác nhau. Hãy kiểm tra các trường hợp quan trọng bằng các mẫu thực.

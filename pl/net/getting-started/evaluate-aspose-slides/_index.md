@@ -6,9 +6,9 @@ url: /pl/net/evaluate-aspose-slides/
 keywords:
 - ocena Aspose.Slides
 - Ocena Aspose.Slides
-- wersja ewaluacyjna
+- wersja oceny
 - pełna funkcjonalność
-- znak wodny wersji ewaluacyjnej
+- znak wodny oceny
 - zakup Aspose.Slides
 - ograniczenie
 - PowerPoint
@@ -17,36 +17,58 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Oceń Aspose.Slides dla .NET i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
+description: "Oceń Aspose.Slides dla .NET i odkryj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij darmowy okres próbny."
 ---
 ## **Ocena Aspose.Slides**
 
-Możesz łatwo pobrać Aspose.Slides do oceny. Pakiet ewaluacyjny jest taki sam jak zakupiony pakiet. Wersja ewaluacyjna po prostu staje się licencjonowana po dodaniu kilku linii kodu, aby zastosować licencję.
+Możesz łatwo pobrać Aspose.Slides w celu oceny. Pakiet oceny jest taki sam jak zakupiony pakiet. Wersja oceny po prostu staje się licencjonowana po dodaniu kilku linii kodu, które zastosują licencję. 
 
-Wersja ewaluacyjna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny oceny u góry dokumentu przy otwieraniu i zapisywaniu. Masz również ograniczenie do jednego slajdu przy wyodrębnianiu tekstu ze slajdów prezentacji.
+Wersja oceny Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny oceny u góry dokumentu przy otwieraniu i zapisywaniu. Jesteś także ograniczony do jednego slajdu przy wyodrębnianiu tekstu z slajdów prezentacji.
+
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
 {{% alert color="primary" %}} 
 
-Jeśli chcesz testować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz poprosić o **30‑dniową tymczasową licencję**. Więcej informacji znajdziesz w artykule [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license).
+Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji oceny, możesz zażądać **30‑dniowej tymczasowej licencji**. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license), aby uzyskać więcej informacji.
 
 {{% /alert %}}
 
+## **Zainstaluj pakiet oceny**
+
+```bash
+dotnet add package Aspose.Slides.NET
+```
+
+## **Zastosuj licencję**
+
+To są „kilka linii kodu”, które zamieniają pakiet oceny w wersję licencjonowaną. Zastosuj licencję raz przy uruchamianiu aplikacji, przed utworzeniem jakiegokolwiek obiektu `Presentation` — prezentacja utworzona wcześniej zachowuje znak wodny oceny.
+
+```csharp
+using Aspose.Slides;
+
+var license = new License();
+license.SetLicense("Aspose.Slides.NET.lic");
+```
+
+`SetLicense` akceptuje również `Stream`, co jest lepszą opcją, gdy licencja jest dostarczana jako zasób osadzony, a nie jako plik na dysku. Jeśli ścieżka jest niepoprawna lub plik wygasł, wywołanie zgłasza wyjątek, więc błędy pojawiają się od razu przy uruchamianiu, zamiast cicho przechodzić w tryb oceny.
+
+Po zastosowaniu licencji znak wodny znika, a limit wyodrębniania tekstu z jednego slajdu zostaje zniesiony.
+
 ## **FAQ**
 
-**Czy mogę testować wiele prezentacji równolegle w różnych wątkach w trybie ewaluacji?**
+### Czy mogę testować wiele prezentacji równocześnie w różnych wątkach w trybie oceny?
 
-Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [pomiędzy wątkami](/slides/pl/net/multithreading/). Tryb ewaluacji nie ma na to wpływu.
+Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś udostępniać tego samego obiektu prezentacji [wątkach](/slides/pl/net/multithreading/). Tryb oceny nie ma na to wpływu.
 
-**Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?**
+### Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?
 
-Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa ani w trybie ewaluacji, ani w produkcji.
+Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa zarówno w ocenie, jak i w produkcji.
 
-**Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie ewaluacji?**
+### Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie oceny?
 
-Tak. [Konwertery](/slides/pl/net/convert-presentation/) działają; wyjście będzie zawierało znak wodny.
+Tak. [Konwertery](/slides/pl/net/convert-presentation/) działają; wynik będzie zawierał znak wodny.
 
-**Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znaku wodnego?**
+### Czy mogę używać tymczasowej licencji do testów obciążeniowych bez znaku wodnego?
 
-Tak. 30‑dniowa tymczasowa licencja usuwa ograniczenia trybu ewaluacji i pozwala testować bez znaku wodnego.
+Tak. 30‑dniowa tymczasowa licencja usuwa ograniczenia trybu oceny i pozwala na testowanie bez znaku wodnego.
