@@ -157,6 +157,8 @@ Yes. Configure [font substitution](/slides/net/font-substitution/), [replacement
 
 Yes. Point to your own font folders or load fonts from byte arrays. This removes any dependency on system font directories in the container image.
 
+> **Note for Linux/Docker**: When using `FontsLoader.LoadExternalFonts` with a full directory path inside a Linux container, ensure the path string is not empty. Passing an empty string (for example, when an environment variable used to build the path is undefined) triggers `System.ArgumentException: The value cannot be an empty string. (Parameter 'path')`. Using a relative path or validating the directory before calling `LoadExternalFonts` avoids this issue.
+
 ### What about licensing—can I embed any custom font without restrictions?
 
 You are responsible for font licensing compliance. Terms vary; some licenses prohibit embedding or commercial use. Always review the font’s EULA before distributing outputs.
