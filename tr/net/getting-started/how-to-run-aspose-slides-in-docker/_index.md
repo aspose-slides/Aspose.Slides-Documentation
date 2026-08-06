@@ -21,7 +21,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Docker konteynerlerinde Aspose.Slides çalıştırın: PowerPoint ve OpenDocument işleyecek ölçeklenebilir hizmetler oluşturmak için görüntüleri, bağımlılıkları, fontları ve lisanslamayı yapılandırın.
+description: "Docker konteynerlerinde Aspose.Slides çalıştırın: PowerPoint ve OpenDocument işleyecek ölçeklenebilir hizmetler oluşturmak için görüntüleri, bağımlılıkları, fontları ve lisanslamayı yapılandırın."
 ---
 ## **Desteklenen OS**
 Aspose.Slides, .NET Core platformunu kullanarak docker konteynerleri içinde çalışabilir. Genel olarak, Aspose.Slides, .NET Core platformunun desteklediği tüm konteyner (OS) türlerini destekler. Ancak, GDI veya [libgdiplus](https://github.com/mono/libgdiplus) konteynerlerde mevcut olmalı ve doğru şekilde ayarlanmış olmalıdır.

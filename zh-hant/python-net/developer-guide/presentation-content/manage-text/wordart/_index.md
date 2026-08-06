@@ -273,13 +273,13 @@ Microsoft PowerPoint 與 Aspose.Slides for Python via .NET 皆提供一定數量
 - 當形狀未設定自身場景但具有 3D 表示時，會使用文字的場景。  
 - 其他情況——若形狀本身未有 3D 效果，則形狀保持平面，3D 效果僅套用於文字。
 
-相關說明可參考 [ThreeDFormat.LightRig]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/threedformat/{{% endraw %}}) 與 [ThreeDFormat.Camera]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/threedformat/{{% endraw %}}) 屬性。  
+相關說明可參考 [ThreeDFormat.LightRig](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/threedformat/) 與 [ThreeDFormat.Camera](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/threedformat/) 屬性。  
 {{% /alert %}}  
 
 ## **套用外部陰影效果於文字**
-Aspose.Slides for Python via .NET 提供 [**IOuterShadow**]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/ioutershadow/{{% endraw %}}) 與 [**IInnerShadow**]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/iinnershadow/{{% endraw %}}) 類別，允許您對 TextFrame 中的文字套用陰影效果。請依照以下步驟操作：
+Aspose.Slides for Python via .NET 提供 [**IOuterShadow**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/ioutershadow/) 與 [**IInnerShadow**](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.effects/iinnershadow/) 類別，允許您對 TextFrame 中的文字套用陰影效果。請依照以下步驟操作：
 
-1. 建立 [Presentation]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/{{% endraw %}}) 類別的執行個體。  
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
 2. 以索引取得投影片的參考。  
 3. 在投影片中加入類型為 Rectangle 的 AutoShape。  
 4. 取得與 AutoShape 關聯的 TextFrame。  
@@ -328,14 +328,14 @@ with slides.Presentation() as pres:
 ## **套用內部陰影效果於形狀**
 請依照以下步驟操作：
 
-1. 建立 [Presentation]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/{{% endraw %}}) 類別的執行個體。  
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
 2. 取得投影片的參考。  
 3. 加入類型為 Rectangle 的 AutoShape。  
 4. 啟用 InnerShadowEffect。  
 5. 設定所有必要參數。  
 6. 將 ColorType 設為 Scheme。  
 7. 設定 Scheme Color。  
-8. 將簡報寫入 [PPTX]({{% raw %}}https://docs.fileformat.com/presentation/pptx/{{% endraw %}}) 檔案。
+8. 將簡報寫入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 檔案。
 
 以下範例程式碼（依上述步驟）示範如何在 Python 中於兩個形狀之間新增連接線：
 
@@ -389,4 +389,4 @@ with slides.Presentation() as presentation:
 會有微小影響。陰影、發光、漸層填充等效果會因為額外的格式資訊而略增檔案大小，但差異通常可以忽略不計。
 
 **是否可以在不儲存簡報的情況下預覽 WordArt 效果的結果？**  
-可以，您可使用 [Shape]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/{{% endraw %}}) 或 [Slide]({{% raw %}}https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slide/{{% endraw %}}) 類別的 `get_image` 方法將包含 WordArt 的投影片渲染為圖像（如 PNG、JPEG），從而在記憶體或螢幕上預覽結果，無需先儲存完整的簡報。
+可以，您可使用 [Shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/) 或 [Slide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/slide/) 類別的 `get_image` 方法將包含 WordArt 的投影片渲染為圖像（如 PNG、JPEG），從而在記憶體或螢幕上預覽結果，無需先儲存完整的簡報。

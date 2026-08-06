@@ -22,7 +22,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: Gestisci i master delle diapositive in Aspose.Slides per Android via Java: accedi, modifica, clona, confronta e rimuovi i master delle diapositive nelle presentazioni PowerPoint e OpenDocument.
+description: "Gestisci i master delle diapositive in Aspose.Slides per Android via Java: accedi, modifica, clona, confronta e rimuovi i master delle diapositive nelle presentazioni PowerPoint e OpenDocument."
 ---
 ## **Panoramica**
 
