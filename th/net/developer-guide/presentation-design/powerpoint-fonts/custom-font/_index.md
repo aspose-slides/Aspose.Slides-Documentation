@@ -1,92 +1,99 @@
 ---
-title: ปรับแต่งฟอนต์ PowerPoint ใน .NET
-linktitle: ฟอนต์แบบกำหนดเอง
+title: กำหนดรูปแบบแบบอักษร PowerPoint ใน .NET
+linktitle: แบบอักษรกำหนดเอง
 type: docs
 weight: 20
 url: /th/net/custom-font/
 keywords:
-- ฟอนต์
-- ฟอนต์แบบกำหนดเอง
-- ฟอนต์ภายนอก
-- โหลดฟอนต์
-- จัดการฟอนต์
-- โฟลเดอร์ฟอนต์
+- แบบอักษร
+- แบบอักษรกำหนดเอง
+- แบบอักษรภายนอก
+- โหลดแบบอักษร
+- จัดการแบบอักษร
+- โฟลเดอร์แบบอักษร
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ปรับแต่งฟอนต์ในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ .NET เพื่อให้การนำเสนอของคุณคมชัดและสอดคล้องกันในทุกอุปกรณ์."
+description: "กำหนดแบบอักษรในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ .NET เพื่อทำให้งานนำเสนอของคุณคมชัดและสอดคล้องกันในทุกอุปกรณ์."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides อนุญาตให้คุณใช้ฟอนต์แบบกำหนดเองในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบปฏิบัติการ คุณสามารถโหลดฟอนต์จากโฟลเดอร์ที่กำหนดเอง, ให้ฟอนต์สำหรับงานนำเสนอเฉพาะผ่านแหล่งฟอนต์ระดับเอกสาร, หรือโหลดฟอนต์ภายนอกโดยตรงจากข้อมูลไบต์
+Aspose.Slides ช่วยให้คุณใช้แบบอักษรกำหนดเองในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบปฏิบัติการ คุณสามารถโหลดแบบอักษรจากโฟลเดอร์กำหนดเอง ให้แบบอักษรสำหรับงานนำเสนอเฉพาะผ่านแหล่งแบบอักษรระดับเอกสาร หรือโหลดแบบอักษรภายนอกจากข้อมูลไบต์โดยตรง
 
-ฟอนต์ที่โหลดแล้วจะถูกใช้เมื่อทำการเรนเดอร์หรือส่งออกงานนำเสนอ เช่น เป็น PDF, รูปภาพ, และรูปแบบอื่น ๆ ที่สนับสนุน ซึ่งช่วยให้ผลลัพธ์ของงานนำเสมอภาคในสภาพแวดล้อมที่ต่างกัน บทความนี้ยังอธิบายวิธีตรวจสอบโฟลเดอร์ฟอนต์ที่ Aspose.Slides ใช้และวิธีล้างแคชฟอนต์หลังจากทำงานกับฟอนต์ภายนอก
+แบบอักษรที่โหลดจะถูกใช้เมื่องานนำเสนอถูกเรนเดอร์หรือส่งออก เช่นเป็น PDF, ภาพ และรูปแบบที่รองรับอื่น ๆ สิ่งนี้ช่วยให้ผลลัพธ์ของงานนำเสนอคงที่ในสภาพแวดล้อมที่ต่างกัน บทความนี้ยังอธิบายวิธีตรวจสอบโฟลเดอร์แบบอักษรที่ Aspose.Slides ใช้และวิธีล้างแคชแบบอักษรหลังจากทำงานกับแบบอักษรภายนอก
 
-การลงทะเบียนฟอนต์แบบกำหนดเองสำหรับการเรนเดอร์จะแยกจากการฝังฟอนต์ลงในไฟล์ PPTX หากต้องการให้ฟอนต์ถูกเก็บอยู่ภายในงานนำเสนอเอง ให้ใช้คุณลักษณะการฝังฟอนต์โดยเฉพาะ
+การลงทะเบียนแบบอักษรกำหนดเองสำหรับการเรนเดอร์แยกจากการฝังแบบอักษรลงในไฟล์ PPTX หากต้องการให้แบบอักษรถูกเก็บอยู่ในงานนำเสนอเอง จำเป็นต้องใช้คุณสมบัติการฝังแบบอักษรอย่างชัดเจน
 
 {{% alert color="primary" %}} 
-Aspose Slides อนุญาตให้คุณโหลดฟอนต์เหล่านี้โดยใช้เมธอด [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfonts/) :
+Aspose Slides ช่วยให้คุณโหลดแบบอักษรเหล่านี้โดยใช้เมธอด [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfonts/) :
 
-* TrueType (.ttf) และ TrueType Collection (.ttc) ฟอนต์ ดูที่ [TrueType](https://en.wikipedia.org/wiki/TrueType) .
-* OpenType (.otf) ฟอนต์ ดูที่ [OpenType](https://en.wikipedia.org/wiki/OpenType) .
+* TrueType (.ttf) และ TrueType Collection (.ttc) แบบอักษร ดูข้อมูลเพิ่มเติมที่ [TrueType](https://en.wikipedia.org/wiki/TrueType).
+
+* OpenType (.otf) แบบอักษร ดูข้อมูลเพิ่มเติมที่ [OpenType](https://en.wikipedia.org/wiki/OpenType).
+
 {{% /alert %}}
 
-## **โหลดฟอนต์แบบกำหนดเอง**
+## **โหลดแบบอักษรกำหนดเอง**
 
-Aspose.Slides อนุญาตให้คุณโหลดฟอนต์ที่ใช้ในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบ การทำเช่นนี้มีผลต่อผลลัพธ์การส่งออก เช่น PDF, รูปภาพ, และรูปแบบอื่น ๆ ที่สนับสนุน ทำให้เอกสารที่ได้มีลักษณะสอดคล้องกันในสภาพแวดล้อมต่าง ๆ ฟอนต์จะถูกโหลดจากไดเรกทอรีที่กำหนดเอง
+Aspose.Slides ช่วยให้คุณโหลดแบบอักษรที่ใช้ในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบ สิ่งนี้ส่งผลต่อผลลัพธ์การส่งออก—เช่นเป็น PDF, ภาพ และรูปแบบที่รองรับอื่น ๆ—เพื่อให้เอกสารที่ได้มีลักษณะคงที่ในสภาพแวดล้อมต่าง ๆ แบบอักษรถูกโหลดจากไดเรกทอรีกำหนดเอง
 
-1. ระบุโฟลเดอร์หนึ่งหรือหลายโฟลเดอร์ที่มีไฟล์ฟอนต์
-2. เรียกเมธอดสแตติก [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfonts/) เพื่อโหลดฟอนต์จากโฟลเดอร์เหล่านั้น
+1. ระบุหนึ่งหรือหลายโฟลเดอร์ที่มีไฟล์แบบอักษร
+2. เรียกเมธอด static [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfonts/) เพื่อโหลดแบบอักษรจากโฟลเดอร์เหล่านั้น
 3. โหลดและเรนเดอร์/ส่งออกงานนำเสนอ
-4. เรียก [FontsLoader.ClearCache](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/clearcache/) เพื่อล้างแคชฟอนต์
-
-ตัวอย่างโค้ดต่อไปนี้แสดงกระบวนการโหลดฟอนต์:
+4. เรียก [FontsLoader.ClearCache](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/clearcache/) เพื่อทำความสะอาดแคชแบบอักษร
 
 ```cs
-// กำหนดโฟลเดอร์ที่มีไฟล์ฟอนต์แบบกำหนดเอง.
-string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// โหลดฟอนต์แบบกำหนดเองจากโฟลเดอร์ที่ระบุ.
+// กำหนดโฟลเดอร์ที่มีไฟล์แบบอักษรกำหนดเอง.
+string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
+
+// โหลดแบบอักษรกำหนดเองจากโฟลเดอร์ที่ระบุ.
 FontsLoader.LoadExternalFonts(fontFolders);
 
 using Presentation presentation = new Presentation("sample.pptx");
 
-// เรนเดอร์/ส่งออกงานนำเสนอ (เช่น PDF, รูปภาพ หรือรูปแบบอื่น)โดยใช้ฟอนต์ที่โหลด.
+// เรนเดอร์/ส่งออกงานนำเสนอ (เช่นเป็น PDF, ภาพ, หรือรูปแบบอื่น) โดยใช้แบบอักษรที่โหลดไว้.
 presentation.Save("output.pdf", SaveFormat.Pdf);
 
-// ล้างแคชฟอนต์หลังจากทำงานเสร็จ.
+// ล้างแคชแบบอักษรหลังจากงานเสร็จสิ้น.
 FontsLoader.ClearCache();
 ```
 
-{{% alert color="info" title="หมายเหตุ" %}}
-[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfonts/) เพิ่มโฟลเดอร์เพิ่มเติมไปยังเส้นทางค้นหาฟอนต์ แต่ไม่ได้เปลี่ยนลำดับการเริ่มต้นฟอนต์ ฟอนต์จะถูกเริ่มต้นตามลำดับนี้:
+{{% alert color="info" title="Note" %}}
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfonts/) เพิ่มโฟลเดอร์เพิ่มเติมไปยังเส้นทางค้นหาแบบอักษร แต่ไม่ได้เปลี่ยนลำดับการเริ่มต้นแบบอักษร
+แบบอักษรถูกเริ่มต้นตามลำดับดังนี้:
 
-1. เส้นทางฟอนต์เริ่มต้นของระบบปฏิบัติการ
-1. เส้นทางที่โหลดผ่าน [FontsLoader](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/) 
+1. เส้นทางแบบอักษรเริ่มต้นของระบบปฏิบัติการ
+1. เส้นทางที่โหลดผ่าน [FontsLoader](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/).
+
 {{%/alert %}}
 
-## **รับโฟลเดอร์ฟอนต์แบบกำหนดเอง**
+## **รับโฟลเดอร์แบบอักษรกำหนดเอง**
+Aspose.Slides มีเมธอด [GetFontFolders](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/getfontfolders/) เพื่อให้คุณค้นหาโฟลเดอร์แบบอักษร เมธอดนี้จะคืนค่าโฟลเดอร์ที่เพิ่มผ่านเมธอด `LoadExternalFonts` และโฟลเดอร์แบบอักษรของระบบ
 
-Aspose.Slides มีเมธอด [GetFontFolders](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/getfontfolders/) เพื่อให้คุณค้นหาโฟลเดอร์ฟอนต์ เมธอดนี้จะคืนค่าโฟลเดอร์ที่เพิ่มผ่านเมธอด `LoadExternalFonts` และโฟลเดอร์ฟอนต์ระบบ
-
-โค้ด C# นี้แสดงวิธีใช้ [GetFontFolders](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/getfontfolders/) :
+โค้ด C# นี้แสดงวิธีใช้ [GetFontFolders](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/getfontfolders/):
 
 ```c#
-// บรรทัดนี้แสดงโฟลเดอร์ที่ตรวจสอบสำหรับไฟล์ฟอนต์.
-// โฟลเดอร์เหล่านั้นคือโฟลเดอร์ที่เพิ่มผ่านเมธอด LoadExternalFonts และโฟลเดอร์ฟอนต์ของระบบ.
+using Aspose.Slides;
+
+// บรรทัดนี้แสดงโฟลเดอร์ที่ตรวจสอบสำหรับไฟล์แบบอักษร.
+// เหล่านั้นคือโฟลเดอร์ที่เพิ่มผ่านเมธอด LoadExternalFonts และโฟลเดอร์แบบอักษรของระบบ.
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
-## **ระบุฟอนต์แบบกำหนดเองที่ใช้กับงานนำเสนอ**
+## **ระบุแบบอักษรกำหนดเองที่ใช้กับงานนำเสนอ**
+Aspose.Slides มีคุณสมบัติ [DocumentLevelFontSources](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/documentlevelfontsources/) เพื่อให้คุณระบุแบบอักษรภายนอกที่ใช้กับงานนำเสนอ
 
-Aspose.Slides มีพร็อพเพอร์ตี้ [DocumentLevelFontSources](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/documentlevelfontsources/) เพื่อให้คุณระบุฟอนต์ภายนอกที่ใช้ร่วมกับงานนำเสนอ
-
-โค้ด C# นี้แสดงวิธีใช้พร็อพเพอร์ตี้ [DocumentLevelFontSources](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/documentlevelfontsources/) :
+โค้ด C# นี้แสดงวิธีใช้คุณสมบัติ [DocumentLevelFontSources](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/documentlevelfontsources/):
 
 ```c#
+using Aspose.Slides;
+
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
@@ -96,17 +103,19 @@ loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, m
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
     // ทำงานกับงานนำเสนอ
-    // CustomFont1, CustomFont2 และฟอนต์จากโฟลเดอร์ assets\fonts และ global\fonts รวมถึงโฟลเดอร์ย่อยของมันพร้อมใช้งานในงานนำเสนอ
+    // CustomFont1, CustomFont2, และแบบอักษรจากโฟลเดอร์ assets\fonts & global\fonts รวมถึงโฟลเดอร์ย่อยของมันสามารถใช้ในงานนำเสนอได้
 }
 ```
 
-## **จัดการฟอนต์จากภายนอก**
+## **จัดการแบบอักษรจากภายนอก**
 
-Aspose.Slides มีเมธอด [LoadExternalFont](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) เพื่อให้คุณโหลดฟอนต์ภายนอกจากข้อมูลไบต์
+Aspose.Slides มีเมธอด [LoadExternalFont](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) เพื่อให้คุณโหลดแบบอักษรภายนอกจากข้อมูลไบต์
 
-โค้ด C# นี้แสดงกระบวนการโหลดฟอนต์จากอาร์เรย์ไบต์ :
+โค้ด C# นี้สาธิตกระบวนการโหลดแบบอักษรจากอาร์เรย์ไบต์: 
 
 ```c#
+using Aspose.Slides;
+
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNI.TTF"));
@@ -115,7 +124,7 @@ try
 {
     using (Presentation pres = new Presentation(""))
     {
-        // ฟอนต์ภายนอกที่โหลดในระยะเวลาการนำเสนอ
+        // แบบอักษรภายนอกที่โหลดระหว่างอายุการทำงานของงานนำเสนอ
     }
 }
 finally
@@ -126,22 +135,24 @@ finally
 
 ## **คำถามที่พบบ่อย**
 
-**ฟอนต์แบบกำหนดเองมีผลต่อการส่งออกไปยังรูปแบบทั้งหมด (PDF, PNG, SVG, HTML) หรือไม่?**
+**แบบอักษรกำหนดเองส่งผลต่อการส่งออกเป็นทุกรูปแบบ (PDF, PNG, SVG, HTML) หรือไม่?**
 
-ใช่ ฟอนต์ที่เชื่อมต่อจะถูกใช้โดยเรนเดอร์ในการส่งออกทุกรูปแบบ
+**ใช่**. แบบอักษรที่เชื่อมต่อจะถูกใช้โดยเรนเดอร์ในทุกรูปแบบการส่งออก
 
-**ฟอนต์แบบกำหนดเองจะถูกฝังอัตโนมัติในไฟล์ PPTX ที่ได้หรือไม่?**
+**แบบอักษรกำหนดเองจะถูกฝังโดยอัตโนมัติในไฟล์ PPTX ที่ได้หรือไม่?**
 
-ไม่ การลงทะเบียนฟอนต์เพื่อการเรนเดอร์ไม่เท่ากับการฝังฟอนต์ลงใน PPTX หากต้องการให้ฟอนต์อยู่ในไฟล์งานนำเสนอ ต้องใช้คุณลักษณะการฝังฟอนต์โดยชัดเจน ([embedding features](/slides/th/net/embedded-font/))
+**ไม่**. การลงทะเบียนแบบอักษรเพื่อการเรนเดอร์ไม่เท่ากับการฝังลงใน PPTX หากต้องการให้แบบอักษรถูกเก็บในไฟล์งานนำเสนอ จำเป็นต้องใช้ [คุณสมบัติการฝัง](/slides/th/net/embedded-font/)อย่างชัดเจน
 
-**ฉันสามารถควบคุมพฤติกรรม fallback เมื่อฟอนต์แบบกำหนดเองขาด glyph บางตัวได้หรือไม่?**
+**ฉันสามารถควบคุมพฤติกรรม fallback เมื่อแบบอักษรกำหนดเองไม่มี glyph บางตัวได้หรือไม่?**
 
-ได้ ตั้งค่า [font substitution](/slides/th/net/font-substitution/), [replacement rules](/slides/th/net/font-replacement/), และ [fallback sets](/slides/th/net/fallback-font/) เพื่อกำหนดฟอนต์ที่ใช้เมื่อ glyph ที่ต้องการไม่มีอยู่
+**ได้**. กำหนดค่า [การทดแทนแบบอักษร](/slides/th/net/font-substitution/), [กฎการแทนที่](/slides/th/net/font-replacement/), และ [ชุด fallback](/slides/th/net/fallback-font/) เพื่อระบุอย่างชัดเจนว่าแบบอักษรใดจะใช้เมื่อ glyph ที่ร้องขอไม่พบ
 
-**ฉันสามารถใช้ฟอนต์ในคอนเทนเนอร์ Linux/Docker โดยไม่ต้องติดตั้งบนระบบได้หรือไม่?**
+**ฉันสามารถใช้แบบอักษรในคอนเทนเนอร์ Linux/Docker ได้โดยไม่ต้องติดตั้งแบบอักษรทั่วระบบหรือไม่?**
 
-ได้ เพียงระบุโฟลเดอร์ฟอนต์ของคุณเองหรือโหลดฟอนต์จากอาร์เรย์ไบต์ ซึ่งจะลบการพึ่งพาโฟลเดอร์ฟอนต์ระบบออกจากอิมเมจคอนเทนเนอร์
+**ได้**. ชี้ไปยังโฟลเดอร์แบบอักษรของคุณเองหรือโหลดแบบอักษรจากอาร์เรย์ไบต์ วิธีนี้จะลบการพึ่งพาโฟลเดอร์แบบอักษรของระบบในภาพคอนเทนเนอร์ออก
 
-**เรื่องลิขสิทธิ์—ฉันสามารถฝังฟอนต์แบบกำหนดเองใดก็ได้โดยไม่มีข้อจำกัดหรือไม่?**
+> **หมายเหตุสำหรับ Linux/Docker**: เมื่อเรียก `FontsLoader.LoadExternalFonts` ให้ตรวจสอบว่าแต่ละรายการในอาร์เรย์ `directories` มีพาธที่ไม่ว่างและชี้ไปยังไดเรกทอรีที่มีอยู่ หากตัวแปรสภาพแวดล้อมที่ใช้สร้างพาธแบบอักษรถูกกำหนดค่าเป็นค่าว่างหรือไม่มีค่า Aspose.Slides อาจพยายามตีความค่าว่างเป็นพาธเต็ม ทำให้เกิด `System.ArgumentException`.
 
-คุณต้องรับผิดชอบต่อการปฏิบัติตามลิขสิทธิ์ฟอนต์ เงื่อนไขอาจต่างกัน; บางลิขสิทธิ์ห้ามการฝังหรือการใช้เชิงพาณิชย์ ควรตรวจสอบ EULA ของฟอนต์ก่อนเผยแพร่ผลลัพธ์
+**เรื่องลิขสิทธิ์ล่ะ—ฉันสามารถฝังแบบอักษรกำหนดเองใด ๆ ได้โดยไม่มีข้อจำกัดหรือไม่?**
+
+**คุณต้องรับผิดชอบต่อการปฏิบัติตามลิขสิทธิ์แบบอักษร**. เงื่อนไขต่างกัน; บางลิขสิทธิ์ห้ามการฝังหรือการใช้ในเชิงพาณิชย์ ควรตรวจสอบข้อตกลงการใช้งาน (EULA) ของแบบอักษรก่อนเผยแพร่ผลลัพธ์
