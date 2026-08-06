@@ -24,7 +24,11 @@ jobs:
           BRANCHNAME="master"
           SOURCE_FOLDER="en/"
           TARGET_FOLDER=""
-          LANGUAGES='["ar","de", "es", "fr", "ja", "ru", "zh"]'
+          # Must list every locale the site builds, or a published locale silently stops tracking
+          # English: its pages keep the wording they had when they were last translated while the
+          # English source moves on. The ten added here are already present in the repository and are
+          # now built and served, so they need to stay in sync from this point on.
+          LANGUAGES='["ar", "de", "es", "fr", "ja", "ru", "zh", "fa", "ko", "it", "zh-hant", "vi", "pt", "tr", "pl", "id", "th"]'
 
           echo "==== Translation Request Parameters ===="
           echo "Base SHA:      $BASE_SHA"
