@@ -26,6 +26,14 @@ showReadingTime: true
 
 Converting PowerPoint presentations (PPT, PPTX, ODP) into PDF format in Python offers several advantages, including ensuring compatibility across different devices and preserving the layout and formatting of your presentation. This guide demonstrates how to convert presentations to PDF documents, utilize various options to control image quality, include hidden slides, password protect PDF documents, detect font substitutions, select specific slides for conversion, and apply compliance standards to output documents.
 
+## **Installation**
+
+```bash
+pip install aspose.slides
+```
+
+The package bundles the runtime it needs, so Microsoft PowerPoint does not have to be installed on the machine performing the conversion.
+
 ## **PowerPoint to PDF Conversions**
 
 Using Aspose.Slides, you can convert presentations in these formats to PDF:

@@ -44,6 +44,41 @@ In Aspose.Slides for Python via .NET, animation effects can be applied to shapes
 
 The [aspose.slides.animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) namespace provides the classes for working with PowerPoint animations.
 
+## **Installation**
+
+```bash
+pip install aspose.slides
+```
+
+## **Add an Animation Effect to a Shape in Python**
+
+Animation effects live on a slide's main sequence. Add a shape, then call `add_effect` on
+`slide.timeline.main_sequence`, passing the effect type, its subtype, and the trigger that starts it.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 100)
+    shape.text_frame.text = "Animated shape"
+
+    sequence = slide.timeline.main_sequence
+    effect = sequence.add_effect(
+        shape,
+        slides.animation.EffectType.FLY,
+        slides.animation.EffectSubtype.LEFT,
+        slides.animation.EffectTriggerType.ON_CLICK,
+    )
+    effect.timing.duration = 2.0
+
+    presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The saved file contains one effect on the first slide: the rectangle flies in from the left over two
+seconds when the presenter clicks. Reopening it and reading `slide.timeline.main_sequence` returns
+that effect, so the animation survives the round trip rather than only existing in memory.
+
 ## **Animation Effects**
 
 Aspose.Slides supports **150+ animation effects**, including basic effects such as Bounce, PathFootball, and Zoom, as well as specialized effects like OLEObjectShow and OLEObjectOpen. You can find the full list in the [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/) enumeration.

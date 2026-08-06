@@ -42,6 +42,12 @@ Aspose.Slides provides the classes you need to work with PowerPoint text in Pyth
 
 A `Paragraph` object can handle text with different formatting properties through its underlying `Portion` objects.
 
+## **Installation**
+
+```bash
+pip install aspose.slides
+```
+
 ## **Add Multiple Paragraphs Containing Multiple Portions**
 
 These steps show how to add a text frame that contains three paragraphs, each with three portions:

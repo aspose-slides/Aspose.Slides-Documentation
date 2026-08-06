@@ -27,6 +27,12 @@ Cloning is the process of making an exact copy or replica of something. Aspose.S
 
 In Aspose.Slides for Python via .NET, the [slide collection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object provides the `add_clone` and `insert_clone` methods to perform these types of slide cloning.
 
+## **Installation**
+
+```bash
+pip install aspose.slides
+```
+
 ## **Clone at the End Within the Same Presentation**
 
 If you want to clone a slide within the same presentation and append it to the end of the existing slides, use the `add_clone` method. Follow these steps:

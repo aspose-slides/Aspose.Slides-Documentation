@@ -35,6 +35,31 @@ If you want to test Aspose.Slides without evaluation version limitations, you ca
 
 {{% /alert %}}
 
+## **Install the Evaluation Package**
+
+```bash
+dotnet add package Aspose.Slides.NET
+```
+
+## **Apply a License**
+
+These are the "few lines of code" that turn the evaluation package into a licensed one. Apply the
+license once at application start-up, before any `Presentation` object is created — a presentation
+constructed earlier keeps the evaluation watermark.
+
+```csharp
+using Aspose.Slides;
+
+var license = new License();
+license.SetLicense("Aspose.Slides.NET.lic");
+```
+
+`SetLicense` also accepts a `Stream`, which is the better option when the license ships as an embedded
+resource rather than a file on disk. If the path is wrong or the file has expired the call throws, so
+failures surface immediately at start-up instead of silently reverting to evaluation mode.
+
+Once the license is applied the watermark disappears and the one-slide text-extraction limit is lifted.
+
 ## **FAQ**
 
 ### Can I test multiple presentations in parallel across different threads in evaluation mode?

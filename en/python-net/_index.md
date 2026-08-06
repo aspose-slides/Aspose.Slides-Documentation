@@ -37,6 +37,34 @@ Aspose.Slides for Python via .NET includes a wide range of features such as work
 
 {{% /alert %}}
 
+## Install Aspose.Slides for Python via .NET
+
+```bash
+pip install aspose.slides
+```
+
+The package ships the .NET runtime it needs, so there is nothing else to install and Microsoft PowerPoint is not required. Python 3.7 or later on Windows, Linux or macOS.
+
+## Create a PowerPoint Presentation in Python
+
+This example creates a presentation, adds a shape with text to the first slide, and saves the result as both PPTX and PDF.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 600, 100)
+    shape.text_frame.text = "Created with Aspose.Slides for Python via .NET"
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation.pdf", slides.export.SaveFormat.PDF)
+```
+
+Running it writes `presentation.pptx` (about 34 KB) and `presentation.pdf` (about 36 KB) to the working directory.
+
+Without a licence the library runs in evaluation mode, which adds a watermark and limits the number of slides. See [Licensing](/slides/python-net/licensing/) to apply one.
+
 ## Aspose.Slides for Python via .NET Resources
 
 Explore these helpful resources::
