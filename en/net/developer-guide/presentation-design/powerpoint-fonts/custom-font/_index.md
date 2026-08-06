@@ -78,6 +78,10 @@ Fonts are initialized in this order:
 
 {{%/alert %}}
 
+{{% alert color="warning" title="Important for Linux/Docker containers" %}}
+When loading a custom font from a byte array (e.g., using `FontsLoader.LoadExternalFont`) you must call the loader **before** creating the `Presentation` instance. Otherwise the font may not be available during rendering and text can appear blank, as observed in Alpine-based .NET containers.
+{{% /alert %}}
+
 ## **Get Custom Font Folders**
 Aspose.Slides provides the [GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/) method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
 
