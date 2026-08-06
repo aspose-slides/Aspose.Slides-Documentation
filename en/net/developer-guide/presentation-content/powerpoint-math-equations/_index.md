@@ -441,6 +441,10 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 | Add bars and borders | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
 | Group terms | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
+## **Known Limitations**
+
+Aspose.Slides for .NET may throw an `ArgumentNullException` with the parameter **mathText** when loading a PPTX file or inserting a slide that contains an empty OMML `<m:t/>` element (e.g., `<m:t></m:t>` or `<m:t/>`). This scenario is a known limitation and is being tracked for a fix.
+
 ## **FAQ**
 
 **Can I edit an existing PowerPoint equation?**
