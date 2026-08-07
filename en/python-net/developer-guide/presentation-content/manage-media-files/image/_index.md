@@ -19,6 +19,7 @@ keywords:
 - add WMF
 - add TIFF
 - PowerPoint
+- OpenDocument
 - presentation
 - Python
 - Aspose.Slides
@@ -65,7 +66,7 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Add Images From the Web to Slides**
+## **Add Images from the Web to Slides**
 
 If the image you want to add to a slide isn’t available on your computer, you can insert it directly from the web.
 
@@ -109,42 +110,35 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set an Image as a Slide Background**
+## **Add Images as Slide Backgrounds**
 
-You may want to use an image as the background for a specific slide or multiple slides. For details, see [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/python-net/presentation-background/#set-image-as-background-for-slide).
+You can use a picture as the background for one or more slides. For details, see *[Setting Images as Backgrounds for Slides](/slides/python-net/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Add SVG to Presentations**
 
-You can insert any image into a presentation using the [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) method of the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class.
+SVG content can be added to a presentation using the [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) class. The resulting SVG image can then be added to the presentation image collection and used to create a picture frame.
 
-To create an image object from an SVG, follow these steps:
+The following Python example imports a self-contained SVG string. All images, styles, and other resources used by this SVG are embedded directly in the SVG content.
 
-1. Create an [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) and add it to the presentation’s image collection.
-2. Create [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) object from [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/).
-3. Create [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) object using [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
-
-The following Python sample shows how to add an SVG image to a presentation using these steps:
-
-```py 
+```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # Read the content of an SVG file.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Create an SvgImage object.
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # Create a PPImage object.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Create a new PictureFrame.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Save the presentation in PPTX format.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Convert SVG to a Set of Shapes**
@@ -177,7 +171,7 @@ with slides.Presentation() as presentation:
         presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Add Images as EMF in Slides**
+## **Add Images as EMF to Slides**
 
 Aspose.Slides for Python lets you insert Enhanced Metafile (EMF) images into presentations.
 
@@ -246,22 +240,22 @@ With Aspose’s free [Text to GIF](https://products.aspose.app/slides/text-to-gi
 
 ## **FAQ**
 
-### Does the original image resolution remain intact after insertion?
+**Does the original image resolution remain intact after insertion?**
 
 Yes. The source pixels are preserved, but the final appearance depends on how the [picture](/slides/python-net/picture-frame/) is scaled on the slide and any compression applied on save.
 
-### What’s the best way to replace the same logo across dozens of slides at once?
+**What’s the best way to replace the same logo across dozens of slides at once?**
 
 Place the logo on the master slide or a layout and replace it in the presentation’s image collection—updates will propagate to all elements that use that resource.
 
-### Can an inserted SVG be converted into editable shapes?
+**Can an inserted SVG be converted into editable shapes?**
 
 Yes. You can convert an SVG into a group of shapes, after which individual parts become editable with standard shape properties.
 
-### How can I set a picture as the background for multiple slides at once?
+**How can I set a picture as the background for multiple slides at once?**
 
 [Assign the image as the background](/slides/python-net/presentation-background/) on the master slide or the relevant layout—any slides using that master/layout will inherit the background.
 
-### How do I prevent the presentation from "ballooning" in size because of many pictures?
+**How do I prevent a presentation from becoming too large because of many pictures?**
 
 Reuse a single image resource instead of duplicates, choose reasonable resolutions, apply compression on save, and keep repeated graphics on the master where appropriate.
