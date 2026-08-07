@@ -7,10 +7,10 @@ url: /ru/python-net/image/
 keywords:
 - добавить изображение
 - добавить картинку
-- добавить bitmap
+- добавить битовую карту
 - заменить изображение
 - заменить картинку
-- из веба
+- из интернета
 - фон
 - добавить PNG
 - добавить JPG
@@ -19,33 +19,34 @@ keywords:
 - добавить WMF
 - добавить TIFF
 - PowerPoint
+- OpenDocument
 - презентация
 - Python
 - Aspose.Slides
 description: "Оптимизируйте управление изображениями в PowerPoint и OpenDocument с помощью Aspose.Slides для Python через .NET, повышая производительность и автоматизируя ваш рабочий процесс."
 ---
+## **Введение**
 
-## **Обзор**
+Изображения делают презентации более увлекательными и интересными. В Microsoft PowerPoint вы можете вставлять картинки из файла, интернета или других источников на слайды. Аналогично, Aspose.Slides позволяет добавлять изображения на слайды несколькими способами.
 
-Изображения делают презентации более интересными и захватывающими. В Microsoft PowerPoint вы можете вставлять картинки из файла, интернета или других источников на слайды. Аналогично, Aspose.Slides позволяет добавлять изображения на слайды несколькими способами.
-
-{{% alert  title="Подсказка" color="primary" %}}
-Aspose предоставляет бесплатные конвертеры —[JPEG в PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений.
+{{% alert title="Tip" color="primary" %}}
+Aspose предоставляет бесплатные конвертеры —[JPEG в PowerPoint](https://products.aspose.app/slides/ru/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/ru/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений.
 {{% /alert %}}
 
-{{% alert title="Информация" color="info" %}}
-Если вы хотите добавить изображение как объект рамки — especially if you plan to use standard formatting options such as resizing or applying effects — см. [Добавление рамок изображений в презентации с Python](https://docs.aspose.com/slides/python-net/picture-frame/).
+{{% alert title="Info" color="info" %}}
+Если вы хотите добавить изображение как объект рамки — особенно если планируете использовать стандартные параметры форматирования, такие как изменение размера или применение эффектов — см. [Добавление рамок изображений в презентации с помощью Python](https://docs.aspose.com/slides/ru/python-net/picture-frame/).
 {{% /alert %}}
 
-{{% alert title="Примечание" color="warning" %}}
-Вы можете использовать операции ввода/вывода изображений и презентаций для конвертации изображений между форматами. Смотрите эти страницы: конвертировать [изображение в JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/); конвертировать [PNG в JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/); и конвертировать [SVG в PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
+{{% alert title="Note" color="warning" %}}
+Вы можете использовать операции ввода‑вывода изображений и презентаций для конвертации изображений между форматами. См. эти страницы: конвертировать [изображение в JPG](https://products.aspose.com/slides/ru/python-net/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/ru/python-net/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/ru/python-net/conversion/jpg-to-png/); конвертировать [PNG в JPG](https://products.aspose.com/slides/ru/python-net/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/ru/python-net/conversion/png-to-svg/); и конвертировать [SVG в PNG](https://products.aspose.com/slides/ru/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
 Aspose.Slides поддерживает работу с изображениями в популярных форматах, таких как JPEG, PNG, BMP, GIF и другие.
 
 ## **Добавление локальных изображений на слайды**
 
-Вы можете добавить одно или несколько изображений с вашего компьютера на слайд в презентации. Ниже приведён пример на Python, показывающий, как добавить изображение на слайд:
+Вы можете добавить одно или несколько изображений с вашего компьютера на слайд презентации. Ниже приведён пример на Python, показывающий, как добавить изображение на слайд:
+
 ```py
 import aspose.slides as slides
 
@@ -58,33 +59,35 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Добавление изображений из интернета на слайды**
 
-## **Добавление изображений из веба на слайды**
-
-Если изображение, которое вы хотите добавить на слайд, недоступно на вашем компьютере, вы можете вставить его напрямую из интернета.
+Если нужное вам изображение недоступно на компьютере, вы можете вставить его напрямую из интернета.
 
 Ниже приведён пример на Python, показывающий, как добавить изображение по URL на слайд:
+
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # Скачать необработанные байты изображения.
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Добавление изображений в шаблоны слайдов**
 
-## **Добавление изображений в мастер‑слайды**
+Шаблон слайда — это верхнеуровневый слайд, который хранит и управляет информацией — темой, макетом и т.д. — для всех дочерних слайдов. Когда вы добавляете изображение в шаблон слайда, это изображение появляется на каждом слайде, использующем данный шаблон.
 
-Мастер‑слайд — это слайд верхнего уровня, который хранит и управляет информацией — темой, макетом и т. д. — для всех слайдов ниже. Когда вы добавляете изображение в мастер‑слайд, оно появляется на каждом слайде, использующем этот мастер.
+Ниже приведён пример на Python, показывающий, как добавить изображение в шаблон слайда:
 
-Ниже приведён пример на Python, показывающий, как добавить изображение в мастер‑слайд:
 ```py
 import aspose.slides as slides
 
@@ -100,59 +103,52 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Добавление изображений в качестве фона слайдов**
 
-## **Установка изображения в качестве фона слайда**
+Вы можете использовать картинку в качестве фона для одного или нескольких слайдов. Подробности см. в *[Установке изображений в качестве фона для слайдов](/slides/ru/python-net/presentation-background/#setting-images-as-background-for-slides)*.
 
-Возможно, вы захотите использовать изображение в качестве фона для конкретного слайда или нескольких слайдов. Подробности см. в статье [Установить изображение в качестве фона слайда](https://docs.aspose.com/slides/python-net/presentation-background/#set-image-as-background-for-slide).
+## **Добавление SVG в презентацию**
 
-## **Добавление SVG в презентации**
+Контент SVG можно добавить в презентацию с помощью класса [SvgImage](https://reference.aspose.com/slides/ru/python-net/aspose.slides/svgimage/). Получившееся SVG‑изображение можно добавить в коллекцию изображений презентации и использовать для создания рамки изображения.
 
-Вы можете вставить любое изображение в презентацию, используя метод [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) класса [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
+Ниже приведён пример на Python, импортирующий автономную строку SVG. Все изображения, стили и другие ресурсы, используемые этим SVG, встроены непосредственно в содержание SVG.
 
-Чтобы создать объект изображения из SVG, выполните следующие шаги:
-
-1. Создайте [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) и добавьте его в коллекцию изображений презентации.  
-2. Создайте объект [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) из [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/).  
-3. Создайте объект [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), используя [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
-
-Ниже приведён пример на Python, показывающий, как добавить SVG‑изображение в презентацию, используя эти шаги:
 ```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # Прочитать содержимое SVG файла.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Создать объект SvgImage.
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # Создать объект PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Создать новый PictureFrame.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Сохранить презентацию в формате PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Конвертация SVG в набор фигур**
 
-## **Преобразование SVG в набор фигур**
+Aspose.Slides преобразует SVG в набор фигур аналогично обработке SVG в PowerPoint.
 
-Aspose.Slides преобразует SVG в набор фигур аналогично тому, как это делает PowerPoint.
+![Меню PowerPoint](img_01_01.png)
 
-![PowerPoint Popup Menu](img_01_01.png)
+Эта функциональность предоставляется перегрузкой метода [add_group_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapecollection/add_group_shape/) класса [ShapeCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapecollection/), принимающего в качестве первого аргумента объект [SvgImage](https://reference.aspose.com/slides/ru/python-net/aspose.slides/svgimage/).
 
-Эта функциональность предоставляется перегрузкой метода [add_group_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_group_shape/) класса [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/), который принимает [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) в качестве первого аргумента.
+Ниже показан пример кода, демонстрирующий, как конвертировать файл SVG в набор фигур.
 
-Ниже приведён пример кода, показывающий, как преобразовать файл SVG в набор фигур.
 ```py 
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Прочитать содержимое SVG файла.
+    # Прочитать содержимое SVG‑файла.
     with open("sample.svg","rt") as image_stream:
         svg_content = image_stream.read()
         # Создать объект SvgImage.
@@ -168,13 +164,15 @@ with slides.Presentation() as presentation:
         presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Добавление изображений в формате EMF на слайды**
 
 Aspose.Slides для Python позволяет вставлять изображения Enhanced Metafile (EMF) в презентации.
 
-Ниже приведён пример на Python, демонстрирующий это:
+Ниже приведён пример на Python, демонстрирующий эту возможность:
+
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -185,24 +183,28 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Замена изображений в коллекции изображений**
 
-Aspose.Slides позволяет заменять изображения, хранящиеся в коллекции изображений презентации, включая те, которые используются фигурами слайдов. В этом разделе описаны несколько подходов к обновлению изображений в коллекции. API предоставляет простые методы замены изображения сырыми байтовыми данными, экземпляром [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) или другим изображением, уже существующим в коллекции.
+Aspose.Slides позволяет заменять изображения, хранящиеся в коллекции изображений презентации, включая те, которые используются фигурами слайдов. В данном разделе описаны несколько подходов к обновлению изображений в коллекции. API предоставляет простые методы для замены изображения сырыми байтовыми данными, экземпляром [IImage](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iimage/) или другим изображением, уже существующим в коллекции.
 
-1. Загрузите презентацию, содержащую изображения, с помощью класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
-2. Загрузите новое изображение из файла в массив байтов.  
-3. Замените целевое изображение новым, используя массив байтов.  
-4. Либо загрузите изображение в объект [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) и замените целевое изображение этим объектом.  
-5. Или замените целевое изображение изображением, уже существующим в коллекции изображений презентации.  
-6. Сохраните изменённую презентацию в файл PPTX.
+Выполните следующие шаги:
+
+1. Загрузите презентацию, содержащую изображения, с помощью класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
+1. Загрузите новое изображение из файла в массив байтов.
+1. Замените целевое изображение новым, используя массив байтов.
+1. При желании загрузите изображение в объект [IImage](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iimage/) и замените целевое изображение этим объектом.
+1. Либо замените целевое изображение другим изображением, уже присутствующим в коллекции изображений презентации.
+1. Сохраните изменённую презентацию в файл PPTX.
+
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()
 
 
-# Создать экземпляр класса Presentation, который представляет файл презентации.
+# Создать экземпляр класса Presentation, представляющего файл презентации.
 with slides.Presentation("sample.pptx") as presentation:
 
     # Первый способ.
@@ -223,29 +225,28 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-{{% alert title="Информация" color="info" %}}
-С помощью бесплатного конвертера [Text to GIF](https://products.aspose.app/slides/text-to-gif) от Aspose вы можете легко анимировать текст и создавать GIF‑файлы из текста.
+{{% alert title="Info" color="info" %}}
+С помощью бесплатного конвертера Aspose — [Text to GIF](https://products.aspose.app/slides/ru/text-to-gif) — вы можете легко анимировать текст и создавать GIF‑изображения из текста.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Сохраняется ли оригинальное разрешение изображения после вставки?**
 
-Да. Исходные пиксели сохраняются, но окончательный вид зависит от того, как [изображение](/slides/ru/python-net/picture-frame/) масштабируется на слайде и от любой компрессии при сохранении.
+Да. Исходные пиксели сохраняются, но конечный вид зависит от того, как [изображение](/slides/ru/python-net/picture-frame/) масштабируется на слайде и какой уровень сжатия применяется при сохранении.
 
-**Как лучше всего заменить один и тот же логотип сразу на десятках слайдов?**
+**Как лучше всего заменить один и тот же логотип на десятках слайдов одновременно?**
 
-Разместите логотип на мастер‑слайде или в макете и замените его в коллекции изображений презентации — изменения распространятся на все элементы, использующие данный ресурс.
+Разместите логотип на мастере слайда или макете и замените его в коллекции изображений презентации — изменения распространятся на все элементы, использующие данный ресурс.
 
 **Можно ли преобразовать вставленный SVG в редактируемые фигуры?**
 
-Да. Вы можете преобразовать SVG в группу фигур, после чего отдельные части становятся редактируемыми с помощью стандартных свойств фигур.
+Да. Вы можете конвертировать SVG в группу фигур, после чего отдельные части становятся редактируемыми с помощью стандартных свойств фигур.
 
-**Как установить изображение в качестве фона сразу для нескольких слайдов?**
+**Как установить картинку в качестве фона для нескольких слайдов сразу?**
 
-[Назначьте изображение в качестве фона](/slides/ru/python-net/presentation-background/) на мастер‑слайде или соответствующем макете — все слайды, использующие этот мастер/макет, получат фон.
+[Назначьте изображение как фон](/slides/ru/python-net/presentation-background/) на мастере слайда или соответствующем макете — все слайды, использующие этот мастер/макет, унаследуют фон.
 
-**Как предотвратить рост размера презентации из‑за большого количества изображений?**
+**Как предотвратить слишком большой размер презентации из‑за множества изображений?**
 
-Повторно используйте один ресурс изображения вместо дубликатов, выбирайте разумные разрешения, применяйте компрессию при сохранении и размещайте повторяющиеся графические элементы на мастере, если это уместно.
+Повторно используйте один ресурс изображения вместо дубликатов, выбирайте разумные разрешения, применяйте сжатие при сохранении и размещайте часто повторяющуюся графику на мастере, где это уместно.
