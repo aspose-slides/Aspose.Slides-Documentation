@@ -1,108 +1,381 @@
 ---
-title: Kelola Tag dan Data Kustom dalam Presentasi di .NET
-linktitle: Tag dan Data Kustom
+title: Kelola Tag dan Data Khusus dalam Presentasi di .NET
+linktitle: Tag dan Data Khusus
 type: docs
 weight: 300
 url: /id/net/managing-tags-and-custom-data/
 keywords:
 - properti dokumen
 - tag
-- data kustom
-- menambahkan tag
+- data khusus
+- XML khusus
+- bagian XML khusus
+- metadata XML
+- ItemId
+- tambahkan tag
 - pasangan nilai
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara menambahkan, membaca, memperbarui, dan menghapus tag & data kustom di Aspose.Slides untuk .NET, dengan contoh untuk presentasi PowerPoint dan OpenDocument."
+description: "Pelajari cara mengelola tag dan data XML khusus dalam presentasi PowerPoint dengan Aspose.Slides untuk .NET, termasuk menambahkan, membaca, memperbarui, mengaudit, dan menghapus bagian XML khusus."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara Aspose.Slides bekerja dengan tag dan data khusus dalam presentasi PowerPoint. Artikel ini secara singkat menguraikan bagaimana data disimpan dalam file PPTX, mencatat bahwa data khusus presentasi dapat ada sebagai tag dan bagian XML khusus, serta menjelaskan tag sebagai pasangan string kunci‑nilai.
+Artikel ini menjelaskan cara Aspose.Slides bekerja dengan tag dan data khusus dalam presentasi PowerPoint. Data khusus presentasi dapat disimpan sebagai tag atau bagian XML khusus. Tag adalah pasangan string kunci‑nilai sederhana, sedangkan bagian XML khusus dapat menyimpan metadata terstruktur dan muatan XML khusus aplikasi.
 
-Artikel ini juga menunjukkan cara membaca nilai tag serta cara menambahkan tag ke presentasi, slide individu, atau shape. Selain itu, artikel ini membahas tugas umum pengelolaan tag seperti menghapus semua tag, menghapus tag berdasarkan nama, dan mengambil daftar nama tag.
+Aspose.Slides menyediakan API untuk menambahkan, membaca, memperbarui, mengaudit, dan menghapus bagian XML khusus pada tingkat presentasi, slide, dan bentuk. Bagian XML khusus berguna untuk integrasi yang menyimpan informasi seperti pengidentifikasi manajemen dokumen, status alur kerja, metadata kepatuhan, data pengikatan templat, atau data aplikasi terstruktur lainnya di dalam presentasi.
 
 ## **Penyimpanan Data dalam File Presentasi**
 
-File PPTX—item dengan ekstensi .pptx—disimpan dalam format PresentationML, yang merupakan bagian dari spesifikasi Office Open XML. Format Office Open XML mendefinisikan struktur data yang terdapat dalam presentasi.
+File PPTX—file dengan ekstensi `.pptx`—disimpan dalam format PresentationML, yang merupakan bagian dari spesifikasi Office Open XML. Office Open XML mendefinisikan struktur paket dan hubungan yang digunakan untuk menyimpan konten presentasi serta data terkait.
 
-Dengan *slide* sebagai salah satu elemen dalam presentasi, sebuah *slide part* berisi konten satu slide. Sebuah slide part diizinkan memiliki hubungan eksplisit ke banyak bagian—seperti User Defined Tags—yang didefinisikan oleh ISO/IEC 29500.
+Sebuah presentasi berisi banyak bagian yang terhubung melalui hubungan. Misalnya, bagian slide berisi konten satu slide dan dapat memiliki hubungan eksplisit ke bagian lain yang didefinisikan oleh ISO/IEC 29500.
 
-Data khusus (spesifik untuk sebuah presentasi) atau data pengguna dapat ada sebagai tag ([ITagCollection](https://reference.aspose.com/slides/id/net/aspose.slides/itagcollection)) dan CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpartcollection)).
+Data khusus dapat disimpan sebagai tag ([ITagCollection](https://reference.aspose.com/slides/id/net/aspose.slides/itagcollection)) atau bagian XML khusus ([ICustomXmlPartCollection](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpartcollection)). Kedua‑nya tersedia melalui antarmuka [`ICustomData`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomdata/) .
 
-{{% alert color="primary" %}} 
-Tag pada dasarnya adalah nilai pasangan kunci‑string. 
-{{% /alert %}} 
+{{% alert color="primary" %}}
+Tag menyimpan pasangan string kunci‑nilai sederhana. Bagian XML khusus menyimpan data XML terstruktur dan dapat dikaitkan dengan presentasi, slide, atau bentuk.
+{{% /alert %}}
 
-## **Dapatkan Nilai Tag**
+## **Bekerja dengan Bagian XML Khusus**
 
-Dalam Slides, sebuah tag berkorespondensi dengan properti IDocumentProperties.Keywords. Kode contoh ini menunjukkan cara mendapatkan nilai tag dengan Aspose.Slides untuk .NET untuk [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation):
+Properti [`ICustomData.CustomXmlParts`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomdata/customxmlparts/) mengembalikan koleksi bagian XML khusus yang terkait dengan objek presentasi tertentu. Contoh:
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+- `presentation.CustomData.CustomXmlParts` berisi bagian XML khusus yang terkait dengan presentasi itu sendiri.
+- `slide.CustomData.CustomXmlParts` berisi bagian XML khusus yang terkait dengan slide tertentu.
+- `shape.CustomData.CustomXmlParts` berisi bagian XML khusus yang terkait dengan bentuk tertentu.
+
+Gunakan [`Presentation.AllCustomXmlParts`](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/allcustomxmlparts/) ketika Anda perlu memeriksa semua bagian XML khusus dalam presentasi tanpa mempedulikan tempat mereka terkait.
+
+### **Tambah Bagian XML Khusus ke Presentasi**
+
+Gunakan [`ICustomXmlPartCollection.Add`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpartcollection/add/) untuk menambahkan data XML ke koleksi bagian XML khusus. XML harus valid dan tidak kosong.
+
+Contoh berikut menambahkan metadata terstruktur ke koleksi data khusus tingkat presentasi:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var customXmlContent =
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+    "<metadata xmlns=\"urn:example:metadata\">" +
+        "<documentId>DOC-1001</documentId>" +
+        "<workflowState>Draft</workflowState>" +
+    "</metadata>";
+
+using var presentation = new Presentation();
+var customXmlPart = presentation.CustomData.CustomXmlParts.Add(customXmlContent);
+
+// Add menetapkan pengidentifikasi secara otomatis. Tetapkan GUID spesifik hanya bila diperlukan.
+customXmlPart.ItemId = Guid.NewGuid();
+
+presentation.Save("presentation_with_custom_xml.pptx", SaveFormat.Pptx);
+```
+
+Metode `Add` juga dapat menerima XML sebagai array byte atau stream, yang berguna ketika konten XML sudah tersedia dalam bentuk biner.
+
+### **Tambah Bagian XML Khusus ke Slide atau Bentuk**
+
+Data XML khusus dapat dikaitkan dengan slide atau bentuk tertentu alih‑alih seluruh presentasi. Ini berguna ketika metadata hanya menggambarkan satu objek, seperti kunci templat, pengidentifikasi rekaman eksternal, atau informasi pengikatan.
+
+Contoh berikut menambahkan satu bagian XML khusus ke slide dan satu lagi ke bentuk:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.CustomData.CustomXmlParts.Add(
+    "<slideMetadata xmlns=\"urn:example:slides\">" +
+        "<templateKey>TitleSlide</templateKey>" +
+    "</slideMetadata>");
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 250, 80);
+
+shape.TextFrame.Text = "Customer data";
+shape.CustomData.CustomXmlParts.Add(
+    "<shapeMetadata xmlns=\"urn:example:shapes\">" +
+        "<recordId>CRM-4281</recordId>" +
+    "</shapeMetadata>");
+
+presentation.Save("object_custom_xml.pptx", SaveFormat.Pptx);
+```
+
+Tingkat di mana bagian ditambahkan menentukan koleksi `CustomData.CustomXmlParts` objek mana yang berisi hubungan ke bagian tersebut. Data tingkat presentasi cocok untuk metadata seluruh dokumen, data tingkat slide untuk informasi yang milik slide tertentu, dan data tingkat bentuk untuk metadata yang terikat pada bentuk individual.
+
+### **Daftar dan Audit Semua Bagian XML Khusus**
+
+Gunakan [`Presentation.AllCustomXmlParts`](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/allcustomxmlparts/) untuk mengambil semua bagian XML khusus dari sebuah presentasi. Setiap [`ICustomXmlPart`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpart/) menampilkan pengidentifikasinya, konten XML, dan skema namespace yang terkait.
+
+Contoh berikut mencantumkan semua bagian XML khusus beserta skema namespace‑nya:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var customXmlPart in presentation.AllCustomXmlParts)
 {
-   string keywords = pres.DocumentProperties.Keywords;
+    Console.WriteLine("ItemId: " + customXmlPart.ItemId);
+    Console.WriteLine("XML:");
+    Console.WriteLine(customXmlPart.XmlAsString);
+
+    foreach (var namespaceSchema in customXmlPart.NamespaceSchemas)
+    {
+        Console.WriteLine("Namespace schema: " + namespaceSchema);
+    }
+
+    Console.WriteLine();
 }
 ```
 
-## **Menambahkan Tag ke Presentasi**
+[`ICustomXmlPart.NamespaceSchemas`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpart/namespaceschemas/) mengembalikan skema XML yang terkait dengan bagian XML khusus. Informasi ini dapat berguna saat mengaudit presentasi yang berisi XML yang dihasilkan oleh sistem eksternal.
 
-Aspose.Slides memungkinkan Anda menambahkan tag ke presentasi. Sebuah tag biasanya terdiri dari dua item:
+### **Baca dan Perbarui Konten XML serta ItemId**
 
-- nama properti kustom - `MyTag`
-- nilai properti kustom - `My Tag Value`
+Gunakan [`ICustomXmlPart.XmlAsString`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpart/xmlasstring/) untuk bekerja dengan XML sebagai string UTF‑8, atau [`ICustomXmlPart.XmlData`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpart/xmldata/) untuk bekerja dengan byte XML mentah. Kedua properti dapat dibaca dan diperbarui.
 
-Jika Anda perlu mengklasifikasikan beberapa presentasi berdasarkan aturan atau properti tertentu, maka Anda dapat memperoleh manfaat dari menambahkan tag ke presentasi tersebut. Misalnya, jika Anda ingin mengelompokkan semua presentasi dari negara‑negara Amerika Utara, Anda dapat membuat tag Amerika Utara dan kemudian menetapkan negara‑negara yang relevan (AS, Meksiko, dan Kanada) sebagai nilai.
+Properti [`ICustomXmlPart.ItemId`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpart/itemid/) berisi GUID yang mengidentifikasi bagian XML khusus dalam dokumen Office Open XML. Properti ini juga dapat diubah ketika integrasi memerlukan pengidentifikasi baru.
 
-Kode contoh ini menunjukkan cara menambahkan tag ke sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) menggunakan Aspose.Slides untuk .NET:
+Contoh berikut memperbarui konten XML dan pengidentifikasinya:
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```csharp
+using System;
+using System.Text;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+var customXmlPart = presentation.AllCustomXmlParts[0];
+
+// Baca XML saat ini sebagai teks.
+var currentXmlContent = customXmlPart.XmlAsString;
+Console.WriteLine(currentXmlContent);
+
+// Perbarui XML sebagai string UTF-8.
+customXmlPart.XmlAsString =
+    "<metadata xmlns=\"urn:example:metadata\">" +
+        "<documentId>DOC-1001</documentId>" +
+        "<workflowState>Approved</workflowState>" +
+    "</metadata>";
+
+// XmlData menyediakan konten XML yang sama sebagai byte mentah.
+var customXmlData = customXmlPart.XmlData;
+Console.WriteLine(Encoding.UTF8.GetString(customXmlData));
+
+// Ganti pengidentifikasi ketika diperlukan oleh integrasi.
+customXmlPart.ItemId = Guid.NewGuid();
+
+presentation.Save("updated_custom_xml.pptx", SaveFormat.Pptx);
+```
+
+Saat menetapkan `XmlAsString` atau `XmlData`, berikan XML yang valid dan tidak kosong. Gunakan satu representasi atau yang lain tergantung apakah aplikasi Anda lebih banyak bekerja dengan string atau data byte.
+
+### **Hapus Bagian XML Khusus**
+
+Aspose.Slides menyediakan beberapa cara untuk menghapus data XML khusus:
+
+- [`ICustomXmlPart.Remove`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpart/remove/) menghapus bagian XML khusus dari presentasi.
+- [`ICustomXmlPartCollection.Remove`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpartcollection/remove/) menghapus bagian tertentu dari koleksi bagian XML khusus.
+- [`ICustomXmlPartCollection.RemoveAt`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpartcollection/removeat/) menghapus bagian pada indeks koleksi yang ditentukan.
+- [`ICustomXmlPartCollection.Clear`](https://reference.aspose.com/slides/id/net/aspose.slides/icustomxmlpartcollection/clear/) menghapus semua bagian dari koleksi tertentu.
+
+Contoh berikut menghapus satu bagian XML khusus tingkat presentasi melalui referensi:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+var customXmlParts = presentation.CustomData.CustomXmlParts;
+
+if (customXmlParts.Count > 0)
 {
-   ITagCollection tags = pres.CustomData.Tags;
-   pres.CustomData.Tags["MyTag"] = "My Tag Value";
+    var customXmlPart = customXmlParts[0];
+    customXmlParts.Remove(customXmlPart);
 }
+
+presentation.Save("custom_xml_removed.pptx", SaveFormat.Pptx);
+```
+
+Jika Anda sudah memiliki `ICustomXmlPart` dan ingin menghapus bagian tersebut dari presentasi alih‑alih menargetkan koleksi tertentu, panggil `customXmlPart.Remove()`.
+
+Anda juga dapat menghapus item berdasarkan indeks:
+
+```csharp
+presentation.CustomData.CustomXmlParts.RemoveAt(0);
+```
+
+### **Bersihkan Semua Bagian XML Khusus dari Koleksi**
+
+Gunakan `Clear` ketika semua bagian XML khusus yang terkait dengan objek presentasi tertentu harus dihapus.
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Slides[0].CustomData.CustomXmlParts.Clear();
+
+presentation.Save("slide_custom_xml_cleared.pptx", SaveFormat.Pptx);
+```
+
+`Clear` memengaruhi hanya koleksi yang dipilih. Misalnya, membersihkan koleksi slide tidak membersihkan koleksi tingkat presentasi atau tingkat bentuk.
+
+Untuk menghapus setiap bagian XML khusus dalam presentasi, iterasi melalui `AllCustomXmlParts` dan hapus masing‑masing bagian:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var customXmlPart in presentation.AllCustomXmlParts)
+{
+    customXmlPart.Remove();
+}
+
+presentation.Save("all_custom_xml_removed.pptx", SaveFormat.Pptx);
+```
+
+### **Tangani Bagian XML Khusus yang Ditautkan atau Dibagi**
+
+Dalam presentasi Office Open XML, bagian XML khusus yang sama dapat dirujuk dari lebih dari satu objek presentasi. Misalnya, file yang ada dapat berisi hubungan dari beberapa slide atau bentuk ke bagian XML khusus yang sama.
+
+Bagian yang dibagi harus diperlakukan sebagai satu objek data dengan beberapa referensi:
+
+- Memperbarui `XmlAsString`, `XmlData`, atau `ItemId` mengubah bagian XML khusus yang mendasarinya, sehingga perubahan berlaku di mana pun bagian tersebut dirujuk.
+- `ItemId` dapat digunakan untuk mengidentifikasi bagian XML khusus yang sama saat mengaudit koleksi tingkat objek.
+- Menghapus bagian dari koleksi `CustomXmlParts` tertentu hanya menghapusnya dari koleksi tersebut. Gunakan `ICustomXmlPart.Remove()` ketika bagian itu sendiri harus dihapus dari presentasi.
+- Sebelum menghapus atau mengganti bagian yang dibagi, periksa koleksi tingkat objek untuk menentukan apakah slide atau bentuk lain masih merujuknya.
+
+Overload `Add` membuat bagian XML khusus baru dari konten XML; mereka tidak menerima `ICustomXmlPart` yang sudah ada. Karena itu, hubungan yang dibagi paling sering ditemui saat memuat presentasi yang sudah berisi mereka.
+
+Contoh berikut mengaudit koleksi tingkat presentasi, slide, dan bentuk berdasarkan `ItemId` serta melaporkan bagian yang dirujuk dari lebih dari satu tempat:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+var referencesByItemId = new Dictionary<Guid, List<string>>();
+
+var registerCustomXmlParts = (string ownerName, ICustomXmlPartCollection customXmlParts) =>
+    {
+        foreach (var customXmlPart in customXmlParts)
+        {
+            if (!referencesByItemId.ContainsKey(customXmlPart.ItemId))
+            {
+                referencesByItemId[customXmlPart.ItemId] = new List<string>();
+            }
+
+            referencesByItemId[customXmlPart.ItemId].Add(ownerName);
+        }
+    };
+
+registerCustomXmlParts("Presentation", presentation.CustomData.CustomXmlParts);
+
+for (var slideIndex = 0; slideIndex < presentation.Slides.Count; slideIndex++)
+{
+    var slide = presentation.Slides[slideIndex];
+    registerCustomXmlParts("Slide " + (slideIndex + 1), slide.CustomData.CustomXmlParts);
+
+    for (var shapeIndex = 0; shapeIndex < slide.Shapes.Count; shapeIndex++)
+    {
+        var shape = slide.Shapes[shapeIndex];
+        registerCustomXmlParts("Slide " + (slideIndex + 1) + ", shape " + shapeIndex, shape.CustomData.CustomXmlParts);
+    }
+}
+
+foreach (var referenceEntry in referencesByItemId)
+{
+    if (referenceEntry.Value.Count > 1)
+    {
+        Console.WriteLine("Shared custom XML part: " + referenceEntry.Key);
+
+        foreach (var ownerName in referenceEntry.Value)
+        {
+            Console.WriteLine("  Referenced by: " + ownerName);
+        }
+    }
+}
+```
+
+Audit semacam ini berguna sebelum memodifikasi atau menghapus data XML khusus dalam presentasi yang dibuat oleh sistem eksternal, karena bagian metadata yang sama mungkin berpartisipasi dalam lebih dari satu hubungan.
+
+## **Dapatkan Nilai Tag**
+
+Di Slides, sebuah tag berkorespondensi dengan properti `IDocumentProperties.Keywords`. Kode contoh berikut menunjukkan cara memperoleh nilai tag dengan Aspose.Slides untuk .NET untuk [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation):
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+var keywords = presentation.DocumentProperties.Keywords;
+```
+
+## **Tambah Tag ke Presentasi**
+
+Aspose.Slides memungkinkan Anda menambahkan tag ke presentasi. Sebuah tag biasanya terdiri dari dua elemen:
+
+- nama properti khusus, misalnya `MyTag`;
+- nilai properti khusus, misalnya `My Tag Value`.
+
+Jika Anda perlu mengklasifikasikan presentasi berdasarkan aturan atau properti tertentu, Anda dapat menambahkan tag untuk tujuan itu. Contohnya, jika ingin mengkategorikan presentasi dari negara‑negara Amerika Utara, Anda dapat membuat tag “NorthAmerican” dan menetapkan negara yang relevan sebagai nilainya.
+
+Kode contoh berikut menambahkan tag ke [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) menggunakan Aspose.Slides untuk .NET:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("presentation.pptx");
+var tags = presentation.CustomData.Tags;
+tags["MyTag"] = "My Tag Value";
 ```
 
 Tag juga dapat diatur untuk [Slide](https://reference.aspose.com/slides/id/net/aspose.slides/slide):
 
 ```csharp
-using(Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    slide.CustomData.Tags["tag"] = "value";
-}
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+slide.CustomData.Tags["tag"] = "value";
 ```
 
-Atau shape individu mana pun [Shape](https://reference.aspose.com/slides/id/net/aspose.slides/shape):
+Atau untuk sebuah [Shape](https://reference.aspose.com/slides/id/net/aspose.slides/shape) individual:
 
 ```csharp
-using(Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 50);
-    shape.TextFrame.Text = "My text";
-    shape.CustomData.Tags["tag"] = "value";
-}
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 50);
+shape.TextFrame.Text = "My text";
+shape.CustomData.Tags["tag"] = "value";
 ```
 
 ### **Batasan**
 
-Tag yang ditambahkan melalui koleksi `CustomData.Tags` hanya disimpan di dalam file PowerPoint. Tag tersebut **tidak** dipindahkan ke struktur tag PDF ketika presentasi diekspor ke PDF. Akibatnya, pengidentifikasi khusus yang ditetapkan sebagai tag tidak dapat diambil dari PDF yang ber‑tag.
+Tag yang ditambahkan melalui koleksi `CustomData.Tags` hanya disimpan di file PowerPoint. Mereka **tidak** dipindahkan ke struktur tag PDF ketika presentasi diekspor ke PDF. Akibatnya, pengidentifikasi khusus yang diberikan sebagai tag tidak dapat diambil dari PDF yang ditandai.
 
-**Workaround**: Anda dapat menyimpan pengidentifikasi khusus dalam **Alt Text** objek (misalnya, `shape.AlternativeText = "MyId"`). Setelah diekspor ke PDF, Alt Text dapat muncul dalam struktur tag PDF.
+**Solusi**: Anda dapat menyimpan pengidentifikasi khusus di **Alt Text** objek (misalnya, `shape.AlternativeText = "MyId"`). Setelah mengekspor ke PDF, Alt Text mungkin muncul dalam struktur tag PDF.
 
 ## **FAQ**
 
-**Apakah saya dapat menghapus semua tag dari sebuah presentasi, slide, atau shape dalam satu operasi?**
+**Apakah saya dapat menghapus semua tag dari presentasi, slide, atau bentuk dalam satu operasi?**  
+Ya. [Koleksi tag](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/) mendukung operasi [Clear](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/clear/) yang menghapus semua pasangan kunci‑nilai sekaligus.
 
-Ya. [tag collection](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/) mendukung operasi [clear](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/clear/) yang menghapus semua pasangan kunci‑nilai sekaligus.
+**Bagaimana cara menghapus satu tag berdasarkan namanya tanpa harus mengiterasi seluruh koleksi?**  
+Gunakan [Remove(name)](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/remove/) pada [TagCollection](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/) untuk menghapus tag berdasarkan kuncinya.
 
-**Bagaimana cara menghapus satu tag berdasarkan namanya tanpa iterasi seluruh koleksi?**
+**Bagaimana saya dapat mengambil daftar lengkap nama tag untuk analisis atau penyaringan?**  
+Gunakan [GetNamesOfTags](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/getnamesoftags/) pada [koleksi tag](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/); ia mengembalikan array berisi semua nama tag.
 
-Gunakan operasi [Remove(name)](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/remove/) pada [TagCollection](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/) untuk menghapus tag berdasarkan kuncinya.
+**Bagaimana saya dapat menemukan semua bagian XML khusus tanpa mempedulikan tempat penyimpanannya?**  
+Gunakan [`Presentation.AllCustomXmlParts`](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/allcustomxmlparts/) untuk mengambil semua bagian XML khusus dalam presentasi.
 
-**Bagaimana cara mengambil daftar lengkap nama tag untuk analisis atau penyaringan?**
-
-Gunakan [GetNamesOfTags](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/getnamesoftags/) pada [tag collection](https://reference.aspose.com/slides/id/net/aspose.slides/tagcollection/); metode ini mengembalikan array semua nama tag.
+**Haruskah saya menggunakan `XmlAsString` atau `XmlData` untuk memperbarui bagian XML khusus?**  
+Gunakan `XmlAsString` ketika aplikasi Anda bekerja dengan teks XML UTF‑8. Gunakan `XmlData` ketika XML sudah tersedia sebagai array byte atau ketika pemrosesan berbasis biner lebih nyaman. Kedua properti mewakili konten XML dari bagian XML khusus yang sama.
