@@ -5,53 +5,48 @@ type: docs
 weight: 10
 url: /es/python-net/image/
 keywords:
-- agregar imagen
-- agregar foto
-- agregar mapa de bits
+- añadir imagen
+- añadir foto
+- añadir bitmap
 - reemplazar imagen
 - reemplazar foto
 - desde web
 - fondo
-- agregar PNG
-- agregar JPG
-- agregar SVG
-- agregar EMF
-- agregar WMF
-- agregar TIFF
+- añadir PNG
+- añadir JPG
+- añadir SVG
+- añadir EMF
+- añadir WMF
+- añadir TIFF
 - PowerPoint
+- OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Optimice la gestión de imágenes en PowerPoint y OpenDocument con Aspose.Slides para Python a través de .NET, mejorando el rendimiento y automatizando su flujo de trabajo."
+description: "Simplifique la gestión de imágenes en PowerPoint y OpenDocument con Aspose.Slides para Python mediante .NET, optimizando el rendimiento y automatizando su flujo de trabajo."
 ---
+## **Introducción**
 
-## **Visión general**
-
-Las imágenes hacen que las presentaciones sean más atractivas e interesantes. En Microsoft PowerPoint, puedes insertar imágenes desde un archivo, Internet u otras fuentes en las diapositivas. De manera similar, Aspose.Slides permite agregar imágenes a las diapositivas de varias formas.
+Las imágenes hacen que las presentaciones sean más atractivas e interesantes. En Microsoft PowerPoint, puedes insertar imágenes desde un archivo, internet u otras fuentes en las diapositivas. Del mismo modo, Aspose.Slides te permite añadir imágenes a las diapositivas de varias formas.
 
 {{% alert  title="Tip" color="primary" %}}
-
-Aspose ofrece conversores gratuitos—[JPEG a PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) y [PNG a PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—que le permiten crear presentaciones rápidamente a partir de imágenes.
-
+Aspose ofrece conversores gratuitos—[JPEG a PowerPoint](https://products.aspose.app/slides/es/import/jpg-to-ppt) y [PNG a PowerPoint](https://products.aspose.app/slides/es/import/png-to-ppt)—que te permiten crear rápidamente presentaciones a partir de imágenes.
 {{% /alert %}}
 
 {{% alert title="Info" color="info" %}}
-
-Si deseas agregar una imagen como objeto de marco —especialmente si planeas usar opciones de formato estándar como cambiar el tamaño o aplicar efectos— consulta [Agregar marcos de imágenes a presentaciones con Python](https://docs.aspose.com/slides/python-net/picture-frame/).
-
+Si deseas añadir una imagen como objeto de marco —especialmente si planeas usar opciones estándar de formato como cambiar el tamaño o aplicar efectos— consulta [Añadir marcos de imagen a presentaciones con Python](https://docs.aspose.com/slides/es/python-net/picture-frame/).
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}}
-
-Puedes usar operaciones de E/S de imágenes y presentaciones para convertir imágenes entre formatos. Consulta estas páginas: convertir [imagen a JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); convertir [JPG a imagen](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); convertir [JPG a PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/); convertir [PNG a JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); convertir [PNG a SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/); y convertir [SVG a PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
-
+Puedes usar operaciones de E/S de imágenes y presentaciones para convertir imágenes entre formatos. Consulta estas páginas: convertir [imagen a JPG](https://products.aspose.com/slides/es/python-net/conversion/image-to-jpg/); convertir [JPG a imagen](https://products.aspose.com/slides/es/python-net/conversion/jpg-to-image/); convertir [JPG a PNG](https://products.aspose.com/slides/es/python-net/conversion/jpg-to-png/); convertir [PNG a JPG](https://products.aspose.com/slides/es/python-net/conversion/png-to-jpg/); convertir [PNG a SVG](https://products.aspose.com/slides/es/python-net/conversion/png-to-svg/); y convertir [SVG a PNG](https://products.aspose.com/slides/es/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
 Aspose.Slides admite trabajar con imágenes en formatos populares como JPEG, PNG, BMP, GIF y otros.
 
 ## **Agregar imágenes almacenadas localmente a diapositivas**
 
-Puedes agregar una o más imágenes desde tu computadora a una diapositiva en una presentación. El siguiente ejemplo en Python muestra cómo agregar una imagen a una diapositiva:
+Puedes añadir una o más imágenes desde tu ordenador a una diapositiva de una presentación. El siguiente ejemplo en Python muestra cómo añadir una imagen a una diapositiva:
+
 ```py
 import aspose.slides as slides
 
@@ -64,33 +59,35 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Agregar imágenes desde la web a diapositivas**
 
-## **Agregar imágenes de la web a diapositivas**
+Si la imagen que deseas añadir a una diapositiva no está disponible en tu ordenador, puedes insertarla directamente desde la web.
 
-Si la imagen que deseas agregar a una diapositiva no está disponible en tu computadora, puedes insertarla directamente desde la web.
+El siguiente ejemplo en Python muestra cómo añadir una imagen desde una URL a una diapositiva:
 
-El siguiente ejemplo en Python muestra cómo agregar una imagen desde una URL a una diapositiva:
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # Descargar los bytes sin procesar de la imagen.
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Agregar imágenes a los maestros de diapositivas**
 
-Un maestro de diapositivas es la diapositiva de nivel superior que almacena y controla información—tema, diseño, etc.—para todas las diapositivas que están bajo él. Cuando agregas una imagen al maestro de diapositivas, esa imagen aparece en cada diapositiva que usa ese maestro.
+Un maestro de diapositivas es la diapositiva de nivel superior que almacena y controla la información—tema, diseño, etc.—para todas las diapositivas que están bajo él. Cuando añades una imagen a un maestro de diapositivas, esa imagen aparece en cada diapositiva que utiliza ese maestro.
 
-El siguiente ejemplo en Python muestra cómo agregar una imagen a un maestro de diapositivas:
+El siguiente ejemplo en Python muestra cómo añadir una imagen a un maestro de diapositivas:
+
 ```py
 import aspose.slides as slides
 
@@ -106,54 +103,45 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Agregar imágenes como fondos de diapositivas**
 
-## **Establecer una imagen como fondo de diapositiva**
-
-Puede que desees usar una imagen como fondo para una diapositiva específica o para varias diapositivas. Para más detalles, consulta [Establecer una imagen como fondo de una diapositiva](https://docs.aspose.com/slides/python-net/presentation-background/#set-image-as-background-for-slide).
+Puedes usar una imagen como fondo para una o varias diapositivas. Para más detalles, consulta *[Establecer imágenes como fondos de diapositivas](/slides/es/python-net/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Agregar SVG a presentaciones**
 
-Puedes insertar cualquier imagen en una presentación usando el método [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) de la clase [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
+El contenido SVG puede añadirse a una presentación mediante la clase [SvgImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/svgimage/). La imagen SVG resultante puede entonces añadirse a la colección de imágenes de la presentación y usarse para crear un marco de imagen.
 
-Para crear un objeto de imagen a partir de un SVG, sigue estos pasos:
-
-1. Crea un [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) y agrégalo a la colección de imágenes de la presentación.  
-2. Crea un objeto [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) a partir del [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/).  
-3. Crea un objeto [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) usando el [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
-
-El siguiente ejemplo en Python muestra cómo agregar una imagen SVG a una presentación usando estos pasos:
-```py 
+```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # Leer el contenido de un archivo SVG.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Crear un objeto SvgImage.
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # Crear un objeto PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Crear un nuevo PictureFrame.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Guardar la presentación en formato PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Convertir SVG a un conjunto de formas**
 
-Aspose.Slides convierte SVGs en un conjunto de formas de manera similar al manejo de SVG de PowerPoint.
+Aspose.Slides convierte los SVG en un conjunto de formas de manera similar al manejo de SVG de PowerPoint.
 
-![Menú emergente de PowerPoint](img_01_01.png)
+![PowerPoint Popup Menu](img_01_01.png)
 
-Esta funcionalidad la proporciona una sobrecarga del método [add_group_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_group_shape/) en la clase [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) que toma un [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) como su primer argumento. 
+Esta funcionalidad se proporciona mediante una sobrecarga del método [add_group_shape](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/add_group_shape/) en la clase [ShapeCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/), que recibe un [SvgImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/svgimage/) como su primer argumento.
 
 El código de muestra a continuación muestra cómo convertir un archivo SVG en un conjunto de formas.
+
 ```py 
 import aspose.slides as slides
 
@@ -174,13 +162,15 @@ with slides.Presentation() as presentation:
         presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Agregar imágenes como EMF a diapositivas**
 
-## **Agregar imágenes como EMF en diapositivas**
-
-Aspose.Slides for Python permite insertar imágenes Enhanced Metafile (EMF) en presentaciones.
+Aspose.Slides for Python te permite insertar imágenes Enhanced Metafile (EMF) en presentaciones.
 
 El siguiente ejemplo en Python demuestra esto:
+
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -191,20 +181,22 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Reemplazar imágenes en la colección de imágenes**
 
-Aspose.Slides permite reemplazar imágenes almacenadas en la colección de imágenes de una presentación, incluidas aquellas usadas por formas de diapositivas. Esta sección describe varias formas de actualizar imágenes en la colección. La API brinda métodos sencillos para reemplazar una imagen con datos de bytes sin procesar, una instancia de [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/), o con otra imagen que ya exista en la colección.
+Aspose.Slides permite reemplazar imágenes almacenadas en la colección de imágenes de una presentación, incluidas aquellas usadas por formas de diapositivas. Esta sección describe varios enfoques para actualizar imágenes en la colección. La API proporciona métodos sencillos para reemplazar una imagen con datos de bytes sin procesar, una instancia de [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) o con otra imagen que ya exista en la colección.
 
 Sigue estos pasos:
 
-1. Carga la presentación que contiene las imágenes usando la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).  
-2. Carga una nueva imagen desde un archivo en una matriz de bytes.  
-3. Reemplaza la imagen objetivo con la nueva imagen usando la matriz de bytes.  
-4. Alternativamente, carga la imagen en un objeto [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) y reemplaza la imagen objetivo con ese objeto.  
-5. O bien, reemplaza la imagen objetivo con una imagen que ya exista en la colección de imágenes de la presentación.  
-6. Guarda la presentación modificada como archivo PPTX.  
+1. Carga la presentación que contiene las imágenes usando la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/).
+1. Carga una nueva imagen desde un archivo en un array de bytes.
+1. Reemplaza la imagen objetivo con la nueva imagen usando el array de bytes.
+1. Alternativamente, carga la imagen en un objeto [IImage](https://reference.aspose.com/slides/es/python-net/aspose.slides/iimage/) y reemplaza la imagen objetivo con ese objeto.
+1. O reemplaza la imagen objetivo con una imagen que ya exista en la colección de imágenes de la presentación.
+1. Guarda la presentación modificada como archivo PPTX.
+
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()
@@ -231,31 +223,28 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 {{% alert title="Info" color="info" %}}
-
-Con el conversor gratuito de Aspose [Texto a GIF](https://products.aspose.app/slides/text-to-gif), puedes animar texto fácilmente y crear GIFs a partir de texto.
-
+Con el conversor gratuito [Texto a GIF](https://products.aspose.app/slides/es/text-to-gif) de Aspose, puedes animar texto fácilmente y crear GIFs a partir de texto.
 {{% /alert %}}
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Se mantiene la resolución original de la imagen después de la inserción?**
+**¿Se conserva la resolución original de la imagen tras la inserción?**
 
-Sí. Los píxeles originales se conservan, pero la apariencia final depende de cómo se escale la [picture](/slides/es/python-net/picture-frame/) en la diapositiva y de cualquier compresión aplicada al guardar.
+Sí. Los píxeles de origen se conservan, pero la apariencia final depende de cómo se escale la [imagen](/slides/es/python-net/picture-frame/) en la diapositiva y de cualquier compresión aplicada al guardar.
 
-**¿Cuál es la mejor manera de reemplazar el mismo logotipo en docenas de diapositivas a la vez?**
+**¿Cuál es la mejor manera de reemplazar el mismo logotipo en decenas de diapositivas a la vez?**
 
-Coloca el logotipo en la diapositiva maestra o en un diseño y reemplázalo en la colección de imágenes de la presentación; las actualizaciones se propagarán a todos los elementos que usen ese recurso.
+Coloca el logotipo en la diapositiva maestra o en una distribución y reemplázalo en la colección de imágenes de la presentación; las actualizaciones se propagarán a todos los elementos que usan ese recurso.
 
 **¿Puede un SVG insertado convertirse en formas editables?**
 
-Sí. Puedes convertir un SVG en un grupo de formas, después de lo cual cada parte se vuelve editable con las propiedades estándar de forma.
+Sí. Puedes convertir un SVG en un grupo de formas, tras lo cual cada parte individual se vuelve editable con las propiedades estándar de forma.
 
-**¿Cómo puedo establecer una imagen como fondo de varias diapositivas a la vez?**
+**¿Cómo puedo establecer una imagen como fondo para varias diapositivas a la vez?**
 
-[Asignar la imagen como fondo](/slides/es/python-net/presentation-background/) en la diapositiva maestra o en el diseño correspondiente; cualquier diapositiva que use esa maestra/diseño heredará el fondo.
+[Asignar la imagen como fondo](/slides/es/python-net/presentation-background/) en la diapositiva maestra o en la distribución correspondiente; cualquier diapositiva que use esa maestra/distribución heredará el fondo.
 
-**¿Cómo evito que la presentación "infle" de tamaño debido a muchas imágenes?**
+**¿Cómo evitar que una presentación se vuelva demasiado grande debido a muchas imágenes?**
 
-Reutiliza un solo recurso de imagen en lugar de duplicados, elige resoluciones razonables, aplica compresión al guardar y mantén los gráficos repetidos en la maestra cuando sea apropiado.
+Reutiliza un único recurso de imagen en lugar de duplicados, elige resoluciones razonables, aplica compresión al guardar y mantén los gráficos repetidos en la maestra cuando sea apropiado.

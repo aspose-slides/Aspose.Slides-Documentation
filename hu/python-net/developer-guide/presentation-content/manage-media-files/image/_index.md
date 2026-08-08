@@ -1,6 +1,6 @@
 ---
-title: Képek kezelése a PowerPointban Python segítségével
-linktitle: Képek kezelése
+title: "Képek kezelésének optimalizálása PowerPointban Python segítségével"
+linktitle: "Képek kezelése"
 type: docs
 weight: 10
 url: /hu/python-net/image/
@@ -19,32 +19,33 @@ keywords:
 - WMF hozzáadása
 - TIFF hozzáadása
 - PowerPoint
-- bemutató
+- OpenDocument
+- prezentáció
 - Python
 - Aspose.Slides
-description: "Egyszerűsítse a képek kezelését a PowerPointban és az OpenDocumentban az Aspose.Slides for Python .NET-en keresztül, optimalizálva a teljesítményt és automatizálva a munkafolyamatot."
+description: "Egyszerűsítse a képek kezelését PowerPointban és OpenDocument formátumban az Aspose.Slides for Python .NET segítségével, optimalizálja a teljesítményt és automatizálja a munkafolyamatát."
 ---
 ## **Bevezetés**
 
-A képek a bemutatókat élvezetesebbé és érdekesebbé teszik. A Microsoft PowerPointban képeket szúrhat be egy fájlból, az internetről vagy egyéb forrásokból a diákra. Hasonlóan, az Aspose.Slides többféleképpen is lehetővé teszi a képek diákra történő felvételét.
+A képek a bemutatókat élvezetesebbé és érdekesebbé teszik. A Microsoft PowerPointben képeket szúrhat be egy fájlból, az internetről vagy egyéb forrásokból a diákra. Hasonlóan, az Aspose.Slides többféleképpen teszi lehetővé a képek hozzáadását a diákhoz.
 
-{{% alert  title="Tip" color="primary" %}}
-Az Aspose ingyenes konvertereket kínál — [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyekkel gyorsan létrehozhat bemutatókat képekből.
+{{% alert  title="Tipp" color="primary" %}}
+Az Aspose ingyenes konvertereket kínál — [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyekkel gyorsan létrehozhat prezentációkat képekből.
 {{% /alert %}}
 
-{{% alert title="Info" color="info" %}}
-Ha képet szeretne keretobjektumként hozzáadni — különösen ha szabványos formázási lehetőségeket, például átméretezést vagy hatások alkalmazását tervezi — tekintse meg a [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/hu/python-net/picture-frame/) oldalt.
+{{% alert title="Információ" color="info" %}}
+Ha képet szeretne keretobjektumként hozzáadni – különösen ha a méretezés vagy hatások alkalmazása standard formázási beállításait szeretné használni – tekintse meg a [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/hu/python-net/picture-frame/).
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-A kép- és bemutató I/O műveleteket használhatja a képek formátumok közötti konvertálására. Lásd ezeket az oldalakat: konvertálás [image to JPG](https://products.aspose.com/slides/hu/python-net/conversion/image-to-jpg/); konvertálás [JPG to image](https://products.aspose.com/slides/hu/python-net/conversion/jpg-to-image/); konvertálás [JPG to PNG](https://products.aspose.com/slides/hu/python-net/conversion/jpg-to-png/); konvertálás [PNG to JPG](https://products.aspose.com/slides/hu/python-net/conversion/png-to-jpg/); konvertálás [PNG to SVG](https://products.aspose.com/slides/hu/python-net/conversion/png-to-svg/); és konvertálás [SVG to PNG](https://products.aspose.com/slides/hu/python-net/conversion/svg-to-png/).
+{{% alert title="Megjegyzés" color="warning" %}}
+Képkonvertáláshoz használhatja a kép- és prezentáció I/O műveleteket. Lásd ezeket az oldalakat: konvertálás [image to JPG](https://products.aspose.com/slides/hu/python-net/conversion/image-to-jpg/); konvertálás [JPG to image](https://products.aspose.com/slides/hu/python-net/conversion/jpg-to-image/); konvertálás [JPG to PNG](https://products.aspose.com/slides/hu/python-net/conversion/jpg-to-png/); konvertálás [PNG to JPG](https://products.aspose.com/slides/hu/python-net/conversion/png-to-jpg/); konvertálás [PNG to SVG](https://products.aspose.com/slides/hu/python-net/conversion/png-to-svg/); és konvertálás [SVG to PNG](https://products.aspose.com/slides/hu/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
-Az Aspose.Slides támogatja a népszerű formátumú képekkel való munkát, mint a JPEG, PNG, BMP, GIF és egyebek.
+Az Aspose.Slides támogatja a képek kezelését népszerű formátumokban, például JPEG, PNG, BMP, GIF és mások.
 
-## **Helyi tárolt képek hozzáadása diákhoz**
+## **Helyileg tárolt képek hozzáadása a diákhoz**
 
-Egy vagy több képet adhat hozzá a számítógépéről egy bemutató diájához. Az alábbi Python példában látható, hogyan adhat hozzá egy képet a diához:
+A számítógépről egy vagy több képet adhat hozzá egy diához egy prezentációban. Az alábbi Python példában látható, hogyan adjon hozzá egy képet egy diához:
 
 ```py
 import aspose.slides as slides
@@ -58,32 +59,34 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Képek webes forrásból való diákra való felvétele**
+## **Képek hozzáadása a webről a diákhoz**
 
 Ha a diára felvenni kívánt kép nem érhető el a számítógépén, közvetlenül a webről szúrhatja be.
 
-Az alábbi Python példa bemutatja, hogyan adhat hozzá egy képet egy URL-ről a diához:
+Az alábbi Python példában látható, hogyan adjon hozzá egy képet egy URL‑ről egy diához:
 
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # Töltse le a nyers kép bájtjait.
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Képek hozzáadása diamesterhez**
+## **Képek hozzáadása a diasablonhoz**
 
-A diamester a legfelső szintű dia, amely tárolja és irányítja az információkat — téma, elrendezés stb. — az alatta lévő összes dia számára. Ha képet ad hozzá egy diamasterhez, az a kép minden olyan dián megjelenik, amely azt a mastert használja.
+A diasablon a legfelső szintű dia, amely tárolja és vezérli az információkat – téma, elrendezés stb. – az alatta lévő összes dia számára. Amikor képet ad hozzá egy diasablonhoz, az a kép minden, a sablont használó dián megjelenik.
 
-Az alábbi Python példa megmutatja, hogyan adhat hozzá egy képet egy diamasterhez:
+Az alábbi Python példában látható, hogyan adjon hozzá egy képet egy diasablonhoz:
 
 ```py
 import aspose.slides as slides
@@ -100,53 +103,44 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kép beállítása dia háttérként**
+## **Képek hozzáadása diá háttereként**
 
-Előfordulhat, hogy egy képet szeretne használni egy adott dia vagy több dia háttérként. Részletekért lásd a [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/hu/python-net/presentation-background/#set-image-as-background-for-slide) oldalt.
+Egy vagy több dia háttérként is használhat képet. További információkért lásd a *[Setting Images as Backgrounds for Slides](/slides/hu/python-net/presentation-background/#setting-images-as-background-for-slides)*.
 
-## **SVG hozzáadása bemutatókhoz**
+## **SVG hozzáadása a prezentációkhoz**
 
-Bármilyen képet beilleszthet egy bemutatóba a [add_picture_frame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_picture_frame/) metódus segítségével a [ShapeCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/) osztályban.
+Az SVG tartalmat a [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) osztály segítségével adhatja hozzá egy prezentációhoz. A létrejövő SVG kép ezután hozzáadható a prezentáció képgyűjteményéhez, és felhasználható képkeret létrehozására.
 
-SVG-ből képtárgy létrehozásához kövesse ezeket a lépéseket:
-
-1. Hozzon létre egy [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) objektumot, és adja hozzá a bemutató képgyűjteményéhez.
-2. Hozzon létre egy [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) objektumot a [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) alapján.
-3. Hozzon létre egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) objektumot a [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) felhasználásával.
-
-Az alábbi Python példa bemutatja, hogyan adhat hozzá egy SVG képet egy bemutatóhoz ezekkel a lépésekkel:
-
-```py 
+```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # Olvassa be egy SVG fájl tartalmát.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Hozzon létre egy SvgImage objektumot.
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # Hozzon létre egy PPImage objektumot.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Hozzon létre egy új PictureFrame-et.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Mentse a bemutatót PPTX formátumban.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **SVG konvertálása alakzatok halmazává**
 
-Az Aspose.Slides a SVG-ket alakzatok halmazává konvertálja, hasonló módon, mint a PowerPoint SVG-kezelése.
+Az Aspose.Slides az SVG‑ket alakzatok halmazává alakítja, hasonlóan a PowerPoint SVG‑kezeléséhez.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Ezt a funkciót az [add_group_shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_group_shape/) metódus egy túlterhelt változata biztosítja a [ShapeCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/) osztályban, amely első argumentumként egy [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) objektumot vár.
+Ez a funkcionalitás a [add_group_shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_group_shape/) metódus egy túlterhelésén keresztül érhető el a [ShapeCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/) osztályban, amely első paramétereként egy [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) objektumot kap.
 
-Az alábbi minta kód megmutatja, hogyan konvertálhat egy SVG fájlt alakzatok halmazává.
+Az alábbi mintakód bemutatja, hogyan konvertáljon egy SVG fájlt alakzatok halmazává.
 
 ```py 
 import aspose.slides as slides
@@ -158,23 +152,23 @@ with slides.Presentation() as presentation:
         # Hozzon létre egy SvgImage objektumot.
         svg_image = slides.SvgImage(svg_content)
 
-        # Szerezze meg a diák méretét.
+        # Szerezze meg a dia méretét.
         slide_size = presentation.slide_size.size
 
-        # Konvertálja az SVG képet alakzatcsoporttá és méretezze a diák méretére.
+        # Konvertálja az SVG képet alakzatcsoporttá, és méretezze a dia méretére.
         presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
 
-        # Mentse a bemutatót PPTX formátumban.
+        # Mentse a prezentációt PPTX formátumban.
         presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Képek EMF-ként való hozzáadása diákhoz**
+## **Képek hozzáadása EMF formátumban a diákhoz**
 
-Az Aspose.Slides for Python lehetővé teszi, hogy Enhanced Metafile (EMF) képeket illesszen be a bemutatókba.
-
-Az alábbi Python példa bemutatja ezt:
+Az Aspose.Slides for Python lehetővé teszi, hogy Enhanced Metafile (EMF) képeket szúrjon be prezentációkba.
 
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -187,24 +181,26 @@ with slides.Presentation() as presentation:
 
 ## **Képek cseréje a képgyűjteményben**
 
-Az Aspose.Slides lehetővé teszi a bemutató képgyűjteményében tárolt képek cseréjét, beleértve a dia alakzatok által használtakat is. Ez a szakasz több megközelítést ismertet a gyűjteményben lévő képek frissítésére. Az API egyszerű módszereket kínál egy kép helyettesítésére nyers bájt adatokkal, egy [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) példánnyal vagy egy már meglévő képpel a gyűjteményben.
+Az Aspose.Slides lehetővé teszi a prezentáció képgyűjteményében tárolt képek cseréjét, beleértve a dia alakzatok által használt képeket is. Ez a szakasz több megközelítést mutat be a képgyűjtemény frissítéséhez. Az API egyszerű módszereket kínál egy kép nyers bájtadatokkal, egy [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) példánnyal vagy egy már a gyűjteményben létező másik képpel való cseréjére.
 
 Kövesse ezeket a lépéseket:
 
-1. Töltse be a képeket tartalmazó bemutatót a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztály segítségével.
-2. Töltsön be egy új képet egy fájlból bájt tömbbe.
-3. Cserélje le a célképet az új képre a bájt tömb használatával.
-4. Alternatívaként töltse be a képet egy [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) objektumba, és cserélje le a célképet ezzel az objektummal.
-5. Vagy cserélje le a célképet a bemutató képgyűjteményében már létező képre.
-6. Mentse a módosított bemutatót PPTX fájlként.
+1. Töltse be a képeket tartalmazó prezentációt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztály segítségével.  
+2. Töltsön be egy új képet egy fájlból egy bájt tömbbe.  
+3. Cserélje le a célképet az új képre a bájt tömb segítségével.  
+4. Alternatívaként töltse be a képet egy [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) objektumba, és cserélje le a célképet ezzel az objektummal.  
+5. Vagy cserélje le a célképet egy olyan képre, amely már létezik a prezentáció képgyűjteményében.  
+6. Mentse a módosított prezentációt PPTX fájlként.
 
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()
 
 
-# Példányosítsa a Presentation osztályt, amely egy bemutató fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 with slides.Presentation("sample.pptx") as presentation:
 
     # Az első mód.
@@ -221,27 +217,27 @@ with slides.Presentation("sample.pptx") as presentation:
     old_image = presentation.images[2]
     old_image.replace_image(presentation.images[3])
 
-    # Mentse a bemutatót egy fájlba.
+    # Mentse a prezentációt fájlba.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Info" color="info" %}}
-Az Aspose ingyenes [Text to GIF](https://products.aspose.app/slides/hu/text-to-gif) konverterével könnyedén animálhat szöveget és hozhat létre GIF-eket szövegből.
+{{% alert title="Információ" color="info" %}}
+Az Aspose ingyenes [Text to GIF](https://products.aspose.app/slides/hu/text-to-gif) konverterével egyszerűen animálhat szöveget, és GIF‑eket hozhat létre szövegből.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Megmarad-e az eredeti képfelbontás a beszúrás után?**  
-Igen. A forráspixelok megmaradnak, de a végső megjelenés attól függ, hogyan van a [picture](/slides/hu/python-net/picture-frame/) méretezve a dián, és a mentéskor alkalmazott tömörítéstől.
+**Megmarad az eredeti képfelbontás a beillesztés után?**  
+Igen. A forrásbitek megmaradnak, de a végső megjelenés attól függ, hogy a [picture](/slides/hu/python-net/picture-frame/) hogyan van méretezve a dián és milyen tömörítést alkalmaz a mentéskor.
 
-**Mi a legjobb módja annak, hogy egyszerre több tucat dián cseréljük le ugyanazt a logót?**  
-Helyezze el a logót a master diához vagy egy elrendezéshez, és cserélje ki a bemutató képgyűjteményében — a frissítések minden, az adott erőforrást használó elemre kiterjednek.
+**Mi a legjobb módja egy logó egyszerre több tucat dián történő cseréjének?**  
+Helyezze a logót a fődiasablonra vagy egy elrendezésre, és cserélje le a prezentáció képgyűjteményében – a frissítés minden, azt az erőforrást használó elemre kiterjed.
 
-**Átalakítható-e a beszúrt SVG szerkeszthető alakzatokká?**  
-Igen. Az SVG-t konvertálhatja alakzatcsoporttá, amely után az egyes részek szerkeszthetővé válnak a szabványos alakzat tulajdonságokkal.
+**Átalakítható-e a beillesztett SVG szerkeszthető alakzatokká?**  
+Igen. Az SVG‑t konvertálhatja egy alakzategységbe, amelynek egyedi részei szerkeszthetők lesznek a standard alakzat‑tulajdonságokkal.
 
 **Hogyan állíthatok be egy képet egyszerre több dia háttérként?**  
-[Állítsa be a képet háttérként](/slides/hu/python-net/presentation-background/) a master dián vagy a megfelelő elrendezésen — minden, az adott mastert/elrendezést használó dia örökli a hátteret.
+Rendelje hozzá a képet háttérként a /slides/hu/python-net/presentation-background/ útmutatóban leírt módon a fődiasablonra vagy a megfelelő elrendezésre – minden, azt a sablont vagy elrendezést használó dia örökölni fogja a hátteret.
 
-**Hogyan akadályozhatom meg, hogy a bemutató nagyméretűvé "felrobbanjon" sok kép miatt?**  
-Használjon egyetlen képernyőforrást a másolatok helyett, válasszon megfelelő felbontást, alkalmazzon tömörítést mentéskor, és ismétlődő grafikákat a masteren tartsa, ahol indokolt.
+**Hogyan kerülhetem el, hogy egy prezentáció túl nagyra nőjen a sok kép miatt?**  
+Használjon egyetlen képforrást duplikációk helyett, válasszon ésszerű felbontásokat, alkalmazzon tömörítést mentéskor, és a gyakran ismétlődő grafikákat helyezze a sablonra, ahol indokolt.

@@ -5,51 +5,66 @@ type: docs
 weight: 10
 url: /sv/cpp/image/
 keywords:
-- lägga till bild
-- lägga till bild
-- lägga till bitmap
-- ersätta bild
-- ersätta bild
+- lägg till bild
+- lägg till bild
+- lägg till bitmap
+- ersätt bild
+- ersätt bild
 - från webben
 - bakgrund
-- lägga till PNG
-- lägga till JPG
-- lägga till SVG
-- lägga till EMF
-- lägga till WMF
-- lägga till TIFF
+- lägg till PNG
+- lägg till JPG
+- lägg till SVG
+- externa SVG-resurser
+- SVG-lösare
+- länkade SVG-bilder
+- SVG-typsnitt
+- lägg till EMF
+- lägg till WMF
+- lägg till TIFF
 - PowerPoint
 - OpenDocument
 - presentation
-- EMF
-- SVG
 - C++
 - Aspose.Slides
-description: "Strömlinjeforma bildhantering i PowerPoint och OpenDocument med Aspose.Slides för C++, optimera prestanda och automatisera ditt arbetsflöde."
+description: "Effektivisera bildhantering i PowerPoint och OpenDocument med Aspose.Slides för C++, optimera prestanda och automatisera ditt arbetsflöde."
 ---
 ## **Introduktion**
 
-Bilder gör presentationer mer engagerande och intressanta. I Microsoft PowerPoint kan du infoga bilder från en fil, internet eller andra platser på bilder. På samma sätt låter Aspose.Slides dig lägga till bilder på bilder i dina presentationer genom olika metoder. 
+Bilder gör presentationer mer engagerande och visuellt tilltalande. I Microsoft PowerPoint kan du infoga bilder på bilder från filer, internet eller andra källor. På samma sätt låter Aspose.Slides dig lägga till bilder i presentationsbilder på flera sätt. 
 
 {{% alert title="Tip" color="primary" %}} 
-Aspose erbjuder gratis konverterare—[JPEG till PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG till PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som gör det möjligt för användare att snabbt skapa presentationer från bilder. 
+Aspose tillhandahåller gratis konverterare—[JPEG to PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG to PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som låter dig snabbt skapa presentationer från bilder. 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
-Om du vill lägga till en bild som ett ramobjekt—särskilt om du planerar att använda standardformateringsalternativ för att ändra dess storlek, lägga till effekter osv—se [Picture Frame](/slides/sv/cpp/picture-frame/). 
+Om du vill lägga till en bild som en bildram—särskilt om du planerar att ändra storlek, applicera effekter eller använda andra standardformateringsalternativ—se [Picture Frame](/slides/sv/cpp/picture-frame/). 
 {{% /alert %}} 
 
 {{% alert title="Note" color="warning" %}}
-Du kan manipulera in-/utdataoperationer som involverar bilder och PowerPoint-presentationer för att konvertera en bild från ett format till ett annat. Se dessa sidor: konvertera [bild till JPG](https://products.aspose.com/slides/sv/cpp/conversion/image-to-jpg/); konvertera [JPG till bild](https://products.aspose.com/slides/sv/cpp/conversion/jpg-to-image/); konvertera [JPG till PNG](https://products.aspose.com/slides/sv/cpp/conversion/jpg-to-png/), konvertera [PNG till JPG](https://products.aspose.com/slides/sv/cpp/conversion/png-to-jpg/); konvertera [PNG till SVG](https://products.aspose.com/slides/sv/cpp/conversion/png-to-svg/), konvertera [SVG till PNG](https://products.aspose.com/slides/sv/cpp/conversion/svg-to-png/).
+Du kan konvertera bilder från ett format till ett annat. Se följande sidor: konvertera [image to JPG](https://products.aspose.com/slides/sv/cpp/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/sv/cpp/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/sv/cpp/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/sv/cpp/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/sv/cpp/conversion/png-to-svg/), och [SVG to PNG](https://products.aspose.com/slides/sv/cpp/conversion/svg-to-png/).
 {{% /alert %}}
 
-Aspose.Slides stöder operationer med bilder i dessa populära format: JPEG, PNG, GIF och andra. 
+Aspose.Slides stöder bilder i populära format såsom JPEG, PNG, BMP, GIF och andra. 
 
-## **Lägg till bilder lagrade lokalt på bilder**
+## **Lägg till lokalt lagrade bilder på bildspel**
 
-Du kan lägga till en eller flera bilder från din dator på en bild i en presentation. Den här exempelkoden i C++ visar hur du lägger till en bild på en bild:
+Du kan lägga till en eller flera bilder som lagras på din dator till en presentationsbild. Följande C++-exempelkod visar hur man lägger till en bild på en bild:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -59,17 +74,31 @@ slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f,
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Lägg till bilder från webben på bilder**
+## **Lägg till bilder från webben på bildspel**
 
-Om bilden du vill lägga till på en bild inte finns på din dator kan du lägga till bilden direkt från webben.
+Om bilden du vill lägga till på en bild inte är lagrad på din dator kan du lägga till den direkt från webben. 
 
-Den här exempelkoden visar hur du lägger till en bild från webben på en bild i C++:
+Följande C++-exempelkod visar hur du lägger till en bild från webben på en bild:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
+
+auto webClient = System::MakeObject<System::Net::WebClient>();
 auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
 
 auto image = pres->get_Images()->AddImage(imageData);
@@ -78,13 +107,28 @@ slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f,
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Lägg till bilder på bildmaster**
+## **Lägg till bilder till bildmaster**
 
-En bildmaster är den översta bilden som lagrar och styr information (tema, layout osv.) om alla bilder under den. Således, när du lägger till en bild på en bildmaster, visas den bilden på varje bild under den bildmastern. 
+En bildmaster lagrar och styr information såsom tema och layout för de bilder som använder den. När du lägger till en bild i en bildmaster visas bilden på varje bild som är baserad på den master. 
 
-Den här C++-exempelkoden visar hur du lägger till en bild på en bildmaster:
+Följande C++-exempelkod visar hur man lägger till en bild i en bildmaster:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
@@ -95,143 +139,441 @@ masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 1
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Lägg till bilder som bildbakgrunder**
+## **Lägg till bilder som bildbakgrund**
 
-Du kan välja att använda en bild som bakgrund för en specifik bild eller flera bilder. I så fall måste du se *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/sv/cpp/presentation-background/#setting-images-as-background-for-slides)*.
+Du kan använda en bild som bakgrund för en eller flera bilder. För detaljer, se *[Setting Images as Backgrounds for Slides](/slides/sv/cpp/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Lägg till SVG i presentationer**
-Du kan lägga till eller infoga vilken bild som helst i en presentation genom att använda metoden [AddPictureFrame](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) som tillhör gränssnittet [IShapeCollection](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_shape_collection).
 
-För att skapa ett bildobjekt baserat på en SVG-bild kan du göra så här:
+SVG-innehåll kan läggas till i en presentation med hjälp av klassen [SvgImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/svgimage/). Det resulterande [ISvgImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isvgimage/)-objektet kan sedan läggas till i presentationens bildsamling och användas för att skapa en bildram. 
 
-1. Skapa SvgImage-objekt för att infoga det i ImageShapeCollection
-2. Skapa PPImage-objekt från ISvgImage
-3. Skapa PictureFrame-objekt med IPPImage-gränssnittet
+Följande C++-exempel importerar en självständig SVG-sträng. Alla bilder, stilar och andra resurser som används av denna SVG är inbäddade direkt i SVG-innehållet.
 
-Den här exempelkoden visar hur du implementerar stegen ovan för att lägga till en SVG-bild i en presentation:
-``` cpp 
-// Sökvägen till dokumentkatalogen
-System::String dataDir = u"D:\\Documents\\";
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
 
-// Källfilnamn för SVG
-System::String svgFileName = dataDir + u"sample.svg";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Utdatafilnamn för presentationen
-System::String outPptxPath = dataDir + u"presentation.pptx";
+auto svgContent = String(uR"(
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>)");
 
-// Skapa ny presentation
-auto p = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto svgImage = MakeObject<SvgImage>(svgContent);
+auto image = presentation->get_Images()->AddImage(svgImage);
 
-// Läs SVG-filens innehåll
-System::String svgContent = File::ReadAllText(svgFileName);
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle, 20.0f, 20.0f,
+    static_cast<float>(image->get_Width()),
+    static_cast<float>(image->get_Height()),
+    image);
 
-// Skapa SvgImage-objekt
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Skapa PPImage-objekt
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// Skapar en ny PictureFrame 
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// Spara presentation i PPTX-format
-p->Save(outPptxPath, SaveFormat::Pptx);
+presentation->Save(u"self-contained-svg.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Konvertera SVG till en mängd former**
-Aspose.Slides konvertering av SVG till en mängd former är liknande PowerPoint-funktionen som används för att arbeta med SVG-bilder:
+## **Importera SVG-innehåll med externa resurser**
+
+SVG-filer som exporteras från designverktyg, diagramredigerare, ikonsystem och webb-pipelines kan referera till resurser som lagras utanför SVG-dokumentet. Till exempel kan en SVG innehålla en bildlänk som `images/photo.png`, ett CSS `url(...)`-värde eller en teckensnitts-URL. 
+
+För att importera sådant SVG-innehåll, skapa en implementation av [IExternalResourceResolver](https://reference.aspose.com/slides/sv/cpp/aspose.slides.import/iexternalresourceresolver/) och skicka den, tillsammans med en bas-URI, till en lämplig `SvgImage`-konstruktor. Bas-URI:n identifierar platsen för SVG-dokumentet och används för att lösa relativa länkar. 
+
+Gränssnittet [ISvgImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isvgimage/) ger åtkomst till information om den importerade SVG:n:
+- `get_SvgContent()` returnerar SVG-markup som en sträng.
+- `get_SvgData()` returnerar SVG-innehållet som en byte-array.
+- `get_BaseUri()` returnerar bas-URI:n som används för relativa länkar.
+- `get_ExternalResourceResolver()` returnerar resurslösaren som tilldelats SVG-bilden.
+
+### **Implementera en extern resurslösare**
+
+Resurslösaren har två metoder:
+- [ResolveUri](https://reference.aspose.com/slides/sv/cpp/aspose.slides.import/iexternalresourceresolver/resolveuri/) kombinerar bas-URI:n och en relativ resursslänk och returnerar en absolut URI. Returnera en null-sträng när länken inte kan lösas eller inte är tillåten.
+- [GetEntity](https://reference.aspose.com/slides/sv/cpp/aspose.slides.import/iexternalresourceresolver/getentity/) returnerar en läsbar ström för en absolut resurs-URI. Returnera `nullptr` när resursen saknas, blockeras eller är otillgänglig. En reservström kan också returneras när det är lämpligt.
+
+Följande resurslösare laddar länkade resurser endast från en tillåten lokal katalog. Nätverksresurser och sökvägar utanför den tillåtna katalogen blockeras. En valfri reservbild returneras för olösta bildlänkar.
+
+```cpp
+#include <Import/IExternalResourceResolver.h>
+#include <system/array.h>
+#include <system/io/file.h>
+#include <system/io/memory_stream.h>
+#include <system/io/path.h>
+#include <system/io/stream.h>
+#include <system/string.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides::Import;
+using namespace System;
+using namespace System::IO;
+
+class LocalSvgResourceResolver : public IExternalResourceResolver
+{
+public:
+    LocalSvgResourceResolver(String allowedRoot, ArrayPtr<uint8_t> fallbackImageData = nullptr)
+        : _allowedRoot(Path::GetFullPath(allowedRoot)),
+          _fallbackImageData(fallbackImageData)
+    {
+    }
+
+    String ResolveUri(String baseUri, String relativeUri) override
+    {
+        if (String::IsNullOrWhiteSpace(baseUri) ||
+            String::IsNullOrWhiteSpace(relativeUri))
+        {
+            return String::Null;
+        }
+
+        auto baseAddress = SharedPtr<Uri>();
+        auto absoluteAddress = SharedPtr<Uri>();
+        if (!Uri::TryCreate(baseUri, UriKind::Absolute, baseAddress) ||
+            !Uri::TryCreate(baseAddress, relativeUri, absoluteAddress))
+        {
+            return String::Null;
+        }
+
+        // Denna resurslösare tillåter avsiktligt endast lokala filer.
+        if (!absoluteAddress->get_IsFile())
+        {
+            return String::Null;
+        }
+
+        auto resourcePath = Path::GetFullPath(absoluteAddress->get_LocalPath());
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return String::Null;
+        }
+
+        return absoluteAddress->get_AbsoluteUri();
+    }
+
+    SharedPtr<Stream> GetEntity(String absoluteUri) override
+    {
+        auto resourceUri = SharedPtr<Uri>();
+        if (!Uri::TryCreate(absoluteUri, UriKind::Absolute, resourceUri) ||
+            !resourceUri->get_IsFile())
+        {
+            return nullptr;
+        }
+
+        auto resourcePath = Path::GetFullPath(resourceUri->get_LocalPath());
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return nullptr;
+        }
+
+        if (File::Exists(resourcePath))
+        {
+            return File::OpenRead(resourcePath);
+        }
+
+        // Använd en reserv endast för bildresurser. Att returnera en bildström
+        // för ett saknat teckensnitt eller stilark skulle inte vara giltigt.
+        if (_fallbackImageData != nullptr && IsImageFile(resourcePath))
+        {
+            return MakeObject<MemoryStream>(_fallbackImageData, false);
+        }
+
+        return nullptr;
+    }
+
+private:
+    String _allowedRoot;
+    ArrayPtr<uint8_t> _fallbackImageData;
+
+    bool IsInsideAllowedRoot(String resourcePath)
+    {
+        auto normalizedRoot = _allowedRoot;
+        auto directorySeparator = String(Path::DirectorySeparatorChar, 1);
+        if (!normalizedRoot.EndsWith(directorySeparator))
+        {
+            normalizedRoot += directorySeparator;
+        }
+
+        auto normalizedPath = Path::GetFullPath(resourcePath);
+        auto comparison = Path::DirectorySeparatorChar == u'\\'
+            ? StringComparison::OrdinalIgnoreCase
+            : StringComparison::Ordinal;
+
+        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
+               String::Equals(normalizedPath, _allowedRoot, comparison);
+    }
+
+    static bool IsImageFile(String path)
+    {
+        auto extension = Path::GetExtension(path);
+
+        return String::Equals(extension, u".png", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".jpg", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".jpeg", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".gif", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".bmp", StringComparison::OrdinalIgnoreCase);
+    }
+};
+```
+
+### **Lös länkade resurser under SVG-import**
+
+Anta att `assets/diagram.svg` innehåller en relativ referens såsom:
+
+```xml
+<image href="images/photo.png" x="20" y="20" width="320" height="180" />
+```
+
+Följande C++-exempel skickar SVG-filens URI som bas-URI och tillhandahåller en anpassad resurslösare. Resurslösaren konverterar den relativa bildlänken till en absolut URI och returnerar en ström som innehåller den länkade resursen medan Aspose.Slides bearbetar SVG:n.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <Import/IExternalResourceResolver.h>
+#include <system/array.h>
+#include <system/environment.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Import;
+using namespace System;
+using namespace System::IO;
+
+auto svgFilePath = Path::GetFullPath(Path::Combine(u"assets", u"diagram.svg"));
+auto assetDirectory = Path::GetDirectoryName(svgFilePath);
+if (String::IsNullOrEmpty(assetDirectory))
+{
+    assetDirectory = Environment::get_CurrentDirectory();
+}
+
+auto svgContent = File::ReadAllText(svgFilePath);
+
+// Bas-URI:n representerar platsen för SVG-dokumentet.
+auto baseUri = MakeObject<Uri>(svgFilePath)->get_AbsoluteUri();
+
+auto fallbackImageData = ArrayPtr<uint8_t>();
+auto fallbackImagePath = Path::Combine(assetDirectory, u"fallback.png");
+if (File::Exists(fallbackImagePath))
+{
+    fallbackImageData = File::ReadAllBytes(fallbackImagePath);
+}
+
+auto resolver = MakeObject<LocalSvgResourceResolver>(assetDirectory, fallbackImageData);
+auto svgImage = MakeObject<SvgImage>(svgContent, resolver, baseUri);
+
+// ISvgImage exposes the source content, binary data, base URI, and resolver.
+auto importedContent = svgImage->get_SvgContent();
+auto importedData = svgImage->get_SvgData();
+auto importedBaseUri = svgImage->get_BaseUri();
+auto importedResolver = svgImage->get_ExternalResourceResolver();
+
+auto presentation = MakeObject<Presentation>();
+auto image = presentation->get_Images()->AddImage(svgImage);
+
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle, 20.0f, 20.0f,
+    static_cast<float>(image->get_Width()),
+    static_cast<float>(image->get_Height()),
+    image);
+
+presentation->Save(u"svg-with-linked-resources.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`SvgImage`-klassen erbjuder också överlagringar som accepterar SVG-data som en byte-array eller en ström, tillsammans med en extern resurslösare och en bas-URI.
+
+{{% alert title="Important" color="warning" %}}
+Resurslösaren gör externa resurser tillgängliga medan Aspose.Slides bearbetar och renderar SVG:n. Den ändrar inte den ursprungliga SVG-markupen eller inbäddar automatiskt de lösta resurserna i den.
+
+När ett `ISvgImage` läggs till i presentationens bildsamling kan PPTX-filen innehålla både den ursprungliga SVG-representationen och en raster-reservbild. En länkad resurs kan dyka upp i den genererade reservbilden medan en relativ länk såsom `images/photo.png` förblir oförändrad i den lagrade SVG:n. En applikation som renderar den inhemska SVG-representationen kan därför utelämna det länkade innehållet när den ursprungliga externa resursen är otillgänglig.
+{{% /alert %}}
+
+### **Skapa en portabel SVG-bild**
+
+För att skapa en SVG-bild som inte är beroende av externa filer, gör SVG:n självständig innan du skapar `SvgImage`. Till exempel, ersätt länkade bild-URL:er med `data:`-URI:er som innehåller bilddata:
+
+```xml
+<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+```
+
+Efter att alla nödvändiga resurser har inbäddats i SVG-innehållet, skapa `SvgImage`, lägg till den i presentationens bildsamling och infoga den i en bildram som visat i föregående exempel.
+
+### **Hantera saknade eller blockerade resurser**
+
+Returnera en null-sträng från `ResolveUri` när en resurs-URI är ogiltig, förbjuden eller inte kan lösas. Returnera `nullptr` från `GetEntity` när resursen inte kan läsas. Aspose.Slides fortsätter att bearbeta SVG:n utan den resursen när det är möjligt.
+
+En reservström kan returneras för en saknad resurs, men dess innehåll måste vara kompatibelt med den begärda resurstypen. Till exempel, returnera en bildström endast för en saknad bild, inte för ett teckensnitt eller en stilfil.
+
+{{% alert title="Security" color="warning" %}}
+Lös inte godtyckliga filsökvägar eller obegränsade nätverks-URL:er från opålitliga SVG-filer. Begränsa tillåtna scheman, kataloger och värdar. För nätverksresurser, tillämpa också anslutningstidsgränser, svarsstorleksgränser och innehållsvalidering.
+{{% /alert %}}
+
+## **Konvertera SVG till en uppsättning former**
+Aspose.Slides kan konvertera en SVG till en uppsättning former, liknande motsvarande funktionalitet i PowerPoint:
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Funktionen tillhandahålls av en av overloads av metoden [AddGroupShape](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) i gränssnittet [IShapeCollection](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_shape_collection) som tar ett [ISvgImage](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_svg_image)-objekt som första argument.
+Denna funktionalitet tillhandahålls av en överlagring av metoden [AddGroupShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/) i gränssnittet [IShapeCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/) som tar ett [ISvgImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isvgimage/)-objekt som sitt första argument.
 
-Den här exempelkoden visar hur du använder den beskrivna metoden för att konvertera en SVG-fil till en mängd former:
+Följande C++-exempelkod visar hur du använder denna metod för att konvertera en SVG-fil till en uppsättning former:
 
-``` cpp 
-// Sökvägen till dokumentkatalogen
-System::String dataDir = u"D:\\Documents\\";
+``` cpp
+#include <DOM/IPresentation.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
 // Källfilnamn för SVG
-System::String svgFileName = dataDir + u"sample.svg";
+auto svgFileName = System::String(u"sample.svg");
 
-// Utdatafilnamn för presentationen
-System::String outPptxPath = dataDir + u"presentation.pptx";
+// Filnamn för presentationsutdata
+auto outPptxPath = System::String(u"presentation.pptx");
 
-// Skapa ny presentation
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
+// Skapa en ny presentation
+auto presentation = System::MakeObject<Presentation>();
 
 // Läs SVG-filens innehåll
-System::String svgContent = File::ReadAllText(svgFileName);
+auto svgContent = File::ReadAllText(svgFileName);
 
-// Skapa SvgImage-objekt
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
+// Skapa ett SvgImage-objekt
+auto svgImage = System::MakeObject<SvgImage>(svgContent);
 
-// Hämta bildstorlek
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
+// Hämta bildens storlek
+auto slideSize = presentation->get_SlideSize()->get_Size();
 
-// Konvertera SVG-bild till en grupp av former och skala den till bildens storlek
+// Konvertera SVG-bilden till en grupp av former och skala den till bildens storlek
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
 
-// Spara presentation i PPTX-format
+// Spara presentationen i PPTX-format
 presentation->Save(outPptxPath, SaveFormat::Pptx);
 ```
 
-## **Lägg till bilder som EMF på bilder**
-Aspose.Slides för C++ låter dig skapa EMF-bilder från Excel-ark och lägga till bilderna som EMF på bilder med Aspose.Cells. 
+## **Lägg till bilder som EMF på bildspel**
+Aspose.Slides för C++ låter dig generera EMF-bilder från Excel- kalkylblad med Aspose.Cells och lägga till dem i presentationsbilder.
 
-Den här exempelkoden visar hur du utför den beskrivna uppgiften:
+Följande C++-exempelkod visar hur du gör detta:
 
 ``` cpp 
-System::String dataDir = u"D:\\Documents\\";
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
 
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
+// Aspose.Cells för C++ måste startas innan någon av dess typer används.
+Aspose::Cells::Startup();
 
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
+auto workbook = Aspose::Cells::Workbook(u"chart.xls");
+auto sheet = workbook.GetWorksheets().Get(0);
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+// Rendera kalkylbladet som EMF.
+auto options = Aspose::Cells::ImageOrPrintOptions();
+options.SetHorizontalResolution(200);
+options.SetVerticalResolution(200);
+options.SetImageType(Aspose::Cells::Drawing::ImageType::Emf);
 
-pres->get_Slides()->RemoveAt(0);
+auto sheetRender = Aspose::Cells::SheetRender(sheet, options);
 
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_Slides()->RemoveAt(0);
+
+for (auto pageIndex = 0; pageIndex < sheetRender.GetPageCount(); pageIndex++)
 {
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
+    // Aspose.Cells returnerar den renderade sidan som en buffer, som Aspose.Slides lägger till som en bild.
+    auto emfData = sheetRender.ToImage(pageIndex);
+    auto emfBytes = System::MakeArray<uint8_t>(emfData.GetLength(), emfData.GetData());
+    auto emfImage = presentation->get_Images()->AddImage(emfBytes);
 
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
+    auto slide = presentation->get_Slides()->AddEmptySlide(
+        presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
+    auto slideSize = presentation->get_SlideSize()->get_Size();
     slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
 }
 
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
+presentation->Save(u"Saved.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+workbook.Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-## **Byt ut bilder i bildsamlingen**
-
-Aspose.Slides låter dig ersätta bilder som lagras i en presentations bildsamling (inklusive de som används av bildformer). Detta avsnitt visar flera tillvägagångssätt för att uppdatera bilder i samlingen. API:et erbjuder enkla metoder för att ersätta en bild med rå byte‑data, en [IImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimage/)-instans eller en annan bild som redan finns i samlingen.
+## **Ersätt bilder i bildsamlingen**
+Aspose.Slides låter dig ersätta bilder som lagras i en presentations bildsamling, inklusive bilder som används av bildformer. Detta avsnitt beskriver flera sätt att uppdatera bilder i samlingen. Du kan ersätta en bild med rå byte-data, en [IImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimage/)-instans, eller en annan bild som redan finns i samlingen.
 
 Följ stegen nedan:
-
-1. Ladda presentationsfilen som innehåller bilder med klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
-2. Läs in en ny bild från en fil till en byte‑array.
-3. Ersätt mål‑bilden med den nya bilden med hjälp av byte‑arrayen.
-4. I det andra tillvägagångssättet läses bilden in i ett [IImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimage/)-objekt och mål‑bilden ersätts med det objektet.
-5. I det tredje tillvägagångssättet ersätts mål‑bilden med en bild som redan finns i presentationens bildsamling.
-6. Spara den modifierade presentationen som en PPTX‑fil.
+1. Läs in presentationsfilen som innehåller bilder med klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+2. Läs in en ny bild från en fil till en byte-array.
+3. Ersätt målbilden med den nya bilden med hjälp av byte-arrayen.
+4. I det andra tillvägagångssättet, läs in bilden i ett [IImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimage/)-objekt och ersätt målbilden med det objektet.
+5. I det tredje tillvägagångssättet, ersätt målbilden med en bild som redan finns i presentationens bildsamling.
+6. Skriv den ändrade presentationen som en PPTX‑fil.
 
 ```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
@@ -256,27 +598,27 @@ presentation->Dispose();
 ```
 
 {{% alert title="Info" color="info" %}}
-Genom att använda Aspose GRATIS [Text to GIF](https://products.aspose.app/slides/sv/text-to-gif)-konverteraren kan du enkelt animera texter, skapa GIF‑filer från texter osv. 
+Med Asposes gratis [Text to GIF](https://products.aspose.app/slides/sv/text-to-gif)-konverterare kan du enkelt animera text och skapa GIF-filer från text. 
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Behåller den ursprungliga bildupplösningen sin integritet efter infogning?**
+**Behåller den ursprungliga bildens upplösning sin integritet efter infogning?**
 
-Ja. Källpixlarna bevaras, men det slutgiltiga utseendet beror på hur [picture](/slides/sv/cpp/picture-frame/) skalas på bilden och eventuell kompression som tillämpas vid sparande.
+Ja. Källpixlarna bevaras, men det slutliga utseendet beror på hur [picture](/slides/sv/cpp/picture-frame/) skalas på bilden och eventuell kompression som tillämpas vid sparning.
 
 **Vad är det bästa sättet att ersätta samma logotyp på dussintals bilder på en gång?**
 
-Placera logotypen på mastern eller en layout och ersätt den i presentationens bildsamling — uppdateringar sprids till alla element som använder den resursen.
+Placera logotypen på masterbilden eller en layout och ersätt den i presentationens bildsamling – uppdateringar sprids till alla element som använder den resursen.
 
 **Kan en infogad SVG konverteras till redigerbara former?**
 
-Ja. Du kan konvertera en SVG till en grupp av former, varpå enskilda delar blir redigerbara med standardformsegenskaper.
+Ja. Du kan konvertera en SVG till en grupp av former, varefter enskilda delar blir redigerbara med standardformsegenskaper.
 
 **Hur kan jag ställa in en bild som bakgrund för flera bilder på en gång?**
 
-[Assign the image as the background](/slides/sv/cpp/presentation-background/) på master‑bilden eller den relevanta layouten — alla bilder som använder den masteren/layouten kommer att ärva bakgrunden.
+[Assign the image as the background](/slides/sv/cpp/presentation-background/) på masterbilden eller den relevanta layouten – alla bilder som använder den master/layouten kommer att ärva bakgrunden.
 
-**Hur förhindrar jag att presentationen växer kraftigt i storlek på grund av många bilder?**
+**Hur förhindrar jag att en presentation blir för stor på grund av många bilder?**
 
-Återanvänd en enda bildresurs istället för dubletter, välj rimliga upplösningar, tillämpa kompression vid sparande och behåll återkommande grafik på master‑sidan där det är lämpligt.
+Återanvänd en enda bildresurs istället för dubbletter, välj rimliga upplösningar, tillämpa kompression vid sparning, och håll upprepade grafik på mastern där det är lämpligt.
