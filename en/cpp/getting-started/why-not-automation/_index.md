@@ -69,5 +69,4 @@ Aspose components provide everything needed for managing Office files plus much 
 {{% alert color="primary" %}} 
 
 While this article has covered many of the key points why Aspose components are a better choice than Office Automation, there are many, many more. This article primarily addresses only the most key points. All of the different Aspose components offer a risk free, no obligation [Evaluation Version](https://downloads.aspose.com/slides/cpp). We encourage you to take advantage of that [Evaluation](https://downloads.aspose.com/slides/cpp) in order to better see what Aspose can do for your applications.
-
-
+{{% /alert %}}
