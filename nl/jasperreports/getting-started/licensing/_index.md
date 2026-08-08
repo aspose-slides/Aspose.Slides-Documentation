@@ -6,16 +6,17 @@ url: /nl/jasperreports/licensing/
 ---
 {{% alert color="primary" %}} 
 
-Aspose.Slides for JasperReports is beschikbaar als een gratis, onbeperkte evaluatie met onbeperkte tijd vanaf de [downloadpagina](https://downloads.aspose.com/slides/nl/jasperreport). De evaluatie- en gelicentieerde versies van het product zijn dezelfde download.
+Aspose.Slides for JasperReports is beschikbaar als een gratis, onbeperkte evaluatie vanaf de [downloadpagina](https://downloads.aspose.com/slides/nl/jasperreport). De evaluatie‑ en gelicentieerde versies van het product zijn dezelfde download.
 
-Als u tevreden bent met de evaluatie, [koop een licentie](https://purchase.aspose.com/buy). Zorg ervoor dat u de abonnementsvoorwaarden begrijpt en ermee akkoord gaat.
+Wanneer u tevreden bent met de evaluatie, [koop een licentie](https://purchase.aspose.com/buy). Zorg ervoor dat u de abonnementsvoorwaarden begrijpt en ermee akkoord gaat.
 
-De licentie is beschikbaar voor download vanaf de bestelpagina nadat de bestelling is betaald. De licentie is een platte tekst, digitaal ondertekend XML-bestand dat informatie bevat zoals de klantnaam, het aangeschafte product en het licentietype. Wijzig de inhoud van het licentiebestand op geen enkele manier: dit maakt de licentie ongeldig.
+De licentie kan worden gedownload vanaf de bestelpagina nadat de bestelling is betaald. De licentie is een platte-tekst, digitaal ondertekend XML‑bestand dat informatie bevat zoals de klantnaam, het aangeschafte product en het type licentie. Wijzig de inhoud van het licentiebestand op geen enkele manier: dit maakt de licentie ongeldig.
 
 Download de licentie naar uw computer en kopieer deze naar de juiste map (bijvoorbeeld uw toepassingsmap of **JasperReports\lib**).
+{{% /alert %}}
 
-## **Beperking van de evaluatieversie**
-De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt volledige functionaliteit van het product, maar (bij het opslaan van uw presentaties) plaatst het een evaluatiewatermerk in het midden van elke dia, zoals weergegeven in de onderstaande afbeelding:
+## **Beperking van evaluatieversie**
+De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt de volledige productfunctionaliteit, maar (bij het opslaan van uw presentaties) voegt het een evaluatiewatermerk toe in het midden van elke dia, zoals weergegeven in de onderstaande afbeelding:
 
 ![todo:image_alt_text](evaluation_watermark.png) 
 
@@ -23,7 +24,7 @@ De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt volledige
 Er zijn verschillende manieren om een licentie toe te passen, afhankelijk van of u werkt met JasperReports of JasperServer.
 
 ### **Een licentie toepassen voor JasperReports**
-Gebruik een directe setLicense-methode-aanroep vergelijkbaar met Aspose.Slides voor Java.
+Gebruik een directe setLicense‑aanroep, vergelijkbaar met Aspose.Slides for Java.
 
 ```java
 import com.aspose.slides.jasperreports.License;
@@ -31,20 +32,20 @@ import com.aspose.slides.jasperreports.License;
 ..... 
 
 try {
-    //Maak een stream-object aan dat het licentiebestand bevat
+    //Maak een streamobject aan dat het licentiebestand bevat
     FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
-    
+	
     //Instantieer de License-klasse
     License license = new License();
-    
-    //Stel de licentie in via het stream-object
+	
+    //Stel de licentie in via het streamobject
     license.setLicense(fstream);
 } catch(Exception ex) {
     System.out.println(ex.toString());
 }
 ```
 
-Of stel de exporter-parameter in de code in.
+Of stel de exporter‑parameter in de code in.
 
 ```java
 ASPptExporter exporter = new ASPptExporter (); 
@@ -53,7 +54,7 @@ exporter.exportReport();
 ```
 
 ### **Een licentie toepassen op JasperServer**
-Stel de exporter-parameter in de applicationContext.xml in.
+Stel de exporter‑parameter in de applicationContext.xml in.
 
 ``` xml
 <bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">

@@ -3,57 +3,75 @@ title: 为什么不使用自动化
 type: docs
 weight: 50
 url: /zh/cpp/why-not-automation/
+keywords:
+- 自动化
+- Microsoft Office
+- 比较
+- 安全性
+- 稳定性
+- 可伸缩性
+- 功能
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "了解为何在服务器和服务中使用 Office 自动化存在风险，以及 Aspose.Slides 如何为 PowerPoint 和 OpenDocument 提供更安全、更快速的演示处理。"
 ---
+## **简介**
 
-## **重要问题**
-- 为什么 Aspose 组件比 Microsoft Office 自动化更好？
-
-在 Aspose，我们最常听到两个问题：
-
-- 您的产品是否需要安装 Microsoft Office 才能运行？
-
-简单的回答是 **不**。Aspose 和 Aspose 组件是完全独立的，与 Microsoft 公司没有任何关系，亦未获得授权、赞助或其他批准。
-
-- 为什么我们应该使用 Aspose 产品而不是利用 Microsoft Office 自动化？
-
-我们能给出的最简洁的回答是有许多原因，其中最重要的是 *Microsoft 本身强烈建议不要通过软件解决方案使用 Office 自动化： [Microsoft 文章](https://www.microsoft.com/)*
-
-## **概述**
-如上所述，有几个原因使 Aspose 组件成为自动化的更好替代方案。一些关键原因包括：
+Aspose 组件成为自动化更好替代方案的原因有多个。主要原因包括：
 
 - 安全性
 - 稳定性
-- 可扩展性/速度
+- 可伸缩性/速度
 - 价格
 - 功能
 
-下面是对每个关键点的更详细阐述。请务必访问 **附加信息** 部分，了解独立用户评估的链接。
+以下是对每个关键点的更详细说明。
+
+## **重要问题**
+- 为什么 Aspose 组件远比 Microsoft Office 自动化更好的选择？
+
+在 Aspose，我们最常听到的两个问题是：
+
+- 您的产品是否需要安装 Microsoft Office 才能运行？
+
+简短明确的答案是 **NO**。Aspose 及 Aspose 组件完全独立，且不隶属、未得到授权、赞助或以其他方式获得 Microsoft Corporation 的批准。
+
+- 我们为什么要使用 Aspose 产品而不是使用 Microsoft Office 自动化？
+
+我们能给出的最简短答案是，有许多原因，其中最重要的是 Microsoft 本身强烈建议不要在软件解决方案中使用 Office 自动化：[Microsoft Article
 
 ## **安全性**
-以下是上述 Microsoft 文章的直接引用：
-*"Office 应用程序从未打算用于服务器端，因此未考虑分布式组件面临的安全问题。Office 不验证传入请求，也不保护您免于无意中运行宏，或从您的服务器端代码启动可能运行宏的其他服务器。不要打开从匿名 Web 上传到服务器的文件！根据最后设置的安全设置，服务器可以在管理员或系统上下文中以完全权限运行宏，并危及您的网络！此外，Office 使用许多客户端组件（如 Simple MAPI、WinInet、MSDAIPP），这些组件可以缓存客户端身份验证信息以加快处理速度。如果 Office 在服务器端进行自动化，则一个实例可能服务于多个客户端，并且由于身份验证信息已为该会话缓存，因此一个客户端可能会使用另一个客户端的缓存凭据，从而通过模拟其他用户获得未授权的访问权限。"*
+以下内容直接摘自上述引用的 Microsoft Article：
 
-Aspose 产品非常安全。因此，Aspose 组件不会对重要系统资源造成潜在风险。此外，当文档由 Aspose 组件打开时，宏不会自动运行。Aspose 组件的目标是让开发人员创建、操作和保存 Office 文件。与 Microsoft Office 套件相关的风险并不固有于 Aspose 组件。
+*"Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."*
+
+Aspose 产品非常安全。因此，Aspose 组件不会对关键系统资源构成潜在风险。此外，当文档被 Aspose 组件打开时，宏不会自动运行。Aspose 组件的构建目标是让开发者能够创建、操作并保存 Office 文件。与 Microsoft Office 包相关的风险并不固有于 Aspose 组件。
 
 ## **稳定性**
-以下是上述 Microsoft 文章的直接引用：
-*"Office 2000、Office XP 和 Office 2003 使用 Microsoft Windows Installer (MSI) 技术，以便更轻松地进行安装和自我修复。MSI 引入了“首次使用时安装”的概念，允许在运行时动态安装或配置功能（针对系统，或更常见的是针对特定用户）。在服务器端环境中，这既会降低性能，也增加了出现对用户询问安装许可或提供适当安装磁盘的对话框的可能性。尽管它的设计目的是为了增强 Office 作为最终用户产品的弹性，但 Office 对 MSI 功能的实现却在服务器端环境中适得其反。此外，Office 在服务器端运行时，其稳定性不能得到保证，因为其并未为这种使用方式设计或测试。在网络服务器上将 Office 作为服务组件使用可能会降低该计算机的稳定性，并对整个网络产生影响。如果您计划在服务器端自动化 Office，请尝试将程序隔离到无法影响关键功能的专用计算机上，并根据需要进行重启。"*
+以下内容直接摘自上述引用的 Microsoft Article：
 
-由于 Aspose 组件被打包为单个 DLL，因此永远无需安装任何额外的部分或组件以使其正常运行。Aspose 组件仅被 C++ 应用程序使用，没有任何部分的组件代码设计为等待人类响应。Aspose 组件经过了彻底测试，极其稳定。Aspose 组件被 [公司](https://about.aspose.com/customers) 使用，如：**IBM**、**希尔顿**、**Reader's Digest**、**美国银行**等。
+*"Office 2000, Office XP and Office 2003 use Microsoft Windows Installer (MSI) technology to make installation and self-repair easier for an end user. MSI introduces the concept of "install on first use", which allows features to be dynamically installed or configured at runtime (for the system, or more often for a particular user). In a server-side environment this both slows down performance and increases the likelihood that a dialog box may appear that asks for the user to approve the install or provide an appropriate install disk. Although it is designed to increase the resiliency of Office as an end-user product, Office's implementation of MSI capabilities is counterproductive in a server-side environment. Furthermore, the stability of Office in general cannot be assured when run server-side because it has not been designed or tested for this type of use. Using Office as a service component on a network server may reduce the stability of that machine and as a consequence your network as a whole. If you plan to automate Office server-side, attempt to isolate the program to a dedicated computer that cannot affect critical functions, and that can be restarted as needed."*
 
-## **可扩展性/速度**
-以下是上述 Microsoft 文章的直接引用：
-*"服务器端组件需要是高度重入的、多线程的 COM 组件，具有最小的开销和高的吞吐量，以便支持多个客户端。Office 应用程序在几乎所有方面都是完全相反的。它们是非重入的、基于单线程单元的自动化服务器，旨在为单个客户端提供多样化但资源密集型的功能。作为服务器端解决方案，它们几乎没有可扩展性，并且对内存等重要元素有固定限制，无法通过配置更改。更重要的是，它们使用全局资源（如内存映射文件、全局加载项或模板和共享自动化服务器），这可能限制可以同时运行的实例数量，并在多客户端环境中导致竞争条件。计划同时运行多个 Office 应用程序实例的开发人员需要考虑池化或序列化访问以避免潜在的死锁或数据损坏。”*
+由于 Aspose 组件被打包成单个 DLL，永远不需要安装任何额外的部件来运行。Aspose 组件仅由 C++ 应用程序使用，且没有任何代码段需要等待人工响应。Aspose 组件经过严格测试，极其稳定。Aspose 组件已被[公司](https://about.aspose.com/customers)如 **IBM**、**Hilton**、**Reader's Digest**、**Bank of America** 等广泛使用。
 
-Aspose 组件具有高度的可扩展性和极快的速度。Office 应用程序并没有设计成可以被数百或数千个用户同时使用。然而，Aspose 组件正是为了实现这一目标。我们的组件是真正的 C++ 解决方案，无论是在单个服务器上驱动单个应用，还是在负载平衡的 Web 表单上驱动企业级应用，性能均表现完美。
+## **可伸缩性/速度**
+以下内容直接摘自上述引用的 Microsoft Article：
+
+*"Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add-ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi-client environment. Developers who plan to run more then one instance of any Office Application at the same time need to consider Pooling or Serializing Access to the Office Application for avoiding potential Deadlocks or Data Corruption”.*
+
+Aspose 组件高度可伸缩，且速度极快。Office 应用程序并未设计用于同时被数百乃至数千用户使用，而 Aspose 组件正是为此而生。我们的组件是纯 C++ 解决方案，无论在单服务器、单应用程序，还是在负载均衡的 Web Form 环境中，都能毫无瑕疵地运行。
 
 ## **价格**
-当应用程序利用 Microsoft Office 自动化时，必须为运行该应用程序的每台计算机购买一份 Microsoft Office 的副本。许多情况下，应用程序可能需要创建或操作 Office 文件，但并不要求用户拥有 Microsoft Office。Aspose 提供非常 [经济实惠](https://purchase.aspose.com/) 的免版税再分发许可证，允许在无限数量的用户中进行部署，无需担心许可问题。创建基于 Web 的应用程序时，重要的是要知道 Microsoft Office 自动化组件并未针对服务器端解决方案定价及授权；因此，没有良好的许可解决方案可以用于部署利用 Microsoft Office 组件的 Web 应用程序。Aspose 还提供非常 [经济实惠](https://purchase.aspose.com/) 的服务器端应用程序解决方案。
+当应用程序使用 Microsoft Office 自动化时，必须为运行该应用程序的每台机器购买一份 Microsoft Office。许多情况下，应用程序需要创建或操作 Office 文件，但并不要求用户拥有 Microsoft Office。Aspose 提供了非常[性价比高](https://purchase.aspose.com/)且免版税的再分发许可证，允许无限量用户部署，无需担心授权问题。创建基于 Web 的应用程序时，需要了解 Microsoft Office 自动化组件既不面向服务器端定价，也不提供服务器端授权，因此没有合适的授权方案来部署使用 Microsoft Office 组件的 Web 应用程序。Aspose 同样为服务器端应用提供了非常[性价比高](https://purchase.aspose.com/)的解决方案。
 
 ## **功能**
-Aspose 组件提供管理 Office 文件所需的一切，以及更多功能。它们的设计理念是使开发人员以最少的工作实现最大的结果。与 Office 自动化不同，Aspose 组件提供许多强大且节省时间的功能。例如， [Aspose.Cells](https://products.aspose.com/cells/cpp/) 允许开发人员直接将数据从 **DataTable** 或 **DataView** 导入到 Excel 文件中。 [Aspose.Words](https://products.aspose.com/words/net/) 提供类似的功能，允许开发人员直接从任何 C++ 数据对象填充 Word （即邮件合并）文档。 [Aspose 家族中的每个组件](https://products.aspose.com/total/cpp/) 都提供自己独特而强大的功能。购买 Aspose 组件的最大好处是可以接触到我们的开发团队。我们的开发团队意识到，如果您的公司需要某个功能，其他公司可能也会需要。尽管并非每个功能请求都能被添加，我们的团队在提供帮助时尽量保持开放和灵活。这个心态帮助 Aspose 组件变得如此强大。如果您需要从 Office 自动化对象中增加额外功能，您的机会非常非常低。
+Aspose 组件提供管理 Office 文件所需的一切，甚至更多。它们的设计理念是让开发者以最少的工作量实现最大的成果。与 Office 自动化不同，Aspose 组件提供了许多强大且节省时间的功能。例如，[Aspose.Cells](https://products.aspose.com/cells/cpp/) 让开发者能够直接将 **DataTable** 或 **DataView** 导入到 Excel 文件中。[Aspose.Words](https://products.aspose.com/words/net/) 提供了类似功能，使开发者可以直接从任何 C++ 数据对象填充 Word（邮件合并）文档。Aspose 家族中的[每个组件](https://products.aspose.com/total/cpp/)都有其独特且强大的功能。购买 Aspose 组件的最佳收益在于可以获得我们开发团队的支持。我们的团队深知，如果贵公司需要某项功能，其他公司也很可能需要。虽然并非所有功能请求都能实现，但我们的团队在提供帮助时非常开明且灵活。这种思维方式帮助 Aspose 组件变得如此强大。如果您需要 Office 自动化对象的额外功能，获得它们被加入的机会非常、非常低。
 
 ## **结论**
 {{% alert color="primary" %}} 
 
-虽然这篇文章已经涵盖了许多关于为什么 Aspose 组件是比 Office 自动化更好选择的关键点，但还有很多更多的理由。本文主要仅 addresses the most key points. 所有不同的 Aspose 组件提供无风险、无义务的 [评估版本](https://downloads.aspose.com/slides/cpp)。我们鼓励您利用这个 [评估](https://downloads.aspose.com/slides/cpp)，以更好地了解 Aspose 可以为您的应用程序做些什么。
+尽管本文已经覆盖了许多 Aspose 组件优于 Office 自动化的关键点，但实际优势远不止这些。本文仅重点阐述了最关键的要点。所有不同的 Aspose 组件均提供无风险、无需义务的[评估版本](https://downloads.aspose.com/slides/zh/cpp)。我们鼓励您利用该[评估](https://downloads.aspose.com/slides/zh/cpp)来更好地了解 Aspose 能为您的应用程序带来哪些帮助。 
+{{% /alert %}}
