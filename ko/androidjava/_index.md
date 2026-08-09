@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Android via Java
-second_title: Aspose.Slides 문서
+second_title: Aspose.Slides for Android
 type: docs
 weight: 40
 url: /ko/androidjava/

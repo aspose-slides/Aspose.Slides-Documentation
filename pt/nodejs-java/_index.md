@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides para Node.js via Java
-second_title: "Documentação do Aspose.Slides para Node.js via .NET"
+second_title: Aspose.Slides for Node.js
 type: docs
 weight: 47
 url: /pt/nodejs-java/

@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Node.js via .NET
-second_title: "Aspose.Slides for Node.js via .NET 文件說明"
+second_title: Aspose.Slides for Node.js
 description: Aspose.Slides for Node.js via .NET 提供許多關鍵功能，包括管理文字、圖形、表格與動畫、向投影片新增音訊與影片、預覽投影片、將投影片匯出為 SVG、PDF 格式等。
 type: docs
 weight: 47

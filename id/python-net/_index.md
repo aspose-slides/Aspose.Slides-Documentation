@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Python via .NET
-second_title: "Dokumentasi Aspose.Slides untuk Python"
+second_title: Aspose.Slides for Python
 type: docs
 weight: 35
 url: /id/python-net/

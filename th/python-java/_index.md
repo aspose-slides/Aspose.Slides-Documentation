@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides สำหรับ Python ผ่าน Java
-second_title: "Aspose.Slides สำหรับ Python เอกสาร"
+second_title: Aspose.Slides for Python
 description: Aspose.Slides for Python via Java มีคุณสมบัติหลักมากมาย เช่น การจัดการข้อความ รูปร่าง ตารางและแอนิเมชัน การเพิ่มเสียงและวิดีโอลงในสไลด์ การพรีวิวสไลด์ การส่งออกสไลด์เป็นรูปแบบ SVG, PDF และอื่น ๆ
 type: docs
 weight: 47

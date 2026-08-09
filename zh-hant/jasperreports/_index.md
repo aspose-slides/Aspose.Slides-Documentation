@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for JasperReports
-second_title: Aspose.Slides Documentation
+second_title: Aspose.Slides for JasperReports
 description: Aspose.Slides for JasperReports 是一個專門為需要在 Java 應用程序中輕鬆將 JasperReports 報表匯出為 Microsoft PowerPoint 簡報 (PPT) 和 Microsoft PowerPoint 幻燈片放映 (PPS) 格式的開發人員設計和開發的函式庫。
 type: docs
 weight: 70

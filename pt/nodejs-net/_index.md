@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Node.js via .NET
-second_title: "Aspose.Slides for Node.js via .NET Documentação"
+second_title: Aspose.Slides for Node.js
 description: Aspose.Slides for Node.js via .NET oferece muitos recursos principais, como gerenciamento de texto, formas, tabelas e animações, adição de áudio e vídeo aos slides, visualização de slides, exportação de slides para SVG, formato PDF e muito mais.
 type: docs
 weight: 47
