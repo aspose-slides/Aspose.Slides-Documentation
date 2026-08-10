@@ -1,148 +1,230 @@
 ---
-title: Presentatieslides renderen als SVG-afbeeldingen in .NET
-linktitle: Slide naar SVG
+title: Render presentatiedia's als SVG-afbeeldingen in .NET
+linktitle: Dia naar SVG
 type: docs
 weight: 50
 url: /nl/net/render-a-slide-as-an-svg-image/
 keywords:
 - PowerPoint naar SVG
 - presentatie naar SVG
-- slide naar SVG
+- dia naar SVG
 - PPT naar SVG
 - PPTX naar SVG
-- PPT opslaan als SVG
-- PPTX opslaan als SVG
-- PPT exporteren naar SVG
-- PPTX exporteren naar SVG
-- slide renderen
-- slide converteren
-- slide exporteren
-- vectorafbeelding
+- SVG-exportopties
+- interactieve SVG
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u PowerPoint‑slides kunt renderen als SVG‑afbeeldingen met Aspose.Slides voor .NET. Hoogwaardige visuals met eenvoudige C#‑codevoorbeelden."
+description: "Exporteer PowerPoint-dia's als SVG-afbeeldingen in .NET en beheer lettertypen, tekst, afbeeldingen, ID's en events met Aspose.Slides."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u presentatieslides kunt renderen als SVG‑afbeeldingen met Aspose.Slides. Het beschrijft het SVG‑formaat en de voordelen, waaronder schaalbaarheid, toegankelijkheid en geschiktheid voor webontwikkeling.
+SVG is een schaalaanpasbaar XML-gebaseerd afbeeldingsformaat dat goed werkt voor webpublicatie, slide‑viewers, toegankelijkheidsprocessen en geautomatiseerde nabewerking. Aspose.Slides exporteert elke dia naar een apart SVG‑bestand en laat u bepalen hoe tekst, lettertypen, afbeeldingen en SVG‑elementen worden weggeschreven.
 
-U leert hoe u een presentatiebestand laadt, door de slides itereren, en elke slide opslaat als een afzonderlijk SVG‑bestand. Het artikel behandelt PowerPoint‑ en OpenDocument‑presentatieformaten, waaronder PPT, PPTX, ODP en PPS, en toont hoe u de conversie programmatisch kunt uitvoeren met de `Presentation`‑klasse en de `WriteAsSvg`‑methode.
+Gebruik [SVGOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/) wanneer de geëxporteerde SVG compact moet zijn, voorspelbaar over browsers, of klaar voor interactief gebruik.
 
-## **SVG‑formaat**
+## **Een dia exporteren als SVG**
 
-SVG—een acroniem voor Scalable Vector Graphics— is een standaardgrafiektype of -formaat dat wordt gebruikt om tweedimensionale afbeeldingen weer te geven. SVG slaat afbeeldingen op als vectoren in XML met details die hun gedrag of uiterlijk definiëren.
+Maak een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) aan, selecteer een dia en schrijf deze naar een stream. Het onderstaande voorbeeld exporteert elke dia in een presentatie naar een apart SVG‑bestand.
 
-SVG is een van de weinige afbeeldingsformaten die zeer hoge eisen voldoen op het gebied van schaalbaarheid, interactiviteit, prestaties, toegankelijkheid, programmeerbaarheid en meer. Om deze redenen wordt het veel gebruikt bij webontwikkeling.
+```csharp
+using Aspose.Slides;
 
-U wilt SVG‑bestanden mogelijk gebruiken wanneer u:
+using var presentation = new Presentation("presentation.pptx");
 
-- **uw presentatie afdrukken in een *zeer groot formaat*.** SVG‑afbeeldingen kunnen opschalen tot elke resolutie of elk niveau. U kunt SVG‑afbeeldingen zo vaak als nodig verkleinen of vergroten zonder kwaliteitsverlies.
-- **grafieken en diagrammen uit uw slides gebruiken in *verschillende media of platformen*.** De meeste weergaveprogramma's kunnen SVG‑bestanden interpreteren.
-- **de *kleinste mogelijke afbeeldingsgroottes* gebruiken**. SVG‑bestanden zijn over het algemeen kleiner dan hun hoog‑resolutie‑equivalenten in andere formaten, vooral die formaten die gebaseerd zijn op bitmap (JPEG of PNG).
-
-## **Een slide renderen als een SVG‑afbeelding**
-
-Aspose.Slides voor .NET stelt u in staat om slides in uw presentaties te exporteren als SVG‑afbeeldingen. Volg deze stappen om SVG‑afbeeldingen te genereren:
-
-_Steps: PowerPoint to SVG Conversions in C#_
-
-De onderstaande voorbeeldcode legt deze conversies uit met behulp van .NET.
-- <a name="csharp-powerpoint-to-svg" id="csharp-powerpoint-to-svg"><strong>Stappen: PowerPoint naar SVG converteren in C#</strong></a>
-- <a name="csharp-ppt-to-svg" id="csharp-ppt-to-svg"><strong>Stappen: PPT naar SVG converteren in C#</strong></a>
-- <a name="csharp-pptx-to-svg" id="csharp-pptx-to-svg"><strong>Stappen: PPTX naar SVG converteren in C#</strong></a>
-- <a name="csharp-odp-to-svg" id="csharp-odp-to-svg"><strong>Stappen: ODP naar SVG converteren in C#</strong></a>
-
-_Code-stappen:_
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse.
-   * _.ppt_-extensie om een **PPT**‑bestand te laden in de _Presentation_-klasse.
-   * _.pptx_-extensie om een **PPTX**‑bestand te laden in de _Presentation_-klasse.
-   * _.odp_-extensie om een **ODP**‑bestand te laden in de _Presentation_-klasse.
-   * _.pps_-extensie om een **PPS**‑bestand te laden in de _Presentation_-klasse.
-2. Itereer door alle slides in de presentatie.
-3. Schrijf elke slide naar een eigen SVG‑bestand via FileStream.
-
-{{% alert color="primary" %}} 
-
-U kunt onze [gratis webapplicatie](https://products.aspose.app/slides/nl/conversion/ppt-to-svg) uitproberen, waarin we de PPT‑naar‑SVG‑conversiefunctie van Aspose.Slides voor .NET hebben geïmplementeerd.
-
-{{% /alert %}} 
-
-Deze voorbeeldcode in C# laat zien hoe u PowerPoint naar SVG kunt converteren met Aspose.Slides: 
-
-``` csharp
-// Presentatie‑object kan PowerPoint‑formaten laden zoals PPT, PPTX, ODP enz.
-using (Presentation pres = new Presentation("pres.pptx"))
+foreach (var slide in presentation.Slides)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
+    using var svgStream = File.Create($"slide-{slide.SlideNumber}.svg");
+    slide.WriteAsSvg(svgStream);
+}
+```
 
-        using (FileStream fileStream = new FileStream($"slide-{index}.svg", FileMode.Create, FileAccess.Write))
+De bestandsnaam gebruikt [ISlide.SlideNumber](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/slidenumber/) in plaats van de lus‑index. U kunt ook een individuele vorm exporteren met [IShape.WriteAsSvg](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/writeassvg/) wanneer een slide‑viewer of webpagina alleen die vorm nodig heeft.
+
+## **SVG‑output configureren**
+
+[SVGOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/) regelt de SVG‑rendering. Voor tekstframes zorgt [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/useframesize/) ervoor dat het tekstframe wordt meegenomen in het rendergebied, en [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/useframerotation/) bepaalt of de rotatie van het frame wordt toegepast. Stel [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/disablefontligatures/) in op `true` wanneer tekst zonder ligaturen moet worden gerenderd.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    DisableFontLigatures = true,
+    UseFrameSize = true,
+    UseFrameRotation = false
+};
+
+using var svgStream = File.Create("slide-with-custom-options.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+## **Tekst en lettertypen beheren**
+
+### **Alle tekst vectoriseren**
+
+Stel [SVGOptions.VectorizeText](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/vectorizetext/) in op `true` om alle dia‑tekst als vectorafbeeldingen te schrijven. Dit verwijdert afhankelijkheden van lettertypen en maakt het visuele resultaat consistenter over browsers, maar de tekst is niet langer selecteerbaar of doorzoekbaar als SVG‑tekst.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    VectorizeText = true
+};
+
+using var svgStream = File.Create("slide-with-vectorized-text.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+### **Kies hoe externe lettertypen worden behandeld**
+
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/externalfontshandling/) gebruikt een [SvgExternalFontsHandling](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgexternalfontshandling/)‑waarde voor lettertypen die extern worden geladen. Kies `AddLinksToFontFiles` om afzonderlijke lettertypebestanden te refereren, `Embed` om lettertypegegevens in de SVG op te nemen, of `Vectorize` om alleen tekst die externe lettertypen gebruikt als grafische weergave te renderen. Controleer de licentievoorwaarden van het lettertype voordat u lettertypen embedt.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var linkedFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.AddLinksToFontFiles
+};
+
+using var linkedFontsStream = File.Create("slide-with-font-links.svg");
+presentation.Slides[0].WriteAsSvg(linkedFontsStream, linkedFontsOptions);
+
+var embeddedFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.Embed
+};
+
+using var embeddedFontsStream = File.Create("slide-with-embedded-fonts.svg");
+presentation.Slides[0].WriteAsSvg(embeddedFontsStream, embeddedFontsOptions);
+
+var vectorizedExternalFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.Vectorize
+};
+
+using var vectorizedExternalFontsStream = File.Create("slide-with-vectorized-external-fonts.svg");
+presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
+```
+
+## **Grootte van ingesloten afbeeldingen verkleinen**
+
+Gebruik [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/picturescompression/) om de resolutie van ingesloten afbeeldingen te verlagen, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) om bijgesneden brongebieden weg te laten, en [SVGOptions.JpegQuality](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/jpegquality/) om de JPEG‑coderingskwaliteit te regelen. Deze instellingen verkleinen de bestandsgrootte ten koste van de afbeeldingsnauwkeurigheid of behouden afbeeldingsdata.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    PicturesCompression = PicturesCompression.Dpi150,
+    DeletePicturesCroppedAreas = true,
+    JpegQuality = 80
+};
+
+using var svgStream = File.Create("compressed-slide.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+## **Stabiele ID's aan vormen en tekst toewijzen**
+
+Gebruik [ISvgShapeFormattingController](https://reference.aspose.com/slides/nl/net/aspose.slides.export/isvgshapeformattingcontroller/) om [ISvgShape.Id](https://reference.aspose.com/slides/nl/net/aspose.slides.export/isvgshape/id/) voor elke SVG‑vorm in te stellen. Om ook [ISvgTSpan.Id](https://reference.aspose.com/slides/nl/net/aspose.slides.export/isvgtspan/id/) waarden op tekst‑`tspan`‑elementen te zetten, implementeer [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/nl/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Wijs één van de controllers toe via [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
+
+De onderstaande controller gebruikt [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/officeinteropshapeid/), dat stabiel blijft gedurende de levensduur van de vorm, en een reproduceerbare teller voor de tekst‑spans ervan. Hierdoor zijn de gegenereerde ID's geschikt voor nabewerking van een ongewijzigde presentatie.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    ShapeFormattingController = new StableSvgIdController()
+};
+
+using var svgStream = File.Create("slide-with-stable-ids.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+
+class StableSvgIdController : ISvgShapeAndTextFormattingController
+{
+    private string currentShapeId = string.Empty;
+    private int textSpanIndex;
+
+    public ISvgShapeFormattingController AsISvgShapeFormattingController => this;
+
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        currentShapeId = $"shape-{shape.OfficeInteropShapeId}";
+        textSpanIndex = 0;
+        svgShape.Id = currentShapeId;
+    }
+
+    public void FormatText(ISvgTSpan svgTSpan, IPortion portion, ITextFrame textFrame)
+    {
+        svgTSpan.Id = $"{currentShapeId}-text-{textSpanIndex++}";
+    }
+}
+```
+
+## **SVG‑eventhandlers toevoegen**
+
+In een [ISvgShapeFormattingController](https://reference.aspose.com/slides/nl/net/aspose.slides.export/isvgshapeformattingcontroller/) roep je [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/nl/net/aspose.slides.export/isvgshape/seteventhandler/) aan met een [SvgEvent](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgevent/)‑waarde om een JavaScript‑eventhandler toe te voegen aan een geëxporteerde vorm. Wijs de controller toe via [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) en definieer de JavaScript‑functie in de pagina of het SVG‑document dat het resultaat host.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    ShapeFormattingController = new SvgEventController()
+};
+
+using var svgStream = File.Create("interactive-slide.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+
+class SvgEventController : ISvgShapeFormattingController
+{
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        if (shape.Name == "ActionButton")
         {
-            slide.WriteAsSvg(fileStream);   
+            svgShape.Id = "action-button";
+            svgShape.SetEventHandler(SvgEvent.OnClick, "handleShapeClick(event)");
         }
     }
 }
 ```
 
+De host‑pagina kan de JavaScript‑functie definiëren die door de handler wordt aangeroepen. Het toewijzen van ID's en eventhandlers maakt slide‑viewers, toegankelijkheidsverbeteringen en andere interactieve SVG‑workflows mogelijk.
+
 ## **FAQ**
 
-**Waarom kan de resulterende SVG er verschillend uitzien in verschillende browsers?**
+**Wanneer moet ik [SVGOptions.VectorizeText](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/vectorizetext/) gebruiken in plaats van [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgexternalfontshandling/)?**
 
-Ondersteuning voor specifieke SVG‑functies wordt door verschillende browser‑engines anders geïmplementeerd. De parameters van [SVGOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/svgoptions/) helpen incompatibiliteiten te verzachten.
+Gebruik [SVGOptions.VectorizeText] wanneer alle tekst onafhankelijk van lettertypen moet zijn. Gebruik [SvgExternalFontsHandling.Vectorize] wanneer alleen tekst die externe lettertypen gebruikt moet worden omgezet naar grafische weergave.
 
-**Is het mogelijk om niet alleen slides maar ook individuele vormen naar SVG te exporteren?**
+**Wat is de beste manier om een SVG kleiner te maken?**
 
-Ja. Elke [vorm kan als een afzonderlijke SVG worden opgeslagen](https://reference.aspose.com/slides/nl/net/aspose.slides/shape/writeassvg/), wat handig is voor pictogrammen en het hergebruiken van grafische elementen.
+Begin met het comprimeren van ingesloten afbeeldingen, het verwijderen van bijgesneden afbeeldingsgebieden, en het kiezen van gelinkte lettertypebestanden wanneer de doelomgeving ze kan leveren. Test het resultaat omdat een lagere resolutie van de afbeelding, een lagere JPEG‑kwaliteit en vectorisatie van tekst elk verschillende afwegingen tussen kwaliteit en bestandsgrootte hebben.
 
-**Kunnen meerdere slides worden gecombineerd tot één enkele SVG (strip/document)?**
+**Kan ik geëxporteerde SVG‑elementen na het exporteren aanpassen?**
 
-Het standaardscenario is één slide → één SVG. Het combineren van meerdere slides tot één enkele SVG‑canvas is een nabewerkingsstap die op toepassingsniveau wordt uitgevoerd.
-
-## **Zie ook** 
-
-Dit artikel behandelt ook de volgende onderwerpen. De code is dezelfde als hierboven.
-
-_Format_: **PowerPoint**
-- [C# PowerPoint naar SVG‑code](#csharp-powerpoint-to-svg)
-- [C# PowerPoint naar SVG‑API](#csharp-powerpoint-to-svg)
-- [C# PowerPoint naar SVG‑programmering](#csharp-powerpoint-to-svg)
-- [C# PowerPoint naar SVG‑bibliotheek](#csharp-powerpoint-to-svg)
-- [C# PowerPoint opslaan als SVG](#csharp-powerpoint-to-svg)
-- [C# SVG genereren vanuit PowerPoint](#csharp-powerpoint-to-svg)
-- [C# SVG maken vanuit PowerPoint](#csharp-powerpoint-to-svg)
-- [C# PowerPoint naar SVG‑converter](#csharp-powerpoint-to-svg)
-
-_Format_: **PPT**
-- [C# PPT naar SVG‑code](#csharp-ppt-to-svg)
-- [C# PPT naar SVG‑API](#csharp-ppt-to-svg)
-- [C# PPT naar SVG‑programmering](#csharp-ppt-to-svg)
-- [C# PPT naar SVG‑bibliotheek](#csharp-ppt-to-svg)
-- [C# PPT opslaan als SVG](#csharp-ppt-to-svg)
-- [C# SVG genereren vanuit PPT](#csharp-ppt-to-svg)
-- [C# SVG maken vanuit PPT](#csharp-ppt-to-svg)
-- [C# PPT naar SVG‑converter](#csharp-ppt-to-svg)
-
-_Format_: **PPTX**
-- [C# PPTX naar SVG‑code](#csharp-pptx-to-svg)
-- [C# PPTX naar SVG‑API](#csharp-pptx-to-svg)
-- [C# PPTX naar SVG‑programmering](#csharp-pptx-to-svg)
-- [C# PPTX naar SVG‑bibliotheek](#csharp-pptx-to-svg)
-- [C# PPTX opslaan als SVG](#csharp-pptx-to-svg)
-- [C# SVG genereren vanuit PPTX](#csharp-pptx-to-svg)
-- [C# SVG maken vanuit PPTX](#csharp-pptx-to-svg)
-- [C# PPTX naar SVG‑converter](#csharp-pptx-to-svg)
-
-_Format_: **ODP**
-- [C# ODP naar SVG‑code](#csharp-odp-to-svg)
-- [C# ODP naar SVG‑API](#csharp-odp-to-svg)
-- [C# ODP naar SVG‑programmering](#csharp-odp-to-svg)
-- [C# ODP naar SVG‑bibliotheek](#csharp-odp-to-svg)
-- [C# ODP opslaan als SVG](#csharp-odp-to-svg)
-- [C# SVG genereren vanuit ODP](#csharp-odp-to-svg)
-- [C# SVG maken vanuit ODP](#csharp-odp-to-svg)
-- [C# ODP naar SVG‑converter](#csharp-odp-to-svg)
+Ja. Ken ID's toe via een formatteringscontroller en selecteer vervolgens de overeenkomstige SVG‑elementen in uw nabewerkings‑tool of browserscript.

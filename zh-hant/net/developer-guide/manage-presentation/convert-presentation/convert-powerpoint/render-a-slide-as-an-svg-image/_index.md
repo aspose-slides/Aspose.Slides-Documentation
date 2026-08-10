@@ -1,145 +1,230 @@
 ---
-title: 在 .NET 中將簡報投影片渲染為 SVG 圖片
+title: 在 .NET 中將簡報投影片渲染為 SVG 圖像
 linktitle: 投影片轉 SVG
 type: docs
 weight: 50
 url: /zh-hant/net/render-a-slide-as-an-svg-image/
 keywords:
 - PowerPoint 轉 SVG
-- 簡報 轉 SVG
-- 投影片 轉 SVG
+- 簡報轉 SVG
+- 投影片轉 SVG
 - PPT 轉 SVG
 - PPTX 轉 SVG
-- 將 PPT 儲存為 SVG
-- 將 PPTX 儲存為 SVG
-- 匯出 PPT 為 SVG
-- 匯出 PPTX 為 SVG
-- 渲染投影片
-- 轉換投影片
-- 匯出投影片
-- 向量圖像
+- SVG 匯出選項
+- 互動式 SVG
 - PowerPoint
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for .NET 將 PowerPoint 投影片渲染為 SVG 圖片。提供簡潔的 C# 程式碼範例，實現高品質的視覺效果。"
+description: "在 .NET 中將 PowerPoint 投影片匯出為 SVG 圖像，並使用 Aspose.Slides 控制字型、文字、影像、ID 以及事件。"
 ---
 ## **概覽**
 
-本文說明如何使用 Aspose.Slides 將簡報投影片匯出為 SVG 圖片。內容介紹 SVG 格式及其優點，包括可伸縮性、可存取性以及在 Web 開發中的適用性。
+SVG 是一種可縮放的基於 XML 的影像格式，適用於網路發佈、投影片檢視器、可及性工作流程以及自動化後製處理。Aspose.Slides 會將每張投影片匯出為單獨的 SVG 檔案，並讓您控制文字、字型、圖片與 SVG 元素的寫入方式。
 
-您將學會如何載入簡報檔案、逐一遍歷投影片，並將每張投影片儲存為單獨的 SVG 檔案。本文涵蓋 PowerPoint 與 OpenDocument 簡報格式，包括 PPT、PPTX、ODP 以及 PPS，並示範如何使用 `Presentation` 類別和 `WriteAsSvg` 方法以程式方式執行轉換。
+當匯出的 SVG 必須保持緊湊、在瀏覽器間具備可預測性，或需要支援互動時，請使用 [SVGOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/)。
 
-## **SVG 格式**
-SVG（Scalable Vector Graphics 可伸縮向量圖形）是一種用於呈現二維影像的標準圖形類型或格式。SVG 以 XML 儲存圖像向量，並包含定義其行為或外觀的細節。
+## **將投影片匯出為 SVG**
 
-SVG 是少數在以下方面符合極高標準的圖像格式：可伸縮性、互動性、效能、可存取性、可程式化等。因此它在 Web 開發中被廣泛使用。
+建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/)，選取投影片，並將其寫入串流。以下範例會將簡報中的每張投影片匯出為單獨的 SVG 檔案。
 
-您可能會在以下情境中使用 SVG 檔案：
+```csharp
+using Aspose.Slides;
 
-- **將簡報列印成*非常大的尺寸***。SVG 圖片可以無限制放大至任意解析度或尺寸，您可以多次調整大小而不會影響品質。
-- **在*不同媒介或平台*中使用投影片中的圖表與圖形**。大多數瀏覽器皆能正確呈現 SVG 檔案。
-- **取得*最小的圖像檔案大小***。SVG 檔案通常比其他高解析度格式（尤其是基於點陣圖的 JPEG 或 PNG）更小。
+using var presentation = new Presentation("presentation.pptx");
 
-## **將投影片渲染為 SVG 圖片**
-
-Aspose.Slides for .NET 允許您將簡報中的投影片匯出為 SVG 圖片。請依照以下步驟產生 SVG 圖片：
-
-_步驟：PowerPoint 轉 SVG 的 C# 程式碼_
-
-以下範例說明如何在 .NET 中執行這些轉換。
-- <a name="csharp-powerpoint-to-svg" id="csharp-powerpoint-to-svg"><strong>步驟：在 C# 中將 PowerPoint 轉為 SVG</strong></a>
-- <a name="csharp-ppt-to-svg" id="csharp-ppt-to-svg"><strong>步驟：在 C# 中將 PPT 轉為 SVG</strong></a>
-- <a name="csharp-pptx-to-svg" id="csharp-pptx-to-svg"><strong>步驟：在 C# 中將 PPTX 轉為 SVG</strong></a>
-- <a name="csharp-odp-to-svg" id="csharp-odp-to-svg"><strong>步驟：在 C# 中將 ODP 轉為 SVG</strong></a>
-
-_程式碼步驟：_
-
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的實例。
-   * _.ppt_ 副檔名用於於 _Presentation_ 類別中載入 **PPT** 檔案。
-   * _.pptx_ 副檔名用於於 _Presentation_ 類別中載入 **PPTX** 檔案。
-   * _.odp_ 副檔名用於於 _Presentation_ 類別中載入 **ODP** 檔案。
-   * _.pps_ 副檔名用於於 _Presentation_ 類別中載入 **PPS** 檔案。
-2. 逐一遍歷簡報中的所有投影片。
-3. 透過 FileStream 將每張投影片寫入其對應的 SVG 檔案。
-
-{{% alert color="primary" %}} 
-您可以試試我們的[免費 Web 應用程式](https://products.aspose.app/slides/zh-hant/conversion/ppt-to-svg)，其中已實作 Aspose.Slides for .NET 的 PPT 轉 SVG 功能。
-{{% /alert %}} 
-
-以下 C# 範例程式碼示範如何使用 Aspose.Slides 將 PowerPoint 轉換為 SVG：
-
-``` csharp
-// Presentation 物件可以載入 PPT、PPTX、ODP 等 PowerPoint 格式。
-using (Presentation pres = new Presentation("pres.pptx"))
+foreach (var slide in presentation.Slides)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
+    using var svgStream = File.Create($"slide-{slide.SlideNumber}.svg");
+    slide.WriteAsSvg(svgStream);
+}
+```
 
-        using (FileStream fileStream = new FileStream($"slide-{index}.svg", FileMode.Create, FileAccess.Write))
+檔名使用 [ISlide.SlideNumber](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islide/slidenumber/) 而不是迴圈索引。當投影片檢視器或網頁只需要特定形狀時，亦可使用 [IShape.WriteAsSvg](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/writeassvg/) 匯出單一形狀。
+
+## **設定 SVG 輸出**
+
+[SVGOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/) 控制 SVG 的渲染方式。對於文字框，[SVGOptions.UseFrameSize](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/useframesize/) 會將文字框納入渲染區域，而 [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/useframerotation/) 則決定是否套用框的旋轉。將 [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/disablefontligatures/) 設為 `true`，即可在渲染文字時不使用連字。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    DisableFontLigatures = true,
+    UseFrameSize = true,
+    UseFrameRotation = false
+};
+
+using var svgStream = File.Create("slide-with-custom-options.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+## **控制文字與字型**
+
+### **向量化全部文字**
+
+將 [SVGOptions.VectorizeText](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/vectorizetext/) 設為 `true`，即可將投影片中的所有文字寫入為向量圖形。這樣可以消除字型相依性，讓視覺結果在不同瀏覽器間更一致，但文字將不再可作為 SVG 文字被選取或搜尋。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    VectorizeText = true
+};
+
+using var svgStream = File.Create("slide-with-vectorized-text.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+### **選擇外部字型的處理方式**
+
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/externalfontshandling/) 會使用 [SvgExternalFontsHandling](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgexternalfontshandling/) 之值來處理外部載入的字型。可選擇 `AddLinksToFontFiles` 以參照獨立的字型檔案、`Embed` 以將字型資料嵌入 SVG，或 `Vectorize` 只將使用外部字型的文字渲染為圖形。嵌入字型前請先確認授權情形。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var linkedFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.AddLinksToFontFiles
+};
+
+using var linkedFontsStream = File.Create("slide-with-font-links.svg");
+presentation.Slides[0].WriteAsSvg(linkedFontsStream, linkedFontsOptions);
+
+var embeddedFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.Embed
+};
+
+using var embeddedFontsStream = File.Create("slide-with-embedded-fonts.svg");
+presentation.Slides[0].WriteAsSvg(embeddedFontsStream, embeddedFontsOptions);
+
+var vectorizedExternalFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.Vectorize
+};
+
+using var vectorizedExternalFontsStream = File.Create("slide-with-vectorized-external-fonts.svg");
+presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
+```
+
+## **減少嵌入圖片的大小**
+
+使用 [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/picturescompression/) 以降低嵌入圖片的解析度，使用 [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) 以省略被裁切的來源區域，並利用 [SVGOptions.JpegQuality](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/jpegquality/) 來控制 JPEG 編碼品質。這些設定會以犧牲影像細節或保留的圖像資料為代價，減少檔案大小。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    PicturesCompression = PicturesCompression.Dpi150,
+    DeletePicturesCroppedAreas = true,
+    JpegQuality = 80
+};
+
+using var svgStream = File.Create("compressed-slide.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+## **為形狀與文字指派穩定的 ID**
+
+使用 [ISvgShapeFormattingController](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isvgshapeformattingcontroller/) 為每個 SVG 形狀設定 [ISvgShape.Id](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isvgshape/id/)。若也要在文字 `tspan` 元素上設定 [ISvgTSpan.Id](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isvgtspan/id/) 值，請實作 [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isvgshapeandtextformattingcontroller/)。將任一控制器指派給 [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/shapeformattingcontroller/)。
+
+以下控制器使用 [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/officeinteropshapeid/)，此 ID 在形狀生命週期內保持穩定，並使用可重複的計數器為其文字跨度產生 ID。這使得產生的 ID 適合於對未變更的簡報進行後續處理。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    ShapeFormattingController = new StableSvgIdController()
+};
+
+using var svgStream = File.Create("slide-with-stable-ids.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+
+class StableSvgIdController : ISvgShapeAndTextFormattingController
+{
+    private string currentShapeId = string.Empty;
+    private int textSpanIndex;
+
+    public ISvgShapeFormattingController AsISvgShapeFormattingController => this;
+
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        currentShapeId = $"shape-{shape.OfficeInteropShapeId}";
+        textSpanIndex = 0;
+        svgShape.Id = currentShapeId;
+    }
+
+    public void FormatText(ISvgTSpan svgTSpan, IPortion portion, ITextFrame textFrame)
+    {
+        svgTSpan.Id = $"{currentShapeId}-text-{textSpanIndex++}";
+    }
+}
+```
+
+## **新增 SVG 事件處理程序**
+
+在 [ISvgShapeFormattingController](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isvgshapeformattingcontroller/) 中，呼叫 [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isvgshape/seteventhandler/) 並傳入 [SvgEvent](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgevent/) 值，即可為匯出的形狀加入 JavaScript 事件處理程序。透過 [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) 指派此控制器，並在承載結果的頁面或 SVG 文件中定義相應的 JavaScript 函式。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    ShapeFormattingController = new SvgEventController()
+};
+
+using var svgStream = File.Create("interactive-slide.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+
+class SvgEventController : ISvgShapeFormattingController
+{
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        if (shape.Name == "ActionButton")
         {
-            slide.WriteAsSvg(fileStream);   
+            svgShape.Id = "action-button";
+            svgShape.SetEventHandler(SvgEvent.OnClick, "handleShapeClick(event)");
         }
     }
 }
 ```
 
+主頁面可以定義被處理程序引用的 JavaScript 函式。指派 ID 與事件處理程序後，可支援投影片檢視器、可及性增強以及其他互動式 SVG 工作流程。
+
 ## **常見問題**
 
-**為何在不同瀏覽器中顯示的 SVG 可能有所差異？**
+**什麼時候應該使用 [SVGOptions.VectorizeText](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/vectorizetext/) 而不是 [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgexternalfontshandling/)？**
 
-各瀏覽器引擎對特定 SVG 功能的支援實作方式不同。使用 [SVGOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/) 參數可協助平滑處理相容性問題。
+當所有文字必須獨立於字型時，請使用 [SVGOptions.VectorizeText](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgoptions/vectorizetext/)。當只有使用外部字型的文字需要轉換為圖形時，請使用 [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/svgexternalfontshandling/)。
 
-**是否能將不只投影片而是單獨的圖形也匯出為 SVG？**
+**如何讓 SVG 檔案變得更小？**
 
-可以。任何[圖形皆可另存為單獨的 SVG](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shape/writeassvg/)，這對圖示、圖解以及重複使用圖形非常方便。
+首先壓縮嵌入的圖片、刪除裁切的圖像區域，並在目標環境能提供字型檔案時選擇使用連結字型檔。請測試結果，因為降低圖片解析度、降低 JPEG 品質以及向量化文字各自會在品質與檔案大小之間產生不同的取捨。
 
-**是否能將多張投影片合併為單一 SVG（條狀圖/文件）？**
+**我可以在匯出後修改 SVG 元素嗎？**
 
-標準作法是一張投影片對應一個 SVG。若需將多張投影片合併為同一個 SVG 畫布，必須在應用層面進行後處理。
-
-## **相關內容** 
-
-本文亦涵蓋以下主題，程式碼與上述相同。
-
-_Format_: **PowerPoint**
-- [C# PowerPoint to SVG Code](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG API](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG Programmatically](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG Library](#csharp-powerpoint-to-svg)
-- [C# Save PowerPoint as SVG](#csharp-powerpoint-to-svg)
-- [C# Generate SVG from PowerPoint](#csharp-powerpoint-to-svg)
-- [C# Create SVG from PowerPoint](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG Converter](#csharp-powerpoint-to-svg)
-
-_Format_: **PPT**
-- [C# PPT to SVG Code](#csharp-ppt-to-svg)
-- [C# PPT to SVG API](#csharp-ppt-to-svg)
-- [C# PPT to SVG Programmatically](#csharp-ppt-to-svg)
-- [C# PPT to SVG Library](#csharp-ppt-to-svg)
-- [C# Save PPT as SVG](#csharp-ppt-to-svg)
-- [C# Generate SVG from PPT](#csharp-ppt-to-svg)
-- [C# Create SVG from PPT](#csharp-ppt-to-svg)
-- [C# PPT to SVG Converter](#csharp-ppt-to-svg)
-
-_Format_: **PPTX**
-- [C# PPTX to SVG Code](#csharp-pptx-to-svg)
-- [C# PPTX to SVG API](#csharp-pptx-to-svg)
-- [C# PPTX to SVG Programmatically](#csharp-pptx-to-svg)
-- [C# PPTX to SVG Library](#csharp-pptx-to-svg)
-- [C# Save PPTX as SVG](#csharp-pptx-to-svg)
-- [C# Generate SVG from PPTX](#csharp-pptx-to-svg)
-- [C# Create SVG from PPTX](#csharp-pptx-to-svg)
-- [C# PPTX to SVG Converter](#csharp-pptx-to-svg)
-
-_Format_: **ODP**
-- [C# ODP to SVG Code](#csharp-odp-to-svg)
-- [C# ODP to SVG API](#csharp-odp-to-svg)
-- [C# ODP to SVG Programmatically](#csharp-odp-to-svg)
-- [C# ODP to SVG Library](#csharp-odp-to-svg)
-- [C# Save ODP as SVG](#csharp-odp-to-svg)
-- [C# Generate SVG from ODP](#csharp-odp-to-svg)
-- [C# Create SVG from ODP](#csharp-odp-to-svg)
-- [C# ODP to SVG Converter](#csharp-odp-to-svg)
+可以。透過格式化控制器指派 ID，然後在後處理工具或瀏覽器腳本中選取相對應的 SVG 元素進行修改。

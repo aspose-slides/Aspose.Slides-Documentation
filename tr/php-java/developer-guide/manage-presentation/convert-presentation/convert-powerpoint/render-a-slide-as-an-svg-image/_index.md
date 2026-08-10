@@ -1,91 +1,222 @@
 ---
-title: PHP'de Sunum Slaytlarını SVG Görüntüleri Olarak Oluşturma
+title: PHP'de Sunum Slaytlarını SVG Görüntüsü Olarak Oluşturma
 linktitle: Slaytı SVG'ye
 type: docs
 weight: 50
 url: /tr/php-java/render-a-slide-as-an-svg-image/
 keywords:
 - PowerPoint'ten SVG'ye
-- sunumu SVG'ye
-- slaytı SVG'ye
+- sunumdan SVG'ye
+- slayttan SVG'ye
 - PPT'den SVG'ye
 - PPTX'den SVG'ye
-- PPT'yi SVG olarak kaydet
-- PPTX'i SVG olarak kaydet
-- PPT'yi SVG'ye dışa aktar
-- PPTX'i SVG'ye dışa aktar
-- slaytı renderla
-- slaytı dönüştür
-- slaytı dışa aktar
-- vektörel görüntü
+- SVG dışa aktarma seçenekleri
+- etkileşimli SVG
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint slaytlarını SVG görüntüleri olarak nasıl oluşturacağınızı öğrenin. Basit kod örnekleriyle yüksek kaliteli görseller."
+description: "PowerPoint slaytlarını PHP'de SVG görüntüsü olarak dışa aktarın ve yazı tiplerini, metni, resimleri, ID'leri ve olayları Aspose.Slides ile kontrol edin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak sunum slaytlarını SVG görüntüleri olarak nasıl oluşturacağınızı açıklar. SVG formatını ve ölçeklenebilirlik, erişilebilirlik ve web geliştirme için uygunluk gibi avantajlarını anlatır.
+SVG, web yayıncılığı, slayt görüntüleyicileri, erişilebilirlik iş akışları ve otomatik sonrası işleme için iyi çalışan ölçeklenebilir bir XML tabanlı görüntü formatıdır. Aspose.Slides, her slaytı ayrı bir SVG dosyasına dışa aktarır ve metin, yazı tipleri, resimler ve SVG öğelerinin nasıl yazılacağını kontrol etmenizi sağlar.
 
-Sunum dosyasını nasıl yükleyeceğinizi, slaytları nasıl döngüleyeceğinizi ve her slaytı ayrı bir SVG dosyası olarak nasıl kaydedeceğinizi öğreneceksiniz. Makale, PPT, PPTX, ODP ve PPS dahil olmak üzere PowerPoint ve OpenDocument sunum formatlarını kapsar ve dönüşümün `Presentation` sınıfı ve `writeAsSvg` yöntemiyle programlı olarak nasıl yapılacağını gösterir.
+Dışa aktarılan SVG'nin kompakt, tarayıcılar arasında öngörülebilir veya etkileşimli kullanım için hazır olması gerektiğinde [SVGOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/) kullanın.
 
-## **SVG Formatı**
+## **Bir Slaytı SVG Olarak Dışa Aktar**
 
-SVG—Scalable Vector Graphics (Ölçeklenebilir Vektör Grafikleri) kısaltmasıdır—iki boyutlu görüntüler oluşturmak için kullanılan standart bir grafik türü ya da formatıdır. SVG, görüntüleri davranışlarını veya görünüşlerini tanımlayan detaylarla XML içinde vektör olarak saklar.
-
-SVG, ölçeklenebilirlik, etkileşim, performans, erişilebilirlik, programlanabilirlik ve benzeri konularda çok yüksek standartları karşılayan nadir görüntü formatlarından biridir. Bu nedenlerle, web geliştirmede yaygın olarak kullanılır.
-
-SVG dosyalarını aşağıdaki durumlarda kullanmak isteyebilirsiniz:
-
-- **sunumunuzu *çok büyük bir formatta* yazdırmak**. SVG görüntüler, herhangi bir çözünürlüğe veya seviyeye kadar ölçeklenebilir. Kaliteden ödün vermeden SVG görüntülerini gerektiği kadar yeniden boyutlandırabilirsiniz.
-- **slaytlarınızdaki grafik ve tabloları *farklı ortamlar veya platformlarda* kullanmak**. Çoğu okuyucu SVG dosyalarını yorumlayabilir.
-- **görüntüleri *mümkün olan en küçük boyutlarda* kullanmak**. SVG dosyaları genellikle diğer formatlardaki yüksek çözünürlüklü eşdeğerlerinden daha küçüktür, özellikle bitmap tabanlı (JPEG veya PNG) formatların.
-
-## **Bir Slaytı SVG Görüntüsü Olarak Oluşturma**
-
-Aspose.Slides for PHP via Java, sunumlarınızdaki slaytları SVG görüntüleri olarak dışa aktarmanıza olanak tanır. SVG görüntüleri oluşturmak için şu adımları izleyin:
-
-1. Presentation sınıfının bir örneğini oluşturun.
-2. Sunumdaki tüm slaytlar üzerinde döngü yapın.
-3. Her slaytı FileOutputStream aracılığıyla kendi SVG dosyasına yazın.
-
-{{% alert color="primary" %}} 
-Aspose.Slides for PHP via Java'dan PPT'den SVG'ye dönüşüm işlevini uyguladığımız [ücretsiz web uygulamamızı](https://products.aspose.app/slides/tr/conversion/ppt-to-svg) denemek isteyebilirsiniz.
-{{% /alert %}} 
-
-Bu örnek kod, Aspose.Slides kullanarak PPT'yi SVG'ye nasıl dönüştüreceğinizi gösterir:
+Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) oluşturun, bir slayt seçin ve [Slide.writeAsSvg](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#writeAsSvg) ile bir akıma yazın. Aşağıdaki örnek, bir sunumdaki her slaytı ayrı bir SVG dosyası olarak dışa aktarır.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $fileStream = new Java("java.io.FileOutputStream", "slide-" . $index . ".svg");
-      try {
-        $slide->writeAsSvg($fileStream);
-      } finally {
-        $fileStream->close();
-      }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $slideNumber = java_values($slide->getSlideNumber());
+        $outputFileName = sprintf("slide-%d.svg", $slideNumber);
+
+        $svgStream = new Java("java.io.FileOutputStream", $outputFileName);
+        $slide->writeAsSvg($svgStream);
+        $svgStream->close();
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Dosya adı, döngü indeksinin yerine [Slide.getSlideNumber](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getSlideNumber) kullanır. Bir slayt görüntüleyicisinin veya web sayfasının yalnızca belirli bir şekle ihtiyaç duyduğu durumlarda [Shape.writeAsSvg](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#writeAsSvg) ile tek bir şekli de dışa aktarabilirsiniz.
+
+## **SVG Çıktısını Yapılandırma**
+
+[SVGOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/) SVG oluşturmayı kontrol eder. Metin çerçeveleri için, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setUseFrameSize) metin çerçevesini oluşturma alanına dahil eder ve [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setUseFrameRotation) çerçeve dönüşünün uygulanıp uygulanmayacağını belirler. Metnin ligatürsüz oluşturulması gerektiğinde [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) değerini `true` olarak ayarlayın.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setDisableFontLigatures(true);
+    $svgOptions->setUseFrameSize(true);
+    $svgOptions->setUseFrameRotation(false);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-custom-options.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **Metin ve Yazı Tiplerini Kontrol Etme**
+
+### **Tüm Metni Vektörleştir**
+
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setVectorizeText) değerini `true` olarak ayarlayarak tüm slayt metnini vektör grafik olarak yazın. Bu, yazı tipi bağımlılıklarını ortadan kaldırır ve görsel sonucu tarayıcılar arasında daha tutarlı hale getirir, ancak metin artık SVG metni olarak seçilemez veya aranamaz.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setVectorizeText(true);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-text.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+### **Harici Yazı Tiplerinin Nasıl İşleneceğini Seçin**
+
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setExternalFontsHandling), harici olarak yüklenen yazı tipleri için bir [SvgExternalFontsHandling](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgexternalfontshandling/) değeri kullanır. Ayrı yazı tipi dosyalarına referans vermek için `AddLinksToFontFiles`, yazı tipi verisini SVG'ye dahil etmek için `Embed` ve harici yazı tipleri kullanan metni yalnızca grafik olarak oluşturmak için `Vectorize` seçeneklerini seçin. Yazı tiplerini gömmeden önce lisanslamayı doğrulayın.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $linkedFontsOptions = new SVGOptions();
+    $linkedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::AddLinksToFontFiles);
+    $linkedFontsStream = new Java("java.io.FileOutputStream", "slide-with-font-links.svg");
+    try {
+        $slide->writeAsSvg($linkedFontsStream, $linkedFontsOptions);
+    } finally {
+        $linkedFontsStream->close();
+    }
+
+    $embeddedFontsOptions = new SVGOptions();
+    $embeddedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Embed);
+    $embeddedFontsStream = new Java("java.io.FileOutputStream", "slide-with-embedded-fonts.svg");
+    try {
+        $slide->writeAsSvg($embeddedFontsStream, $embeddedFontsOptions);
+    } finally {
+        $embeddedFontsStream->close();
+    }
+
+    $vectorizedExternalFontsOptions = new SVGOptions();
+    $vectorizedExternalFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Vectorize);
+    $vectorizedExternalFontsStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-external-fonts.svg");
+    try {
+        $slide->writeAsSvg($vectorizedExternalFontsStream, $vectorizedExternalFontsOptions);
+    } finally {
+        $vectorizedExternalFontsStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Gömülü Görüntü Boyutunu Azaltma**
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setPicturesCompression) kullanarak gömülü resimlerin çözünürlüğünü azaltın, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) ile kırpılmış kaynak alanlarını atlayın ve JPEG kodlama kalitesini kontrol etmek için [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setJpegQuality) ayarlayın. Bu ayarlar, görüntü doğruluğu veya saklanan görüntü verisi pahasına dosya boyutunu küçültür.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setPicturesCompression(PicturesCompression::Dpi150);
+    $svgOptions->setDeletePicturesCroppedAreas(true);
+    $svgOptions->setJpegQuality(80);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "compressed-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **Şekillere ve Metne Kararlı ID'ler Atama**
+
+[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setShapeFormattingController) için bir biçimlendirme geri araması sağlayarak her SVG şekli için [SvgShape.setId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgshape/#setId) belirleyin. Geri arama, metin `tspan` öğeleri üzerinde de [SvgTSpan.setId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgtspan/#setId) değerlerini ayarlayabilir.
+
+PhpJavaBridge, akış modunda çalışırken `writeAsSvg` den bir PHP geri aramasını çağıramaz. Biçimlendirme mantığını küçük bir Java yardımcı sınıfına koyun, derleyin ve ortaya çıkan JAR dosyasını köprü sınıf yoluna ekleyin. Yardımcı, şeklin ömrü boyunca kararlı olan ve metin span'ları için tekrarlanabilir bir sayaç sağlayan [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getOfficeInteropShapeId) kullanabilir. Yardımcı kodu görmek için [Java implementation of `StableSvgIdController`](/slides/tr/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) adresine bakın.
+
+Derlenmiş `com.example.slides.StableSvgIdController` sınıfını köprü sınıf yoluna ekledikten sonra, PHP üzerinden örnekleyin ve `SVGOptions`'a atayın:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.StableSvgIdController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-stable-ids.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **SVG Olay İşleyicileri Ekleme**
+
+Bir biçimlendirme geri aramasında, dışa aktarılan bir şekle JavaScript olay işleyicisi eklemek için bir [SvgEvent](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgevent/) değeriyle [SvgShape.setEventHandler](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgshape/#setEventHandler) çağırın. Geri aramayı [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setShapeFormattingController) ile atayın ve sonucu barındıran sayfa veya SVG belgesinde JavaScript fonksiyonunu tanımlayın.
+
+Kararlı ID'ler gibi, PhpJavaBridge akış modunu kullandığında geri aramayı bir Java yardımcı sınıfında uygulayın. [Java implementation of `SvgEventController`](/slides/tr/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) `ActionButton` adlı bir şekle bir ID ve bir `OnClick` işleyicisi atar. Bu yardımcıyı derleyin, köprü sınıf yoluna `com.example.slides.SvgEventController` olarak ekleyin ve aşağıdaki gibi PHP üzerinden kullanın:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.SvgEventController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "interactive-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+Barındırma sayfası, işleyici tarafından referans verilen JavaScript fonksiyonunu tanımlayabilir. ID'lerin ve olay işleyicilerin atanması slayt görüntüleyicileri, erişilebilirlik iyileştirmeleri ve diğer etkileşimli SVG iş akışlarını etkinleştirir.
 
 ## **SSS**
 
-**Neden oluşan SVG tarayıcılara göre farklı görünebilir?**
+**[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setVectorizeText) yerine [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgexternalfontshandling/) ne zaman kullanmalıyım?**
 
-Belirli SVG özelliklerinin desteği tarayıcı motorları tarafından farklı şekilde uygulanır. [SVGOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/) parametreleri uyumsuzlukları gidermeye yardımcı olur.
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgoptions/#setVectorizeText) tüm metnin yazı tiplerinden bağımsız olması gerektiğinde kullanın. [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgexternalfontshandling/) yalnızca harici yazı tipleri kullanan metnin grafiklere dönüştürülmesi gerektiğinde kullanın.
 
-**Sadece slaytlar değil, aynı zamanda tek tek şekilleri de SVG olarak dışa aktarmak mümkün mü?**
+**Bir SVG'yi daha küçük yapmak için en iyi yol nedir?**
 
-Evet. Herhangi bir [şekil ayrı bir SVG olarak kaydedilebilir](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/writeassvg/), bu ikonlar, piktogramlar ve grafiklerin yeniden kullanımı için uygundur.
+Öncelikle gömülü resimleri sıkıştırın, kırpılmış görüntü alanlarını silin ve hedef ortam bunları sunabiliyorsa bağlı font dosyalarını seçin. Sonucu test edin; çünkü daha düşük görüntü çözünürlüğü, daha düşük JPEG kalitesi ve vektörleştirilmiş metin farklı kalite ve boyut dengelerine sahiptir.
 
-**Birden fazla slayt tek bir SVG (strip/döküman) içinde birleştirilebilir mi?**
+**Dışa aktarılan SVG öğelerini dışa aktarım sonrası değiştirebilir miyim?**
 
-Standart senaryo bir slayt → bir SVG'dir. Birden fazla slaytı tek bir SVG tuvalinde birleştirmek, uygulama seviyesinde yapılan bir son işleme adımıdır.
+Evet. Biçimlendirme geri aramasıyla ID'leri atayın, ardından eşleşen SVG öğelerini ardından işleme aracınızda veya tarayıcı betiğinizde seçin.
