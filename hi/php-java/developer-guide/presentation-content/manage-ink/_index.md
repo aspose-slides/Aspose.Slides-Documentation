@@ -1,6 +1,6 @@
 ---
-title: PHP में प्रस्तुति इंक वस्तुओं को प्रबंधित करें
-linktitle: इंक प्रबंधन
+title: PHP में प्रेजेंटेशन इंक ऑब्जेक्ट्स प्रबंधित करें
+linktitle: इंक प्रबंधित करें
 type: docs
 weight: 95
 url: /hi/php-java/manage-ink/
@@ -9,79 +9,78 @@ keywords:
 - इंक ऑब्जेक्ट
 - इंक ट्रेस
 - इंक प्रबंधित करें
-- इंक ड्रॉ करें
-- ड्राइंग
+- इंक बनाएं
+- ड्रॉइंग
+- इंक निर्यात
+- इंक रेंडरिंग
+- इंक छुपाएं
+- InkOptions
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "PowerPoint इंक ऑब्जेक्ट्स को प्रबंधित करें — Aspose.Slides for PHP via Java के साथ डिजिटल इंक को बनाएं, संपादित करें और शैलीबद्ध करें। ट्रेस, ब्रश रंग और आकार के कोड नमूने प्राप्त करें।"
+description: "PowerPoint इंक ऑब्जेक्ट्स को प्रबंधित करें, ट्रेसेस और ब्रश प्रॉपर्टीज़ को संपादित करें, और PDF, HTML, SVG, TIFF और इमेज एक्सपोर्ट के दौरान इंक दिखावट को Aspose.Slides for PHP via Java के साथ नियंत्रित करें।"
 ---
 ## **परिचय**
 
-PowerPoint इंक फ़ंक्शन प्रदान करता है जिससे आप गैर‑मानक आकृतियों को ड्रॉ कर सकते हैं, जिसका उपयोग अन्य वस्तुओं को हाइलाइट करने, कनेक्शन्स और प्रक्रियाओं को दिखाने, तथा स्लाइड पर विशिष्ट आइटमों पर ध्यान आकर्षित करने के लिए किया जा सकता है।  
+PowerPoint में इंक सुविधा है जो आपको मुक्त‑रूप स्ट्रोक बनाने देती है। इंक का उपयोग अन्य वस्तुओं को उजागर करने, कनेक्शन और प्रक्रियाएँ दिखाने, तथा स्लाइड पर विशिष्ट आइटमों पर ध्यान आकर्षित करने के लिए किया जा सकता है।
 
-Aspose.Slides सभी Ink प्रकार (जैसे कि [Ink](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ink/) क्लास) प्रदान करता है जिनकी आपको इंक ऑब्जेक्ट बनाने और प्रबंधित करने की आवश्यकता है।
+Aspose.Slides इंक ऑब्जेक्ट्स के साथ काम करने के लिए आवश्यक प्रकार प्रदान करता है। उदाहरण के लिए, [Ink](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ink/) क्लास स्लाइड पर एक इंक ऑब्जेक्ट का प्रतिनिधित्व करती है।
 
-## **सामान्य वस्तुओं और इंक वस्तुओं के बीच अंतर**
+## **सामान्य ऑब्जेक्ट्स और इंक ऑब्जेक्ट्स के बीच अंतर**
 
-PowerPoint स्लाइड पर वस्तुएँ आमतौर पर shape ऑब्जेक्ट द्वारा दर्शाई जाती हैं। एक shape ऑब्जेक्ट, सबसे सरल रूप में, एक कंटेनर है जो वस्तु के स्वयं के क्षेत्र (उसका फ्रेम) के साथ उसकी प्रॉपर्टीज़ को परिभाषित करता है। इसमें कंटेनर का क्षेत्र आकार, कंटेनर का रूप, कंटेनर की पृष्ठभूमि आदि शामिल हैं। जानकारी के लिए देखें [Shape Layout Format](https://docs.aspose.com/slides/hi/php-java/shape-manipulations/#access-layout-formats-for-shape)।
+PowerPoint स्लाइड पर वस्तुओं का सामान्यतः [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) ऑब्जेक्ट द्वारा प्रतिनिधित्व किया जाता है। सबसे सरल रूप में, एक Shape एक कंटेनर है जो वस्तु के स्वयं के क्षेत्र (फ्रेम) को परिभाषित करता है तथा कंटेनर का आकार, आकार, और पृष्ठभूमि जैसी प्रॉपर्टीज़ शामिल करता है। अधिक जानकारी के लिए, देखें [Shape Layout Format](https://docs.aspose.com/slides/hi/php-java/shape-manipulations/#access-layout-formats-for-shape)।
 
-हालाँकि, जब PowerPoint इंक ऑब्जेक्ट के साथ काम करता है, तो वह ऑब्जेक्ट फ्रेम (कंटेनर) की सभी प्रॉपर्टीज़ को, सिवाय उसके आकार के, नजरअंदाज करता है। कंटेनर क्षेत्र का आकार मानक `width` और `height` मूल्यों द्वारा निर्धारित किया जाता है:
+हालांकि, जब PowerPoint एक इंक ऑब्जेक्ट को संभालता है, तो वह ऑब्जेक्ट फ्रेम (कंटेनर) की सभी प्रॉपर्टीज़ को छोड़कर केवल आकार को ही मानता है। कंटेनर क्षेत्र का आकार मानक [Shape.getWidth](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/#getWidth) और [Shape.getHeight](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/#getHeight) मेथड्स द्वारा निर्धारित होता है:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **इंकशेप ट्रेस**
+## **इंक ट्रेसेस**
 
-Trace एक बुनियादी तत्व या मानक है जिसका उपयोग उपयोगकर्ता द्वारा डिजिटल इंक लिखते समय पेन की गति को रिकॉर्ड करने के लिए किया जाता है। ट्रेस वह रिकॉर्डिंग हैं जो जुड़े हुए बिंदुओं की क्रमबद्धता का वर्णन करती हैं।  
+एक इंक ट्रेस बुनियादी तत्व है जिसका उपयोग पेन की गति को रिकॉर्ड करने के लिए किया जाता है जब उपयोगकर्ता डिजिटल इंक लिखता है। एक ट्रेस जुड़े हुए बिंदुओं की श्रृंखला को संग्रहीत करता है।
 
-एन्कोडिंग का सबसे सरल रूप प्रत्येक सैंपल बिंदु के X और Y निर्देशांक निर्दिष्ट करता है। जब सभी जुड़े हुए बिंदु रेंडर हो जाते हैं, तो वे इस तरह की छवि बनाते हैं:
+एन्कोडिंग का सबसे सरल रूप प्रत्येक सैंपल बिंदु के X और Y निर्देशांक निर्दिष्ट करता है। जब सभी जुड़े बिंदुओं को रेंडर किया जाता है, तो यह इस प्रकार की छवि बनती है:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## **ड्रॉइंग के लिए ब्रश गुण**
+## **ड्रॉ करने के लिए ब्रश प्रॉपर्टीज़**
 
-आप ब्रश का उपयोग करके ट्रेस तत्वों के बिंदुओं को जोड़ने वाली रेखाएँ ड्रॉ कर सकते हैं। ब्रश का अपना रंग और आकार होता है, जो `Brush.Color` और `Brush.Size` प्रॉपर्टीज़ से मेल खाता है।  
+एक ब्रश का उपयोग इंक ट्रेस के बिंदुओं को जोड़ने वाली रेखाएँ खींचने के लिए किया जाता है। ब्रश का अपना रंग और आकार होता है, जो [InkBrush.getColor](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkbrush/#getColor) और [InkBrush.getSize](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkbrush/#getSize) मेथड्स द्वारा दर्शाया जाता है।
 
-### **इंक ब्रश रंग सेट करें**
+### **इंक ब्रश का रंग सेट करें**
 
-यह PHP कोड दिखाता है कि ब्रश का रंग कैसे सेट किया जाता है:
+यह PHP कोड दिखाता है कि इंक ब्रश का रंग कैसे सेट किया जाता है:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $ink = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $traces = $ink->getTraces();
-    $brush = $traces[0]->getBrush();
-    $brushColor = $brush->getColor();
+$presentation = new Presentation("pres.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $ink = $slide->getShapes()->get_Item(0);
+    $brush = $ink->getTraces()[0]->getBrush();
     $brush->setColor(java("java.awt.Color")->RED);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **इंक ब्रश आकार सेट करें**
+### **इंक ब्रश का आकार सेट करें**
 
-यह PHP कोड दिखाता है कि ब्रश का आकार कैसे सेट किया जाता है:
+यह PHP कोड दिखाता है कि इंक ब्रश का आकार कैसे सेट किया जाता है:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $ink = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $traces = $ink->getTraces();
-    $brush = $traces[0]->getBrush();
-    $brushSize = $brush->getSize();
-    $brush->setSize(new Java("java.awt.Dimension", 5, 10));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("pres.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $ink = $slide->getShapes()->get_Item(0);
+    $brush = $ink->getTraces()[0]->getBrush();
+    $brushSize = new Java("java.awt.Dimension", 5, 10);
+    $brush->setSize($brushSize);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-आमतौर पर, ब्रश की चौड़ाई और ऊँचाई मेल नहीं खाती, इसलिए PowerPoint ब्रश आकार को प्रदर्शित नहीं करता (डेटा सेक्शन ग्रे हो जाता है)। लेकिन जब ब्रश की चौड़ाई और ऊँचाई समान होती है, तो PowerPoint उसका आकार इस तरह दिखाता है:
+आमतौर पर, ब्रश की चौड़ाई और ऊँचाई मेल नहीं खाती, इसलिए PowerPoint ब्रश का आकार नहीं दिखाता (संबंधित डेटा सेक्शन ग्रे हो जाता है)। जब ब्रश की चौड़ाई और ऊँचाई समान होती है, तो PowerPoint अपना आकार इस प्रकार दर्शाता है:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
@@ -89,17 +88,129 @@ Trace एक बुनियादी तत्व या मानक है �
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-कंटेनर (फ़्रेम) ब्रश के आकार को ध्यान में नहीं रखता—यह हमेशा मानता है कि रेखा की मोटाई शून्य है (अंतिम छवि देखें)।  
+कंटेनर (फ़्रेम) ब्रश के आकार को ध्यान में नहीं रखता—यह हमेशा मान लेता है कि रेखा की मोटाई शून्य है (पिछली छवि देखें)।
 
-इसलिए, पूरे इंक ऑब्जेक्ट के दृश्य क्षेत्र को निर्धारित करने के लिए हमें ट्रेस ऑब्जेक्ट के ब्रश आकार को विचार करना होगा। यहाँ, लक्ष्य ऑब्जेक्ट (हैंडराइटन टेक्स्ट ट्रेस ऑब्जेक्ट) को कंटेनर (फ़्रेम) आकार में स्केल किया गया है। जब कंटेनर (फ़्रेम) का आकार बदलता है, तो ब्रश आकार स्थिर रहता है और इसके विपरीत भी ऐसा ही होता है:
+इसलिए, पूरे इंक ऑब्जेक्ट के दिखने वाले क्षेत्र को निर्धारित करने के लिए उसके ट्रेसेस के ब्रश आकार को ध्यान में रखना आवश्यक है। यहाँ, लक्ष्य ऑब्जेक्ट (हाथ से लिखे टेक्स्ट ट्रेस) को कंटेनर (फ़्रेम) के आकार में स्केल किया गया है। जब कंटेनर का आकार बदलता है, तो ब्रश आकार स्थिर रहता है, और इसके विपरीत भी।
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPoint टेक्स्ट के साथ काम करते समय भी यही व्यवहार दिखाता है:
+PowerPoint टेक्स्ट ऑब्जेक्ट्स के लिए समान व्यवहार उपयोग करता है:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
+## **एक्सपोर्ट और रेंडरिंग के दौरान इंक दिखावट को नियंत्रित करें**
+
+Aspose.Slides [InkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/) क्लास प्रदान करता है जिससे आप यह नियंत्रित कर सकते हैं कि एक्सपोर्ट या रेंडर किए गए आउटपुट में इंक ऑब्जेक्ट्स कैसे दिखें। आप इसकी प्रॉपर्टीज़ का उपयोग इंक को पूरी तरह से छुपाने या इंक ब्रश मास्क ऑपरेशन की व्याख्या बदलने के लिए कर सकते हैं।
+
+इंक विकल्प कई आउटपुट प्रकारों के लिए एक्सपोर्ट या रेंडरिंग विकल्पों के माध्यम से उपलब्ध हैं:
+
+| आउटपुट | इंक विकल्प प्रॉपर्टी |
+| --- | --- |
+| PDF | [PdfOptions.getInkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pdfoptions/#getInkOptions) |
+| HTML | [HtmlOptions.getInkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/htmloptions/#getInkOptions) |
+| SVG | [SVGOptions.getInkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/svgoptions/#getInkOptions) |
+| TIFF | [TiffOptions.getInkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/tiffoptions/#getInkOptions) |
+| स्लाइड इमेज | [RenderingOptions.getInkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/renderingoptions/#getInkOptions) |
+
+निम्नलिखित [InkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/) मेथड्स समान दो सेटिंग्स को उजागर करते हैं:
+
+- [InkOptions.getHideInk](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#getHideInk) निर्धारित करता है कि इंक ऑब्जेक्ट्स आउटपुट में शामिल किए जाएँ या नहीं। इसका डिफ़ॉल्ट मान `false` है।  
+- [InkOptions.getInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#getInterpretMaskOpAsOpacity) निर्धारित करता है कि इंक ब्रश को रेंडर करते समय मास्क ऑपरेशन को अपारदर्शिता के रूप में व्याख्यायित किया जाए या नहीं। इसका डिफ़ॉल्ट मान `true` है; इसके बजाय ROP ऑपरेशन उपयोग करने के लिए [InkOptions.setInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#setInterpretMaskOpAsOpacity) को `false` के साथ कॉल करें।
+
+### **PDF आउटपुट में इंक ऑब्जेक्ट्स को छुपाएँ**
+
+डिफ़ॉल्ट रूप से, एक्सपोर्ट के दौरान इंक ऑब्जेक्ट्स दिखाई देते हैं। हस्तलिखित नोट्स या अन्य इंक सामग्री के बिना एक साफ़ आउटपुट बनाने के लिए, [InkOptions.setHideInk](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#setHideInk) को `true` के साथ कॉल करें।
+
+निम्नलिखित PHP उदाहरण सभी इंक ऑब्जेक्ट्स को छुपाते हुए एक प्रेजेंटेशन को PDF में एक्सपोर्ट करता है:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $pdfOptions = new PdfOptions();
+    $pdfOptions->getInkOptions()->setHideInk(true);
+
+    $presentation->save("presentation_without_ink.pdf", SaveFormat::Pdf, $pdfOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **स्लाइड को इमेज के रूप में रेंडर करते समय इंक ऑब्जेक्ट्स को छुपाएँ**
+
+बिटमैप इमेज के रूप में स्लाइड्स को रेंडर करते समय इंक ऑब्जेक्ट्स को छुपाने के लिए, [RenderingOptions.getInkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/renderingoptions/#getInkOptions) को कॉन्फ़िगर करें और रेंडरिंग विकल्पों को [Slide.getImage](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slide/#getImage) को पास करें।
+
+निम्नलिखित PHP उदाहरण पहला स्लाइड PNG इमेज के रूप में बिना इंक ऑब्जेक्ट्स के रेंडर करता है:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $renderingOptions = new RenderingOptions();
+    $renderingOptions->getInkOptions()->setHideInk(true);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $image = $slide->getImage($renderingOptions);
+    try {
+        $image->save("slide_without_ink.png", ImageFormat::Png);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **इंक मास्क रेंडरिंग को नियंत्रित करें**
+
+[InkOptions.getInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#getInterpretMaskOpAsOpacity) सेटिंग नियंत्रित करती है कि इंक ब्रश को रेंडर करते समय मास्क ऑपरेशन को कैसे व्याख्यायित किया जाए। डिफ़ॉल्ट मान `true` है, जो अपारदर्शिता का उपयोग करता है। इसके बजाय ROP ऑपरेशन उपयोग करने के लिए, [InkOptions.setInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#setInterpretMaskOpAsOpacity) को `false` के साथ कॉल करें।
+
+निम्नलिखित PHP उदाहरण एक स्लाइड को SVG में एक्सपोर्ट करता है और इंक मास्क ऑपरेशनों के लिए ROP-आधारित रेंडरिंग का उपयोग करता है:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->getInkOptions()->setInterpretMaskOpAsOpacity(false);
+
+    $outputStream = new Java("java.io.FileOutputStream", "slide.svg");
+    try {
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->writeAsSvg($outputStream, $svgOptions);
+    } finally {
+        $outputStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+इसी सेटिंग को [TiffOptions.getInkOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/tiffoptions/#getInkOptions) के माध्यम से भी लागू किया जा सकता है जब प्रेजेंटेशन को एक्सपोर्ट किया जा रहा हो या स्लाइड को TIFF में रेंडर किया जा रहा हो।
+
+### **इंक को छुपाएँ या संरक्षित रखें, यह चुनें**
+
+जब आपको समीक्षा चिह्नों के बिना वितरण के लिए एनोटेटेड प्रेजेंटेशन का एक साफ़ संस्करण चाहिए, तो एक्सपोर्ट के दौरान [InkOptions.setHideInk](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#setHideInk) को `true` के साथ कॉल करें।
+
+जब इंक एनोटेशन इच्छित कंटेंट का हिस्सा हों, जैसे समीक्षा टिप्पणी, हाथ से लिखे नोट्स, हाइलाइट्स, या ड्रॉइंग्स जिन्हें एक्सपोर्ट परिणाम में दिखना चाहिए, तो [InkOptions.getHideInk](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#getHideInk) को उसके डिफ़ॉल्ट मान `false` पर रखें। इससे एप्लिकेशन एक ही प्रेजेंटेशन से अलग-अलग समीक्षा और अंतिम आउटपुट बना सकते हैं बिना स्रोत इंक ऑब्जेक्ट्स को बदलें।
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**क्या मैं मौजूदा इंक स्ट्रोक के रंग या आकार को बदल सकता हूँ?**
+
+हाँ। ट्रेस को [Ink.getTraces](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ink/#getTraces) से प्राप्त करें, फिर उसके [InkTrace.getBrush](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inktrace/#getBrush) को बदलें। ब्रश को बदलने के लिए [InkBrush.setColor](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkbrush/#setColor) या [InkBrush.setSize](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkbrush/#setSize) को कॉल करें।
+
+**क्या इंक को छुपाने से स्रोत प्रेजेंटेशन बदलता है?**
+
+नहीं। [InkOptions.setHideInk](https://reference.aspose.com/slides/hi/php-java/aspose.slides/inkoptions/#setHideInk) को कॉल करने से केवल रेंडर या एक्सपोर्ट किए गए परिणाम पर प्रभाव पड़ता है; यह स्रोत प्रेजेंटेशन में इंक ऑब्जेक्ट्स को नहीं हटाता या नहीं बदलता।
+
+**कौनसे एक्सपोर्ट फ़ॉर्मैट इंक विकल्पों को समर्थन देते हैं?**
+
+आप PDF, HTML, SVG, TIFF, और बिटमैप स्लाइड इमेज के लिए उपर्युक्त संबंधित एक्सपोर्ट या रेंडरिंग विकल्पों के माध्यम से इंक विकल्प कॉन्फ़िगर कर सकते हैं।
+
 **आगे पढ़ें**
 
-* सामान्य रूप से शैप्स के बारे में पढ़ने के लिए, देखें [PowerPoint Shapes](https://docs.aspose.com/slides/hi/php-java/powerpoint-shapes/) अनुभाग।
-* प्रभावी मानों के बारे में अधिक जानकारी के लिए, देखें [Shape Effective Properties](https://docs.aspose.com/slides/hi/php-java/shape-effective-properties/#getting-effective-font-height-value)।
+* सामान्य रूप से आकृतियों के बारे में पढ़ने के लिए, देखें [PowerPoint Shapes](https://docs.aspose.com/slides/hi/php-java/powerpoint-shapes/) सेक्शन.  
+* प्रभावी मानों के बारे में अधिक जानकारी के लिए, देखें [Shape Effective Properties](https://docs.aspose.com/slides/hi/php-java/shape-effective-properties/#get-effective-font-height-value).  
+* PDF एक्सपोर्ट के विवरण के लिए, देखें [Convert PPT and PPTX to PDF](https://docs.aspose.com/slides/hi/php-java/convert-powerpoint-to-pdf/).  
+* HTML एक्सपोर्ट के विवरण के लिए, देखें [Convert PowerPoint Presentations to HTML](https://docs.aspose.com/slides/hi/php-java/convert-powerpoint-to-html/).  
+* SVG एक्सपोर्ट के विवरण के लिए, देखें [Render Presentation Slides as SVG Images](https://docs.aspose.com/slides/hi/php-java/render-a-slide-as-an-svg-image/).  
+* TIFF एक्सपोर्ट के विवरण के लिए, देखें [Convert PowerPoint Presentations to TIFF](https://docs.aspose.com/slides/hi/php-java/convert-powerpoint-to-tiff/).  
+* स्लाइड‑से‑इमेज रेंडरिंग के विवरण के लिए, देखें [Convert Presentation Slides to Images](https://docs.aspose.com/slides/hi/php-java/convert-slide/).
