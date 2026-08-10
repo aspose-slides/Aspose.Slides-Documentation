@@ -10,90 +10,321 @@ keywords:
 - slide to SVG
 - PPT to SVG
 - PPTX to SVG
-- save PPT as SVG
-- save PPTX as SVG
-- export PPT to SVG
-- export PPTX to SVG
-- render slide
-- convert slide
-- export slide
-- vector image
+- SVG export options
+- interactive SVG
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Learn how to render PowerPoint slides as SVG images using Aspose.Slides for Node.js via Java. High-quality visuals with simple JavaScript code examples."
+description: "Export PowerPoint slides as SVG images in JavaScript and control fonts, text, images, IDs, and events with Aspose.Slides."
 ---
 
 ## **Overview**
 
-This article explains how to render presentation slides as SVG images using Aspose.Slides. It describes the SVG format and its advantages, including scalability, accessibility, and suitability for web development.
+SVG is a scalable XML-based image format that works well for web publishing, slide viewers, accessibility workflows, and automated post-processing. Aspose.Slides for Node.js via Java exports each slide to a separate SVG file and lets you control how text, fonts, pictures, and SVG elements are written.
 
-You will learn how to load a presentation file, iterate through its slides, and save each slide as a separate SVG file. The article covers PowerPoint and OpenDocument presentation formats, including PPT, PPTX, ODP, and PPS, and shows how to perform the conversion programmatically with the `Presentation` class and the `writeAsSvg` method.
+Use [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) when the exported SVG must be compact, predictable across browsers, or ready for interactive use.
 
-## **SVG Format**
+## **Export a Slide as SVG**
 
-SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 
-
-SVG is one of the few formats for images that meets very high standards in these terms: scalability, interactivity, performance, accessibility, programmability, and others. For these reasons, it is commonly used in web development. 
-
-You may want to use SVG files when you need to
-
-- **print your presentation in a *very large format*.** SVG images can scale up to any resolution or level. You get to resize SVG images as many times as necessary without sacrificing quality.
-- **use charts and graphs from your slides in *different mediums or platforms**.* Most readers can interpret SVG files. 
-- **use the *smallest possible sizes of images***. SVG files are generally smaller than their high-resolution equivalents in other formats, especially those formats based on bitmap (JPEG or PNG).
-
-## **Render Slides as SVG Images**
-
-Aspose.Slides for Node.js via Java allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
-
-1. Create an instance of the Presentation class.
-2. Iterate through all the slides in the presentation.
-3. Write every slide to its own SVG file through FileOutputStream.
-
-{{% alert color="primary" %}} 
-
-You may want to try out our [free web application](https://products.aspose.app/slides/conversion/ppt-to-svg) in which we implemented the PPT to SVG conversion function from Aspose.Slides for Node.js via Java.
-
-{{% /alert %}} 
-
-This sample code in JavaScript shows you how to convert PPT to SVG using Aspose.Slides:
+Create a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), select a slide, and write it to a stream with [Slide.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/writeassvg/). The following example exports every slide in a presentation as a separate SVG file.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    for (var index = 0; index < pres.getSlides().size(); index++) {
-        var slide = pres.getSlides().get_Item(index);
-        var fileStream = java.newInstanceSync("java.io.FileOutputStream", ("slide-" + index) + ".svg");
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const outputFileName = `slide-${slide.getSlideNumber()}.svg`;
+        const svgStream = java.newInstanceSync("java.io.FileOutputStream", outputFileName);
         try {
-            slide.writeAsSvg(fileStream);
+            slide.writeAsSvg(svgStream);
         } finally {
-            fileStream.close();
+            svgStream.close();
         }
     }
-} catch (e) {console.log(e);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+The filename uses [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/getslidenumber/) rather than the loop index. You can also export an individual shape with [Shape.writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) when a slide viewer or web page needs only that shape.
+
+## **Configure SVG Output**
+
+[SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) controls SVG rendering. For text frames, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframesize/) includes the text frame in the rendering area, and [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setuseframerotation/) determines whether the frame rotation is applied. Set [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/#setDisableFontLigatures) to `true` when text must be rendered without ligatures.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const svgOptions = new slides.SVGOptions();
+    svgOptions.setDisableFontLigatures(true);
+    svgOptions.setUseFrameSize(true);
+    svgOptions.setUseFrameRotation(false);
+
+    const slide = presentation.getSlides().get_Item(0);
+    const svgStream = java.newInstanceSync(
+        "java.io.FileOutputStream",
+        "slide-with-custom-options.svg"
+    );
+    try {
+        slide.writeAsSvg(svgStream, svgOptions);
+    } finally {
+        svgStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Control Text and Fonts**
+
+### **Vectorize All Text**
+
+Set [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) to `true` to write all slide text as vector graphics. This eliminates font dependencies and makes the visual result more consistent across browsers, but the text is no longer selectable or searchable as SVG text.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const svgOptions = new slides.SVGOptions();
+    svgOptions.setVectorizeText(true);
+
+    const slide = presentation.getSlides().get_Item(0);
+    const svgStream = java.newInstanceSync(
+        "java.io.FileOutputStream",
+        "slide-with-vectorized-text.svg"
+    );
+    try {
+        slide.writeAsSvg(svgStream, svgOptions);
+    } finally {
+        svgStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Choose How External Fonts Are Handled**
+
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setexternalfontshandling/) uses a [SvgExternalFontsHandling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) value for fonts that are loaded externally. Choose `AddLinksToFontFiles` to reference separate font files, `Embed` to include font data in the SVG, or `Vectorize` to render only text that uses external fonts as graphics. Verify font licensing before embedding fonts.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const linkedFontsOptions = new slides.SVGOptions();
+    linkedFontsOptions.setExternalFontsHandling(
+        slides.SvgExternalFontsHandling.AddLinksToFontFiles
+    );
+    const linkedFontsStream = java.newInstanceSync(
+        "java.io.FileOutputStream",
+        "slide-with-font-links.svg"
+    );
+    try {
+        slide.writeAsSvg(linkedFontsStream, linkedFontsOptions);
+    } finally {
+        linkedFontsStream.close();
+    }
+
+    const embeddedFontsOptions = new slides.SVGOptions();
+    embeddedFontsOptions.setExternalFontsHandling(
+        slides.SvgExternalFontsHandling.Embed
+    );
+    const embeddedFontsStream = java.newInstanceSync(
+        "java.io.FileOutputStream",
+        "slide-with-embedded-fonts.svg"
+    );
+    try {
+        slide.writeAsSvg(embeddedFontsStream, embeddedFontsOptions);
+    } finally {
+        embeddedFontsStream.close();
+    }
+
+    const vectorizedExternalFontsOptions = new slides.SVGOptions();
+    vectorizedExternalFontsOptions.setExternalFontsHandling(
+        slides.SvgExternalFontsHandling.Vectorize
+    );
+    const vectorizedExternalFontsStream = java.newInstanceSync(
+        "java.io.FileOutputStream",
+        "slide-with-vectorized-external-fonts.svg"
+    );
+    try {
+        slide.writeAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
+    } finally {
+        vectorizedExternalFontsStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Reduce Embedded Image Size**
+
+Use [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setpicturescompression/) to reduce the resolution of embedded pictures, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setdeletepicturescroppedareas/) to omit cropped source areas, and [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setjpegquality/) to control JPEG encoding quality. These settings reduce file size at the cost of image fidelity or retained image data.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const svgOptions = new slides.SVGOptions();
+    svgOptions.setPicturesCompression(slides.PicturesCompression.Dpi150);
+    svgOptions.setDeletePicturesCroppedAreas(true);
+    svgOptions.setJpegQuality(80);
+
+    const slide = presentation.getSlides().get_Item(0);
+    const svgStream = java.newInstanceSync("java.io.FileOutputStream", "compressed-slide.svg");
+    try {
+        slide.writeAsSvg(svgStream, svgOptions);
+    } finally {
+        svgStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Assign Stable IDs to Shapes and Text**
+
+Pass a formatting controller to [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) to set [SvgShape.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/setid/) for each SVG shape. A controller that also handles text spans can set [SvgTSpan.setId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgtspan/setid/) values on text `tspan` elements.
+
+The following controller uses [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/), which is stable for the lifetime of the shape, and a repeatable counter for its text spans. This makes the generated IDs suitable for post-processing an unchanged presentation.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+class StableSvgIdController {
+    constructor() {
+        this.currentShapeId = "";
+        this.textSpanIndex = 0;
+    }
+
+    formatShape(svgShape, shape) {
+        this.currentShapeId = `shape-${shape.getOfficeInteropShapeId()}`;
+        this.textSpanIndex = 0;
+        svgShape.setId(this.currentShapeId);
+    }
+
+    formatText(svgTSpan, portion, textFrame) {
+        const textSpanId = `${this.currentShapeId}-text-${this.textSpanIndex++}`;
+        svgTSpan.setId(textSpanId);
+    }
+
+    createProxy() {
+        const controller = this;
+        const interfaceName = "com.aspose.slides.ISvgShapeAndTextFormattingController";
+        const proxyMethods = {
+            formatShape(svgShape, shape) {
+                controller.formatShape(svgShape, shape);
+            },
+            formatText(svgTSpan, portion, textFrame) {
+                controller.formatText(svgTSpan, portion, textFrame);
+            }
+        };
+        return java.newProxy(interfaceName, proxyMethods);
+    }
+}
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const svgOptions = new slides.SVGOptions();
+    const stableSvgIdController = new StableSvgIdController();
+    const controllerProxy = stableSvgIdController.createProxy();
+    svgOptions.setShapeFormattingController(controllerProxy);
+
+    const slide = presentation.getSlides().get_Item(0);
+    const svgStream = java.newInstanceSync(
+        "java.io.FileOutputStream",
+        "slide-with-stable-ids.svg"
+    );
+    try {
+        slide.writeAsSvg(svgStream, svgOptions);
+    } finally {
+        svgStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Add SVG Event Handlers**
+
+In a formatting controller, call [SvgShape.setEventHandler](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgshape/seteventhandler/) with a [SvgEvent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgevent/) value to add a JavaScript event handler to an exported shape. Assign the controller with [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setshapeformattingcontroller/) and define the JavaScript function in the page or SVG document that hosts the result.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+class SvgEventController {
+    formatShape(svgShape, shape) {
+        if (shape.getName() === "ActionButton") {
+            svgShape.setId("action-button");
+            svgShape.setEventHandler(
+                slides.SvgEvent.OnClick,
+                "handleShapeClick(event)"
+            );
+        }
+    }
+
+    createProxy() {
+        const controller = this;
+        const interfaceName = "com.aspose.slides.ISvgShapeFormattingController";
+        const proxyMethods = {
+            formatShape(svgShape, shape) {
+                controller.formatShape(svgShape, shape);
+            }
+        };
+        return java.newProxy(interfaceName, proxyMethods);
+    }
+}
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const svgOptions = new slides.SVGOptions();
+    const svgEventController = new SvgEventController();
+    const controllerProxy = svgEventController.createProxy();
+    svgOptions.setShapeFormattingController(controllerProxy);
+
+    const slide = presentation.getSlides().get_Item(0);
+    const svgStream = java.newInstanceSync("java.io.FileOutputStream", "interactive-slide.svg");
+    try {
+        slide.writeAsSvg(svgStream, svgOptions);
+    } finally {
+        svgStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The host page can define the JavaScript function referenced by the handler. Assigning IDs and event handlers enables slide viewers, accessibility enhancements, and other interactive SVG workflows.
+
 ## **FAQ**
 
-### Why might the resulting SVG look different across browsers?
+**When should I use [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) instead of [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/)?**
 
-Support for specific SVG features is implemented differently by browser engines. [SVGOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/) parameters help smooth out incompatibilities.
+Use [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgoptions/setvectorizetext/) when all text must be independent of fonts. Use [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/svgexternalfontshandling/) when only text that uses external fonts should be converted to graphics.
 
-### Is it possible to export not only slides but also individual shapes to SVG?
+**What is the best way to make an SVG smaller?**
 
-Yes. Any [shape can be saved as a separate SVG](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/), which is convenient for icons, pictograms, and reusing graphics.
+Start by compressing embedded pictures, deleting cropped image areas, and choosing linked font files when the target environment can serve them. Test the result because lower image resolution, lower JPEG quality, and vectorized text each have different quality and size tradeoffs.
 
-### Can multiple slides be combined into a single SVG (strip/document)?
+**Can I modify exported SVG elements after export?**
 
-The standard scenario is one slide → one SVG. Combining several slides into a single SVG canvas is a post-processing step performed at the application level.
+Yes. Assign IDs through a formatting controller, then select the matching SVG elements in your post-processing tool or browser script.
