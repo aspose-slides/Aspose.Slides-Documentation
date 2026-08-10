@@ -5,8 +5,6 @@ type: docs
 weight: 50
 url: /net/text-formatting/
 keywords:
-- highlight text
-- regular expression
 - align paragraph
 - text style
 - text background
@@ -33,79 +31,17 @@ description: "Format and style text in PowerPoint and OpenDocument presentations
 
 ## **Overview**
 
-This article shows how to format text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. It covers highlighting, background colors, transparency, character spacing, font properties, rotation, paragraph spacing, autofit behavior, text anchoring, tab stops, and language settings.
+This article shows how to format text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. It covers background colors, transparency, character spacing, font properties, rotation, paragraph spacing, autofit behavior, text anchoring, tab stops, and language settings.
 
 In the examples below, we’ll use a file named "sample.pptx", which contains a single text box on the first slide with the following text:
 
 ![Sample text](sample_text.png)
 
-## **Highlight Text**
-
-Use the [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) method when you need to highlight text that matches a specific sample within a text frame. The method applies a highlight color to matching text fragments and can be used with [TextSearchOptions](https://reference.aspose.com/slides/net/aspose.slides/textsearchoptions/) to control how the search is performed, for example, to match only whole words.
-
-The code example below highlights all occurrences of the characters **"try"** and then highlights only the full word **"to"**.
-
-```cs
-using System.Drawing;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (var presentation = new Presentation("sample.pptx"))
-{
-    // Get the first shape from the first slide.
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    // Highlight the word "try" in the shape.
-    shape.TextFrame.HighlightText("try", Color.LightBlue);
-
-    var searchOptions = new TextSearchOptions()
-    {
-        WholeWordsOnly = true
-    };
-
-    // Highlight the word "to" in the shape.
-    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
-
-    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
-}
-```
-
-The result:
-
-![The highlighted text](highlighted_text.png)
-
-## **Highlight Text Using Regular Expressions**
-
-The [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlightregex/) method highlights text matches found by a regular expression. In .NET, this API is exposed on [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
-
-The code example below highlights all words that contain **seven or more characters**:
-
-```cs
-using System.Drawing;
-using System.Text.RegularExpressions;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    var regex = new Regex(@"\b[^\s]{7,}\b");
-
-    // Highlight all words with seven or more characters.
-    shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
-
-    presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-}
-```
-
-The result:
-
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+To find and highlight literal text or regular-expression matches, see [Search and Replace Text](/slides/net/search-and-replace-text/).
 
 ## **Set Text Background Color**
 
-Use [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) to set the default highlight color for a paragraph, or use [IPortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/highlightcolor/) for individual text portions.
+Use [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) to set the default highlight color for a paragraph, or use [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) for individual text portions.
 
 The following code example shows how to set the background color for the **entire paragraph**: 
 
@@ -187,7 +123,7 @@ The result:
 
 ## **Set Transparency for Text**
 
-Text transparency is controlled through the alpha component of the color assigned to [IPortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/fillformat/). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
+Text transparency is controlled through the alpha component of the color assigned to [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
 
 The code example below shows how to apply transparency to the **entire paragraph**:
 
@@ -305,7 +241,7 @@ The result:
 
 In some cases, text rendered by Aspose.Slides may look slightly tighter than the same text displayed in PowerPoint. This can happen because PowerPoint may ignore kerning data for certain fonts, even when the font contains valid kerning information and kerning is enabled in PowerPoint settings.
 
-To make the rendered output closer to PowerPoint in such cases, you can disable kerning for text portions that use the affected font. Set [IPortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) to a value significantly larger than the actual font size:
+To make the rendered output closer to PowerPoint in such cases, you can disable kerning for text portions that use the affected font. Set [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) to a value significantly larger than the actual font size:
 
 ```cs
 using Aspose.Slides;
@@ -537,7 +473,7 @@ The result:
 
 ## **Set Proofing Language**
 
-Aspose.Slides provides [IPortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/languageid/), which allows you to set the proofing language for a text portion. The proofing language determines the language used for spelling and grammar checks in PowerPoint.
+Aspose.Slides provides [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/), which allows you to set the proofing language for a text portion. The proofing language determines the language used for spelling and grammar checks in PowerPoint.
 
 The following code example shows how to set the proofing language for a text portion:
 
@@ -656,10 +592,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-### How to modify text in a table on a slide?
+**How to modify text in a table on a slide?**
 
 To modify text in a table on a slide, use [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Iterate through the cells and update each cell through [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) and paragraph formatting through [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/).
 
-### How to apply gradient color to text in a PowerPoint slide?
+**How to apply gradient color to text in a PowerPoint slide?**
 
-To apply a gradient color to text, use [IPortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/fillformat/). Set [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.
+To apply a gradient color to text, use [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Set [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.
