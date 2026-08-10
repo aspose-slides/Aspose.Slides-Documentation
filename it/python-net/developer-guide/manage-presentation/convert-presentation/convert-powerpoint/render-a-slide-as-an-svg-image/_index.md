@@ -1,83 +1,127 @@
 ---
-title: Renderizzare le diapositive di presentazione come immagini SVG in Python
+title: Genera diapositive della presentazione come immagini SVG in Python
 linktitle: Diapositiva a SVG
 type: docs
 weight: 50
 url: /it/python-net/render-a-slide-as-an-svg-image/
 keywords:
-- diapositiva a SVG
-- presentazione a SVG
 - PowerPoint a SVG
-- OpenDocument a SVG
+- presentazione a SVG
+- diapositiva a SVG
 - PPT a SVG
 - PPTX a SVG
-- ODP a SVG
-- renderizzare diapositiva
-- convertire diapositiva
-- esportare diapositiva
-- immagine vettoriale
+- opzioni di esportazione SVG
 - PowerPoint
-- OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Scopri come renderizzare le diapositive PowerPoint e OpenDocument come immagini SVG utilizzando Aspose.Slides per Python via .NET. Visuali di alta qualità con semplici esempi di codice."
+description: "Esporta le diapositive PowerPoint come immagini SVG in Python e controlla i font, il testo e le immagini con Aspose.Slides."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come renderizzare le diapositive di una presentazione come immagini SVG utilizzando Aspose.Slides. Descrive il formato SVG e i suoi vantaggi, tra cui scalabilità, accessibilità e idoneità per lo sviluppo web.
+SVG è un formato immagine basato su XML scalabile che funziona bene per la pubblicazione web, i visualizzatori di diapositive, i flussi di lavoro di accessibilità e l'elaborazione automatica post‑produzione. Aspose.Slides esporta ogni diapositiva in un file SVG separato e consente di controllare come testo, caratteri, immagini e elementi SVG vengono scritti.
 
-Imparerai come caricare un file di presentazione, iterare attraverso le sue diapositive e salvare ogni diapositiva come file SVG separato. L'articolo copre i formati di presentazione PowerPoint e OpenDocument, inclusi PPT, PPTX, ODP e PPS, e mostra come eseguire la conversione programmaticamente con la classe `Presentation` e il metodo `write_as_svg`.
+Usa [SVGOptions](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/) quando l'SVG esportato deve essere compatto, prevedibile tra i browser o pronto per l'uso interattivo.
 
-## **Formato SVG**
+## **Esporta una diapositiva come SVG**
 
-SVG—acronimo di Scalable Vector Graphics—è un tipo o formato grafico standard utilizzato per renderizzare immagini bidimensionali. SVG memorizza le immagini come vettori in XML con dettagli che ne definiscono il comportamento o l'aspetto. 
-
-SVG è uno dei pochi formati di immagini che soddisfa standard molto elevati in questi ambiti: scalabilità, interattività, prestazioni, accessibilità, programmabilità e altri. Per questi motivi è comunemente usato nello sviluppo web. 
-
-Potresti voler utilizzare i file SVG quando hai bisogno di
-
-- **stampare la tua presentazione in un *formato molto grande*.** Le immagini SVG possono scalare a qualsiasi risoluzione o livello. Puoi ridimensionare le immagini SVG quante volte è necessario senza sacrificare la qualità.
-- **utilizzare i grafici e le tabelle delle tue diapositive in *diversi media o piattaforme*.** La maggior parte dei visualizzatori può interpretare i file SVG. 
-- **usare le *dimensioni più piccole possibili per le immagini*.** I file SVG sono generalmente più piccoli rispetto alle loro controparti ad alta risoluzione in altri formati, soprattutto quelli basati su bitmap (JPEG o PNG).
-
-## **Renderizzare una diapositiva come immagine SVG**
-
-Aspose.Slides per Python via .NET consente di esportare le diapositive delle tue presentazioni come immagini SVG. Segui questi passaggi per generare immagini SVG:
-
-1. Crea un'istanza della classe Presentation.
-2. Itera attraverso tutte le diapositive della presentazione.
-3. Scrivi ogni diapositiva nel proprio file SVG tramite FileStream.
-
-{{% alert color="primary" %}} 
-Potresti voler provare la nostra [applicazione web gratuita](https://products.aspose.app/slides/it/conversion/ppt-to-svg) in cui abbiamo implementato la funzione di conversione da PPT a SVG di Aspose.Slides per Python via .NET.
-{{% /alert %}} 
-
-Questo codice di esempio in Python mostra come convertire PPT in SVG utilizzando Aspose.Slides:
+Crea una [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/), seleziona una diapositiva e scrivila in un flusso. L'esempio seguente esporta ogni diapositiva di una presentazione in un file SVG separato.
 
 ```py
 import aspose.slides as slides
 
-# Istanziare un oggetto Presentation che rappresenta un file di presentazione 
-pres = slides.Presentation("pres.pptx")
-
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-
-    with open("slide-{index}.svg".format(index = index), "wb") as file:
-        slide.write_as_svg(file)
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        with open("slide-{}.svg".format(slide.slide_number), "wb") as svg_stream:
+            slide.write_as_svg(svg_stream)
 ```
 
-## **Domande frequenti**
+Il nome file utilizza [Slide.slide_number](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/slide_number/) anziché l'indice del ciclo. È inoltre possibile esportare una forma individuale con [Shape.write_as_svg](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/write_as_svg/) quando un visualizzatore di diapositive o una pagina web richiede solo quella forma.
 
-**Perché l'SVG risultante potrebbe apparire diversamente tra i browser?**
+## **Configura l'output SVG**
 
-Il supporto per specifiche funzionalità SVG è implementato in modo diverso dai motori dei browser. I parametri di [SVGOptions](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/) aiutano a ridurre le incompatibilità.
+[SVGOptions](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/) controlla il rendering SVG. Per i riquadri di testo, [SVGOptions.use_frame_size](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/use_frame_size/) include il riquadro di testo nell'area di rendering e [SVGOptions.use_frame_rotation](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/use_frame_rotation/) determina se viene applicata la rotazione del riquadro. Imposta [SVGOptions.disable_font_ligatures](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/disable_font_ligatures/) su `True` quando il testo deve essere renderizzato senza legature.
 
-**È possibile esportare non solo le diapositive ma anche forme individuali in SVG?**
+```py
+import aspose.slides as slides
 
-Sì. Qualsiasi [forma può essere salvata come SVG separato](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/write_as_svg/), il che è comodo per icone, pittogrammi e riutilizzo di grafiche.
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.disable_font_ligatures = True
+    svg_options.use_frame_size = True
+    svg_options.use_frame_rotation = False
 
-**È possibile combinare più diapositive in un unico SVG (strip/document)?**
+    with open("slide-with-custom-options.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
 
-Lo scenario standard è una diapositiva → un SVG. Combinare più diapositive in un'unica tela SVG è un'operazione di post-elaborazione eseguita a livello di applicazione.
+## **Controlla testo e caratteri**
+
+### **Vettorizza tutto il testo**
+
+Imposta [SVGOptions.vectorize_text](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/vectorize_text/) su `True` per scrivere tutto il testo della diapositiva come grafica vettoriale. Ciò elimina le dipendenze dei caratteri e rende il risultato visivo più coerente tra i browser, ma il testo non è più selezionabile o ricercabile come testo SVG.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.vectorize_text = True
+
+    with open("slide-with-vectorized-text.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+### **Scegli come gestire i caratteri esterni**
+
+[SVGOptions.external_fonts_handling](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/external_fonts_handling/) utilizza un valore [SvgExternalFontsHandling](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgexternalfontshandling/) per i caratteri caricati esternamente. Scegli `ADD_LINKS_TO_FONT_FILES` per fare riferimento a file di caratteri separati, `EMBED` per includere i dati dei caratteri nell'SVG o `VECTORIZE` per renderizzare solo il testo che utilizza caratteri esterni come grafica. Verifica le licenze dei caratteri prima di incorporarli.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    linked_fonts_options = slides.export.SVGOptions()
+    linked_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.ADD_LINKS_TO_FONT_FILES
+
+    with open("slide-with-font-links.svg", "wb") as linked_fonts_stream:
+        presentation.slides[0].write_as_svg(linked_fonts_stream, linked_fonts_options)
+
+    embedded_fonts_options = slides.export.SVGOptions()
+    embedded_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.EMBED
+
+    with open("slide-with-embedded-fonts.svg", "wb") as embedded_fonts_stream:
+        presentation.slides[0].write_as_svg(embedded_fonts_stream, embedded_fonts_options)
+
+    vectorized_external_fonts_options = slides.export.SVGOptions()
+    vectorized_external_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.VECTORIZE
+
+    with open("slide-with-vectorized-external-fonts.svg", "wb") as vectorized_external_fonts_stream:
+        presentation.slides[0].write_as_svg(vectorized_external_fonts_stream, vectorized_external_fonts_options)
+```
+
+## **Riduci le dimensioni delle immagini incorporate**
+
+Usa [SVGOptions.pictures_compression](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/pictures_compression/) per ridurre la risoluzione delle immagini incorporate, [SVGOptions.delete_pictures_cropped_areas](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/delete_pictures_cropped_areas/) per omettere le aree ritagliate delle sorgenti e [SVGOptions.jpeg_quality](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/jpeg_quality/) per controllare la qualità della codifica JPEG. Queste impostazioni riducono le dimensioni del file a scapito della fedeltà dell'immagine o dei dati immagine conservati.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.pictures_compression = slides.export.PicturesCompression.DPI150
+    svg_options.delete_pictures_cropped_areas = True
+    svg_options.jpeg_quality = 80
+
+    with open("compressed-slide.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+## **FAQ**
+
+**Quando dovrei usare [SVGOptions.vectorize_text](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/vectorize_text/) invece di [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgexternalfontshandling/)?**
+
+Usa [SVGOptions.vectorize_text](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgoptions/vectorize_text/) quando tutto il testo deve essere indipendente dai caratteri. Usa [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/it/python-net/aspose.slides.export/svgexternalfontshandling/) quando solo il testo che utilizza caratteri esterni deve essere convertito in grafica.
+
+**Qual è il modo migliore per rendere più piccolo un SVG?**
+
+Inizia comprimendo le immagini incorporate, eliminando le aree ritagliate e scegliendo file di caratteri collegati quando l'ambiente di destinazione può servirli. Verifica il risultato perché una risoluzione immagine più bassa, una qualità JPEG inferiore e il testo vettorizzato hanno ciascuno compromessi differenti in termini di qualità e dimensione.

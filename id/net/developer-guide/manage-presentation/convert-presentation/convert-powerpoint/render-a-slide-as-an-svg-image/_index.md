@@ -10,138 +10,221 @@ keywords:
 - slide ke SVG
 - PPT ke SVG
 - PPTX ke SVG
-- simpan PPT sebagai SVG
-- simpan PPTX sebagai SVG
-- ekspor PPT ke SVG
-- ekspor PPTX ke SVG
-- render slide
-- konversi slide
-- ekspor slide
-- gambar vektor
+- opsi ekspor SVG
+- SVG interaktif
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara merender slide PowerPoint sebagai gambar SVG menggunakan Aspose.Slides untuk .NET. Visual berkualitas tinggi dengan contoh kode C# yang sederhana."
+description: "Ekspor slide PowerPoint sebagai gambar SVG di .NET dan kontrol font, teks, gambar, ID, serta peristiwa dengan Aspose.Slides."
 ---
-## **Ringkasan**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara merender slide presentasi sebagai gambar SVG menggunakan Aspose.Slides. Artikel ini menggambarkan format SVG dan keuntungannya, termasuk skalabilitas, aksesibilitas, dan kecocokan untuk pengembangan web.
+SVG adalah format gambar berbasis XML yang dapat diskalakan dan bekerja dengan baik untuk penerbitan web, penampil slide, alur kerja aksesibilitas, serta pemrosesan pasca otomatis. Aspose.Slides mengekspor setiap slide ke file SVG terpisah dan memungkinkan Anda mengontrol cara teks, font, gambar, dan elemen SVG ditulis.
 
-Anda akan belajar cara memuat file presentasi, mengiterasi slide‑nya, dan menyimpan tiap slide sebagai file SVG terpisah. Artikel ini mencakup format presentasi PowerPoint dan OpenDocument, termasuk PPT, PPTX, ODP, dan PPS, serta menunjukkan cara melakukan konversi secara programatis menggunakan kelas `Presentation` dan metode `WriteAsSvg`.
+Gunakan [SVGOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/) ketika SVG yang diekspor harus kompak, dapat diprediksi di semua peramban, atau siap untuk penggunaan interaktif.
 
-## **Format SVG**
-SVG—singkatan dari Scalable Vector Graphics—adalah tipe atau format grafis standar yang digunakan untuk merender gambar dua dimensi. SVG menyimpan gambar sebagai vektor dalam XML dengan detail yang menentukan perilaku atau tampilannya.
+## **Ekspor Slide sebagai SVG**
 
-SVG merupakan salah satu sedikit format gambar yang memenuhi standar tinggi dalam hal: skalabilitas, interaktivitas, kinerja, aksesibilitas, programabilitas, dan lain‑lain. Karena alasan tersebut, SVG banyak digunakan dalam pengembangan web.
+Buat sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/), pilih sebuah slide, dan tulis ke stream. Contoh berikut mengekspor setiap slide dalam sebuah presentasi sebagai file SVG terpisah.
 
-Anda mungkin ingin menggunakan file SVG ketika perlu
+```csharp
+using Aspose.Slides;
 
-- **mencetak presentasi dalam *format sangat besar*.** Gambar SVG dapat diskalakan ke resolusi apa pun. Anda dapat mengubah ukuran gambar SVG berulang kali tanpa mengorbankan kualitas.
-- **menggunakan diagram dan grafik dari slide dalam *media atau platform yang berbeda*.** Sebagian besar pembaca dapat menafsirkan file SVG. 
-- **memiliki *ukuran gambar sekecil mungkin*.** File SVG umumnya lebih kecil dibandingkan setara resolusi tinggi dalam format lain, terutama format berbasis bitmap (JPEG atau PNG).
+using var presentation = new Presentation("presentation.pptx");
 
-## **Merender Slide sebagai Gambar SVG**
-
-Aspose.Slides untuk .NET memungkinkan Anda mengekspor slide dalam presentasi sebagai gambar SVG. Ikuti langkah‑langkah berikut untuk menghasilkan gambar SVG:
-
-*Langkah: Konversi PowerPoint ke SVG dalam C#*
-
-Contoh kode berikut menjelaskan konversi ini menggunakan .NET.
-- <a name="csharp-powerpoint-to-svg" id="csharp-powerpoint-to-svg"><strong>Langkah: Konversi PowerPoint ke SVG dalam C#</strong></a>
-- <a name="csharp-ppt-to-svg" id="csharp-ppt-to-svg"><strong>Langkah: Konversi PPT ke SVG dalam C#</strong></a>
-- <a name="csharp-pptx-to-svg" id="csharp-pptx-to-svg"><strong>Langkah: Konversi PPTX ke SVG dalam C#</strong></a>
-- <a name="csharp-odp-to-svg" id="csharp-odp-to-svg"><strong>Langkah: Konversi ODP ke SVG dalam C#</strong></a>
-
-**Langkah Kode:**
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-   * ekstensi _.ppt_ untuk memuat file **PPT** ke dalam kelas _Presentation_.
-   * ekstensi _.pptx_ untuk memuat file **PPTX** ke dalam kelas _Presentation_.
-   * ekstensi _.odp_ untuk memuat file **ODP** ke dalam kelas _Presentation_.
-   * ekstensi _.pps_ untuk memuat file **PPS** ke dalam kelas _Presentation_.
-2. Iterasi semua slide dalam presentasi.
-3. Tulis setiap slide ke file SVG masing‑masing melalui FileStream.
-
-{{% alert color="primary" %}} 
-
-Anda dapat mencoba [aplikasi web gratis](https://products.aspose.app/slides/id/conversion/ppt-to-svg) di mana kami telah mengimplementasikan fungsi konversi PPT ke SVG dari Aspose.Slides untuk .NET.
-
-{{% /alert %}} 
-
-Contoh kode C# berikut menunjukkan cara mengonversi PowerPoint ke SVG menggunakan Aspose.Slides: 
-
-``` csharp
-// Objek Presentation dapat memuat format PowerPoint seperti PPT, PPTX, ODP, dll.
-using (Presentation pres = new Presentation("pres.pptx"))
+foreach (var slide in presentation.Slides)
 {
-    for (var index = 0; index < pres.Slides.Count; index++)
-    {
-        ISlide slide = pres.Slides[index];
+    using var svgStream = File.Create($"slide-{slide.SlideNumber}.svg");
+    slide.WriteAsSvg(svgStream);
+}
+```
 
-        using (FileStream fileStream = new FileStream($"slide-{index}.svg", FileMode.Create, FileAccess.Write))
+Nama file menggunakan [ISlide.SlideNumber](https://reference.aspose.com/slides/id/net/aspose.slides/islide/slidenumber/) bukan indeks perulangan. Anda juga dapat mengekspor bentuk individual dengan [IShape.WriteAsSvg](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/writeassvg/) ketika penampil slide atau halaman web hanya memerlukan bentuk tersebut.
+
+## **Konfigurasi Output SVG**
+
+[SVGOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/) mengontrol rendering SVG. Untuk bingkai teks, [SVGOptions.UseFrameSize](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/useframesize/) menyertakan bingkai teks dalam area rendering, dan [SVGOptions.UseFrameRotation](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/useframerotation/) menentukan apakah rotasi bingkai diterapkan. Atur [SVGOptions.DisableFontLigatures](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/disablefontligatures/) ke `true` ketika teks harus dirender tanpa ligatur.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    DisableFontLigatures = true,
+    UseFrameSize = true,
+    UseFrameRotation = false
+};
+
+using var svgStream = File.Create("slide-with-custom-options.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+## **Kontrol Teks dan Font**
+
+### **Vektorisasi Semua Teks**
+
+Atur [SVGOptions.VectorizeText](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/vectorizetext/) ke `true` untuk menulis semua teks slide sebagai grafik vektor. Ini menghilangkan ketergantungan pada font dan membuat hasil visual lebih konsisten di semua peramban, tetapi teks tidak lagi dapat dipilih atau dicari sebagai teks SVG.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    VectorizeText = true
+};
+
+using var svgStream = File.Create("slide-with-vectorized-text.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+### **Pilih Cara Menangani Font Eksternal**
+
+[SVGOptions.ExternalFontsHandling](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/externalfontshandling/) menggunakan nilai [SvgExternalFontsHandling](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgexternalfontshandling/) untuk font yang dimuat secara eksternal. Pilih `AddLinksToFontFiles` untuk merujuk ke file font terpisah, `Embed` untuk menyertakan data font dalam SVG, atau `Vectorize` untuk merender hanya teks yang menggunakan font eksternal sebagai grafik. Verifikasi lisensi font sebelum menyematkan font.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var linkedFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.AddLinksToFontFiles
+};
+
+using var linkedFontsStream = File.Create("slide-with-font-links.svg");
+presentation.Slides[0].WriteAsSvg(linkedFontsStream, linkedFontsOptions);
+
+var embeddedFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.Embed
+};
+
+using var embeddedFontsStream = File.Create("slide-with-embedded-fonts.svg");
+presentation.Slides[0].WriteAsSvg(embeddedFontsStream, embeddedFontsOptions);
+
+var vectorizedExternalFontsOptions = new SVGOptions
+{
+    ExternalFontsHandling = SvgExternalFontsHandling.Vectorize
+};
+
+using var vectorizedExternalFontsStream = File.Create("slide-with-vectorized-external-fonts.svg");
+presentation.Slides[0].WriteAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
+```
+
+## **Kurangi Ukuran Gambar Tersemat**
+
+Gunakan [SVGOptions.PicturesCompression](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/picturescompression/) untuk mengurangi resolusi gambar yang tersemat, [SVGOptions.DeletePicturesCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/deletepicturescroppedareas/) untuk menghilangkan area sumber yang dipotong, dan [SVGOptions.JpegQuality](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/jpegquality/) untuk mengontrol kualitas enkoding JPEG. Pengaturan ini mengurangi ukuran berkas dengan mengorbankan kesetiaan gambar atau data gambar yang dipertahankan.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    PicturesCompression = PicturesCompression.Dpi150,
+    DeletePicturesCroppedAreas = true,
+    JpegQuality = 80
+};
+
+using var svgStream = File.Create("compressed-slide.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+```
+
+## **Tetapkan ID Stabil untuk Bentuk dan Teks**
+
+Gunakan [ISvgShapeFormattingController](https://reference.aspose.com/slides/id/net/aspose.slides.export/isvgshapeformattingcontroller/) untuk mengatur [ISvgShape.Id](https://reference.aspose.com/slides/id/net/aspose.slides.export/isvgshape/id/) bagi setiap bentuk SVG. Untuk mengatur nilai [ISvgTSpan.Id](https://reference.aspose.com/slides/id/net/aspose.slides.export/isvgtspan/id/) pada elemen teks `tspan` juga, implementasikan [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/id/net/aspose.slides.export/isvgshapeandtextformattingcontroller/). Tetapkan salah satu controller dengan [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/shapeformattingcontroller/).
+
+Controller berikut menggunakan [IShape.OfficeInteropShapeId](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/officeinteropshapeid/), yang stabil selama masa hidup bentuk, dan penghitung berulang untuk rentang teksnya. Ini menjadikan ID yang dihasilkan cocok untuk pemrosesan lanjutan pada presentasi yang tidak diubah.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    ShapeFormattingController = new StableSvgIdController()
+};
+
+using var svgStream = File.Create("slide-with-stable-ids.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+
+class StableSvgIdController : ISvgShapeAndTextFormattingController
+{
+    private string currentShapeId = string.Empty;
+    private int textSpanIndex;
+
+    public ISvgShapeFormattingController AsISvgShapeFormattingController => this;
+
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        currentShapeId = $"shape-{shape.OfficeInteropShapeId}";
+        textSpanIndex = 0;
+        svgShape.Id = currentShapeId;
+    }
+
+    public void FormatText(ISvgTSpan svgTSpan, IPortion portion, ITextFrame textFrame)
+    {
+        svgTSpan.Id = $"{currentShapeId}-text-{textSpanIndex++}";
+    }
+}
+```
+
+## **Tambahkan Penangan Peristiwa SVG**
+
+Dalam sebuah [ISvgShapeFormattingController](https://reference.aspose.com/slides/id/net/aspose.slides.export/isvgshapeformattingcontroller/), panggil [ISvgShape.SetEventHandler](https://reference.aspose.com/slides/id/net/aspose.slides.export/isvgshape/seteventhandler/) dengan nilai [SvgEvent](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgevent/) untuk menambahkan penangan peristiwa JavaScript ke bentuk yang diekspor. Tetapkan controller dengan [SVGOptions.ShapeFormattingController](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/shapeformattingcontroller/) dan definisikan fungsi JavaScript di halaman atau dokumen SVG yang menampung hasilnya.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var svgOptions = new SVGOptions
+{
+    ShapeFormattingController = new SvgEventController()
+};
+
+using var svgStream = File.Create("interactive-slide.svg");
+presentation.Slides[0].WriteAsSvg(svgStream, svgOptions);
+
+class SvgEventController : ISvgShapeFormattingController
+{
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        if (shape.Name == "ActionButton")
         {
-            slide.WriteAsSvg(fileStream);   
+            svgShape.Id = "action-button";
+            svgShape.SetEventHandler(SvgEvent.OnClick, "handleShapeClick(event)");
         }
     }
 }
 ```
 
+Halaman host dapat mendefinisikan fungsi JavaScript yang dirujuk oleh penangan. Penetapan ID dan penangan peristiwa memungkinkan penampil slide, peningkatan aksesibilitas, dan alur kerja SVG interaktif lainnya.
+
 ## **FAQ**
 
-**Mengapa SVG yang dihasilkan dapat terlihat berbeda di tiap browser?**
+**Kapan saya harus menggunakan [SVGOptions.VectorizeText](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/vectorizetext/) alih-alih [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgexternalfontshandling/)?**
 
-Dukungan untuk fitur SVG tertentu diimplementasikan secara berbeda oleh mesin browser. Parameter [SVGOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/) membantu menyamakan perbedaan tersebut.
+Gunakan [SVGOptions.VectorizeText](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgoptions/vectorizetext/) ketika semua teks harus independen dari font. Gunakan [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/id/net/aspose.slides.export/svgexternalfontshandling/) ketika hanya teks yang menggunakan font eksternal yang harus dikonversi menjadi grafik.
 
-**Apakah memungkinkan mengekspor bukan hanya slide tetapi juga bentuk‑bentuk individual ke SVG?**
+**Apa cara terbaik untuk memperkecil ukuran SVG?**
 
-Ya. Setiap [shape dapat disimpan sebagai SVG terpisah](https://reference.aspose.com/slides/id/net/aspose.slides/shape/writeassvg/), yang berguna untuk ikon, pictogram, dan penggunaan kembali grafik.
+Mulailah dengan mengompresi gambar yang tersemat, menghapus area gambar yang dipotong, dan memilih file font yang ditautkan ketika lingkungan target dapat menyediakannya. Uji hasilnya karena resolusi gambar yang lebih rendah, kualitas JPEG yang lebih rendah, dan teks yang dipvectorisasikan masing‑masing memiliki pertukaran kualitas dan ukuran yang berbeda.
 
-**Dapatkah beberapa slide digabungkan menjadi satu SVG (strip/dokumen)?**
+**Apakah saya dapat memodifikasi elemen SVG yang diekspor setelah ekspor?**
 
-Skenario standar adalah satu slide → satu SVG. Menggabungkan beberapa slide ke satu kanvas SVG merupakan langkah pasca‑pemrosesan yang dilakukan pada tingkat aplikasi.
-
-## **Lihat Juga** 
-
-Artikel ini juga mencakup topik‑topik berikut. Kode‑kodenya sama dengan di atas.
-
-**Format**: **PowerPoint**
-- [C# PowerPoint to SVG Code](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG API](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG Programmatically](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG Library](#csharp-powerpoint-to-svg)
-- [C# Save PowerPoint as SVG](#csharp-powerpoint-to-svg)
-- [C# Generate SVG from PowerPoint](#csharp-powerpoint-to-svg)
-- [C# Create SVG from PowerPoint](#csharp-powerpoint-to-svg)
-- [C# PowerPoint to SVG Converter](#csharp-powerpoint-to-svg)
-
-**Format**: **PPT**
-- [C# PPT to SVG Code](#csharp-ppt-to-svg)
-- [C# PPT to SVG API](#csharp-ppt-to-svg)
-- [C# PPT to SVG Programmatically](#csharp-ppt-to-svg)
-- [C# PPT to SVG Library](#csharp-ppt-to-svg)
-- [C# Save PPT as SVG](#csharp-ppt-to-svg)
-- [C# Generate SVG from PPT](#csharp-ppt-to-svg)
-- [C# Create SVG from PPT](#csharp-ppt-to-svg)
-- [C# PPT to SVG Converter](#csharp-ppt-to-svg)
-
-**Format**: **PPTX**
-- [C# PPTX to SVG Code](#csharp-pptx-to-svg)
-- [C# PPTX to SVG API](#csharp-pptx-to-svg)
-- [C# PPTX to SVG Programmatically](#csharp-pptx-to-svg)
-- [C# PPTX to SVG Library](#csharp-pptx-to-svg)
-- [C# Save PPTX as SVG](#csharp-pptx-to-svg)
-- [C# Generate SVG from PPTX](#csharp-pptx-to-svg)
-- [C# Create SVG from PPTX](#csharp-pptx-to-svg)
-- [C# PPTX to SVG Converter](#csharp-pptx-to-svg)
-
-**Format**: **ODP**
-- [C# ODP to SVG Code](#csharp-odp-to-svg)
-- [C# ODP to SVG API](#csharp-odp-to-svg)
-- [C# ODP to SVG Programmatically](#csharp-odp-to-svg)
-- [C# ODP to SVG Library](#csharp-odp-to-svg)
-- [C# Save ODP as SVG](#csharp-odp-to-svg)
-- [C# Generate SVG from ODP](#csharp-odp-to-svg)
-- [C# Create SVG from ODP](#csharp-odp-to-svg)
-- [C# ODP to SVG Converter](#csharp-odp-to-svg)
+Ya. Tetapkan ID melalui controller pemformatan, lalu pilih elemen SVG yang cocok di alat pemrosesan lanjutan atau skrip peramban Anda.
