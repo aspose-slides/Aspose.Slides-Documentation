@@ -5,8 +5,6 @@ type: docs
 weight: 50
 url: /java/text-formatting/
 keywords:
-- highlight text
-- regular expression
 - align paragraph
 - text style
 - text background
@@ -32,74 +30,13 @@ description: "Format and style text in PowerPoint and OpenDocument presentations
 
 ## **Overview**
 
-This article shows how to format text in PowerPoint and OpenDocument presentations using Aspose.Slides for Java. It covers highlighting, background colors, transparency, character spacing, font properties, rotation, paragraph spacing, autofit behavior, text anchoring, tab stops, and language settings.
+This article shows how to format text in PowerPoint and OpenDocument presentations using Aspose.Slides for Java. It covers background colors, transparency, character spacing, font properties, rotation, paragraph spacing, autofit behavior, text anchoring, tab stops, and language settings.
 
-In the examples below, we'll use a file named "sample.pptx", which contains a single text box on the first slide with the following text:
+In the examples below, we’ll use a file named "sample.pptx", which contains a single text box on the first slide with the following text:
 
 ![Sample text](sample_text.png)
 
-## **Highlight Text**
-
-Use the [ITextFrame.highlightText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-) method when you need to highlight text that matches a specific sample within a text frame. The method applies a highlight color to matching text fragments and can be used with [TextSearchOptions](https://reference.aspose.com/slides/java/com.aspose.slides/textsearchoptions/) to control how the search is performed, for example, to match only whole words.
-
-The code example below highlights all occurrences of the characters **"try"** and then highlights only the full word **"to"**.
-
-```java
-import com.aspose.slides.*;
-import java.awt.Color;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // Get the first shape from the first slide.
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Highlight every occurrence of "try" in the shape, including inside longer words.
-    shape.getTextFrame().highlightText("try", Color.LIGHT_GRAY);
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // Highlight the word "to" in the shape.
-    shape.getTextFrame().highlightText("to", Color.MAGENTA, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-The result:
-
-![The highlighted text](highlighted_text.png)
-
-## **Highlight Text Using Regular Expressions**
-
-The [ITextFrame.highlightRegex](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) method highlights text matches found by a regular expression. In Java, this API is exposed on [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
-
-The code example below highlights all words that contain **seven or more characters**:
-
-```java
-import com.aspose.slides.*;
-import java.awt.Color;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // Highlight all words with seven or more characters.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-The result:
-
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+To find and highlight literal text or regular-expression matches, see [Search and Replace Text](/slides/java/search-and-replace-text/).
 
 ## **Set Text Background Color**
 
@@ -113,7 +50,8 @@ import java.awt.Color;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Set the highlight color for the entire paragraph.
@@ -137,7 +75,8 @@ import java.awt.Color;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -168,7 +107,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Set the alignment of the paragraph to center.
@@ -186,7 +126,7 @@ The result:
 
 ## **Set Transparency for Text**
 
-Text transparency is controlled through the alpha component of the color assigned to [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0-255 scale, not a transparency percentage.
+Text transparency is controlled through the alpha component of the color assigned to [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
 
 The code example below shows how to apply transparency to the **entire paragraph**:
 
@@ -198,7 +138,8 @@ int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Set the fill color of the text to transparent color.
@@ -225,7 +166,8 @@ int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -257,7 +199,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Note: Use negative values to compress the character spacing.
@@ -280,7 +223,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -311,7 +255,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
     for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
@@ -335,7 +280,7 @@ try {
 }
 ```
 
-This setting prevents kerning from being applied to matching text portions and can help align Aspose.Slides rendering with PowerPoint's visual output for fonts affected by this PowerPoint-specific behavior.
+This setting prevents kerning from being applied to matching text portions and can help align Aspose.Slides rendering with PowerPoint’s visual output for fonts affected by this PowerPoint-specific behavior.
 
 ## **Manage Text Font Properties**
 
@@ -348,7 +293,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Set the font properties for the paragraph.
@@ -375,7 +321,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -409,7 +356,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -434,7 +382,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -462,7 +411,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -486,7 +436,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -505,7 +456,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -524,7 +476,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -551,7 +504,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -566,7 +520,7 @@ try {
     // Set the Id of a proofing language.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", SaveFormat.Pptx);
@@ -630,7 +584,7 @@ try {
 
 In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To match the displayed text, check [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/) and convert the returned string to uppercase when the value is `All`.
 
-Let's say we have the following text box on the first slide of the sample2.pptx file.
+Let’s say we have the following text box on the first slide of the sample2.pptx file.
 
 ![The All Caps effect](all_caps_effect.png)
 
@@ -641,7 +595,8 @@ import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -665,10 +620,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-### How to modify text in a table on a slide?
+**How to modify text in a table on a slide?**
 
 To modify text in a table on a slide, use [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/). Iterate through the cells and update each cell through [ICell.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) and paragraph formatting through [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-### How to apply gradient color to text in a PowerPoint slide?
+**How to apply gradient color to text in a PowerPoint slide?**
 
 To apply a gradient color to text, use [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Set [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) to [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.
