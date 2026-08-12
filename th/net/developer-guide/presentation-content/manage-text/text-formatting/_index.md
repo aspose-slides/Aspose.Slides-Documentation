@@ -5,114 +5,73 @@ type: docs
 weight: 50
 url: /th/net/text-formatting/
 keywords:
-- ไฮไลท์ข้อความ
-- นิพจน์ปกติ
-- จัดแนวย่อหน้า
+- จัดย่อหน้า
 - สไตล์ข้อความ
 - พื้นหลังข้อความ
-- ความโปร่งใสของข้อความ
-- ระยะห่างอักขระ
-- คุณสมบัติฟอนต์
+- ความโปร่งแสงของข้อความ
+- ระยะห่างระหว่างอักขระ
+- คุณสมบัติดิจิตอลของฟอนต์
 - ตระกูลฟอนต์
 - การหมุนข้อความ
 - มุมการหมุน
 - กรอบข้อความ
-- ระยะบรรทัด
-- คุณสมบัติ autofit
+- ระยะห่างบรรทัด
+- คุณสมบัติ Autofit
 - จุดยึดกรอบข้อความ
-- การตั้งค่าแท็บข้อความ
-- ภาษาหลัก
+- การแท็บข้อความ
+- ภาษาตั้งต้น
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ .NET ปรับแต่งฟอนต์, สี, การจัดแนว และอื่น ๆ อีกมากมาย."
+description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET ปรับแต่งฟอนต์, สี, การจัดแนว และอื่น ๆ"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ .NET รวมถึงการเน้นสี, สีพื้นหลัง, ความโปร่งใส, การเว้นระยะระหว่างอักษร, คุณสมบัติของฟอนต์, การหมุน, การเว้นระยะย่อหน้า, พฤติกรรม autofit, การยึดข้อความ, การตั้งค่าตำแหน่งแท็บ, และการตั้งค่าภาษาต่าง ๆ
+บทความนี้แสดงวิธีกำหนดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET ครอบคลุมสีพื้นหลัง, ความโปร่งแสง, ระยะห่างระหว่างอักขระ, คุณสมบัติตัวอักษร, การหมุน, ระยะห่างระหว่างย่อหน้า, พฤติกรรม Autofit, การยึดตำแหน่งข้อความ, จุดหยุดแท็บ, และการตั้งค่าภาษา.
 
 ในตัวอย่างด้านล่าง เราจะใช้ไฟล์ชื่อ "sample.pptx" ซึ่งมีกล่องข้อความเดียวบนสไลด์แรกพร้อมข้อความต่อไปนี้:
 
 ![ข้อความตัวอย่าง](sample_text.png)
 
-## **ไฮไลท์ข้อความ**
+เพื่อค้นหาและไฮไลต์ข้อความตามตัวหรือผลตรงกับ regular‑expression ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/net/search-and-replace-text/).
 
-ใช้เมธอด [ITextFrame.HighlightText](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/highlighttext/) เมื่อคุณต้องการไฮไลท์ข้อความที่ตรงกับตัวอย่างเฉพาะภายในกรอบข้อความ เมธอดนี้จะกำหนดสีไฮไลท์ให้กับส่วนข้อความที่ตรงกันและสามารถใช้ร่วมกับ [TextSearchOptions](https://reference.aspose.com/slides/th/net/aspose.slides/textsearchoptions/) เพื่อควบคุมวิธีการค้นหาได้ เช่น เพื่อให้ตรงกับคำเต็มเท่านั้น
+## **ตั้งค่าสีพื้นหลังของข้อความ**
 
-ตัวอย่างโค้ดด้านล่างจะแสดงการไฮไลท์ทุกการปรากฏของอักขระ **"try"** แล้วจึงไฮไลท์เฉพาะคำเต็ม **"to"** เท่านั้น
+ใช้ [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/defaultportionformat/) เพื่อตั้งค่าสีไฮไลต์เริ่มต้นสำหรับย่อหน้า หรือใช้ [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/highlightcolor/) สำหรับส่วนข้อความแต่ละส่วน.
 
-```cs
-using (var presentation = new Presentation("sample.pptx"))
-{
-    // ดึงรูปร่างแรกจากสไลด์แรก.
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    // ไฮไลท์คำ "try" ในรูปร่าง.
-    shape.TextFrame.HighlightText("try", Color.LightBlue);
-
-    var searchOptions = new TextSearchOptions()
-    {
-        WholeWordsOnly = true
-    };
-
-    // ไฮไลท์คำ "to" ในรูปร่าง.
-    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
-
-    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
-}
-```
-
-![ข้อความที่ไฮไลท์](highlighted_text.png)
-
-## **ไฮไลท์ข้อความด้วย Regular Expressions**
-
-เมธอด [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/highlightregex/) จะไฮไลท์ข้อความที่ตรงกับผลลัพธ์ของ regular expression ใน .NET API นี้เปิดให้ใช้บน [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/)
-
-ตัวอย่างโค้ดด้านล่างไฮไลท์ทุกคำที่มี **เจ็ดตัวอักษรหรือมากกว่า**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ย่อหน้าเต็ม**: 
 
 ```cs
-using (var presentation = new Presentation(folderPath + "sample.pptx"))
-{
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var regex = new Regex(@"\b[^\s]{7,}\b");
-
-    // ไฮไลท์ทุกคำที่มีอักขระเจ็ดตัวหรือมากกว่า.
-    shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
-
-    presentation.Save(folderPath + "highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-}
-```
-
-![ข้อความที่ไฮไลท์ด้วย regular expression](highlighted_text_using_regex.png)
-
-## **กำหนดสีพื้นหลังข้อความ**
-
-ใช้ [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/defaultportionformat/) เพื่อกำหนดสีไฮไลท์เริ่มต้นสำหรับย่อหน้า หรือใช้ [IPortionFormat.HighlightColor](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformat/highlightcolor/) สำหรับส่วนข้อความแต่ละส่วน
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีกำหนดสีพื้นหลังสำหรับ **ย่อหน้าทั้งหมด**:
-
-```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // กำหนดสีไฮไลท์สำหรับย่อหน้าทั้งหมด.
+    // ตั้งค่าสีไฮไลท์สำหรับย่อหน้า​ทั้งหมด.
     paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
     presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
 
+ผลลัพธ์:
+
 ![ย่อหน้าสีเทา](gray_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีกำหนดสีพื้นหลังสำหรับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -122,7 +81,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // กำหนดสีไฮไลท์สำหรับส่วนข้อความ.
+            // ตั้งค่าสีไฮไลท์สำหรับส่วนข้อความ.
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -131,36 +90,47 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+ผลลัพธ์:
+
 ![ส่วนข้อความสีเทา](gray_text_portions.png)
 
-## **จัดแนวย่อหน้าข้อความ**
+## **จัดย่อหน้าข้อความ**
 
-ใช้ [IParagraphFormat.Alignment](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/alignment/) เพื่อตั้งค่าการจัดแนวย่อหน้าในกรอบข้อความ ค่าที่ตั้งได้อาจเป็นการจัดกึ่งกลาง, จัดซ้าย, จัดขวา, จัดแนวตรงบรรทัด, เป็นต้น
+ใช้ [IParagraphFormat.Alignment](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/alignment/) เพื่อตั้งค่าการจัดแนวย่อหน้าภายในกรอบข้อความ ค่าอาจเป็นศูนย์กลาง, จัดชิดซ้าย, จัดชิดขวา, เรียงแนวเส้น, เป็นต้น.
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดย่อหน้าให้ **กึ่งกลาง**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดแนวย่อหน้าให้อยู่ **กึ่งกลาง**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // ตั้งค่าการจัดแนวของย่อหน้าให้กึ่งกลาง.
+    // ตั้งค่าการจัดแนวของย่อหน้าให้ศูนย์กลาง.
     paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
     presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
 
+ผลลัพธ์:
+
 ![ย่อหน้าที่จัดแนว](aligned_paragraph.png)
 
-## **กำหนดความโปร่งใสของข้อความ**
+## **ตั้งค่าความโปร่งแสงสำหรับข้อความ**
 
-ความโปร่งใสของข้อความถูกควบคุมผ่านคอมโพเนนต์ alpha ของสีที่กำหนดให้กับ [IPortionFormat.FillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformat/fillformat/). ในตัวอย่างด้านล่าง `alpha = 50` เป็นค่าช่อง alpha ของ ARGB บนสเกล 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งใส
+ความโปร่งแสงของข้อความควบคุมโดยส่วนประกอบอัลฟาของสีที่กำหนดให้กับ [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/fillformat/). ในตัวอย่างด้านล่าง `alpha = 50` เป็นค่าช่องอัลฟา ARGB บนสเกล 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งแสง.
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าทั้งหมด**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งแสงกับ **ย่อหน้าเต็ม**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -168,7 +138,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // กำหนดสีเติมของข้อความเป็นสีโปร่งใส.
+    // ตั้งค่าสีเติมของข้อความให้เป็นสีโปร่งใส.
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -176,11 +146,17 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![ย่อหน้าที่โปร่งใส](transparent_paragraph.png)
+ผลลัพธ์:
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+![ย่อหน้าที่โปร่งแสง](transparent_paragraph.png)
+
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งแสงกับ **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -192,7 +168,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // กำหนดความโปร่งใสของส่วนข้อความ.
+            // ตั้งค่าความโปร่งใสของส่วนข้อความ.
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
         }
@@ -202,32 +178,42 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![ส่วนข้อความที่โปร่งใส](transparent_text_portions.png)
+ผลลัพธ์:
 
-## **กำหนดระยะห่างระหว่างอักขระของข้อความ**
+![ส่วนข้อความที่โปร่งแสง](transparent_text_portions.png)
 
-ใช้ [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/spacing/) เพื่อขยายหรือบีบอัดระยะห่างระหว่างอักขระในกล่องข้อความ
+## **ตั้งค่าการเว้นระยะระหว่างอักขระของข้อความ**
 
-โค้ด C# ต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าทั้งหมด**:
+ใช้ [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/spacing/) เพื่อขยายหรือบีบอัดระยะห่างระหว่างอักขระในกล่องข้อความ.
+
+โค้ด C# ต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าเต็ม**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างอักขระ.
+    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
     paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // ขยายระยะห่างอักขระ.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
 ```
 
-![ระยะห่างอักขระในย่อหน้า](character_spacing_in_paragraph.png)
+ผลลัพธ์:
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+![การเว้นระยะอักขระในย่อหน้า](character_spacing_in_paragraph.png)
+
+ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -237,7 +223,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างอักขระ.
+            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
             portion.PortionFormat.Spacing = 3;  // ขยายระยะห่างอักขระ.
         }
     }
@@ -246,15 +232,20 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![ระยะห่างอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
+ผลลัพธ์:
 
-### **ปิดการทำ Kerning สำหรับฟอนต์เฉพาะ**
+![การเว้นระยะอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
 
-ในบางกรณี ข้อความที่แสดงโดย Aspose.Slides อาจดูแนบหนากว่าเดียวกับใน PowerPoint เนื่องจาก PowerPoint อาจละเว้นข้อมูล kerning สำหรับฟอนต์บางตัว แม้ฟอนต์จะมีข้อมูล kerning ที่ถูกต้องและเปิดใช้งานในการตั้งค่า PowerPoint ก็ตาม
+### **ปิดการใช้งาน Kerning สำหรับแบบอักษรเฉพาะ**
 
-เพื่อทำให้ผลลัพธ์ที่แสดงใกล้เคียงกับ PowerPoint มากขึ้นในกรณีเหล่านี้ คุณสามารถปิดการทำ kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบได้ โดยตั้งค่า [IPortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/kerningminimalsize/) ให้มีค่ามากกว่าขนาดฟอนต์จริงอย่างมีนัยสำคัญ:
+ในบางกรณี ข้อความที่เรนเดอร์โดย Aspose.Slides อาจดูแน่นกว่าข้อความเดียวกันที่แสดงใน PowerPoint สิ่งนี้อาจเกิดจาก PowerPoint เพิกเฉยต่อข้อมูล kerning ของแบบอักษรบางตัว แม้ว่าแบบอักษรจะมีข้อมูล kerning ที่ถูกต้องและ kerning ถูกเปิดใช้งานในการตั้งค่า PowerPoint ก็ตาม.
+
+เพื่อให้ผลลัพธ์ที่เรนเดอร์ใกล้เคียงกับ PowerPoint ในกรณีเหล่านี้ คุณสามารถปิดการใช้งาน kerning สำหรับส่วนข้อความที่ใช้แบบอักษรที่ได้รับผลกระทบ ตั้งค่า [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/kerningminimalsize/) ให้เป็นค่าที่ใหญ่กว่าขนาดฟอนต์จริงอย่างมีนัยสำคัญ:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -280,21 +271,24 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-การตั้งค่านี้ป้องกันไม่ให้ทำ kerning กับส่วนข้อความที่ตรงกันและสามารถช่วยให้การแสดงผลของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับฟอนต์ที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้
+การตั้งค่านี้ป้องกันไม่ให้ kerning ถูกนำไปใช้กับส่วนข้อความที่ตรงกันและช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับผลลัพธ์ภาพของ PowerPoint สำหรับแบบอักษรที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้.
 
 ## **จัดการคุณสมบัติฟอนต์ของข้อความ**
 
-คุณสมบัติฟอนต์สามารถตั้งค่าที่ระดับย่อหน้าได้ผ่าน [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/defaultportionformat/) หรือบนส่วนข้อความแต่ละส่วนผ่าน [IPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformat/)
+คุณสมบัติดิจิตอลของฟอนต์สามารถตั้งค่าที่ระดับย่อหน้าผ่าน [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/defaultportionformat/) หรือที่ส่วนแต่ละส่วนผ่าน [IPortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformat/).
 
-โค้ดต่อไปนี้ตั้งค่าฟอนต์และสไตล์ข้อความสำหรับย่อหน้าทั้งหมด: จะกำหนดขนาดฟอนต์, ตัวหนา, ตัวเอียง, ขีดเส้นใต้แบบจุด, และฟอนต์ Times New Roman ให้กับทุกส่วนในย่อหน้า
+โค้ดต่อไปนี้ตั้งค่าฟอนต์และสไตล์ข้อความสำหรับย่อหน้าเต็ม: จะใช้ขนาดฟอนต์, ตัวหนา, ตัวเอียง, ขีดเส้นใต้เป็นจุด, และฟอนต์ Times New Roman กับทุกส่วนในย่อหน้า.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // ตั้งค่าคุณสมบัติฟอนต์สำหรับย่อหน้า.
+    // ตั้งค่าคุณสมบัติดิจิตอลของฟอนต์สำหรับย่อหน้า.
     paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
@@ -305,11 +299,16 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+ผลลัพธ์:
+
 ![คุณสมบัติฟอนต์ของย่อหน้า](font_properties_for_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้ใช้คุณสมบัติคล้ายกันกับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างใช้คุณสมบัติเช่นเดียวกันกับ **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -319,7 +318,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // ตั้งค่าคุณสมบัติฟอนต์สำหรับส่วนข้อความ.
+            // ตั้งค่าคุณสมบัติดิจิตอลของฟอนต์สำหรับส่วนข้อความ.
             portion.PortionFormat.FontHeight = 13;
             portion.PortionFormat.FontItalic = NullableBool.True;
             portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -331,15 +330,20 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+ผลลัพธ์:
+
 ![คุณสมบัติฟอนต์ของส่วนข้อความ](font_properties_for_text_portions.png)
 
-## **กำหนดการหมุนของข้อความ**
+## **ตั้งค่าการหมุนข้อความ**
 
-ใช้ [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/textverticaltype/) เพื่อตั้งค่าการวางแนวข้อความที่กำหนดไว้ล่วงหน้าในรูปทรง
+ใช้ [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/textverticaltype/) เพื่อตั้งค่าการจัดแนวข้อความที่กำหนดไว้ล่วงหน้าในรูปทรง.
 
-ตัวอย่างโค้ดต่อไปนี้ตั้งค่าการวางแนวข้อความในรูปทรงเป็น `Vertical270` ซึ่งจะหมุนข้อความ **90 องศาตรงทวนเข็มนาฬิกา**:
+ตัวอย่างโค้ดต่อไปนี้ตั้งการจัดแนวข้อความในรูปทรงเป็น `Vertical270` ซึ่งจะหมุนข้อความ **90 องศาทวนเข็มนาฬิกา**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -350,15 +354,20 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+ผลลัพธ์:
+
 ![การหมุนข้อความ](text_rotation.png)
 
-## **กำหนดการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
+## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
 
-ใช้ [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/rotationangle/) เพื่อกำหนดมุมการหมุนแบบกำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/)
+ใช้ [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/rotationangle/) เพื่อตั้งค่ามุมการหมุนแบบกำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/).
 
 ตัวอย่างโค้ดด้านล่างหมุนกรอบข้อความโดย 3 องศาตามเข็มนาฬิกาในรูปทรง:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -369,18 +378,23 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+ผลลัพธ์:
+
 ![การหมุนข้อความแบบกำหนดเอง](custom_text_rotation.png)
 
-## **กำหนดระยะบรรทัดของย่อหน้า**
+## **ตั้งค่าระยะห่างบรรทัดของย่อหน้า**
 
 Aspose.Slides มี [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/spacebefore/), และ [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/spacewithin/) เพื่อควบคุมระยะห่างของย่อหน้า คุณสมบัติเหล่านี้ใช้ดังนี้:
 
-* ใช้ค่าบวกเพื่อระบุตัวห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด
-* ใช้ค่าลบเพื่อระบุตัวห่างบรรทัดเป็นหน่วยจุด
+* ใช้ค่าบวกเพื่อระบุตัวหาระยะห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด
+* ใช้ค่าลบเพื่อระบุตัวหาระยะห่างบรรทัดเป็นหน่วยจุด
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีกำหนดระยะบรรทัดภายในย่อหน้า:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีระบุตัวหาระยะห่างบรรทัดภายในย่อหน้า:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -392,13 +406,18 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-![ระยะบรรทัดภายในย่อหน้า](line_spacing.png)
+ผลลัพธ์:
 
-## **กำหนดประเภท Autofit สำหรับกรอบข้อความ**
+![ระยะห่างบรรทัดภายในย่อหน้า](line_spacing.png)
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/autofittype/) กำหนดวิธีการทำงานของข้อความเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะหด, ล้นออก, หรือปรับขนาดรูปทรงโดยอัตโนมัติ
+## **ตั้งค่าชนิด Autofit สำหรับกรอบข้อความ**
+
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/autofittype/) กำหนดว่าข้อความจะทำงานอย่างไรเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะหดลง, ไหลออกนอก, หรือปรับขนาดรูปทรงโดยอัตโนมัติ
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -409,11 +428,14 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **กำหนดจุดยึดของกรอบข้อความ**
+## **ตั้งค่าจุดยึดของกรอบข้อความ**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/anchoringtype/) กำหนดตำแหน่งแนวตั้งของข้อความภายในรูปทรง เช่น ด้านบน, กลาง, หรือด้านล่าง
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformat/anchoringtype/) กำหนดว่าข้อความอยู่ในตำแหน่งแนวตั้งภายในรูปทรงอย่างไร เช่น ด้านบน, กลาง, หรือด้านล่าง
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -424,11 +446,14 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **กำหนดการจัดตำแหน่งแท็บของข้อความ**
+## **ตั้งค่าการแท็บข้อความ**
 
-ใช้ [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/defaulttabsize/) และ [IParagraphFormat.Tabs](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/tabs/) เพื่อกำหนดตำแหน่งแท็บในย่อหน้า
+ใช้ [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/defaulttabsize/) และ [IParagraphFormat.Tabs](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/tabs/) เพื่อกำหนดจุดหยุดแท็บในย่อหน้า
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -441,15 +466,20 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
+ผลลัพธ์:
+
 ![แท็บของย่อหน้า](paragraph_tabs.png)
 
-## **กำหนดภาษาการตรวจสอบ**
+## **ตั้งค่าภาษา Proofing**
 
-Aspose.Slides มี [IPortionFormat.LanguageId](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformat/languageid/) ซึ่งอนุญาตให้ตั้งค่าภาษาการตรวจสอบสำหรับส่วนข้อความ ภาษาการตรวจสอบจะกำหนดภาษาที่ใช้สำหรับการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
+Aspose.Slides มี [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/languageid/) ซึ่งให้คุณตั้งค่าภาษา proofing สำหรับส่วนข้อความ ภาษ proofing กำหนดภาษาที่ใช้ในการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าภาษาการตรวจสอบสำหรับส่วนข้อความ:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าภาษา proofing สำหรับส่วนข้อความ:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -464,7 +494,7 @@ using (var presentation = new Presentation("presentation.pptx"))
     textPortion.PortionFormat.EastAsianFont = font;
     textPortion.PortionFormat.LatinFont = font;
 
-    // กำหนด Id ของภาษาการตรวจสอบ.
+    // ตั้งค่า Id ของภาษาการตรวจสอบ.
     textPortion.PortionFormat.LanguageId = "zh-CN";
 
     textPortion.Text = "1。";
@@ -474,11 +504,13 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-## **กำหนดภาษาพื้นฐาน**
+## **ตั้งค่าภาษาเริ่มต้น**
 
-ใช้ [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/defaulttextlanguage/) เพื่อกำหนดภาษาพื้นฐานสำหรับข้อความที่สร้างขึ้นขณะโหลดหรือสร้างงานนำเสนอ
+ใช้ [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/defaulttextlanguage/) เพื่อกำหนดภาษาตั้งต้นสำหรับข้อความที่สร้างระหว่างการโหลดหรือสร้างการนำเสนอ
 
 ```cs
+using Aspose.Slides;
+
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
 
@@ -486,7 +518,7 @@ using (var presentation = new Presentation(loadOptions))
 {
     var slide = presentation.Slides[0];
 
-    // เพิ่มรูปทรงสี่เหลี่ยมผืนผ้าใหม่พร้อมข้อความ.
+    // เพิ่มรูปร่างสี่เหลี่ยมผืนผ้าใหม่พร้อมข้อความ.
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
@@ -496,16 +528,19 @@ using (var presentation = new Presentation(loadOptions))
 }
 ```
 
-## **กำหนดสไตล์ข้อความเริ่มต้น**
+## **ตั้งค่ารูปแบบข้อความเริ่มต้น**
 
-เพื่อใช้การจัดรูปแบบข้อความเริ่มต้นระดับงานนำเสนอ ให้ใช้ [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/defaulttextstyle/)
+เพื่อใช้การจัดรูปแบบข้อความเริ่มต้นระดับการนำเสนอ ให้ใช้ [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/defaulttextstyle/)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าฟอนต์หนาเริ่มต้นขนาด 14 pt สำหรับข้อความทั้งหมดในสไลด์ทั้งหมดของงานนำเสนอใหม่
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าแบบอักษรหนาเริ่มต้นขนาด 14 pt สำหรับข้อความทั้งหมดทั่วสไลด์ในการนำเสนอใหม่
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
-    // รับรูปแบบย่อหน้าระดับบนสุด.
+    // รับรูปแบบย่อหน้าระดับบน
     var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
@@ -518,17 +553,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **สกัดข้อความด้วยเอฟเฟกต์ All-Caps**
+## **ดึงข้อความด้วยเอฟเฟกต์ All-Caps**
 
-ใน PowerPoint การใช้เอฟเฟกต์ฟอนต์ **All Caps** ทำให้ข้อความแสดงเป็นตัวพิมพ์ใหญ่ทั้งหมดบนสไลด์ แม้ว่าจะพิมพ์เป็นตัวพิมพ์เล็กเดิมก็ตาม เมื่อคุณดึงส่วนข้อความดังกล่าวด้วย Aspose.Slides ไลบรารีจะคืนค่าข้อความตามที่ป้อนไว้โดยตรง หากต้องการให้ตรงกับข้อความที่แสดงให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/th/net/aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่าเป็นตัวพิมพ์ใหญ่เมื่อค่ามีค่า `All`
+ใน PowerPoint การใช้เอฟเฟกต์ฟอนต์ **All Caps** ทำให้ข้อความปรากฏเป็นตัวพิมพ์ใหญ่บนสไลด์แม้ว่าจะพิมพ์เป็นตัวพิมพ์เล็กเดิม เมื่อคุณดึงส่วนข้อความดังกล่าวด้วย Aspose.Slides ไลบรารีจะคืนค่าข้อความตามที่ป้อนไว้ เพื่อให้ตรงกับข้อความที่แสดง ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/th/net/aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่ามาเป็นตัวพิมพ์ใหญ่เมื่อค่าคือ `All`.
 
-สมมติว่ามีกล่องข้อความต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx
+สมมติว่าเรามีกล่องข้อความต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx
 
 ![เอฟเฟกต์ All Caps](all_caps_effect.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดข้อความโดยมีเอฟเฟกต์ **All Caps** ถูกใช้งาน:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีดึงข้อความที่มีเอฟเฟกต์ **All Caps** ที่ใช้:
 
 ```cs
+using Aspose.Slides;
+
 using (var presentation = new Presentation("sample2.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -545,17 +582,19 @@ using (var presentation = new Presentation("sample2.pptx"))
 }
 ```
 
+ผลลัพธ์:
+
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
 **วิธีแก้ไขข้อความในตารางบนสไลด์?**
 
-เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/). ทำการวนลูปผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [ICell.TextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/icell/textframe/) และกำหนดรูปแบบย่อหน้าผ่าน [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/paragraphformat/)
+เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/). วนลูปผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [ICell.TextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/icell/textframe/) และการจัดรูปแบบย่อหน้าผ่าน [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/paragraphformat/).
 
-**วิธีใช้สีไล่ระดับสีกับข้อความในสไลด์ PowerPoint?**
+**วิธีใช้สีไล่ระดับกับข้อความในสไลด์ PowerPoint?**
 
-เพื่อใช้สีไล่ระดับสีกับข้อความ ให้ใช้ [IPortionFormat.FillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformat/fillformat/). ตั้งค่า [IFillFormat.FillType](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformat/filltype/) เป็น [FillType.Gradient](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) แล้วกำหนดจุดไล่สี, ทิศทาง, และความโปร่งใสตามต้องการ
+เพื่อใช้สีไล่ระดับกับข้อความ ให้ใช้ [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseportionformat/fillformat/). ตั้งค่า [IFillFormat.FillType](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformat/filltype/) เป็น [FillType.Gradient](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) และกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งแสง.

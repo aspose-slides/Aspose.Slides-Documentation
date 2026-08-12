@@ -5,108 +5,55 @@ type: docs
 weight: 50
 url: /th/java/text-formatting/
 keywords:
-- ไฮไลท์ข้อความ
-- นิพจน์ปกติ
-- จัดตำแหน่งย่อหน้า
-- รูปแบบข้อความ
+- จัดแนวย่อหน้า
+- สไตล์ข้อความ
 - พื้นหลังข้อความ
 - ความโปร่งใสของข้อความ
 - ระยะห่างอักขระ
-- คุณสมบัติฟอนต์
-- ตระกูลฟอนต์
+- คุณสมบัติแบบอักษร
+- ตระกูลแบบอักษร
 - การหมุนข้อความ
 - มุมการหมุน
 - กรอบข้อความ
-- ระยะห่างบรรทัด
-- คุณสมบัติ Autofit
-- การยึดกรอบข้อความ
-- การตั้งค่าแท็บข้อความ
+- การเว้นบรรทัด
+- คุณสมบัติ autofit
+- จุดยึดกรอบข้อความ
+- การแท็บข้อความ
 - ภาษาตั้งต้น
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "จัดรูปแบบและกำหนดสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Java ปรับแต่งฟอนต์ สี การจัดตำแหน่ง และอื่น ๆ"
+description: "จัดรูปแบบและออกแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ Java กำหนดแบบอักษร สี การจัดแนว และอื่นๆ"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีการจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Java รวมถึงการไฮไลท์, สีพื้นหลัง, ความโปร่งแสง, ระยะห่างระหว่างอักขระ, คุณสมบัติของฟอนต์, การหมุน, ระยะห่างของย่อหน้า, พฤติกรรม Autofit, การยึดตำแหน่งข้อความ, การตั้งค่าตำแหน่งแท็บ, และการตั้งค่าภาษา
+บทความนี้แสดงวิธีการจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides for Java พิจารณาตั้งค่าสีพื้นหลัง, ความโปร่งใส, ระยะห่างระหว่างอักขระ, คุณสมบัติของแบบอักษร, การหมุน, การเว้นระยะย่อหน้, พฤติกรรม autofit, การยึดข้อความ, จุดหยุดแท็บ, และการตั้งค่าภาษา
 
-ในตัวอย่างด้านล่าง เราจะใช้ไฟล์ชื่อ "sample.pptx" ซึ่งมีกล่องข้อความเดียวบนสไลด์แรกพร้อมข้อความต่อไปนี้:
+ในตัวอย่างด้านล่าง เราจะใช้ไฟล์ชื่อ "sample.pptx" ซึ่งมีข้อความกล่องเดียวบนสไลด์แรกดังนี้:
 
-![ข้อความตัวอย่าง](sample_text.png)
+![Sample text](sample_text.png)
 
-## **ไฮไลท์ข้อความ**
-
-ใช้เมธอด [ITextFrame.highlightText](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-) เมื่อคุณต้องการไฮไลท์ข้อความที่ตรงกับตัวอย่างเฉพาะภายในกรอบข้อความ เมธอดจะใส่สีไฮไลท์ให้กับส่วนของข้อความที่ตรงกันและสามารถใช้ร่วมกับ [TextSearchOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/textsearchoptions/) เพื่อควบคุมวิธีการค้นหาได้ ตัวอย่างเช่น เพื่อจับคู่เฉพาะคำเต็ม
-
-ตัวอย่างโค้ดด้านล่างจะแสดงการไฮไลท์ทุกการปรากฏของอักขระ **"try"** แล้วต่อมาจะไฮไลท์เฉพาะคำเต็ม **"to"** เท่านั้น
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // รับรูปทรงแรกจากสไลด์แรก.
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // ไฮไลท์คำ "try" ในรูปทรง.
-    shape.getTextFrame().highlightText("try", Color.LIGHT_GRAY);
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // ไฮไลท์คำ "to" ในรูปทรง.
-    shape.getTextFrame().highlightText("to", Color.MAGENTA, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-ผลลัพธ์:
-
-![ข้อความที่ไฮไลท์](highlighted_text.png)
-
-## **ไฮไลท์ข้อความโดยใช้ Regular Expressions**
-
-เมธอด [ITextFrame.highlightRegex](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) จะไฮไลท์ข้อความที่ตรงกับผลลัพธ์ของ Regular Expression ใน Java API นี้ปรากฏใน [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/)
-
-ตัวอย่างโค้ดด้านล่างไฮไลท์ทุกคำที่มี **เจ็ดอักขระหรือมากกว่า**:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // ไฮไลท์ทุกคำที่มีตัวอักษรเจ็ดหรือมากกว่าตัว.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-ผลลัพธ์:
-
-![ข้อความที่ไฮไลท์โดยใช้ Regular Expression](highlighted_text_using_regex.png)
+หากต้องการค้นหาและเน้นข้อความตามตัวอักษรหรือผลลัพธ์ที่ตรงกับ regular-expression กรุณาดูที่ [Search and Replace Text](/slides/th/java/search-and-replace-text/).
 
 ## **ตั้งค่าสีพื้นหลังของข้อความ**
 
-ใช้ [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) เพื่อกำหนดสีไฮไลท์เริ่มต้นสำหรับย่อหน้า หรือใช้ [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) สำหรับส่วนข้อความแต่ละส่วน
+ใช้ [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) เพื่อกำหนดสีไฮไลต์เริ่มต้นสำหรับย่อหน้า หรือใช้ [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) สำหรับส่วนของข้อความแต่ละส่วน
 
 ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ย่อหน้าทั้งหมด**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ตั้งค่าสีไฮไลท์สำหรับย่อหน้าทั้งหมด.
+    // ตั้งค่าสีไฮไลต์สำหรับย่อหน้าทั้งหมด.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -117,14 +64,18 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าเป็นสีเทา](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่เป็นฟอนต์ตัวหนา**:
+ตัวอย่างโค้ดด้านล่างสาธิตวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่ใช้แบบอักษรหนา**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -142,21 +93,24 @@ try {
 
 ผลลัพธ์:
 
-![ส่วนข้อความเป็นสีเทา](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
-## **จัดตำแหน่งย่อหน้าข้อความ**
+## **จัดแนวย่อหน้าข้อความ**
 
-ใช้ [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) เพื่อกำหนดการจัดตำแหน่งย่อหน้าภายในกรอบข้อความ ค่าเช่น จัดกึ่งกลาง, จัดซ้าย, จัดขวา, จัดเต็ม ฯลฯ
+ใช้ [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) เพื่อตั้งค่าการจัดแนวย่อหน้าภายในกรอบข้อความ ค่าที่ตั้งได้อาจเป็นการจัดกึ่งกลาง, ซ้าย, ขวา, จัดเต็ม, เป็นต้น
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดตำแหน่งย่อหน้าให้ **กึ่งกลาง**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดแนวย่อหน้าให้ **กึ่งกลาง**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ตั้งค่าการจัดตำแหน่งของย่อหน้าเป็นกึ่งกลาง.
+    // ตั้งค่าการจัดแนวของย่อหน้าให้กึ่งกลาง.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -167,23 +121,27 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าที่จัดตำแหน่งแล้ว](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
-## **ตั้งค่าความโปร่งแสงของข้อความ**
+## **ตั้งค่าความโปร่งใสของข้อความ**
 
-ความโปร่งแสงของข้อความควบคุมผ่านส่วนประกอบอัลฟ่า ของสีที่กำหนดให้กับ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) ตัวอย่างด้านล่าง `alpha = 50` คือค่าช่องอัลฟ่า ARGB บนสเกล 0‑255 ไม่ใช่เปอร์เซ็นต์ความโปร่งแสง
+ความโปร่งใสของข้อความถูกควบคุมผ่านส่วนประกอบอัลฟของสีที่กำหนดให้กับ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). ในตัวอย่างด้านล่าง `alpha = 50` เป็นค่าช่องอัลไฟด์ของ ARGB ในช่วง 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งใส
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งแสงกับ **ย่อหน้าทั้งหมด**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าทั้งหมด**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ตั้งค่าสีเติมของข้อความเป็นสีโปร่งแสง.
+    // ตั้งค่าสีเติมของข้อความเป็นสีโปร่งใส.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -195,21 +153,25 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าที่โปร่งแสง](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งแสงกับ **ส่วนข้อความที่เป็นฟอนต์ตัวหนา**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่ใช้แบบอักษรหนา**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // ตั้งค่าความโปร่งแสงของส่วนข้อความ.
+            // ตั้งค่าความโปร่งใสของส่วนข้อความ.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -223,22 +185,25 @@ try {
 
 ผลลัพธ์:
 
-![ส่วนข้อความที่โปร่งแสง](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
-## **ตั้งค่าระยะห่างอักขระของข้อความ**
+## **ตั้งค่าการเว้นระยะอักขระของข้อความ**
 
-ใช้ [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) เพื่อขยายหรือย่อระยะห่างระหว่างอักขระในกล่องข้อความ
+ใช้ [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) เพื่อขยายหรือย่อลดระยะห่างระหว่างอักขระในกล่องข้อความ
 
-โค้ด Java ต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าทั้งหมด**:
+โค้ด Java ต่อไปนี้แสดงวิธีขยายการเว้นระยะอักขระใน **ย่อหน้าทั้งหมด**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างอักขระ.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // ขยายระยะห่างอักขระ.
+    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // ขยายระยะห่างของอักขระ.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -248,20 +213,23 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างอักขระในย่อหน้า](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่เป็นฟอนต์ตัวหนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายการเว้นระยะอักขระใน **ส่วนข้อความที่ใช้แบบอักษรหนา**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างอักขระ.
-            portion.getPortionFormat().setSpacing(3); // ขยายระยะห่างอักขระ.
+            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
+            portion.getPortionFormat().setSpacing(3); // ขยายระยะห่างของอักขระ.
         }
     }
 
@@ -273,18 +241,21 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
-### **ปิดการทำ Kerning สำหรับฟอนต์เฉพาะ**
+### **ปิดการ Kerning สำหรับแบบอักษรที่ระบุ**
 
-ในบางกรณี ข้อความที่เราดึงโดย Aspose.Slides อาจดูแคบกว่าข้อความเดียวกันใน PowerPoint ซึ่งอาจเกิดจาก PowerPoint ไม่ได้ใช้ข้อมูล Kerning สำหรับฟอนต์บางประเภท แม้ว่าฟอนต์จะมีข้อมูล Kerning ที่ถูกต้องและเปิดใช้งานในตั้งค่า PowerPoint ก็ตาม
+ในบางกรณี ข้อความที่เรนเดอร์โดย Aspose.Slides อาจดูแน่นกว่าข้อความใน PowerPoint ซึ่งอาจเกิดจาก PowerPoint เพิกเฉยต่อข้อมูล kerning ของแบบอักษรบางแบบ แม้ว่าจะมีข้อมูล kerning ที่ถูกต้องและเปิดใช้งานในตั้งค่า PowerPoint
 
-เพื่อให้ผลลัพธ์ที่แสดงใกล้เคียงกับ PowerPoint ในกรณีดังกล่าว คุณสามารถปิด Kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบได้ ตั้งค่า [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) ให้เป็นค่าที่ใหญ่กว่าขนาดฟอนต์จริงอย่างมีนัยสำคัญ:
+เพื่อให้ผลลัพธ์ที่เรนเดอร์ใกล้เคียงกับ PowerPoint ในกรณีเหล่านี้ คุณสามารถปิดการ kerning สำหรับส่วนข้อความที่ใช้แบบอักษรที่ได้รับผลกระทบได้ โดยตั้งค่า [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) ให้เป็นค่าที่ใหญ่กว่าขนาดแบบอักษรจริงอย่างมาก:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
     for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
@@ -308,21 +279,24 @@ try {
 }
 ```
 
-การตั้งค่านี้จะป้องกันไม่ให้ Kerning ถูกนำไปใช้กับส่วนข้อความที่ตรงกันและช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับฟอนต์ที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้
+การตั้งค่านี้จะป้องกันไม่ให้ kerning ถูกนำไปใช้กับส่วนข้อความที่ตรงกันและช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับผลลัพธ์ภาพของ PowerPoint สำหรับแบบอักษรที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้
 
-## **จัดการคุณสมบัติฟอนต์ของข้อความ**
+## **จัดการคุณสมบัติแบบอักษรของข้อความ**
 
-คุณสมบัติฟอนต์สามารถตั้งค่าที่ระดับย่อหน้าได้ผ่าน [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) หรือที่ระดับส่วนข้อความผ่าน [IPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iportionformat/)
+Font properties can be set at the paragraph level through [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) or on individual portions through [IPortionFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iportionformat/).
 
-โค้ดต่อไปนี้ตั้งค่าฟอนต์และสไตล์ข้อความสำหรับ **ย่อหน้าทั้งหมด**: จะตั้งค่าขนาดฟอนต์, ตัวหนา, ตัวเอียง, ขีดเส้นใต้แบบจุด, และฟอนต์ Times New Roman ให้กับทุกส่วนในย่อหน้า
+โค้ดต่อไปนี้ตั้งค่าแบบอักษรและสไตล์ข้อความสำหรับย่อหน้าทั้งหมด: นำขนาดแบบอักษร, หนา, เอน, การขีดเส้นใต้แบบจุด, และแบบอักษร Times New Roman ไปใช้กับทุกส่วนในย่อหน้า
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ตั้งค่าคุณสมบัติฟอนต์สำหรับย่อหน้า.
+    // ตั้งค่าคุณสมบัติแบบอักษรสำหรับย่อหน้า.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
@@ -337,19 +311,22 @@ try {
 
 ผลลัพธ์:
 
-![คุณสมบัติฟอนต์ของย่อหน้า](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้ใช้คุณสมบัติเดียวกันกับ **ส่วนข้อความที่เป็นฟอนต์ตัวหนา**:
+ตัวอย่างโค้ดด้านล่างนำคุณสมบัติคล้ายกันไปใช้กับ **ส่วนข้อความที่ใช้แบบอักษรหนา**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // ตั้งค่าคุณสมบัติฟอนต์สำหรับส่วนข้อความ.
+            // ตั้งค่าคุณสมบัติแบบอักษรสำหรับส่วนข้อความ.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -365,18 +342,21 @@ try {
 
 ผลลัพธ์:
 
-![คุณสมบัติฟอนต์ของส่วนข้อความ](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
 ## **ตั้งค่าการหมุนของข้อความ**
 
-ใช้ [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) เพื่อกำหนดทิศทางข้อความที่กำหนดล่วงหน้าในรูปทรง
+ใช้ [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) เพื่อกำหนดการวางแนวข้อความล่วงหน้าภายในรูปร่าง
 
-โค้ดต่อไปนี้ตั้งค่าการจัดแนวข้อความในรูปทรงเป็น `Vertical270` ซึ่งจะหมุนข้อความ **90 องศาตามเข็มนาฬิกาแบบย้อนกลับ**:
+โค้ดต่อไปนี้ตั้งค่าการวางแนวข้อความในรูปร่างเป็น `Vertical270` ซึ่งหมุนข้อความ **90 ดีกรีทวนเข็มนาฬิกา**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -388,18 +368,21 @@ try {
 
 ผลลัพธ์:
 
-![การหมุนของข้อความ](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
+## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับ Text Frames**
 
-ใช้ [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) เพื่อกำหนดมุมหมุนแบบกำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/)
+ใช้ [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) เพื่อกำหนดมุมการหมุนที่กำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/)
 
-โค้ดต่อไปนี้หมุนกรอบข้อความ 3 องศาตามเข็มนาฬิกาในรูปทรง:
+โค้ดด้านล่างหมุน Text Frame 3 ดีกรีตามเข็มนาฬิกาในรูปร่าง:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -411,21 +394,24 @@ try {
 
 ผลลัพธ์:
 
-![การหมุนข้อความแบบกำหนดเอง](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
-## **ตั้งค่าระยะห่างบรรทัดของย่อหน้า**
+## **ตั้งค่าการเว้นบรรทัดของย่อหน้า**
 
-Aspose.Slides มี [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), และ [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) เพื่อควบคุมระยะห่างของย่อหน้า คุณสมบัติเหล่านี้ใช้ได้ดังนี้
+Aspose.Slides provides [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), and [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) to control paragraph spacing. These properties are used as follows:
 
-* ใช้ค่าเป็นบวกเพื่อระบุระยะห่างเป็นเปอร์เซ็นต์ของความสูงบรรทัด
-* ใช้ค่าเป็นลบเพื่อระบุระยะห่างเป็นจุด
+* ใช้ค่าบวกเพื่อระบุการเว้นบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด
+* ใช้ค่าลบเพื่อระบุการเว้นบรรทัดเป็นจุด
 
-โค้ดต่อไปนี้แสดงวิธีกำหนดระยะห่างบรรทัดภายในย่อหน้า:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีระบุการเว้นบรรทัดภายในย่อหน้า:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -438,16 +424,19 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างบรรทัดในย่อหน้า](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **ตั้งค่า Autofit Type สำหรับกรอบข้อความ**
+## **ตั้งค่าชนิด Autofit สำหรับ Text Frames**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) กำหนดวิธีการที่ข้อความทำงานเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะหดลง, ล้นออก, หรือเปลี่ยนขนาดรูปทรงโดยอัตโนมัติ
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determines how text behaves when it exceeds the boundaries of its container. Use it to control whether the text shrinks, overflows, or resizes the shape automatically.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -457,14 +446,17 @@ try {
 }
 ```
 
-## **ตั้งค่า Anchor ของกรอบข้อความ**
+## **ตั้งค่าตำแหน่งยึดของ Text Frames**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) กำหนดตำแหน่งแนวตั้งของข้อความภายในรูปทรง เช่น บน, กลาง, หรือล่าง
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) defines how text is positioned vertically inside a shape, for example at the top, middle, or bottom.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -474,14 +466,17 @@ try {
 }
 ```
 
-## **ตั้งค่าการแท็บของข้อความ**
+## **ตั้งค่าการแท็บข้อความ**
 
-ใช้ [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) และ [IParagraphFormat.getTabs](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getTabs--) เพื่อกำหนดตำแหน่งแท็บในย่อหน้า
+Use [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) and [IParagraphFormat.getTabs](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getTabs--) to configure tab stops in a paragraph.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -495,18 +490,21 @@ try {
 
 ผลลัพธ์:
 
-![แท็บของย่อหน้า](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
 ## **ตั้งค่าภาษาการตรวจสอบ**
 
-Aspose.Slides มี [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) ซึ่งให้คุณกำหนดภาษาการตรวจสอบสำหรับส่วนข้อความ ภาษาการตรวจสอบกำหนดภาษาที่ใช้สำหรับการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
+Aspose.Slides provides [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), which allows you to set the proofing language for a text portion. The proofing language determines the language used for spelling and grammar checks in PowerPoint.
 
-โค้ดต่อไปนี้แสดงวิธีตั้งค่าภาษาการตรวจสอบสำหรับส่วนข้อความ:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าภาษาการตรวจสอบสำหรับส่วนข้อความ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -521,7 +519,7 @@ try {
     // ตั้งค่า Id ของภาษาการตรวจสอบ.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", SaveFormat.Pptx);
@@ -532,9 +530,11 @@ try {
 
 ## **ตั้งค่าภาษาเริ่มต้น**
 
-ใช้ [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) เพื่อกำหนดภาษาตั้งต้นสำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอ
+Use [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) to define the default language for text created while loading or creating a presentation.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -542,7 +542,7 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปสี่เหลี่ยมผืนผ้าใหม่พร้อมข้อความ.
+    // เพิ่มรูปร่างสี่เหลี่ยมจัตุรัสใหม่พร้อมข้อความ.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -556,14 +556,16 @@ try {
 
 ## **ตั้งค่าสไตล์ข้อความเริ่มต้น**
 
-เพื่อใช้ฟอร์แมตข้อความเริ่มต้นในระดับงานนำเสนอ ให้ใช้ [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--)
+To apply default text formatting at the presentation level, use [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-โค้ดต่อไปนี้แสดงวิธีกำหนดฟอนต์ตัวหนาขนาด 14 pt เป็นค่าเริ่มต้นสำหรับข้อความทั้งหมดในสไลด์ใหม่
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าแบบอักษรหนาดั้งเดิมขนาด 14 pt สำหรับข้อความทั้งหมดในสไลด์ของการนำเสนอใหม่
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // รับรูปแบบย่อหน้าระดับบนสุด.
+    // รับรูปแบบย่อหน้าในระดับบนสุด.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -577,20 +579,23 @@ try {
 }
 ```
 
-## **สกัดข้อความด้วยเอฟเฟกต์ All‑Caps**
+## **ดึงข้อความที่มีเอฟเฟกต์ All-Caps**
 
-ใน PowerPoint การใช้เอฟเฟกต์ **All Caps** ทำให้ข้อความปรากฏเป็นตัวพิมพ์ใหญ่ทั้งหมดแม้ว่าจะพิมพ์เป็นตัวพิมพ์เล็ก เดิมเมื่อดึงส่วนข้อความเช่นนี้ด้วย Aspose.Slides ไลบรารีจะคืนข้อความตามที่พิมพ์ไว้ เพื่อตรงกับข้อความที่แสดงให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/th/java/com.aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่ามาเป็นตัวพิมพ์ใหญ่เมื่อค่าเป็น `All`
+ใน PowerPoint การใช้เอฟเฟกต์ **All Caps** ทำให้ข้อความปรากฏเป็นตัวพิมพ์ใหญ่บนสไลด์แม้จะพิมพ์เป็นตัวพิมพ์เล็กเดิม เมื่อคุณดึงส่วนข้อความเช่นนี้ด้วย Aspose.Slides ไลบรารีจะคืนข้อความตามที่พิมพ์ไว้เดิม เพื่อตรงกับข้อความที่แสดงให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/th/java/com.aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่ามาเป็นตัวพิมพ์ใหญ่เมื่อค่าเป็น `All`
 
-สมมติว่ามีกล่องข้อความต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx
+สมมติว่าเรามีกล่องข้อความต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx
 
-![เอฟเฟกต์ All Caps](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-โค้ดต่อไปนี้แสดงวิธีสกัดข้อความพร้อมเอฟเฟกต์ **All Caps** ที่กำหนดไว้:
+โค้ดตัวอย่างด้านล่างแสดงวิธีดึงข้อความที่มีเอฟเฟกต์ **All Caps** ถูกใช้:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -614,10 +619,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**ทำอย่างไรจึงแก้ไขข้อความในตารางบนสไลด์ได้?**
+**วิธีแก้ไขข้อความในตารางบนสไลด์?**
 
-เพื่อแก้ไขข้อความในตารางบนสไลด์ ใช้ [ITable](https://reference.aspose.com/slides/th/java/com.aspose.slides/itable/) ลูปผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [ICell.getTextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/icell/#getTextFrame--) และกำหนดรูปแบบย่อหน้าผ่าน [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getParagraphFormat--)
+เพื่อแก้ไขข้อความในตารางบนสไลด์ ใช้ [ITable](https://reference.aspose.com/slides/th/java/com.aspose.slides/itable/). วนซ้ำผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [ICell.getTextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/icell/#getTextFrame--) และการจัดรูปแบบย่อหน้าผ่าน [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**ทำอย่างไรจึงใส่สีไล่ระดับให้กับข้อความในสไลด์ PowerPoint?**
+**วิธีใช้สีไล่ระดับกับข้อความในสไลด์ PowerPoint?**
 
-เพื่อใส่สีไล่ระดับให้กับข้อความ ใช้ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) ตั้งค่า [IFillFormat.setFillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifillformat/#setFillType-byte-) เป็น [FillType.Gradient](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) แล้วกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งแสง)
+เพื่อใช้สีไล่ระดับกับข้อความ ใช้ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). ตั้งค่า [IFillFormat.setFillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ifillformat/#setFillType-byte-) เป็น [FillType.Gradient](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) แล้วกำหนดจุดไล่ระดับ, ทิศทาง, และความโปร่งใส.

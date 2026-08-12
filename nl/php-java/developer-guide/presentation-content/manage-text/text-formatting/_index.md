@@ -1,25 +1,23 @@
 ---
-title: Tekst opmaken in presentaties met PHP
+title: Opmaak van presentatietekst in PHP
 linktitle: Tekstopmaak
 type: docs
 weight: 50
 url: /nl/php-java/text-formatting/
 keywords:
-- tekst markeren
-- reguliere expressie
-- paragraaf uitlijnen
+- alinea uitlijnen
 - tekststijl
 - tekstachtergrond
 - teksttransparantie
-- tekenafstand
-- lettertype-eigenschappen
+- tekensafstand
+- lettertype‑eigenschappen
 - lettertypefamilie
-- tekstrotatie
+- tekstrortatie
 - rotatiehoek
-- tekstframe
+- tekstkader
 - regelafstand
-- autofit-eigenschap
-- tekstframe-anker
+- autofit‑eigenschap
+- tekstkader‑anker
 - teksttabulatie
 - standaardtaal
 - PowerPoint
@@ -27,87 +25,34 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Formateer en styleer tekst in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor PHP via Java. Pas lettertypen, kleuren, uitlijning en meer aan."
+description: "Opmaak en stijl van tekst in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor PHP via Java. Pas lettertypen, kleuren, uitlijning en meer aan."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe je tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor PHP via Java. Het behandelt markeringen, achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekstverankering, tabstops en taalinstellingen.
+Dit artikel laat zien hoe u tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides for PHP via Java. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekstankering, tab‑stops en taalinstellingen.
 
-In de voorbeelden hieronder gebruiken we een bestand genaamd "sample.pptx", dat een enkel tekstvak op de eerste dia bevat met de volgende tekst:
+In de voorbeelden hieronder gebruiken we een bestand genaamd “sample.pptx”, dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
 
-![Sample text](sample_text.png)
+![Voorbeeldtekst](sample_text.png)
 
-## **Tekst markeren**
+Om letterlijk tekst te vinden en te markeren of reguliere‑expressie‑matches, zie [Zoeken en vervangen van tekst](/slides/nl/php-java/search-and-replace-text/).
 
-Gebruik de [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/)`::highlightText`‑methode wanneer je tekst wilt markeren die overeenkomt met een specifiek voorbeeld binnen een tekstvak. De methode past een markeerkleur toe op overeenkomende tekstfragmenten en kan worden gebruikt met [TextHighlightingOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/texthighlightingoptions/) om te bepalen hoe de zoekopdracht wordt uitgevoerd, bijvoorbeeld om alleen volledige woorden te matchen.
+## **Achtergrondkleur van tekst instellen**
 
-De code‑voorbeeld hieronder markeert alle voorkomens van de tekens **"try"** en markeert vervolgens alleen het volledige woord **"to"**.
+Gebruik ParagraphFormat::getDefaultPortionFormat om de standaardmarkeerkleur voor een alinea in te stellen, of gebruik BasePortionFormat::getHighlightColor voor individuele tekstgedeelten.
 
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    // Haal de eerste vorm van de eerste dia op.
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lightBlue = new Java("java.awt.Color", 173, 216, 230);
-    $violet = new Java("java.awt.Color", 238, 130, 238);
-
-    // Markeer het woord "try" in de vorm.
-    $shape->getTextFrame()->highlightText("try", $lightBlue);
-
-    $searchOptions = new TextHighlightingOptions();
-    $searchOptions->setWholeWordsOnly(true);
-
-    // Markeer het woord "to" in de vorm.
-    $shape->getTextFrame()->highlightText("to", $violet, $searchOptions);
-
-    $presentation->save("highlighted_text.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Het resultaat:
-
-![The highlighted text](highlighted_text.png)
-
-## **Tekst markeren met reguliere expressies**
-
-De [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/)`::highlightRegex`‑methode markeert tekstfragmenten die door een reguliere expressie worden gevonden.
-
-De code‑voorbeeld hieronder markeert alle woorden die **zeven of meer tekens** bevatten:
+De volgende code‑voorbeeld toont hoe u de achtergrondkleur voor de **hele alinea** kunt instellen:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-
-    // Markeer alle woorden met zeven of meer tekens.
-    $shape->getTextFrame()->highlightRegex("\\b[^\\s]{7,}\\b", java("java.awt.Color")->YELLOW, null);
-
-    $presentation->save("highlighted_text_using_regex.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Het resultaat:
-
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
-
-## **Achtergrondkleur voor tekst instellen**
-
-Gebruik de standaard‑portion‑format van [ParagraphFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [PortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portionformat/) voor individuele tekstporties.
-
-De volgende code‑voorbeeld laat zien hoe je de achtergrondkleur voor de **hele alinea** instelt:
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     // Stel de markeerkleur in voor de hele alinea.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -115,24 +60,26 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The gray paragraph](gray_paragraph.png)
+![De grijze alinea](gray_paragraph.png)
 
-De code‑voorbeeld hieronder laat zien hoe je de achtergrondkleur instelt voor **tekstporties met een vet lettertype**:
+Het code‑voorbeeld hieronder toont hoe u de achtergrondkleur voor **tekstgedeelten met een vet lettertype** kunt instellen:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Stel de markeerkleur in voor de tekstportie.
-            $portion->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+            // Stel de markeerkleur in voor het tekstgedeelte.
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -142,23 +89,24 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The gray text portions](gray_text_portions.png)
+![De grijze tekstgedeelten](gray_text_portions.png)
 
-## **Tekst alinea's uitlijnen**
+## **Tekst­alinea’s uitlijnen**
 
-Gebruik de [ParagraphFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/)`::setAlignment`‑methode om de alinea‑uitlijning binnen een tekstvak in te stellen. De waarde kan gecentreerd, links‑uitgelijnd, rechts‑uitgelijnd, uitgevuld, enzovoort zijn.
+Gebruik ParagraphFormat::setAlignment om de alinea‑uitlijning binnen een tekstvak in te stellen. De waarde kan gecentreerd, links‑uitgelijnd, rechts‑uitgelijnd, uitgevuld, enzovoort zijn.
 
-De volgende code‑voorbeeld laat zien hoe je de alinea naar het **midden** uitlijnt:
+De volgende code‑voorbeeld toont hoe u de alinea kunt uitlijnen naar het **midden**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Stel de uitlijning van de alinea in op midden.
+    // Stel de uitlijning van de alinea in op het midden.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -167,28 +115,30 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The aligned paragraph](aligned_paragraph.png)
+![De uitgelijnde alinea](aligned_paragraph.png)
 
 ## **Transparantie voor tekst instellen**
 
-Transparantie van tekst wordt geregeld via het alfa‑component van de kleur die aan het invulformaat van [PortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portionformat/) is toegewezen. In de voorbeelden hieronder is `alpha = 50` een ARGB‑alfa‑kanaalwaarde op de 0‑255‑schaal, geen transparantie‑percentage.
+De transparantie van tekst wordt geregeld via de alfacomponent van de kleur die is toegewezen aan BasePortionFormat::getFillFormat. In de onderstaande voorbeelden staat `alpha = 50` voor een ARGB‑alphakanaalwaarde op een schaal van 0–255, niet voor een transparantiepercentage.
 
-De code‑voorbeeld hieronder toont hoe je transparantie toepast op de **hele alinea**:
+Het code‑voorbeeld hieronder toont hoe u transparantie kunt toepassen op de **hele alinea**:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
     // Stel de vulkleur van de tekst in op een transparante kleur.
     $fillFormat->setFillType(FillType::Solid);
-    $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
+    $fillFormat->getSolidFillColor()->setColor($transparentColor);
 
     $presentation->save("transparent_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -196,28 +146,30 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The transparent paragraph](transparent_paragraph.png)
+![De transparante alinea](transparent_paragraph.png)
 
-De volgende code‑voorbeeld toont hoe je transparantie toepast op **tekstporties met een vet lettertype**:
+Het volgende code‑voorbeeld toont hoe u transparantie kunt toepassen op **tekstgedeelten met een vet lettertype**:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Stel de transparantie van de tekstportie in.
+            // Stel de transparantie van het tekstgedeelte in.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
-            $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+            $fillFormat->getSolidFillColor()->setColor($transparentColor);
         }
     }
 
@@ -227,24 +179,25 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The transparent text portions](transparent_text_portions.png)
+![De transparante tekstgedeelten](transparent_text_portions.png)
 
 ## **Tekenafstand voor tekst instellen**
 
-Gebruik de [BasePortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseportionformat/)`::setSpacing`‑methode om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen.
+Gebruik BasePortionFormat::setSpacing om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen.
 
-De volgende PHP‑code toont hoe je de tekenafstand in de **hele alinea** vergroot:
+De volgende PHP‑code toont hoe u de tekenafstand in de **hele alinea** kunt vergroten:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Opmerking: Gebruik negatieve waarden om de tekenafstand te comprimeren.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Vergroot de tekenafstand.
+    // Opmerking: Gebruik negatieve waarden om de tekensafstand te comprimeren.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Uitbreiden van de tekensafstand.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -252,24 +205,25 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The character spacing in the paragraph](character_spacing_in_paragraph.png)
+![De tekenafstand in de alinea](character_spacing_in_paragraph.png)
 
-De code‑voorbeeld hieronder toont hoe je de tekenafstand vergroot in **tekstporties met een vet lettertype**:
+Het code‑voorbeeld hieronder toont hoe u de tekenafstand kunt vergroten in **tekstgedeelten met een vet lettertype**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Opmerking: Gebruik negatieve waarden om de tekenafstand te comprimeren.
-            $portion->getPortionFormat()->setSpacing(3); // Vergroot de tekenafstand.
+            // Opmerking: Gebruik negatieve waarden om de tekensafstand te comprimeren.
+            $portion->getPortionFormat()->setSpacing(3); // Uitbreiden van de tekensafstand.
         }
     }
 
@@ -279,20 +233,21 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The character spacing in the text portions](character_spacing_in_text_portions.png)
+![De tekenafstand in de tekstgedeelten](character_spacing_in_text_portions.png)
 
-### **Kerning uitschakelen voor specifieke lettertypen**
+### **Kerning voor specifieke lettertypen uitschakelen**
 
-In sommige gevallen kan de door Aspose.Slides gerenderde tekst er iets strakker uitzien dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
+In sommige gevallen kan de tekst die door Aspose.Slides wordt gerenderd er iets strakker uitzien dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
 
-Om de gerenderde uitvoer in dergelijke gevallen dichter bij PowerPoint te laten komen, kun je kerning uitschakelen voor tekstporties die het desbetreffende lettertype gebruiken. Stel de [BasePortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseportionformat/)`::setKerningMinimalSize`‑methode in op een waarde die aanzienlijk groter is dan de werkelijke lettergrootte:
+Om de gerenderde output in dergelijke gevallen dichter bij PowerPoint te laten komen, kunt u kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel BasePortionFormat::setKerningMinimalSize in op een waarde die aanzienlijk groter is dan de werkelijke lettergrootte:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $targetFont = "Roboto";
 
     $paragraphCount = java_values($autoShape->getTextFrame()->getParagraphs()->getCount());
@@ -320,27 +275,29 @@ try {
 }
 ```
 
-Deze instelling voorkomt dat kerning wordt toegepast op overeenkomende tekstporties en kan helpen om de weergave van Aspose.Slides af te stemmen op de visuele uitvoer van PowerPoint voor lettertypen die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
+Deze instelling voorkomt dat kerning wordt toegepast op overeenkomende tekstgedeelten en kan helpen de weergave van Aspose.Slides beter af te stemmen op de visuele output van PowerPoint voor lettertypen die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
 
 ## **Lettertype‑eigenschappen van tekst beheren**
 
-Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via het standaard‑portion‑formaat van [ParagraphFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/) of op individuele porties via [PortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portionformat/).
+Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via ParagraphFormat::getDefaultPortionFormat of op individuele gedeelten via PortionFormat.
 
-De volgende code stelt het lettertype en de tekststijl in voor de volledige alinea: het past lettergrootte, vet, cursief, gestippelde onderstreping en het Times New Roman‑lettertype toe op alle porties in de alinea.
+De volgende code stelt het lettertype en de tekststijl in voor de hele alinea: het past lettergrootte, vet, cursief, gestippelde onderstreping en het Times New Roman‑lettertype toe op alle gedeelten in de alinea.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $font = new FontData("Times New Roman");
 
     // Stel de lettertype‑eigenschappen in voor de alinea.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
     $defaultPortionFormat->setFontUnderline(TextUnderlineType::Dotted);
-    $defaultPortionFormat->setLatinFont(new FontData("Times New Roman"));
+    $defaultPortionFormat->setLatinFont($font);
 
     $presentation->save("font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -348,28 +305,30 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The font properties for the paragraph](font_properties_for_paragraph.png)
+![De lettertype‑eigenschappen voor de alinea](font_properties_for_paragraph.png)
 
-De code‑voorbeeld hieronder past vergelijkbare eigenschappen toe op **tekstporties met een vet lettertype**:
+Het code‑voorbeeld hieronder past vergelijkbare eigenschappen toe op **tekstgedeelten met een vet lettertype**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $font = new FontData("Times New Roman");
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Stel de lettertype‑eigenschappen in voor de tekstportie.
+            // Stel de lettertype‑eigenschappen in voor het tekstgedeelte.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
             $portionFormat->setFontUnderline(TextUnderlineType::Dotted);
-            $portionFormat->setLatinFont(new FontData("Times New Roman"));
+            $portionFormat->setLatinFont($font);
         }
     }
 
@@ -379,20 +338,21 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The font properties for text portions](font_properties_for_text_portions.png)
+![De lettertype‑eigenschappen voor tekstgedeelten](font_properties_for_text_portions.png)
 
 ## **Tekstrotatie instellen**
 
-Gebruik de [TextFrameFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframeformat/)`::setTextVerticalType`‑methode om een vooraf gedefinieerde tekstoriëntatie binnen een vorm in te stellen.
+Gebruik TextFrameFormat::setTextVerticalType om een voorgedefinieerde tekstoriëntatie binnen een vorm in te stellen.
 
 De volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op `Vertical270`, waardoor de tekst **90 graden tegen de klok in** wordt gedraaid:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
 
@@ -402,20 +362,21 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The text rotation](text_rotation.png)
+![De tekstrotatie](text_rotation.png)
 
-## **Aangepaste rotatie voor tekstframes instellen**
+## **Aangepaste rotatie voor tekstkaders instellen**
 
-Gebruik de [TextFrameFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframeformat/)`::setRotationAngle`‑methode om een aangepaste rotatiehoek in te stellen voor een [TextFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframe/).
+Gebruik TextFrameFormat::setRotationAngle om een aangepaste rotatiehoek in te stellen voor een TextFrame.
 
-De code‑voorbeeld hieronder draait het tekstframe 3 graden met de klok mee binnen de vorm:
+Het code‑voorbeeld hieronder roteert het tekstkader met 3 graden met de klok mee binnen de vorm:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setRotationAngle(3);
 
@@ -425,23 +386,24 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The custom text rotation](custom_text_rotation.png)
+![De aangepaste tekstrotatie](custom_text_rotation.png)
 
-## **Regelafstand van alinea's instellen**
+## **Regelafstand van alinea’s instellen**
 
-Aspose.Slides biedt de methoden [ParagraphFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/)`::setSpaceAfter`, `ParagraphFormat::setSpaceBefore` en `ParagraphFormat::setSpaceWithin` om de alinea‑afstand te regelen. Deze methoden worden als volgt gebruikt:
+Aspose.Slides biedt ParagraphFormat::setSpaceAfter, ParagraphFormat::setSpaceBefore en ParagraphFormat::setSpaceWithin om de alinea‑afstand te regelen. Deze eigenschappen worden als volgt gebruikt:
 
-* Gebruik een positieve waarde om de regelafstand als percentage van de regelhoogte op te geven.
+* Gebruik een positieve waarde om de regelafstand op te geven als een percentage van de regelhoogte.
 * Gebruik een negatieve waarde om de regelafstand in punten op te geven.
 
-De volgende code‑voorbeeld toont hoe je de regelafstand binnen de alinea specificeert:
+De volgende code‑voorbeeld toont hoe u de regelafstand binnen de alinea kunt specificeren:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setSpaceWithin(200);
@@ -452,18 +414,19 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The line spacing within the paragraph](line_spacing.png)
+![De regelafstand binnen de alinea](line_spacing.png)
 
-## **Autofit‑type voor tekstframes instellen**
+## **Autofit‑type voor tekstkaders instellen**
 
-De [TextFrameFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframeformat/)`::setAutofitType`‑methode bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik deze om te bepalen of de tekst krimpt, overlapt of de vorm automatisch vergroot.
+TextFrameFormat::setAutofitType bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik dit om te regelen of de tekst verkleint, overloopt of de vorm automatisch opnieuw schaalt.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
 
@@ -473,14 +436,15 @@ try {
 }
 ```
 
-## **Anker van tekstframes instellen**
+## **Anker van tekstkaders instellen**
 
-De [TextFrameFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textframeformat/)`::setAnchoringType`‑methode bepaalt hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, midden of onderaan.
+TextFrameFormat::setAnchoringType definieert hoe tekst verticaal in een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
 
@@ -490,14 +454,15 @@ try {
 }
 ```
 
-## **Tabulatie voor tekst instellen**
+## **Tekst‑tabulatie instellen**
 
-Gebruik de [ParagraphFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraphformat/)`::setDefaultTabSize`‑methode en de tab‑verzameling om tabstops in een alinea te configureren.
+Gebruik ParagraphFormat::setDefaultTabSize en ParagraphFormat::getTabs om tab‑stops in een alinea te configureren.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setDefaultTabSize(100);
@@ -509,20 +474,21 @@ try {
 }
 ```
 
-Het resultaat:
+Resultaat:
 
-![The paragraph tabs](paragraph_tabs.png)
+![De alinea‑tabs](paragraph_tabs.png)
 
-## **Controlerende taal instellen**
+## **Proefleestaal instellen**
 
-Aspose.Slides biedt de [BasePortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseportionformat/)`::setLanguageId`‑methode, waarmee je de controlerende taal voor een tekstportie kunt instellen. De controlerende taal bepaalt welke taal wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
+Aspose.Slides biedt BasePortionFormat::setLanguageId, waarmee u de proefleestaal voor een tekstgedeelte kunt instellen. De proefleestaal bepaalt welke taal wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
 
-De volgende code‑voorbeeld toont hoe je de controlerende taal voor een tekstportie instelt:
+De volgende code‑voorbeeld toont hoe u de proefleestaal voor een tekstgedeelte kunt instellen:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getPortions()->clear();
@@ -534,10 +500,10 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Stel de ID van een controletaal in.
+    // Stel de Id van een proefleestaal in.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
-    $textPortion->setText("1.");
+    $textPortion->setText("1。");
     $paragraph->getPortions()->add($textPortion);
 
     $presentation->save("proofing_language.pptx", SaveFormat::Pptx);
@@ -548,7 +514,7 @@ try {
 
 ## **Standaardtaal instellen**
 
-Gebruik de [LoadOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/)`::setDefaultTextLanguage`‑methode om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of maken van een presentatie.
+Gebruik LoadOptions::setDefaultTextLanguage om de standaardtaal te definiëren voor tekst die wordt aangemaakt bij het laden of maken van een presentatie.
 
 ```php
 $loadOptions = new LoadOptions();
@@ -562,7 +528,7 @@ try {
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // Controleer de taal van de eerste tekstportie.
+    // Controleer de taal van het eerste gedeelte.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -570,11 +536,11 @@ try {
 }
 ```
 
-## **Standaard tekststijl instellen**
+## **Standaard‑tekststijl instellen**
 
-Om standaardtekstopmaak op presentatieniveau toe te passen, gebruik je de standaard‑tekststijl van [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/).
+Om standaard‑tekstopmaak toe te passen op presentatieniveau, gebruik Presentation::getDefaultTextStyle.
 
-De volgende code‑voorbeeld laat zien hoe je een standaard vet lettertype met een grootte van 14 pt instelt voor alle tekst op alle dia's in een nieuwe presentatie.
+De volgende code‑voorbeeld toont hoe u een standaard vet lettertype met een grootte van 14 pt kunt instellen voor alle tekst op alle dia's in een nieuwe presentatie.
 
 ```php
 $presentation = new Presentation();
@@ -593,27 +559,29 @@ try {
 }
 ```
 
-## **Tekst met All‑Caps‑effect extraheren**
+## **Tekst extraheren met het All‑Caps‑effect**
 
-In PowerPoint zorgt het toepassen van het **All Caps**‑lettertype‑effect ervoor dat tekst in hoofdletters op de dia verschijnt, zelfs wanneer deze oorspronkelijk in kleine letters is getypt. Wanneer je een dergelijke tekstportie ophaalt met Aspose.Slides, retourneert de bibliotheek de tekst exact zoals deze is ingevoerd. Om de weergegeven tekst te matchen, controleer je [TextCapType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textcaptype/) en converteer je de geretourneerde tekenreeks naar hoofdletters wanneer de waarde `All` is.
+In PowerPoint zorgt het toepassen van het **All Caps**‑lettertype‑effect ervoor dat tekst in hoofdletters op de dia wordt weergegeven, zelfs als deze oorspronkelijk in kleine letters is getypt. Wanneer u een dergelijk tekstgedeelte met Aspose.Slides ophaalt, retourneert de bibliotheek de tekst precies zoals ingevoerd. Om overeen te komen met de weergegeven tekst, controleer TextCapType en zet de geretourneerde tekenreeks om naar hoofdletters wanneer de waarde `All` is.
 
-Stel dat we het volgende tekstvak hebben op de eerste dia van het bestand sample2.pptx.
+Laten we zeggen dat we het volgende tekstvak hebben op de eerste dia van het bestand sample2.pptx.
 
-![The All Caps effect](all_caps_effect.png)
+![Het All Caps‑effect](all_caps_effect.png)
 
-De code‑voorbeeld hieronder toont hoe je de tekst met het **All Caps**‑effect extraheert:
+Het code‑voorbeeld hieronder toont hoe u de tekst kunt extraheren met het **All Caps**‑effect toegepast:
 
 ```php
 $presentation = new Presentation("sample2.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $textPortion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 
-    echo "Original text: ", $textPortion->getText(), "\n";
+    $originalText = $textPortion->getText();
+    echo "Original text: ", $originalText, "\n";
 
     $textFormat = $textPortion->getPortionFormat()->getEffective();
     if (java_values($textFormat->getTextCapType()) === TextCapType::All) {
-        $text = strtoupper($textPortion->getText());
+        $text = strtoupper($originalText);
         echo "All-Caps effect: ", $text, "\n";
     }
 } finally {
@@ -621,19 +589,19 @@ try {
 }
 ```
 
-Uitvoer:
+Output:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Hoe tekst in een tabel op een dia aanpassen?**
+**Hoe pas ik tekst aan in een tabel op een dia?**
 
-Om tekst in een tabel op een dia aan te passen, gebruik je [Table](https://reference.aspose.com/slides/nl/php-java/aspose.slides/table/). Loop door de cellen en werk elke cel bij via het tekstframe van [Cell](https://reference.aspose.com/slides/nl/php-java/aspose.slides/cell/) en de alinea‑opmaak via het alinea‑formaat van [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/).
+Om tekst in een tabel op een dia te wijzigen, gebruik Table. Doorloop de cellen en werk elke cel bij via Cell::getTextFrame en alinea‑opmaak via Paragraph::getParagraphFormat.
 
-**Hoe een kleurverloop op tekst in een PowerPoint‑dia toepassen?**
+**Hoe pas ik een verloopkleur toe op tekst in een PowerPoint‑dia?**
 
-Om een kleurverloop op tekst toe te passen, gebruik je het invulformaat van [PortionFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/portionformat/). Stel het invultype van [FillFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fillformat/) in op [FillType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/filltype/) `Gradient` en configureer de verloopstops, richting en transparantie.
+Om een verloopkleur op tekst toe te passen, gebruik BasePortionFormat::getFillFormat. Stel FillFormat::setFillType in op FillType::Gradient en configureer de verloopstops, richting en transparantie.
