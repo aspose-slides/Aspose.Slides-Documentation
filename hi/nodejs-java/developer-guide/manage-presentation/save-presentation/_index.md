@@ -14,30 +14,33 @@ keywords:
 - ODP सहेजें
 - फ़ाइल में प्रस्तुति
 - स्ट्रीम में प्रस्तुति
-- पूर्वनिर्धारित दृश्य प्रकार
-- स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट
+- पूर्वनिर्धारित व्यू टाइप
+- स्ट्रिक्ट Office Open XML फ़ॉर्मेट
 - Zip64 मोड
-- थंबनेल रीफ़्रेश करना
-- सेव प्रगति
+- थंबनेल रिफ्रेश कर रहा है
+- सहेजने की प्रगति
 - Node.js
-- JavaScript
+- जावास्क्रिप्ट
 - Aspose.Slides
-description: "Aspose.Slides for Node.js का उपयोग करके जावास्क्रिप्ट में प्रस्तुतियों को कैसे सहेजें, यह खोजें—PowerPoint या OpenDocument में निर्यात करते समय लेआउट, फ़ॉन्ट और प्रभाव बनाए रखें।"
+description: "Aspose.Slides for Node.js का उपयोग करके जावास्क्रिप्ट में प्रस्तुतियों को सहेजने के तरीके की खोज करें—PowerPoint या OpenDocument में निर्यात करते समय लेआउट, फ़ॉन्ट और इफ़ेक्ट्स को बनाए रखें।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-[Open Presentations in JavaScript](/slides/hi/nodejs-java/open-presentation/) ने बताया कि कैसे [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का उपयोग करके प्रस्तुति खोली जाती है। यह लेख बताता है कि प्रस्तुतियों को कैसे बनाया और सहेजा जाता है। [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास में प्रस्तुति की सामग्री होती है। चाहे आप नई प्रस्तुति बना रहे हों या मौजूदा को संशोधित कर रहे हों, आप काम समाप्त करने पर इसे सहेजना चाहेंगे। Aspose.Slides for Node.js के साथ आप **फ़ाइल** या **स्ट्रीम** में सहेज सकते हैं। यह लेख प्रस्तुतियों को सहेजने के विभिन्न तरीकों को समझाता है।
+[जावास्क्रिप्ट में प्रस्तुतियों को खोलें](/slides/hi/nodejs-java/open-presentation/) में बताया गया है कि प्रस्तुति खोलने के लिए [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास का उपयोग कैसे किया जाता है। यह लेख बताता है कि प्रस्तुतियों को कैसे बनाया और सहेजा जाए। [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास में प्रस्तुति की सामग्री होती है। चाहे आप नई प्रस्तुति बना रहे हों या मौजूदा को संशोधित कर रहे हों, समाप्त होने पर उसे सहेजना आवश्यक है। Aspose.Slides for Node.js के साथ आप **फ़ाइल** या **स्ट्रीम** में सहेज सकते हैं। यह लेख प्रस्तुति को सहेजने के विभिन्न तरीकों को समझाता है।
 
 ## **फ़ाइलों में प्रस्तुतियों को सहेजें**
 
-[Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास के `save` मेथड को कॉल करके प्रस्तुति को फ़ाइल में सहेजें। इस मेथड को फ़ाइल का नाम और सहेजने का फ़ॉर्मेट पास करें। नीचे का उदाहरण दिखाता है कि Aspose.Slides के साथ प्रस्तुति को कैसे सहेजा जाता है।
+`save` मेथड को कॉल करके प्रस्तुति को फ़ाइल में सहेजा जा सकता है। इस मेथड में फ़ाइल नाम और सहेजने का फ़ॉर्मेट पास करें। नीचे दिया गया उदाहरण Aspose.Slides के साथ प्रस्तुति को सहेजने का तरीका दिखाता है।
 
 ```js
-// Presentation क्लास को इंस्टैंशिएट करें जो एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है।
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation वर्ग को instantiate करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // यहाँ कुछ काम करें...
-    
+    // यहाँ कुछ कार्य करें...
+
     // प्रस्तुति को फ़ाइल में सहेजें।
     presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -47,10 +50,14 @@ try {
 
 ## **स्ट्रीम में प्रस्तुतियों को सहेजें**
 
-आप आउटपुट स्ट्रीम को पास करके [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास के `save` मेथड से प्रस्तुति को स्ट्रीम में सहेज सकते हैं। प्रस्तुति को कई प्रकार की स्ट्रीम में लिखा जा सकता है। नीचे के उदाहरण में हम नई प्रस्तुति बनाते हैं और उसे फ़ाइल स्ट्रीम में सहेजते हैं।
+`save` मेथड में आउटपुट स्ट्रीम पास करके प्रस्तुति को स्ट्रीम में सहेजा जा सकता है। प्रस्तुति को कई प्रकार की स्ट्रीम में लिखा जा सकता है। नीचे के उदाहरण में हम नई प्रस्तुति बनाते हैं और उसे फ़ाइल स्ट्रीम में सहेजते हैं।
 
 ```js
-// Presentation क्लास को इंस्टैंशिएट करें जो एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है।
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Presentation फ़ाइल का प्रतिनिधित्व करने वाला वर्ग instantiate करें।
 let presentation = new aspose.slides.Presentation();
 try {
     let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
@@ -65,11 +72,14 @@ try {
 }
 ```
 
-## **पूर्वनिर्धारित दृश्य प्रकार के साथ प्रस्तुतियों को सहेजें**
+## **पूर्वनिर्धारित व्यू टाइप के साथ प्रस्तुतियों को सहेजें**
 
-Aspose.Slides आपको उस प्रारंभिक दृश्य को सेट करने देता है जिसे PowerPoint उत्पन्न प्रस्तुति खोलते समय उपयोग करता है, यह [ViewProperties](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/viewproperties/) क्लास के माध्यम से किया जाता है। [setLastView](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/viewproperties/#setLastView) मेथड को [ViewType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/viewtype/) एन्यूमरेशन में से किसी मान के साथ उपयोग करें।
+Aspose.Slides आपको `ViewProperties` क्लास के माध्यम से उस प्रारम्भिक व्यू को सेट करने देता है जो PowerPoint उत्पन्न की गई प्रस्तुति खोलते समय उपयोग करता है। `ViewType` एनेमरेशन से मान के साथ `setLastView` मेथड का उपयोग करें।
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
@@ -79,41 +89,47 @@ try {
 }
 ```
 
-## **Strict Office Open XML फ़ॉर्मेट में प्रस्तुतियों को सहेजें**
+## **स्ट्रिक्ट Office Open XML फ़ॉर्मेट में प्रस्तुतियों को सहेजें**
 
-Aspose.Slides आपको Strict Office Open XML फ़ॉर्मेट में प्रस्तुति सहेजने की अनुमति देता है। इसे करने के लिये [PptxOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxoptions/) क्लास का उपयोग करें और सहेजते समय उसकी conformance प्रॉपर्टी सेट करें। यदि आप [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict) सेट करते हैं, तो आउटपुट फ़ाइल Strict Office Open XML फ़ॉर्मेट में सहेजी जाएगी।
+Aspose.Slides आपको प्रस्तुति को स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजने देता है। `PptxOptions` क्लास का उपयोग करके सहेजते समय उसकी `conformance` प्रॉपर्टी सेट करें। यदि आप `Conformance.Iso29500_2008_Strict` सेट करते हैं, तो आउटपुट फ़ाइल स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजी जाती है।
 
-नीचे का उदाहरण एक प्रस्तुति बनाता है और उसे Strict Office Open XML फ़ॉर्मेट में सहेजता है।
+नीचे का उदाहरण प्रस्तुति बनाता है और उसे स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजता है।
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
-// Presentation क्लास को इंस्टैंशिएट करें जो एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है।
+// Presentation फ़ाइल का प्रतिनिधित्व करने वाले वर्ग को instantiate करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // प्रस्तुति को स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में सहेजें।
+    // प्रस्तुति को स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजें।
     presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Zip64 मोड में Office Open XML फ़ॉर्मेट में प्रस्तुतियों को सहेजें**
+## **ZIP64 मोड में Office Open XML फ़ॉर्मेट में प्रस्तुतियों को सहेजें**
 
-Office Open XML फ़ाइल एक ZIP संग्रह है जिसमें अनकंप्रेस्ड फ़ाइल के आकार (4 GB), संकुचित फ़ाइल के आकार, और संग्रह के कुल आकार पर 4 GB की सीमा और अधिकतम 65 535 फ़ाइलों की सीमा होती है। ZIP64 फ़ॉर्मेट विस्तार इन सीमाओं को 2^64 तक बढ़ा देता है।
+Office Open XML फ़ाइल एक ZIP अभिलेख है जो किसी भी फ़ाइल के अनकम्प्रेस्ड आकार, कम्प्रेस्ड आकार और कुल आकार पर 4 GB (2^32 बाइट) की सीमा लगाता है, तथा अभिलेख में अधिकतम 65 535 (2^16‑1) फ़ाइलों तक सीमित करता है। ZIP64 फ़ॉर्मेट एक्सटेंशन इन सीमाओं को 2^64 तक बढ़ाते हैं।
 
-[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) मेथड आपको Office Open XML फ़ाइल सहेजब समय ZIP64 फ़ॉर्मेट विस्तार का प्रयोग कब करना है, यह चुनने देता है।
+`PptxOptions.setZip64Mode` मेथड आपको Office Open XML फ़ाइल सहेजते समय ZIP64 एक्सटेंशन का प्रयोग कब करना है, चुनने देता है।
 
-यह मेथड निम्नलिखित मोड्स के साथ उपयोग किया जा सकता है:
+यह मेथड निम्नलिखित मोड में उपयोग किया जा सकता है:
 
-- [IfNecessary](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/zip64mode/#IfNecessary) केवल तब ZIP64 फ़ॉर्मेट विस्तार का उपयोग करता है जब प्रस्तुति ऊपर दी गई सीमाओं से अधिक हो। यह डिफ़ॉल्ट मोड है।
-- [Never](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/zip64mode/#Never) कभी भी ZIP64 फ़ॉर्मेट विस्तार का उपयोग नहीं करता।
-- [Always](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/zip64mode/#Always) हमेशा ZIP64 फ़ॉर्मेट विस्तार का उपयोग करता है।
+- `IfNecessary` केवल तभी ZIP64 फ़ॉर्मेट एक्सटेंशन का उपयोग करता है जब प्रस्तुति ऊपर दी गई सीमाओं से अधिक हो। यह डिफ़ॉल्ट मोड है।
+- `Never` कभी भी ZIP64 फ़ॉर्मेट एक्सटेंशन का प्रयोग नहीं करता।
+- `Always` हमेशा ZIP64 फ़ॉर्मेट एक्सटेंशन का प्रयोग करता है।
 
-नीचे का कोड दिखाता है कि ZIP64 फ़ॉर्मेट विस्तार सक्षम करके PPTX के रूप में प्रस्तुति कैसे सहेजी जाए:
+नीचे दिया गया कोड ZIP64 फ़ॉर्मेट एक्सटेंशन सक्षम करके PPTX फ़ाइल के रूप में प्रस्तुति सहेजने का तरीका दर्शाता है:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
 
@@ -126,19 +142,73 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-जब आप [Zip64Mode.Never](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/zip64mode/#Never) के साथ सहेजते हैं, तो यदि प्रस्तुति को ZIP32 फ़ॉर्मेट में सहेजा नहीं जा सकता है तो एक [PptxException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxexception/) फेंका जाता है।
+जब आप `Zip64Mode.Never` के साथ सहेजते हैं, तो यदि प्रस्तुति को ZIP32 फ़ॉर्मेट में नहीं सहेजा जा सकता, तो एक `PptxException` फेंका जाता है।
 {{% /alert %}}
 
-## **थंबनेल को रीफ़्रेश किए बिना प्रस्तुतियों को सहेजें**
+## **कम्प्रेशन लेवल के साथ Office Open XML फ़ॉर्मेट में प्रस्तुतियों को सहेजें**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) मेथड PPTX में प्रस्तुति सहेजते समय थंबनेल जेनरेशन को नियंत्रित करता है:
+बड़ी प्रस्तुतियों के साथ काम करते समय आप फ़ाइल आकार और प्रोसेसिंग समय के संतुलन के लिए कम्प्रेशन लेवल समायोजित कर सकते हैं। आपकी आवश्यकताओं के आधार पर आप तेज प्रोसेसिंग या छोटी आउटपुट फ़ाइलों को प्राथमिकता दे सकते हैं।
 
-- यदि `true` सेट किया गया है, तो सहेजने के दौरान थंबनेल रीफ़्रेश होता है। यह डिफ़ॉल्ट है।
-- यदि `false` सेट किया गया है, तो वर्तमान थंबनेल बना रहता है। यदि प्रस्तुति में कोई थंबनेल नहीं है, तो कोई नया थंबनेल नहीं बनाया जाता।
+Aspose.Slides `PptxOptions.setCompressionLevel` मेथड प्रदान करता है, जिससे आप Office Open XML फ़ॉर्मेट में प्रस्तुति सहेजते समय उपयोग होने वाला कम्प्रेशन लेवल निर्दिष्ट कर सकते हैं।
 
-नीचे के कोड में प्रस्तुति को थंबनेल को रीफ़्रेश किए बिना PPTX में सहेजा गया है।
+उपलब्ध कम्प्रेशन लेवल निम्नलिखित हैं:
+
+- **None**: कोई कम्प्रेशन लागू नहीं होता। फ़ाइलें जैसा है वैसा संग्रहीत होती हैं।
+- **Level1**: सबसे तेज़ कम्प्रेशन, सबसे कम कम्प्रेशन अनुपात के साथ।
+- **Level2**: **Level1** की तुलना में थोड़ा बेहतर कम्प्रेशन अनुपात, तेज़ प्रोसेसिंग।
+- **Level3**: **Level2** से बेहतर कम्प्रेशन, मध्यम प्रोसेसिंग समय पर प्रभाव।
+- **Level4**: **Level3** से बेहतर कम्प्रेशन।
+- **Level5**: **Level4** से बेहतर कम्प्रेशन, अतिरिक्त प्रोसेसिंग समय के साथ।
+- **Level6**: मानक कम्प्रेशन जो प्रोसेसिंग गति और फ़ाइल आकार के बीच अच्छा संतुलन प्रदान करता है। यह *डिफ़ॉल्ट कम्प्रेशन लेवल* है।
+- **Level7**: **Level6** से बेहतर कम्प्रेशन, धीमी प्रोसेसिंग।
+- **Level8**: **Level7** से बेहतर कम्प्रेशन।
+- **Level9**: अधिकतम कम्प्रेशन। सबसे छोटी फ़ाइल आकार देता है, पर सबसे लंबा प्रोसेसिंग समय लगता है।
+
+नीचे दिया गया उदाहरण PPTX फ़ाइल को *बिना कम्प्रेशन* के सहेजने का तरीका दिखाता है:
 
 ```js
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const pptxOptions = new aspose.slides.PptxOptions();
+pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+यह उदाहरण *अधिकतम कम्प्रेशन* के साथ PPTX फ़ाइल सहेजने का तरीका दर्शाता है:
+
+```js
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const pptxOptions = new aspose.slides.PptxOptions();
+pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **थंबनेल को रिफ्रेश किए बिना प्रस्तुतियों को सहेजें**
+
+`PptxOptions.setRefreshThumbnail` मेथड PPTX में प्रस्तुति सहेजते समय थंबनेल जेनरेशन को नियंत्रित करता है:
+
+- यदि `true` सेट किया जाये, तो सहेजते समय थंबनेल रिफ्रेश होता है। यह डिफ़ॉल्ट है।
+- यदि `false` सेट किया जाये, तो मौजूदा थंबनेल बरकरार रहता है। यदि प्रस्तुति में कोई थंबनेल नहीं है, तो कोई भी जेनरेट नहीं होता।
+
+नीचे के कोड में प्रस्तुति को थंबनेल रिफ्रेश किए बिना PPTX में सहेजा गया है।
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setRefreshThumbnail(false);
 
@@ -152,16 +222,20 @@ finally {
 ```
 
 {{% alert title="Info" color="info" %}}
-यह विकल्प PPTX फ़ॉर्मेट में प्रस्तुति को सहेजने के समय लगने वाले समय को घटाने में मदद करता है।
+यह विकल्प PPTX फ़ॉर्मेट में प्रस्तुति सहेजने में लगने वाले समय को कम करने में मदद करता है।
 {{% /alert %}}
 
-## **प्रगति अद्यतन को प्रतिशत में सहेजें**
+## **प्रगति अपडेट को प्रतिशत में सहेजें**
 
-सेव-प्रोग्रेस रिपोर्टिंग को [SaveOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/saveoptions/) और उसके उपवर्गों पर [setProgressCallback](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) मेथड के माध्यम से कॉन्फ़िगर किया जाता है। एक Java प्रॉक्सी प्रदान करें जो [IProgressCallback](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iprogresscallback/) इंटरफ़ेस को लागू करता हो; निर्यात के दौरान, कॉलबैक समय-समय पर प्रतिशत अद्यतन प्राप्त करता है।
+`SaveOptions` और उसकी सबक्लासेज़ पर `setProgressCallback` मेथड के माध्यम से सहेजने की प्रगति रिपोर्टिंग को कॉन्फ़िगर किया जाता है। एक Java प्रॉक्सी प्रदान करें जो `IProgressCallback` इंटरफ़ेस को इम्प्लीमेंट करे; निर्यात के दौरान, कॉलबैक को आवधिक प्रतिशत अपडेट मिलते हैं।
 
-निम्नलिखित कोड स्निपेट्स दिखाते हैं कि `IProgressCallback` कैसे उपयोग किया जाए।
+नीचे `IProgressCallback` का उपयोग करने का कोड स्निपेट दिया गया है:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
     reporting: function(progressValue) {
         // यहाँ प्रगति प्रतिशत मान का उपयोग करें।
@@ -182,23 +256,23 @@ try {
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose ने अपना स्वयं का API उपयोग करके एक [नि:शुल्क PowerPoint Splitter ऐप](https://products.aspose.app/slides/hi/splitter) विकसित किया है। यह ऐप चयनित स्लाइडों को नई PPTX या PPT फ़ाइलों के रूप में सहेजकर प्रस्तुति को कई फ़ाइलों में विभाजित करने की सुविधा देता है।
+Aspose ने अपने API का उपयोग करके एक **नि:शुल्क PowerPoint Splitter** ऐप विकसित किया है। यह ऐप चयनित स्लाइड्स को नई PPTX या PPT फ़ाइलों के रूप में सहेजकर प्रस्तुति को कई फ़ाइलों में विभाजित करता है।
 {{% /alert %}}
 
 ## **FAQ**
 
-**क्या "फ़ास्ट सेव" (इन्क्रिमेंटल सेव) समर्थित है ताकि केवल परिवर्तन लिखे जाएँ?**
+**क्या "फास्ट सेव" (इंक्रीमेंटल सेव) समर्थित है जिससे केवल परिवर्तन ही लिखे जाएँ?**
 
-नहीं। सेव करने पर हर बार पूरी लक्ष्य फ़ाइल बनाई जाती है; इन्क्रिमेंटल "फ़ास्ट सेव" समर्थित नहीं है।
+नहीं। सहेजना हर बार पूर्ण लक्षित फ़ाइल बनाता है; इंक्रीमेंटल "फास्ट सेव" समर्थित नहीं है।
 
-**क्या एक ही Presentation इंस्टेंस को कई थ्रेड्स से सेव करना थ्रेड‑सेफ़ है?**
+**क्या कई थ्रेड्स से एक ही Presentation इंस्टेंस को सहेजना थ्रेड‑सेफ़ है?**
 
-नहीं। एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) इंस्टेंस [थ्रेड‑सेफ़ नहीं है](/slides/hi/nodejs-java/multithreading/); इसे एक ही थ्रेड से सेव करें।
+नहीं। एक `Presentation` इंस्टेंस थ्रेड‑सेफ़ नहीं है; इसे एक ही थ्रेड से सहेजें।
 
-**सेव करने पर हाइपरलिंक्स और बाहरी रूप से लिंक की गई फ़ाइलों का क्या होता है?**
+**सहेजते समय हाइपरलिंक और बाहरी लिंक वाली फ़ाइलें क्या होती हैं?**
 
-[Hyperlinks](/slides/hi/nodejs-java/manage-hyperlinks/) संरक्षित रहते हैं। बाहरी लिंक की गई फ़ाइलें (उदा., रिलेटिव पाथ वाली वीडियो) स्वचालित रूप से कॉपी नहीं होतीं—सुनिश्चित करें कि संदर्भित पाथ्स उपलब्ध रहें।
+`Hyperlinks` संरक्षित रहती हैं। बाहरी लिंक वाली फ़ाइलें (जैसे सापेक्ष पथ के साथ वीडियो) स्वचालित रूप से कॉपी नहीं होतीं—सुनिश्चित करें कि संदर्भित पथ उपलब्ध रहें।
 
-**क्या मैं दस्तावेज़ मेटाडाटा (लेखक, शीर्षक, कंपनी, तिथि) सेट/सेव कर सकता हूँ?**
+**क्या मैं दस्तावेज़ मेटाडेटा (लेखक, शीर्षक, कंपनी, तिथि) सेट/सहेज सकता हूँ?**
 
-हाँ। मानक [डॉक्यूमेंट प्रॉपर्टीज़](/slides/hi/nodejs-java/presentation-properties/) समर्थित हैं और सेव करने पर फ़ाइल में लिखी जाएँगी।
+हाँ। मानक `document properties` समर्थित हैं और सहेजते समय फ़ाइल में लिखे जाते हैं।
