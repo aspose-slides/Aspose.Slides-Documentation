@@ -139,7 +139,7 @@ This method can be used with the following modes:
 - `Never` never uses ZIP64 format extensions.
 - `Always` always uses ZIP64 format extensions.
 
-The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
+The following code demonstrates how to save a presentation as a PPTX file with ZIP64 format extensions enabled:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -165,6 +165,71 @@ presentation->Dispose();
 When you save with `Zip64Mode.Never`, a [PptxException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 
 {{% /alert %}}
+
+## **Save Presentations in Office Open XML Format with Compression Levels**
+
+When working with large presentations, you can adjust the compression level to balance file size and processing time. Depending on your requirements, you may prefer faster processing or smaller output files.
+
+Aspose.Slides provides the [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) method, which allows you to specify the compression level used when saving a presentation in Office Open XML format.
+
+The following compression levels are available:
+
+- **None**: No compression is applied. Files are stored as-is.
+- **Level1:** The fastest compression with the lowest compression ratio.
+- **Level2:** Faster compression with a slightly better compression ratio than **Level1**.
+- **Level3:** Provides better compression than **Level2** with a moderate impact on processing time.
+- **Level4:** Provides better compression than **Level3**.
+- **Level5:** Provides improved compression over **Level4** with additional processing time.
+- **Level6:** Standard compression that offers a good balance between processing speed and file size. This is the *default compression level*.
+- **Level7:** Provides better compression than **Level6** with slower processing.
+- **Level8:** Provides better compression than **Level7**.
+- **Level9:** Maximum compression. Produces the smallest file size at the cost of the longest processing time.
+
+The following example demonstrates how to save a presentation as a PPTX file *without compression*:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/CompressionLevel.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using Aspose::Slides::Export::CompressionLevel;
+using Aspose::Slides::Export::PptxOptions;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::MakeObject;
+
+auto pptxOptions = MakeObject<PptxOptions>();
+pptxOptions->set_CompressionLevel(CompressionLevel::None);
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+presentation->Dispose();
+```
+
+This example shows how to save a presentation as a PPTX file with *maximum compression*:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/CompressionLevel.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using Aspose::Slides::Export::CompressionLevel;
+using Aspose::Slides::Export::PptxOptions;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::MakeObject;
+
+auto pptxOptions = MakeObject<PptxOptions>();
+pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+presentation->Dispose();
+```
 
 ## **Save Presentations without Refreshing the Thumbnail**
 
@@ -263,18 +328,18 @@ Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.ap
 
 ## **FAQ**
 
-### Is "fast save" (incremental save) supported so only changes are written?
+**Is "fast save" (incremental save) supported so only changes are written?**
 
 No. Saving creates the full target file each time; incremental "fast save" isn’t supported.
 
-### Is it thread-safe to save the same Presentation instance from multiple threads?
+**Is it thread-safe to save the same Presentation instance from multiple threads?**
 
 No. A [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance [isn’t thread-safe](/slides/cpp/multithreading/); save it from a single thread.
 
-### What happens to hyperlinks and externally linked files when saving?
+**What happens to hyperlinks and externally linked files when saving?**
 
 [Hyperlinks](/slides/cpp/manage-hyperlinks/) are preserved. External linked files (e.g., videos via relative paths) aren’t copied automatically—ensure the referenced paths remain accessible.
 
-### Can I set/save document metadata (Author, Title, Company, Date)?
+**Can I set/save document metadata (Author, Title, Company, Date)?**
 
 Yes. Standard [document properties](/slides/cpp/presentation-properties/) are supported and will be written to the file on save.
