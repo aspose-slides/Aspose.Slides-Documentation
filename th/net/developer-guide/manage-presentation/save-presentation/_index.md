@@ -1,19 +1,19 @@
 ---
-title: บันทึกงานนำเสนอใน .NET
-linktitle: บันทึกงานนำเสนอ
+title: บันทึกพรีเซนเทชันใน .NET
+linktitle: บันทึกพรีเซนเทชัน
 type: docs
 weight: 80
 url: /th/net/save-presentation/
 keywords:
 - บันทึก PowerPoint
 - บันทึก OpenDocument
-- บันทึกงานนำเสนอ
+- บันทึกพรีเซนเทชัน
 - บันทึกสไลด์
 - บันทึก PPT
 - บันทึก PPTX
 - บันทึก ODP
-- งานนำเสนอเป็นไฟล์
-- งานนำเสนอเป็นสตรีม
+- พรีเซนเทชันเป็นไฟล์
+- พรีเซนเทชันเป็นสตรีม
 - ประเภทมุมมองที่กำหนดล่วงหน้า
 - รูปแบบ Strict Office Open XML
 - โหมด Zip64
@@ -22,48 +22,57 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบวิธีบันทึกงานนำเสนอใน .NET ด้วย Aspose.Slides—ส่งออกเป็น PowerPoint หรือ OpenDocument พร้อมรักษาเค้าโครง, ฟอนต์ และเอฟเฟกต์ไว้."
+description: "ค้นพบวิธีบันทึกพรีเซนเทชันใน .NET ด้วย Aspose.Slides—ส่งออกเป็น PowerPoint หรือ OpenDocument พร้อมคงรูปแบบ, แบบอักษร และเอฟเฟกต์."
 ---
 ## **ภาพรวม**
 
-[Open Presentations in C#](/slides/th/net/open-presentation/) อธิบายวิธีการใช้คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอ บทความนี้อธิบายวิธีสร้างและบันทึกงานนำเสนอ คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) มีเนื้อหาของงานนำเสนอ ไม่ว่าคุณจะสร้างงานนำตั้งแต่ต้นหรือแก้ไขงานที่มีอยู่ คุณจะต้องบันทึกเมื่อทำเสร็จ ด้วย Aspose.Slides สำหรับ .NET คุณสามารถบันทึกเป็น **ไฟล์** หรือ **สตรีม** บทความนี้อธิบายวิธีต่าง ๆ ในการบันทึกงานนำเสนอ
+[Open Presentations in C#](/slides/th/net/open-presentation/) อธิบายวิธีการใช้คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เพื่อเปิดไฟล์พรีเซนเทชัน บทความนี้อธิบายวิธีสร้างและบันทึกพรีเซนเทชัน คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) มีเนื้อหาของพรีเซนเทชัน ไม่ว่าคุณจะสร้างพรีเซนเทชันตั้งแต่ต้นหรือแก้ไขพรีเซนเทชันที่มีอยู่แล้ว คุณก็ต้องการบันทึกเมื่อทำเสร็จแล้ว ด้วย Aspose.Slides for .NET คุณสามารถบันทึกเป็น **ไฟล์** หรือ **สตรีม** บทความนี้อธิบายวิธีต่าง ๆ ในการบันทึกพรีเซนเทชัน
 
-## **บันทึกงานนำเสนอเป็นไฟล์**
+## **บันทึกพรีเซนเทชันเป็นไฟล์**
 
-บันทึกงานนำเสนอเป็นไฟล์โดยเรียกเมธอด `Save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) ส่งชื่อไฟล์และรูปแบบการบันทึกให้เมธอด ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอด้วย Aspose.Slides
+บันทึกพรีเซนเทชันเป็นไฟล์โดยเรียกเมธอด `Save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) ส่งชื่อไฟล์และรูปแบบการบันทึกไปยังเมธอด ตัวอย่างต่อไปนี้แสดงวิธีบันทึกพรีเซนเทชันด้วย Aspose.Slides
 
 ```cs
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 using (Presentation presentation = new Presentation())
 {
     // ทำงานบางอย่างที่นี่...
 
-    // บันทึกงานนำเสนอเป็นไฟล์.
+    // บันทึกพรีเซนเทชันเป็นไฟล์
     presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **บันทึกงานนำเสนอเป็นสตรีม**
+## **บันทึกพรีเซนเทชันเป็นสตรีม**
 
-คุณสามารถบันทึกงานนำเสนอเป็นสตรีมได้โดยส่งสตรีมผลลัพธ์ไปยังเมธอด `Save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) งานนำเสนอสามารถเขียนไปยังสตรีมหลายประเภท ในตัวอย่างด้านล่าง เราสร้างงานนำเสนอใหม่และบันทึกเป็นสตรีมไฟล์
+คุณสามารถบันทึกพรีเซนเทชันเป็นสตรีมโดยส่งสตรีมผลลัพธ์ไปยังเมธอด `Save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) พรีเซนเทชันสามารถเขียนลงสตรีมหลายประเภทได้ ในตัวอย่างด้านล่าง เราจะสร้างพรีเซนเทชันใหม่และบันทึกเป็นไฟล์สตรีม
 
 ```cs
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 using (Presentation presentation = new Presentation())
 {
     using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
     {
-        // บันทึกงานนำเสนอลงสตรีม.
+        // บันทึกพรีเซนเทชันไปยังสตรีม.
         presentation.Save(fileStream, SaveFormat.Pptx);
     }
 }
 ```
 
-## **บันทึกงานนำเสนอด้วยประเภทการแสดงผลที่กำหนดล่วงหน้า**
+## **บันทึกพรีเซนเทชันด้วยประเภทมุมมองที่กำหนดล่วงหน้า**
 
-Aspose.Slides ให้คุณกำหนดมุมมองเริ่มต้นที่ PowerPoint ใช้เมื่อเปิดงานนำเสนอที่สร้างผ่านคลาส [ViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/) ตั้งค่าคุณสมบัติ [LastView](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/lastview/) เป็นค่าจากการนับจำนวน [ViewType](https://reference.aspose.com/slides/th/net/aspose.slides/viewtype/)
+Aspose.Slides ให้คุณตั้งค่ามุมมองเริ่มต้นที่ PowerPoint ใช้เมื่อเปิดพรีเซนเทชันที่สร้างขึ้นผ่านคลาส [ViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/) ตั้งค่า property [LastView](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/lastview/) ให้เป็นค่าหนึ่งจาก enumeration [ViewType](https://reference.aspose.com/slides/th/net/aspose.slides/viewtype/)
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.ViewProperties.LastView = ViewType.SlideMasterView;
@@ -71,38 +80,47 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML**
+## **บันทึกพรีเซนเทชันในรูปแบบ Strict Office Open XML**
 
-Aspose.Slides ให้คุณบันทึกงานนำเสนอในรูปแบบ Strict Office Open XML ใช้คลาส [PptxOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pptxoptions/) และตั้งค่าคุณสมบัติ conformance ขณะบันทึก หากคุณตั้งค่า `Conformance.Iso29500_2008_Strict` ไฟล์ผลลัพธ์จะถูกบันทึกในรูปแบบ Strict Office Open XML  
-ตัวอย่างด้านล่างสร้างงานนำเสนอและบันทึกเป็นรูปแบบ Strict Office Open XML
+Aspose.Slides ให้คุณบันทึกพรีเซนเทชันในรูปแบบ Strict Office Open XML ใช้คลาส [PptxOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pptxoptions/) และตั้งค่า property conformance ขณะบันทึก หากคุณตั้งค่า `Conformance.Iso29500_2008_Strict` ไฟล์ผลลัพธ์จะถูกบันทึกในรูปแบบ Strict Office Open XML
+
+ตัวอย่างด้านล่างสร้างพรีเซนเทชันและบันทึกในรูปแบบ Strict Office Open XML
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 PptxOptions options = new PptxOptions()
 {
     Conformance = Conformance.Iso29500_2008_Strict
 };
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน.
 using (Presentation presentation = new Presentation())
 {
-    // บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML.
+    // บันทึกพรีเซนเทชันในรูปแบบ Strict Office Open XML.
     presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 }
 ```
 
-## **บันทึกงานนำเสนอในรูปแบบ Office Open XML ด้วยโหมด Zip64**
+## **บันทึกพรีเซนเทชันในรูปแบบ Office Open XML โหมด Zip64**
 
-ไฟล์ Office Open XML คือไฟล์ ZIP ที่กำหนดขีดจำกัด 4 GB (2^32 ไบต์) สำหรับขนาดที่ไม่บีบอัดของไฟล์ใดไฟล์หนึ่ง ขนาดที่บีบอัดของไฟล์ใดไฟล์หนึ่ง และขนาดรวมของไฟล์บีบอัดทั้งหมด รวมถึงจำกัดจำนวนไฟล์ในอาร์ไคฟ์ไว้ที่ 65,535 (2^16‑1) ไฟล์ การขยายรูปแบบ ZIP64 เพิ่มขีดจำกัดเหล่านี้เป็น 2^64  
-คุณสมบัติ [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/th/net/aspose.slides.export/ipptxoptions/zip64mode/) ให้คุณเลือกว่าจะใช้ส่วนขยายรูปแบบ ZIP64 เมื่อบันทึกไฟล์ Office Open XML หรือไม่  
+ไฟล์ Office Open XML คือไฟล์ ZIP ที่กำหนดขีดจำกัด 4 GB (2^32 ไบต์) สำหรับขนาดไฟล์ที่ไม่ได้บีบอัด, ขนาดที่บีบอัดและขนาดรวมของ archive รวมถึงจำกัดจำนวนไฟล์ที่ 65 535 (2^16‑1) ไฟล์ ส่วนขยายรูปแบบ ZIP64 จะยกขีดจำกัดเหล่านี้เป็น 2^64
+
+คุณสมบัติ [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/th/net/aspose.slides.export/ipptxoptions/zip64mode/) ให้คุณเลือกว่าจะใช้ส่วนขยายรูปแบบ ZIP64 เมื่อบันทึกไฟล์ Office Open XML หรือไม่
+
 คุณสมบัตินี้ให้โหมดต่อไปนี้:
 
-- ``IfNecessary`` ใช้ส่วนขยายรูปแบบ ZIP64 เฉพาะเมื่อการนำเสนอเกินขีดจำกัดที่กล่าวไว้ นี่คือโหมดค่าเริ่มต้น
-- ``Never`` ไม่เคยใช้ส่วนขยายรูปแบบ ZIP64
-- ``Always`` ใช้ส่วนขยายรูปแบบ ZIP64 เสมอ  
+- `IfNecessary` ใช้ส่วนขยายรูปแบบ ZIP64 เฉพาะเมื่อพรีเซนเทชันเกินขีดจำกัดข้างต้น นี่คือโหมดเริ่มต้น
+- `Never` ไม่เคยใช้ส่วนขยายรูปแบบ ZIP64
+- `Always` ใช้ส่วนขยายรูปแบบ ZIP64 เสมอ
 
-โค้ดต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX โดยเปิดใช้งานส่วนขยายรูปแบบ ZIP64
+โค้ดต่อไปนี้แสดงวิธีบันทึกพรีเซนเทชันเป็นไฟล์ PPTX พร้อมเปิดใช้ส่วนขยายรูปแบบ ZIP64:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
@@ -113,30 +131,33 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-เมื่อคุณบันทึกด้วย `Zip64Mode.Never` จะเกิด [PptxException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxexception/) หากไม่สามารถบันทึกงานนำเสนอในรูปแบบ ZIP32
+เมื่อคุณบันทึกด้วย `Zip64Mode.Never` จะเกิด [PptxException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxexception/) หากพรีเซนเทชันไม่สามารถบันทึกในรูปแบบ ZIP32 ได้.
 {{% /alert %}}
 
-## **บันทึกงานนำเสนอในรูปแบบ Office Open XML พร้อมระดับการบีบอัด**
+## **บันทึกพรีเซนเทชันในรูปแบบ Office Open XML พร้อมระดับการบีบอัด**
 
-เมื่อทำงานกับงานนำเสน ขนาดใหญ่ คุณสามารถปรับระดับการบีบอัดเพื่อสมดุลระหว่างขนาดไฟล์และเวลาในการประมวลผล ตามความต้องการของคุณอาจต้องการการประมวลผลที่เร็วหรือไฟล์ผลลัพธ์ขนาดเล็กกว่า  
-Aspose.Slides มีคุณสมบัติ [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/th/net/aspose.slides.export/ipptxoptions/compressionlevel/) ที่ให้คุณระบุระดับการบีบอัดที่ใช้เมื่อบันทึกงานนำเสนอในรูปแบบ Office Open XML  
+เมื่อทำงานกับพรีเซนเทชันขนาดใหญ่ คุณสามารถปรับระดับการบีบอัดเพื่อสมดุลขนาดไฟล์และเวลาประมวลผล ตามความต้องการคุณอาจต้องการประมวลผลที่เร็วขึ้นหรือไฟล์ผลลัพธ์ที่เล็กลง
 
-ระดับการบีบอัดที่มีให้เลือกมีดังนี้:
+Aspose.Slides มี property [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/th/net/aspose.slides.export/ipptxoptions/compressionlevel/) ซึ่งให้คุณกำหนดระดับการบีบอัดที่ใช้เมื่อบันทึกพรีเซนเทชันในรูปแบบ Office Open XML
 
-- **None**: ไม่มีการบีบอัด ไฟล์จะถูกเก็บไว้โดยไม่มีการเปลี่ยนแปลง
-- **Level1**: การบีบอัดที่เร็วที่สุดด้วยอัตราการบีบอัดต่ำสุด
-- **Level2**: การบีบอัดที่เร็วกว่าโดยมีอัตราการบีบอัดที่ดีกว่าเล็กน้อยเมื่อเทียบกับ **Level1**
-- **Level3**: ให้การบีบอัดที่ดีกว่า **Level2** โดยมีผลกระทบต่อเวลาในการประมวลผลระดับปานกลาง
-- **Level4**: ให้การบีบอัดที่ดีกว่า **Level3**
-- **Level5**: ให้การบีบอัดที่ดีขึ้นเมื่อเทียบกับ **Level4** พร้อมเวลาการประมวลผลเพิ่มเติม
-- **Level6**: การบีบอัดมาตรฐานที่ให้สมดุลที่ดีระหว่างความเร็วในการประมวลผลและขนาดไฟล์ นี่คือ *ระดับการบีบอัดเริ่มต้น*
-- **Level7**: ให้การบีบอัดที่ดีกว่า **Level6** โดยมีการประมวลผลที่ช้าลง
-- **Level8**: ให้การบีบอัดที่ดีกว่า **Level7**
-- **Level9**: การบีบอัดสูงสุด ผลลัพธ์เป็นไฟล์ที่มีขนาดเล็กที่สุดแต่ใช้เวลาการประมวลผลนานที่สุด  
+ระดับการบีบอัดต่อไปนี้พร้อมให้ใช้:
 
-ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX *โดยไม่มีการบีบอัด*:
+- **None**: ไม่ใช้การบีบอัด ไฟล์จะถูกเก็บไว้ตามต้นฉบับ
+- **Level1:** การบีบอัดที่เร็วที่สุดโดยอัตราการบีบอัดต่ำสุด
+- **Level2:** การบีบอัดที่เร็วกว่าโดยอัตราการบีบอัดดีขึ้นเล็กน้อยเมื่อเทียบกับ **Level1**
+- **Level3:** ให้การบีบอัดดีกว่า **Level2** พร้อมผลกระทบต่อเวลาประมวลผลระดับปานกลาง
+- **Level4:** ให้การบีบอัดดีกว่า **Level3**
+- **Level5:** ให้การบีบอัดที่ดีขึ้นเหนือ **Level4** โดยใช้เวลาประมวลผลเพิ่มขึ้น
+- **Level6:** การบีบอัดมาตรฐานที่ให้สมดุลที่ดีระหว่างความเร็วการประมวลผลและขนาดไฟล์ นี่คือ *ระดับการบีบอัดเริ่มต้น*
+- **Level7:** ให้การบีบอัดดีกว่า **Level6** แต่ประมวลผลช้า
+- **Level8:** ให้การบีบอัดดีกว่า **Level7**
+- **Level9:** การบีบอัดสูงสุด ผลออกมามีขนาดไฟล์เล็กที่สุดแต่ใช้เวลาประมวลผลนานที่สุด
 
+ตัวอย่างต่อไปนี้แสดงวิธีบันทึกพรีเซนเทชันเป็นไฟล์ PPTX *โดยไม่มีการบีบอัด*:
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
     pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
@@ -146,9 +167,11 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 }
 ```
 
-ตัวอย่างนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX พร้อม *การบีบอัดสูงสุด*:
-
+ตัวอย่างนี้แสดงวิธีบันทึกพรีเซนเทชันเป็นไฟล์ PPTX ด้วย *การบีบอัดสูงสุด*:
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
     pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
@@ -158,16 +181,19 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 }
 ```
 
-## **บันทึกงานนำเสนอโดยไม่ทำการรีเฟรชภาพย่อ**
+## **บันทึกพรีเซนเทชันโดยไม่รีเฟรชภาพย่อ**
 
-คุณสมบัติ [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/th/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) ควบคุมการสร้างภาพย่อเมื่อบันทึกงานนำเสนอเป็น PPTX:
+คุณสมบัติ [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/th/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) ควบคุมการสร้างภาพย่อเมื่อบันทึกพรีเซนเทชันเป็น PPTX:
 
-- หากตั้งค่าเป็น `true` ภาพย่อจะถูกรีเฟรชระหว่างการบันทึก นี่คือค่าเริ่มต้น
-- หากตั้งค่าเป็น `false` ภาพย่อปัจจุบันจะถูกเก็บไว้ หากงานนำเสนอไม่มีภาพย่อ จะไม่มีการสร้างภาพย่อ  
+- หากตั้งค่าเป็น `true` ภาพย่อจะถูกรีเฟรชระหว่างการบันทึก นี่เป็นค่าเริ่มต้น
+- หากตั้งค่าเป็น `false` ภาพย่อปัจจุบันจะถูกคงไว้ หากพรีเซนเทชันไม่มีภาพย่อ จะไม่มีการสร้างภาพย่อ
 
-ในโค้ดด้านล่าง งานนำเสนอจะถูกบันทึกเป็น PPTX โดยไม่รีเฟรชภาพย่อ
+ในโค้ดด้านล่าง พรีเซนเทชันจะถูกบันทึกเป็น PPTX โดยไม่รีเฟรชภาพย่อของมัน.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
@@ -178,16 +204,19 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 {{% alert title="Info" color="info" %}}
-ตัวเลือกนี้ช่วยลดเวลาที่ใช้ในการบันทึกงานนำเสนอในรูปแบบ PPTX
+ตัวเลือกนี้ช่วยลดเวลาที่ต้องใช้ในการบันทึกพรีเซนเทชันเป็นรูปแบบ PPTX.
 {{% /alert %}}
 
-## **บันทึกการอัปเดตความคืบหน้าเป็นเปอร์เซ็นต์**
+## **บันทึกอัปเดตความคืบหน้าเป็นเปอร์เซ็นต์**
 
-[IProgressCallback](https://reference.aspose.com/slides/th/net/aspose.slides/iprogresscallback/) อินเทอร์เฟซถูกใช้ผ่านคุณสมบัติ `ProgressCallback` ที่เปิดเผยโดยอินเทอร์เฟซ [ISaveOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/isaveoptions/) และคลาสเชิงนามธรรม [SaveOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveoptions/) กำหนดการทำงานของ [IProgressCallback](https://reference.aspose.com/slides/th/net/aspose.slides/iprogresscallback/) ให้กับ `ProgressCallback` เพื่อรับการอัปเดตความคืบหน้าในการบันทึกเป็นเปอร์เซ็นต์  
+อินเทอร์เฟซ [IProgressCallback](https://reference.aspose.com/slides/th/net/aspose.slides/iprogresscallback/) ใช้ผ่าน property `ProgressCallback` ที่เปิดเผยโดยอินเทอร์เฟซ [ISaveOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/isaveoptions/) และคลาสนามธรรม [SaveOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveoptions/) ให้กำหนดการทำงานของ [IProgressCallback](https://reference.aspose.com/slides/th/net/aspose.slides/iprogresscallback/) ให้กับ `ProgressCallback` เพื่อรับการอัปเดตความคืบหน้าในการบันทึกเป็นเปอร์เซ็นต์
 
-โค้ดสแน็ปเพจต่อไปนี้แสดงวิธีใช้ `IProgressCallback`:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีใช้ `IProgressCallback`.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 ISaveOptions saveOptions = new PdfOptions();
 saveOptions.ProgressCallback = new ExportProgressHandler();
 
@@ -198,11 +227,13 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 ```cs
+using Aspose.Slides;
+
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // ใช้ค่าร้อยละของความคืบหน้าที่นี่.
+        // ใช้ค่าร้อยละของความคืบหน้าในที่นี้.
         int progress = Convert.ToInt32(progressValue);
 
         Console.WriteLine(progress + "% of the file has been converted.");
@@ -211,23 +242,23 @@ class ExportProgressHandler : IProgressCallback
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose ได้พัฒนาแอป [PowerPoint Splitter ฟรี](https://products.aspose.app/slides/th/splitter) ด้วย API ของตนเอง แอปนี้ช่วยให้คุณแยกงานนำเสนอเป็นหลายไฟล์โดยบันทึกสไลด์ที่เลือกเป็นไฟล์ PPTX หรือ PPT ใหม่
+Aspose ได้พัฒนา [แอปฟรี PowerPoint Splitter](https://products.aspose.app/slides/th/splitter) โดยใช้ API ของตนเอง แอปนี้ให้คุณแยกพรีเซนเทชันเป็นหลายไฟล์โดยบันทึกสไลด์ที่เลือกเป็นไฟล์ PPTX หรือ PPT ใหม่.
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**สนับสนุนการบันทึกแบบ "fast save" (การบันทึกแบบเพิ่มส่วน) ที่เขียนเฉพาะการเปลี่ยนแปลงหรือไม่?**
+**รองรับการ "บันทึกเร็ว" (บันทึกเชิงเพิ่ม) ที่เขียนเฉพาะการเปลี่ยนแปลงหรือไม่?**
 
-ไม่ การบันทึกสร้างไฟล์เป้าหมายเต็มรูปแบบทุกครั้ง; การบันทึกแบบเพิ่มส่วน "fast save" ไม่ได้รับการสนับสนุน  
+ไม่ การบันทึกจะสร้างไฟล์เป้าหมายเต็มทุกครั้ง; การบันทึกเชิงเพิ่ม "บันทึกเร็ว" ไม่ได้รับการสนับสนุน.
 
-**สามารถบันทึกอินสแตนซ์ Presentation เดียวจากหลายเธรดได้อย่างปลอดภัยหรือไม่?**
+**สามารถบันทึกอินสแตนซ์ Presentationเดียวจากหลายเธรดได้อย่างปลอดภัยหรือไม่?**
 
-ไม่ อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) [isn’t thread-safe](/slides/th/net/multithreading/); บันทึกจากเธรดเดียว  
+ไม่ อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) ไม่เป็น thread‑safe (/slides/th/net/multithreading/); ควรบันทึกจากเธรดเดียว.
 
-**เกิดอะไรขึ้นกับไฮเพอร์ลิงก์และไฟล์ที่ลิงก์ภายนอกเมื่อบันทึก?**
+**ลิงก์และไฟล์ที่ลิงก์จากภายนอกจะเกิดอะไรเมื่อบันทึก?**
 
-[Hyperlinks](/slides/th/net/manage-hyperlinks/) จะถูกเก็บไว้ ไฟล์ที่ลิงก์ภายนอก (เช่น วิดีโอที่อ้างอิงด้วยเส้นทางสัมพันธ์) จะไม่ถูกคัดลอกโดยอัตโนมัติ — โปรดตรวจสอบว่าเส้นทางที่อ้างอิงยังคงเข้าถึงได้  
+[Hyperlinks](/slides/th/net/manage-hyperlinks/) จะถูกคงไว้ ไฟล์ที่ลิงก์จากภายนอก (เช่น วิดีโอที่ใช้เส้นทางสัมพันธ์) จะไม่ถูกคัดลอกโดยอัตโนมัติ — โปรดตรวจสอบให้เส้นทางที่อ้างอิงยังคงเข้าถึงได้.
 
-**ฉันสามารถตั้ง/บันทึกเมตาดาต้าเอกสาร (ผู้เขียน, ชื่อเรื่อง, บริษัท, วันที่) ได้หรือไม่?**
+**ฉันสามารถตั้งค่า/บันทึกเมตาดาต้าเอกสาร (ผู้เขียน, ชื่อเรื่อง, บริษัท, วันที่) ได้หรือไม่?**
 
-ใช่ คุณสมบัติมาตรฐานของ [document properties](/slides/th/net/presentation-properties/) ได้รับการสนับสนุนและจะถูกเขียนลงในไฟล์เมื่อบันทึก
+ได้ คุณสมบัติเอกสารมาตรฐาน (/slides/th/net/presentation-properties/) ได้รับการสนับสนุนและจะถูกเขียนลงไฟล์เมื่อบันทึก.

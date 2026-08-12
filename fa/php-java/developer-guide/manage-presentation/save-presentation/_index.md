@@ -17,27 +17,27 @@ keywords:
 - نوع نمای پیش‌تعریف‌شده
 - قالب Strict Office Open XML
 - حالت Zip64
-- تجدید تصویر بندانگشتی
-- پیشرفت ذخیره
+- تازه‌سازی تصویر بندانگشتی
+- پیشرفت ذخیره‌سازی
 - PHP
 - Aspose.Slides
-description: "کشف کنید چگونه می‌توانید ارائه‌ها را با استفاده از Aspose.Slides برای PHP از طریق Java ذخیره کنید — به PowerPoint یا OpenDocument صادر کنید در حالی که طرح‌ها، قلم‌ها و افکت‌ها حفظ می‌شوند."
+description: "کشف کنید چگونه می‌توانید ارائه‌ها را با استفاده از Aspose.Slides برای PHP از طریق Java ذخیره کنید — صادر کردن به PowerPoint یا OpenDocument در حالی که طرح‌ها، قلم‌ها و افکت‌ها حفظ می‌شوند."
 ---
-## **بررسی کلی**
+## **مروری کلی**
 
-[Open Presentations in PHP](/slides/fa/php-java/open-presentation/) توضیح می‌دهد که چگونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) برای باز کردن یک ارائه استفاده کنید. این مقاله نحوه ایجاد و ذخیره ارائه‌ها را شرح می‌دهد. کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) شامل محتوای یک ارائه است. چه از ابتدا یک ارائه ایجاد کنید و چه یک ارائه موجود را ویرایش کنید، پس از اتمام می‌خواهید آن را ذخیره کنید. با Aspose.Slides برای PHP می‌توانید به **file** یا **stream** ذخیره کنید. این مقاله روش‌های مختلف ذخیره یک ارائه را توضیح می‌دهد.
+[Open Presentations in PHP](/slides/fa/php-java/open-presentation/) نحوه استفاده از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) برای باز کردن یک ارائه را توصیف کرد. این مقاله توضیح می‌دهد چگونه ارائه‌ها را ایجاد و ذخیره کنید. کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) شامل محتوای یک ارائه است. چه از ابتدا یک ارائه ایجاد کنید و چه یک ارائه موجود را ویرایش کنید، در پایان می‌خواهید آن را ذخیره کنید. با Aspose.Slides برای PHP می‌توانید به **فایل** یا **جریان** (stream) ذخیره کنید. این مقاله روش‌های مختلف ذخیره یک ارائه را توضیح می‌دهد.
 
 ## **ذخیره ارائه‌ها در فایل‌ها**
 
-برای ذخیره یک ارائه در یک فایل، متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) را فراخوانی کنید. نام فایل و قالب ذخیره را به متد بدهید. مثال زیر نحوه ذخیره یک ارائه با Aspose.Slides را نشان می‌دهد.
+یک ارائه را با فراخوانی متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) به یک فایل ذخیره کنید. نام فایل و قالب ذخیره‌سازی را به متد پاس دهید. مثال زیر نشان می‌دهد چگونه یک ارائه را با Aspose.Slides ذخیره کنید.
 
 ```php
-// ایجاد نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است.
+// یک شیء از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
 $presentation = new Presentation();
 try {
-    // کاری را اینجا انجام دهید...
+    // در اینجا برخی کارها انجام دهید...
 
-    // ارائه را به یک فایل ذخیره کنید.
+    // ارائه را در یک فایل ذخیره کنید.
     $presentation->save("Output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -46,15 +46,15 @@ try {
 
 ## **ذخیره ارائه‌ها در جریان‌ها**
 
-می‌توانید یک ارائه را به یک جریان ذخیره کنید با این‌که یک جریان خروجی را به متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) بدهید. یک ارائه می‌تواند به انواع مختلفی از جریان‌ها نوشته شود. در مثال زیر، یک ارائه جدید ایجاد می‌کنیم و آن را به یک جریان فایل ذخیره می‌کنیم.
+می‌توانید یک ارائه را با پاس کردن یک جریان خروجی به متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) در یک جریان ذخیره کنید. یک ارائه می‌تواند به انواع مختلف جریان‌ها نوشته شود. در مثال زیر، یک ارائه جدید می‌سازیم و آن را در یک جریان فایل ذخیره می‌کنیم.
 
 ```php
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
+// یک شیء از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
 $presentation = new Presentation();
 try {
     $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
     try {
-        // ارائه را به جریان ذخیره کنید.
+        // ارائه را در جریان ذخیره کنید.
         $presentation->save($fileStream, SaveFormat::Pptx);
     } finally {
         $fileStream->close();
@@ -64,9 +64,9 @@ try {
 }
 ```
 
-## **ذخیره ارائه‌ها با نوع نمای پیش‌تعریف‌شده**
+## **ذخیره ارائه‌ها با نوع نمایش پیش‌تعریف‌شده**
 
-Aspose.Slides به شما امکان می‌دهد نمای اولیه‌ای که PowerPoint هنگام باز شدن ارائه تولید شده استفاده می‌کند، از طریق کلاس [ViewProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewproperties/) تنظیم کنید. از متد [setLastView](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewproperties/#setLastView) با مقداری از شمارش [ViewType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewtype/) استفاده کنید.
+Aspose.Slides به شما امکان می‌دهد نمای اولیه‌ای که PowerPoint هنگام باز شدن ارائه تولید شده استفاده می‌کند را از طریق کلاس [ViewProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewproperties/) تنظیم کنید. از متد [setLastView](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewproperties/#setLastView) با مقداری از شمارش‌گر [ViewType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewtype/) استفاده کنید.
 
 ```php
 $presentation = new Presentation();
@@ -78,17 +78,17 @@ try {
 }
 ```
 
-## **ذخیره ارائه‌ها در فرمت Strict Office Open XML**
+## **ذخیره ارائه‌ها در قالب Strict Office Open XML**
 
-Aspose.Slides به شما امکان می‌دهد ارائه‌ای را در فرمت Strict Office Open XML ذخیره کنید. از کلاس [PptxOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxoptions/) استفاده کنید و هنگام ذخیره، ویژگی conformance آن را تنظیم کنید. اگر مقدار [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/fa/php-java/aspose.slides/conformance/#Iso29500_2008_Strict) را تنظیم کنید، فایل خروجی در فرمت Strict Office Open XML ذخیره می‌شود.
+Aspose.Slides به شما امکان می‌دهد یک ارائه را در قالب Strict Office Open XML ذخیره کنید. از کلاس [PptxOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxoptions/) استفاده کنید و ویژگی conformance آن را هنگام ذخیره‌سازی تنظیم کنید. اگر [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/fa/php-java/aspose.slides/conformance/#Iso29500_2008_Strict) را تنظیم کنید، فایل خروجی در قالب Strict Office Open XML ذخیره می‌شود.
 
-مثال زیر یک ارائه ایجاد می‌کند و آن را در فرمت Strict Office Open XML ذخیره می‌کند.
+مثال زیر یک ارائه ایجاد کرده و آن را در قالب Strict Office Open XML ذخیره می‌کند.
 
 ```php
 $options = new PptxOptions();
 $options->setConformance(Conformance::Iso29500_2008_Strict);
 
-// ایجاد نمونه از کلاس Presentation که نمایانگر یک فایل ارائه است.
+// یک شیء از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
 $presentation = new Presentation();
 try {
     // ارائه را در قالب Strict Office Open XML ذخیره کنید.
@@ -98,19 +98,19 @@ try {
 }
 ```
 
-## **ذخیره ارائه‌ها در فرمت Office Open XML در حالت Zip64**
+## **ذخیره ارائه‌ها در قالب Office Open XML در حالت Zip64**
 
-یک فایل Office Open XML یک آرشیو ZIP است که محدودیت ۴ GB (۲^۳۲ بایت) برای اندازهٔ فشرده‌نشدهٔ هر فایل، اندازهٔ فشردهٔ هر فایل و کل اندازهٔ آرشیو اعمال می‌کند و همچنین تعداد فایل‌ها را به ۶۵ ۵۳۵ (۲^۱۶‑۱) محدود می‌کند. افزونه‌های قالب ZIP64 این محدودیت‌ها را به ۲^۶۴ افزایش می‌دهند.
+یک فایل Office Open XML یک آرشیو ZIP است که محدودیت ۴ گیگابایت (۲^۳۲ بایت) برای اندازهٔ فشرده‌نشدهٔ هر فایل، اندازهٔ فشردهٔ هر فایل و کل آرشیو اعمال می‌کند و همچنین تعداد فایل‌ها را به ۶۵٬۵۳۵ (۲^۱۶‑۱) محدود می‌سازد. افزونه‌های فرمت ZIP64 این محدودیت‌ها را به ۲^۶۴ افزایش می‌دهند.
 
-متد [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxoptions/#setZip64Mode) به شما امکان می‌دهد هنگام ذخیره یک فایل Office Open XML، زمان استفاده از افزونه‌های قالب ZIP64 را انتخاب کنید.
+متد [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxoptions/#setZip64Mode) به شما اجازه می‌دهد هنگام ذخیرهٔ یک فایل Office Open XML مشخص کنید چه زمانی از افزونه‌های فرمت ZIP64 استفاده شود.
 
 این متد می‌تواند با حالت‌های زیر استفاده شود:
 
-- [IfNecessary](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zip64mode/#IfNecessary) فقط در صورتی از افزونه‌های ZIP64 استفاده می‌کند که ارائه محدودیت‌های فوق را تجاوز کند. این حالت پیش‌فرض است.
+- [IfNecessary](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zip64mode/#IfNecessary) فقط در صورتی که ارائه محدودیت‌های فوق را تجاوز کند از افزونه‌های ZIP64 استفاده می‌کند. این حالت پیش‌فرض است.
 - [Never](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zip64mode/#Never) هرگز از افزونه‌های ZIP64 استفاده نمی‌کند.
 - [Always](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zip64mode/#Always) همیشه از افزونه‌های ZIP64 استفاده می‌کند.
 
-کد زیر نشان می‌دهد چگونه یک ارائه را به صورت PPTX با فعال‌سازی افزونه‌های قالب ZIP64 ذخیره کنید:
+کد زیر نشان می‌دهد چگونه یک ارائه را به عنوان فایل PPTX با فعال شدن افزونه‌های فرمت ZIP64 ذخیره کنید:
 
 ```php
 $pptxOptions = new PptxOptions();
@@ -125,17 +125,64 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-هنگامی که با [Zip64Mode.Never](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zip64mode/#Never) ذخیره می‌کنید، اگر ارائه نتواند در قالب ZIP32 ذخیره شود، یک [PptxException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxexception/) پرتاب می‌شود.
+هنگامی که با [Zip64Mode.Never](https://reference.aspose.com/slides/fa/php-java/aspose.slides/zip64mode/#Never) ذخیره می‌کنید، اگر ارائه نتواند در فرمت ZIP32 ذخیره شود، یک [PptxException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxexception/) پرتاب می‌شود.
 {{% /alert %}}
 
-## **ذخیره ارائه‌ها بدون تجدید تصویر بندانگشتی**
+## **ذخیره ارائه‌ها در قالب Office Open XML با سطوح فشرده‌سازی**
 
-متد [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) تولید تصویر بندانگشتی را هنگام ذخیره یک ارائه به PPTX کنترل می‌کند:
+هنگام کار با ارائه‌های بزرگ، می‌توانید سطح فشرده‌سازی را تنظیم کنید تا بین حجم فایل و زمان پردازش تعادل برقرار کنید. بسته به نیازهای شما ممکن است پردازش سریع‌تر یا فایل‌های خروجی کوچکتر ترجیح داده شود.
 
-- اگر به `true` تنظیم شود، تصویر بندانگشتی در حین ذخیره تجدید می‌شود. این مقدار پیش‌فرض است.
-- اگر به `false` تنظیم شود، تصویر بندانگشتی فعلی حفظ می‌شود. اگر ارائه تصویری بندانگشتی نداشته باشد، هیچ تصویر جدیدی تولید نمی‌شود.
+Aspose.Slides متد [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxoptions/#setCompressionLevel) را فراهم می‌کند که به شما اجازه می‌دهد سطح فشرده‌سازی استفاده‌شده هنگام ذخیرهٔ یک ارائه در قالب Office Open XML را مشخص کنید.
 
-در کد زیر، ارائه بدون تجدید تصویر بندانگشتی به PPTX ذخیره می‌شود.
+سطوح فشرده‌سازی موجود عبارتند از:
+
+- [**None**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#None): هیچ فشرده‌سازی‌ای اعمال نمی‌شود. فایل‌ها همان‌گونه ذخیره می‌شوند.
+- [**Level1**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level1): سریع‌ترین فشرده‌سازی با نسبت فشرده‌سازی کم‌ترین.
+- [**Level2**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level2): فشرده‌سازی سریع‌تر با نسبت کمی بهتر نسبت به **Level1**.
+- [**Level3**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level3): فشرده‌سازی بهتر نسبت به **Level2** با تأثیر متوسط بر زمان پردازش.
+- [**Level4**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level4): فشرده‌سازی بهتر نسبت به **Level3**.
+- [**Level5**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level5): فشرده‌سازی بالاتر نسبت به **Level4** با زمان پردازش افزوده.
+- [**Level6**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level6): فشرده‌سازی استاندارد که تعادل خوبی بین سرعت پردازش و حجم فایل ارائه می‌دهد. این *سطح فشرده‌سازی پیش‌فرض* است.
+- [**Level7**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level7): فشرده‌سازی بهتر نسبت به **Level6** با پردازش کندتر.
+- [**Level8**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level8): فشرده‌سازی بهتر نسبت به **Level7**.
+- [**Level9**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compressionlevel/#Level9): حداکثر فشرده‌سازی. کوچک‌ترین حجم فایل را به هزینهٔ طولانی‌ترین زمان پردازش تولید می‌کند.
+
+مثال زیر نشان می‌دهد چگونه یک ارائه را به عنوان فایل PPTX *بدون فشرده‌سازی* ذخیره کنید:
+
+```php
+$pptxOptions = new PptxOptions();
+$pptxOptions->setCompressionLevel(CompressionLevel::None);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+این مثال نشان می‌دهد چگونه یک ارائه را به عنوان فایل PPTX با *حداکثر فشرده‌سازی* ذخیره کنید:
+
+```php
+$pptxOptions = new PptxOptions();
+$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **ذخیره ارائه‌ها بدون تازه‌سازی تصویر بندانگشتی**
+
+متد [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) تولید تصویر بندانگشتی را هنگام ذخیرهٔ یک ارائه به PPTX کنترل می‌کند:
+
+- اگر مقدار `true` باشد، تصویر بندانگشتی در زمان ذخیره تازه‌سازی می‌شود. این مقدار پیش‌فرض است.
+- اگر مقدار `false` باشد، تصویر بندانگشتی فعلی حفظ می‌شود. اگر ارائه تصویر بندانگشتی نداشته باشد، هیچ‌کدام تولید نمی‌شود.
+
+در کد زیر، ارائه بدون تازه‌سازی تصویر بندانگشتی به PPTX ذخیره می‌شود.
 
 ```php
 $pptxOptions = new PptxOptions();
@@ -151,19 +198,19 @@ finally {
 ```
 
 {{% alert title="Info" color="info" %}}
-این گزینه به کاهش زمان مورد نیاز برای ذخیره یک ارائه در قالب PPTX کمک می‌کند.
+این گزینه به کاهش زمان لازم برای ذخیرهٔ یک ارائه در قالب PPTX کمک می‌کند.
 {{% /alert %}}
 
-## **ذخیره به‌روزرسانی‌های پیشرفت به درصد**
+## **به‌روزرسانی پیشرفت ذخیره به درصد**
 
-گزارش پیشرفت ذخیره از طریق متد [setProgressCallback](https://reference.aspose.com/slides/fa/php-java/aspose.slides/saveoptions/#setProgressCallback) روی کلاس [SaveOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/saveoptions/) و زیرکلاس‌های آن پیکربندی می‌شود. یک پراکسی Java که رابط [IProgressCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprogresscallback/) را پیاده‌سازی می‌کند فراهم کنید؛ در زمان استخراج، این فراخوانی دوره‌ای به‌روزرسانی‌های درصدی دریافت می‌کند.
+گزارش‌گری پیشرفت ذخیره‌سازی از طریق متد [setProgressCallback](https://reference.aspose.com/slides/fa/php-java/aspose.slides/saveoptions/#setProgressCallback) در کلاس [SaveOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/saveoptions/) و زیرکلاس‌های آن تنظیم می‌شود. یک پروکسی Java که رابط [IProgressCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprogresscallback/) را پیاده‌سازی می‌کند ارائه کنید؛ در طول خروجی، این callback به‌صورت دوره‌ای به‌روزرسانی‌های درصدی دریافت می‌کند.
 
-قطعه‌های کد زیر نشان می‌دهند چگونه از `IProgressCallback` استفاده کنید.
+کدهای زیر نشان می‌دهند چگونه از `IProgressCallback` استفاده کنید.
 
 ```php
 class ExportProgressHandler {
     function reporting($progressValue) {
-        // در اینجا از مقدار درصد پیشرفت استفاده کنید.
+        // از مقدار درصد پیشرفت در اینجا استفاده کنید.
         $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
         echo($progress . "% of the file has been converted.");
     }
@@ -183,23 +230,23 @@ try {
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose یک برنامهٔ رایگان [PowerPoint Splitter](https://products.aspose.app/slides/fa/splitter) بر پایه API خود توسعه داده است. این برنامه به شما اجازه می‌دهد یک ارائه را به چندین فایل تقسیم کنید با ذخیرهٔ اسلایدهای انتخابی به‌عنوان فایل‌های جدید PPTX یا PPT.
+Aspose یک برنامهٔ رایگان **PowerPoint Splitter** (https://products.aspose.app/slides/fa/splitter) را با استفاده از API خود توسعه داده است. این برنامه به شما اجازه می‌دهد یک ارائه را به چندین فایل تقسیم کنید و اسلایدهای انتخابی را به‌عنوان فایل‌های جدید PPTX یا PPT ذخیره کنید.
 {{% /alert %}}
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا «ذخیره سریع» (ذخیره افزایشی) برای نوشتن فقط تغییرات پشتیبانی می‌شود؟**
+**آیا «ذخیره سریع» (ذخیره افزایشی) پشتیبانی می‌شود تا فقط تغییرات نوشته شوند؟**
 
 خیر. هر بار ذخیره یک فایل هدف کامل ایجاد می‌کند؛ «ذخیره سریع» افزایشی پشتیبانی نمی‌شود.
 
-**آیا ذخیرهٔ یک نمونهٔ Presentation از چندین نخ به صورت همزمان ایمن است؟**
+**آیا ذخیرهٔ همان شیء Presentation از چندین رشته همزمان ایمن است؟**
 
-خیر. یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) **thread‑safe** نیست؛ آن را فقط از یک نخ ذخیره کنید.
+خیر. یک شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) **thread‑safe** نیست؛ آن را فقط از یک رشته ذخیره کنید.
 
-**زمانی که ذخیره می‌کنید، چه اتفاقی برای پیوندهای هیپرلینک و فایل‌های خارجی لینک‌شده می‌افتد؟**
+**هنگام ذخیره چه اتفاقی برای پیوندهای هیپرتکست و فایل‌های پیوند خارجی می‌افتد؟**
 
-[Hyperlinks](/slides/fa/php-java/manage-hyperlinks/) حفظ می‌شوند. فایل‌های خارجی لینک‌شده (مثلاً ویدئوها با مسیرهای نسبی) به‌صورت خودکار کپی نمی‌شوند—اطمینان حاصل کنید مسیرهای مرجع قابل دسترس باقی بمانند.
+[Hyperlinks](/slides/fa/php-java/manage-hyperlinks/) حفظ می‌شوند. فایل‌های پیوند خارجی (مثلاً ویدئوها با مسیرهای نسبی) به‌صورت خودکار کپی نمی‌شوند؛ اطمینان حاصل کنید مسیرهای ارجاعی در دسترس باقی بمانند.
 
-**آیا می‌توانم متادیتای سند (نویسنده، عنوان، شرکت، تاریخ) را تنظیم/ذخیره کنم؟**
+**آیا می‌توان متادیتای سند (نویسنده، عنوان، شرکت، تاریخ) را تنظیم/ذخیره کرد؟**
 
-بله. ویژگی‌های استاندارد [document properties](/slides/fa/php-java/presentation-properties/) پشتیبانی می‌شوند و هنگام ذخیره در فایل نوشته می‌شوند.
+بله. ویژگی‌های استاندارد [document properties](/slides/fa/php-java/presentation-properties/) پشتیبانی می‌شوند و در زمان ذخیره به فایل نوشته می‌شوند.

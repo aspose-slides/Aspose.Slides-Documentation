@@ -1,5 +1,5 @@
 ---
-title: Simpan Presentasi di PHP
+title: Menyimpan Presentasi di PHP
 linktitle: Simpan Presentasi
 type: docs
 weight: 80
@@ -14,25 +14,25 @@ keywords:
 - simpan ODP
 - presentasi ke file
 - presentasi ke stream
-- jenis tampilan pradefinisi
+- tipe tampilan yang telah ditentukan
 - Format Strict Office Open XML
 - mode Zip64
-- menyegarkan thumbnail
+- memperbarui thumbnail
 - progres penyimpanan
 - PHP
 - Aspose.Slides
-description: "Temukan cara menyimpan presentasi menggunakan Aspose.Slides untuk PHP via Java — mengekspor ke PowerPoint atau OpenDocument sambil mempertahankan tata letak, font, dan efek."
+description: "Temukan cara menyimpan presentasi menggunakan Aspose.Slides untuk PHP melalui Java — mengekspor ke PowerPoint atau OpenDocument sambil mempertahankan tata letak, font, dan efek."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-[Open Presentations in PHP](/slides/id/php-java/open-presentation/) menjelaskan cara menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) untuk membuka sebuah presentasi. Artikel ini menjelaskan cara membuat dan menyimpan presentasi. Kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) berisi konten sebuah presentasi. Baik Anda membuat presentasi dari awal maupun memodifikasi yang sudah ada, Anda perlu menyimpannya setelah selesai. Dengan Aspose.Slides untuk PHP, Anda dapat menyimpan ke **file** atau **stream**. Artikel ini menjelaskan berbagai cara menyimpan sebuah presentasi.
+[Open Presentations in PHP](/slides/id/php-java/open-presentation/) menjelaskan cara menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) untuk membuka presentasi. Artikel ini menjelaskan cara membuat dan menyimpan presentasi. Kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) berisi isi presentasi. Baik Anda membuat presentasi dari awal atau memodifikasi yang sudah ada, Anda perlu menyimpannya setelah selesai. Dengan Aspose.Slides for PHP, Anda dapat menyimpan ke **file** atau **stream**. Artikel ini menjelaskan berbagai cara menyimpan presentasi.
 
-## **Simpan Presentasi ke File**
+## **Menyimpan Presentasi ke File**
 
-Simpan sebuah presentasi ke file dengan memanggil metode `save` milik kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Berikan nama file dan format penyimpanan ke metode tersebut. Contoh berikut menunjukkan cara menyimpan sebuah presentasi dengan Aspose.Slides.
+Simpan presentasi ke file dengan memanggil metode `save` pada kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Berikan nama file dan format penyimpanan ke metode tersebut. Contoh berikut menunjukkan cara menyimpan presentasi dengan Aspose.Slides.
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+// Instansiasi kelas Presentation yang mewakili file presentasi.
 $presentation = new Presentation();
 try {
     // Lakukan beberapa pekerjaan di sini...
@@ -44,12 +44,12 @@ try {
 }
 ```
 
-## **Simpan Presentasi ke Stream**
+## **Menyimpan Presentasi ke Stream**
 
-Anda dapat menyimpan sebuah presentasi ke stream dengan memberikan sebuah output stream ke metode `save` milik kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Sebuah presentasi dapat ditulis ke banyak jenis stream. Pada contoh di bawah, kami membuat sebuah presentasi baru dan menyimpannya ke sebuah file stream.
+Anda dapat menyimpan presentasi ke stream dengan melewatkan output stream ke metode `save` pada kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Presentasi dapat ditulis ke banyak jenis stream. Pada contoh di bawah, kami membuat presentasi baru dan menyimpannya ke file stream.
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+// Instansiasi kelas Presentation yang mewakili file presentasi.
 $presentation = new Presentation();
 try {
     $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
@@ -64,7 +64,7 @@ try {
 }
 ```
 
-## **Simpan Presentasi dengan Jenis Tampilan Pradefinisi**
+## **Menyimpan Presentasi dengan Tipe Tampilan yang Sudah Ditetapkan**
 
 Aspose.Slides memungkinkan Anda mengatur tampilan awal yang digunakan PowerPoint ketika presentasi yang dihasilkan dibuka melalui kelas [ViewProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/viewproperties/). Gunakan metode [setLastView](https://reference.aspose.com/slides/id/php-java/aspose.slides/viewproperties/#setLastView) dengan nilai dari enumerasi [ViewType](https://reference.aspose.com/slides/id/php-java/aspose.slides/viewtype/).
 
@@ -78,17 +78,17 @@ try {
 }
 ```
 
-## **Simpan Presentasi dalam Format Strict Office Open XML**
+## **Menyimpan Presentasi dalam Format Strict Office Open XML**
 
-Aspose.Slides memungkinkan Anda menyimpan sebuah presentasi dalam format Strict Office Open XML. Gunakan kelas [PptxOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxoptions/) dan atur properti conformance-nya saat menyimpan. Jika Anda mengatur [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/id/php-java/aspose.slides/conformance/#Iso29500_2008_Strict), file output akan disimpan dalam format Strict Office Open XML.
+Aspose.Slides memungkinkan Anda menyimpan presentasi dalam format Strict Office Open XML. Gunakan kelas [PptxOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxoptions/) dan atur properti conformance saat menyimpan. Jika Anda mengatur [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/id/php-java/aspose.slides/conformance/#Iso29500_2008_Strict), file output disimpan dalam format Strict Office Open XML.
 
-Contoh di bawah membuat sebuah presentasi dan menyimpannya dalam format Strict Office Open XML.
+Contoh di bawah membuat presentasi dan menyimpannya dalam format Strict Office Open XML.
 
 ```php
 $options = new PptxOptions();
 $options->setConformance(Conformance::Iso29500_2008_Strict);
 
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+// Instansiasi kelas Presentation yang mewakili file presentasi.
 $presentation = new Presentation();
 try {
     // Simpan presentasi dalam format Strict Office Open XML.
@@ -98,19 +98,19 @@ try {
 }
 ```
 
-## **Simpan Presentasi dalam Format Office Open XML dengan Mode Zip64**
+## **Menyimpan Presentasi dalam Format Office Open XML dengan Mode Zip64**
 
-File Office Open XML adalah arsip ZIP yang memberlakukan batas 4 GB (2^32 byte) pada ukuran tak terkompresi suatu file, ukuran terkompresi suatu file, dan total ukuran arsip, serta membatasi arsip hingga 65 535 (2^16‑1) file. Ekstensi format ZIP64 mengangkat batas‑batas ini menjadi 2^64.
+File Office Open XML adalah arsip ZIP yang membatasi ukuran tidak terkompresi, ukuran terkompresi, dan total ukuran arsip masing‑masing sampai 4 GB (2^32 byte), serta membatasi jumlah file dalam arsip sampai 65 535 (2^16‑1). Ekstensi format ZIP64 menaikkan batas‑batas ini menjadi 2^64.
 
 Metode [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxoptions/#setZip64Mode) memungkinkan Anda memilih kapan menggunakan ekstensi format ZIP64 saat menyimpan file Office Open XML.
 
-Metode ini dapat digunakan dengan mode berikut:
+Metode ini dapat dipakai dengan mode berikut:
 
-- [IfNecessary](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#IfNecessary) menggunakan ekstensi format ZIP64 hanya bila presentasi melampaui batas di atas. Ini adalah mode default.
-- [Never](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#Never) tidak pernah menggunakan ekstensi format ZIP64.
-- [Always](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#Always) selalu menggunakan ekstensi format ZIP64.
+- [IfNecessary](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#IfNecessary) menggunakan ekstensi ZIP64 hanya bila presentasi melebihi batas di atas. Ini adalah mode default.
+- [Never](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#Never) tidak pernah menggunakan ekstensi ZIP64.
+- [Always](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#Always) selalu menggunakan ekstensi ZIP64.
 
-Kode berikut menunjukkan cara menyimpan sebuah presentasi sebagai PPTX dengan ekstensi format ZIP64 diaktifkan:
+Kode berikut memperlihatkan cara menyimpan presentasi sebagai file PPTX dengan ekstensi format ZIP64 diaktifkan:
 
 ```php
 $pptxOptions = new PptxOptions();
@@ -125,17 +125,64 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Saat Anda menyimpan dengan [Zip64Mode.Never](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#Never), sebuah [PptxException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxexception/) dilemparkan bila presentasi tidak dapat disimpan dalam format ZIP32.
+When you save with [Zip64Mode.Never](https://reference.aspose.com/slides/id/php-java/aspose.slides/zip64mode/#Never), a [PptxException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 {{% /alert %}}
 
-## **Simpan Presentasi tanpa Menyegarkan Thumbnail**
+## **Menyimpan Presentasi dalam Format Office Open XML dengan Tingkat Kompresi**
 
-Metode [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) mengontrol pembuatan thumbnail saat menyimpan presentasi ke PPTX:
+Saat bekerja dengan presentasi berukuran besar, Anda dapat menyesuaikan tingkat kompresi untuk menyeimbangkan ukuran file dan waktu proses. Bergantung pada kebutuhan, Anda mungkin lebih memilih proses yang lebih cepat atau file output yang lebih kecil.
 
-- Jika diatur ke `true`, thumbnail disegarkan selama penyimpanan. Ini adalah nilai default.
-- Jika diatur ke `false`, thumbnail saat ini dipertahankan. Jika presentasi tidak memiliki thumbnail, tidak ada yang dibuat.
+Aspose.Slides menyediakan metode [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxoptions/#setCompressionLevel) yang memungkinkan Anda menentukan tingkat kompresi yang digunakan saat menyimpan presentasi dalam format Office Open XML.
 
-Pada kode di bawah, presentasi disimpan ke PPTX tanpa menyegarkan thumbnail-nya.
+Tingkat kompresi yang tersedia:
+
+- [**None**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#None): Tidak ada kompresi. File disimpan apa adanya.
+- [**Level1**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level1): Kompresi tercepat dengan rasio kompresi terendah.
+- [**Level2**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level2): Kompresi lebih cepat dengan rasio sedikit lebih baik daripada **Level1**.
+- [**Level3**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level3): Memberikan kompresi lebih baik daripada **Level2** dengan dampak sedang pada waktu proses.
+- [**Level4**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level4): Memberikan kompresi lebih baik daripada **Level3**.
+- [**Level5**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level5): Memperbaiki kompresi dibanding **Level4** dengan waktu proses tambahan.
+- [**Level6**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level6): Kompresi standar yang menawarkan keseimbangan baik antara kecepatan proses dan ukuran file. Ini adalah *tingkat kompresi default*.
+- [**Level7**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level7): Memberikan kompresi lebih baik daripada **Level6** dengan proses yang lebih lambat.
+- [**Level8**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level8): Memberikan kompresi lebih baik daripada **Level7**.
+- [**Level9**](https://reference.aspose.com/slides/id/php-java/aspose.slides/compressionlevel/#Level9): Kompresi maksimum. Menghasilkan ukuran file terkecil dengan biaya waktu proses terpanjang.
+
+Contoh berikut memperlihatkan cara menyimpan presentasi sebagai file PPTX *tanpa kompresi*:
+
+```php
+$pptxOptions = new PptxOptions();
+$pptxOptions->setCompressionLevel(CompressionLevel::None);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Contoh ini menunjukkan cara menyimpan presentasi sebagai file PPTX dengan *kompresi maksimum*:
+
+```php
+$pptxOptions = new PptxOptions();
+$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Menyimpan Presentasi tanpa Memperbarui Thumbnail**
+
+Metode [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) mengendalikan pembuatan thumbnail saat menyimpan presentasi ke PPTX:
+
+- Jika disetel ke `true`, thumbnail diperbarui selama penyimpanan. Ini adalah nilai default.
+- Jika disetel ke `false`, thumbnail yang ada dipertahankan. Jika presentasi tidak memiliki thumbnail, tidak ada yang akan dibuat.
+
+Pada kode di bawah, presentasi disimpan ke PPTX tanpa memperbarui thumbnailnya.
 
 ```php
 $pptxOptions = new PptxOptions();
@@ -151,14 +198,14 @@ finally {
 ```
 
 {{% alert title="Info" color="info" %}}
-Opsi ini membantu mengurangi waktu yang diperlukan untuk menyimpan sebuah presentasi dalam format PPTX.
+This option helps reduce the time required to save a presentation in PPTX format.
 {{% /alert %}}
 
-## **Laporan Progres Penyimpanan dalam Persentase**
+## **Menyimpan Pembaruan Progres dalam Persentase**
 
-Pelaporan progres penyimpanan dikonfigurasi melalui metode [setProgressCallback](https://reference.aspose.com/slides/id/php-java/aspose.slides/saveoptions/#setProgressCallback) pada [SaveOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/saveoptions/) dan subclass‑nya. Berikan sebuah proxy Java yang mengimplementasikan antarmuka [IProgressCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iprogresscallback/); selama ekspor, callback menerima pembaruan persentase secara periodik.
+Pelaporan progres penyimpanan dikonfigurasi melalui metode [setProgressCallback](https://reference.aspose.com/slides/id/php-java/aspose.slides/saveoptions/#setProgressCallback) pada [SaveOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/saveoptions/) dan subclass‑nya. Sediakan proxy Java yang mengimplementasikan antarmuka [IProgressCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iprogresscallback/); selama ekspor, callback menerima pembaruan persentase secara periodik.
 
-Potongan kode berikut menunjukkan cara menggunakan `IProgressCallback`.
+Cuplikan kode berikut menunjukkan cara menggunakan `IProgressCallback`.
 
 ```php
 class ExportProgressHandler {
@@ -183,23 +230,23 @@ try {
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose telah mengembangkan sebuah aplikasi [PowerPoint Splitter gratis](https://products.aspose.app/slides/id/splitter) menggunakan API‑nya sendiri. Aplikasi ini memungkinkan Anda membagi sebuah presentasi menjadi beberapa file dengan menyimpan slide terpilih sebagai file PPTX atau PPT baru.
+Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/id/splitter) using its own API. The app lets you split a presentation into multiple files by saving selected slides as new PPTX or PPT files.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah "fast save" (penyimpanan inkremental) didukung sehingga hanya perubahan yang ditulis?**
+**Apakah \"fast save\" (penyimpanan incremental) didukung sehingga hanya perubahan yang ditulis?**
 
-Tidak. Penyimpanan selalu membuat file target lengkap setiap kali; "fast save" inkremental tidak didukung.
+Tidak. Setiap penyimpanan membuat file target lengkap; \"fast save\" incremental tidak didukung.
 
-**Apakah aman untuk menyimpan instance Presentation yang sama dari banyak thread?**
+**Apakah aman untuk menyimpan instance Presentation yang sama dari beberapa thread?**
 
-Tidak. Sebuah [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) tidak bersifat thread‑safe; simpanlah dari satu thread saja.
+Tidak. Sebuah [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) **tidak thread‑safe** (/slides/id/php-java/multithreading/); simpanlah dari satu thread saja.
 
 **Apa yang terjadi pada hyperlink dan file yang ditautkan secara eksternal saat menyimpan?**
 
-[Hyperlink](/slides/id/php-java/manage-hyperlinks/) dipertahankan. File yang ditautkan secara eksternal (misalnya video dengan jalur relatif) tidak disalin secara otomatis—pastikan jalur yang dirujuk tetap dapat diakses.
+[Hyperlink](/slides/id/php-java/manage-hyperlinks/) dipertahankan. File yang ditautkan secara eksternal (misalnya video dengan jalur relatif) tidak disalin secara otomatis—pastikan jalur yang direferensikan masih dapat diakses.
 
 **Bisakah saya mengatur/menyimpan metadata dokumen (Penulis, Judul, Perusahaan, Tanggal)?**
 
-Ya. properti dokumen standar [/slides/id/php-java/presentation-properties/] didukung dan akan ditulis ke file saat disimpan.
+Ya. Properti [document](/slides/id/php-java/presentation-properties/) standar didukung dan akan ditulis ke file saat disimpan.
