@@ -1,25 +1,23 @@
 ---
-title: Format Teks Presentasi di PHP
+title: Format Teks Presentasi dalam PHP
 linktitle: Pemformatan Teks
 type: docs
 weight: 50
 url: /id/php-java/text-formatting/
 keywords:
-- menyorot teks
-- ekspresi reguler
-- menyelaraskan paragraf
+- penyelarasan paragraf
 - gaya teks
 - latar belakang teks
 - transparansi teks
 - jarak karakter
 - properti font
-- keluarga font
+- famili font
 - rotasi teks
 - sudut rotasi
 - bingkai teks
 - jarak baris
 - properti autofit
-- jangkar bingkai teks
+- anchor bingkai teks
 - tabulasi teks
 - bahasa default
 - PowerPoint
@@ -27,87 +25,34 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk PHP melalui Java. Sesuaikan font, warna, perataan, dan lainnya."
+description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk PHP via Java. Sesuaikan font, warna, perataan, dan lainnya."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menunjukkan cara memformat teks pada presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk PHP via Java. Ini mencakup penyorotan, warna latar belakang, transparansi, jarak karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tabulasi, dan pengaturan bahasa.
+Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk PHP via Java. Artikel ini mencakup warna latar belakang, transparansi, jarak karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tab stop, dan pengaturan bahasa.
 
 Dalam contoh di bawah, kami akan menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
-![Teks contoh](sample_text.png)
+![Sample text](sample_text.png)
 
-## **Sorot Teks**
-
-Gunakan metode [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/)`::highlightText` ketika Anda perlu menyorot teks yang cocok dengan contoh tertentu dalam sebuah bingkai teks. Metode ini menerapkan warna sorotan pada potongan teks yang cocok dan dapat digunakan bersama [TextHighlightingOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/texthighlightingoptions/) untuk mengendalikan cara pencarian dilakukan, misalnya, untuk mencocokkan hanya kata lengkap.
-
-Contoh kode di bawah menyorot semua kemunculan karakter **"try"** dan kemudian menyorot hanya kata lengkap **"to"**.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    // Dapatkan bentuk pertama dari slide pertama.
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lightBlue = new Java("java.awt.Color", 173, 216, 230);
-    $violet = new Java("java.awt.Color", 238, 130, 238);
-
-    // Sorot kata "try" dalam bentuk.
-    $shape->getTextFrame()->highlightText("try", $lightBlue);
-
-    $searchOptions = new TextHighlightingOptions();
-    $searchOptions->setWholeWordsOnly(true);
-
-    // Sorot kata "to" dalam bentuk.
-    $shape->getTextFrame()->highlightText("to", $violet, $searchOptions);
-
-    $presentation->save("highlighted_text.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Hasilnya:
-
-![Teks yang disorot](highlighted_text.png)
-
-## **Sorot Teks Menggunakan Ekspresi Reguler**
-
-Metode [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/)`::highlightRegex` menyorot kecocokan teks yang ditemukan oleh sebuah ekspresi reguler.
-
-Contoh kode di bawah menyorot semua kata yang mengandung **tujuh karakter atau lebih**:
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-
-    // Sorot semua kata dengan tujuh karakter atau lebih.
-    $shape->getTextFrame()->highlightRegex("\\b[^\\s]{7,}\\b", java("java.awt.Color")->YELLOW, null);
-
-    $presentation->save("highlighted_text_using_regex.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Hasilnya:
-
-![Teks yang disorot menggunakan ekspresi reguler](highlighted_text_using_regex.png)
+Untuk menemukan dan menyorot teks literal atau kecocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/php-java/search-and-replace-text/).
 
 ## **Atur Warna Latar Belakang Teks**
 
-Gunakan format bagian default [ParagraphFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/) untuk mengatur warna sorotan default bagi sebuah paragraf, atau gunakan [PortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/portionformat/) untuk bagian teks individu.
+Gunakan [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) untuk mengatur warna sorot default untuk sebuah paragraf, atau gunakan [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/#getHighlightColor) untuk bagian teks individu.
 
-Contoh kode berikut memperlihatkan cara mengatur warna latar belakang untuk **seluruh paragraf**:
+Contoh kode berikut menunjukkan cara mengatur warna latar belakang untuk **seluruh paragraf**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // Atur warna sorotan untuk seluruh paragraf.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+    // Atur warna sorot untuk seluruh paragraf.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -117,22 +62,24 @@ try {
 
 Hasilnya:
 
-![Paragraf abu‑abu](gray_paragraph.png)
+![Paragraf abu-abu](gray_paragraph.png)
 
-Contoh kode di bawah menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
+Berikut contoh kode menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Atur warna sorotan untuk bagian teks.
-            $portion->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+            // Atur warna sorot untuk bagian teks.
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -144,18 +91,19 @@ try {
 
 Hasilnya:
 
-![Bagian teks abu‑abu](gray_text_portions.png)
+![Bagian teks abu-abu](gray_text_portions.png)
 
 ## **Ratakan Paragraf Teks**
 
-Gunakan metode [ParagraphFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/)`::setAlignment` untuk mengatur perataan paragraf dalam sebuah bingkai teks. Nilainya dapat berupa centered, left‑aligned, right‑aligned, justified, dan sebagainya.
+Gunakan [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#setAlignment) untuk mengatur perataan paragraf dalam bingkai teks. Nilainya dapat berupa tengah, rata kiri, rata kanan, justified, dan sebagainya.
 
-Contoh kode berikut memperlihatkan cara meratakan paragraf ke **tengah**:
+Contoh kode berikut menunjukkan cara meratakan paragraf ke **tengah**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     // Atur perataan paragraf ke tengah.
@@ -173,22 +121,24 @@ Hasilnya:
 
 ## **Atur Transparansi untuk Teks**
 
-Transparansi teks dikendalikan melalui komponen alfa dari warna yang ditetapkan pada format isian [PortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/portionformat/). Pada contoh di bawah, `alpha = 50` adalah nilai kanal alfa ARGB pada skala 0‑255, bukan persentase transparansi.
+Transparansi teks dikendalikan melalui komponen alfa dari warna yang ditetapkan pada [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/#getFillFormat). Dalam contoh di bawah, `alpha = 50` adalah nilai saluran alfa ARGB pada skala 0–255, bukan persentase transparansi.
 
-Contoh kode berikut memperlihatkan cara menerapkan transparansi pada **seluruh paragraf**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Atur warna isian teks menjadi warna transparan.
+    // Atur warna isi teks menjadi warna transparan.
     $fillFormat->setFillType(FillType::Solid);
-    $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
+    $fillFormat->getSolidFillColor()->setColor($transparentColor);
 
     $presentation->save("transparent_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -200,15 +150,17 @@ Hasilnya:
 
 ![Paragraf transparan](transparent_paragraph.png)
 
-Contoh kode berikut memperlihatkan cara menerapkan transparansi pada **bagian teks dengan font tebal**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **bagian teks dengan font tebal**:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
@@ -217,7 +169,7 @@ try {
             // Atur transparansi bagian teks.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
-            $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+            $fillFormat->getSolidFillColor()->setColor($transparentColor);
         }
     }
 
@@ -233,17 +185,18 @@ Hasilnya:
 
 ## **Atur Jarak Karakter untuk Teks**
 
-Gunakan metode [BasePortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/)`::setSpacing` untuk memperlebar atau mempersempit jarak antara karakter dalam sebuah kotak teks.
+Gunakan [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/#setSpacing) untuk memperluas atau memperkecil jarak antar karakter dalam sebuah kotak teks.
 
-Contoh kode PHP berikut memperlihatkan cara memperlebar jarak karakter pada **seluruh paragraf**:
+Kode PHP berikut menunjukkan cara memperluas jarak karakter dalam **seluruh paragraf**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
+    // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Perluas jarak karakter.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
@@ -256,19 +209,20 @@ Hasilnya:
 
 ![Jarak karakter dalam paragraf](character_spacing_in_paragraph.png)
 
-Contoh kode di bawah memperlihatkan cara memperlebar jarak karakter pada **bagian teks dengan font tebal**:
+Contoh kode berikut menunjukkan cara memperluas jarak karakter dalam **bagian teks dengan font tebal**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
+            // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
             $portion->getPortionFormat()->setSpacing(3); // Perluas jarak karakter.
         }
     }
@@ -285,14 +239,15 @@ Hasilnya:
 
 ### **Nonaktifkan Kerning untuk Font Tertentu**
 
-Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides mungkin terlihat sedikit lebih rapat dibandingkan teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan di pengaturan PowerPoint.
+Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat tampak sedikit lebih rapat dibandingkan teks yang sama ditampilkan di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
 
-Untuk membuat hasil render lebih mirip dengan PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terdampak. Atur metode [BasePortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/)`::setKerningMinimalSize` ke nilai yang jauh lebih besar daripada ukuran font sebenarnya:
+Untuk membuat output yang dirender lebih mendekati PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terpengaruh. Atur [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) ke nilai yang jauh lebih besar daripada ukuran font sebenarnya:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $targetFont = "Roboto";
 
     $paragraphCount = java_values($autoShape->getTextFrame()->getParagraphs()->getCount());
@@ -320,27 +275,29 @@ try {
 }
 ```
 
-Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan rendering Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi perilaku khusus PowerPoint ini.
+Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan rendering Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi oleh perilaku spesifik PowerPoint ini.
 
 ## **Kelola Properti Font Teks**
 
-Properti font dapat diatur pada tingkat paragraf melalui format bagian default [ParagraphFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/) atau pada bagian individu melalui [PortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/portionformat/).
+Properti font dapat diatur pada tingkat paragraf melalui [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) atau pada bagian individu melalui [PortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/portionformat/).
 
-Contoh kode berikut mengatur font dan gaya teks untuk seluruh paragraf: ia menerapkan ukuran font, tebal, miring, garis bawah titik, dan font Times New Roman ke semua bagian dalam paragraf.
+Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: ia menerapkan ukuran font, tebal, miring, garis bawah titik, dan font Times New Roman ke semua bagian dalam paragraf.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $font = new FontData("Times New Roman");
 
     // Atur properti font untuk paragraf.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
     $defaultPortionFormat->setFontUnderline(TextUnderlineType::Dotted);
-    $defaultPortionFormat->setLatinFont(new FontData("Times New Roman"));
+    $defaultPortionFormat->setLatinFont($font);
 
     $presentation->save("font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -352,13 +309,15 @@ Hasilnya:
 
 ![Properti font untuk paragraf](font_properties_for_paragraph.png)
 
-Contoh kode di bawah menerapkan properti serupa pada **bagian teks dengan font tebal**:
+Contoh kode berikut menerapkan properti serupa pada **bagian teks dengan font tebal**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $font = new FontData("Times New Roman");
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
@@ -369,7 +328,7 @@ try {
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
             $portionFormat->setFontUnderline(TextUnderlineType::Dotted);
-            $portionFormat->setLatinFont(new FontData("Times New Roman"));
+            $portionFormat->setLatinFont($font);
         }
     }
 
@@ -385,14 +344,15 @@ Hasilnya:
 
 ## **Atur Rotasi Teks**
 
-Gunakan metode [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/)`::setTextVerticalType` untuk mengatur orientasi teks bawaan dalam sebuah bentuk.
+Gunakan [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/#setTextVerticalType) untuk mengatur orientasi teks bawaan dalam sebuah bentuk.
 
-Contoh kode berikut mengatur orientasi teks dalam bentuk menjadi `Vertical270`, yang memutar teks **90 derajat berlawanan arah jarum jam**:
+Contoh kode berikut mengatur orientasi teks dalam bentuk ke `Vertical270`, yang memutar teks **90 derajat berlawanan arah jarum jam**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
 
@@ -408,14 +368,15 @@ Hasilnya:
 
 ## **Atur Rotasi Kustom untuk Bingkai Teks**
 
-Gunakan metode [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/)`::setRotationAngle` untuk mengatur sudut rotasi kustom bagi sebuah [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/).
+Gunakan [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/#setRotationAngle) untuk mengatur sudut rotasi kustom untuk sebuah [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/).
 
-Contoh kode di bawah memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
+Contoh kode berikut memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setRotationAngle(3);
 
@@ -431,17 +392,18 @@ Hasilnya:
 
 ## **Atur Jarak Baris Paragraf**
 
-Aspose.Slides menyediakan metode [ParagraphFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/)`::setSpaceAfter`, `ParagraphFormat::setSpaceBefore`, dan `ParagraphFormat::setSpaceWithin` untuk mengendalikan jarak paragraf. Metode‑metode ini digunakan sebagai berikut:
+Aspose.Slides menyediakan [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#setSpaceBefore), dan [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#setSpaceWithin) untuk mengontrol jarak paragraf. Properti ini digunakan sebagai berikut:
 
 * Gunakan nilai positif untuk menentukan jarak baris sebagai persentase dari tinggi baris.
 * Gunakan nilai negatif untuk menentukan jarak baris dalam poin.
 
-Contoh kode berikut memperlihatkan cara menentukan jarak baris dalam paragraf:
+Contoh kode berikut menunjukkan cara menentukan jarak baris dalam paragraf:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setSpaceWithin(200);
@@ -458,12 +420,13 @@ Hasilnya:
 
 ## **Atur Tipe Autofit untuk Bingkai Teks**
 
-Metode [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/)`::setAutofitType` menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengendalikan apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/#setAutofitType) menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengontrol apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
 
@@ -473,14 +436,15 @@ try {
 }
 ```
 
-## **Atur Jangkauan Vertikal Bingkai Teks**
+## **Atur Anchor Bingkai Teks**
 
-Metode [TextFrameFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/)`::setAnchoringType` mendefinisikan bagaimana teks diposisikan secara vertikal di dalam sebuah bentuk, misalnya di atas, tengah, atau bawah.
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframeformat/#setAnchoringType) menentukan bagaimana teks diposisikan secara vertikal di dalam bentuk, misalnya di atas, tengah, atau bawah.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
 
@@ -492,12 +456,13 @@ try {
 
 ## **Atur Tabulasi Teks**
 
-Gunakan metode [ParagraphFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/)`::setDefaultTabSize` dan koleksi tabnya untuk mengonfigurasi titik tab dalam sebuah paragraf.
+Gunakan [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) dan [ParagraphFormat::getTabs](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraphformat/#getTabs) untuk mengkonfigurasi tab stop dalam sebuah paragraf.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setDefaultTabSize(100);
@@ -515,14 +480,15 @@ Hasilnya:
 
 ## **Atur Bahasa Proofing**
 
-Aspose.Slides menyediakan metode [BasePortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/)`::setLanguageId`, yang memungkinkan Anda mengatur bahasa proofing untuk sebuah bagian teks. Bahasa proofing menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/#setLanguageId), yang memungkinkan Anda mengatur bahasa proofing untuk sebuah bagian teks. Bahasa proofing menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
 
-Contoh kode berikut memperlihatkan cara mengatur bahasa proofing untuk sebuah bagian teks:
+Contoh kode berikut menunjukkan cara mengatur bahasa proofing untuk sebuah bagian teks:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getPortions()->clear();
@@ -534,10 +500,10 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Atur ID bahasa proofing.
+    // Atur Id bahasa proofing.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
-    $textPortion->setText("1.");
+    $textPortion->setText("1。");
     $paragraph->getPortions()->add($textPortion);
 
     $presentation->save("proofing_language.pptx", SaveFormat::Pptx);
@@ -548,7 +514,7 @@ try {
 
 ## **Atur Bahasa Default**
 
-Gunakan metode [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/)`::setDefaultTextLanguage` untuk menentukan bahasa default bagi teks yang dibuat saat memuat atau membuat sebuah presentasi.
+Gunakan [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) untuk mendefinisikan bahasa default untuk teks yang dibuat saat memuat atau membuat presentasi.
 
 ```php
 $loadOptions = new LoadOptions();
@@ -572,9 +538,9 @@ try {
 
 ## **Atur Gaya Teks Default**
 
-Untuk menerapkan format teks default pada tingkat presentasi, gunakan gaya teks default [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+Untuk menerapkan format teks default pada tingkat presentasi, gunakan [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Contoh kode berikut memperlihatkan cara mengatur font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam sebuah presentasi baru.
+Contoh kode berikut menunjukkan cara mengatur font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam presentasi baru.
 
 ```php
 $presentation = new Presentation();
@@ -593,27 +559,29 @@ try {
 }
 ```
 
-## **Ekstrak Teks dengan Efek Semua Kapital**
+## **Ekstrak Teks dengan Efek Semua Huruf Besar**
 
-Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf kapital pada slide meskipun awalnya diketik dalam huruf kecil. Saat Anda mengambil bagian teks semacam itu dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/php-java/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf kapital ketika nilai tersebut adalah `All`.
+Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf kapital di slide meskipun semula diketik dengan huruf kecil. Saat Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/php-java/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf besar ketika nilainya `All`.
 
 Misalkan kita memiliki kotak teks berikut pada slide pertama file sample2.pptx.
 
-![Efek All Caps](all_caps_effect.png)
+![Efek Semua Huruf Besar](all_caps_effect.png)
 
-Contoh kode berikut memperlihatkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
+Contoh kode berikut menunjukkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
 
 ```php
 $presentation = new Presentation("sample2.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $textPortion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 
-    echo "Original text: ", $textPortion->getText(), "\n";
+    $originalText = $textPortion->getText();
+    echo "Original text: ", $originalText, "\n";
 
     $textFormat = $textPortion->getPortionFormat()->getEffective();
     if (java_values($textFormat->getTextCapType()) === TextCapType::All) {
-        $text = strtoupper($textPortion->getText());
+        $text = strtoupper($originalText);
         echo "All-Caps effect: ", $text, "\n";
     }
 } finally {
@@ -630,10 +598,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Bagaimana cara memodifikasi teks dalam tabel pada slide?**
+**Cara mengubah teks dalam tabel pada slide?**
 
-Untuk memodifikasi teks dalam tabel pada slide, gunakan [Table](https://reference.aspose.com/slides/id/php-java/aspose.slides/table/). Iterasi sel‑sel dan perbarui setiap sel melalui bingkai teks [Cell](https://reference.aspose.com/slides/id/php-java/aspose.slides/cell/) serta pemformatan paragraf melalui [Paragraph](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraph/)'s paragraph format.
+Untuk mengubah teks dalam tabel pada slide, gunakan [Table](https://reference.aspose.com/slides/id/php-java/aspose.slides/table/). Iterasi melalui sel-sel dan perbarui setiap sel melalui [Cell::getTextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/cell/#getTextFrame) serta format paragraf melalui [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Bagaimana cara menerapkan warna gradasi pada teks di slide PowerPoint?**
+**Cara menerapkan warna gradien ke teks dalam slide PowerPoint?**
 
-Untuk menerapkan warna gradasi pada teks, gunakan format isian [PortionFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/portionformat/). Atur tipe isian [FillFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/fillformat/) menjadi [FillType](https://reference.aspose.com/slides/id/php-java/aspose.slides/filltype/) `Gradient` dan konfigurasikan titik gradasi, arah, serta transparansi.
+Untuk menerapkan warna gradien ke teks, gunakan [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseportionformat/#getFillFormat). Atur [FillFormat::setFillType](https://reference.aspose.com/slides/id/php-java/aspose.slides/fillformat/#setFillType) ke [FillType::Gradient](https://reference.aspose.com/slides/id/php-java/aspose.slides/filltype/) dan konfigurasikan titik-titik gradien, arah, serta transparansi.

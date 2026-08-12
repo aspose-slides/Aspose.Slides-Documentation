@@ -1,17 +1,15 @@
 ---
-title: Μορφοποίηση κειμένου παρουσίασης σε PHP
+title: Διαμορφώστε κείμενο παρουσίασης σε PHP
 linktitle: Μορφοποίηση κειμένου
 type: docs
 weight: 50
 url: /el/php-java/text-formatting/
 keywords:
-- επισημάνση κειμένου
-- κανονική έκφραση
-- στοίχιση παραγράφου
+- ευθυγράμμιση παραγράφου
 - στυλ κειμένου
 - φόντο κειμένου
 - διαφάνεια κειμένου
-- διάστημα χαρακτήρων
+- απόσταση χαρακτήρων
 - ιδιότητες γραμματοσειράς
 - οικογένεια γραμματοσειράς
 - περιστροφή κειμένου
@@ -19,95 +17,42 @@ keywords:
 - πλαίσιο κειμένου
 - διάστημα γραμμής
 - ιδιότητα autofit
-- άγκυρα πλαισίου κειμένου
-- εσοχή κειμένου
+- αγκύρωση πλαισίου κειμένου
+- καρτέλες κειμένου
 - προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Διαμορφώστε και μορφοποιήστε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και πολλά άλλα."
+description: "Διαμορφώστε και στυλιζάτε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java. Προσαρμόστε γραμματοσειρές, χρώματα, ευθυγράμμιση και άλλα."
 ---
-## **Επισκόπηση**
+## **Overview**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java. Καλύπτει την επισήμανση, τα χρώματα φόντου, τη διαφάνεια, το διάστημα χαρακτήρων, τις ιδιότητες γραμματοσειράς, την περιστροφή, το διάστημα παραγράφων, τη συμπεριφορά autofit, την αγκύρωση κειμένου, τις στάσεις καρτέλας και τις ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, απόσταση παραγράφων, συμπεριφορά Autofit, αγκύρωση κειμένου, σημάντες καρτέλας και ρυθμίσεις γλώσσας.
 
-Στα παρακάτω παραδείγματα, θα χρησιμοποιήσουμε ένα αρχείο με όνομα "sample.pptx", το οποίο περιέχει ένα μόνο πλαίσιο κειμένου στη πρώτη διαφάνεια με το παρακάτω κείμενο:
+Στα παραδείγματα παρακάτω, θα χρησιμοποιήσουμε ένα αρχείο με όνομα «sample.pptx», το οποίο περιέχει ένα μόνο πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
 
 ![Δείγμα κειμένου](sample_text.png)
 
-## **Επισήμανση κειμένου**
+Για να εντοπίσετε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/php-java/search-and-replace-text/).
 
-Χρησιμοποιήστε τη μέθοδο TextFrame::highlightText όταν χρειάζεται να επισημάνετε κείμενο που ταιριάζει με ένα συγκεκριμένο δείγμα μέσα σε ένα πλαίσιο κειμένου. Η μέθοδος εφαρμόζει χρώμα επισήμανσης στα ταιριαστά τμήματα κειμένου και μπορεί να χρησιμοποιηθεί μαζί με το TextHighlightingOptions για να ελέγξει πώς γίνεται η αναζήτηση, για παράδειγμα, ώστε να ταιριάζει μόνο με ολόκληρες λέξεις.
+## **Set Text Background Color**
 
-Το παρακάτω παράδειγμα κώδικα επισημαίνει όλες τις εμφανίσεις των χαρακτήρων **"try"** και στη συνέχεια επισημαίνει μόνο τη λέξη **"to"**.
+Χρησιμοποιήστε [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο ή χρησιμοποιήστε [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#getHighlightColor) για μεμονωμένα τμήματα κειμένου.
 
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    // Απόκτηση του πρώτου σχήματος από την πρώτη διαφάνεια.
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lightBlue = new Java("java.awt.Color", 173, 216, 230);
-    $violet = new Java("java.awt.Color", 238, 130, 238);
-
-    // Επισήμανση της λέξης "try" στο σχήμα.
-    $shape->getTextFrame()->highlightText("try", $lightBlue);
-
-    $searchOptions = new TextHighlightingOptions();
-    $searchOptions->setWholeWordsOnly(true);
-
-    // Επισήμανση της λέξης "to" στο σχήμα.
-    $shape->getTextFrame()->highlightText("to", $violet, $searchOptions);
-
-    $presentation->save("highlighted_text.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Το αποτέλεσμα:
-
-![Το επισημασμένο κείμενο](highlighted_text.png)
-
-## **Επισήμανση κειμένου με κανονική έκφραση**
-
-Η μέθοδος TextFrame::highlightRegex επισημαίνει τα ταιριάσματα κειμένου που βρέθηκαν με μια κανονική έκφραση.
-
-Το παρακάτω παράδειγμα κώδικα επισημαίνει όλες τις λέξεις που περιέχουν **επτά ή περισσότερους χαρακτήρες**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **ολόκληρη την παράγραφο**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-
-    // Επισήμανση όλων των λέξεων με επτά ή περισσότερους χαρακτήρες.
-    $shape->getTextFrame()->highlightRegex("\\b[^\\s]{7,}\\b", java("java.awt.Color")->YELLOW, null);
-
-    $presentation->save("highlighted_text_using_regex.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Το αποτέλεσμα:
-
-![Το επισημασμένο κείμενο χρησιμοποιώντας την κανονική έκφραση](highlighted_text_using_regex.png)
-
-## **Ορισμός χρώματος φόντου κειμένου**
-
-Χρησιμοποιήστε το προεπιλεγμένο format μερίδας του ParagraphFormat για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο ή χρησιμοποιήστε το PortionFormat για μεμονωμένες μερίδες κειμένου.
-
-Το ακόλουθο παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **ολόκληρη την παράγραφο**:
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     // Ορίστε το χρώμα επισήμανσης για ολόκληρη την παράγραφο.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -117,22 +62,24 @@ try {
 
 Το αποτέλεσμα:
 
-![Η γκρι παράγραφος](gray_paragraph.png)
+![Η γκρίζα παράγραφος](gray_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα επιδεικνύει πώς να ορίσετε το χρώμα φόντου για **μερίδες κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Ορίστε το χρώμα επισήμανσης για τη μερίδα κειμένου.
-            $portion->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+            // Ορίστε το χρώμα επισήμανσης για το τμήμα κειμένου.
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -144,21 +91,22 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι γκρι μερίδες κειμένου](gray_text_portions.png)
+![Τα γκρίζα τμήματα κειμένου](gray_text_portions.png)
 
-## **Στοίχιση παραγράφων κειμένου**
+## **Align Text Paragraphs**
 
-Χρησιμοποιήστε τη μέθοδο ParagraphFormat::setAlignment για να ορίσετε την στοίχιση της παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, πλήρης στοίχιση κλπ.
+Χρησιμοποιήστε [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setAlignment) για να ορίσετε την ευθυγράμμιση της παραγράφου μέσα σε πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, ευθυγραμμισμένη κ.λπ.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να στοίχειτε την παράγραφο στο **κέντρο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ευθυγραμμίσετε την παράγραφο στο **κέντρο**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Ορίστε τη στοίχιση της παραγράφου στο κέντρο.
+    // Ορίστε την ευθυγράμμιση της παραγράφου στο κέντρο.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -169,26 +117,28 @@ try {
 
 Το αποτέλεσμα:
 
-![Η στοιχισμένη παράγραφος](aligned_paragraph.png)
+![Η ευθυγραμμισμένη παράγραφος](aligned_paragraph.png)
 
-## **Ορισμός διαφάνειας για κείμενο**
+## **Set Transparency for Text**
 
-Η διαφάνεια του κειμένου ελέγχεται μέσω του αλφα‑συστατικού του χρώματος που έχει ανατεθεί στη μορφή γεμίσματος του PortionFormat. Σ τα παραδείγματα παρακάτω, `alpha = 50` είναι μια τιμή αλφα‑καναλιού ARGB στην κλίμακα 0‑255, όχι ποσοστό διαφάνειας.
+Η διαφάνεια του κειμένου ελέγχεται μέσω του στοιχείου άλφα του χρώματος που έχει οριστεί στο [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#getFillFormat). Στα παραδείγματα παρακάτω, `alpha = 50` είναι μια τιμή αλφα-καναλιού ARGB στην κλίμακα 0–255, όχι ποσοστό διαφάνειας.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **ολόκληρη την παράγραφο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια στην **ολόκληρη την παράγραφο**:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Ορίστε το χρώμα γεμίσματος του κειμένου σε διάφανο χρώμα.
+    // Ορίστε το χρώμα γέμισης του κειμένου σε διαφανές χρώμα.
     $fillFormat->setFillType(FillType::Solid);
-    $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
+    $fillFormat->getSolidFillColor()->setColor($transparentColor);
 
     $presentation->save("transparent_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -200,24 +150,26 @@ try {
 
 ![Η διαφανής παράγραφος](transparent_paragraph.png)
 
-Το ακόλουθο παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **μερίδες κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Ορίστε τη διαφάνεια της μερίδας κειμένου.
+            // Ορίστε τη διαφάνεια του τμήματος κειμένου.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
-            $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+            $fillFormat->getSolidFillColor()->setColor($transparentColor);
         }
     }
 
@@ -229,22 +181,23 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι διαφανείς μερίδες κειμένου](transparent_text_portions.png)
+![Τα διαφανή τμήματα κειμένου](transparent_text_portions.png)
 
-## **Ορισμός διαστήματος χαρακτήρων για κείμενο**
+## **Set Character Spacing for Text**
 
-Χρησιμοποιήστε τη μέθοδο BasePortionFormat::setSpacing για να αυξήσετε ή να μειώσετε το διάστημα μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου.
+Χρησιμοποιήστε [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setSpacing) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε πλαίσιο κειμένου.
 
-Ο παρακάτω κώδικας PHP δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων στην **ολόκληρη την παράγραφο**:
+Ο παρακάτω κώδικας PHP δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων σε **ολόκληρη την παράγραφο**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Αύξηση διαστήματος χαρακτήρων.
+    // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Επεκτείνετε την απόσταση χαρακτήρων.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -254,22 +207,23 @@ try {
 
 Το αποτέλεσμα:
 
-![Το διάστημα χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
+![Η απόσταση χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων σε **μερίδες κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
-            $portion->getPortionFormat()->setSpacing(3); // Αύξηση διαστήματος χαρακτήρων.
+            // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
+            $portion->getPortionFormat()->setSpacing(3); // Επεκτείνετε την απόσταση χαρακτήρων.
         }
     }
 
@@ -281,18 +235,19 @@ try {
 
 Το αποτέλεσμα:
 
-![Το διάστημα χαρακτήρων στις μερίδες κειμένου](character_spacing_in_text_portions.png)
+![Η απόσταση χαρακτήρων στα τμήματα κειμένου](character_spacing_in_text_portions.png)
 
-### **Απενεργοποίηση kerning για συγκεκριμένες γραμματοσειρές**
+### **Disable Kerning for Specific Fonts**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδεται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο στενά από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβεί επειδή το PowerPoint μπορεί να αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
+Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδεται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο πυκνό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβεί επειδή το PowerPoint μπορεί να αγνοήσει τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρα δεδομένα kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
 
-Για να γίνει η παραγόμενη έξοδο πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τις μερίδες κειμένου που χρησιμοποιούν την επηρεασμένη γραμματοσειρά. Ορίστε τη μέθοδο BasePortionFormat::setKerningMinimalSize σε μια τιμή σημαντικά μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς:
+Για να φέρετε την απόδοση πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τμήματα κειμένου που χρησιμοποιούν την επηρεαζόμενη γραμματοσειρά. Ορίστε [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) σε τιμή σημαντικά μεγαλύτερη από το πραγματικό μέγεθος της γραμματοσειράς:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $targetFont = "Roboto";
 
     $paragraphCount = java_values($autoShape->getTextFrame()->getParagraphs()->getCount());
@@ -320,27 +275,29 @@ try {
 }
 ```
 
-Αυτή η ρύθμιση αποτρέπει την εφαρμογή του kerning σε ταιριαστές μερίδες κειμένου και μπορεί να βοηθήσει στην ευθυγράμμιση της απόδοσης του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για γραμματοσειρές που επηρεάζονται από αυτή τη συγκεκριμένη συμπεριφορά του PowerPoint.
+Αυτή η ρύθμιση εμποδίζει την εφαρμογή kerning στα αντίστοιχα τμήματα κειμένου και μπορεί να βοηθήσει την απόδοση του Aspose.Slides να ταιριάζει με το οπτικό αποτέλεσμα του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά ειδική για το PowerPoint.
 
-## **Διαχείριση ιδιοτήτων γραμματοσειράς κειμένου**
+## **Manage Text Font Properties**
 
-Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν σε επίπεδο παραγράφου μέσω του προεπιλεγμένου format μερίδας του ParagraphFormat ή σε μεμονωμένες μερίδες μέσω του PortionFormat.
+Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν σε επίπεδο παραγράφου μέσω του [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ή σε μεμονωμένα τμήματα μέσω του [PortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/portionformat/).
 
-Ο παρακάτω κώδικας ορίζει τη γραμματοσειρά και το στυλ κειμένου για ολόκληρη την παράγραφο: εφαρμόζει το μέγεθος γραμματοσειράς, έντονο, πλάγιο, υπογράμμιση με τελείες και τη γραμματοσειρά Times New Roman σε όλες τις μερίδες της παραγράφου.
+Ο παρακάτω κώδικας ορίζει τη γραμματοσειρά και το στυλ κειμένου για ολόκληρη την παράγραφο: εφαρμόζει μέγεθος γραμματοσειράς, έντονη, πλάγια, υπογράμμιση με κουκκίδες και τη γραμματοσειρά Times New Roman σε όλα τα τμήματα της παραγράφου.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $font = new FontData("Times New Roman");
 
     // Ορίστε τις ιδιότητες γραμματοσειράς για την παράγραφο.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
     $defaultPortionFormat->setFontUnderline(TextUnderlineType::Dotted);
-    $defaultPortionFormat->setLatinFont(new FontData("Times New Roman"));
+    $defaultPortionFormat->setLatinFont($font);
 
     $presentation->save("font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -352,24 +309,26 @@ try {
 
 ![Οι ιδιότητες γραμματοσειράς για την παράγραφο](font_properties_for_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα εφαρμόζει παρόμοιες ιδιότητες σε **μερίδες κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα εφαρμόζει παρόμοιες ιδιότητες σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $font = new FontData("Times New Roman");
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Ορίστε τις ιδιότητες γραμματοσειράς για τη μερίδα κειμένου.
+            // Ορίστε τις ιδιότητες γραμματοσειράς για το τμήμα κειμένου.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
             $portionFormat->setFontUnderline(TextUnderlineType::Dotted);
-            $portionFormat->setLatinFont(new FontData("Times New Roman"));
+            $portionFormat->setLatinFont($font);
         }
     }
 
@@ -381,18 +340,19 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι ιδιότητες γραμματοσειράς για τις μερίδες κειμένου](font_properties_for_text_portions.png)
+![Οι ιδιότητες γραμματοσειράς για τα τμήματα κειμένου](font_properties_for_text_portions.png)
 
-## **Ορισμός περιστροφής κειμένου**
+## **Set Text Rotation**
 
-Χρησιμοποιήστε τη μέθοδο TextFrameFormat::setTextVerticalType για να ορίσετε μια προεπιλεγμένη προσανατολισμό κειμένου εντός ενός σχήματος.
+Χρησιμοποιήστε [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setTextVerticalType) για να ορίσετε προεπιλεγμένη προσανατολισμό κειμένου μέσα σε σχήμα.
 
-Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό του κειμένου στο σχήμα σε `Vertical270`, που περιστρέφει το κείμενο **90 μοίρες αριστερά**:
+Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε `Vertical270`, που περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
 
@@ -406,16 +366,17 @@ try {
 
 ![Η περιστροφή κειμένου](text_rotation.png)
 
-## **Ορισμός προσαρμοσμένης περιστροφής για πλαίσια κειμένου**
+## **Set Custom Rotation for Text Frames**
 
-Χρησιμοποιήστε τη μέθοδο TextFrameFormat::setRotationAngle για να ορίσετε μια προσαρμοσμένη γωνία περιστροφής για ένα TextFrame.
+Χρησιμοποιήστε [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setRotationAngle) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/).
 
-Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα εντός του σχήματος:
+Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setRotationAngle(3);
 
@@ -429,19 +390,20 @@ try {
 
 ![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
 
-## **Ορισμός διαστήματος γραμμής παραγράφων**
+## **Set Line Spacing of Paragraphs**
 
-Το Aspose.Slides παρέχει τις μεθόδους ParagraphFormat::setSpaceAfter, ParagraphFormat::setSpaceBefore και ParagraphFormat::setSpaceWithin για να ελέγχετε το διάστημα παραγράφων. Οι μέθοδοι αυτές χρησιμοποιούνται ως εξής:
+Το Aspose.Slides παρέχει τις μεθόδους [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setSpaceBefore) και [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setSpaceWithin) για τον έλεγχο της απόστασης παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
 
-* Χρησιμοποιήστε μια θετική τιμή για να ορίσετε το διάστημα γραμμής ως ποσοστό του ύψους της γραμμής.
-* Χρησιμοποιήστε μια αρνητική τιμή για να ορίσετε το διάστημα γραμμής σε μονάδες (points).
+* Χρησιμοποιήστε θετική τιμή για να καθορίσετε την απόσταση γραμμής ως ποσοστό του ύψους της γραμμής.
+* Χρησιμοποιήστε αρνητική τιμή για να καθορίσετε την απόσταση γραμμής σε μονάδες (points).
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το διάστημα γραμμής μέσα στην παράγραφο:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να καθορίσετε την απόσταση γραμμής μέσα στην παράγραφο:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setSpaceWithin(200);
@@ -454,16 +416,17 @@ try {
 
 Το αποτέλεσμα:
 
-![Το διάστημα γραμμής μέσα στην παράγραφο](line_spacing.png)
+![Η απόσταση γραμμής μέσα στην παράγραφο](line_spacing.png)
 
-## **Ορισμός τύπου Autofit για πλαίσια κειμένου**
+## **Set Autofit Type for Text Frames**
 
-Η μέθοδος TextFrameFormat::setAutofitType καθορίζει πώς συμπεριφέρεται το κείμενο όταν ξεπερνά τα όρια του περιέκτη του. Χρησιμοποιήστε την για να ελέγξετε αν το κείμενο μειώνεται, υπερχειλίζει ή αλλάζει αυτόματα το μέγεθος του σχήματος.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setAutofitType) καθορίζει πώς το κείμενο συμπεριφέρεται όταν υπερβαίνει τα όρια του πλαισίου του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο συρρικνώνεται, υπερχειλίζει ή αλλάζει αυτόματα το μέγεθος του σχήματος.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
 
@@ -473,14 +436,15 @@ try {
 }
 ```
 
-## **Ορισμός άγκυρας πλαισίων κειμένου**
+## **Set Anchor of Text Frames**
 
-Η μέθοδος TextFrameFormat::setAnchoringType ορίζει πώς τοποθετείται το κείμενο κατακόρυφα μέσα σε ένα σχήμα, για παράδειγμα στην κορυφή, στη μέση ή στο κάτω μέρος.
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setAnchoringType) ορίζει πώς το κείμενο θέτεται κάθετα μέσα σε ένα σχήμα, π.χ. στο πάνω μέρος, στο κέντρο ή στο κάτω μέρος.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
 
@@ -490,14 +454,15 @@ try {
 }
 ```
 
-## **Ορισμός εσοχών κειμένου**
+## **Set Text Tabulation**
 
-Χρησιμοποιήστε τη μέθοδο ParagraphFormat::setDefaultTabSize και τη συλλογή tabs της για να ρυθμίσετε τις στάσεις καρτέλας σε μια παράγραφο.
+Χρησιμοποιήστε [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) και [ParagraphFormat::getTabs](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#getTabs) για να διαμορφώσετε τα σημεία καρτέλας σε μια παράγραφο.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setDefaultTabSize(100);
@@ -511,18 +476,19 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι εσοχές της παραγράφου](paragraph_tabs.png)
+![Οι καρτέλες της παραγράφου](paragraph_tabs.png)
 
-## **Ορισμός γλώσσας ελέγχου**
+## **Set Proofing Language**
 
-Το Aspose.Slides παρέχει τη μέθοδο BasePortionFormat::setLanguageId, η οποία σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου για μια μερίδα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
+Το Aspose.Slides παρέχει τη μέθοδο [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLanguageId), η οποία επιτρέπει τον ορισμό της γλώσσας ελέγχου για ένα τμήμα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε τη γλώσσα ελέγχου για μια μερίδα κειμένου:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε τη γλώσσα ελέγχου για ένα τμήμα κειμένου:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getPortions()->clear();
@@ -534,10 +500,10 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Ορίστε το αναγνωριστικό γλώσσας ελέγχου.
+    // Ορίστε το Id μιας γλώσσας ελέγχου.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
-    $textPortion->setText("1.");
+    $textPortion->setText("1。");
     $paragraph->getPortions()->add($textPortion);
 
     $presentation->save("proofing_language.pptx", SaveFormat::Pptx);
@@ -546,9 +512,9 @@ try {
 }
 ```
 
-## **Ορισμός προεπιλεγμένης γλώσσας**
+## **Set Default Language**
 
-Χρησιμοποιήστε τη μέθοδο LoadOptions::setDefaultTextLanguage για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης.
+Χρησιμοποιήστε [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης.
 
 ```php
 $loadOptions = new LoadOptions();
@@ -558,11 +524,11 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Προσθέστε ένα νέο σχήμα ορθογωνίου με κείμενο.
+    // Προσθέστε ένα νέο σχήμα ορθογώνιο με κείμενο.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // Ελέγξτε τη γλώσσα της πρώτης μερίδας.
+    // Ελέγξτε τη γλώσσα του πρώτου τμήματος.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -570,16 +536,16 @@ try {
 }
 ```
 
-## **Ορισμός προεπιλεγμένου στυλ κειμένου**
+## **Set Default Text Style**
 
-Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε το προεπιλεγμένο στυλ κειμένου του Presentation.
+Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε μια προεπιλεγμένη έντονη γραμματοσειρά με μέγεθος 14 pt για όλο το κείμενο σε όλες τις διαφάνειες μιας νέας παρουσίασης.
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε μια προεπιλεγμένη έντονη γραμματοσειρά μεγέθους 14 pt για όλο το κείμενο σε όλες τις διαφάνειες μιας νέας παρουσίασης.
 
 ```php
 $presentation = new Presentation();
 try {
-    // Αποκτήστε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
+    // Λάβετε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -593,33 +559,37 @@ try {
 }
 ```
 
-## **Εξαγωγή κειμένου με το εφέ Όλα Κεφαλαία**
+## **Extract Text with the All-Caps Effect**
 
-Στο PowerPoint, η εφαρμογή του εφέ Όλα Κεφαλαία στην γραμματοσειρά κάνει το κείμενο να εμφανίζεται με κεφαλαίους χαρακτήρες στη διαφάνεια ακόμα και αν αρχικά πληκτρολογήθηκε με μικρούς χαρακτήρες. Όταν ανακτάτε μια τέτοια μερίδα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το TextCapType και μετατρέψτε το επιστρεφόμενο string σε κεφαλαία όταν η τιμή είναι All.
+Στο PowerPoint, η εφαρμογή του εφέ **All Caps** κάνει το κείμενο να εμφανίζεται σε κεφαλαία στην διαφάνεια ακόμα και αν αρχικά είχε πληκτρολογηθεί με πεζά. Όταν εξάγετε ένα τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/el/php-java/aspose.slides/textcaptype/) και μετατρέψτε τη επιστρεφόμενη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι `All`.
 
-Ας πούμε ότι έχουμε το ακόλουθο πλαίσιο κειμένου στην πρώτη διαφάνεια του αρχείου sample2.pptx.
+Ας υποθέσουμε ότι έχουμε το ακόλουθο πλαίσιο κειμένου στην πρώτη διαφάνεια του αρχείου sample2.pptx.
 
-![Το εφέ Όλα Κεφαλαία](all_caps_effect.png)
+![Το εφέ Όλων-Κεφαλαίων](all_caps_effect.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το εφαρμοσμένο εφέ Όλα Κεφαλαία:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το εφαρμοσμένο εφέ **All Caps**:
 
 ```php
 $presentation = new Presentation("sample2.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $textPortion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 
-    echo "Original text: ", $textPortion->getText(), "\n";
+    $originalText = $textPortion->getText();
+    echo "Original text: ", $originalText, "\n";
 
     $textFormat = $textPortion->getPortionFormat()->getEffective();
     if (java_values($textFormat->getTextCapType()) === TextCapType::All) {
-        $text = strtoupper($textPortion->getText());
+        $text = strtoupper($originalText);
         echo "All-Caps effect: ", $text, "\n";
     }
 } finally {
     $presentation->dispose();
 }
 ```
+
+Έξοδος:
 
 ```text
 Original text: Hello, Aspose!
@@ -628,10 +598,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Πώς να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια;**
+**Πώς να τροποποιήσετε κείμενο σε πίνακα σε μια διαφάνεια;**
 
-Για να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε το Table. Περιηγηθείτε στα κελιά και ενημερώστε κάθε κελί μέσω του πλαισίου κειμένου του Cell και της μορφοποίησης παραγράφου μέσω του paragraph format του Paragraph.
+Για να τροποποιήσετε κείμενο σε πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [Table](https://reference.aspose.com/slides/el/php-java/aspose.slides/table/). Επανάληψη μέσω των κελιών και ενημέρωση κάθε κελιού μέσω του [Cell::getTextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/cell/#getTextFrame) και μορφοποίηση παραγράφου μέσω του [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
 **Πώς να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο σε μια διαφάνεια PowerPoint;**
 
-Για να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο, χρησιμοποιήστε τη μορφή γεμίσματος του PortionFormat. Ορίστε τον τύπο γεμίσματος του FillFormat σε FillType `Gradient` και ρυθμίστε τις στάσεις διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
+Για να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο, χρησιμοποιήστε το [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#getFillFormat). Ορίστε το [FillFormat::setFillType](https://reference.aspose.com/slides/el/php-java/aspose.slides/fillformat/#setFillType) σε [FillType::Gradient](https://reference.aspose.com/slides/el/php-java/aspose.slides/filltype/) και διαμορφώστε τα σημεία διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
