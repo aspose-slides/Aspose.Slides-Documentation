@@ -109,6 +109,8 @@ try {
 
 Az **Betűtípushoz kapcsolódó tulajdonságok kezelése** részben említett módon, a [Portion](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/portion/) a bekezdésben hasonló formázási stílussal rendelkező szöveget tárolja. Ez a cikk bemutatja, hogyan használható az Aspose.Slides for Android via Java egy szövegdoboz létrehozásához némi szöveggel, majd egy adott betűtípus és a betűcsalád kategória különféle egyéb tulajdonságainak meghatározásához.
 
+{{% /alert %}} 
+
 Az alábbi lépések elvégzéséhez:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból.

@@ -16,9 +16,7 @@ keywords:
 - přidat vodoznak do PPTX
 - přidat vodoznak do ODP
 - odstranit vodoznak z PPT
-- odstran
-
-itvodoznak z PPTX
+- odstranit vodoznak z PPTX
 - odstranit vodoznak z ODP
 - smazat vodoznak z PPT
 - smazat vodoznak z PPTX

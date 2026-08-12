@@ -262,5 +262,3 @@ using (Presentation presentation = new Presentation("Presentation.ppt"))
 **यदि मैं एक लेआउट स्लाइड को हटाता हूँ जो अभी भी किसी स्लाइड द्वारा इस्तेमाल किया जा रहा है तो क्या होगा?**
 
 यदि आप कोई लेआउट स्लाइड हटाने का प्रयास करते हैं जो प्रस्तुति में कम से कम एक स्लाइड द्वारा अभी भी संदर्भित है, तो Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/net/aspose.slides/pptxeditexception/) थ्रो करेगा। इसे टालने के लिए, [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) का उपयोग करें जो केवल उन लेआउट स्लाइड्स को सुरक्षित रूप से हटाता है जो उपयोग में नहीं हैं।
-
-{{% /alert %}}
