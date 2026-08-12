@@ -100,7 +100,7 @@ This property provides the following modes:
 - `NEVER` never uses ZIP64 format extensions.
 - `ALWAYS` always uses ZIP64 format extensions.
 
-The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
+The following code demonstrates how to save a presentation as a PPTX file with ZIP64 format extensions enabled:
 
 ```py
 import aspose.slides as slides
@@ -117,6 +117,49 @@ with slides.Presentation("sample.pptx") as presentation:
 When you save with `Zip64Mode.NEVER`, a [PptxException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 
 {{% /alert %}}
+
+## **Save Presentations in Office Open XML Format with Compression Levels**
+
+When working with large presentations, you can adjust the compression level to balance file size and processing time. Depending on your requirements, you may prefer faster processing or smaller output files.
+
+Aspose.Slides provides the [PptxOptions.compression_level](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/compression_level/) property, which allows you to specify the compression level used when saving a presentation in Office Open XML format.
+
+The following compression levels are available:
+
+- [**NONE**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): No compression is applied. Files are stored as-is.
+- [**LEVEL1**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): The fastest compression with the lowest compression ratio.
+- [**LEVEL2**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Faster compression with a slightly better compression ratio than **LEVEL1**.
+- [**LEVEL3**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Provides better compression than **LEVEL2** with a moderate impact on processing time.
+- [**LEVEL4**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Provides better compression than **LEVEL3**.
+- [**LEVEL5**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Provides improved compression over **LEVEL4** with additional processing time.
+- [**LEVEL6**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Standard compression that offers a good balance between processing speed and file size. This is the *default compression level*.
+- [**LEVEL7**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Provides better compression than **LEVEL6** with slower processing.
+- [**LEVEL8**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Provides better compression than **LEVEL7**.
+- [**LEVEL9**](https://reference.aspose.com/slides/python-net/aspose.slides.export/compressionlevel/): Maximum compression. Produces the smallest file size at the cost of the longest processing time.
+
+The following example demonstrates how to save a presentation as a PPTX file *without compression*:
+
+```py
+import aspose.slides as slides
+
+pptx_options = slides.export.PptxOptions()
+pptx_options.compression_level = slides.export.CompressionLevel.NONE
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("sample_out.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+```
+
+This example shows how to save a presentation as a PPTX file with *maximum compression*:
+
+```py
+import aspose.slides as slides
+
+pptx_options = slides.export.PptxOptions()
+pptx_options.compression_level = slides.export.CompressionLevel.LEVEL9
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("sample_level9.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+```
 
 ## **Save Presentations without Refreshing the Thumbnail**
 
@@ -151,18 +194,18 @@ Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.ap
 
 ## **FAQ**
 
-### Is "fast save" (incremental save) supported so only changes are written?
+**Is "fast save" (incremental save) supported so only changes are written?**
 
 No. Saving creates the full target file each time; incremental "fast save" isn’t supported.
 
-### Is it thread-safe to save the same Presentation instance from multiple threads?
+**Is it thread-safe to save the same Presentation instance from multiple threads?**
 
 No. A [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance [isn’t thread-safe](/slides/python-net/multithreading/); save it from a single thread.
 
-### What happens to hyperlinks and externally linked files when saving?
+**What happens to hyperlinks and externally linked files when saving?**
 
 [Hyperlinks](/slides/python-net/manage-hyperlinks/) are preserved. External linked files (e.g., videos via relative paths) aren’t copied automatically—ensure the referenced paths remain accessible.
 
-### Can I set/save document metadata (Author, Title, Company, Date)?
+**Can I set/save document metadata (Author, Title, Company, Date)?**
 
 Yes. Standard [document properties](/slides/python-net/presentation-properties/) are supported and will be written to the file on save.
