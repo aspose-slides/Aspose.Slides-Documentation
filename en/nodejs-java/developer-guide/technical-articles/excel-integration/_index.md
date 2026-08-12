@@ -35,13 +35,17 @@ To make working with Excel data easier and more streamlined, Aspose.Slides has i
 
 The new functionality is designed for general-purpose data access and is not integrated into the Presentation Document Object Model (DOM). That means *it does not allow editing or saving Excel files* — its sole purpose is to open workbooks and navigate through their content to retrieve cell data.
 
-At the core of this feature is the new [ExcelDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldataworkbook/) class. This class allows you to load an Excel workbook from a local file or a stream. Once loaded, it provides several overloads of the [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldataworkbook/#getCell) method, which you can use to retrieve specific cells by their position (e.g., row and column indices or named ranges).
+At the core of this feature is the new [ExcelDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldataworkbook/) class. This class allows you to load an Excel workbook from a local file or a stream. Once loaded, it provides several overloads of the [ExcelDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldataworkbook/#getCell) method, which you can use to retrieve specific cells by their position (e.g., row and column indices or named ranges).
 
-Each call to [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldataworkbook/#getCell) returns an instance of the [ExcelDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldatacell/) class. This object represents a single cell in the Excel workbook and gives you access to its value in a simple and intuitive way.
+Each call to [ExcelDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldataworkbook/#getCell) returns an instance of the [ExcelDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/exceldatacell/) class. This object represents a single cell in the Excel workbook and gives you access to its value in a simple and intuitive way.
 
 #### **Import an Excel Chart**
 
-The next step to extend functionality is the [ExcelWorkbookImporter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/excelworkbookimporter/) class. This utility class provides functionality for importing content from an Excel workbook into a presentation. It contains several overloads of the [addChartFromWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/excelworkbookimporter/#addChartFromWorkbook) method, which help you to retrieve the selected chart from the specified Excel workbook and add it to the end of the given shape collection at the specified coordinates.
+The next step to extend functionality is the [ExcelWorkbookImporter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/excelworkbookimporter/) class. This utility class provides functionality for importing content from an Excel workbook into a presentation. It contains several overloads of the [ExcelWorkbookImporter.addChartFromWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/excelworkbookimporter/#addChartFromWorkbook) method, which help you to retrieve the selected chart from the specified Excel workbook and add it to the end of the given shape collection at the specified coordinates.
+
+#### **Import an Excel Table**
+
+The [ExcelWorkbookImporter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/excelworkbookimporter/) class also contains several overloads of the [ExcelWorkbookImporter.addTableFromWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/excelworkbookimporter/#addTableFromWorkbook) method. These methods allow you to import a specified cell range from a specified worksheet and add it as a table to the end of the given shape collection at the specified coordinates.
 
 In short, it's a lightweight and straightforward API for reading Excel data — exactly what many developers need without the overhead of a full spreadsheet processing library.
 
@@ -233,6 +237,37 @@ try {
     presentation.dispose();
 }
 ```
+
+### **Import an Excel Table Example**
+
+In this example, we import a formatted table from an Excel worksheet directly into a PowerPoint presentation.
+
+The source Excel worksheet contains a formatted table with employee data:
+
+![Excel table example](example4_image0.png)
+
+```js
+const asposeSlides = require("aspose.slides.via.java");
+
+// Create a new PowerPoint presentation.
+const presentation = new asposeSlides.Presentation();
+try {
+    // Get the shapes collection of the first slide.
+    const slide = presentation.getSlides().get_Item(0);
+    const shapes = slide.getShapes();
+
+    // Import the table from the first sheet of the workbook and add it to the shapes collection.
+    asposeSlides.ExcelWorkbookImporter.addTableFromWorkbook(
+            shapes, 10, 10, "TemplateData.xlsx", "Sheet1", "A1:C5");
+
+    // Save the resulting presentation to a file.
+    presentation.save("FormattedTable.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Result](example4_image1.png)
 
 ## **Summary**
 
