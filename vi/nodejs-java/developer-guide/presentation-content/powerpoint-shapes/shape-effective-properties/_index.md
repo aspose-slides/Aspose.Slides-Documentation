@@ -1,5 +1,5 @@
 ---
-title: Nhận các Thuộc tính Hiệu quả của Hình từ Bài thuyết trình trong JavaScript
+title: Lấy Thuộc tính Hiệu quả của Hình từ Bản trình chiếu trong JavaScript
 linktitle: Thuộc tính Hiệu quả
 type: docs
 weight: 50
@@ -7,334 +7,289 @@ url: /vi/nodejs-java/shape-effective-properties/
 keywords:
 - thuộc tính hình
 - thuộc tính camera
-- bộ đèn
-- hình bevel
+- bộ ánh sáng
+- hình chạm trổ
 - khung văn bản
 - kiểu văn bản
 - chiều cao phông chữ
-- định dạng nền
+- định dạng tô màu
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho Node.js thông qua Java tính toán và áp dụng các thuộc tính hình hiệu quả để hiển thị PowerPoint một cách chính xác."
+description: "Tìm hiểu cách sử dụng Aspose.Slides cho Node.js qua Java để phân biệt định dạng hình cục bộ, kế thừa và hiệu quả trong các bản trình chiếu PowerPoint."
 ---
-## **Tổng quan**
+## **Hiểu các Thuộc tính Cục bộ, Kế thừa và Hiệu quả**
 
-Bài viết này giải thích sự khác biệt giữa các thuộc tính **cục bộ** và **hiệu quả**. Giá trị cục bộ là các giá trị được đặt trực tiếp ở một mức định dạng cụ thể, chẳng hạn như:
+Định dạng PowerPoint có thể đến từ nhiều nguồn. Giá trị được lưu trữ trực tiếp trên một đối tượng là **giá trị cục bộ**. Nếu giá trị đó không được thiết lập, PowerPoint sẽ tìm các nguồn định dạng cha, chẳng hạn như mặc định đoạn văn, kiểu văn bản, bố cục hoặc slide chủ, một chủ đề, hoặc các mặc định ở mức trình chiếu. Những giá trị đó là **giá trị kế thừa**. Giá trị còn lại sau khi toàn bộ cây kế thừa được giải quyết là **giá trị hiệu quả** — giá trị được sử dụng để hiển thị đối tượng.
 
-1. Thuộc tính đoạn văn trên một slide.  
-1. Kiểu văn bản của hình mẫu trên bố cục hoặc slide chính, khi hình dạng khung văn bản của đoạn có kiểu này.  
-1. Cài đặt văn bản toàn cục trong một bài thuyết trình.
+Ví dụ, một phần văn bản có thể không xác định chiều cao phông chữ riêng. Giá trị cục bộ của nó đối với [getFontHeight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getFontHeight) sẽ là `NaN`, nghĩa là “không được đặt ở đây”. Phần này có thể kế thừa chiều cao từ đoạn văn, kiểu văn bản mặc định của bản trình chiếu, hoặc một nguồn áp dụng khác. Gọi [getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getEffective) trên đối tượng PortionFormat sẽ trả về chiều cao đã được giải quyết cuối cùng.
 
-Giá trị cục bộ có thể được định nghĩa hoặc bỏ qua ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng cuối cùng “as rendered”, nó sẽ giải quyết chuỗi kế thừa và trả về các giá trị **hiệu quả**. Bạn có thể lấy chúng bằng cách gọi phương pháp `getEffective` trên đối tượng định dạng cục bộ.
+Sử dụng hai loại dữ liệu định dạng cho các mục đích khác nhau:
 
-Ví dụ dưới đây cho thấy cách lấy các giá trị hiệu quả. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) có khung văn bản và ít nhất một đoạn.
+- Đọc hoặc thay đổi một đối tượng định dạng cục bộ, chẳng hạn như [PortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/), khi bạn cần kiểm soát nơi giá trị được định nghĩa.
+- Đọc [dữ liệu hiệu quả được trả về bởi PortionFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getEffective) khi bạn cần kết quả cuối cùng đã được hiển thị. Dữ liệu hiệu quả chỉ đọc.
+
+Trước khi chạy các ví dụ, [cài đặt Aspose.Slides cho Node.js qua Java](/slides/vi/nodejs-java/installation/).
+
+## **So sánh Giá trị Cục bộ, Kế thừa và Hiệu quả**
+
+Ví dụ hoàn chỉnh dưới đây tạo một hình dạng và áp dụng chiều cao phông chữ ở mức trình chiếu, đoạn văn và phần. Mỗi bước in ra các giá trị được định nghĩa ở các mức đó và giá trị hiệu quả kết quả cho cùng một phần văn bản. Nó cũng minh họa lý do tại sao dữ liệu hiệu quả phải được đọc lại sau khi thay đổi định dạng.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // Đọc dữ liệu hiệu quả sau các thay đổi trước đó.
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // Xác định các giá trị kế thừa ở hai mức độ khác nhau.
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // Giá trị cục bộ trên phần ghi đè cả hai giá trị kế thừa.
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // Việc thay đổi giá trị kế thừa không ghi đè giá trị cục bộ hiện có.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // Xóa giá trị cục bộ. Phần hiện lại kế thừa từ đoạn văn.
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // Xóa giá trị đoạn văn. Mặc định của bản trình chiếu hiện cung cấp kết quả.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Dữ liệu định dạng hiệu quả đại diện cho định dạng tính toán hiện tại sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu hiệu quả có thể được lưu trong bộ nhớ đệm nội bộ. Gọi lại `getEffective` sau khi thay đổi định dạng cha hoặc định dạng kế thừa có thể làm mới dữ liệu đã được đệm, và một đối tượng đã lấy trước đây có thể không còn đại diện cho trạng thái trước đó. Nếu bạn cần giữ lại các giá trị hiệu quả để sử dụng lại sau này, sao chép các thuộc tính cần thiết, chẳng hạn như chiều cao phông chữ, màu nền, kiểu phông hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
-{{% /alert %}}
+Ưu tiên trong ví dụ này là định dạng cục bộ của phần, sau đó là định dạng đoạn văn, và cuối cùng là mặc định của trình chiếu. Các đối tượng khác có thể có chuỗi kế thừa khác nhau, nhưng nguyên tắc vẫn giống nhau: một giá trị cụ thể hơn sẽ thắng, và [getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getEffective) trả về kết quả cuối cùng.
 
-## **Lấy Thuộc tính Hiệu quả của Camera**
+## **Lấy Thuộc tính Văn bản Hiệu quả**
 
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu quả của camera. Đối tượng dữ liệu camera hiệu quả chứa các thuộc tính camera bất biến và được cung cấp thông qua các giá trị hiệu quả trả về cho [ThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/).
+Định dạng văn bản được chia qua nhiều đối tượng:
 
-Mã mẫu dưới đây cho thấy cách lấy các thuộc tính hiệu quả cho camera. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#getEffective) xác định các thuộc tính khung văn bản như lề, neo, tự động vừa, và hướng văn bản dọc.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textstyle/#getEffective) xác định định dạng đoạn văn cho mỗi cấp độ kiểu văn bản.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#getEffective) xác định các thuộc tính đoạn văn như căn chỉnh, thụt lề và dấu đầu dòng.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getEffective) xác định các thuộc tính ký tự như chiều cao phông chữ, kiểu chữ, màu, in đậm và in nghiêng.
+
+Đối với ví dụ tiếp theo, tệp `text-formatting.pptx` phải chứa ít nhất một slide và một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) có khung văn bản không rỗng. AutoShape có thể xuất hiện ở bất kỳ vị trí nào trong bộ sưu tập hình dạng; mã sẽ tìm một đối tượng phù hợp và xác thực nó trước khi sử dụng.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **Lấy Thuộc tính Hiệu quả của Light Rig**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu quả của light rig. Đối tượng dữ liệu light rig hiệu quả chứa các thuộc tính light rig bất biến và được cung cấp thông qua các giá trị hiệu quả trả về cho [ThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/).
-
-Mã mẫu dưới đây cho thấy cách lấy các thuộc tính hiệu quả cho light rig. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Lấy Thuộc tính Hiệu quả của Hình Bevel**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu quả của bevel hình. Đối tượng dữ liệu bevel hình hiệu quả chứa các thuộc tính relief bất biến cho một hình và được cung cấp thông qua các giá trị hiệu quả trả về cho [ThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/).
-
-Mã mẫu dưới đây cho thấy cách lấy các thuộc tính hiệu quả cho bevel trên cùng của một hình. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **Lấy Thuộc tính Hiệu quả của Khung Văn bản**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu quả của khung văn bản. Đối tượng dữ liệu hiệu quả trả về chứa các thuộc tính định dạng khung văn bản.
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-Mã mẫu dưới đây cho thấy cách lấy các thuộc tính định dạng khung văn bản hiệu quả. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) có khung văn bản.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Lấy Thuộc tính Hiệu quả của Kiểu Văn bản**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu quả của kiểu văn bản. Đối tượng dữ liệu hiệu quả trả về chứa các thuộc tính kiểu văn bản.
-
-Mã mẫu dưới đây cho thấy cách lấy các thuộc tính kiểu văn bản hiệu quả. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) có khung văn bản.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lấy Giá trị Chiều cao Phông chữ Hiệu quả**
+## **Lấy Thuộc tính 3D Hiệu quả**
 
-Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ hiệu quả. Mã dưới đây minh họa cách chiều cao phông chữ hiệu quả của một đoạn thay đổi khi giá trị chiều cao phông chữ cục bộ được đặt ở các mức cấu trúc bài thuyết trình khác nhau.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getEffective) trả về một đối tượng dữ liệu hiệu quả nhóm tất cả các thiết lập 3D đã được giải quyết. Các phương thức [getCamera](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getCamera), [getLightRig](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getLightRig), [getBevelTop](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getBevelTop) và [getBevelBottom](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getBevelBottom) hiển thị dữ liệu hiệu quả tương ứng. Đọc những cài đặt liên quan này cùng nhau giúp hiểu dễ hơn về ngoại hình 3D cuối cùng của một hình dạng.
+
+Đối với ví dụ này, tệp `shape-3d.pptx` phải chứa ít nhất một hình dạng trên slide đầu tiên. Áp dụng cài đặt camera 3D, ánh sáng hoặc đỉnh nhọn cho hình dạng đó nếu bạn muốn kết quả có các giá trị khác với mặc định.
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lấy Định dạng Điền Hiệu quả cho Bảng**
+## **Lấy Định dạng Bảng Hiệu quả**
 
-Sử dụng Aspose.Slides, bạn có thể lấy định dạng điền hiệu quả cho các phần khác nhau của bảng. Đối tượng dữ liệu hiệu quả trả về chứa các thuộc tính định dạng điền. Định dạng ô có ưu tiên cao hơn định dạng hàng, định dạng hàng có ưu tiên cao hơn định dạng cột, và định dạng cột có ưu tiên cao hơn định dạng toàn bảng.
+Định dạng bảng có thể đến từ kiểu bảng và từ các định dạng được áp dụng cho toàn bộ bảng, một cột, một hàng hoặc một ô riêng lẻ. Khi có xung đột giữa các màu nền được xác định rõ ràng, ưu tiên là ô, hàng, cột, và sau đó là toàn bộ bảng. Định dạng hiệu quả của một ô là định dạng cuối cùng được dùng để vẽ ô đó.
 
-Kết quả là, các thuộc tính định dạng ô hiệu quả được sử dụng để vẽ ô bảng. Mã mẫu dưới đây cho thấy cách lấy định dạng điền hiệu quả cho các phần khác nhau của bảng. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/table/).
+Đối với ví dụ này, tệp `table-formatting.pptx` phải chứa ít nhất một bảng trên slide đầu tiên. Bảng phải có ít nhất một hàng và một cột. Mã sẽ tìm một [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/table/) thay vì giả định rằng `getShapes().get_Item(0)` là một bảng.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+Nếu bạn cần màu thay vì chỉ loại nền, trước tiên kiểm tra [getFillType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fillformat/#getFillType) hiệu quả, rồi đọc phương thức áp dụng cho loại đó — ví dụ, [getSolidFillColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) cho nền đặc.
+
+## **Đọc lại Dữ liệu Hiệu quả sau Khi Thay đổi**
+
+Dữ liệu hiệu quả mô tả cây định dạng tại thời điểm nó được giải quyết. Gọi lại `getEffective` sau khi thay đổi bất kỳ yếu tố nào có thể tham gia vào cây này, bao gồm:
+
+- định dạng cục bộ của đối tượng;
+- mặc định đoạn văn hoặc khung văn bản;
+- kiểu bảng, bảng, cột, hàng hoặc định dạng ô;
+- định dạng bố cục hoặc slide chủ;
+- dữ liệu chủ đề hoặc mặc định ở mức trình chiếu;
+- bố cục hoặc slide chủ được gán cho một slide.
+
+Không nên giữ một đối tượng dữ liệu hiệu quả như một ảnh chụp cố định. Aspose.Slides có thể lưu trữ một số dữ liệu hiệu quả trong bộ nhớ trong, và một lời gọi `getEffective` sau này có thể làm mới dữ liệu đó. Nếu bạn cần so sánh các giá trị trước và sau khi thay đổi, hãy sao chép các giá trị thuần cần thiết — chẳng hạn như chiều cao phông chữ, màu, căn chỉnh hoặc độ rộng bevel — vào các biến của bạn trước khi thực hiện thay đổi.
+
+Để thay đổi một giá trị, cập nhật đối tượng định dạng cục bộ thích hợp và sau đó gọi `getEffective` để xác minh kết quả. Các đối tượng dữ liệu hiệu quả tự chúng chỉ đọc.
 
 ## **Câu hỏi thường gặp**
 
-**`getEffective` có trả về một bản sao không?**
+**Làm sao tôi biết mức nào cung cấp giá trị hiệu quả?**
 
-Không phải luôn luôn. Dữ liệu hiệu quả đại diện cho định dạng đã tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu hiệu quả có thể được lưu trong bộ nhớ đệm nội bộ. Lần gọi `getEffective` tiếp theo có thể tính lại định dạng và làm mới dữ liệu đã đệm, vì vậy một đối tượng đã lấy trước không nên được coi là một bản sao bền vững.
+Dữ liệu hiệu quả chứa giá trị cuối cùng, không phải nguồn gốc của nó. Kiểm tra các đối tượng cục bộ áp dụng từ mức cụ thể nhất ra ngoài. Đối với văn bản, điều này có thể bao gồm phần, đoạn văn, khung văn bản, bố cục, slide chủ, chủ đề và các mặc định của trình chiếu. Các giá trị không xác định như `NaN` hoặc `null` cho biết việc tìm kiếm tiếp tục ở mức khác.
 
-**Khi nào tôi nên đọc lại các thuộc tính hiệu quả?**
+**Điều gì xảy ra khi không có mức nào định nghĩa thuộc tính?**
 
-Gọi lại `getEffective` sau khi thay đổi định dạng cục bộ, kiểu cha, định dạng bố cục, định dạng master hoặc các giá trị mặc định ở mức bài thuyết trình. Lần gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả hiệu quả hiện tại.
+Aspose.Slides sẽ giải quyết giá trị mặc định thích hợp của PowerPoint hoặc thư viện. Giá trị đã được giải quyết này xuất hiện trong dữ liệu hiệu quả ngay cả khi không có đối tượng cục bộ nào định nghĩa rõ ràng nó.
 
-**Việc thay đổi hoặc xóa một slide bố cục/chính có ảnh hưởng đến các thuộc tính hiệu quả đã được lấy trước đó không?**
+**Tại sao đôi khi giá trị hiệu quả bằng với giá trị cục bộ?**
 
-Có, nhưng thay đổi sẽ được phản ánh ở lần gọi `getEffective` tiếp theo. Nếu nguồn định dạng cha bị thay đổi hoặc xóa, dữ liệu hiệu quả đã lấy trước có thể trở nên lỗi thời. Khi `getEffective` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc giá trị khác có thể thay đổi.
+Giá trị cục bộ đã thắng trong quá trình tính kế thừa. Điều này là mong đợi khi thuộc tính được đặt rõ ràng trên đối tượng và không có quy tắc cụ thể hơn nào ghi đè lên nó.
 
-**Tôi có thể sửa đổi giá trị thông qua các đối tượng dữ liệu hiệu quả không?**
+**Khi nào tôi nên sử dụng dữ liệu cục bộ thay vì dữ liệu hiệu quả?**
 
-Không. Các đối tượng dữ liệu hiệu quả chỉ cung cấp các giá trị đã tính toán. Thực hiện thay đổi trong các đối tượng định dạng cục bộ, sau đó lấy lại các giá trị hiệu quả.
-
-**Nếu một thuộc tính không được đặt ở mức hình dạng, cũng không ở bố cục/chính, và không trong cài đặt toàn cục thì điều gì xảy ra?**
-
-Giá trị hiệu quả được xác định bởi cơ chế mặc định, bao gồm các mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết sẽ trở thành một phần của dữ liệu hiệu quả hiện tại.
-
-**Từ giá trị phông chữ hiệu quả, tôi có thể biết mức nào đã cung cấp kích thước hoặc kiểu phông không?**
-
-Không trực tiếp. Dữ liệu hiệu quả trả về giá trị cuối cùng. Để tìm nguồn, hãy kiểm tra các giá trị cục bộ tại đoạn, đoạn văn, khung văn bản và các kiểu văn bản ở mức bố cục, master và bài thuyết trình để xem nơi định nghĩa rõ ràng đầu tiên xuất hiện.
-
-**Tại sao đôi khi các giá trị hiệu quả trông giống hệt với các giá trị cục bộ?**
-
-Bởi vì giá trị cục bộ đã trở thành giá trị cuối cùng (không cần kế thừa ở mức cao hơn). Trong các trường hợp đó, giá trị hiệu quả trùng với giá trị cục bộ.
-
-**Khi nào tôi nên sử dụng các thuộc tính hiệu quả, và khi nào chỉ làm việc với các thuộc tính cục bộ?**
-
-Sử dụng dữ liệu hiệu quả khi bạn cần kết quả “as rendered” sau khi tất cả kế thừa được áp dụng, chẳng hạn để đồng bộ màu, lề hoặc kích thước. Nếu bạn muốn giữ các giá trị này bất chấp các thay đổi định dạng sau này, sao chép các thuộc tính cần thiết vào đối tượng riêng của mình. Nếu bạn muốn thay đổi định dạng ở mức cụ thể, chỉnh sửa các thuộc tính cục bộ và sau đó, nếu cần, đọc lại dữ liệu hiệu quả để xác nhận kết quả.
+Sử dụng dữ liệu cục bộ để kiểm tra hoặc chỉnh sửa một mức định dạng cụ thể. Sử dụng dữ liệu hiệu quả khi bạn cần ngoại hình cuối cùng sau khi kế thừa, quy tắc chủ đề và các kiểu áp dụng đã được giải quyết. [Ví dụ so sánh đầy đủ](#compare-local-inherited-and-effective-values) minh họa cả hai trong cùng một quy trình làm việc.

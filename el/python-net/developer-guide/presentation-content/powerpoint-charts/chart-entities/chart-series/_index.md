@@ -1,11 +1,11 @@
 ---
-title: Διαχείριση Σειρών Δεδομένων Γραφήματος σε Python
+title: Διαχείριση Σειρών Δεδομένων Διαγράμματος σε Παρουσιάσεις με Python
 linktitle: Σειρές Δεδομένων
 type: docs
 url: /el/python-net/chart-series/
 keywords:
-- σειρές γραφήματος
-- επικάλυψη σειρών
+- σειρές διαγράμματος
+- επικάλυψη σειράς
 - χρώμα σειράς
 - χρώμα κατηγορίας
 - όνομα σειράς
@@ -15,303 +15,354 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε τις σειρές δεδομένων γραφήματος σε Python για PowerPoint (PPT/PPTX) με πρακτικά παραδείγματα κώδικα και βέλτιστες πρακτικές για τη βελτίωση των παρουσιάσεων των δεδομένων σας."
+description: "Μάθετε πώς να διαχειρίζεστε τις σειρές διαγράμματος, τα σημεία δεδομένων, τα κελιά του βιβλίου εργασίας, τη μορφοποίηση, την επικάλυψη, το πλάτος κενών και τις αρνητικές τιμές σε παρουσιάσεις με Python."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο περιγράφει το ρόλο του [ChartSeries](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/) στο Aspose.Slides για Python, εστιάζοντας στον τρόπο με τον οποίο τα δεδομένα είναι δομημένα και οπτικοποιούνται μέσα σε παρουσιάσεις. Αυτά τα αντικείμενα παρέχουν τα θεμελιώδη στοιχεία που ορίζουν μεμονωμένα σύνολα σημείων δεδομένων, κατηγοριών και παραμέτρων εμφάνισης σε ένα γράφημα. Με την εργασία με το [ChartSeries](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/), οι προγραμματιστές μπορούν να ενσωματώσουν αδιάλειπτα τις υποκείμενες πηγές δεδομένων και να διατηρήσουν πλήρη έλεγχο πάνω στο πώς εμφανίζονται οι πληροφορίες, με αποτέλεσμα δυναμικές, προσαρμοσμένες σε δεδομένα παρουσιάσεις που μεταδίδουν σαφώς ιδέες και αναλύσεις.
+Ένα διάγραμμα αποθηκεύει τα σχεδιασμένα δεδομένα του σε ένα βιβλίο δεδομένων διαγράμματος. Ένα [ChartSeries](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [ChartDataPoint](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapoint/) στη σειρά αναφέρεται σε ένα ή περισσότερα κελιά του βιβλίου εργασίας. Τα αντικείμενα [ChartCategory](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται από τις σειρές. Το όνομα της σειράς, οι κατηγορίες και οι τιμές των σημείων συνδέονται επομένως με αντικείμενα [ChartDataCell](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatacell/), αντί να αποθηκεύονται μόνο ως κείμενο εμφάνισης.
 
-Μια σειρά είναι μια σειρά ή στήλη αριθμών που σχεδιάζονται σε γράφημα.
+Για ένα τυπικό διάγραμμα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα των σειρών, τη στήλη 0 για τα ονόματα των κατηγοριών και τα υπόλοιπα κελιά για τις τιμές των σειρών. Οι δείκτες φύλλου εργασίας, γραμμής και στήλης που περνούν στο [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα διάγραμμα με προεπιλεγμένα δεδομένα, αλλά μην υποθέτετε ότι κάθε υπάρχον διάγραμμα το χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, εξετάστε τα κελιά που αναφέρονται από τις σειρές, τις κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
+
+Οι ρυθμίσεις διαγράμματος έχουν τρεις διαφορετικές εμβέλειες:
+
+- Ρυθμίσεις σε επίπεδο σειράς, όπως το [ChartSeries.format](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/format/), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία σε μία σειρά.
+- Ρυθμίσεις σημείου δεδομένων, όπως το [ChartDataPoint.format](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapoint/format/), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
+- Οι ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στην ίδια [ChartSeriesGroup](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseriesgroup/). Έχετε πρόσβαση στην ομάδα μέσω του [ChartSeries.parent_series_group](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/parent_series_group/) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
+
+Όταν δεν έχει οριστεί ρητά γέμισμα σημείου ή σειράς, το στυλ και το θέμα του διαγράμματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν τόσο μορφοποίηση σειράς όσο και σημείου, η μορφοποίηση του σημείου έχει προτεραιότητα για εκείνο το σημείο.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Ορισμός Επικάλυψης Σειρών**
+## **Ορισμός Επικάλυψης Σειράς Διαγράμματος**
 
-Η ιδιότητα [ChartSeries.overlap](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/overlap/) ελέγχει πώς οι μπάρες και οι στήλες επικαλύπτονται σε ένα 2D γράφημα, ορίζοντας ένα εύρος από -100 έως 100. Δεδομένου ότι αυτή η ιδιότητα σχετίζεται με την ομάδα σειρών και όχι με μεμονωμένες σειρές γραφήματος, είναι μόνο για ανάγνωση στο επίπεδο της σειράς. Για να ρυθμίσετε τις τιμές επικάλυψης, χρησιμοποιήστε την ιδιότητα `parent_series_group.overlap` ανάγνωση/εγγραφή, η οποία εφαρμόζει την καθορισμένη επικάλυψη σε όλες τις σειρές της συγκεκριμένης ομάδας.
+[ChartSeries.overlap](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/overlap/) αναφέρει πόσο επικάλυπται οι μπάρες ή οι στήλες σε ένα 2D διάγραμμα, από -100 έως 100 τοις εκατό. Είναι μια μόνο για ανάγνωση προβολή της ρύθμισης στην γονική ομάδα σειράς. Ορίστε το [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseriesgroup/overlap/) για να ενημερώσετε κάθε συμβατή σειρά σε αυτήν την ομάδα. Αυτή η επιλογή εφαρμόζεται σε τύπους διαγραμμάτων που εμφανίζουν ομαδοποιημένες μπάρες ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε ένα σύνθετο διάγραμμα.
 
-Παρακάτω υπάρχει ένα παράδειγμα Python που δείχνει πώς να δημιουργήσετε μια παρουσίαση, να προσθέσετε ένα γράφημα ομαδοποιημένων στηλών, να αποκτήσετε πρόσβαση στην πρώτη σειρά γραφήματος, να ρυθμίσετε την παραμετροποίηση επικάλυψης και, τέλος, να αποθηκεύσετε το αποτέλεσμα ως αρχείο PPTX:
+Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_overlap = 30
+first_slide_index = 0
+first_series_index = 0
+overlap_percent = 30
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Προσθήκη γραφήματος ομαδοποιημένων στηλών με προεπιλεγμένα δεδομένα.
+    # Το νέο διάγραμμα περιέχει δείγμα σειρών, κατηγορίες και τιμές.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    series = chart.chart_data.series[0]
-    if series.overlap == 0:
-        # Ορισμός επικάλυψης σειράς.
-        series.parent_series_group.overlap = series_overlap
+    series = chart.chart_data.series[first_series_index]
+    series.parent_series_group.overlap = overlap_percent
 
-    # Αποθήκευση του αρχείου παρουσίασης στο δίσκο.
     presentation.save("series_overlap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Το αποτέλεσμα:
 
-![Η επικάλυψη της σειράς](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Αλλαγή Χρώματος Γέμισματος Σειράς**
+## **Αλλαγή Χρώματος Γεμίσματος Σειράς**
 
-Το Aspose.Slides καθιστά απλό τον προσαρμοσμό των χρωμάτων γεμίσματος των σειρών γραφήματος, επιτρέποντάς σας να τονίσετε συγκεκριμένα σημεία δεδομένων και να δημιουργήσετε οπτικά ελκυστικά γραφήματα. Αυτό επιτυγχάνεται μέσω του αντικειμένου [Format](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/format/), που υποστηρίζει διάφορους τύπους γεμίσματος, διαμορφώσεις χρωμάτων και άλλες προχωρημένες επιλογές στυλ. Αφού προσθέσετε ένα γράφημα σε μια διαφάνεια και έχετε πρόσβαση στη ζητούμενη σειρά, απλώς αποκτήστε τη σειρά και εφαρμόστε το κατάλληλο χρώμα γεμίσματος. Πέρα από τα στερεά γεμίσματα, μπορείτε επίσης να χρησιμοποιήσετε διαβαθμίσεις ή μοτίβα γεμίσματος για ενισχυμένη σχεδιαστική ευελιξία. Μόλις ορίσετε τα χρώματα σύμφωνα με τις απαιτήσεις σας, αποθηκεύστε την παρουσίαση για να ολοκληρώσετε την ενημερωμένη εμφάνιση.
+Χρησιμοποιήστε το [ChartSeries.format](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/format/) για να ορίσετε το προεπιλεγμένο γέμισμα για ολόκληρη τη σειρά. Εάν ένα σημείο έχει ήδη ρητό γέμισμα, η ρύθμιση του [ChartDataPoint.format](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapoint/format/) παρακάμπτει το γέμισμα της σειράς για εκείνο το σημείο.
 
-Ο παρακάτω κώδικας Python δείχνει πώς να αλλάξετε το χρώμα της πρώτης σειράς:
+Το παρακάτω παράδειγμα εφαρμόζει ένα στερεό μπλε γέμισμα στην πρώτη σειρά:
 
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
-series_color = draw.Color.blue
+first_slide_index = 0
+first_series_index = 0
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Προσθήκη γραφήματος ομαδοποιημένων στηλών με προεπιλεγμένα δεδομένα.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    # Ορισμός χρώματος της πρώτης σειράς.
-    series = chart.chart_data.series[0]
+    series = chart.chart_data.series[first_series_index]
     series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = series_color
+    series.format.fill.solid_fill_color.color = drawing.Color.blue
 
-    # Αποθήκευση του αρχείου παρουσίασης στο δίσκο.
     presentation.save("series_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Το αποτέλεσμα:
 
-![Το χρώμα της σειράς](series_color.png)
+![The color of the series](series_color.png)
 
-## **Μετονομασία Σειράς** 
+## **Αλλαγή Ονόματος Σειράς**
 
-Το Aspose.Slides προσφέρει έναν απλό τρόπο για την τροποποίηση των ονομάτων των σειρών γραφήματος, διευκολύνοντας την ετικετοθέτηση των δεδομένων με σαφή και σημασιολογικό τρόπο. Μέσω πρόσβασης στο αντίστοιχο κελί του φύλλου εργασίας στα δεδομένα του γραφήματος, οι προγραμματιστές μπορούν να προσαρμόσουν πώς παρουσιάζονται τα δεδομένα. Αυτή η τροποποίηση είναι ιδιαίτερα χρήσιμη όταν τα ονόματα των σειρών χρειάζονται ενημέρωση ή διευκρίνιση βάσει του πλαισίου των δεδομένων. Μετά τη μετονομασία της σειράς, η παρουσίαση μπορεί να αποθηκευτεί ώστε να διατηρηθούν οι αλλαγές. 
-
-Παρακάτω υπάρχει ένα απόσπασμα κώδικα Python που δείχνει αυτή τη διαδικασία σε δράση.
+Ένα όνομα σειράς αποθηκεύεται στο βιβλίο δεδομένων του διαγράμματος και συνήθως εμφανίζεται στο υπόμνημα. Στο προεπιλεγμένο βιβλίο που δημιουργείται για ένα ομαδικό διάγραμμα στηλών, το κελί B1 είναι στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι ονομαστικές σταθερές στο παρακάτω παράδειγμα κάνουν αυτή τη δομή σαφήνεια:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_name = "New name"
+first_slide_index = 0
+worksheet_index = 0
+series_name_row_index = 0
+first_series_column_index = 1
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Προσθήκη γραφήματος ομαδοποιημένων στηλών με προεπιλεγμένα δεδομένα.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    
-    # Ορισμός ονόματος της πρώτης σειράς.
-    series_cell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
-    series_cell.value = series_name
-    
-    # Αποθήκευση του αρχείου παρουσίασης στο δίσκο.
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_name_cell = workbook.get_cell(worksheet_index, series_name_row_index, first_series_column_index)
+    series_name_cell.value = "Revenue"
+
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ο ακόλουθος κώδικας Python δείχνει μια εναλλακτική μέθοδο για την αλλαγή του ονόματος της σειράς:
+Μπορείτε επίσης να ενημερώσετε το κελί που έχει ήδη παρατεθεί από το [ChartSeries.name](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/name/). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε ένα υπάρχον διάγραμμα:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_name = "New name"
+first_slide_index = 0
+first_series_index = 0
+first_name_cell_index = 0
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Προσθήκη γραφήματος ομαδοποιημένων στηλών με προεπιλεγμένα δεδομένα.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    series = chart.chart_data.series[0]
-    
-    # Ορισμός ονόματος της πρώτης σειράς.
-    series.name.as_cells[0].value = series_name
 
-    # Αποθήκευση του αρχείου παρουσίασης στο δίσκο.
-    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX) 
+    series = chart.chart_data.series[first_series_index]
+    series_name_cell = series.name.as_cells[first_name_cell_index]
+    series_name_cell.value = "Revenue"
+
+    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Το αποτέλεσμα:
 
-![Το όνομα της σειράς](series_name.png)
+![The series name](series_name.png)
 
-## **Ανάκτηση Αυτόματου Χρώματος Γέμισματος Σειράς**
+## **Λήψη Αυτοματικού Χρώματος Γεμίσματος Σειράς**
 
-Το Aspose.Slides για Python σας επιτρέπει να λάβετε το αυτόματο χρώμα γεμίσματος για σειρές γραφήματος εντός περιοχής σχεδίασης. Αφού δημιουργήσετε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/), μπορείτε να αποκτήσετε αναφορά στη ζητούμενη διαφάνεια με βάση το δείκτη, έπειτα να προσθέσετε ένα γράφημα χρησιμοποιώντας τον προτιμώμενο τύπο (όπως `ChartType.CLUSTERED_COLUMN`). Μέσω πρόσβασης στις σειρές του γραφήματος, μπορείτε να λάβετε το αυτόματο χρώμα γεμίσματος.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) επιστρέφει το χρώμα που υπολογίζεται από τον δείκτη σειράς και το στυλ του διαγράμματος. Αυτό είναι το χρώμα που χρησιμοποιείται όταν το γέμισμα της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν αναθέτει νέο γέμισμα.
 
-Ο κώδικας Python παρακάτω περιγράφει αυτή τη διαδικασία με λεπτομέρεια.
+Το παρακάτω παράδειγμα εκτυπώνει το αυτόματο χρώμα κάθε προεπιλεγμένης σειράς:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+first_slide_index = 0
 
-    # Προσθήκη γραφήματος ομαδοποιημένων στηλών με προεπιλεγμένα δεδομένα.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
+
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    for i in range(len(chart.chart_data.series)):
-        # Λήψη του χρώματος γεμίσματος της σειράς.
-        color = chart.chart_data.series[i].get_automatic_series_color()
-        print(f"Series {i} color: {color.name}")
+    series_count = len(chart.chart_data.series)
+    for series_index in range(series_count):
+        series = chart.chart_data.series[series_index]
+        automatic_color = series.get_automatic_series_color()
+        print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-Παράδειγμα εξόδου:
+Παράδειγμα εξόδου για το προεπιλεγμένο στυλ διαγράμματος:
 
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **Ορισμός Αντιστροφής Χρώματος Γέμισματος για Σειρά**
+Τα ακριβή χρώματα εξαρτώνται από το στυλ και το θέμα του διαγράμματος.
 
-Όταν μια σειρά δεδομένων περιέχει τόσο θετικές όσο και αρνητικές τιμές, η χρήση του ίδιου χρώματος για κάθε στήλη ή μπάρα μπορεί να δυσκολεύει την ανάγνωση του γραφήματος. Το Aspose.Slides για Python σας επιτρέπει να ορίσετε ένα αντίστροφο χρώμα γεμίσματος — ένα ξεχωριστό γέμισμα που εφαρμόζεται αυτόματα στα σημεία δεδομένων που βρίσκονται κάτω από το μηδέν — ώστε οι αρνητικές τιμές να ξεχωρίζουν αμέσως. Σε αυτήν την ενότητα θα μάθετε πώς να ενεργοποιήσετε αυτήν την επιλογή, να επιλέξετε το κατάλληλο χρώμα και να αποθηκεύσετε την ενημερωμένη παρουσίαση.
+## **Ορισμός Αντιστροφής Χρώματος Γεμίσματος για Σειρά Διαγράμματος**
 
-Το παρακάτω παράδειγμα κώδικα δείχνει τη λειτουργία:
+Για σειρές μπαρ, στηλών και φυσαλίδων, το [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/invert_if_negative/) μπορεί να εμφανίζει αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα σειράς σε στερεό, ενεργοποιήστε την αντιστροφή και αντιστοιχίστε το χρώμα για αρνητικές τιμές μέσω του [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· μόνο το χρώμα εμφάνισης τους αλλάζει.
+
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα διαγράμματος με μία σειρά. Η γραμμή 0 του φύλλου εργασίας περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα των κατηγοριών και η στήλη 1 περιέχει τις τιμές:
 
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
-invert_color = draw.Color.red
+first_slide_index = 0
+worksheet_index = 0
+header_row_index = 0
+category_column_index = 0
+first_series_column_index = 1
+first_data_row_index = 1
+
+category_names = ["Category 1", "Category 2", "Category 3"]
+series_values = [-20, 50, -30]
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    workBook = chart.chart_data.chart_data_workbook
+    chart_data = chart.chart_data
+    workbook = chart_data.chart_data_workbook
 
-    chart.chart_data.series.clear()
-    chart.chart_data.categories.clear()
+    chart_data.series.clear()
+    chart_data.categories.clear()
 
-    # Προσθήκη νέων κατηγοριών.
-    chart.chart_data.categories.add(workBook.get_cell(0, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workBook.get_cell(0, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workBook.get_cell(0, 3, 0, "Category 3"))
+    series_name_cell = workbook.get_cell(worksheet_index, header_row_index, first_series_column_index, "Series 1")
+    series = chart_data.series.add(series_name_cell, chart.type)
 
-    # Προσθήκη νέας σειράς.
-    series = chart.chart_data.series.add(workBook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    category_count = len(category_names)
+    for category_index in range(category_count):
+        data_row_index = first_data_row_index + category_index
+        category_name = category_names[category_index]
+        series_value = series_values[category_index]
 
-    # Συμπλήρωση δεδομένων της σειράς.
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 1, 1, -20))
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
+        category_cell = workbook.get_cell(worksheet_index, data_row_index, category_column_index, category_name)
+        chart_data.categories.add(category_cell)
 
-    # Ορισμός ρυθμίσεων χρώματος για τη σειρά.
-    series_color = series.get_automatic_series_color()
-    series.invert_if_negative = True
+        value_cell = workbook.get_cell(worksheet_index, data_row_index, first_series_column_index, series_value)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    automatic_series_color = series.get_automatic_series_color()
     series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = series_color
-    series.inverted_solid_fill_color.color = invert_color
+    series.format.fill.solid_fill_color.color = automatic_series_color
+    series.invert_if_negative = True
+    series.inverted_solid_fill_color.color = drawing.Color.red
+
     presentation.save("inverted_solid_fill_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Το αποτέλεσμα:
 
-![Το αντιστροφό στερεό γέμισμα](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Μπορείτε να αντιστρέψετε το χρώμα γεμίσματος για ένα μόνο σημείο δεδομένων αντί για ολόκληρη τη σειρά. Απλώς αποκτήστε πρόσβαση στο επιθυμητό `ChartDataPoint` και ορίστε την ιδιότητα `invert_if_negative` σε `True`.
-
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να το κάνετε αυτό:
+Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Στο παρακάτω παράδειγμα, η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Στο σημείο έχει επίσης ανατεθεί μια αρνητική τιμή ώστε το αποτέλεσμα να είναι ορατό:
 
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
+
+first_slide_index = 0
+first_series_index = 0
+target_data_point_index = 2
+negative_value = -30
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
-	chart.chart_data.series.clear()
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-	series = series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
+    series = chart.chart_data.series[first_series_index]
+    automatic_series_color = series.get_automatic_series_color()
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = automatic_series_color
+    series.inverted_solid_fill_color.color = drawing.Color.red
+    series.invert_if_negative = False
 
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
+    data_point = series.data_points[target_data_point_index]
+    data_point.value.as_cell.value = negative_value
+    data_point.invert_if_negative = True
 
-	series.invert_if_negative = False
-	series.data_points[2].invert_if_negative = True
-
-	presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Καθαρισμός Δεδομένων για Συγκεκριμένα Σημεία Δεδομένων**
+## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
 
-Μερικές φορές ένα γράφημα περιέχει δοκιμαστικές τιμές, ακραίες τιμές ή παλιές καταχωρήσεις που χρειάζεται να αφαιρέσετε χωρίς να ξαναχτίσετε ολόκληρη τη σειρά. Το Aspose.Slides για Python σας επιτρέπει να στοχεύσετε οποιοδήποτε σημείο δεδομένων με βάση το δείκτη, να διαγράψετε το περιεχόμενό του και να ανανεώσετε αμέσως το γράφημα έτσι ώστε τα υπόλοιπα σημεία να μετακινηθούν και οι άξονες να προσαρμοστούν αυτόματα.
+Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα σημεία, ορίστε το αντίστοιχο κελί του βιβλίου εργασίας σε `None`. Για ένα διάγραμμα στηλών, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [ChartDataPoint.value](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapoint/value/). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το διάγραμμα αντιμετωπίζει την τιμή του ως κενή σύμφωνα με τις ρυθμίσεις κενών τιμών του διαγράμματος.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει τη λειτουργία:
+Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-with slides.Presentation("test_chart.pptx") as presentation:
-    slide = presentation.slides[0]
-    chart = slide.shapes[0]
-    series = chart.chart_data.series[0]
+first_slide_index = 0
+first_series_index = 0
+target_data_point_index = 1
 
-    for data_point in series.data_points:
-        data_point.x_value.as_cell.value = None
-        data_point.y_value.as_cell.value = None
+with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
 
-    series.data_points.clear()
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    presentation.save("clear_data_points.pptx", slides.export.SaveFormat.PPTX)
+    series = chart.chart_data.series[first_series_index]
+    data_point = series.data_points[target_data_point_index]
+    data_point.value.as_cell.value = None
+
+    presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+Τα διαγράμματα διασποράς χρησιμοποιούν ξεχωριστά κελιά X και Y, και τα διαγράμματα φυσαλίδων χρησιμοποιούν επίσης κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapointcollection/clear/) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί κάθε σημείο δεδομένων από τη συλλογή.
 
 ## **Ορισμός Πλάτους Κενών Μεταξύ Σειρών**
 
-Το πλάτος κενών (gap width) ελέγχει την ποσότητα του κενό χώρου μεταξύ γειτονικών στηλών ή μπαρών — ευρύτερα κενά τονίζουν τις μεμονωμένες κατηγορίες, ενώ στενότερα κενά δημιουργούν έναν πιο πυκνό, πιο συμπαγή οπτικό αποτέλεσμα. Μέσω του Aspose.Slides για Python μπορείτε να δοκιμάσετε ακριβώς αυτήν την παράμετρο για ολόκληρη τη σειρά, επιτυγχάνοντας την ακριβή οπτική ισορροπία που απαιτεί η παρουσίασή σας χωρίς να τροποποιήσετε τα υποκείμενα δεδομένα.
+Το πλάτος κενών είναι το διάστημα μεταξύ γειτονικών ομάδων μπαρ ή στηλών, εκφρασμένο ως ποσοστό του πλάτους του μπαρ ή της στήλης. Όπως η επικάλυψη, ανήκει στην γονική ομάδα σειρών και όχι σε μία σειρά. Ορίστε το [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) μία φορά για την ομάδα. Μια μεγαλύτερη τιμή δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μια μικρότερη τιμή τις κάνει πιο πυκνές.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το πλάτος κενών για μια σειρά:
+Το παρακάτω παράδειγμα αλλάζει το πλάτος κενών και αποθηκεύει μόνο την τελική παρουσίαση:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-gap_width = 30
+first_slide_index = 0
+first_series_index = 0
+gap_width_percent = 30
 
-# Δημιουργία κενής παρουσίασης.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
 
-    # Πρόσβαση στην πρώτη διαφάνεια.
-    slide = presentation.slides[0]
-
-    # Προσθήκη γραφήματος με προεπιλεγμένα δεδομένα.
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 500, 200)
 
-    # Αποθήκευση της παρουσίασης στο δίσκο.
-    presentation.save("default_gap_width.pptx", slides.export.SaveFormat.PPTX)
+    series = chart.chart_data.series[first_series_index]
+    series.parent_series_group.gap_width = gap_width_percent
 
-    # Ορισμός τιμής gap_width.
-    series = chart.chart_data.series[0]
-    series.parent_series_group.gap_width = gap_width
-
-    # Αποθήκευση της παρουσίασης στο δίσκο.
     presentation.save("gap_width_30.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Το αποτέλεσμα:
 
-![Το πλάτος κενών](gap_width.png)
+![The gap width](gap_width.png)
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Υπάρχει όριο στον αριθμό των σειρών που μπορεί να περιέχει ένα γράφημα;**
+**Ποιοι τύποι διαγραμμάτων υποστηρίζουν σειρές δεδομένων;**
 
-Το Aspose.Slides δεν επιβάλλει σταθερό όριο στον αριθμό των σειρών που προσθέτετε. Το πρακτικό όριο καθορίζεται από την ευαναγνωσία του γραφήματος και από τη διαθέσιμη μνήμη της εφαρμογής σας.
+Όλοι οι τύποι διαγραμμάτων που αντιπροσωπεύονται από την απαρίθμηση [ChartType](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/charttype/) χρησιμοποιούν δεδομένα διαγράμματος, όμως οι σειρές τους δεν έχουν όλοι την ίδια δομή τιμών ή ρυθμίσεις. Για παράδειγμα, τα διαγράμματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διαγράμματα διασποράς χρησιμοποιούν τιμές X και Y, και τα διαγράμματα φυσαλίδων προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει στον τύπο σειράς. Επιλογές όπως η επικάλυψη και το πλάτος κενών εφαρμόζονται μόνο σε συμβατές ομάδες μπαρ ή στηλών.
 
-**Τι γίνεται αν οι στήλες μέσα σε ένα σύμπλεγμα είναι πολύ κοντά ή πολύ μακριά η μία από την άλλη;**
+**Τι είναι μια ομάδα σειρών διαγράμματος;**
 
-Ρυθμίστε την παράμετρο [gap_width](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/gap_width/) για εκείνη τη σειρά (ή την γονική ομάδα σειρών). Αυξάνοντας την τιμή διευρύνετε τον χώρο μεταξύ των στηλών, ενώ μειώνοντάς την τα φέρετε πιο κοντά.
+Μια [ChartSeriesGroup](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης σε επίπεδο ομάδας. Ένα σύνθετο διάγραμμα μπορεί να περιέχει περισσότερες από μία ομάδες, οπότε η αλλαγή της ομάδας που προέρχεται από μία σειρά δεν αλλάζει απαραίτητα όλες τις σειρές στο διάγραμμα.
+
+**Περιέχει ένα νεοδημιουργημένο διάγραμμα προεπιλεγμένα δεδομένα;**
+
+Ναι. Από προεπιλογή, το [ShapeCollection.add_chart](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_chart/) δημιουργεί δείγμα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να καθαρίσετε τόσο τις συλλογές σειρών όσο και κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Μία υπερφόρτωση μπορεί επίσης να δημιουργήσει ένα διάγραμμα χωρίς προεπιλεγμένα δεδομένα.
+
+**Πώς συνδέονται τα αντικείμενα διαγράμματος με τα κελιά του βιβλίου εργασίας;**
+
+Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων παραπέμπουν σε κελιά ενός [ChartDataWorkbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdataworkbook/). Η αλλαγή ενός παρατιθέμενου κελιού ενημερώνει το αντίστοιχο στοιχείο του διαγράμματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγοριών και των τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από την επιθυμητή κατηγορία.
+
+**Πώς καθαρίζω ένα σημείο αντί για ολόκληρη τη σειρά;**
+
+Ορίστε το σχετικό κελί τιμής σε `None` για να διατηρήσετε τη θέση κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapointcollection/clear/) μόνο όταν σκοπεύετε να αφαιρέσετε όλα τα σημεία από αυτήν τη σειρά. Αν αφαιρέσετε και τις κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμένουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+
+**Πώς εμφανίζονται τα κενά σημεία;**
+
+Το αποτέλεσμα εξαρτάται από τον τύπο διαγράμματος και το [Chart.display_blanks_as](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/display_blanks_as/). Τα υποστηριζόμενα διαγράμματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει με τη σημασία των ελλιπών δεδομένων στην παρουσίασή σας.
+
+**Πώς μορφοποιούνται οι αρνητικές τιμές;**
+
+Για τις υποστηριζόμενες σειρές μπαρ, στηλών και φυσαλίδων, ενεργοποιήστε το [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/invert_if_negative/) και ορίστε το [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο με το [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Αυτές οι ιδιότητες επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+
+**Ποια μορφοποίηση κερδίζει όταν τόσο μια σειρά όσο και ένα σημείο μορφοποιούνται;**
+
+Η ρητή μορφοποίηση σημείου δεδομένων έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν η μορφοποίηση σειράς δεν είναι ορισμένη, το αυτόματο στυλ και θέμα του διαγράμματος. Οι ιδιότητες ομάδας όπως η επικάλυψη και το πλάτος κενών ελέγχουν τη διάταξη και δεν είναι παρακάμψεις μορφοποίησης επιπέδου σημείου.
+
+**Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα διάγραμμα;**
+
+Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, περιορισμοί του αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η αναγνωσιμότητα του διαγράμματος καθορίζουν ένα χρήσιμο όριο.
+
+**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά;**
+
+Ορίστε το [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) στην κατάλληλη γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το χώρο μεταξύ των ομάδων, ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.

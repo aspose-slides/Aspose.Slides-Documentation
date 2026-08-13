@@ -1,5 +1,5 @@
 ---
-title: 在 JavaScript 中从演示文稿获取形状的有效属性
+title: 在 JavaScript 中从演示文稿获取形状有效属性
 linktitle: 有效属性
 type: docs
 weight: 50
@@ -18,323 +18,278 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "了解 Aspose.Slides for Node.js（通过 Java）如何计算并应用有效的形状属性，以实现精准的 PowerPoint 渲染。"
+description: "了解如何使用 Aspose.Slides for Node.js via Java 在 PowerPoint 演示文稿中区分本地、继承和有效的形状格式化。"
 ---
-## **概述**
+## **了解本地、继承和有效属性**
 
-本主题解释 **本地** 与 **有效** 属性之间的区别。本地值是直接在特定格式层级设置的值，例如：
+PowerPoint 的格式化可能来自多个来源。直接存储在对象上的值称为其 **本地值**。如果该值未设置，PowerPoint 会查看父级格式化来源，例如段落默认值、文本样式、版面或母版幻灯片、主题或演示文稿级别的默认值。这些值是 **继承值**。在解析完整层级后残留下来的值就是 **有效值**——用于渲染对象的值。
 
-1. 幻灯片上的段落属性。
-1. 布局或母版幻灯片上的原型形状文本样式（当段落的文本框形状具有该样式时）。
-1. 演示文稿中的全局文本设置。
+例如，文本段落可能未定义自己的字体高度。其本地[getFontHeight](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getFontHeight) 值为 `NaN`，表示“此处未设置”。该段落可以从其段落、演示文稿的默认文本样式或其他适用来源继承高度。对段落格式调用[getEffective](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getEffective) 会返回最终解析后的高度。
 
-本地值可以在任何层级定义或省略。当 Aspose.Slides 需要最终的“渲染后”格式时，它会解析继承链并返回 **有效** 值。可以通过在本地格式对象上调用 `getEffective` 方法来获取这些值。
+针对不同目的使用这两种格式化数据：
 
-以下示例演示如何获取有效值。假设第一张幻灯片上的第一个形状是一个带有文本框且至少包含一个段落的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+- 读取或更改本地格式对象，例如[PortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/)，当您需要控制值的定义位置时。
+- 读取[PortionFormat.getEffective 返回的有效数据](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getEffective)，当您需要最终渲染结果时。有效数据是只读的。
+
+在运行示例之前，请[安装 Aspose.Slides for Node.js via Java](/slides/zh/nodejs-java/installation/)。
+
+## **比较本地、继承和有效值**
+
+下面的完整示例创建一个形状，并在演示文稿、段落和段落（portion）级别应用字体高度。每一步都会打印在这些级别上定义的值以及同一文本段落的结果有效值。它还演示了为何在格式更改后必须重新读取有效数据。
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // 读取在前面更改之后的有效数据。
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // 在两个不同层级定义继承值。
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // 本地值覆盖了两个继承值。
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // 更改继承值不会覆盖已存在的本地值。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // 清除本地值。此段落现在再次从段落继承。
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // 清除段落值。演示文稿默认值现在提供结果。
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-有效格式数据表示在应用继承后当前计算得到的格式。在当前实现中，某些有效数据对象可能会在内部被缓存。更改父级或继承的格式后再次调用 `getEffective` 可以刷新缓存数据，之前获得的对象可能不再代表之前的状态。如果需要保留有效值以供后续使用，请将所需的属性（例如字体高度、填充颜色、字体样式或对齐方式）复制到您自己的数据对象中。
-{{% /alert %}}
+本示例中的优先级是段落本地格式化，其次是段落格式化，最后是演示文稿默认值。其他对象可能具有不同的继承链，但原则相同：更具体的显式值优先，且[getEffective](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getEffective) 返回最终结果。
 
-## **获取相机的有效属性**
+## **获取有效文本属性**
 
-Aspose.Slides 允许您获取相机的有效属性。有效相机数据对象包含不可变的相机属性，并通过对 [ThreeDFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/) 返回的有效值公开。
+文本格式化分布在多个对象中：
 
-以下代码示例展示如何获取相机的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#getEffective) 解析文本框属性，如边距、锚定、自动适应以及垂直文本方向。
+- [TextStyle.getEffective](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textstyle/#getEffective) 解析每个文本样式级别的段落格式。
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/#getEffective) 解析段落属性，如对齐、缩进和项目符号。
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/#getEffective) 解析字符属性，如字体高度、字体、颜色、粗体和斜体。
+
+对于下一个示例，`text-formatting.pptx` 必须至少包含一张幻灯片和一个带有非空文本框的[AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。AutoShape 可以出现在形状集合中的任意位置；代码会搜索合适的对象并在使用前进行验证。
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **获取灯光设备的有效属性**
-
-Aspose.Slides 允许您获取灯光设备的有效属性。有效灯光设备数据对象包含不可变的灯光设备属性，并通过对 [ThreeDFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/) 返回的有效值公开。
-
-以下代码示例展示如何获取灯光设备的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **获取斜角形状的有效属性**
-
-Aspose.Slides 允许您获取形状斜角的有效属性。有效形状斜角数据对象包含形状的不可变面部浮雕属性，并通过对 [ThreeDFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/) 返回的有效值公开。
-
-以下代码示例展示如何获取形状顶部斜角的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **获取文本框的有效属性**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-使用 Aspose.Slides，您可以获取文本框的有效属性。返回的有效数据对象包含文本框的格式属性。
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-以下代码示例展示如何获取文本框的有效格式属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **获取文本样式的有效属性**
-
-使用 Aspose.Slides，您可以获取文本样式的有效属性。返回的有效数据对象包含文本样式的属性。
-
-以下代码示例展示如何获取文本样式的有效属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **获取有效字体高度值**
+## **获取有效的 3D 属性**
 
-使用 Aspose.Slides，您可以获取有效字体高度。以下代码演示在演示文稿结构的不同层级设置本地字体高度后，段落的有效字体高度如何变化。
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/#getEffective) 返回一个有效数据对象，汇总所有解析后的 3D 设置。其[getCamera](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/#getCamera)、[getLightRig](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/#getLightRig)、[getBevelTop](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/#getBevelTop) 和 [getBevelBottom](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/threedformat/#getBevelBottom) 方法公开相应的有效数据。一起读取这些相关设置可更易理解形状的最终 3D 外观。
+
+对于本示例，`shape-3d.pptx` 必须在其第一页上至少包含一个形状。如果希望输出包含除默认值之外的值，请对该形状应用 3D 相机、灯光或斜角设置。
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **获取表格的有效填充格式**
+## **获取有效的表格格式化**
 
-使用 Aspose.Slides，您可以获取不同表格部件的有效填充格式。返回的有效数据对象包含填充格式属性。单元格格式的优先级高于行格式，行格式高于列格式，列格式高于整个表格的格式。
+表格格式化可能来源于表格样式，也可能来源于应用于整个表格、列、行或单元格的格式。对于显式定义的填充冲突，优先级为单元格、行、列，然后是整张表。单元格的有效格式即用于绘制该单元格的最终格式。
 
-因此，使用有效的单元格格式属性来绘制表格单元格。以下代码示例展示如何获取不同表格部件的有效填充格式。假设第一张幻灯片上的第一个形状是一个 [Table](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/table/)。
+对于本示例，`table-formatting.pptx` 必须在其第一页上至少包含一个表格。该表格必须至少有一行和一列。代码会搜索[Table](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/table/)，而不是假设 `getShapes().get_Item(0)` 是表格。
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+如果需要颜色而不仅仅是填充类型，请先检查有效的[getFillType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/fillformat/#getFillType)，然后读取适用于该类型的方法，例如针对纯色填充的[getSolidFillColor](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/fillformat/#getSolidFillColor)。
+
+## **在更改后重新读取有效数据**
+
+有效数据描述解析时的格式层级。更改可能参与该层级的任何内容后，请再次调用 `getEffective`，包括：
+
+- 对象的本地格式；
+- 段落或文本框默认值；
+- 表格样式、表格、列、行或单元格格式；
+- 版面或母版幻灯片的格式；
+- 主题数据或演示文稿级别的默认值；
+- 分配给幻灯片的版面或母版。
+
+不要将有效数据对象作为永久快照保存。Aspose.Slides 可能在内部缓存部分有效数据，随后调用 `getEffective` 可以刷新这些数据。如果需要比较更改前后的值，请在更改之前将所需的标量值（例如字体高度、颜色、对齐方式或斜角宽度）复制到自己的变量中。
+
+要更改值，请更新相应的本地格式对象，然后调用 `getEffective` 以验证结果。有效数据对象本身是只读的。
 
 ## **常见问题**
 
-**`getEffective` 是否返回快照？**
+**如何判断是哪一级提供了有效值？**
 
-并非总是如此。有效数据表示在应用继承后计算得到的格式，但某些有效数据对象可能会在内部被缓存。随后调用 `getEffective` 可能会重新计算格式并刷新缓存数据，因此先前获得的对象不应视为持久快照。
+有效数据仅包含最终值，而不指示其来源。请从最具体的层级向外检查相应的本地对象。对于文本，这可能包括段落（portion）、段落、文本框、版面、母版、主题以及演示文稿默认值。`NaN` 或 `null` 等未定义值表示搜索将继续到更高层级。
 
-**何时应再次读取有效属性？**
+**如果没有任何层级定义属性会怎样？**
 
-在更改本地格式、父样式、布局格式、母版格式或演示文稿级默认值后再次调用 `getEffective`。下一次调用会重新评估格式层级并返回当前的有效结果。
+Aspose.Slides 将解析相应的 PowerPoint 或库默认值。即使没有本地对象显式定义，该解析后的值仍会出现在有效数据中。
 
-**更改或删除布局/母版幻灯片会影响已经检索到的有效属性吗？**
+**为什么有效值有时等于本地值？**
 
-会，但更改会在下次 `getEffective` 调用时体现。如果父级格式源被更改或删除，先前获取的有效数据可能已过时。再次调用 `getEffective` 后，Aspose.Slides 会重新评估格式树，结果的字体、颜色、大小等值可能会改变。
+本地值在继承计算中获胜。当属性在对象上显式设置且没有更具体的规则覆盖时，出现这种情况是正常的。
 
-**我可以通过有效数据对象修改值吗？**
+**何时应使用本地数据而不是有效数据？**
 
-不能。有效数据对象仅暴露计算后的值。请在本地格式对象中进行修改，然后再次获取有效值。
-
-**如果属性在形状级别、布局/母版或全局设置中均未设置，会怎样？**
-
-有效值由默认机制决定，包括 PowerPoint 和 Aspose.Slides 的默认设置。解析后的值成为当前有效数据的一部分。
-
-**从有效字体值能判断是哪个层级提供的大小或字形吗？**
-
-不能直接判断。有效数据返回最终值。若要查找来源，需要检查段落、段落、文本框以及布局、母版和演示文稿层级的本地值，以确定首次出现显式定义的层级。
-
-**为什么有效值有时看起来与本地值相同？**
-
-因为本地值已经是最终值（无需更高级别的继承）。在这种情况下，有效值与本地值相同。
-
-**何时应使用有效属性，何时只使用本地属性？**
-
-当需要在所有继承应用后的“渲染后”结果时使用有效数据，例如对齐颜色、缩进或尺寸。如果需要在后续格式更改后仍保留这些值，请将所需属性复制到自己的对象中。如果需要在特定层级修改格式，请修改本地属性，然后（如有需要）再次读取有效数据以验证结果。
+在检查或编辑特定格式化层级时使用本地数据。在需要继承、主题规则和适用样式解析后的最终外观时使用有效数据。[完整比较示例](#compare-local-inherited-and-effective-values) 在同一工作流中演示了两者的使用。

@@ -1,310 +1,381 @@
 ---
-title: Správa datových řad grafu v prezentacích v .NET
-linktitle: Datové řady
+title: Správa datových sérií grafu v prezentacích v .NET
+linktitle: Datové série
 type: docs
 url: /cs/net/chart-series/
 keywords:
-- řady grafu
-- překrytí řad
-- barva řady
+- série grafu
+- překrytí sérií
+- barva série
 - barva kategorie
-- název řady
+- název série
 - datový bod
-- mezera řady
+- mezera sérií
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se spravovat řady grafů v C# pro PowerPoint (PPT/PPTX) s praktickými ukázkami kódu a osvědčenými postupy pro vylepšení vašich datových prezentací."
+description: "Zjistěte, jak spravovat série grafu, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí C#."
 ---
 ## **Přehled**
 
-Tento článek popisuje roli [ChartSeries](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chartseries/) v Aspose.Slides pro .NET, se zaměřením na to, jak jsou data strukturovaná a vizualizovaná v prezentacích. Tyto objekty poskytují základní prvky, které definují jednotlivé sady datových bodů, kategorie a parametry vzhledu v grafu. Prací s [ChartSeries](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chartseries/), vývojáři mohou bezproblémově integrovat podkladové zdroje dat a mít úplnou kontrolu nad tím, jak jsou informace zobrazovány, což vede k dynamickým, na datech založeným prezentacím, které jasně předávají postřehy a analýzu.
+Graf ukládá svá vykreslená data do sešitu s daty grafu. [IChartSeries](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/) představuje jeden soubor souvisejících hodnot a každý [IChartDataPoint](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/) v sérii odkazuje na jednu nebo více buněk sešitu. Objekt [IChartCategory](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartcategory/) poskytuje popisky nebo skupinové hodnoty sdílené sériemi. Název série, kategorie a hodnoty bodů jsou tedy propojeny s objekty [IChartDataCell](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/) místo toho, aby byly uloženy jen jako zobrazovaný text.
 
-Řada je řádek nebo sloupec čísel vykreslených v grafu.
+Pro typický kategoriový graf výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/getcell/) jsou nulové‑založené. Toto uspořádání je užitečné při vytváření grafu s výchozími daty, ale nepředpokládejte, že jej používá každý existující graf. Pro načtenou prezentaci před změnou hodnot v sešitu prozkoumejte buňky, na které odkazují série, kategorie a datové body.
+
+Nastavení grafu mají tři různé úrovně:
+
+- Nastavení na úrovni série, například [IChartSeries.Format](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/format/), poskytuje výchozí vzhled pro všechny body v jedné sérii.
+- Nastavení datového bodu, například [IChartDataPoint.Format](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/format/), přepisuje vzhled série pro jeden bod.
+- Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [IChartSeriesGroup](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseriesgroup/). Přístup ke skupině získáte přes [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/parentseriesgroup/), když potřebujete nastavit možnosti jako překrytí či šířku mezery.
+
+Když není nastaven žádný explicitní výplň bodu ani série, určuje automatický vzhled styl a téma grafu. Když jsou přítomny formátování série i bodu, formátování bodu má přednost pro daný bod.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Nastavení překrytí řady grafu**
+## **Nastavení překrytí sérií grafu**
 
-Vlastnost [IChartSeriesOverlap](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/properties/overlap) řídí, jak se sloupce a pruhy překrývají v 2D grafu, přičemž lze zadat rozsah od -100 do 100. Protože je tato vlastnost přiřazena ke skupině řad, nikoli k jednotlivé řadě grafu, je na úrovni řady jen pro čtení. Pro nastavení hodnot překrytí použijte vlastnost `ParentSeriesGroup.Overlap`, která je čtení/zápis a aplikuje zadané překrytí na všechny řady v této skupině.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/overlap/) udává, jak moc se překrývají pruhy nebo sloupce ve 2D grafu, v rozmezí od –100 do 100 procent. Jedná se o jen‑read‑only projekci nastavení v nadřazené skupině sérií. Nastavte [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseriesgroup/overlap/) pro aktualizaci všech kompatibilních sérií ve skupině. Tato možnost platí pro typy grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny sérií v kombinovaném grafu.
 
-Níže je ukázka v jazyce C#, která ukazuje, jak vytvořit prezentaci, přidat seskupený sloupcový graf, získat první řadu grafu, nastavit překrytí a poté výsledek uložit jako soubor PPTX:
+Následující příklad nastavuje překrytí pro skupinu, která obsahuje první sérii:
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // Přidejte seskupený sloupcový graf s výchozími daty.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // Nastavte překrytí řady.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// Nový graf obsahuje ukázkové série, kategorie a hodnoty.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Uložte soubor prezentace na disk.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 Výsledek:
 
-![Překrytí řad](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Změna barvy výplně řady**
+## **Změna barvy výplně série**
 
-Aspose.Slides usnadňuje přizpůsobení barev výplně řad grafu, což vám umožní zvýraznit konkrétní datové body a vytvořit vizuálně atraktivní grafy. To je dosaženo pomocí objektu [IFormat](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/iformat/), který podporuje různé typy výplní, konfigurace barev a další pokročilé možnosti stylování. Po přidání grafu na snímek a získání požadované řady jednoduše získáte řadu a použijete odpovídající barvu výplně. Kromě plných výplní můžete také využít gradientní nebo vzorové výplně pro větší flexibilitu návrhu. Po nastavení barev podle požadavků uložte prezentaci, čímž dokončíte aktualizovaný vzhled.
+Použijte [IChartSeries.Format](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/format/) pro nastavení výchozí výplně celé série. Pokud má bod již explicitní výplň, jeho nastavení [IChartDataPoint.Format](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/format/) přepisuje výplň série pro tento bod.
 
-Následující ukázka v C# ukazuje, jak změnit barvu první řady:
+Následující příklad aplikuje pevnou modrou výplň na první sérii:
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // Přidejte seskupený sloupcový graf s výchozími daty.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Nastavte barvu první řady.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Uložte soubor prezentace na disk.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 Výsledek:
 
-![Barva řady](series_color.png)
+![The color of the series](series_color.png)
 
-## **Změna názvu řady**
+## **Změna názvu série**
 
-Aspose.Slides nabízí jednoduchý způsob, jak upravit názvy řad grafu, což usnadňuje označování dat jasným a smysluplným způsobem. Přístupem k příslušné buňce listu v datech grafu mohou vývojáři přizpůsobit způsob, jak jsou data prezentována. Tato úprava je zvláště užitečná, když je třeba názvy řad aktualizovat nebo upřesnit podle kontextu dat. Po přejmenování řady lze prezentaci uložit, aby se změny zachovaly.
-
-Níže je ukázka kódu C#, který tento postup demonstruje.
+Název série je uložen v sešitu s daty grafu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový graf je buňka B1 na řádku 0, sloupci 1 a obsahuje název první série. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně ukazují:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // Přidejte seskupený sloupcový graf s výchozími daty.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Nastavte název první řady.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Uložte soubor prezentace na disk.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Následující kód v C# ukazuje alternativní způsob změny názvu řady:
+Můžete také aktualizovat buňku již odkazovanou pomocí [IChartSeries.Name](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/name/). Tento přístup se vyhýbá předpokladu konkrétního řádku a sloupce v existujícím grafu:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // Přidejte seskupený sloupcový graf s výchozími daty.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Nastavte název první řady.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Uložte soubor prezentace na disk.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 Výsledek:
 
-![Název řady](series_name.png)
+![The series name](series_name.png)
 
-## **Získání automatické barvy výplně řady**
+## **Získání automatické barvy výplně série**
 
-Aspose.Slides pro .NET umožňuje získat automatickou barvu výplně řady grafu v oblasti vykreslení. Po vytvoření instance třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) můžete získat odkaz na požadovaný snímek podle indexu, poté přidat graf pomocí preferovaného typu (např. `ChartType.ClusteredColumn`). Přístupem k řadám v grafu můžete získat automatickou barvu výplně.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) vrací barvu vypočítanou z indexu série a stylu grafu. Toto je barva použita, když výplň série nebyla explicitně definována. Volání metody pouze načte vypočítanou barvu; nepřiřazuje novou výplň.
+
+Následující příklad vypíše automatickou barvu každé výchozí série:
 
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // Přidejte seskupený sloupcový graf s výchozími daty.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // Získejte barvu výplně řady.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
-Výstup:
+Ukázkový výstup pro výchozí styl grafu:
+
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **Nastavení invertované barvy výplně pro řadu grafu**
+Přesné barvy závisí na stylu a tématu grafu.
 
-Když vaše datová řada obsahuje jak kladné, tak záporné hodnoty, barevné označení každého sloupce nebo pruhu stejnou barvou může graf ztížit čitelnost. Aspose.Slides pro .NET vám umožňuje přiřadit invertovanou barvu výplně – samostatnou výplň aplikovanou automaticky na datové body pod nulou – takže záporné hodnoty jsou na první pohled výrazné. V této sekci se naučíte, jak tuto možnost povolit, vybrat vhodnou barvu a uložit aktualizovanou prezentaci.
+## **Nastavení invertované barvy výplně pro sérii grafu**
 
-Následující ukázka kódu demonstruje operaci:
+Pro pruhové, sloupcové a bublinové série může [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/invertifnegative/) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň série na pevnou, povolte inverzi a přiřaďte barvu záporných hodnot pomocí [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Záporná čísla zůstávají v sešitu nezměněna; mění se jen jejich zobrazovaná barva.
+
+Následující příklad nahradí výchozí data grafu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 obsahuje názvy kategorií a sloupec 1 obsahuje hodnoty:
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Přidejte nové kategorie.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // Přidejte novou řadu.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Naplněte data řady.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // Nastavte nastavení barvy řady.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 Výsledek:
 
-![Invertovaná plná barva výplně](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Můžete invertovat barvu výplně pro jediný datový bod místo celé řady. Stačí získat požadovaný `IChartDataPoint` a nastavit jeho vlastnost `InvertIfNegative` na true.
-
-Následující ukázka kódu ukazuje, jak to provést:
+Inverzi můžete povolit pro jeden bod pomocí [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). V následujícím příkladu je inverze zakázána pro sérii a povolena pouze pro vybraný bod. Bod je také přiřazen zápornou hodnotou, aby byl efekt viditelný:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Invertovat barvu, pokud je datový bod na indexu 2 záporný.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Vymazání konkrétních hodnot datových bodů**
+## **Vymazání konkrétní hodnoty datového bodu**
 
-Někdy graf obsahuje testovací hodnoty, odlehlé body nebo zastaralé záznamy, které je třeba odstranit bez nutnosti přestavovat celou řadu. Aspose.Slides pro .NET vám umožňuje cíleně vymazat libovolný datový bod podle indexu, vyčistit jeho obsah a okamžitě obnovit vykreslení, takže zbývající body se posunou a osy se automaticky přepočítají.
+Chcete‑li učinit jeden bod prázdným, aniž byste odstraňovali ostatní body, nastavte buňku v sešitě, která jej podporuje, na `null`. Pro sloupcový graf je vykreslená hodnota dostupná přes [IChartDataPoint.YValue](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/yvalue/). Datový bod zůstane na stejné pozici kategorie, ale graf bude jeho hodnotu považovat za prázdnou podle nastavení prázdných hodnot grafu.
 
-Ukázkový kód níže demonstruje operaci:
+Následující příklad vymaže pouze druhý bod v první sérii:
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-## **Nastavení šířky mezery řady**
+Bodové grafy používají samostatné buňky X a Y a bublinové grafy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapointcollection/clear/) pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
 
-Šířka mezery řídí množství prázdného prostoru mezi sousedními sloupci nebo pruhy – širší mezery zdůrazňují jednotlivé kategorie, zatímco užší mezery vytvářejí hustší, kompaktnější vzhled. Pomocí Aspose.Slides pro .NET můžete tento parametr jemně doladit pro celou řadu, čímž dosáhnete přesně takové vizuální rovnováhy, jakou vaše prezentace požaduje, aniž byste měnili podkladová data.
+## **Nastavení šířky mezery mezi sériemi**
 
-Následující ukázka kódu ukazuje, jak nastavit šířku mezery pro řadu:
+Šířka mezery je prostor mezi sousedními seskupeními pruhů nebo sloupců, vyjádřený v procentech šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Nastavte [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) jednou pro celou skupinu. Větší hodnota vytvoří více prostoru mezi skupinami; menší hodnota je učiní hustšími.
+
+Následující příklad mění šířku mezery a ukládá pouze finální prezentaci:
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Vytvořte prázdnou prezentaci.
-using (Presentation presentation = new Presentation())
-{
-    // Získejte první snímek.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // Přidejte graf s výchozími daty.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Uložte prezentaci na disk.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // Nastavte hodnotu GapWidth.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // Uložte prezentaci na disk.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 Výsledek:
 
-![Šířka mezery](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **Často kladené otázky**
 
-**Existuje limit počtu řad, které může jeden graf obsahovat?**
+**Jaké typy grafů podporují datové série?**
 
-Aspose.Slides neklade žádný pevný limit na počet řad, které můžete přidat. Praktický strop je dán čitelností grafu a dostupnou pamětí vaší aplikace.
+Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/charttype/) používají datové série, ale jejich série nemají vždy stejnou strukturu hodnot nebo nastavení. Například kategoriové grafy používají kategorie a hodnoty, bodové grafy X a Y hodnoty a bublinové grafy přidávají velikosti bublin. Použijte metodu tvorby datových bodů, která odpovídá typu série. Možnosti jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhových nebo sloupcových grafů.
 
-**Co když jsou sloupce v rámci shluku příliš blízko u sebe nebo naopak příliš daleko?**
+**Co je skupina sérií grafu?**
 
-Upravte nastavení `GapWidth` pro tuto řadu (nebo její nadřazenou skupinu řad). Zvýšením hodnoty zvětšíte mezeru mezi sloupci, snížením ji přiblížíte.
+[IChartSeriesGroup](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení na úrovni skupiny. Kombinovaný graf může obsahovat více než jednu skupinu, takže změna skupiny dosažené přes jednu sérii neznamená nutně změnu všech sérií v grafu.
+
+**Obsahuje nově vytvořený graf výchozí data?**
+
+Ano. Ve výchozím nastavení [IShapeCollection.AddChart](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addchart/) vytváří ukázkové série, kategorie a hodnoty. Můžete tyto buňky upravit nebo před přidáním zcela vlastního datového souboru vymazat jak série, tak kolekce kategorií. Přetížená metoda může také vytvořit graf bez výchozích dat.
+
+**Jak jsou objekty grafu propojeny s buňkami sešitu?**
+
+Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [IChartDataWorkbook](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při tvorbě vlastních dat udržujte řádky kategorií a řádky hodnot sérií zarovnané, aby každý bod byl vykreslen pod zamýšlenou kategorií.
+
+**Jak vymazat jeden bod místo celé série?**
+
+Nastavte buňku s příslušnou hodnotou na `null`, aby bod zachoval svou pozici kategorie jako prázdný bod. Použijte [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapointcollection/clear/) jen v případě, že chcete odstranit všechny body z dané série. Pokud odstraňujete i kategorie, aktualizujte všechny série tak, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
+
+**Jak se zobrazují prázdné body?**
+
+Výsledek závisí na typu grafu a na [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/displayblanksas/). Podporované grafy mohou prázdná místa zobrazovat jako mezery, jako nulové hodnoty nebo propojením sousedních bodů. Zvolte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci.
+
+**Jak jsou formátovány záporné hodnoty?**
+
+U podporovaných pruhových, sloupcových a bublinových sérií povolte [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/invertifnegative/) a nastavte [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Chování pro jednotlivý bod můžete přepsat pomocí [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Tyto vlastnosti ovlivňují formátování, nikoli uložené číselné hodnoty.
+
+**Které formátování má přednost, když je formátována i série i bod?**
+
+Explicitní formátování datového bodu má přednost pro daný bod. Ostatní body nadále používají explicitní formát série nebo, pokud není definován, automatický styl a téma grafu. Skupinové vlastnosti jako překrytí a šířka mezery řídí rozvržení a nejsou přepisovány na úrovni bodu.
+
+**Existuje limit počtu sérií, které může graf obsahovat?**
+
+Aspose.Slides neukládá samostatný pevný limit počtu sérií. V praxi limit určuje omezení souboru prezentace, dostupná paměť, čas vykreslování a čitelnost grafu.
+
+**Co změnit, když jsou sloupce příliš blízko nebo příliš daleko od sebe?**
+
+Nastavte [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) na příslušné nadřazené skupině sérií. Zvyšte hodnotu pro rozšíření mezery mezi skupinami nebo ji snižte, aby se skupiny přiblížily.

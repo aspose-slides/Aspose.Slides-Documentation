@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunumlardan Şekil Etkin Özelliklerini Al
+title: Sunumlarda Java ile Şekil Etkin Özelliklerini Alın
 linktitle: Etkin Özellikler
 type: docs
 weight: 50
@@ -7,8 +7,8 @@ url: /tr/java/shape-effective-properties/
 keywords:
 - şekil özellikleri
 - kamera özellikleri
-- ışık sistemi
-- kiriş şekli
+- ışık rig
+- köşe şekli
 - metin çerçevesi
 - metin stili
 - yazı tipi yüksekliği
@@ -17,323 +17,283 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'nın şekil etkin özelliklerini nasıl hesapladığını ve kesin PowerPoint renderlaması için nasıl uyguladığını keşfedin."
+description: "Aspose.Slides for Java'yı kullanarak PowerPoint sunumlarında yerel, miras alınan ve etkin şekil biçimlendirmesini nasıl ayırt edeceğinizi öğrenin."
 ---
-## **Genel Bakış**
+## **Yerel, Miras Alınan ve Etkin Özellikleri Anlamak**
 
-Bu konu **yerel** ve **etkin** özellikler arasındaki farkı açıklar. Yerel değerler, belirli bir biçimlendirme seviyesinde doğrudan ayarlanan değerlerdir; örneğin:
+PowerPoint biçimlendirmesi birkaç yerden gelebilir. Bir nesne üzerinde doğrudan depolanan değer **yerel değer** dir. Bu değer ayarlanmamışsa, PowerPoint bir paragraf varsayılanı, bir metin stili, bir yerleşim veya ana slayt, bir tema veya sunum düzeyindeki varsayılanlar gibi üst biçimlendirme kaynaklarına bakar. Bu değerler **miras alınan değerler** dir. Tüm hiyerarşi çözüldükten sonra kalan değer **etkin değer** dir — nesneyi renderlamak için kullanılan değer.
 
-1. Bir slayttaki bölüm (portion) özellikleri.
-1. Bir düzen ya da ana slayttaki prototip şekil metin stilleri, bölümün metin çerçevesi şekline bir tane varsa.
-1. Sunumdaki küresel metin ayarları.
+Örneğin, bir metin bölümü kendi yazı tipi yüksekliğini tanımlamıyor olabilir. Yerel [getFontHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseportionformat/#getFontHeight--) değeri `Float.NaN` olur, bu da "burada ayarlanmamış" anlamına gelir. Bölüm, yüksekliği paragrafından, sunumun varsayılan metin stilinden veya başka bir geçerli kaynaktan miras alabilir. Bölüm biçiminde [getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportionformat/#getEffective--) çağrısı, nihai çözülen yüksekliği döndürür.
 
-Yerel değerler herhangi bir seviyede tanımlanabilir veya atlanabilir. Aspose.Slides, nihai “görüntülendiği gibi” biçimlendirmeye ihtiyaç duyduğunda kalıtım zincirini çözer ve **etkin** (effective) değerleri döndürür. Bu değerlere, yerel format nesnesinde `getEffective` yöntemini çağırarak ulaşabilirsiniz.
+Farklı amaçlar için iki tür biçimlendirme verisini kullanın:
 
-Aşağıdaki örnek, etkin değerlerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu ve bir metin çerçevesi ile en az bir bölüm (portion) içerdiğini varsayar.
+- Bir değerin nerede tanımlandığını kontrol etmeniz gerektiğinde, örneğin [IPortionFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportionformat/), yerel bir format nesnesini okuyun veya değiştirin.
+- Nihai, renderlanmış sonucu ihtiyaç duyduğunuzda, örneğin [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportionformateffectivedata/), bir etkin veri nesnesini okuyun. Etkin veri sadece okunabilir.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **Compare Local, Inherited, and Effective Values**
 
-    ITextFrameFormat localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.getEffective();
-
-    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = paragraph.getPortions().get_Item(0);
-    IPortionFormat localPortionFormat = portion.getPortionFormat();
-    IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-
-Etkin biçimlendirme verileri, kalıtım uygulandıktan sonra hesaplanan geçerli biçimlendirmeyi temsil eder. Mevcut uygulamada, [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IPortionFormatEffectiveData) gibi bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Üst ya da kalıtılan biçimlendirme değiştirildikten sonra `getEffective` yeniden çağrıldığında önbellek yenilenir ve daha önce elde edilen nesne artık önceki durumu temsil etmeyebilir. Etkin değerleri daha sonraki kullanım için korumanız gerekiyorsa, yazı tipi yüksekliği, dolgu rengi, yazı tipi stili veya hizalama gibi gerekli özellikleri kendi veri nesnenize kopyalayın.
-
-{{% /alert %}}
-
-## **Kamera'nın Etkin Özelliklerini Al**
-
-Aspose.Slides, bir kameranın etkin özelliklerini almanıza olanak tanır. [ICameraEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICameraEffectiveData) arabirimi, etkin kamera özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ICameraEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICameraEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkin değerleri sağlar.
-
-Aşağıdaki kod örneği, kamera için etkin özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3B (3D) biçimlendirmeye sahip olduğunu varsayar.
+Aşağıdaki tam örnek bir şekil oluşturur ve sunum, paragraf ve bölüm seviyelerinde yazı tipi yüksekliği uygular. Her adım bu seviyelerde tanımlanan değerleri ve aynı metin bölümü için sonuçta gelen etkin değeri yazdırır. Ayrıca, biçimlendirme değişikliklerinden sonra neden etkin verinin yeniden okunması gerektiğini gösterir.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
-    int cameraType = cameraEffectiveData.getCameraType();
-    double fieldOfViewAngle = cameraEffectiveData.getFieldOfViewAngle();
-    double zoom = cameraEffectiveData.getZoom();
+import com.aspose.slides.*;
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraType);
-    System.out.println("Field of view: " + fieldOfViewAngle);
-    System.out.println("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
-}
-```
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-## **Işık Sisteminin Etkin Özelliklerini Al**
+            // İki farklı seviyede miras alınan değerleri tanımla.
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-Aspose.Slides, bir ışık sisteminin (light rig) etkin özelliklerini almanıza olanak tanır. [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ILightRigEffectiveData) arabirimi, etkin ışık sistemi özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ILightRigEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkin değerleri sağlar.
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Aşağıdaki kod örneği, ışık sistemi için etkin özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3B (3D) biçimlendirmeye sahip olduğunu varsayar.
+            // Bölümdeki yerel değer, her iki miras alınan değerin üzerine yazar.
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
-    int lightType = lightRigEffectiveData.getLightType();
-    int direction = lightRigEffectiveData.getDirection();
+            // Miras alınan bir değeri değiştirmek, mevcut bir yerel değerin üzerine yazmaz.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightType);
-    System.out.println("Direction: " + direction);
-} finally {
-    presentation.dispose();
-}
-```
+            // Yerel değeri temizle. Bölüm artık paragraftan tekrar miras alır.
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-## **Şekil Kirişinin Etkin Özelliklerini Al**
+            // Paragraf değerini temizle. Sunum varsayılanı şimdi sonucu sağlar.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Aspose.Slides, bir şekil kıvrımının (bevel) etkin özelliklerini almanıza olanak tanır. [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeBevelEffectiveData) arabirimi, bir şekil için etkin yüzey (face‑relief) özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeBevelEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkin değerleri sağlar.
-
-Aşağıdaki kod örneği, bir şeklin üst kıvrımı için etkin özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3B (3D) biçimlendirmeye sahip olduğunu varsayar.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTop = threeDEffectiveData.getBevelTop();
-    int bevelType = bevelTop.getBevelType();
-    double bevelWidth = bevelTop.getWidth();
-    double bevelHeight = bevelTop.getHeight();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelType);
-    System.out.println("Width: " + bevelWidth);
-    System.out.println("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Metin Çerçevesinin Etkin Özelliklerini Al**
-
-Aspose.Slides kullanarak bir metin çerçevesinin etkin özelliklerini alabilirsiniz. [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITextFrameFormatEffectiveData) arabirimi, etkin metin çerçevesi biçimlendirme özelliklerini içerir.
-
-Aşağıdaki kod örneği, etkin metin çerçevesi biçimlendirme özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.getEffective();
-    int anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    int autofitType = effectiveTextFrameFormat.getAutofitType();
-    int textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    double marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    double marginTop = effectiveTextFrameFormat.getMarginTop();
-    double marginRight = effectiveTextFrameFormat.getMarginRight();
-    double marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    System.out.println("Anchoring type: " + anchoringType);
-    System.out.println("Autofit type: " + autofitType);
-    System.out.println("Text vertical type: " + textVerticalType);
-    System.out.println("Margins");
-    System.out.println("   Left: " + marginLeft);
-    System.out.println("   Top: " + marginTop);
-    System.out.println("   Right: " + marginRight);
-    System.out.println("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Metin Stiline Etkin Özellikleri Al**
-
-Aspose.Slides kullanarak bir metin stilinin etkin özelliklerini alabilirsiniz. [ITextStyleEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITextStyleEffectiveData) arabirimi, etkin metin stili özelliklerini içerir.
-
-Aşağıdaki kod örneği, etkin metin stili özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-    
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
-    {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        int depth = effectiveStyleLevel.getDepth();
-        double indent = effectiveStyleLevel.getIndent();
-        int alignment = effectiveStyleLevel.getAlignment();
-        int fontAlignment = effectiveStyleLevel.getFontAlignment();
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + depth);
-        System.out.println("Indent: " + indent);
-        System.out.println("Alignment: " + alignment);
-        System.out.println("Font alignment: " + fontAlignment);
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // Önceki değişikliklerden sonra etkin veriyi oku.
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **Etkin Yazı Tipi Yüksekliği Değerini Al**
+Bu örnekte öncelik bölümün yerel biçimlendirmesi, ardından paragraf biçimlendirmesi ve son olarak sunum varsayılanıdır. Diğer nesneler farklı miras zincirlerine sahip olabilir, ancak ilke aynıdır: daha spesifik açık bir değer kazanır ve [getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportionformat/#getEffective--) son sonucu döndürür.
 
-Aspose.Slides kullanarak etkin yazı tipi yüksekliğini alabilirsiniz. Aşağıdaki kod, bir bölümün (portion) etkin yazı tipi yüksekliğinin, farklı sunum yapısı seviyelerinde yerel yazı tipi yüksekliği değerleri ayarlandığında nasıl değiştiğini gösterir.
+## **Etkin Metin Özelliklerini Alın**
+
+Metin biçimlendirme birden fazla nesne arasında bölünmüştür:
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframeformat/#getEffective--) kenar boşlukları, sabitleme, otomatik sığdırma ve dikey metin yönü gibi metin çerçevesi özelliklerini çözer.
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextstyle/#getEffective--) her metin stili seviyesi için paragraf biçimlendirmesini çözer.
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#getEffective--) hizalama, girinti ve madde işaretleri gibi paragraf özelliklerini çözer.
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iportionformat/#getEffective--) yazı tipi yüksekliği, tipografi, renk, kalın ve italik gibi karakter özelliklerini çözer.
+
+Sonraki örnek için `text-formatting.pptx` en az bir slayt ve boş olmayan bir metin çerçevesine sahip bir [AutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/autoshape/) içermelidir. AutoShape şekil koleksiyonunun herhangi bir konumunda bulunabilir; kod uygun bir nesne arar ve kullanmadan önce doğrular.
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **Tablo İçin Etkin Dolgu Biçimini Al**
+## **Etkin 3D Özelliklerini Alın**
 
-Aspose.Slides kullanarak farklı tablo bölümleri için etkin dolgu biçimlendirmesini alabilirsiniz. [IFillFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IFillFormatEffectiveData) arabirimi, etkin dolgu biçimlendirme özelliklerini içerir. Hücre biçimlendirmesi, satır biçimlendirmesinden, satır biçimlendirmesi sütun biçimlendirmesinden ve sütun biçimlendirmesi bütün tablo biçimlendirmesinden daha yüksek önceliğe sahiptir.
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getEffective--) tüm çözülen 3D ayarlarını gruplayan bir [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformateffectivedata/) nesnesi döndürür. Bu nesnenin [getCamera](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformateffectivedata/#getCamera--), [getLightRig](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformateffectivedata/#getLightRig--), [getBevelTop](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--) ve [getBevelBottom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) metodları ilgili etkin verileri ortaya çıkarır. Bu ilgili ayarları birlikte okumak, bir şeklin son 3D görünümünü anlamayı kolaylaştırır.
 
-Sonuç olarak, tablo hücresini çizerken [ICellFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICellFormatEffectiveData) özellikleri kullanılır. Aşağıdaki kod örneği, farklı tablo bölümleri için etkin dolgu biçimlendirmesinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [ITable](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITable) olduğunu varsayar.
+Bu örnek için `shape-3d.pptx` ilk slaytında en az bir şekil içermelidir. Çıktının varsayılanların dışındaki değerleri içermesini istiyorsanız, o şekle 3D kamera, ışıklandırma veya köşe ayarları uygulayın.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
-    
-    ITableFormatEffectiveData tableFormatEffective = table.getTableFormat().getEffective();
-    IRowFormatEffectiveData rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    IColumnFormatEffectiveData columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    ICellFormatEffectiveData cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+import com.aspose.slides.*;
 
-    IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.getFillFormat();
-} finally {
-    presentation.dispose();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
+
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
-## **SSS**
+## **Etkin Tablo Biçimlendirmesini Alın**
 
-**`getEffective` bir anlık görüntü (snapshot) döndürür mü?**
+Tablo biçimlendirme, tablo stilinden ve tüm tablo, bir sütun, bir satır veya tek bir hücreye uygulanan formatlardan gelebilir. Açıkça tanımlanmış dolgu çakışmalarında öncelik hücre, satır, sütun ve ardından tüm tablo şeklindedir. Bir hücrenin etkin biçimi, o hücreyi çizmek için kullanılan son biçimdir.
 
-Her zaman değildir. Etkin veri, kalıtım uygulandıktan sonra hesaplanan biçimlendirmeyi temsil eder, ancak bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Sonraki bir `getEffective` çağrısı biçimlendirmeyi yeniden hesaplayabilir ve önbellek verisini yenileyebilir; bu nedenle daha önce elde edilen nesne kalıcı bir anlık görüntü olarak kabul edilmemelidir.
+Bu örnek için `table-formatting.pptx` ilk slaytında en az bir tablo içermelidir. Tablo en az bir satır ve bir sütun içermelidir. Kod, `getShapes().get_Item(0)`'ın bir tablo olduğunu varsaymak yerine bir [ITable](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itable/) arar.
 
-**Etkin özellikleri ne zaman tekrar okumalıyım?**
+```java
+import com.aspose.slides.*;
 
-Yerel biçimlendirme, üst stiller, düzen biçimlendirmesi, ana (master) biçimlendirme veya sunum düzeyindeki varsayılanlar değiştirildikten sonra `getEffective` yeniden çağrılmalıdır. Sonraki çağrı, biçimlendirme hiyerarşisini yeniden değerlendirir ve geçerli etkin sonucu döndürür.
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-**Bir düzen/ana slayt değiştirildiğinde veya kaldırıldığında, zaten alınmış etkin özellikler etkilenir mi?**
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
 
-Evet, ancak değişiklik bir sonraki `getEffective` çağrısında yansır. Üst bir biçimlendirme kaynağı değiştirildiğinde veya kaldırıldığında, daha önce elde edilen etkin veri eski olabilir. `getEffective` tekrar çağrıldığında Aspose.Slides biçimlendirme ağacını yeniden değerlendirir ve ortaya çıkan yazı tipleri, renkler, boyutlar veya diğer değerler değişebilir.
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
 
-**Etkin veri nesneleri üzerinden değerleri değiştirebilir miyim?**
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-Hayır. Etkin veri nesneleri sadece hesaplanmış değerleri sağlar. Değişiklikleri yerel biçimlendirme nesnelerinde yapın ve ardından etkin değerleri tekrar alın.
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
 
-**Bir özellik şekil seviyesinde, düzen/ana slaytta ve küresel ayarlarda hiç ayarlanmamışsa ne olur?**
+Eğer sadece dolgu tipinden ziyade rengi ihtiyacınız varsa, önce etkin [getFillType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifillformateffectivedata/#getFillType--) kontrol edin ve ardından o tipe uygulanan metodu okuyun — örneğin, katı dolgu için [getSolidFillColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--) .
 
-Etkin değer, PowerPoint ve Aspose.Slides varsayılanlarını içeren varsayılan mekanizma tarafından belirlenir. Çözülen bu değer, geçerli etkin verinin bir parçası haline gelir.
+## **Değişikliklerden Sonra Etkin Veriyi Yeniden Okuyun**
 
-**Etkin bir yazı tipi değerinden, boyutu veya yazı tipini hangi seviyenin sağladığını anlayabilir miyim?**
+Etkin veri, çözüldüğü zamandaki biçimlendirme hiyerarşisini tanımlar. Bu hiyerarşiye katılabilecek bir şeyi değiştirdikten sonra `getEffective` tekrar çağırın, şunlar dahil:
 
-Doğrudan değil. Etkin veri nihai değeri döndürür. Kaynağı bulmak için bölüm, paragraf, metin çerçevesi ve düzen, ana ve sunum seviyelerindeki metin stillerindeki yerel değerleri kontrol ederek ilk açık tanımın nerede yapıldığını inceleyin.
+- nesnenin yerel biçimlendirmesi;
+- paragraf veya metin çerçevesi varsayılanları;
+- bir tablo stili, tablo, sütun, satır veya hücre formatı;
+- yerleşim veya ana slayt biçimlendirmesi;
+- tema verileri veya sunum düzeyindeki varsayılanlar;
+- bir slayta atanan yerleşim veya ana.
 
-**Neden etkin değerler bazen yerel değerlerle aynı görünür?**
+Etkin veri nesnesini kalıcı bir anlık fotoğraf olarak tutmayın. Aspose.Slides bazı etkin verileri dahili olarak önbelleğe alabilir ve sonraki bir `getEffective` çağrısı bu verileri yenileyebilir. Bir değişiklikten önce ve sonra değerleri karşılaştırmanız gerekiyorsa, değişiklik yapmadan önce ihtiyacınız olan skaler değerleri — örneğin yazı tipi yüksekliği, renk, hizalama veya köşe genişliği — kendi değişkenlerinize kopyalayın.
 
-Yerel değer son olarak kalır (daha üst seviyeden bir kalıtım gerekmez) ve bu yüzden etkin değer yerel değerle aynı olur.
+Bir değeri değiştirmek için uygun yerel format nesnesini güncelleyin ve ardından sonucu doğrulamak için `getEffective` çağırın. Etkin veri nesneleri kendileri sadece okunabilir.
 
-**Etkin özellikleri ne zaman, yerel özellikleri ne zaman kullanmalıyım?**
+## **FAQ**
 
-Tüm kalıtım uygulandıktan sonra “görüntülendiği gibi” sonucu elde etmeniz gerektiğinde etkin verileri kullanın; örneğin renkleri, girintileri veya boyutları hizalamak gibi. Bu değerleri daha sonraki biçimlendirme değişikliklerinden bağımsız olarak korumanız gerekiyorsa, gerekli özellikleri kendi nesnenize kopyalayın. Belirli bir seviyede biçimlendirme değiştirmeniz gerektiğinde, yerel özellikleri değiştirin ve gerekirse sonucu doğrulamak için tekrar etkin verileri okuyun.
+**Etkin bir değeri hangi seviyenin sağladığını nasıl öğrenebilirim?**
+
+Etkin veri son değeri, kaynağını değil içerir. En spesifik seviyeden dışa doğru ilgili yerel nesneleri inceleyin. Metin için bu, bölüm, paragraf, metin çerçevesi, yerleşim, ana, tema ve sunum varsayılanlarını içerebilir. `Float.NaN` veya `null` gibi tanımsız değerler, aramanın başka bir seviyeye devam ettiğini gösterir.
+
+**Hiçbir seviye bir özelliği tanımlamadığında ne olur?**
+
+Aspose.Slides uygun PowerPoint veya kütüphane varsayılanını çözer. Bu çözülen değer, hiçbir yerel nesnenin açıkça tanımlamamasına rağmen etkin veride görünür.
+
+**Neden bir etkin değer bazen yerel değere eşit olur?**
+
+Yerel değer, miras hesaplamasını kazandı. Bu, özellik nesne üzerinde açıkça ayarlandığında ve daha spesifik bir kural tarafından geçersiz kılınmadığında beklenir.
+
+**Ne zaman yerel veriyi etkin veri yerine kullanmalıyım?**
+
+Yerel veriyi belirli bir biçimlendirme seviyesini incelemek veya düzenlemek için kullanın. Etkin veriyi, miras, tema kuralları ve uygulanabilir stiller çözüldükten sonraki nihai görünüm gerektiğinde kullanın. [tam karşılaştırma örneği](#compare-local-inherited-and-effective-values) aynı iş akışında ikisini de gösterir.

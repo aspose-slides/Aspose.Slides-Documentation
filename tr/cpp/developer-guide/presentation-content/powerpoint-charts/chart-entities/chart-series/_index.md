@@ -1,11 +1,11 @@
 ---
-title: Sunumlarda Grafik Veri Serilerini С++ ile Yönetme
+title: Sunumlarda C++ ile Grafik Veri Serilerini Yönetme
 linktitle: Veri Serileri
 type: docs
 url: /tr/cpp/chart-series/
 keywords:
 - grafik serisi
-- seri çakışması
+- seri örtüşmesi
 - seri rengi
 - kategori rengi
 - seri adı
@@ -13,326 +13,551 @@ keywords:
 - seri boşluğu
 - PowerPoint
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "PowerPoint (PPT/PPTX) için С++'da grafik serilerini nasıl yöneteceğinizi, pratik kod örnekleri ve en iyi uygulamalarla veri sunumlarınızı geliştirecek şekilde öğrenin."
+description: "C++ kullanarak sunumlardaki grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, örtüşmeyi, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'da [ChartSeries](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts.chartseries/) rolünü, verilerin sunumlar içinde nasıl yapılandırıldığını ve görselleştirildiğini odaklanarak açıklar. Bu nesneler, bir grafikteki bireysel veri noktası kümelerini, kategorileri ve görünüm parametrelerini tanımlayan temel öğeleri sağlar. [ChartSeries](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts.chartseries/) ile çalışarak, geliştiriciler temel veri kaynaklarını sorunsuz bir şekilde entegre edebilir ve bilgilerin nasıl gösterileceği üzerinde tam kontrol sağlayabilir, böylece içgörüleri ve analizleri net bir şekilde ileten dinamik, veri odaklı sunumlar elde eder.
+Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında saklar. Bir [IChartSeries](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/) ilgili değerlerin bir kümesini temsil eder ve serideki her [IChartDataPoint](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [IChartCategory](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartcategory/) nesneleri, seriler tarafından paylaşılan etiketleri veya grup değerlerini sağlar. Bu nedenle seri adı, kategoriler ve nokta değerleri yalnızca görüntü metni olarak saklanmak yerine [IChartDataCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/) nesnelerine bağlanır.
 
-Bir seri, bir grafikte çizilen sayıların satırı veya sütunudur.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı serinin adları için satır 0, kategori adları için sütun 0 ve kalan hücreler serinin değerleri için kullanılır. [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) yöntemine geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır‑tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda yararlıdır, ancak her mevcut grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
+
+Grafik ayarlarının üç farklı kapsamı vardır:
+
+- Seri‑düzeyi ayarları, örneğin [IChartSeries::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_format/) bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri‑nokta ayarları, örneğin [IChartDataPoint::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/get_format/) bir nokta için seri görünümünü geçersiz kılar.
+- Grup ayarları, aynı [IChartSeriesGroup](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/) içinde yer alan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde gruba, [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) üzerinden erişin.
+
+Açık bir nokta ya da seri dolgu ayarı belirtilmemişse, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için önceliklidir.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Veri Serisi Çakışmasını Ayarla**
+## **Grafik Serisi Örtüşmesini Ayarlama**
 
-[ IChartSeries::get_Overlap()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) yöntemiyle, çubukların ve sütunların 2D bir grafikte ne kadar çakışması gerektiğini belirtebilirsiniz (aralık: -100 ile 100). Bu özellik, üst seriler grubunun tüm serilerine uygulanır: bu, ilgili grup özelliğinin bir yansımasıdır.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_overlap/) 2B bir grafikte çubukların veya sütunların ne kadar örtüştüğünü –%‑100 ila %100 arasında – raporlar. Bu, üst serinin grup ayarının salt okunur bir yansımasıdır. Bu gruptaki tüm uyumlu serileri güncellemek için [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) çağrısını kullanın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; bileşik bir grafikteki ilgili olmayan seri gruplarını etkilemez.
 
-İstediğiniz `Overlap` değerini ayarlamak için `get_ParentSeriesGroup()::set_Overlap()` yöntemini kullanın. 
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-1. Bir slayda küme sütun grafiği ekleyin.
-1. İlk grafik serisine erişin.
-1. Grafik serisinin `ParentSeriesGroup` özelliğine erişin ve seri için istediğiniz çakışma değerini ayarlayın.
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
-
-Bu C++ kodu, bir grafik serisinin çakışmasını nasıl ayarlayacağınızı gösterir:
+Aşağıdaki örnek, ilk seriyi içeren grup için örtüşmeyi ayarlar:
 
 ```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int8_t overlapPercent = 30;
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Grafik ekler
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-if (series->idx_get(0)->get_Overlap() == 0)
-{
-    // Serinin çakışmasını ayarlar
-    series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
-}
+// Yeni grafik örnek seriler, kategoriler ve değerler içerir.
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Sunum dosyasını diske yazar
-presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_Overlap(overlapPercent);
+
+presentation->Save(u"series_overlap.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Veri Serisi Rengini Değiştir**
-Aspose.Slides for C++ bir serinin rengini şu şekilde değiştirmenizi sağlar:
+Sonuç:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-1. Slayta bir grafik ekleyin.
-1. Rengini değiştirmek istediğiniz seriye erişin. 
-1. İstediğiniz dolgu tipini ve dolgu rengini ayarlayın.
-1. Değiştirilmiş sunumu kaydedin.
+![The series overlap](series_overlap.png)
 
-Bu C++ kodu, bir serinin rengini nasıl değiştireceğinizi gösterir:
+## **Seri Dolgu Rengini Değiştirme**
 
-```cpp
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+Tam bir seri için varsayılan dolguyu ayarlamak amacıyla [IChartSeries::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_format/) kullanın. Bir noktanın zaten açık bir dolgusu varsa, onun [IChartDataPoint::get_Format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/get_format/) ayarı o nokta için seri dolgusunu geçersiz kılar.
 
-auto chart = shapes->AddChart(ChartType::Pie, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(1);
-
-point->set_Explosion(30);
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
-
-## **Veri Serisi Kategorisinin Rengini Değiştir**
-Aspose.Slides for C++ bir seri kategorisinin rengini şu şekilde değiştirmenizi sağlar:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-1. Slayta bir grafik ekleyin.
-1. Rengini değiştirmek istediğiniz seri kategorisine erişin.
-1. İstediğiniz dolgu tipini ve dolgu rengini ayarlayın.
-1. Değiştirilmiş sunumu kaydedin.
-
-Bu C++ kodu, bir seri kategorisinin rengini nasıl değiştireceğinizi gösterir:
+Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0);
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/shared_ptr.h>
 
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-## **Veri Serisi Adını Değiştir** 
-
-Varsayılan olarak, bir grafiğin açıklama adları, her sütun veya satırın üzerindeki hücrelerin içeriğidir. 
-
-Örneğimizde (örnek görüntü), 
-
-* sütunlar *Series 1, Series 2,* ve *Series 3*;
-* satırlar *Category 1, Category 2, Category 3,* ve *Category 4.* 
-
-Aspose.Slides for C++ bir serinin adını grafik verisinde ve açıklamasında güncellemenize veya değiştirmenize olanak tanır. 
-
-Bu C++ kodu, `ChartDataWorkbook` içindeki bir serinin adını nasıl değiştireceğinizi gösterir:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-
-auto seriesCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, 0, 1);
-seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-Bu C++ kodu, `Series` aracılığıyla bir serinin adını açıklamasında nasıl değiştireceğinizi gösterir:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series()->idx_get(0);
-
-auto name = series->get_Name();
-name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
-```
-
-## **Veri Serisi Dolgu Rengini Ayarla**
-
-Aspose.Slides for C++ bir plot alanı içinde grafik serileri için otomatik dolgu rengini şu şekilde ayarlamanızı sağlar:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. Tercih ettiğiniz türe göre (aşağıdaki örnekte `ChartType::ClusteredColumn` kullandık) varsayılan veriyle bir grafik ekleyin.
-1. Grafik serisine erişin ve dolgu rengini Automatic olarak ayarlayın.
-1. Sunumu bir PPTX dosyasına kaydedin.
-
-Bu C++ kodu, bir grafik serisinin otomatik dolgu rengini nasıl ayarlayacağınızı gösterir:
-
-```cpp
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Küme sütun grafiği oluşturur
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Seri dolgu formatını otomatik olarak ayarlar
-for (const auto& series : chart->get_ChartData()->get_Series())
-{
-    series->GetAutomaticSeriesColor();
-}
-
-// Sunum dosyasını diske yazar
-presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
-```
-
-## **Veri Serisi Ters Dolgu Renklerini Ayarla**
-Aspose.Slides bir plot alanı içinde grafik serileri için ters dolgu rengini şu şekilde ayarlamanızı sağlar:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. Tercih ettiğiniz türe göre (aşağıdaki örnekte `ChartType::ClusteredColumn` kullandık) varsayılan veriyle bir grafik ekleyin.
-1. Grafik serisine erişin ve dolgu rengini invert olarak ayarlayın.
-1. Sunumu bir PPTX dosyasına kaydedin.
-
-Bu C++ kodu işlemi göstermektedir:
-
-```cpp
-Color inverColor = Color::get_Red();
-    
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
-
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-auto chartData = chart->get_ChartData();
-
-chartData->get_Series()->Clear();
-chartData->get_Categories()->Clear();
-
-// Adds new series and categories
-chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
-
-// Takes the first chart series and populates its series data.
-auto series = chartData->get_Series()->idx_get(0);
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-30)));
-Color seriesColor = series->GetAutomaticSeriesColor();
-series->set_InvertIfNegative(true);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesColor = Color::get_Blue();
 series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColor);
-series->get_InvertedSolidFillColor()->set_Color(inverColor);
-pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
+
+presentation->Save(u"series_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Bir Grafik Serisi İçin Ters Dolgu Rengini Ayarla**
-Aspose.Slides, `IChartDataPoint::set_InvertIfNegative()` ve `ChartDataPoint.set_InvertIfNegative()` yöntemleri aracılığıyla ters ayarlamanıza izin verir. Bu yöntemlerle ters ayarlandığında, veri noktası negatif bir değer aldığında renklerini tersine çevirir. 
+Sonuç:
 
-Bu C++ kodu işlemi göstermektedir:
+![The color of the series](series_color.png)
+
+## **Seri Adını Değiştirme**
+
+Bir seri adı grafik veri çalışma kitabında saklanır ve genellikle lejende gösterilir. Kümeledi sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1 konumunda olup ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı açıkça gösterir:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-chart->get_ChartData()->get_Series()->Clear();
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-series->Add(workBook->GetCell(0, u"B1"), chart->get_Type());
-auto dataPoints = series->idx_get(0)->get_DataPoints();
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B2", ObjectExt::Box<int32_t>(-5)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B3", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B4", ObjectExt::Box<int32_t>(-2)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B5", ObjectExt::Box<int32_t>(1)));
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-series->idx_get(0)->set_InvertIfNegative(false);
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-pres->Save(u"out.pptx", SaveFormat::Pptx);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesNameCell = workbook->GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Belirli Veri Noktası Değerlerini Temizle**
-Aspose.Slides for C++ bir grafik serisi için `DataPoints` verisini şu şekilde temizlemenizi sağlar:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeksine göre alın.
-3. Bir grafiğin referansını indeksine göre alın.
-4. Tüm grafik `DataPoints` öğelerini yineleyin ve `XValue` ve `YValue` değerlerini null olarak ayarlayın.
-5. Belirli bir grafik serisi için tüm `DataPoints` öğelerini temizleyin.
-6. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
-
-Bu C++ kodu işlemi göstermektedir:
+Ayrıca [IChartSeries::get_Name](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_name/) tarafından zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
-auto sl = pres->get_Slides()->idx_get(0);
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCellCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IStringChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto chart = System::ExplicitCast<IChart>(sl->get_Shapes()->idx_get(0));
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-for (const auto& dataPoint : dataPoints)
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesNameCells = series->get_Name()->get_AsCells();
+auto seriesNameCell = seriesNameCells->idx_get(firstNameCellIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Sonuç:
+
+![The series name](series_name.png)
+
+## **Otomatik Seri Dolgu Rengini Alma**
+
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) serinin indeksine ve grafik stiline göre hesaplanan rengi döndürür. Bu, seri dolgu açıkça tanımlanmamışsa kullanılan renktir. Yöntemi çağırmak hesaplanan rengi okur; yeni bir dolgu atamaz.
+
+Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Presentation;
+using System::Console;
+using System::String;
+
+const int firstSlideIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+const int seriesCount = seriesCollection->get_Count();
+for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    dataPoint->get_XValue()->get_AsCell()->set_Value(nullptr);
-    dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+    auto series = seriesCollection->idx_get(seriesIndex);
+    auto automaticColor = series->GetAutomaticSeriesColor();
+    auto colorName = automaticColor.get_Name();
+    auto outputLine = String::Format(u"Series {0}: {1}", seriesIndex, colorName);
+    Console::WriteLine(outputLine);
 }
 
-dataPoints->Clear();
-
-pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Veri Serisi Boşluk Genişliğini Ayarla**
-Aspose.Slides for C++ bir serinin Boşluk Genişliğini **`set_GapWidth()`** yöntemiyle şu şekilde ayarlamanızı sağlar:
+Varsayılan grafik stili için örnek çıktı:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.
-1. İlk slayta erişin.
-1. Varsayılan veriyle bir grafik ekleyin.
-1. Herhangi bir grafik serisine erişin.
-1. `GapWidth` özelliğini ayarlayın.
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+```text
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
+```
 
-Bu C++ kodu, bir serinin Boşluk Genişliğini nasıl ayarlayacağınızı gösterir:
+Tam renkler grafik stili ve temaya bağlıdır.
+
+## **Bir Grafik Serisi için Ters Dolgu Rengini Ayarlama**
+
+Çubuk, sütun ve balon serileri için [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif‑değer rengini [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) aracılığıyla atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca görüntü rengi değişir.
+
+Aşağıdaki örnek, varsayılan grafik verisini tek bir seri ile değiştirir. Çalışma sayfasının satır 0’ı seri adını, sütun 0’ı kategori adlarını ve sütun 1’i değerleri içerir:
 
 ```cpp
-// Boş sunum oluşturur 
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+using System::String;
+
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+const int categoryCount = 3;
+
+const String categoryNames[] = {u"Category 1", u"Category 2", u"Category 3"};
+const int seriesValues[] = {-20, 50, -30};
+
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Sunumun ilk slaytına erişir
-auto slide = presentation->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
 
-// Varsayılan veriyle bir grafik ekler
-auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
+auto seriesCollection = chartData->get_Series();
+seriesCollection->Clear();
+chartData->get_Categories()->Clear();
 
-// Grafik veri sayfasının indeksini ayarlar
-int32_t worksheetIndex = 0;
+auto seriesName = ObjectExt::Box<String>(u"Series 1");
+auto seriesNameCell = workbook->GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, seriesName);
+auto chartType = chart->get_Type();
+auto series = seriesCollection->Add(seriesNameCell, chartType);
 
-// Grafik veri çalışma sayfasını alır
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+for (int categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++)
+{
+    const int dataRowIndex = firstDataRowIndex + categoryIndex;
+    auto categoryName = categoryNames[categoryIndex];
+    const int seriesValue = seriesValues[categoryIndex];
 
-// Serileri ekler
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
+    auto boxedCategoryName = ObjectExt::Box<String>(categoryName);
+    auto categoryCell = workbook->GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, boxedCategoryName);
+    chartData->get_Categories()->Add(categoryCell);
 
-// Kategorileri ekler
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+    auto boxedSeriesValue = ObjectExt::Box<int>(seriesValue);
+    auto valueCell = workbook->GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, boxedSeriesValue);
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
 
-// İkinci grafik serisini alır
-auto series = chart->get_ChartData()->get_Series()->idx_get(1);
-auto dataPoints = series->get_DataPoints();
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->set_InvertIfNegative(true);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
 
-// Seri verilerini doldurur
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
-
-// GapWidth değerini ayarlar
-series->get_ParentSeriesGroup()->set_GapWidth(50);
-
-// Sunumu diske kaydeder
-presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **FAQ**
+Sonuç:
 
-**Bir grafiğin içerebileceği seri sayısı için bir sınırlama var mı?**
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Aspose.Slides eklediğiniz seri sayısı için sabit bir üst sınır koymaz. Pratikteki en yüksek sayı, grafiğin okunabilirliği ve uygulamanızın sahip olduğu bellekle sınırlıdır.
+Bir nokta için terslemeyi [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılır ve yalnızca seçili nokta için etkinleştirilir. Etkiyi göstermek amacıyla nokta da negatif bir değer alır:
 
-**Bir küme içindeki sütunlar çok yakın ya da çok uzak olursa ne olur?**
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 
-O seri (veya üst seri grubu) için boşluk genişliği ayarını değiştirin. Değeri artırmak, sütunlar arasındaki boşluğu genişletir, azaltmak ise onları birbirine yaklaştırır.
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
+series->set_InvertIfNegative(false);
+
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+auto boxedNegativeValue = ObjectExt::Box<int>(negativeValue);
+dataPoint->get_YValue()->get_AsCell()->set_Value(boxedNegativeValue);
+dataPoint->set_InvertIfNegative(true);
+
+presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Belirli Bir Veri Noktasının Değerini Temizleme**
+
+Diğer noktaları kaldırmadan bir noktayı boş bırakmak için, o noktanın arka plan çalışma kitabı hücresini `nullptr` olarak ayarlayın. Bir sütun grafiğinde, çizilen değer [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) aracılığıyla elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik, boş‑değer ayarlarına göre değerini boş kabul eder.
+
+Aşağıdaki örnek, ilk seride yalnızca ikinci noktayı temizler:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+
+presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Dağılım grafikleri ayrı X ve Y hücreleri, balon grafikleri ise ayrıca bir boyut hücresi kullanır. Kaldırmak istediğiniz değere karşılık gelen hücreyi yalnızca temizleyin. Diğer noktaları korumak istediğinizde [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) metodunu çağırmayın; bu metod koleksiyondaki tüm veri noktalarını siler.
+
+## **Seri Boşluk Genişliğini Ayarlama**
+
+Boşluk genişliği, komşu çubuk veya sütun kümeleri arasındaki boşluk olup çubuk veya sütun genişliğinin yüzde olarak ifadesidir. Örtüşme gibi, bu da tek bir seriye değil, üst serinin grup ayarına aittir. Grup için bir kez [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) çağrısı yapın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha sıkıştırır.
+
+Aşağıdaki örnek, boşluk genişliğini değiştirir ve yalnızca nihai sunumu kaydeder:
+
+```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const uint16_t gapWidthPercent = 30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_GapWidth(gapWidthPercent);
+
+presentation->Save(u"gap_width_30.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Sonuç:
+
+![The gap width](gap_width.png)
+
+## **SSS**
+
+**Hangi grafik türleri veri serilerini destekler?**
+
+[ChartType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/charttype/) enum’u ile temsil edilen tüm grafik türleri veri kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip değildir. Örneğin, kategori grafikleri kategoriler ve değerler kullanır, dağılım grafikleri X ve Y değerleri, balon grafikleri ise ek olarak balon boyutları içerir. Seri türüne uygun veri‑nokta oluşturma yöntemini kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
+
+**Grafik serisi grubu nedir?**
+
+[IChartSeriesGroup](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/) aynı grup düzeyinde çizim ayarlarını paylaşan uyumlu serileri içerir. Bir kombinasyon grafiği birden fazla grup içerebilir; bir seriden ulaşarak grup ayarını değiştirmek, grafikteki tüm serileri zorunlu olarak etkilemez.
+
+**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
+
+Evet. Varsayılan olarak [IShapeCollection::AddChart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addchart/) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan bir grafik de oluşturabilir.
+
+**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
+
+Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [IChartDataWorkbook](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirilirse ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın istenen kategori altında çizilebilmesi için kategori satırları ile seri‑değer satırlarının hizalı olduğundan emin olun.
+
+**Bir serinin tümü yerine tek bir noktayı nasıl temizlerim?**
+
+İlgili değer hücresini `nullptr` yaparak noktanın kategori konumunu boş bir nokta olarak tutun. [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) metodunu yalnızca o serideki tüm noktaları kaldırmak istediğinizde kullanın. Kategorileri de kaldırıyorsanız, her serinin değerlerini kategori koleksiyonuyla hizalı tutmak için güncelleyin.
+
+**Boş noktalar nasıl görüntülenir?**
+
+Sonuç, grafik türüne ve [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichart/get_displayblacksas/) ayarına bağlıdır. Desteklenen grafikler boşları boşluk, sıfır değer veya komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına en uygun ayarı seçin.
+
+**Negatif değerler nasıl biçimlendirilir?**
+
+Desteklenen çubuk, sütun ve balon serileri için [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) çağrısı yapın ve rengi [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) ile ayarlayın. Bireysel bir nokta için davranışı [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) ile geçersiz kılabilirsiniz. Bu yöntemler biçimlendirmeyi etkiler, saklanan sayısal değerleri değiştirmez.
+
+**Hem seri hem de nokta biçimlendirilmişse hangi ayar geçerli olur?**
+
+Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri biçimini veya seri biçimi tanımlı değilse otomatik grafik stili ve temasını kullanmaya devam eder. Örtüşme ve boşluk genişliği gibi grup ayarları düzeni kontrol eder ve nokta‑düzeyinde bir biçimlendirme geçersiz kılması değildir.
+
+**Bir grafiğin içerebileceği seri sayısı sınırlı mı?**
+
+Aspose.Slides ayrı bir sabit seri‑sayısı sınırı koymaz. Pratikte, sunum dosyası sınırlamaları, kullanılabilir bellek, render süresi ve grafik okunabilirliği yararlı bir limit belirler.
+
+**Sütunlar çok yakın mı yoksa çok uzak mı? Ne yapmalıyım?**
+
+Uygun üst serinin grubunda [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) çağrısını yapın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri birbirine yakınlaştırın.

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie seriami danych wykresu w prezentacjach przy użyciu Javy
+title: Zarządzanie seriami danych wykresu w prezentacjach w Javie
 linktitle: Serie danych
 type: docs
 url: /pl/java/chart-series/
@@ -7,342 +7,383 @@ keywords:
 - seria wykresu
 - nakładanie serii
 - kolor serii
-- kolor kategorii
 - nazwa serii
 - punkt danych
+- komórka skoroszytu
 - przerwa serii
+- wartość ujemna
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać seriami wykresów w Javie dla PowerPoint (PPT/PPTX) przy użyciu praktycznych przykładów kodu i najlepszych praktyk, aby ulepszyć prezentacje danych."
+description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy oraz wartościami ujemnymi w prezentacjach w języku Java."
 ---
 ## **Przegląd**
 
-Ten artykuł opisuje rolę [ChartSeries](https://reference.aspose.com/slides/pl/java/com.aspose.slides/chartseries/) w Aspose.Slides, koncentrując się na tym, jak dane są strukturyzowane i wizualizowane w prezentacjach. Obiekty te zapewniają podstawowe elementy definiujące poszczególne zestawy punktów danych, kategorie oraz parametry wyglądu wykresu. Pracując z [ChartSeries](https://reference.aspose.com/slides/pl/java/com.aspose.slides/chartseries/), programiści mogą płynnie integrować źródła danych i zachować pełną kontrolę nad sposobem wyświetlania informacji, co skutkuje dynamicznymi, opartymi na danych prezentacjami jasno przekazującymi wnioski i analizy.
+Wykres przechowuje swoje dane wykresu w skoroszycie danych wykresu. Interfejs [IChartSeries](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [IChartDataPoint](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/) w serii odnosi się do jednej lub więcej komórek skoroszytu. Obiekty [IChartCategory](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartcategory/) dostarczają etykiety lub wartości grupowania współdzielone przez serie. Nazwa serii, kategorie i wartości punktów są więc połączone z obiektami [IChartDataCell](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatacell/) zamiast być przechowywane wyłącznie jako tekst wyświetlany.
 
-Seria to wiersz lub kolumna liczb wykreślona na wykresie.
+W typowym wykresie kategorii domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) są zerowo‑indeksowane. Ten układ jest przydatny, gdy tworzysz wykres z domyślnymi danymi, ale nie zakładaj, że każdy istniejący wykres go używa. Dla wczytanej prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
+
+Ustawienia wykresu mają trzy różne zakresy:
+
+- Ustawienia na poziomie serii, takie jak [IChartSeries.getFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getFormat--), definiują domyślny wygląd wszystkich punktów w jednej serii.
+- Ustawienia punktu danych, takie jak [IChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#getFormat--), nadpisują wygląd serii dla jednego punktu.
+- Ustawienia grupy mają zastosowanie do kompatybilnych serii, które należą do tej samej [IChartSeriesGroup](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseriesgroup/). Dostęp do grupy uzyskujesz przez [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) gdy potrzebujesz ustawić opcje takie jak nakładanie lub szerokość przerwy.
+
+Gdy nie zostanie ustawione wyraźne wypełnienie punktu lub serii, styl i motyw wykresu określają automatyczny wygląd. Gdy istnieje zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Ustaw nakładanie serii wykresu**
 
-Za pomocą właściwości [IChartSeriesOverlap](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/properties/overlap) można określić, jak bardzo słupki i kolumny powinny nakładać się na wykresie 2D (zakres: -100 do 100). Właściwość ta ma zastosowanie do wszystkich serii w grupie nadrzędnej serii: jest to projekcja odpowiedniej właściwości grupy. Dlatego właściwość ta jest tylko do odczytu.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getOverlap--) podaje, o ile słupki lub kolumny nakładają się w wykresie 2D, w zakresie od -100 do 100 procent. Jest to tylko odczytowa projekcja ustawienia w grupie serii nadrzędnej. Użyj [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) aby zaktualizować każdą kompatybilną serię w tej grupie. Opcja ta ma zastosowanie do typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
 
-Użyj właściwości odczytu/zapisu `ParentSeriesGroup.Overlap`, aby ustawić preferowaną wartość `Overlap`.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Dodaj wykres słupkowy grupowy na slajdzie.
-1. Uzyskaj dostęp do pierwszej serii wykresu.
-1. Uzyskaj dostęp do `ParentSeriesGroup` serii wykresu i ustaw preferowaną wartość nakładania dla serii.
-1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Poniższy przykład ustawia nakładanie dla grupy, która zawiera pierwszą serię:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Dodaje wykres
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Ustawia nakładanie serii
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // Zapisuje plik prezentacji na dysku
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Nowy wykres zawiera przykładowe serie, kategorie i wartości.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Zmień kolor serii**
+Wynik:
 
-Aspose.Slides for Java umożliwia zmianę koloru serii w następujący sposób:
+![The series overlap](series_overlap.png)
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Dodaj wykres na slajdzie.
-1. Uzyskaj dostęp do serii, której kolor chcesz zmienić.
-1. Ustaw preferowany typ wypełnienia i kolor wypełnienia.
-1. Zapisz zmodyfikowaną prezentację.
+## **Zmień kolor wypełnienia serii**
+
+Użyj [IChartSeries.getFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getFormat--) aby ustawić domyślne wypełnienie dla całej serii. Jeśli punkt już ma wyraźne wypełnienie, jego ustawienie [IChartDataPoint.getFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#getFormat--) nadpisuje wypełnienie serii dla tego punktu.
+
+Poniższy przykład stosuje jednolite niebieskie wypełnienie do pierwszej serii:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Zmień kolor kategorii serii**
+Wynik:
 
-Aspose.Slides for Java umożliwia zmianę koloru kategorii serii w następujący sposób:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Dodaj wykres na slajdzie.
-1. Uzyskaj dostęp do kategorii serii, której kolor chcesz zmienić.
-1. Ustaw preferowany typ wypełnienia i kolor wypełnienia.
-1. Zapisz zmodyfikowaną prezentację.
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+![The color of the series](series_color.png)
 
 ## **Zmień nazwę serii**
 
-Domyślnie nazwy legendy wykresu pochodzą z zawartości komórek powyżej każdej kolumny lub wiersza danych.
-
-W naszym przykładzie (obraz przykładowy),
-
-* kolumny to *Series 1, Series 2,* i *Series 3*;
-* wiersze to *Category 1, Category 2, Category 3,* i *Category 4.*
-
-Aspose.Slides for Java umożliwia aktualizację lub zmianę nazwy serii w danych wykresu i legendzie.
-
-Ten kod Java pokazuje, jak zmienić nazwę serii w danych wykresu `ChartDataWorkbook`:
+Nazwa serii jest przechowywana w skoroszycie danych wykresu i jest zwykle wyświetlana w legendzie. W domyślnym skoroszycie utworzonym dla wykresu słupkowego skumulowanego, komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Stałe nazwane w poniższym przykładzie wyraźnie opisują tę strukturę:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Ten kod Java pokazuje, jak zmienić nazwę serii w legendzie za pomocą`Series`:
+Możesz także zaktualizować komórkę już odwoływaną przez [IChartSeries.getName](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getName--). Takie podejście unika przyjmowania konkretnego wiersza i kolumny w istniejącym wykresie:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+import com.aspose.slides.*;
 
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ustaw wypełnienie serii wykresu**
+Wynik:
 
-Aspose.Slides for Java umożliwia ustawienie automatycznego koloru wypełnienia serii wykresu w obszarze wykresu w następujący sposób:
+![The series name](series_name.png)
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Pobierz referencję slajdu po jego indeksie.
-1. Dodaj wykres z domyślnymi danymi, wybierając preferowany typ (w poniższym przykładzie użyliśmy `ChartType.ClusteredColumn`).
-1. Uzyskaj dostęp do serii wykresu i ustaw kolor wypełnienia na Automatic.
-1. Zapisz prezentację do pliku PPTX.
+## **Pobierz automatyczny kolor wypełnienia serii**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało jawnie określone. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
+
+Poniższy przykład wypisuje automatyczny kolor każdej domyślnej serii:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Tworzy wykres słupkowy grupowy
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-    // Ustawia format wypełnienia serii na automatyczny
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        Color automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Przykładowe wyjście dla domyślnego stylu wykresu:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+Dokładne kolory zależą od stylu wykresu i motywu.
+
+## **Ustaw odwrócenie koloru wypełnienia dla serii wykresu**
+
+Dla serii słupkowych, kolumnowych i bąbelkowych, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwrócenie i przypisz kolor dla wartości ujemnych przez [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Ujemne liczby pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
+
+Poniższy przykład zastępuje domyślne dane wykresu jedną serią. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 zawiera nazwy kategorii, a kolumna 1 zawiera wartości:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    // Zapisuje plik prezentacji na dysku
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ustaw odwrócony kolor wypełnienia dla serii wykresu**
-
-Aspose.Slides umożliwia ustawienie odwróconego koloru wypełnienia serii wykresu w obszarze wykresu w następujący sposób:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Pobierz referencję slajdu po jego indeksie.
-1. Dodaj wykres z domyślnymi danymi, wybierając preferowany typ (w poniższym przykładzie użyliśmy `ChartType.ClusteredColumn`).
-1. Uzyskaj dostęp do serii wykresu i ustaw kolor wypełnienia na invert.
-1. Zapisz prezentację do pliku PPTX.
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // Dodaje nowe serie i kategorie
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // Pobiera pierwszą serię wykresu i wypełnia jej dane.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ustaw serię, aby odwracała się przy wartości ujemnej**
+Wynik:
 
-Aspose.Slides umożliwia ustawienie odwrócenia za pomocą właściwości`IChartDataPoint.InvertIfNegative` oraz `ChartDataPoint.InvertIfNegative`. Gdy odwrócenie jest ustawione przy użyciu tych właściwości, punkt danych odwraca swoje kolory przy otrzymaniu wartości ujemnej.
+![The inverted solid fill color](inverted_solid_fill_color.png)
+
+Możesz włączyć odwrócenie dla jednego punktu przez [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). W poniższym przykładzie odwrócenie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punktowi przypisano również wartość ujemną, aby efekt był widoczny:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
 
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Wyczyść dane konkretnych punktów**
+## **Wyczyść określoną wartość punktu danych**
 
-Aspose.Slides for Java umożliwia wyczyszczenie danych `DataPoints` dla konkretnej serii wykresu w następujący sposób:
+Aby uczynić jeden punkt pustym, nie usuwając pozostałych punktów, ustaw jego komórkę w skoroszycie na `null`. Dla wykresu kolumnowego wykreślona wartość jest dostępna przez [IChartDataPoint.getValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#getValue--). Punkt danych pozostaje na tym samym miejscu kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami wykresu dotyczącymi pustych wartości.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-2. Pobierz referencję slajdu po jego indeksie.
-3. Pobierz referencję wykresu po jego indeksie.
-4. Przejdź po wszystkich `DataPoints` wykresu i ustaw `XValue` oraz `YValue` na null.
-5. Wyczyść wszystkie`DataPoints` dla konkretnej serii wykresu.
-6. Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Poniższy przykład czyści tylko drugi punkt w pierwszej serii:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Wykresy punktowe używają osobnych komórek X i Y, a wykresy bąbelkowe dodatkowo używają komórki rozmiaru. Czyść tylko tę komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj [IChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapointcollection/#clear--) gdy chcesz zachować pozostałe punkty, ponieważ metoda ta usuwa każdy punkt danych z kolekcji.
 
 ## **Ustaw szerokość przerwy serii**
 
-Aspose.Slides for Java umożliwia ustawienie szerokości przerwy serii poprzez właściwość **`GapWidth`** w następujący sposób:
+Szerokość przerwy to odległość między sąsiadującymi grupami słupków lub kolumn, wyrażona jako procent szerokości słupka lub kolumny. Podobnie jak nakładanie, należy ona do grupy serii nadrzędnej, a nie do jednej serii. Wywołaj [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) raz dla grupy. Większa wartość tworzy więcej miejsca między grupami; mniejsza wartość sprawia, że są gęstsze.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj wykres z domyślnymi danymi.
-1. Uzyskaj dostęp do dowolnej serii wykresu.
-1. Ustaw właściwość `GapWidth`.
-1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Poniższy przykład zmienia szerokość przerwy i zapisuje tylko ostateczną prezentację:
 
 ```java
-// Tworzy pustą prezentację 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu prezentacji
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Dodaje wykres z domyślnymi danymi
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Ustawia indeks arkusza danych wykresu
-    int defaultWorksheetIndex = 0;
-    
-    // Pobiera arkusz danych wykresu
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Dodaje serie
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Dodaje kategorie
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Pobiera drugą serię wykresu
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Wypełnia dane serii
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Ustawia wartość GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Zapisuje prezentację na dysku
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Wynik:
+
+![The gap width](gap_width.png)
+
 ## **FAQ**
 
-**Czy istnieje limit liczby serii, które może zawierać pojedynczy wykres?**
+**Which chart types support data series?**  
+**Which chart types support data series?** – Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/) używają danych wykresu, ale ich serie nie zawsze mają taką samą strukturę wartości ani te same ustawienia. Na przykład wykresy kategorii używają kategorii i wartości, wykresy punktowe używają wartości X i Y, a wykresy bąbelkowe dodają rozmiary bąbelków. Używaj metody tworzenia punktu danych, która odpowiada typowi serii. Opcje takie jak nakładanie i szerokość przerwy mają zastosowanie tylko do kompatybilnych grup słupków lub kolumn.
 
-Aspose.Slides nie nakłada stałego limitu na liczbę dodawanych serii. Praktyczne ograniczenie wynika z czytelności wykresu oraz dostępnej pamięci aplikacji.
+**What is a chart series group?**  
+**What is a chart series group?** – [IChartSeriesGroup](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia poziomu grupy wykresu. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmienia wszystkie serie w wykresie.
 
-**Co zrobić, gdy kolumny w klastrze są ze sobą zbyt blisko lub zbyt oddalone?**
+**Does a newly created chart contain default data?**  
+**Does a newly created chart contain default data?** – Tak. Domyślnie [IShapeCollection.addChart](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może również utworzyć wykres bez danych domyślnych.
 
-Reguluj ustawienie `GapWidth` dla tej serii (lub jej grupy nadrzędnej). Zwiększenie wartości powiększa odstęp między kolumnami, a zmniejszenie go zbliża kolumny do siebie.
+**How are chart objects connected to workbook cells?**  
+**How are chart objects connected to workbook cells?** – Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdataworkbook/). Zmiana odwołanej komórki aktualizuje odpowiedni element wykresu. Budując własne dane, zachowaj wyrównanie wierszy kategorii i wierszy wartości serii, aby każdy punkt był wykreślony pod zamierzoną kategorią.
+
+**How do I clear one point instead of the whole series?**  
+**How do I clear one point instead of the whole series?** – Ustaw odpowiednią komórkę wartości na `null`, aby zachować pozycję kategorii punktu jako pusty punkt. Używaj [IChartDataPointCollection.clear](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapointcollection/#clear--) tylko wtedy, gdy chcesz usunąć wszystkie punkty z danej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostały wyrównane z kolekcją kategorii.
+
+**How are empty points displayed?**  
+**How are empty points displayed?** – Wynik zależy od typu wykresu i wartości skonfigurowanej przez [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zerowe lub poprzez połączenie sąsiadujących punktów. Wybierz ustawienie odpowiadające znaczeniu brakujących danych w Twojej prezentacji.
+
+**How are negative values formatted?**  
+**How are negative values formatted?** – Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) i ustaw kolor zwrócony przez [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Możesz nadpisać zachowanie dla pojedynczego punktu przy pomocy [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Metody te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
+
+**Which formatting wins when both a series and a point are formatted?**  
+**Which formatting wins when both a series and a point are formatted?** – Jawne formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal używają wyraźnego formatu serii lub, gdy format serii nie jest określony, automatycznego stylu i motywu wykresu. Ustawienia grupy, takie jak nakładanie i szerokość przerwy, sterują układem i nie są nadpisaniami formatowania na poziomie punktu.
+
+**Is there a limit to how many series a chart can contain?**  
+**Is there a limit to how many series a chart can contain?** – Aspose.Slides nie narzuca osobnego stałego limitu liczby serii. W praktyce ograniczenia wynikają z ograniczeń pliku prezentacji, dostępnej pamięci, czasu renderowania i czytelności wykresu.
+
+**What should I change when columns are too close together or too far apart?**  
+**What should I change when columns are too close together or too far apart?** – Wywołaj [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) na odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć odstępy między grupami, lub zmniejsz ją, aby przyciągnąć grupy bliżej siebie.

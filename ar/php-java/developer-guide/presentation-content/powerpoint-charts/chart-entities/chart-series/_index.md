@@ -1,341 +1,402 @@
 ---
 title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام PHP
-linktitle: سلاسل البيانات
+linktitle: سلسلة البيانات
 type: docs
 url: /ar/php-java/chart-series/
 keywords:
-- سلاسل المخطط
+- سلسلة المخطط
 - تداخل السلسلة
 - لون السلسلة
-- لون الفئة
 - اسم السلسلة
 - نقطة البيانات
+- خلية دفتر العمل
 - فجوة السلسلة
+- قيمة سلبية
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل بيانات المخطط في PHP لبرنامج PowerPoint (PPT/PPTX) مع أمثلة عملية على الشيفرة وأفضل الممارسات لتحسين عروض البيانات الخاصة بك."
+description: "تعرّف على كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السلبية في العروض التقديمية باستخدام PHP."
 ---
+## **نظرة عامة**
 
-المجموعة هي صف أو عمود من الأرقام يتم رسمه في مخطط.
+يخزن المخطط بياناته المرسومة في مصنف بيانات المخطط. تمثل [ChartSeries](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/) مجموعة واحدة من القيم المرتبطة، ويشير كل [ChartDataPoint](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapoint/) في السلسلة إلى خلية أو أكثر في المصنف. توفر كائنات [ChartCategory](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartcategory/) التسميات أو قيم التجميع التي تشترك فيها السلاسل. لذلك يتم ربط اسم السلسلة والفئات وقيم النقاط بـ [ChartDataCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatacell/) بدلاً من تخزينها كنص عرض فقط.
+
+في مخطط الفئة التقليدي، يستخدم المصنف الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، وتُستخدم الخلايا المتبقية لقيم السلاسل. الفهارس الخاصة بورقة العمل والصف والعمود التي تُمرَّر إلى [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#getCell) هي صفرية. هذا التخطيط مفيد عندما تُنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة للعرض التقديمي المحمَّل، تحقق من الخلايا التي تشير إليها السلاسل والفئات ونقاط البيانات قبل تغيير قيم المصنف.
+
+لإعدادات المخطط ثلاث نطاقات مختلفة:
+
+- إعدادات على مستوى السلسلة، مثل [ChartSeries.getFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getFormat)، توفِّر الشكل الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات النقطة الفردية، مثل [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapoint/#getFormat)، تتجاوز مظهر السلسلة لنقطة واحدة.
+- إعدادات المجموعة تُطبَّق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseriesgroup/). يمكن الوصول إلى المجموعة عبر [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getParentSeriesGroup) عندما تحتاج إلى تعيين خيارات مثل التداخل أو عرض الفجوة.
+
+عند عدم تعيين تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، تتجاوز تنسيق النقطة لتلك النقطة.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تعيين تداخل سلاسل المخطط**
+## **ضبط تداخل سلسلة المخطط**
 
-مع خاصية [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) يمكنك تحديد مقدار تداخل الأشرطة والأعمدة في مخطط ثنائي الأبعاد (النطاق: -100 إلى 100). تنطبق هذه الخاصية على جميع سلاسل مجموعة السلسلة الأصلية: هذه نسخة من خاصية المجموعة المناسبة. وبالتالي، هذه الخاصية للقراءة فقط.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getOverlap) يُظهر مقدار تداخل الأعمدة أو الأشرطة في مخطط ثنائي الأبعاد، من -100 إلى 100 ٪. وهو عرض للقراءة فقط للإعداد على مجموعة السلسلة الأم. استخدم [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseriesgroup/#setOverlap) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أشرطة أو أعمدة مجموعة؛ ولا يؤثر على مجموعات السلاسل غير المتعلقة في مخطط مركب.
 
-استخدم الخاصية القابلة للقراءة والكتابة `ParentSeriesGroup.Overlap` لتعيين القيمة المفضلة لـ `Overlap`.
+المثال التالي يضبط التداخل للمجموعة التي تحتوي على السلسلة الأولى:
 
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. أضف مخطط أعمدة مجمّع إلى شريحة.
-1. احصل على أول سلسلة مخطط.
-1. احصل على `ParentSeriesGroup` للسلسلة واضبط قيمة التداخل المفضلة للسلسلة.
-1. احفظ العرض المعدل إلى ملف PPTX.
-
-هذا الكود PHP يوضح لك كيفية تعيين التداخل لسلسلة مخطط:
 ```php
-  $pres = new Presentation();
-  try {
-    # يضيف المخطط
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      # يحدد تداخل السلسلة
-      $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$overlapPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    // المخطط الجديد يحتوي على سلاسل تجريبية، فئات، وقيم.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setOverlap($overlapPercent);
+
+    $presentation->save("series_overlap.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    # يكتب ملف العرض التقديمي إلى القرص
-    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
+النتيجة:
 
-## **تغيير لون السلسلة**
-تتيح لك Aspose.Slides for PHP via Java تغيير لون السلسلة بهذه الطريقة:
+![The series overlap](series_overlap.png)
 
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. أضف مخططًا إلى الشريحة.
-1. احصل على السلسلة التي تريد تغيير لونها.
-1. اضبط نوع التعبئة ولون التعبئة المفضلين.
-1. احفظ العرض المعدل.
+## **تغيير لون تعبئة السلسلة**
 
-هذا الكود PHP يوضح لك كيفية تغيير لون السلسلة:
+استخدم [ChartSeries.getFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getFormat) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة، فإن إعداد [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapoint/#getFormat) يتجاوز تعبئة السلسلة لتلك النقطة.
+
+المثال التالي يطبق تعبئة صلبة باللون الأزرق على السلسلة الأولى:
+
 ```php
-  $pres = new Presentation("test.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(1);
-    $point->setExplosion(30);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$blueColor = java("java.awt.Color")->BLUE;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-## **تغيير لون فئة السلسلة**
-تتيح لك Aspose.Slides for PHP via Java تغيير لون فئة السلسلة بهذه الطريقة:
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. أضف مخططًا إلى الشريحة.
-1. احصل على فئة السلسلة التي تريد تغيير لونها.
-1. اضبط نوع التعبئة ولون التعبئة المفضلين.
-1. احفظ العرض المعدل.
-
-هذا الكود يوضح لك كيفية تغيير لون فئة السلسلة:
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **تغيير اسم السلسلة** 
-
-افتراضيًا، تكون أسماء وسيلة الإيضاح للمخطط هي محتويات الخلايا فوق كل عمود أو صف من البيانات.
-
-في مثالنا (الصورة النموذجية)،
-
-* الأعمدة هي *Series 1* و *Series 2* و *Series 3*؛
-* الصفوف هي *Category 1* و *Category 2* و *Category 3* و *Category 4*.
-
-تتيح لك Aspose.Slides for PHP via Java تحديث أو تغيير اسم السلسلة في بيانات المخطط والوسيلة الإيضاحية.
-
-هذا الكود PHP يوضح لك كيفية تغيير اسم السلسلة في بيانات مخططها `ChartDataWorkbook`:
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
-    $seriesCell->setValue("New name");
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-هذا الكود PHP يوضح لك كيفية تغيير اسم السلسلة في وسيلة الإيضاح عبر `Series`:
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $name = $series->getName();
-    $name->getAsCells()->get_Item(0)->setValue("New name");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **تعيين لون تعبئة سلسلة المخطط**
-
-تتيح لك Aspose.Slides for PHP via Java تعيين لون التعبئة التلقائي لسلاسل المخطط داخل منطقة الرسم بهذه الطريقة:
-
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. احصل على مرجع الشريحة بواسطة فهرسها.
-1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه، استخدمنا `ChartType::ClusteredColumn`).
-1. احصل على سلسلة المخطط واضبط لون التعبئة إلى Automatic.
-1. احفظ العرض إلى ملف PPTX.
-
-هذا الكود PHP يوضح لك كيفية تعيين لون التعبئة التلقائي لسلسلة مخطط:
-```php
-  $pres = new Presentation();
-  try {
-    # ينشئ مخطط أعمدة مجموعة
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    # يحدد تنسيق تعبئة السلسلة إلى تلقائي
-    for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-      $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
-    }
-    # يكتب ملف العرض التقديمي إلى القرص
-    $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **تعيين تعبئة معكوسة لسلسلة مخطط**
-تتيح لك Aspose.Slides تعيين تعبئة معكوسة لسلاسل المخطط داخل منطقة الرسم بهذه الطريقة:
-
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. احصل على مرجع الشريحة بواسطة فهرسها.
-1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه، استخدمنا `ChartType::ClusteredColumn`).
-1. احصل على سلسلة المخطط واضبط لون التعبئة إلى Invert.
-1. احفظ العرض إلى ملف PPTX.
-
-هذا الكود PHP يوضح العملية:
-```php
-  $inverColor = java("java.awt.Color")->RED;
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    $workBook = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->clear();
-    # يضيف سلاسل جديدة وفئات
-    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
-    # يأخذ أول سلسلة في المخطط ويملأ بيانات السلسلة.
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 3, 1, -30));
-    $seriesColor = $series->getAutomaticSeriesColor();
-    $series->setInvertIfNegative(true);
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColor);
-    $series->getInvertedSolidFillColor()->setColor($inverColor);
-    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($blueColor);
+
+    $presentation->save("series_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
+النتيجة:
 
-## **تعيين عكس للسلسلة عندما تكون القيمة سالبة**
-تتيح لك Aspose.Slides تعيين العكس عبر الخاصيتين `IChartDataPoint.InvertIfNegative` و `ChartDataPoint.InvertIfNegative`. عندما يتم تعيين العكس باستخدام هاتين الخاصيتين، يعكس نقطة البيانات ألوانها عندما تحصل على قيمة سالبة.
+![The color of the series](series_color.png)
 
-هذا الكود PHP يوضح العملية:
+## **تغيير اسم السلسلة**
+
+يُخزن اسم السلسلة في مصنف بيانات المخطط وعادةً ما يُعرض في وسيلة الإيضاح. في المصنف الافتراضي الذي يُنشأ لمخطط أعمدة مجمَّعة، الخلية B1 تقع في الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. المتغيّرات المسماة في المثال التالي تجعل هذا الهيكل واضحًا:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $chart->getChartData()->getSeries()->clear();
-    $chartSeries = $series->add($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1"), $chart->getType());
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B2", -5));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B3", 3));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B4", -2));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B5", 1));
-    $chartSeries->setInvertIfNegative(false);
-    $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$seriesNameRowIndex = 0;
+$firstSeriesColumnIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $seriesNameRowIndex, $firstSeriesColumnIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
+يمكنك أيضًا تحديث الخلية التي يُشير إليها بالفعل [ChartSeries.getName](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getName). يضمن هذا النهج عدم الافتراض بوجود صف أو عمود معين في مخطط موجود:
 
-## **مسح بيانات نقطة معينة**
-تتيح لك Aspose.Slides for PHP via Java مسح بيانات `DataPoints` لسلسلة مخطط معينة بهذه الطريقة:
-
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. احصل على مرجع شريحة عبر فهرستها.
-3. احصل على مرجع مخطط عبر فهرسته.
-4. تكرار عبر جميع `DataPoints` للمخطط واضبط `XValue` و `YValue` إلى null.
-5. مسح جميع `DataPoints` للسلسلة المحددة.
-6. احفظ العرض المعدل إلى ملف PPTX.
-
-هذا الكود PHP يوضح العملية:
 ```php
-  $pres = new Presentation("TestChart.pptx");
-  try {
-    $sl = $pres->getSlides()->get_Item(0);
-    $chart = $sl->getShapes()->get_Item(0);
-    foreach($chart->getChartData()->getSeries()->get_Item(0)->getDataPoints() as $dataPoint) {
-      $dataPoint->getXValue()->getAsCell()->setValue(null);
-      $dataPoint->getYValue()->getAsCell()->setValue(null);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$firstNameCellIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $seriesNameCell = $series->getName()->getAsCells()->get_Item($firstNameCellIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
-    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
+النتيجة:
 
-## **تعيين عرض الفجوة للسلسلة**
-تتيح لك Aspose.Slides for PHP via Java تعيين عرض الفجوة لسلسلة عبر خاصية **`GapWidth`** بهذه الطريقة:
+![The series name](series_name.png)
 
-1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. احصل على الشريحة الأولى.
-1. أضف مخططًا ببيانات افتراضية.
-1. احصل على أي سلسلة مخطط.
-1. اضبط الخاصية `GapWidth`.
-1. احفظ العرض المعدل إلى ملف PPTX.
+## **الحصول على لون تعبئة السلسلة التلقائي**
 
-هذا الكود يوضح لك كيفية تعيين عرض الفجوة لسلسلة:
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) يُعيد اللون المحتسب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا تكون تعبئة السلسلة معرفة صراحة. استدعاء الطريقة يقرأ اللون المحتسب؛ لا يحدد تعبئة جديدة.
+
+المثال التالي يطبع اللون التلقائي لكل سلسلة افتراضية:
+
 ```php
-  # ينشئ عرض تقديمي فارغ
-  $pres = new Presentation();
-  try {
-    # يصل إلى الشريحة الأولى في العرض التقديمي
-    $slide = $pres->getSlides()->get_Item(0);
-    # يضيف مخططًا ببيانات افتراضية
-    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    # يحدد فهرس صفحة بيانات المخطط
-    $defaultWorksheetIndex = 0;
-    # يحصل على ورقة عمل بيانات المخطط
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # يضيف سلسلة
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # يضيف فئات
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # يأخذ السلسلة الثانية في المخطط
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # يملأ بيانات السلسلة
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # يحدد قيمة GapWidth
-    $series->getParentSeriesGroup()->setGapWidth(50);
-    # يحفظ العرض التقديمي إلى القرص
-    $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $seriesCount = java_values($chart->getChartData()->getSeries()->size());
+    for ($seriesIndex = 0; $seriesIndex < $seriesCount; $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $automaticColor = $series->getAutomaticSeriesColor();
+        $red = java_values($automaticColor->getRed());
+        $green = java_values($automaticColor->getGreen());
+        $blue = java_values($automaticColor->getBlue());
+        echo "Series " . $seriesIndex . ": java.awt.Color[r=" . $red . ",g=" . $green . ",b=" . $blue . "]" . PHP_EOL;
     }
-  }
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
 
+مخرجات المثال للنمط الافتراضي للمخطط:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+الألوان الدقيقة تعتمد على نمط المخطط والموضوع.
+
+## **ضبط لون تعبئة معكوس لسلسلة المخطط**
+
+بالنسبة للسلاسل من نوع شريط أو عمود أو فقاعة، يمكن لـ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#setInvertIfNegative) عرض القيم السالبة بتعبئة مختلفة. عيّن تعبئة السلسلة العادية إلى صلبة، فعِّل الانعكاس، وعين لون القيمة السالبة عبر [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). لا تتغير القيم السالبة في المصنف؛ يتغير لون عرضها فقط.
+
+المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 من ورقة العمل يحتوي على اسم السلسلة، العمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
+
+```php
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$headerRowIndex = 0;
+$categoryColumnIndex = 0;
+$firstSeriesColumnIndex = 1;
+$firstDataRowIndex = 1;
+
+$categoryNames = ["Category 1", "Category 2", "Category 3"];
+$seriesValues = [-20, 50, -30];
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $headerRowIndex, $firstSeriesColumnIndex, "Series 1");
+    $chartType = $chart->getType();
+    $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+
+    $categoryCount = count($categoryNames);
+    for ($categoryIndex = 0; $categoryIndex < $categoryCount; $categoryIndex++) {
+        $dataRowIndex = $firstDataRowIndex + $categoryIndex;
+        $categoryName = $categoryNames[$categoryIndex];
+        $seriesValue = $seriesValues[$categoryIndex];
+
+        $categoryCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $categoryColumnIndex, $categoryName);
+        $chartData->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $firstSeriesColumnIndex, $seriesValue);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->setInvertIfNegative(true);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+
+    $presentation->save("inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+النتيجة:
+
+![The inverted solid fill color](inverted_solid_fill_color.png)
+
+يمكنك تمكين الانعكاس لنقطة واحدة عبر [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). في المثال التالي، يُعطل الانعكاس للسلسلة ويُفعَّل فقط للنقطة المختارة. تُعطى النقطة أيضًا قيمة سالبة لتكون النتيجة مرئية:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 2;
+$negativeValue = -30;
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+    $series->setInvertIfNegative(false);
+
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue($negativeValue);
+    $dataPoint->setInvertIfNegative(true);
+
+    $presentation->save("data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **مسح قيمة نقطة بيانات معينة**
+
+لجعل نقطة واحدة فارغة دون إزالة النقاط الأخرى، عيّن خلية المصنف الداعمة لها إلى `null`. بالنسبة لمخطط عمودي، القيمة المرسومة يمكن الوصول إليها عبر [ChartDataPoint.getValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapoint/#getValue). تظل نقطة البيانات في نفس موقع الفئة، لكن المخطط يتعامل مع قيمتها كفراغ وفقًا لإعدادات الفراغ في المخطط.
+
+المثال التالي يمسح النقطة الثانية فقط في السلسلة الأولى:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue(null);
+
+    $presentation->save("clear_data_point_value.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+تستخدم مخططات التبعثر خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية حجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تستدعِ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapointcollection/#clear) عندما تريد الحفاظ على باقي النقاط، لأن هذه الطريقة تزيل كل نقاط البيانات من المجموعة.
+
+## **ضبط عرض الفجوة بين السلاسل**
+
+عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتجاورة، يُعبَّر عنها كنسبة مئوية من عرض الشريط أو العمود. مثل التداخل، ينتمي إلى مجموعة السلاسل الأم بدلاً من سلسلة واحدة. استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseriesgroup/#setGapWidth) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ والقيمة الأصغر تجعلها أكثر تجاورًا.
+
+المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$gapWidthPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setGapWidth($gapWidthPercent);
+
+    $presentation->save("gap_width_30.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+النتيجة:
+
+![The gap width](gap_width.png)
 
 ## **الأسئلة المتكررة**
 
-**هل هناك حد لعدد السلاسل التي يمكن لمخطط واحد أن يحتويها؟**
+**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
 
-لا تفرض Aspose.Slides حدًا ثابتًا لعدد السلاسل التي تضيفها. الحد العملي يحدده وضوح المخطط والذاكرة المتاحة لتطبيقك.
+جميع أنواع المخططات الممثَّلة في تعداد [ChartType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تشترك جميعًا في نفس هيكل القيم أو الإعدادات. على سبيل المثال، تستخدم مخططات الفئات الفئات والقيم، وتستخدم مخططات التبعثر قيم X وY، وتضيف مخططات الفقاعات أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأشرطة أو الأعمدة المتوافقة.
 
-**ماذا لو كانت الأعمدة داخل مجموعة واحدة متقاربة جدًا أو متباعدة جدًا؟**
+**ما هي مجموعة سلاسل المخطط؟**
 
-اضبط إعداد `GapWidth` لتلك السلسلة (أو مجموعة السلسلة الأصلية). زيادة القيمة توسّع المسافة بين الأعمدة، بينما تقليلها تقربها من بعضها.
+[ChartSeriesGroup](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseriesgroup/) يحتوي على سلاسل متوافقة تشترك في إعدادات رسم على مستوى المجموعة. يمكن لمخطط مركب أن يحتوي على أكثر من مجموعة، لذا قد لا يغيّر تعديل المجموعة التي تُصل من خلالها سلسلة واحدة جميع السلاسل في المخطط.
+
+**هل يحتوي المخطط الذي يُنشأ حديثًا على بيانات افتراضية؟**
+
+نعم. بشكل افتراضي، يُنشئ [ShapeCollection.addChart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/#addChart) سلاسل وعناصر فئة وقيم تجريبية. يمكنك تعديل تلك الخلايا أو مسح مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن أيضًا للتحميل الزائد إنشاء مخطط دون بيانات افتراضية.
+
+**كيف ترتبط كائنات المخطط بخلايا المصنف؟**
+
+أسماء السلاسل، وتسميات الفئات، وقيم نقاط البيانات تشير إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/). تغيير خلية مشار إليها يحدّث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
+
+**كيف أمسح نقطة واحدة بدلاً من مسح السلسلة بأكملها؟**
+
+عيّن خلية القيمة ذات الصلة إلى `null` لتحتفظ بنقطة الفئة كموقع فارغ. استخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapointcollection/#clear) فقط عندما تريد إزالة جميع النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل بحيث تظل قيمها محاذية مع مجموعة الفئات.
+
+**كيف تُعرض النقاط الفارغة؟**
+
+النتيجة تعتمد على نوع المخطط والقيمة المُ cấuِّفة عبر [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/#setDisplayBlanksAs). يمكن للمخططات المدعومة عرض الفراغات كفجوات، أو كقيم صفرية، أو بربط النقاط المجاورة. اختر الإعداد الذي يتماشى مع معنى البيانات المفقودة في عرضك التقديمي.
+
+**كيف يتم تنسيق القيم السالبة؟**
+
+بالنسبة للسلاسل المدعومة من نوع شريط أو عمود أو فقاعة، استدعِ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#setInvertIfNegative) وعين اللون المُرجَع من [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). يمكنك تجاوز السلوك لنقطة فردية باستخدام [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). هذه الطرق تؤثر على التنسيق فقط، لا على القيم الرقمية المخزَّنة.
+
+**أي تنسيق ينتصر عندما يتم تنسيق كل من السلسلة والنقطة؟**
+
+تنسيق نقطة البيانات الصريح يتفوّق على تلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدد تنسيق السلسلة، النمط والموضوع التلقائيين للمخطط. إعدادات المجموعة مثل التداخل وعرض الفجوة تتحكم في التخطيط ولا تُعتبر تجاوزات تنسيق على مستوى النقطة.
+
+**هل هناك حد لعدد السلاسل التي يمكن للمخطط احتواؤها؟**
+
+Aspose.Slides لا يفرض حدًا ثابتًا منفصلًا لعدد السلاسل. في الممارسة العملية، تحدد قيود ملف العرض التقديمي، الذاكرة المتاحة، زمن المعالجة، وقابلية قراءة المخطط حدًا عمليًا.
+
+**ماذا أفعل إذا كانت الأعمدة قريبة جدًا أو متباعدة جدًا؟**
+
+استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartseriesgroup/#setGapWidth) على مجموعة السلاسل الأم المناسبة. زِد القيمة لتوسيع المسافة بين المجموعات، أو قلِّلها لتقريب المجموعات من بعضها البعض.

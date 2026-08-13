@@ -1,14 +1,14 @@
 ---
-title: 使用 Python 從簡報中取得形狀的有效屬性
+title: 取得 Python 中簡報的圖形有效屬性
 linktitle: 有效屬性
 type: docs
 weight: 50
 url: /zh-hant/python-net/shape-effective-properties/
 keywords:
-- 形狀屬性
+- 圖形屬性
 - 相機屬性
-- 光源裝置
-- 斜角形狀
+- 燈光裝置
+- 斜角圖形
 - 文字框
 - 文字樣式
 - 字型高度
@@ -17,293 +17,243 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "探索 Aspose.Slides for Python via .NET 如何計算與套用形狀的有效屬性，以實現精確的 PowerPoint 呈現。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 簡報中區分圖形的本地、繼承與有效格式設定。"
 ---
-## **概述**
+## **了解本地、繼承與有效屬性**
 
-本主題說明 **本機** 與 **有效** 屬性之間的差異。本機值是直接在特定格式層級上設定的值，例如：
+PowerPoint 的格式設定可能來自多個來源。直接儲存在物件上的值稱為 **本地值**。如果該值未設定，PowerPoint 會查閱父層的格式來源，例如段落預設、文字樣式、版面或母片投影片、佈景主題或簡報層級的預設。這些值稱為 **繼承值**。在整個層級解析完畢後剩餘的值稱為 **有效值**，它將用來呈現物件。
 
-1. 投影片上的段落屬性。
-1. 版面或母片投影片上，當段落的文字框形狀具有文字樣式時的原型形狀文字樣式。
-1. 簡報中的全域文字設定。
+例如，文字段落可能未定義自己的字型高度。其本地 [font_height](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ibaseportionformat/font_height/) 為 `float("nan")`，表示「此處未設定」。該段落可以從其段落、簡報的預設文字樣式或其他適用來源繼承高度。對段落格式呼叫 [get_effective](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iportionformat/get_effective/) 會回傳最終解析的高度。
 
-本機值可以在任何層級上定義或省略。當 Aspose.Slides 需要最終「實際呈現」的格式時，會解析繼承鏈並回傳 **有效** 值。您可以透過呼叫本機格式物件的 `get_effective` 方法取得它們。
+針對不同需求使用這兩種格式資料：
 
-以下範例說明如何取得有效值。範例假設第一張投影片的第一個形狀是一個具有文字框且至少包含一個段落的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/)。
+- 讀取或變更本地格式物件（例如 [IPortionFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iportionformat/)），當您需要控制值的定義位置時。
+- 讀取有效資料物件（例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iportionformateffectivedata/)），當您需要最終的渲染結果時。有效資料是唯讀的。
 
-```py
+## **比較本地、繼承與有效值**
+
+以下完整範例建立一個圖形，並在簡報、段落與段落層級套用字型高度。每一步都會列印該層級定義的值以及相同文字段落的最終有效值。此範例同時說明為何在格式變更後必須重新讀取有效資料。
+
+```python
+import math
+
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
 
-    local_text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = local_text_frame_format.get_effective()
+def format_local_value(value):
+    return "<not set>" if math.isnan(value) else str(value)
 
-    paragraph = shape.text_frame.paragraphs[0]
-    portion = paragraph.portions[0]
-    local_portion_format = portion.portion_format
-    effective_portion_format = local_portion_format.get_effective()
-```
 
-{{% alert color="primary" %}}
+def print_font_heights(caption, presentation, paragraph, portion):
+    presentation_value = presentation.default_text_style.get_level(0).default_portion_format.font_height
+    paragraph_value = paragraph.paragraph_format.default_portion_format.font_height
+    local_value = portion.portion_format.font_height
 
-有效格式資料代表在套用繼承後目前計算出的格式。在目前的實作中，某些有效資料物件（例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iportionformateffectivedata/)）可能會在內部快取。變更父層或繼承格式後再次呼叫 `get_effective` 可重新整理快取的資料，先前取得的物件可能不再代表先前的狀態。若需要保留有效值以供日後使用，請將所需的屬性（例如字型高度、填色、字型樣式或對齊方式）複製到您自己的資料物件中。
+    # 讀取先前變更後的有效資料。
+    effective_value = portion.portion_format.get_effective().font_height
 
-{{% /alert %}}
+    print(caption)
+    print("  Presentation default: " + format_local_value(presentation_value))
+    print("  Paragraph default:    " + format_local_value(paragraph_value))
+    print("  Portion local:        " + format_local_value(local_value))
+    print("  Portion effective:    " + str(effective_value))
 
-## **取得相機的有效屬性**
-
-Aspose.Slides 允許您取得相機的有效屬性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/icameraeffectivedata/) 類型代表一個不可變的物件，內含有效的相機屬性。透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/) 可取得 [ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/icameraeffectivedata/) 實例，進而提供 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/threedformat/) 的有效值。
-
-以下程式碼範例示範如何取得相機的有效屬性。範例假設第一張投影片的第一個形狀具有 3D 格式。
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    camera = three_d_effective_data.camera
-
-    camera_type = camera.camera_type
-    field_of_view_angle = camera.field_of_view_angle
-    zoom = camera.zoom
-
-    print("= Effective camera properties =")
-    print("Type: " + str(camera_type))
-    print("Field of view: " + str(field_of_view_angle))
-    print("Zoom: " + str(zoom))
-```
-
-## **取得光源裝置的有效屬性**
-
-Aspose.Slides 允許您取得光源裝置的有效屬性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ilightrigeffectivedata/) 類型代表一個不可變的物件，內含有效的光源裝置屬性。透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/) 可取得 [ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ilightrigeffectivedata/) 實例，進而提供 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/threedformat/) 的有效值。
-
-以下程式碼範例示範如何取得光源裝置的有效屬性。範例假設第一張投影片的第一個形狀具有 3D 格式。
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    light_rig = three_d_effective_data.light_rig
-
-    light_type = light_rig.light_type
-    direction = light_rig.direction
-
-    print("= Effective light rig properties =")
-    print("Type: " + str(light_type))
-    print("Direction: " + str(direction))
-```
-
-## **取得形狀斜角的有效屬性**
-
-Aspose.Slides 允許您取得形狀斜角的有效屬性。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ishapebeveleffectivedata/) 類型代表一個不可變的物件，內含形狀面部凹凸的有效屬性。透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/) 可取得 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ishapebeveleffectivedata/) 實例，進而提供 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/threedformat/) 的有效值。
-
-以下程式碼範例示範如何取得形狀上方斜角的有效屬性。範例假設第一張投影片的第一個形狀具有 3D 格式。
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    top_bevel = three_d_effective_data.bevel_top
-
-    bevel_type = top_bevel.bevel_type
-    bevel_width = top_bevel.width
-    bevel_height = top_bevel.height
-
-    print("= Effective shape's top face relief properties =")
-    print("Type: " + str(bevel_type))
-    print("Width: " + str(bevel_width))
-    print("Height: " + str(bevel_height))
-```
-
-## **取得文字框的有效屬性**
-
-使用 Aspose.Slides，您可以取得文字框的有效屬性。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/itextframeformateffectivedata/) 類型包含有效的文字框格式屬性。
-
-以下程式碼範例示範如何取得文字框的有效格式屬性。範例假設第一張投影片的第一個形狀是一個具有文字框的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/)。
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = text_frame_format.get_effective()
-
-    anchoring_type = effective_text_frame_format.anchoring_type
-    autofit_type = effective_text_frame_format.autofit_type
-    text_vertical_type = effective_text_frame_format.text_vertical_type
-    margin_left = effective_text_frame_format.margin_left
-    margin_top = effective_text_frame_format.margin_top
-    margin_right = effective_text_frame_format.margin_right
-    margin_bottom = effective_text_frame_format.margin_bottom
-
-    print("Anchoring type: " + str(anchoring_type))
-    print("Autofit type: " + str(autofit_type))
-    print("Text vertical type: " + str(text_vertical_type))
-    print("Margins")
-    print("   Left: " + str(margin_left))
-    print("   Top: " + str(margin_top))
-    print("   Right: " + str(margin_right))
-    print("   Bottom: " + str(margin_bottom))
-```
-
-## **取得文字樣式的有效屬性**
-
-使用 Aspose.Slides，您可以取得文字樣式的有效屬性。[ITextStyleEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/itextstyleeffectivedata/) 類型包含有效的文字樣式屬性。
-
-以下程式碼範例示範如何取得文字樣式的有效屬性。範例假設第一張投影片的第一個形狀是一個具有文字框的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/)。
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    text_frame_format = shape.text_frame.text_frame_format
-    text_style = text_frame_format.text_style
-    effective_text_style = text_style.get_effective()
-    level_count = 9
-
-    for level_index in range(level_count):
-        effective_style_level = effective_text_style.get_level(level_index)
-        depth = effective_style_level.depth
-        indent = effective_style_level.indent
-        alignment = effective_style_level.alignment
-        font_alignment = effective_style_level.font_alignment
-
-        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
-
-        print("Depth: " + str(depth))
-        print("Indent: " + str(indent))
-        print("Alignment: " + str(alignment))
-        print("Font alignment: " + str(font_alignment))
-```
-
-## **取得有效的字型高度值**
-
-使用 Aspose.Slides，您可以取得有效的字型高度。以下程式碼示範在簡報結構的不同層級設定本機字型高度後，段落的有效字型高度如何變化。
-
-```py
-import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    auto_shape.add_text_frame("")
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 80, False)
+    text_frame = shape.add_text_frame("Effective formatting")
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
 
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
+    # 定義兩個不同層級的繼承值。
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 20
+    paragraph.paragraph_format.default_portion_format.font_height = 28
 
-    first_portion = slides.Portion("Sample text with first portion")
-    second_portion = slides.Portion(" and second portion.")
+    print_font_heights("The portion inherits from the paragraph", presentation, paragraph, portion)
 
-    paragraph.portions.add(first_portion)
-    paragraph.portions.add(second_portion)
+    # 段落的本地值會覆寫兩個繼承值。
+    portion.portion_format.font_height = 36
+    print_font_heights("A local value overrides inherited values", presentation, paragraph, portion)
 
-    print("Effective font height just after creation:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # 更改繼承值不會覆寫現有的本地值。
+    paragraph.paragraph_format.default_portion_format.font_height = 30
+    print_font_heights("The local value still has priority", presentation, paragraph, portion)
 
-    default_text_style_level = presentation.default_text_style.get_level(0)
-    default_text_style_level.default_portion_format.font_height = 24
+    # 清除本地值。此文字段現在再次從段落繼承。
+    portion.portion_format.font_height = float("nan")
+    print_font_heights("The local value is cleared", presentation, paragraph, portion)
 
-    print("Effective font height after setting the presentation default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # 清除段落值。簡報預設現在提供結果。
+    paragraph.paragraph_format.default_portion_format.font_height = float("nan")
+    print_font_heights("The paragraph value is cleared", presentation, paragraph, portion)
 
-    paragraph.paragraph_format.default_portion_format.font_height = 40
-
-    print("Effective font height after setting paragraph default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    first_portion.portion_format.font_height = 55
-
-    print("Effective font height after setting portion #0 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    second_portion.portion_format.font_height = 18
-
-    print("Effective font height after setting portion #1 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("effective-properties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **取得表格的有效填充格式**
+此範例的優先順序為段落本地格式、接著段落格式、最後為簡報預設。其他物件可能有不同的繼承鏈，但原則相同：較具體的明確值會優先，且 [get_effective](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iportionformat/get_effective/) 會回傳最終結果。
 
-使用 Aspose.Slides，您可以取得不同表格部分的有效填充格式。[IFillFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ifillformateffectivedata/) 類型包含有效的填充格式屬性。儲存格格式的優先順序高於列格式，列格式高於欄格式，欄格式高於整表格式。
+## **取得有效文字屬性**
 
-因此，會使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/icellformateffectivedata/) 屬性來繪製表格儲存格。以下程式碼範例示範如何取得不同表格部分的有效填充格式。範例假設第一張投影片的第一個形狀是一個 [Table](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/table/)。
+文字格式被分散在多個物件中：
 
-```py
+- [ITextFrameFormat.get_effective()](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/itextframeformat/get_effective/) 會解析文字框屬性，例如邊距、錨點、自動調整以及垂直文字方向。
+- [ITextStyle.get_effective()](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/itextstyle/get_effective/) 會解析每個文字樣式層級的段落格式。
+- [IParagraphFormat.get_effective()](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iparagraphformat/get_effective/) 會解析段落屬性，例如對齊、縮排與項目符號。
+- [IPortionFormat.get_effective()](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iportionformat/get_effective/) 會解析字元屬性，例如字型高度、字型、顏色、粗體與斜體。
+
+在下一個範例中，`text-formatting.pptx` 必須至少包含一張投影片與一個含有非空文字框的 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/)。AutoShape 可以位於圖形集合中的任何位置；程式碼會搜尋適當的物件並在使用前進行驗證。
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    table = presentation.slides[0].shapes[0]
-    first_row = table.rows[0]
-    first_column = table.columns[0]
-    first_cell = first_row[0]
 
-    table_format_effective = table.table_format.get_effective()
-    row_format_effective = first_row.row_format.get_effective()
-    column_format_effective = first_column.column_format.get_effective()
-    cell_format_effective = first_cell.cell_format.get_effective()
+def has_non_empty_text(shape):
+    if not isinstance(shape, slides.AutoShape):
+        return False
+    if shape.text_frame is None:
+        return False
+    if shape.text_frame.paragraphs.count == 0:
+        return False
+    return shape.text_frame.paragraphs[0].portions.count > 0
 
-    table_fill_format_effective = table_format_effective.fill_format
-    row_fill_format_effective = row_format_effective.fill_format
-    column_fill_format_effective = column_format_effective.fill_format
-    cell_fill_format_effective = cell_format_effective.fill_format
+
+with slides.Presentation("text-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    shape = None
+    for candidate in presentation.slides[0].shapes:
+        if has_non_empty_text(candidate):
+            shape = candidate
+            break
+
+    if shape is None:
+        raise RuntimeError("The first slide must contain an AutoShape with non-empty text.")
+
+    text_frame = shape.text_frame
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+
+    text_frame_effective = text_frame.text_frame_format.get_effective()
+    paragraph_effective = paragraph.paragraph_format.get_effective()
+    portion_effective = portion.portion_format.get_effective()
+
+    print("Text frame margins:")
+    print("  Left: " + str(text_frame_effective.margin_left))
+    print("  Top: " + str(text_frame_effective.margin_top))
+    print("  Right: " + str(text_frame_effective.margin_right))
+    print("  Bottom: " + str(text_frame_effective.margin_bottom))
+    print("Paragraph alignment: " + str(paragraph_effective.alignment))
+    print("Font height: " + str(portion_effective.font_height))
+    print("Bold: " + str(portion_effective.font_bold))
+
+    effective_text_style = text_frame.text_frame_format.text_style.get_effective()
+    for level in range(9):
+        level_effective = effective_text_style.get_level(level)
+        print("Level " + str(level) + " indent: " + str(level_effective.indent))
 ```
 
-## **常見問題集**
+## **取得有效 3D 屬性**
 
-**`get_effective` 會回傳快照嗎？**
+[IThreeDFormat.get_effective()](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformat/get_effective/) 會回傳一個 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/) 物件，該物件彙總所有已解析的 3D 設定。其 [camera](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/camera/)、[light_rig](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/light_rig/)、[bevel_top](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/bevel_top/) 以及 [bevel_bottom](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ithreedformateffectivedata/bevel_bottom/) 屬性會揭示相對應的有效資料。將這些相關設定一起讀取，可更容易了解圖形最終的 3D 外觀。
 
-不一定。有效資料代表套用繼承後計算出的格式，但某些有效資料物件可能在內部被快取。之後再呼叫 `get_effective` 可能會重新計算格式並刷新快取資料，因此先前取得的物件不應被視為永久快照。
+在此範例中，`shape-3d.pptx` 必須在第一張投影片上至少包含一個圖形。若希望輸出包含非預設值，請對該圖形套用 3D 相機、照明或斜角設定。
 
-**什麼時候需要重新讀取有效屬性？**
+```python
+import aspose.slides as slides
 
-在變更本機格式、父樣式、版面格式、母片格式或簡報層級的預設值後，請再次呼叫 `get_effective`。下一次呼叫會重新評估格式層級，並回傳當前的有效結果。
 
-**變更或移除版面/母片投影片會影響已取得的有效屬性嗎？**
+with slides.Presentation("shape-3d.pptx") as presentation:
+    if presentation.slides.count == 0 or presentation.slides[0].shapes.count == 0:
+        raise RuntimeError("The first slide must contain a shape.")
 
-會，變更會在下一次 `get_effective` 呼叫時反映出來。如果父層格式來源被變更或移除，先前取得的有效資料可能已過時。再次呼叫 `get_effective` 後，Aspose.Slides 會重新評估格式樹，字型、顏色、大小或其他值可能隨之變化。
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective = shape.three_d_format.get_effective()
 
-**我可以透過有效資料物件修改值嗎？**
+    print("Camera:")
+    print("  Type: " + str(three_d_effective.camera.camera_type))
+    print("  Field of view: " + str(three_d_effective.camera.field_of_view_angle))
+    print("  Zoom: " + str(three_d_effective.camera.zoom))
 
-不能。有效資料物件只會暴露計算後的值。請在本機格式物件上進行變更，然後再次取得有效值。
+    print("Light rig:")
+    print("  Type: " + str(three_d_effective.light_rig.light_type))
+    print("  Direction: " + str(three_d_effective.light_rig.direction))
 
-**如果在形狀層級、版面/母片、全域設定中都未設定某屬性，會發生什麼？**
+    print("Top bevel:")
+    print("  Type: " + str(three_d_effective.bevel_top.bevel_type))
+    print("  Width: " + str(three_d_effective.bevel_top.width))
+    print("  Height: " + str(three_d_effective.bevel_top.height))
+```
 
-有效值會由預設機制決定，包含 PowerPoint 以及 Aspose.Slides 的預設值。解析出的值會成為目前有效資料的一部份。
+## **取得有效表格格式化**
 
-**從有效的字型值，我可以判斷是哪個層級提供了尺寸或字型嗎？**
+表格格式化可能來自表格樣式，也可能來自套用於整個表格、欄、列或單一儲存格的格式。當明確定義的填充發生衝突時，優先順序為儲存格、列、欄，最後是整個表格。儲存格的有效格式即繪製該儲存格時使用的最終格式。
 
-無法直接判斷。有效資料只回傳最終值。若要找出來源，請檢查段落、文字框、文字樣式在段落、版面、母片和簡報層級的本機值，找出第一個明確定義的地方。
+在此範例中，`table-formatting.pptx` 必須在第一張投影片上至少包含一個表格。該表格必須至少有一列與一欄。程式碼會搜尋 [Table](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/table/)，而不是直接假設 `shapes[0]` 為表格。
 
-**為什麼有效值有時看起來與本機值相同？**
+```python
+import aspose.slides as slides
 
-因為本機值已成為最終值（不需要更高層級的繼承）。在此情況下，有效值與本機值相同。
 
-**什麼時候應使用有效屬性，什麼時候只使用本機屬性？**
+with slides.Presentation("table-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
 
-當您需要在套用所有繼承後的「實際呈現」結果時（例如對齊顏色、縮排或大小），請使用有效資料。如果您需要在稍後的格式變更中保留這些值，請將所需屬性複製到自己的物件中。若您需要在特定層級變更格式，請修改本機屬性，然後在需要時再次讀取有效資料以驗證結果。
+    table = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
+
+    if table is None:
+        raise RuntimeError("The first slide must contain a table.")
+
+    if table.rows.count == 0 or table.columns.count == 0:
+        raise RuntimeError("The table must contain at least one cell.")
+
+    table_effective = table.table_format.get_effective()
+    row_effective = table.rows[0].row_format.get_effective()
+    column_effective = table.columns[0].column_format.get_effective()
+    cell_effective = table.rows[0][0].cell_format.get_effective()
+
+    print("Table fill: " + str(table_effective.fill_format.fill_type))
+    print("Row fill: " + str(row_effective.fill_format.fill_type))
+    print("Column fill: " + str(column_effective.fill_format.fill_type))
+    print("Final cell fill: " + str(cell_effective.fill_format.fill_type))
+```
+
+如果需要取得顏色而不僅是填充類型，請先檢查有效的 [fill_type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ifillformateffectivedata/fill_type/)，然後讀取對應於該類型的屬性，例如實心填充的 [solid_fill_color](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/)。
+
+## **變更後重新讀取有效資料**
+
+有效資料描述解析時的格式層級。變更任何可能參與該層級的項目後，請再次呼叫 `get_effective`，包括：
+
+- 物件的本地格式；
+- 段落或文字框的預設值；
+- 表格樣式、表格、欄、列或儲存格的格式；
+- 版面或母片投影片的格式；
+- 主題資料或簡報層級的預設值；
+- 分配給投影片的版面或母片。
+
+不要將有效資料物件作為永久快照保存。Aspose.Slides 可能在內部快取部分有效資料，稍後的 `get_effective` 呼叫會刷新這些資料。如果需要比較變更前後的值，請在變更前將所需的純量值（例如字型高度、顏色、對齊或斜角寬度）複製到自己的變數中。
+
+若要變更值，請更新相對應的本地格式物件，然後呼叫 `get_effective` 以驗證結果。有效資料物件本身是唯讀的。
+
+## **常見問題**
+
+**我如何判斷是哪個層級提供了有效值？**
+
+有效資料只包含最終值，而不包含其來源。請從最具體的層級向外檢查相關的本地物件。對於文字而言，可能包括段落、段落、文字框、版面、母片、主題與簡報預設。未定義的值（如 `float("nan")` 或 `None`）表示搜尋會繼續至更高層級。
+
+**當沒有任何層級定義屬性時會發生什麼？**
+
+Aspose.Slides 會解析相應的 PowerPoint 或程式庫預設值。即使沒有本地物件明確定義，該解析出的值仍會出現在有效資料中。
+
+**為何有時有效值等於本地值？**
+
+本地值在繼承計算中獲勝。當屬性在物件上被明確設定且沒有更具體的規則覆蓋時，這是預期的結果。
+
+**什麼時候應使用本地資料而非有效資料？**
+
+在檢查或編輯特定格式層級時使用本地資料。當您需要在繼承、主題規則與適用樣式解析後的最終外觀時，使用有效資料。[完整比較範例](#compare-local-inherited-and-effective-values) 在同一工作流程中展示了兩者的使用方式。

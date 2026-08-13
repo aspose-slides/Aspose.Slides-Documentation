@@ -1,87 +1,95 @@
 ---
-title: مدیریت سری داده‌های نمودار در ارائه‌ها در .NET
-linktitle: سری داده‌ها
+title: مدیریت سری‌های داده نمودار در ارائه‌ها با .NET
+linktitle: سری‌های داده
 type: docs
 url: /fa/net/chart-series/
 keywords:
 - سری نمودار
-- همپوشانی سری
+- هم‌پوشانی سری
 - رنگ سری
 - رنگ دسته
 - نام سری
 - نقطه داده
 - فاصله سری
-- پاورپوینت
+- PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه سری‌های نمودار را در C# برای پاورپوینت (PPT/PPTX) مدیریت کنید، با مثال‌های کد عملی و بهترین روش‌ها برای بهبود ارائه‌های داده‌ای خود."
+description: "یاد بگیرید چگونه سری‌های نمودار، نقاط داده، سلول‌های کتاب‌کار، قالب‌بندی، هم‌پوشانی، عرض فاصله و مقادیر منفی را در ارائه‌ها با C# مدیریت کنید."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-این مقاله نقش [ChartSeries](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartseries/) را در Aspose.Slides برای .NET توضیح می‌دهد و بر چگونگی ساختاردهی و تجسم داده‌ها در ارائه‌ها تمرکز دارد. این اشیاء عناصر بنیادینی را فراهم می‌کنند که مجموعه‌های جداگانه‌ای از نقاط داده، دسته‌ها و پارامترهای ظاهر را در نمودار تعریف می‌کنند. با کار با [ChartSeries](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartseries/)، توسعه‌دهندگان می‌توانند به‌صورت یکپارچه منابع داده زیربنایی را ادغام کرده و کنترل کامل بر نحوه نمایش اطلاعات داشته باشند، که منجر به ارائه‌های پویا و مبتنی بر داده می‌شود که به‌وضوح بینش‌ها و تحلیل‌ها را منتقل می‌کند.
+یک نمودار داده‌های ترسیم‌شده خود را در یک کتاب‌کار داده نمودار ذخیره می‌کند. یک [IChartSeries](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/) یک مجموعه مقادیر مرتبط را نشان می‌دهد و هر [IChartDataPoint](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/) در این مجموعه به یک یا چند سلول کتاب‌کار ارجاع می‌دهد. اشیاء [IChartCategory](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartcategory/) برچسب‌ها یا مقادیر گروه‌بندی‌شده‌ای را که بین مجموعه‌ها به اشتراک گذاشته می‌شود، ارائه می‌دهند. بنابراین نام مجموعه، دسته‌بندی‌ها و مقادیر نقاط به اشیاء [IChartDataCell](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatacell/) متصل هستند نه این که تنها به صورت متن نمایش ذخیره شوند.
 
-یک سری، یک سطر یا ستون از اعداد است که در یک نمودار ترسیم می‌شود.
+برای یک نمودار دسته‌ای معمولی، کتاب‌کار پیش‌فرض از ردیف 0 برای نام‌های مجموعه، ستون 0 برای نام‌های دسته و سلول‌های باقی‌مانده برای مقادیر مجموعه استفاده می‌کند. اندیس‌های کاربرگ، ردیف و ستون که به [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/getcell/) پاس می‌شوند، صفر‑مبنا هستند. این طرح‌بندی وقتی که نمودار را با داده‌های پیش‌فرض ایجاد می‌کنید مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائه بارگذاری‌شده، قبل از تغییر مقادیر کتاب‌کار، سلول‌های ارجاع‌شده توسط مجموعه‌ها، دسته‌ها و نقاط داده را بررسی کنید.
 
-![نمودار-سری-پاورپوینت](chart-series-powerpoint.png)
+تنظیمات نمودار در سه حوزه متفاوت قرار می‌گیرد:
 
-## **تنظیم همپوشانی سری‌های نمودار**
+- تنظیمات در سطح مجموعه، مانند [IChartSeries.Format](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/format/)، ظاهر پیش‌فرض برای تمام نقاط یک مجموعه را فراهم می‌کند.
+- تنظیمات نقطه‑داده، مانند [IChartDataPoint.Format](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/format/)، ظاهر مجموعه را برای یک نقطه بازنویسی می‌کند.
+- تنظیمات گروهی بر روی مجموعه‌های سازگاری که به همان [IChartSeriesGroup](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseriesgroup/) تعلق دارند، اعمال می‌شود. برای تنظیم گزینه‌هایی مانند هم‌پوشانی یا عرض فاصله، از [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/parentseriesgroup/) دسترسی پیدا کنید.
 
-خاصیت [IChartSeriesOverlap](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/properties/overlap) کنترل می‌کند که نوارها و ستون‌ها در یک نمودار دو‌بعدی چگونه همپوشانی داشته باشند، به‌طوری که بازه‌ای از -100 تا 100 را تعیین می‌کند. از آنجا که این خاصیت به گروه سری تعلق دارد نه به هر سری نمودار به‌صورت جداگانه، در سطح سری فقط‑خواندنی است. برای پیکربندی مقادیر همپوشانی، از خاصیت `ParentSeriesGroup.Overlap` که قابل خواندن/نوشتن است، استفاده کنید؛ این خاصیت همپوشانی تعیین‌شده را برای تمام سری‌های آن گروه اعمال می‌کند.
+زمانی که پر‑کردن نقطه یا مجموعه به‌صراحت تنظیم نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هر دو قالب‌بندی مجموعه و نقطه موجود باشد، قالب‌بندی نقطه برای آن نقطه برتر است.
 
-در ادامه یک مثال C# آورده شده است که نشان می‌دهد چگونه یک ارائه ایجاد کنید، یک نمودار ستونی خوشه‌ای اضافه کنید، به اولین سری نمودار دسترسی پیدا کنید، تنظیم همپوشانی را پیکربندی کنید و سپس نتیجه را به صورت فایل PPTX ذخیره کنید:
+![نمودار‑سری‑پاورپوینت](chart-series-powerpoint.png)
+
+## **تنظیم هم‌پوشانی سری‌های نمودار**
+
+[IChartSeries.Overlap](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/overlap/) میزان هم‌پوشانی میله‌ها یا ستون‌ها را در یک نمودار دو‑بعدی، از ‑100 تا 100 درصد، گزارش می‌دهد. این مقدار یک پیش‌بینی فقط‑خواندنی از تنظیمات در گروه سری اصلی است. برای به‌روزرسانی همه مجموعه‌های سازگار در آن گروه، [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseriesgroup/overlap/) را تنظیم کنید. این گزینه برای انواع نموداری که میله‌ها یا ستون‌های گروهی را نمایش می‌دهند اعمال می‌شود؛ برای گروه‌های سری نامرتبط در یک نمودار ترکیبی تغییری ایجاد نمی‌کند.
+
+مثال زیر هم‌پوشانی گروهی که شامل اولین سری است را تنظیم می‌کند:
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض اضافه کنید.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // همپوشانی سری را تنظیم کنید.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// نمودار جدید شامل مجموعه نمونه، دسته‌ها و مقادیر است.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // پرونده ارائه را روی دیسک ذخیره کنید.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 نتیجه:
 
-![همپوشانی سری‌ها](series_overlap.png)
+![هم‌پوشانی سری‌ها](series_overlap.png)
 
-## **تغییر رنگ پر کردن سری**
+## **تغییر رنگ پر‑کردن سری**
 
-Aspose.Slides این امکان را به‌صورت ساده فراهم می‌کند که رنگ‌های پرکردن سری‌های نمودار را سفارشی کنید، به‌طوری که بتوانید نقاط داده خاص را برجسته کرده و نمودارهای بصری جذابی ایجاد کنید. این کار از طریق شیء [IFormat](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/iformat/) انجام می‌شود که انواع مختلفی از پرکردن‌ها، پیکربندی‌های رنگی و گزینه‌های پیشرفته استایل را پشتیبانی می‌کند. پس از افزودن یک نمودار به اسلاید و دسترسی به سری مورد نظر، به سادگی سری را دریافت کرده و رنگ پرکردن مناسب را اعمال کنید. علاوه بر پرکردن‌های یکدست، می‌توانید از پرکردن‌های گرادیان یا الگو برای انعطاف‌پذیری بیشتر طراحی استفاده کنید. پس از تنظیم رنگ‌ها مطابق نیازهای خود، ارائه را ذخیره کنید تا ظاهر بروز شده نهایی شود.
+از [IChartSeries.Format](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/format/) برای تنظیم پر‑کردن پیش‌فرض یک سری کامل استفاده کنید. اگر نقطه‌ای پر‑کردن صریح داشته باشد، تنظیمات [IChartDataPoint.Format](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/format/) آن، پر‑کردن سری را برای آن نقطه بازنویسی می‌کند.
 
-کد مثال C# زیر نشان می‌دهد چگونه رنگ اولین سری را تغییر دهید:
+مثال زیر پر‑کردن آبی صلب برای اولین سری اعمال می‌کند:
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض اضافه کنید.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // رنگ اولین سری را تنظیم کنید.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // پرونده ارائه را روی دیسک ذخیره کنید.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 نتیجه:
@@ -90,223 +98,284 @@ using (Presentation presentation = new Presentation())
 
 ## **تغییر نام سری**
 
-Aspose.Slides روش ساده‌ای برای تغییر نام‌های سری‌های نمودار فراهم می‌کند که برچسب‌گذاری داده‌ها را به‌صورت واضح و معنادار آسان‌تر می‌سازد. با دسترسی به سلول مربوط به worksheet در داده‌های نمودار، توسعه‌دهندگان می‌توانند نحوه ارائه داده‌ها را سفارشی کنند. این تغییر به‌ویژه وقتی مفید است که نام‌های سری بر اساس زمینه داده‌ها نیاز به به‌روزرسانی یا شفاف‌سازی داشته باشند. پس از تغییر نام سری، می‌توان ارائه را ذخیره کرد تا تغییرات حفظ شوند.
-
-در زیر یک قطعه کد C# آورده شده است که این فرآیند را به‌صورت عملی نشان می‌دهد:
+نام یک سری در کتاب‌کار داده نمودار ذخیره می‌شود و معمولاً در افسانه (legend) نمایش داده می‌شود. در کتاب‌کار پیش‌فرض ایجاد شده برای یک نمودار ستون خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین سری را دارد. ثابت‌های نام‌گذاری شده در مثال زیر این ساختار را واضح می‌کنند:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض اضافه کنید.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // نام اولین سری را تنظیم کنید.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // پرونده ارائه را روی دیسک ذخیره کنید.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-کد C# زیر روش دیگری برای تغییر نام سری نشان می‌دهد:
+همچنین می‌توانید سلولی که توسط [IChartSeries.Name](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/name/) ارجاع داده شده است، به‌روزرسانی کنید. این رویکرد از فرض ردیف و ستون خاص در یک نمودار موجود جلوگیری می‌کند:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض اضافه کنید.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // نام اولین سری را تنظیم کنید.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // پرونده ارائه را روی دیسک ذخیره کنید.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 نتیجه:
 
 ![نام سری](series_name.png)
 
-## **دریافت رنگ پر کردن خودکار سری**
+## **دریافت رنگ پر‑کردن خودکار سری**
 
-Aspose.Slides برای .NET به شما امکان می‌دهد رنگ پرکردن خودکار سری‌های نمودار را در داخل ناحیه نمودار به‌دست آورید. پس از ایجاد یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) می‌توانید با استفاده از ایندکس به اسلاید مورد نظر دسترسی پیدا کنید، سپس یک نمودار با نوع دلخواه (مانند `ChartType.ClusteredColumn`) اضافه کنید. با دسترسی به سری‌ها در نمودار، می‌توانید رنگ پرکردن خودکار را دریافت کنید.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) رنگی را برمی‌گرداند که بر اساس اندیس سری و سبک نمودار محاسبه شده است. این همان رنگی است که زمانی که پر‑کردن سری به‌صورت صریح تعریف نشده باشد، استفاده می‌شود. فراخوانی متد رنگ محاسبه‌شده را می‌خواند؛ مقدار جدیدی برای پر‑کردن اختصاص نمی‌دهد.
 
-کد C# زیر این فرآیند را به‌تفصیل نشان می‌دهد.
+مثال زیر رنگ خودکار هر سری پیش‌فرض را چاپ می‌کند:
 
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض اضافه کنید.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // رنگ پرکردن سری را دریافت کنید.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
-خروجی:
+خروجی مثال برای سبک پیش‌فرض نمودار:
+
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **تنظیم رنگ پرکردن معکوس برای یک سری نمودار**
+رنگ‌های دقیق بسته به سبک و تم نمودار متفاوت است.
 
-زمانی که سری داده‌های شما شامل مقادیر مثبت و منفی باشد، رنگ یکسان برای تمام ستون‌ها یا نوارها می‌تواند خوانایی نمودار را دشوار کند. Aspose.Slides برای .NET به شما امکان می‌دهد رنگ پرکردن معکوس را اختصاص دهید — یک پرکردن جداگانه که به‌صورت خودکار برای نقاط داده‌ای که زیر صفر هستند اعمال می‌شود — تا مقادیر منفی به‌سرعت برجسته شوند. در این بخش می‌آموزید چگونه این گزینه را فعال کنید، رنگ مناسب را انتخاب کنید و ارائه بروز‌رسانی‌شده را ذخیره کنید.
+## **تنظیم رنگ پر‑کردن معکوس برای یک سری نمودار**
 
-مثال کد زیر عملیات را نشان می‌دهد:
+برای سری‌های میله، ستون و حباب، می‌توانید با استفاده از [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/invertifnegative/) مقادیر منفی را با پر‑کردن متفاوتی نشان دهید. پر‑کردن منظم سری را به صلب تنظیم کنید، معکوس شدن را فعال کنید و رنگ مقدار منفی را از طریق [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) اختصاص دهید. اعداد منفی در کتاب‌کار تغییر نمی‌کنند؛ فقط رنگ نمایش آن‌ها تغییر می‌یابد.
+
+مثال زیر داده‌های پیش‌فرض نمودار را با یک سری جایگزین می‌کند. ردیف 0 کاربرگ شامل نام سری، ستون 0 شامل نام دسته‌ها و ستون 1 شامل مقادیر است:
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // افزودن دسته‌های جدید.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // افزودن سری جدید.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // پر کردن داده‌های سری.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // تنظیمات رنگ برای سری.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 نتیجه:
 
-![رنگ پرکردن جامد معکوس](inverted_solid_fill_color.png)
+![رنگ پر‑کردن صلب معکوس](inverted_solid_fill_color.png)
 
-می‌توانید رنگ پرکردن را برای یک نقطه داده واحد به‌جای تمام سری معکوس کنید. به سادگی به `IChartDataPoint` مورد نظر دسترسی پیدا کنید و خاصیت `InvertIfNegative` آن را روی true تنظیم کنید.
-
-مثال کد زیر نشان می‌دهد چگونه این کار را انجام دهید:
+می‌توانید معکوس شدن را برای یک نقطه با استفاده از [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) فعال کنید. در مثال زیر، معکوس شدن برای سری غیرفعال و فقط برای نقطه انتخاب‌شده فعال شده است. همچنین به نقطه یک مقدار منفی اختصاص می‌دهیم تا اثر مشاهده شود:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // اگر نقطه دادهٔ ایندکس ۲ منفی باشد، رنگ را معکوس کنید.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **پاک کردن مقادیر نقاط داده خاص**
+## **پاک کردن مقدار یک نقطه داده خاص**
 
-گاهی یک نمودار شامل مقادیر تستی، نقاط پرت یا ورودی‌های منقضی شده است که نیاز به حذف آن‌ها بدون بازسازی کل سری دارد. Aspose.Slides برای .NET به شما امکان می‌دهد به هر نقطه داده‌ای بر اساس ایندکس هدف بگیرید، محتوای آن را پاک کنید و بلافاصله نمودار را تازه کنید تا نقاط باقی‌مانده جابجا شوند و محور‌ها به‌صورت خودکار مقیاس‌بندی شوند.
+برای خالی کردن یک نقطه بدون حذف نقاط دیگر، سلول پشت‌صحنهٔ کتاب‌کار آن را به `null` تنظیم کنید. برای یک نمودار ستون، مقدار ترسیم‌شده از طریق [IChartDataPoint.YValue](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/yvalue/) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را برحسب تنظیمات مقادیر خالی نمودار به‌عنوان خالی در نظر می‌گیرد.
 
-مثال کد زیر عملیات را نشان می‌دهد:
+مثال زیر فقط نقطه دوم در اولین سری را پاک می‌کند:
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-## **تنظیم عرض شکاف سری**
+نمودارهای پراکنده از سلول‌های X و Y جداگانه استفاده می‌کنند و نمودارهای حباب نیز از یک سلول اندازه بهره می‌برند. فقط سلولی که نمایانگر مقداری است که می‌خواهید حذف کنید را پاک کنید. هنگام تمایل به نگه‌داشتن سایر نقاط، از فراخوانی [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapointcollection/clear/) خودداری کنید، چون این متد تمام نقاط داده را از مجموعه حذف می‌کند.
 
-عرض شکاف میزان فضای خالی بین ستون‌ها یا نوارهای مجاور را کنترل می‌کند — شکاف‌های وسیع‌تر دسته‌های جداگانه را برجسته می‌کند، در حالی که شکاف‌های باریک‌تر ظاهری متراکم و فشرده به‌وجود می‌آورد. با استفاده از Aspose.Slides برای .NET می‌توانید این پارامتر را برای یک سری کامل به‌دقت تنظیم کنید و دقیقاً تعادل بصری مورد نیاز ارائه خود را بدون تغییر داده‌های زیربنایی به‌دست آورید.
+## **تنظیم عرض فاصله سری**
 
-مثال کد زیر نشان می‌دهد چگونه عرض شکاف را برای یک سری تنظیم کنید:
+عرض فاصله فاصله بین خوشه‌های میله یا ستون مجاور است که به‌صورت درصدی از عرض میله یا ستون بیان می‌شود. مشابه هم‌پوشانی، این مقدار متعلق به گروه سری پدر است نه به یک سری. برای گروه یک بار [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) را تنظیم کنید. مقدار بزرگتر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچکتر آن‌ها را فشرده‌تر می‌سازد.
+
+مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائه نهایی را ذخیره می‌کند:
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// یک ارائهٔ خالی ایجاد کنید.
-using (Presentation presentation = new Presentation())
-{
-    // به اولین اسلاید دسترسی پیدا کنید.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // یک نمودار با داده‌های پیش‌فرض اضافه کنید.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // ارائه را روی دیسک ذخیره کنید.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // مقدار GapWidth را تنظیم کنید.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // ارائه را روی دیسک ذخیره کنید.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 نتیجه:
 
-![عرض شکاف](gap_width.png)
+![عرض فاصله](gap_width.png)
 
 ## **سوالات متداول**
 
-**آیا محدودیتی برای تعداد سری‌های یک نمودار منفرد وجود دارد؟**
+**کدام انواع نمودار از سری‌های داده پشتیبانی می‌کنند؟**
 
-Aspose.Slides هیچ سقف ثابت برای تعداد سری‌هایی که اضافه می‌کنید اعمال نمی‌کند. محدودیت عملی توسط قابلیت خواندن نمودار و حافظه موجود برای برنامه شما تعیین می‌شود.
+همهٔ انواع نمودار که توسط شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/charttype/) نمایندگی می‌شوند از داده‌های نمودار استفاده می‌کنند، اما ساختار یا تنظیمات ارزش آن‌ها یکسان نیست. برای مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکنده از مقادیر X و Y، و نمودارهای حباب اندازه حباب‌ها را اضافه می‌کنند. از روش ایجاد نقطه‑داده‌ای که با نوع سری مطابقت دارد استفاده کنید. گزینه‌هایی مانند هم‌پوشانی و عرض فاصله تنها برای گروه‌های میله یا ستون سازگار اعمال می‌شوند.
 
-**اگر ستون‌های داخل یک خوشه بیش از حد نزدیک یا بیش از حد دور باشند چه می‌شود؟**
+**گروه سری نمودار چیست؟**
 
-مقدار تنظیم `GapWidth` برای آن سری (یا گروه سری والد) را تنظیم کنید. افزایش مقدار فضای بین ستون‌ها را گسترده می‌کند، در حالی که کاهش آن آن‌ها را به‌هم نزدیک‌تر می‌کند.
+یک [IChartSeriesGroup](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseriesgroup/) شامل سری‌های سازگاری است که تنظیمات نموداری سطح‑گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک سری دسترسی پیدا می‌کنید لزوماً تمام سری‌های نمودار را تحت تأثیر قرار نمی‌دهد.
+
+**آیا یک نمودار تازه‌ساخته داده‌های پیش‌فرض دارد؟**
+
+بله. به‌طور پیش‌فرض، [IShapeCollection.AddChart](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addchart/) نمونه‌ای از سری‌ها، دسته‌ها و مقادیر را ایجاد می‌کند. می‌توانید آن سلول‌ها را ویرایش کنید یا قبل از افزودن مجموعه دادهٔ کاملاً سفارشی، هر دو مجموعه سری و دسته را پاک کنید. یک بارگذاری دیگر نیز می‌تواند نموداری بدون داده پیش‌فرض ایجاد کند.
+
+**نمودارها چگونه به سلول‌های کتاب‌کار متصل می‌شوند؟**
+
+نام‌های سری، برچسب‌های دسته و مقادیر نقطه‑داده به سلول‌های یک [IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول ارجاع‌شده، عنصر مربوطهٔ نمودار را به‌روز می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقدار سری را هم‌راستا نگه دارید تا هر نقطه زیر دستهٔ منظورش ترسیم شود.
+
+**چگونه یک نقطه را به‌جای کل سری پاک کنم؟**
+
+سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان نقطهٔ خالی حفظ شود. از [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapointcollection/clear/) فقط زمانی استفاده کنید که قصد حذف تمام نقاط آن سری را دارید. اگر دسته‌ها را نیز حذف می‌کنید، باید هر سری را به‌روزرسانی کنید تا مقادیرشان با مجموعهٔ دسته‌ها هم‌راستا بماند.
+
+**نقاط خالی چگونه نمایش داده می‌شوند؟**
+
+نتیجه به نوع نمودار و [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichart/displayblanksas/) بستگی دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌صورت فاصله، به‌عنوان مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که معنای داده‌های از دست رفته در ارائهٔ شما را بازتاب دهد.
+
+**مقادیر منفی چگونه قالب‌بندی می‌شوند؟**
+
+برای سری‌های میله، ستون و حباب پشتیبانی‌شده، [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/invertifnegative/) را فعال کنید و [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) را تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ خاص با [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) بازنویسی کنید. این ویژگی‌ها بر قالب‌بندی اثر می‌گذارند، نه بر مقادیر عددی ذخیره‌شده.
+
+**زمانی که هم سری و هم نقطه قالب‌بندی شده باشند، کدام یک برتری دارد؟**
+
+قالب‌بندی صریح نقطه‑داده برای آن نقطه برتر است. سایر نقاط به قالب صریح سری ادامه می‌دهند یا، اگر قالب سری تعریف نشده باشد، به سبک و تم خودکار نمودار متکی می‌شوند. ویژگی‌های گروهی مانند هم‌پوشانی و عرض فاصله بر چیدمان کنترل می‌شوند و بازنویسی قالب‌بندی سطح‑نقطه نیستند.
+
+**آیا محدودیتی برای تعداد سری‌های یک نمودار وجود دارد؟**
+
+Aspose.Slides محدودیت ثابت جداگانه‌ای برای تعداد سری‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظه موجود، زمان رندر و قابلیت خواندن نمودار تعیین‌کنندهٔ حد مفید هستند.
+
+**وقتی ستون‌ها خیلی نزدیک یا خیلی دور از هم هستند، چه کاری باید انجام دهم؟**
+
+[IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) را در گروه سری پدر مربوطه تنظیم کنید. مقدار را برای افزایش فضای بین خوشه‌ها بزرگ‌تر کنید یا برای نزدیک‌تر کردن خوشه‌ها کوچک‌تر.

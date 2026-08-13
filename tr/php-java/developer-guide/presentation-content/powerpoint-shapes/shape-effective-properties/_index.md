@@ -1,5 +1,5 @@
 ---
-title: PHP ile Sunumlardan Şekil Etkili Özelliklerini Almak
+title: PHP ile Sunumlardan Şekil Etkili Özelliklerini Alın
 linktitle: Etkili Özellikler
 type: docs
 weight: 50
@@ -8,7 +8,7 @@ keywords:
 - şekil özellikleri
 - kamera özellikleri
 - ışık donanımı
-- kırmızıçık şekil
+- köşe şekli
 - metin çerçevesi
 - metin stili
 - yazı tipi yüksekliği
@@ -17,333 +17,301 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java'in, kesin PowerPoint render'ı için şekil etkili özelliklerini nasıl hesapladığını ve uyguladığını keşfedin."
+description: "Aspose.Slides for PHP via Java'ı kullanarak PowerPoint sunumlarındaki yerel, kalıtılmış ve etkili şekil biçimlendirmesini ayırt etmeyi öğrenin."
 ---
-## **Genel Bakış**
+## **Yerel, Kalıtılmış ve Etkili Özellikleri Anlama**
 
-Bu konu, **yerel** ve **etkili** özellikler arasındaki farkı açıklar. Yerel değerler, doğrudan belirli bir biçimlendirme seviyesinde ayarlanan değerlerdir; örnekler:
+PowerPoint biçimlendirmesi çeşitli yerlerden gelebilir. Bir nesneye doğrudan kaydedilen değer **yerel değerdir**. Bu değer ayarlanmamışsa, PowerPoint paragraf varsayılanı, metin stili, düzen veya ana slayt, tema veya sunum‑seviyesi varsayılanları gibi üst biçimlendirme kaynaklarına bakar. Bu değerler **kalıtılmış değerler**dir. Tüm hiyerarşi çözüldükten sonra kalan değer **etkili değerdir**—nesneyi oluşturmak için kullanılan değer.
 
-1. Bir slayttaki bölüm (portion) özellikleri.
-1. Bir düzenleme veya ana slaytta prototip şekil metin stilleri, bölümün metin çerçevesi şekli bir taneye sahipse.
-1. Sunumdaki genel metin ayarları.
+Örneğin, bir metin bölümü kendi yazı tipi yüksekliğini tanımlamıyor olabilir. Yerel [getFontHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/) değeri `NAN` olur; bu “burada ayarlanmamış” anlamına gelir. Bölüm, paragraftan, sunumun varsayılan metin stilinden veya başka bir geçerli kaynaktan yüksekliği devralabilir. Bölüm biçiminde [getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/geteffective/) çağrısı, son çözülmüş yüksekliği döndürür.
 
-Yerel değerler herhangi bir seviyede tanımlanabilir veya atlanabilir. Aspose.Slides son “görüntülendiği gibi” biçimlendirmeyi gerektiğinde, kalıtım zincirini çözer ve **etkili** değerleri döndürür. Bu değerlere, yerel format nesnesi üzerindeki `getEffective` metodunu çağırarak ulaşabilirsiniz.
+İki tür biçimlendirme verisini farklı amaçlar için kullanın:
 
-Aşağıdaki örnek, etkili değerlerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) olduğunu, bir metin çerçevesi ve en az bir bölüm içerdiğini varsayar.
+- Bir değerin nerede tanımlandığını kontrol etmeniz gerektiğinde, [PortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/) gibi bir yerel biçim nesnesini okuyun veya değiştirin.
+- Son, oluşturulmuş sonucu gerektiğinde, [PortionFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/geteffective/) tarafından döndürülen etkili veri nesnesini okuyun. Etkili veri yalnızca okunabilir.
+
+Örnekleri çalıştırmadan önce, [Aspose.Slides for PHP via Java’yı kurun](/slides/tr/php-java/installation/).
+
+## **Yerel, Kalıtılmış ve Etkili Değerleri Karşılaştırma**
+
+Aşağıdaki tam örnek bir şekil oluşturur ve sunum, paragraf ve bölüm düzeylerinde yazı tipi yüksekliği uygular. Her adım, bu seviyelerde tanımlanan değerleri ve aynı metin bölümü için ortaya çıkan etkili değeri yazdırır. Ayrıca, biçimlendirme değişikliklerinden sonra etkili verinin yeniden okunması gerektiğini gösterir.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+function formatLocalValue($value)
+{
+    return $value === null || is_nan($value) ? "<not set>" : (string)$value;
+}
+
+function printFontHeights($caption, $presentation, $paragraph, $portion)
+{
+    $presentationValue = java_values($presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->getFontHeight());
+    $paragraphValue = java_values($paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFontHeight());
+    $localValue = java_values($portion->getPortionFormat()->getFontHeight());
+
+    // Önceki değişikliklerden sonra etkili veriyi oku.
+    $effectiveValue = java_values($portion->getPortionFormat()->getEffective()->getFontHeight());
+
+    echo $caption . PHP_EOL;
+    echo "  Presentation default: " . formatLocalValue($presentationValue) . PHP_EOL;
+    echo "  Paragraph default:    " . formatLocalValue($paragraphValue) . PHP_EOL;
+    echo "  Portion local:        " . formatLocalValue($localValue) . PHP_EOL;
+    echo "  Portion effective:    " . $effectiveValue . PHP_EOL;
+}
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
-
-    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 80, false);
+    $textFrame = $shape->addTextFrame("Effective formatting");
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
     $portion = $paragraph->getPortions()->get_Item(0);
 
-    $localPortionFormat = $portion->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat->getEffective();
+    // İki farklı seviyede kalıtılmış değerleri tanımla.
+    $presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(28);
+
+    printFontHeights("The portion inherits from the paragraph", $presentation, $paragraph, $portion);
+
+    // Bölümdeki yerel değer, her iki kalıtılmış değeri geçersiz kılar.
+    $portion->getPortionFormat()->setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", $presentation, $paragraph, $portion);
+
+    // Kalıtılmış bir değeri değiştirmek, mevcut yerel değeri geçersiz kılmaz.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(30);
+    printFontHeights("The local value still has priority", $presentation, $paragraph, $portion);
+
+    // Yerel değer temizlenir. Bölüm artık paragraftan yeniden kalıtım alır.
+    $portion->getPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The local value is cleared", $presentation, $paragraph, $portion);
+
+    // Paragraf değeri temizlenir. Sunum varsayılanı şimdi sonucu sağlar.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The paragraph value is cleared", $presentation, $paragraph, $portion);
+
+    $presentation->save("effective-properties.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Etkili biçimlendirme verileri, kalıtım uygulandıktan sonra hesaplanan mevcut biçimlendirmeyi temsil eder. Mevcut uygulamada, [PortionFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/geteffective/) gibi yöntemler tarafından döndürülen bazı etkili veri nesneleri dahili olarak önbelleğe alınabilir. Üst ya da kalıtılmış biçimlendirme değiştirildikten sonra `getEffective` tekrar çağrıldığında önbellek yenilenir ve daha önce alınan nesne artık önceki durumu yansıtmaz. Etkili değerleri ileride yeniden kullanmak istiyorsanız, gerekli özellikleri (örneğin yazı tipi yüksekliği, dolgu rengi, yazı tipi stili veya hizalama) kendi veri nesnenize kopyalayın.
-{{% /alert %}}
+Bu örnekte öncelik önce bölümün yerel biçimlendirmesi, ardından paragraf biçimlendirmesi ve sonunda sunum varsayılanıdır. Diğer nesnelerin farklı kalıtım zincirleri olabilir, ancak prensip aynı kalır: daha belirgin açık bir değer kazanır ve [getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/geteffective/) son sonucu döndürür.
 
-## **Bir Kamera İçin Etkili Özellikleri Almak**
+## **Etkili Metin Özelliklerini Alın**
 
-Aspose.Slides, bir kameranın etkili özelliklerini almanıza olanak tanır. [ThreeDFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/) tarafından döndürülen etkili veri, bir [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) için son kamera özelliklerini içerir.
+Metin biçimlendirmesi birkaç nesneye yayılmıştır:
 
-Aşağıdaki kod örneği, kamera için etkili özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/geteffective/) kenar boşlukları, sabitleme, otomatik sığdırma ve dikey metin yönü gibi metin‑çerçeve özelliklerini çözer.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textstyle/geteffective/) her metin stili seviyesinin paragraf biçimlendirmesini çözer.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/geteffective/) hizalama, girinti ve madde işaretleri gibi paragraf özelliklerini çözer.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/geteffective/) yazı tipi yüksekliği, tip, renk, kalın ve italik gibi karakter özelliklerini çözer.
+
+Sonraki örnek için `text-formatting.pptx` en az bir slayt ve boş olmayan bir metin çerçevesi içeren bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) içermelidir. AutoShape şekil koleksiyonunda herhangi bir konumda bulunabilir; kod uygun bir nesne arar ve kullanmadan önce doğrular.
 
 ```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+use aspose\slides\Presentation;
 
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $camera = $threeDEffectiveData->getCamera();
-    $cameraType = $camera->getCameraType();
-    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
-    $zoom = $camera->getZoom();
-
-    echo "= Effective camera properties =" . PHP_EOL;
-    echo "Type: " . $cameraType . PHP_EOL;
-    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
-    echo "Zoom: " . $zoom . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    if ($value === null) {
+        return "<not set>";
+    }
+    if (is_bool($value)) {
+        return $value ? "true" : "false";
+    }
+    return (string)$value;
 }
-```
 
-## **Bir Işık Donanımı İçin Etkili Özellikleri Almak**
-
-Aspose.Slides, bir ışık donanımının etkili özelliklerini almanıza olanak tanır. [ThreeDFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/) tarafından döndürülen etkili veri, bir [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) için son ışık donanımı özelliklerini içerir.
-
-Aşağıdaki kod örneği, ışık donanımı için etkili özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $lightRig = $threeDEffectiveData->getLightRig();
-    $lightType = $lightRig->getLightType();
-    $direction = $lightRig->getDirection();
-
-    echo "= Effective light rig properties =" . PHP_EOL;
-    echo "Type: " . $lightType . PHP_EOL;
-    echo "Direction: " . $direction . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function hasNonEmptyText($shape)
+{
+    $textFrame = $shape->getTextFrame();
+    if (java_is_null($textFrame)) {
+        return false;
+    }
+    if (java_values($textFrame->getParagraphs()->getCount()) === 0) {
+        return false;
+    }
+    return java_values($textFrame->getParagraphs()->get_Item(0)->getPortions()->getCount()) > 0;
 }
-```
 
-## **Bir Kırmızıçık Şekil İçin Etkili Özellikleri Almak**
-
-Aspose.Slides, bir şekil kırmızıçığının (bevel) etkili özelliklerini almanıza olanak tanır. [ThreeDFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/) tarafından döndürülen etkili veri, bir [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) için son yüzey kabartması özelliklerini içerir.
-
-Aşağıdaki kod örneği, bir şeklin üst kırmızıçığı için etkili özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $bevelTop = $threeDEffectiveData->getBevelTop();
-    $bevelType = $bevelTop->getBevelType();
-    $bevelWidth = $bevelTop->getWidth();
-    $bevelHeight = $bevelTop->getHeight();
-
-    echo "= Effective shape's top face relief properties =" . PHP_EOL;
-    echo "Type: " . $bevelType . PHP_EOL;
-    echo "Width: " . $bevelWidth . PHP_EOL;
-    echo "Height: " . $bevelHeight . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function findAutoShapeWithText($slide)
+{
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $candidate = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($candidate, $autoShapeClass) && hasNonEmptyText($candidate)) {
+            return $candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Bir Metin Çerçevesi İçin Etkili Özellikleri Almak**
-
-Aspose.Slides kullanarak bir metin çerçevesinin etkili özelliklerini alabilirsiniz. [TextFrameFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/geteffective/) tarafından döndürülen etkili veri, metin çerçevesi biçimlendirme özelliklerini içerir.
-
-Aşağıdaki kod örneği, etkili metin çerçevesi biçimlendirme özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("text-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
-    $autofitType = $effectiveTextFrameFormat->getAutofitType();
-    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
-    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
-    $marginTop = $effectiveTextFrameFormat->getMarginTop();
-    $marginRight = $effectiveTextFrameFormat->getMarginRight();
-    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+    $shape = findAutoShapeWithText($presentation->getSlides()->get_Item(0));
+    if ($shape === null) {
+        throw new RuntimeException("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    echo "Anchoring type: " . $anchoringType . PHP_EOL;
-    echo "Autofit type: " . $autofitType . PHP_EOL;
-    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
-    echo "Margins" . PHP_EOL;
-    echo "   Left: " . $marginLeft . PHP_EOL;
-    echo "   Top: " . $marginTop . PHP_EOL;
-    echo "   Right: " . $marginRight . PHP_EOL;
-    echo "   Bottom: " . $marginBottom . PHP_EOL;
-} finally {
-    $presentation->dispose();
-}
-```
+    $textFrame = $shape->getTextFrame();
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
 
-## **Bir Metin Stili İçin Etkili Özellikleri Almak**
+    $textFrameEffective = $textFrame->getTextFrameFormat()->getEffective();
+    $paragraphEffective = $paragraph->getParagraphFormat()->getEffective();
+    $portionEffective = $portion->getPortionFormat()->getEffective();
 
-Aspose.Slides kullanarak bir metin stilinin etkili özelliklerini alabilirsiniz. [TextStyle.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textstyle/geteffective/) tarafından döndürülen etkili veri, metin stili özelliklerini içerir.
+    echo "Text frame margins:" . PHP_EOL;
+    echo "  Left: " . formatEffectiveValue($textFrameEffective->getMarginLeft()) . PHP_EOL;
+    echo "  Top: " . formatEffectiveValue($textFrameEffective->getMarginTop()) . PHP_EOL;
+    echo "  Right: " . formatEffectiveValue($textFrameEffective->getMarginRight()) . PHP_EOL;
+    echo "  Bottom: " . formatEffectiveValue($textFrameEffective->getMarginBottom()) . PHP_EOL;
+    echo "Paragraph alignment: " . formatEffectiveValue($paragraphEffective->getAlignment()) . PHP_EOL;
+    echo "Font height: " . formatEffectiveValue($portionEffective->getFontHeight()) . PHP_EOL;
+    echo "Bold: " . formatEffectiveValue($portionEffective->getFontBold()) . PHP_EOL;
 
-Aşağıdaki kod örneği, etkili metin stili özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $textStyle = $textFrameFormat->getTextStyle();
-    $effectiveTextStyle = $textStyle->getEffective();
-    $levelCount = 9;
-
-    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
-        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
-        $depth = $effectiveStyleLevel->getDepth();
-        $indent = $effectiveStyleLevel->getIndent();
-        $alignment = $effectiveStyleLevel->getAlignment();
-        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
-
-        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
-
-        echo "Depth: " . $depth . PHP_EOL;
-        echo "Indent: " . $indent . PHP_EOL;
-        echo "Alignment: " . $alignment . PHP_EOL;
-        echo "Font alignment: " . $fontAlignment . PHP_EOL;
+    $effectiveTextStyle = $textFrame->getTextFrameFormat()->getTextStyle()->getEffective();
+    for ($level = 0; $level < 9; $level++) {
+        $levelEffective = $effectiveTextStyle->getLevel($level);
+        echo "Level " . $level . " indent: " . formatEffectiveValue($levelEffective->getIndent()) . PHP_EOL;
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Etkili Yazı Tipi Yüksekliği Değerini Almak**
+## **Etkili 3D Özelliklerini Alın**
 
-Aspose.Slides kullanarak etkili yazı tipi yüksekliğini alabilirsiniz. Aşağıdaki kod, bir bölümün etkili yazı tipi yüksekliğinin, farklı sunum yapısı seviyelerinde yerel yazı tipi yüksekliği değerleri ayarlandığında nasıl değiştiğini gösterir.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/) tüm çözülmüş 3D ayarlarını gruplayan tek bir etkili veri nesnesi döndürür. Its [getCamera](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/), [getLightRig](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/), [getBevelTop](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/) ve [getBevelBottom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/geteffective/) metodları ilgili etkili verileri sunar. Bu ilgili ayarları birlikte okumak, bir şeklin son 3D görünümünü anlamayı kolaylaştırır.
+
+Bu örnek için `shape-3d.pptx` ilk slaytında en az bir şekil içermelidir. Çıktının varsayılanların dışında değerler içermesini istiyorsanız, o şekle 3D kamera, aydınlatma veya köşe ayarları uygulayın.
 
 ```php
-$presentation = new Presentation();
+use aspose\slides\Presentation;
+
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    return $value === null ? "<not set>" : (string)$value;
+}
+
+$presentation = new Presentation("shape-3d.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0 || java_values($presentation->getSlides()->get_Item(0)->getShapes()->size()) === 0) {
+        throw new RuntimeException("The first slide must contain a shape.");
+    }
 
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $autoShape->addTextFrame("");
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $threeDEffective = $shape->getThreeDFormat()->getEffective();
 
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    $paragraph->getPortions()->clear();
+    echo "Camera:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getCamera()->getCameraType()) . PHP_EOL;
+    echo "  Field of view: " . formatEffectiveValue($threeDEffective->getCamera()->getFieldOfViewAngle()) . PHP_EOL;
+    echo "  Zoom: " . formatEffectiveValue($threeDEffective->getCamera()->getZoom()) . PHP_EOL;
 
-    $firstPortion = new Portion("Sample text with first portion");
-    $secondPortion = new Portion(" and second portion.");
+    echo "Light rig:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getLightRig()->getLightType()) . PHP_EOL;
+    echo "  Direction: " . formatEffectiveValue($threeDEffective->getLightRig()->getDirection()) . PHP_EOL;
 
-    $paragraph->getPortions()->add($firstPortion);
-    $paragraph->getPortions()->add($secondPortion);
-
-    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
-    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height just after creation:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
-    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
-    $defaultPortionFormat->setFontHeight(24);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
-    $paragraphDefaultPortionFormat->setFontHeight(40);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $firstPortionFormat->setFontHeight(55);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $secondPortionFormat->setFontHeight(18);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+    echo "Top bevel:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getBevelTop()->getBevelType()) . PHP_EOL;
+    echo "  Width: " . formatEffectiveValue($threeDEffective->getBevelTop()->getWidth()) . PHP_EOL;
+    echo "  Height: " . formatEffectiveValue($threeDEffective->getBevelTop()->getHeight()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Bir Tablo İçin Etkili Dolgu Biçimini Almak**
+## **Etkili Tablo Biçimlendirmesini Alın**
 
-Aspose.Slides, farklı tablo bölümleri için etkili dolgu biçimlendirmesini almanıza olanak tanır. Biçim nesneleri tarafından döndürülen etkili veri, [FillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/) özelliklerini içerir. Hücre biçimlendirmesi, satır biçimlendirmesinden, satır biçimlendirmesi sütun biçimlendirmesinden ve sütun biçimlendirmesi tüm tablo biçimlendirmesinden daha yüksek önceliğe sahiptir.
+Tablo biçimlendirmesi tablo stilinden ve tabloya, bir sütuna, bir satıra ya da tek bir hücreye uygulanan biçimlerden gelebilir. Açıkça tanımlanan dolgu çakışmalarında öncelik hücre, satır, sütun ve ardından tüm tablo şeklindedir. Bir hücrenin etkili biçimi, o hücreyi çizerken kullanılan son biçimdir.
 
-Sonuç olarak, tablo hücresini çizerken etkili [CellFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cellformat/) özellikleri kullanılır. Aşağıdaki kod örneği, farklı tablo bölümleri için etkili dolgu biçimlendirmesinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/) olduğunu varsayar.
+Bu örnek için `table-formatting.pptx` ilk slaytında en az bir tablo içermelidir. Tablo en az bir satır ve bir sütun içermelidir. Kod, `getShapes()->get_Item(0)`'ın bir tablo olduğunu varsaymak yerine bir [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/) arar.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+
+function findTable($slide)
+{
+    $tableClass = new JavaClass("com.aspose.slides.Table");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, $tableClass)) {
+            return $shape;
+        }
+    }
+    return null;
+}
+
+$presentation = new Presentation("table-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $table = $slide->getShapes()->get_Item(0);
-    $tableFormatEffective = $table->getTableFormat()->getEffective();
+    $table = findTable($presentation->getSlides()->get_Item(0));
+    if ($table === null) {
+        throw new RuntimeException("The first slide must contain a table.");
+    }
+    if (java_values($table->getRows()->size()) === 0 || java_values($table->getColumns()->size()) === 0) {
+        throw new RuntimeException("The table must contain at least one cell.");
+    }
 
-    $row = $table->getRows()->get_Item(0);
-    $rowFormatEffective = $row->getRowFormat()->getEffective();
+    $tableEffective = $table->getTableFormat()->getEffective();
+    $rowEffective = $table->getRows()->get_Item(0)->getRowFormat()->getEffective();
+    $columnEffective = $table->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
+    $cellEffective = $table->get_Item(0, 0)->getCellFormat()->getEffective();
 
-    $column = $table->getColumns()->get_Item(0);
-    $columnFormatEffective = $column->getColumnFormat()->getEffective();
-
-    $cell = $table->get_Item(0, 0);
-    $cellFormatEffective = $cell->getCellFormat()->getEffective();
-
-    $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
-    $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
-    $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
-    $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
+    echo "Table fill: " . java_values($tableEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Row fill: " . java_values($rowEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Column fill: " . java_values($columnEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Final cell fill: " . java_values($cellEffective->getFillFormat()->getFillType()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
+
+Renk ihtiyacınız varsa ve yalnızca dolgu türü değil, önce etkili [getFillType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/geteffective/) değerini kontrol edin, ardından o türe göre uygulanacak metodu okuyun—örneğin katı dolgu için [getSolidFillColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/geteffective/).
+
+## **Değişikliklerden Sonra Etkili Veriyi Yeniden Okuyun**
+
+Etkili veri, çözülme anındaki biçimlendirme hiyerarşisini tanımlar. Hiyerarşiye katılabilecek herhangi bir şeyi değiştirdikten sonra `getEffective` metodunu tekrar çağırın; bunlar şunları içerir:
+
+- nesnenin yerel biçimlendirmesi;
+- paragraf veya metin‑çerçeve varsayılanları;
+- bir tablo stili, tablo, sütun, satır veya hücre biçimi;
+- düzen veya ana slayt biçimlendirmesi;
+- tema verileri veya sunum‑seviyesi varsayılanları;
+- bir slayta atanan düzen veya ana slayt.
+
+Etkili veri nesnesini kalıcı bir anlık görüntü olarak saklamayın. Aspose.Slides bazı etkili verileri dahili olarak önbelleğe alabilir ve sonraki bir `getEffective` çağrısı bu verileri yenileyebilir. Bir değişiklik öncesi ve sonrası değerleri karşılaştırmanız gerekiyorsa, değişikliği yapmadan önce ihtiyaç duyduğunuz skaler değerleri (ör. yazı tipi yüksekliği, renk, hizalama veya köşe genişliği) kendi değişkenlerinize kopyalayın.
+
+Bir değeri değiştirmek için ilgili yerel biçim nesnesini güncelleyin ve ardından sonucu doğrulamak için `getEffective` çağırın. Etkili veri nesneleri kendileri yalnızca okunabilir.
 
 ## **SSS**
 
-**`getEffective` bir anlık görüntü (snapshot) döndürür mü?**
+**Etkili bir değerin hangi seviyeden geldiğini nasıl öğrenebilirim?**
 
-Her zaman değil. Etkili veri, kalıtım uygulandıktan sonra hesaplanan biçimlendirmeyi temsil eder, ancak bazı etkili veri nesneleri dahili olarak önbelleğe alınabilir. Sonraki bir `getEffective` çağrısı biçimlendirmeyi yeniden hesaplayabilir ve önbelleği yenileyebilir; bu nedenle daha önce alınan nesne kalıcı bir anlık görüntü olarak ele alınmamalıdır.
+Etkili veri, son değeri içerir, kaynağını değil. En özel seviyeden dışa doğru geçerli yerel nesneleri inceleyin. Metin için bu, bölüm, paragraf, metin çerçevesi, düzen, ana slayt, tema ve sunum varsayılanlarını içerebilir. `NAN` veya `null` gibi tanımsız değerler, aramanın başka bir seviyeye devam ettiğini gösterir.
 
-**Etkili özellikleri tekrar ne zaman okumalıyım?**
+**Hiçbir seviye bir özelliği tanımlamazsa ne olur?**
 
-Yerel biçimlendirme, üst stil, düzenleme biçimlendirmesi, ana biçimlendirme veya sunum düzeyindeki varsayılanlar değiştirildikten sonra `getEffective` tekrar çağrılmalıdır. Bir sonraki çağrı biçimlendirme hiyerarşisini yeniden değerlendirir ve mevcut etkili sonucu döndürür.
+Aspose.Slides uygun PowerPoint ya da kütüphane varsayılanını çözer. Bu çözülen değer, yerel bir nesne açıkça tanımlamasa bile etkili veride görünür.
 
-**Bir düzenleme/ana slayt değiştirildiğinde veya kaldırıldığında, zaten alınmış etkili özellikler etkilenir mi?**
+**Neden bazen etkili değer yerel değerle aynı olur?**
 
-Evet, ancak değişiklik bir sonraki `getEffective` çağrısında yansır. Bir üst biçim kaynağı değiştirildiğinde veya kaldırıldığında, daha önce alınan etkili veri eski (stale) olabilir. `getEffective` tekrar çağrıldığında Aspose.Slides biçimleme ağacını yeniden değerlendirir ve ortaya çıkan yazı tipleri, renkler, boyutlar veya diğer değerler değişebilir.
+Yerel değer, kalıtım hesabını kazanmıştır. Bu, özelliğin nesne üzerinde açıkça ayarlandığı ve daha spesifik bir kuralın üzerine yazmadığı durumlarda beklenir.
 
-**Etkili veri nesneleri üzerinden değerleri değiştirebilir miyim?**
+**Yerel veriyi ne zaman etkili veri yerine kullanmalıyım?**
 
-Hayır. Etkili veri nesneleri yalnızca hesaplanmış değerleri gösterir. Değişiklikleri yerel biçimlendirme nesnelerinde yapın ve ardından etkili değerleri tekrar alın.
-
-**Bir özellik şekil seviyesinde, düzenleme/ana slaytta ve genel ayarlarda hiç ayarlanmamışsa ne olur?**
-
-Etkili değer, PowerPoint ve Aspose.Slides varsayılanlarını içeren varsayılan mekanizma tarafından belirlenir. Çözülen bu değer, mevcut etkili verinin bir parçası haline gelir.
-
-**Etkili bir yazı tipi değerinden, boyutu veya yazı tipini hangi seviyenin sağladığını söyleyebilir miyim?**
-
-Doğrudan değil. Etkili veri son değeri döndürür. Kaynağı bulmak için bölüm, paragraf, metin çerçevesi ve düzenleme, ana ve sunum seviyelerindeki metin stillerindeki yerel değerlere bakarak ilk açık tanımın nerede yapıldığını kontrol etmeniz gerekir.
-
-**Neden bazen etkili değerler yerel değerlerle aynı görünüyor?**
-
-Çünkü yerel değer, son değer haline gelmiştir (daha üst seviyelerden kalıtım gerekmemiştir). Bu durumlarda etkili değer, yerel değerle aynı olur.
-
-**Etkili özellikleri ne zaman, yerel özelliklerle ne zaman kullanmalıyım?**
-
-Tüm kalıtım uygulandıktan sonra “görüntülendiği gibi” sonucu elde etmeniz gerektiğinde etkili verileri kullanın; örneğin renk, girinti veya boyutları hizalamak için. Bu değerleri ilerideki değişikliklerden bağımsız olarak saklamanız gerektiğinde, gerekli özellikleri kendi nesnenize kopyalayın. Belirli bir seviyede biçimlendirme değişikliği yapmanız gerektiğinde, yerel özellikleri değiştirin ve gerekirse etkili verileri tekrar okuyarak sonucu doğrulayın.
+Belirli bir biçimlendirme seviyesini incelemek veya düzenlemek için yerel veriyi kullanın. Kalıtım, tema kuralları ve uygulanabilir stiller çözüldükten sonra son görünümü elde etmeniz gerektiğinde etkili veriyi kullanın. [Tam karşılaştırma örneği](#compare-local-inherited-and-effective-values) aynı iş akışında ikisini de gösterir.

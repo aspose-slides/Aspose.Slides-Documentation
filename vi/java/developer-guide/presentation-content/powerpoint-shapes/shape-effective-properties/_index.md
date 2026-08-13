@@ -1,337 +1,299 @@
 ---
-title: Lấy Thuộc tính Hiệu lực của Hình dạng từ Bản trình chiếu trong Java
-linktitle: Thuộc tính Hiệu lực
+title: "Lấy Các Thuộc Tính Hiệu Lực của Shape từ Bản Trình Chiếu trong Java"
+linktitle: "Thuộc Tính Hiệu Lực"
 type: docs
 weight: 50
 url: /vi/java/shape-effective-properties/
 keywords:
-- thuộc tính hình dạng
-- thuộc tính camera
-- bộ ánh sáng
-- hình dạng bevel
-- khung văn bản
-- kiểu văn bản
-- chiều cao phông chữ
-- định dạng đổ màu
-- PowerPoint
-- bản trình chiếu
-- Java
-- Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho Java tính toán và áp dụng các thuộc tính hiệu lực của hình dạng để hiển thị PowerPoint một cách chính xác."
+- "thuộc tính hình dạng"
+- "thuộc tính camera"
+- "bộ ánh sáng"
+- "hình bevel"
+- "khung văn bản"
+- "kiểu văn bản"
+- "chiều cao phông chữ"
+- "định dạng nền"
+- "PowerPoint"
+- "bản trình chiếu"
+- "Java"
+- "Aspose.Slides"
+description: "Tìm hiểu cách sử dụng Aspose.Slides cho Java để phân biệt định dạng shape cục bộ, kế thừa và hiệu lực trong các bản trình chiếu PowerPoint."
 ---
-## **Tổng quan**
+## **Hiểu Các Thuộc Tính Cục Bộ, Kế Thừa và Hiệu Lực**
 
-Bài viết này giải thích sự khác nhau giữa các thuộc tính **cục bộ** và **hiệu lực**. Giá trị cục bộ là các giá trị được đặt trực tiếp ở một mức định dạng cụ thể, chẳng hạn như:
+Định dạng PowerPoint có thể đến từ nhiều nguồn. Giá trị được lưu trữ trực tiếp trên một đối tượng là **giá trị cục bộ** của nó. Nếu giá trị này không được đặt, PowerPoint sẽ xem các nguồn định dạng cha, chẳng hạn như mặc định đoạn văn, kiểu văn bản, bố cục hoặc slide master, chủ đề, hoặc các mặc định ở mức trình chiếu. Các giá trị đó là **giá trị kế thừa**. Giá trị còn lại sau khi toàn bộ chuỗi kế thừa được giải quyết là **giá trị hiệu lực**—giá trị được dùng để hiển thị đối tượng.
 
-1. Thuộc tính đoạn trên một slide.  
-1. Các kiểu văn bản hình dạng nguyên mẫu trên bố cục hoặc slide chủ, khi hình dạng khung văn bản của đoạn có một.  
-1. Cài đặt văn bản toàn cục trong một bản thuyết trình.  
+Ví dụ, một phần văn bản có thể không xác định chiều cao phông chữ của riêng mình. Giá trị cục bộ của nó là [getFontHeight](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#getFontHeight--) sẽ là `Float.NaN`, nghĩa là “không được đặt ở đây”. Phần này có thể kế thừa chiều cao từ đoạn văn, kiểu văn bản mặc định của bài thuyết trình, hoặc một nguồn áp dụng khác. Gọi [getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportionformat/#getEffective--) trên định dạng phần sẽ trả về chiều cao đã được giải quyết cuối cùng.
 
-Giá trị cục bộ có thể được định nghĩa hoặc bỏ qua ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng cuối cùng "được hiển thị", nó giải quyết chuỗi kế thừa và trả về các giá trị **hiệu lực**. Bạn có thể lấy chúng bằng cách gọi phương thức `getEffective` trên đối tượng định dạng cục bộ.
+Sử dụng hai loại dữ liệu định dạng cho các mục đích khác nhau:
 
-Ví dụ sau minh họa cách lấy các giá trị hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) có khung văn bản và ít nhất một đoạn.
+- Đọc hoặc thay đổi một đối tượng định dạng cục bộ, chẳng hạn như [IPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportionformat/), khi bạn cần kiểm soát nơi một giá trị được định nghĩa.
+- Đọc một đối tượng dữ liệu hiệu lực, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportionformateffectivedata/), khi bạn cần kết quả cuối cùng đã được hiển thị. Dữ liệu hiệu lực chỉ đọc.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **So Sánh Các Giá Trị Cục Bộ, Kế Thừa và Hiệu Lực**
 
-    ITextFrameFormat localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.getEffective();
-
-    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = paragraph.getPortions().get_Item(0);
-    IPortionFormat localPortionFormat = portion.getPortionFormat();
-    IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-Dữ liệu định dạng hiệu lực đại diện cho định dạng tính toán hiện tại sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu hiệu lực, như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPortionFormatEffectiveData), có thể được lưu trong bộ nhớ đệm nội bộ. Gọi lại `getEffective` sau khi thay đổi định dạng cha hoặc kế thừa có thể làm mới dữ liệu đã cache, và một đối tượng đã lấy trước đó có thể không còn đại diện cho trạng thái trước đó. Nếu bạn cần bảo lưu các giá trị hiệu lực để sử dụng lại sau, sao chép các thuộc tính cần thiết, chẳng hạn như chiều cao phông chữ, màu nền, kiểu phông chữ hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
-{{% /alert %}}
-
-## **Lấy Thuộc tính Hiệu lực của Camera**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của camera. Giao diện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ICameraEffectiveData) đại diện cho một đối tượng bất biến chứa các thuộc tính camera hiệu lực. Một thể hiện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ICameraEffectiveData) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormatEffectiveData), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormat).
-
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính hiệu lực cho camera. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+Ví dụ hoàn chỉnh sau tạo một shape và áp dụng chiều cao phông chữ ở mức trình chiếu, đoạn văn và phần. Mỗi bước in ra các giá trị được định nghĩa ở các mức và giá trị hiệu lực kết quả cho cùng một phần văn bản. Nó cũng minh họa lý do tại sao dữ liệu hiệu lực phải được đọc lại sau khi thay đổi định dạng.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
-    int cameraType = cameraEffectiveData.getCameraType();
-    double fieldOfViewAngle = cameraEffectiveData.getFieldOfViewAngle();
-    double zoom = cameraEffectiveData.getZoom();
+import com.aspose.slides.*;
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraType);
-    System.out.println("Field of view: " + fieldOfViewAngle);
-    System.out.println("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
-}
-```
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-## **Lấy Thuộc tính Hiệu lực của Light Rig**
+            // Xác định các giá trị kế thừa ở hai cấp độ khác nhau.
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của Light Rig. Giao diện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ILightRigEffectiveData) đại diện cho một đối tượng bất biến chứa các thuộc tính Light Rig hiệu lực. Một thể hiện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ILightRigEffectiveData) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormatEffectiveData), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormat).
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính hiệu lực cho Light Rig. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+            // Giá trị cục bộ trên phần sẽ ghi đè cả hai giá trị kế thừa.
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
-    int lightType = lightRigEffectiveData.getLightType();
-    int direction = lightRigEffectiveData.getDirection();
+            // Thay đổi giá trị kế thừa sẽ không ghi đè giá trị cục bộ hiện có.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightType);
-    System.out.println("Direction: " + direction);
-} finally {
-    presentation.dispose();
-}
-```
+            // Xóa giá trị cục bộ. Phần hiện sẽ kế thừa lại từ đoạn văn.
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-## **Lấy Thuộc tính Hiệu lực của Đối tượng Bevel**
+            // Xóa giá trị đoạn văn. Mặc định của bản trình chiếu bây giờ cung cấp kết quả.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của bevel hình dạng. Giao diện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeBevelEffectiveData) đại diện cho một đối tượng bất biến chứa các thuộc tính relief cho một hình dạng. Một thể hiện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeBevelEffectiveData) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormatEffectiveData), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormat).
-
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính hiệu lực cho bevel trên cùng của một hình dạng. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTop = threeDEffectiveData.getBevelTop();
-    int bevelType = bevelTop.getBevelType();
-    double bevelWidth = bevelTop.getWidth();
-    double bevelHeight = bevelTop.getHeight();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelType);
-    System.out.println("Width: " + bevelWidth);
-    System.out.println("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Lấy Thuộc tính Hiệu lực của Khung Văn bản**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu lực của khung văn bản. Giao diện [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextFrameFormatEffectiveData) chứa các thuộc tính định dạng khung văn bản hiệu lực.
-
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính định dạng khung văn bản hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) có khung văn bản.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.getEffective();
-    int anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    int autofitType = effectiveTextFrameFormat.getAutofitType();
-    int textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    double marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    double marginTop = effectiveTextFrameFormat.getMarginTop();
-    double marginRight = effectiveTextFrameFormat.getMarginRight();
-    double marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    System.out.println("Anchoring type: " + anchoringType);
-    System.out.println("Autofit type: " + autofitType);
-    System.out.println("Text vertical type: " + textVerticalType);
-    System.out.println("Margins");
-    System.out.println("   Left: " + marginLeft);
-    System.out.println("   Top: " + marginTop);
-    System.out.println("   Right: " + marginRight);
-    System.out.println("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Lấy Thuộc tính Hiệu lực của Kiểu Văn bản**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu lực của kiểu văn bản. Giao diện [ITextStyleEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextStyleEffectiveData) chứa các thuộc tính kiểu văn bản hiệu lực.
-
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính kiểu văn bản hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) có khung văn bản.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-    
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
-    {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        int depth = effectiveStyleLevel.getDepth();
-        double indent = effectiveStyleLevel.getIndent();
-        int alignment = effectiveStyleLevel.getAlignment();
-        int fontAlignment = effectiveStyleLevel.getFontAlignment();
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + depth);
-        System.out.println("Indent: " + indent);
-        System.out.println("Alignment: " + alignment);
-        System.out.println("Font alignment: " + fontAlignment);
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // Đọc dữ liệu hiệu lực sau các thay đổi trước đó.
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **Lấy Giá trị Chiều cao Phông chữ Hiệu lực**
+Độ ưu tiên trong ví dụ này là định dạng cục bộ của phần, sau đó là định dạng đoạn văn, cuối cùng là mặc định của trình chiếu. Các đối tượng khác có thể có chuỗi kế thừa khác nhau, nhưng nguyên tắc vẫn giống: giá trị cụ thể hơn và được đặt rõ ràng sẽ thắng, và [getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportionformat/#getEffective--) trả về kết quả cuối cùng.
 
-Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ hiệu lực. Mã dưới đây minh họa cách chiều cao phông chữ hiệu lực của một đoạn thay đổi sau khi các giá trị chiều cao phông chữ cục bộ được đặt ở các mức cấu trúc bản thuyết trình khác nhau.
+## **Lấy Các Thuộc Tính Văn Bản Hiệu Lực**
+
+Định dạng văn bản được chia ra nhiều đối tượng:
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#getEffective--) giải quyết các thuộc tính khung văn bản như lề, neo, tự động điều chỉnh và hướng văn bản dọc.
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextstyle/#getEffective--) giải quyết định dạng đoạn văn cho mỗi mức kiểu văn bản.
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getEffective--) giải quyết các thuộc tính đoạn văn như căn chỉnh, thụt lề và dấu chấm.
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportionformat/#getEffective--) giải quyết các thuộc tính ký tự như chiều cao phông chữ, họ phông, màu, in đậm và in nghiêng.
+
+Đối với ví dụ tiếp theo, tệp `text-formatting.pptx` phải chứa ít nhất một slide và một [AutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/autoshape/) có khung văn bản không rỗng. AutoShape có thể nằm ở bất kỳ vị trí nào trong bộ sưu tập shape; mã sẽ tìm đối tượng phù hợp và xác thực trước khi sử dụng.
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **Lấy Định dạng Đổ màu Hiệu lực cho Bảng**
+## **Lấy Các Thuộc Tính 3D Hiệu Lực**
 
-Sử dụng Aspose.Slides, bạn có thể lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giao diện [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IFillFormatEffectiveData) chứa các thuộc tính định dạng đổ màu hiệu lực. Định dạng ô có ưu tiên cao hơn định dạng hàng, định dạng hàng cao hơn định dạng cột, và định dạng cột cao hơn định dạng toàn bảng.
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ithreedformat/#getEffective--) trả về một đối tượng [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ithreedformateffectivedata/) nhóm tất cả các cài đặt 3D đã được giải quyết. Các phương thức [getCamera](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ithreedformateffectivedata/#getCamera--), [getLightRig](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ithreedformateffectivedata/#getLightRig--), [getBevelTop](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--), và [getBevelBottom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) cung cấp dữ liệu hiệu lực tương ứng. Đọc các cài đặt liên quan này cùng nhau giúp hiểu dễ hơn về diện mạo 3D cuối cùng của một shape.
 
-Do đó, các thuộc tính của [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ICellFormatEffectiveData) được sử dụng để vẽ ô bảng. Mẫu mã dưới đây cho thấy cách lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [ITable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITable).
+Đối với ví dụ này, tệp `shape-3d.pptx` phải chứa ít nhất một shape trên slide đầu tiên. Áp dụng cài đặt camera 3D, ánh sáng hoặc bevel cho shape đó nếu bạn muốn kết quả bao gồm các giá trị khác với mặc định.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
-    
-    ITableFormatEffectiveData tableFormatEffective = table.getTableFormat().getEffective();
-    IRowFormatEffectiveData rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    IColumnFormatEffectiveData columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    ICellFormatEffectiveData cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+import com.aspose.slides.*;
 
-    IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.getFillFormat();
-} finally {
-    presentation.dispose();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
+
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **Lấy Định Dạng Bảng Hiệu Lực**
 
-**`getEffective` có trả về một bản sao không?**
+Định dạng bảng có thể đến từ kiểu bảng và từ các định dạng được áp dụng cho toàn bộ bảng, cột, hàng hoặc ô riêng lẻ. Khi có xung đột giữa các màu nền được xác định rõ, thứ tự ưu tiên là ô, hàng, cột, rồi toàn bộ bảng. Định dạng hiệu lực của một ô là định dạng cuối cùng được dùng để vẽ ô đó.
 
-Không phải luôn luôn. Dữ liệu hiệu lực đại diện cho định dạng đã tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu hiệu lực có thể được lưu trong bộ nhớ đệm nội bộ. Một lời gọi `getEffective` tiếp theo có thể tính lại định dạng và làm mới dữ liệu đã cache, vì vậy một đối tượng đã lấy trước đó không nên được coi là một bản sao bền vững.
+Đối với ví dụ này, tệp `table-formatting.pptx` phải chứa ít nhất một bảng trên slide đầu tiên. Bảng phải có ít nhất một hàng và một cột. Mã sẽ tìm một [ITable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itable/) thay vì giả định rằng `getShapes().get_Item(0)` là một bảng.
 
-**Khi nào tôi nên đọc lại các thuộc tính hiệu lực?**
+```java
+import com.aspose.slides.*;
 
-Gọi `getEffective` lại sau khi thay đổi định dạng cục bộ, kiểu cha, định dạng bố cục, định dạng master hoặc các mặc định ở mức bản thuyết trình. Lời gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả hiệu lực hiện tại.
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-**Việc thay đổi hoặc xoá một slide bố cục/master có ảnh hưởng tới các thuộc tính hiệu lực đã được lấy trước không?**
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
 
-Có, nhưng thay đổi sẽ được phản ánh ở lời gọi `getEffective` tiếp theo. Nếu nguồn định dạng cha bị thay đổi hoặc xoá, dữ liệu hiệu lực đã lấy trước có thể trở nên lỗi thời. Khi `getEffective` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc giá trị khác có thể thay đổi.
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
 
-**Tôi có thể sửa đổi giá trị thông qua các đối tượng dữ liệu hiệu lực không?**
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-Không. Các đối tượng dữ liệu hiệu lực chỉ hiển thị các giá trị đã tính toán. Thực hiện thay đổi trong các đối tượng định dạng cục bộ, sau đó lại lấy các giá trị hiệu lực.
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
 
-**Nếu một thuộc tính không được đặt ở mức hình dạng, cũng không ở bố cục/master, cũng không ở cài đặt toàn cục thì gì sẽ xảy ra?**
+Nếu bạn cần màu hơn chỉ kiểu nền, trước tiên kiểm tra [getFillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformateffectivedata/#getFillType--) trong dữ liệu hiệu lực, sau đó đọc phương thức áp dụng cho kiểu đó—ví dụ, [getSolidFillColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--) cho nền đặc.
 
-Giá trị hiệu lực được xác định bằng cơ chế mặc định, bao gồm các mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết sẽ trở thành một phần của dữ liệu hiệu lực hiện tại.
+## **Đọc Lại Dữ Liệu Hiệu Lực Sau Khi Thay Đổi**
 
-**Từ một giá trị phông chữ hiệu lực, tôi có thể biết mức nào đã cung cấp kích thước hoặc kiểu chữ không?**
+Dữ liệu hiệu lực mô tả chuỗi định dạng tại thời điểm nó được giải quyết. Gọi `getEffective` một lần nữa sau khi thay đổi bất kỳ yếu tố nào có thể tham gia vào chuỗi đó, bao gồm:
 
-Không trực tiếp. Dữ liệu hiệu lực chỉ trả về giá trị cuối cùng. Để tìm nguồn, kiểm tra các giá trị cục bộ ở đoạn, đoạn văn, khung văn bản và các kiểu văn bản ở mức bố cục, master và bản thuyết trình để xem nơi định nghĩa đầu tiên xuất hiện.
+- định dạng cục bộ của đối tượng;
+- mặc định đoạn văn hoặc khung văn bản;
+- kiểu bảng, bảng, cột, hàng hoặc định dạng ô;
+- định dạng bố cục hoặc slide master;
+- dữ liệu chủ đề hoặc các mặc định ở mức trình chiếu;
+- bố cục hoặc master được gán cho slide.
 
-**Tại sao đôi khi các giá trị hiệu lực trông giống hệt với giá trị cục bộ?**
+Không giữ một đối tượng dữ liệu hiệu lực như một bức ảnh chụp vĩnh viễn. Aspose.Slides có thể lưu bộ nhớ đệm một số dữ liệu hiệu lực nội bộ, và một lời gọi `getEffective` sau này có thể làm mới dữ liệu đó. Nếu bạn cần so sánh các giá trị trước và sau khi thay đổi, sao chép các giá trị vô hướng cần thiết—chẳng hạn chiều cao phông chữ, màu, căn chỉnh hoặc độ rộng bevel—vào biến của riêng bạn trước khi thực hiện thay đổi.
 
-Bởi vì giá trị cục bộ đã trở thành giá trị cuối cùng (không cần kế thừa ở mức cao hơn). Trong các trường hợp đó, giá trị hiệu lực trùng với giá trị cục bộ.
+Để thay đổi một giá trị, cập nhật đối tượng định dạng cục bộ thích hợp rồi gọi `getEffective` để xác nhận kết quả. Các đối tượng dữ liệu hiệu lực tự chúng chỉ đọc.
 
-**Khi nào tôi nên sử dụng thuộc tính hiệu lực, và khi nào chỉ làm việc với các thuộc tính cục bộ?**
+## **FAQ**
 
-Sử dụng dữ liệu hiệu lực khi bạn cần kết quả "được hiển thị" sau khi mọi kế thừa đã được áp dụng, chẳng hạn để đồng bộ màu sắc, thụt lề hoặc kích thước. Nếu bạn muốn bảo lưu các giá trị này bất chấp các thay đổi định dạng sau này, sao chép các thuộc tính cần thiết vào đối tượng riêng của bạn. Nếu bạn cần thay đổi định dạng ở một mức cụ thể, chỉnh sửa các thuộc tính cục bộ và sau đó, nếu cần, đọc lại dữ liệu hiệu lực để xác nhận kết quả.
+**Làm thế nào tôi có thể biết cấp độ nào đã cung cấp giá trị hiệu lực?**
+
+Dữ liệu hiệu lực chỉ chứa giá trị cuối cùng, không phải nguồn gốc của nó. Kiểm tra các đối tượng cục bộ áp dụng từ cấp độ cụ thể nhất ra ngoài. Đối với văn bản, có thể bao gồm phần, đoạn văn, khung văn bản, bố cục, master, chủ đề và các mặc định của trình chiếu. Các giá trị chưa xác định như `Float.NaN` hoặc `null` cho biết quá trình tìm kiếm tiếp tục sang cấp độ khác.
+
+**Điều gì xảy ra khi không có cấp độ nào định nghĩa thuộc tính?**
+
+Aspose.Slides sẽ giải quyết giá trị mặc định phù hợp của PowerPoint hoặc thư viện. Giá trị đã được giải quyết đó sẽ xuất hiện trong dữ liệu hiệu lực ngay cả khi không có đối tượng cục bộ nào định nghĩa rõ ràng.
+
+**Tại sao một giá trị hiệu lực đôi khi bằng với giá trị cục bộ?**
+
+Giá trị cục bộ đã thắng trong phép tính kế thừa. Điều này là bình thường khi thuộc tính được đặt rõ ràng trên đối tượng và không có quy tắc cụ thể hơn nào ghi đè lên nó.
+
+**Khi nào tôi nên sử dụng dữ liệu cục bộ thay vì dữ liệu hiệu lực?**
+
+Sử dụng dữ liệu cục bộ để kiểm tra hoặc chỉnh sửa một mức định dạng cụ thể. Sử dụng dữ liệu hiệu lực khi bạn cần kết quả hiển thị cuối cùng sau khi đã áp dụng kế thừa, quy tắc chủ đề và các kiểu áp dụng. Ví dụ **so sánh đầy đủ** ([compare-local-inherited-and-effective-values](#compare-local-inherited-and-effective-values)) minh họa cả hai trong cùng một quy trình làm việc.

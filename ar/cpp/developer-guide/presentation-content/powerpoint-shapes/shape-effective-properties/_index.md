@@ -1,317 +1,357 @@
 ---
-title: الحصول على خصائص الشكل الفعّالة من العروض التقديمية بلغة C++
-linktitle: الخصائص الفعّالة
+title: الحصول على خصائص الشكل الفعالة من العروض التقديمية في C++
+linktitle: خصائص فعالة
 type: docs
 weight: 50
 url: /ar/cpp/shape-effective-properties/
 keywords:
 - خصائص الشكل
 - خصائص الكاميرا
-- جهاز إضاءة
-- تقويس الشكل
+- نظام الإضاءة
+- شكل الحافة
 - إطار النص
 - نمط النص
 - ارتفاع الخط
 - تنسيق التعبئة
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - C++
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides للغة C++ بحساب وتطبيق الخصائص الفعّالة للشكل للحصول على عرض PowerPoint دقيق."
+description: "تعلم كيفية استخدام Aspose.Slides للـ C++ للتمييز بين تنسيق الشكل المحلي والوارث والفعّال في عروض PowerPoint التقديمية."
 ---
-## **نظرة عامة**
+## **فهم الخصائص المحلية والوارثة والفعالة**
 
-توضح هذه المقالة الفرق بين الخصائص **المحلية** والخصائص **الفعّالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً على مستوى تنسيق معين، مثل:
+يمكن أن يأتي تنسيق PowerPoint من عدة أماكن. القيمة المخزنة مباشرة على كائن هي **القيمة المحلية**. إذا لم يتم تعيين تلك القيمة، يبحث PowerPoint عن مصادر تنسيق الأب، مثل الإعداد الافتراضي للفقرة، نمط النص، تخطيط الشريحة أو الشريحة الرئيسية، السمة، أو الإعدادات الافتراضية على مستوى العرض التقديمي. تلك القيم هي **القيم الموروثة**. القيمة التي تبقى بعد حل كامل التسلسل الهرمي هي **القيمة الفعالة**—القيمة المستخدمة لعرض الكائن.
 
-1. خصائص الجزء على الشريحة.
-1. أنماط نص الشكل النموذجي على تخطيط أو شريحة رئيسية، عندما يكون لشكل إطار النص للجزء واحد.
-1. إعدادات النص العامة في العرض التقديمي.
+على سبيل المثال، قد لا تُعرّف جزء النص ارتفاع الخط الخاص به. ارتفاع الخط [font height](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/) يكون حينها `std::numeric_limits<float>::quiet_NaN()`, مما يعني "ليس مُحددًا هنا". يمكن للجزء أن يرث ارتفاعًا من الفقرة، أو نمط النص الافتراضي للعرض التقديمي، أو مصدر آخر قابل للتطبيق. استدعاء [GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iportionformat/) على تنسيق الجزء يُعيد الارتفاع المُحل النهائي.
 
-يمكن تعريف القيم المحلية أو إهمالها في أي مستوى. عندما تحتاج Aspose.Slides إلى التنسيق النهائي "كما يتم عرضه"، تقوم بحل سلسلة الوراثة وتعيد القيم **الفعّالة**. يمكنك الحصول عليها عن طريق استدعاء طريقة `GetEffective` على كائن التنسيق المحلي.
+استخدم نوعي بيانات التنسيق لأغراض مختلفة:
 
-يوضح المثال التالي كيفية الحصول على القيم الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) يحتوي على إطار نص وعلى الأقل جزء واحد.
+- قراءة أو تعديل كائن تنسيق محلي، مثل [IPortionFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iportionformat/)، عندما تحتاج إلى التحكم في المكان الذي تم تعريف القيمة فيه.
+- قراءة كائن البيانات الفعالة، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iportionformateffectivedata/)، عندما تحتاج إلى النتيجة النهائية المُرسومة. البيانات الفعالة للقراءة فقط.
+
+## **قارن القيم المحلية والوارثة والفعالة**
+
+المثال الكامل التالي ينشئ شكلًا ويطبق ارتفاعات الخط على مستويات العرض التقديمي والفقرة والجزء. كل خطوة تطبع القيم المحددة على تلك المستويات والقيمة الفعالة الناتجة لنفس جزء النص. كما يوضح لماذا يجب قراءة البيانات الفعالة مرة أخرى بعد تغييرات التنسيق.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// تحديد القيم الموروثة على مستويين مختلفين.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // قراءة البيانات الفعالة بعد التغييرات السابقة.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// قيمة محلية على الجزء تتجاوز كلا القيمتين الموروثتين.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// تغيير قيمة موروثة لا يتجاوز قيمة محلية موجودة.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// مسح القيمة المحلية. الآن يرث الجزء من الفقرة مرة أخرى.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// مسح قيمة الفقرة. الآن يوفر الإعداد الافتراضي للعرض التقديمي النتيجة.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+الأولوية في هذا المثال هي تنسيق الجزء المحلي، ثم تنسيق الفقرة، ثم الإعداد الافتراضي للعرض التقديمي. يمكن لكائنات أخرى أن تكون لها سلاسل وراثة مختلفة، لكن المبدأ هو نفسه: القيمة الصريحة الأكثر تحديدًا هي الفائزة، و[GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iportionformat/) يُعيد النتيجة النهائية.
+
+## **احصل على خصائص النص الفعالة**
+
+تنسيق النص مقسَّم عبر عدة كائنات:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/) يحل خصائص إطار النص مثل الهوامش، التثبيت، الضبط التلقائي، واتجاه النص العمودي.
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextstyle/) يحل تنسيق الفقرات لكل مستوى من مستويات نمط النص.
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/) يحل خصائص الفقرة مثل المحاذاة، المسافة البادئة، والقوائم.
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iportionformat/) يحل خصائص الأحرف مثل ارتفاع الخط، نوع الخط، اللون، السُمك، والمائلة.
+
+للمثال التالي، يجب أن يحتوي `text-formatting.pptx` على شريحة واحدة على الأقل وعلى [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) واحد بإطار نص غير فارغ. يمكن أن يظهر IAutoShape في أي موضع داخل مجموعة الأشكال؛ يبحث الكود عن كائن مناسب ويُصادق عليه قبل الاستخدام.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-
-تمثل بيانات التنسيق الفعّالة التنسيق الحالي المحسوب بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعّالة، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iportionformateffectivedata/)، في الذاكرة مؤقتاً. يمكن لاستدعاء `GetEffective` مرة أخرى بعد تغيير تنسيق الأصل أو التنسيقات الموروثة تحديث البيانات المخزنة مؤقتاً، وقد لا يمثل الكائن الذي تم الحصول عليه مسبقاً الحالة السابقة. إذا كنت بحاجة إلى الحفاظ على القيم الفعّالة لإعادة استخدامها لاحقاً، قم بنسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن بيانات خاص بك.
-
-{{% /alert %}}
-
-## **الحصول على الخصائص الفعّالة للكاميرا**
-
-تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة للكاميرا. تمثل واجهة [ICameraEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icameraeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعّالة. يتم عرض مثال [ICameraEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icameraeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformateffectivedata/)، والذي يوفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/).
-
-يعرض مقتطف الشيفرة التالي كيفية الحصول على الخصائص الفعّالة للكاميرا. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **الحصول على الخصائص الفعّالة لجهاز إضاءة**
-
-تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لجهاز الإضاءة. تمثل واجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilightrigeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص جهاز الإضاءة الفعّالة. يتم عرض مثال [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilightrigeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformateffectivedata/)، والذي يوفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/).
-
-يعرض مقتطف الشيفرة التالي كيفية الحصول على الخصائص الفعّالة لجهاز الإضاءة. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **الحصول على الخصائص الفعّالة لتقويس الشكل**
-
-تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لتقويس الشكل. تمثل واجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapebeveleffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص التقويس الفعّالة للوجه على الشكل. يتم عرض مثال [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapebeveleffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformateffectivedata/)، والذي يوفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/).
-
-يعرض مقتطف الشيفرة التالي كيفية الحصول على الخصائص الفعّالة لتقويس الجزء العلوي من الشكل. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **الحصول على الخصائص الفعّالة لإطار النص**
-
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لإطار النص. تحتوي واجهة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformateffectivedata/) على خصائص تنسيق إطار النص الفعّالة.
-
-يعرض مقتطف الشيفرة التالي كيفية الحصول على خصائص تنسيق إطار النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) يحتوي على إطار نص.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **الحصول على الخصائص الفعّالة لنمط النص**
-
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لنمط النص. تحتوي واجهة [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextstyleeffectivedata/) على خصائص نمط النص الفعّالة.
-
-يعرض مقتطف الشيفرة التالي كيفية الحصول على خصائص نمط النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) يحتوي على إطار نص.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **الحصول على قيمة ارتفاع الخط الفعّال**
+## **احصل على الخصائص الثلاثية الأبعاد الفعالة**
 
-باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعّال. يوضح الشيفرة التالية كيف يتغيّر ارتفاع الخط الفعّال للجزء بعد ضبط قيم ارتفاع الخط المحلية على مستويات بنية العرض المختلفة.
+[IThreeDFormat::GetEffective](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformat/) يُعيد كائنًا واحدًا من نوع [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ithreedformateffectivedata/) يجمع جميع إعدادات 3D المُحلَّة. بيانات [camera](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icameraeffectivedata/)، [light rig](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilightrigeffectivedata/)، [top bevel](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapebeveleffectivedata/) و[bottom bevel](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapebeveleffectivedata/) تكشف الإعدادات الفعالة المقابلة. قراءة هذه الإعدادات المرتبطة معًا تُسهِّل فهم المظهر الثلاثي الأبعاد النهائي للشكل.
+
+لهذا المثال، يجب أن يحتوي `shape-3d.pptx` على شكل واحد على الأقل في الشريحة الأولى. طبّق إعدادات كاميرا 3D أو إضاءة أو تشطيب على ذلك الشكل إذا أردت أن يحتوي الناتج على قيم غير القيم الافتراضية.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **احصل على تنسيق الجدول الفعال**
+
+يمكن أن يأتي تنسيق الجدول من نمط الجدول ومن التنسيقات المطبقة على الجدول بأكمله، أو عمود، أو صف، أو خلية فردية. في حالة حدوث تعارض بين ملء (fill) معرف صراحةً، تكون الأولوية للخلية، ثم الصف، ثم العمود، ثم الجدول بأكمله. التنسيق الفعلي للخلية هو التنسيق النهائي المستخدم لرسم تلك الخلية.
+
+لهذا المثال، يجب أن يحتوي `table-formatting.pptx` على جدول واحد على الأقل في الشريحة الأولى. يجب أن يحتوي الجدول على صف واحد على الأقل وعمود واحد على الأقل. يبحث الكود عن [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/) بدلاً من افتراض أن الشكل الأول هو جدول.
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **الحصول على تنسيق التعبئة الفعّال لجدول**
-
-باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. تحتوي واجهة [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifillformateffectivedata/) على خصائص تنسيق التعبئة الفعّالة. يكون تنسيق الخلية ذا أولوية أعلى من تنسيق الصف، وتنسيق الصف أعلى من تنسيق العمود، وتنسيق العمود أعلى من تنسيق الجدول بأكمله.
-
-وبالتالي، تُستخدم خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icellformateffectivedata/) لرسم خلية الجدول. يعرض مقتطف الشيفرة التالي كيفية الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول في الشريحة الأولى هو [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/).
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
 
-## **الأسئلة المتداولة**
+إذا كنت بحاجة إلى اللون بدلاً من نوع الملء فقط، افحص أولاً الـ [FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifillformateffectivedata/) الفعلي، ثم اقرأ الخاصية التي تنطبق على ذلك النوع—على سبيل المثال، [SolidFillColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifillformateffectivedata/) للملء الصلب.
 
-**هل تُعيد `GetEffective` لقطة ثابتة؟**
+## **إعادة قراءة البيانات الفعالة بعد التغييرات**
 
-ليس دائماً. تمثل البيانات الفعّالة التنسيق المحسوب بعد تطبيق الوراثة، إلا أن بعض كائنات البيانات الفعّالة قد يتم تخزينها مؤقتاً داخلياً. قد يقوم استدعاء `GetEffective` لاحقاً بإعادة حساب التنسيق وتحديث البيانات المخزنة، لذلك لا ينبغي اعتبار الكائن المسترجع مسبقاً كلقطة ثابتة.
+البيانات الفعالة تصف تسلسل تنسيقات الهرم في لحظة حلها. استدعِ `GetEffective` مرة أخرى بعد تغيير أي شيء يمكن أن يشارك في هذا الهرم، بما في ذلك:
 
-**متى ينبغي قراءة الخصائص الفعّالة مرة أخرى؟**
+- تنسيق الكائن المحلي؛
+- إعدادات الفقرة أو إطار النص الافتراضية؛
+- نمط جدول، جدول، عمود، صف، أو تنسيق خلية؛
+- تنسيق تخطيط أو شريحة رئيسية؛
+- بيانات السمة أو الإعدادات الافتراضية على مستوى العرض التقديمي؛
+- التخطيط أو الشريحة الرئيسية المعينة للشريحة.
 
-استدعِ `GetEffective` مرة أخرى بعد تغيير التنسيق المحلي، أو أنماط الأصل، أو تنسيق التخطيط، أو تنسيق القالب الرئيسي، أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيعيد الاستدعاء التالي تقييم شجرة التنسيق ويعيد النتيجة الفعّالة الحالية.
+لا تحتفظ بكائن بيانات فعالة كلقطة ثابتة. قد يخزن Aspose.Slides بعض البيانات الفعالة مؤقتًا داخليًا، ويمكن لاستدعاء `GetEffective` لاحقًا تحديث تلك البيانات. إذا كنت بحاجة إلى مقارنة القيم قبل وبعد التغيير، انسخ القيم المتقلبة التي تحتاجها—مثل ارتفاع الخط، اللون، المحاذاة، أو عرض التشطيب—إلى متغيراتك الخاصة قبل إجراء التغيير.
 
-**هل يؤثر تغيير أو إزالة شريحة تخطيط/قالب رئيسي على الخصائص الفعّالة التي تم استرجاعها مسبقاً؟**
+لتغيير قيمة، حدّث كائن التنسيق المحلي المناسب ثم استدعِ `GetEffective` للتحقق من النتيجة. كائنات البيانات الفعالة نفسها للقراءة فقط.
 
-نعم، لكن التغيير ينعكس في الاستدعاء التالي لـ `GetEffective`. إذا تم تعديل أو إزالة مصدر تنسيق أب، قد تصبح البيانات الفعّالة المستلمة مسبقاً قديمة. بمجرد استدعاء `GetEffective` مرة أخرى، تعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغيّر الخطوط، الألوان، الأحجام أو القيم الأخرى.
+## **FAQ**
 
-**هل يمكن تعديل القيم عبر كائنات البيانات الفعّالة؟**
+**كيف يمكنني معرفة أي مستوى زوَّد بالقيمة الفعالة؟**
 
-لا. تُظهر كائنات البيانات الفعّالة القيم المحسوبة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي، ثم احصل على القيم الفعّالة مرة أخرى.
+البيانات الفعالة تحتوي على القيمة النهائية، وليس مصدرها. افحص الكائنات المحلية القابلة للتطبيق من المستوى الأكثر تحديدًا إلى الخارج. بالنسبة للنص، قد يشمل ذلك الجزء، الفقرة، إطار النص، التخطيط، الشريحة الرئيسية، السمة، وإعدادات العرض التقديمي الافتراضية. القيم غير المعرفة مثل `std::numeric_limits<float>::quiet_NaN()` أو `nullptr` تشير إلى أن البحث يستمر إلى مستوى آخر.
 
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل، ولا في التخطيط/القالب، ولا في الإعدادات العامة؟**
+**ماذا يحدث إذا لم يعرّف أي مستوى خاصية؟**
 
-يُحدَّد القيمة الفعّالة من خلال الآلية الافتراضية التي تشمل الإعدادات الافتراضية لبرنامج PowerPoint وAspose.Slides. تصبح القيمة التي تم حلها جزءاً من البيانات الفعّالية الحالية.
+يقوم Aspose.Slides بحل الإعداد الافتراضي المناسب لـ PowerPoint أو للمكتبة. تظهر تلك القيمة المحلَّلة في البيانات الفعالة رغم عدم تعريف أي كائن محلي لها صراحةً.
 
-**من خلال قيمة الخط الفعّال، هل يمكنني معرفة المستوى الذي قدم الحجم أو الخط؟**
+**لماذا قد تكون القيمة الفعالة أحيانًا مساوية للقيمة المحلية؟**
 
-ليس مباشرة. تُعيد البيانات الفعّالة القيمة النهائية فقط. لتحديد المصدر، تحقق من القيم المحلية على مستوى الجزء، الفقرة، إطار النص، وأنماط النص على مستويات التخطيط، القالب، والعرض لتحديد أول تعريف صريح.
+القيمة المحلية فازت في حساب الوراثة. وهذا متوقع عندما يتم تعيين الخاصية صراحةً على الكائن ولا تتجاوزها قاعدة أكثر تحديدًا.
 
-**لماذا تبدو القيم الفعّالة أحياناً مطابقة للقيم المحلية؟**
+**متى يجب أن أستخدم البيانات المحلية بدلًا من البيانات الفعالة؟**
 
-لأن القيمة المحلية انتهت بها المطاف لتكون النهائية (لم يُستدعى مستوى أعلى للوراثة). في هذه الحالة تكون القيمة الفعّالية مطابقة للقيمة المحلية.
-
-**متى يجب استخدام الخصائص الفعّالة، ومتى أكتفي بالخصائص المحلية؟**
-
-استخدم البيانات الفعّالية عندما تحتاج إلى النتيجة "كما يتم عرضها" بعد تطبيق كل الوراثات، مثل محاذاة الألوان أو الهوامش أو الأحجام. إذا أردت الاحتفاظ بهذه القيم بغض النظر عن تغييرات التنسيق المستقبلية، انسخ الخصائص المطلوبة إلى كائن خاص بك. إذا كنت بحاجة إلى تعديل التنسيق على مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، اقرأ البيانات الفعّالية مرة أخرى للتحقق من النتيجة.
+استخدم البيانات المحلية لتفقد أو تعديل مستوى تنسيق معين. استخدم البيانات الفعالة عندما تحتاج إلى المظهر النهائي بعد حساب الوراثة وقواعد السمة والأنماط المطبقة. مثال [complete comparison example](#compare-local-inherited-and-effective-values) يُظهر كلاهما في نفس سير العمل.

@@ -1,11 +1,11 @@
 ---
-title: Kelola Seri Data Grafik dalam Presentasi Menggunakan С++
+title: Mengelola Seri Data Diagram dalam Presentasi dengan C++
 linktitle: Seri Data
 type: docs
 url: /id/cpp/chart-series/
 keywords:
-- seri grafik
-- tumpang tindih seri
+- seri diagram
+- overlap seri
 - warna seri
 - warna kategori
 - nama seri
@@ -13,326 +13,541 @@ keywords:
 - celah seri
 - PowerPoint
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Pelajari cara mengelola seri grafik dalam С++ untuk PowerPoint (PPT/PPTX) dengan contoh kode praktis dan praktik terbaik untuk meningkatkan presentasi data Anda."
+description: "Pelajari cara mengelola seri diagram, titik data, sel buku kerja, pemformatan, overlap, lebar celah, dan nilai negatif dalam presentasi dengan C++."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan peran [ChartSeries](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts.chartseries/) dalam Aspose.Slides, dengan fokus pada cara data terstruktur dan divisualisasikan dalam presentasi. Objek-objek ini menyediakan elemen dasar yang mendefinisikan kumpulan titik data, kategori, dan parameter tampilan individual dalam sebuah grafik. Dengan menggunakan [ChartSeries](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts.chartseries/), pengembang dapat mengintegrasikan sumber data yang mendasari dan mengendalikan sepenuhnya cara informasi ditampilkan, menghasilkan presentasi dinamis berbasis data yang jelas menyampaikan wawasan dan analisis.
+Sebuah diagram menyimpan data yang dipetakan dalam sebuah buku kerja data diagram. Sebuah [IChartSeries](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/) mewakili satu set nilai yang terkait, dan setiap [IChartDataPoint](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapoint/) dalam seri mengacu pada satu atau beberapa sel buku kerja. Objek [IChartCategory](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartcategory/) menyediakan label atau nilai pengelompokan yang dibagikan oleh seri. Nama seri, kategori, dan nilai titik oleh karena itu terhubung ke objek [IChartDataCell](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/) bukan hanya disimpan sebagai teks tampilan.
 
-Sebuah seri adalah baris atau kolom angka yang dipetakan dalam sebuah grafik.
+Untuk diagram kategori tipikal, buku kerja default menggunakan baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel‑sel sisanya untuk nilai seri. Indeks lembar kerja, baris, dan kolom yang diberikan ke [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) bersifat berbasis nol. Tata letak ini berguna saat Anda membuat diagram dengan data default, tetapi jangan mengasumsikan bahwa setiap diagram yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel‑sel yang dirujuk oleh seri, kategori, dan titik data sebelum mengubah nilai buku kerja.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Pengaturan diagram memiliki tiga lingkup berbeda:
 
-## **Atur Overlap Seri Data**
+- Pengaturan tingkat seri, seperti [IChartSeries::get_Format](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/get_format/), menyediakan tampilan baku untuk semua titik dalam satu seri.
+- Pengaturan titik‑data, seperti [IChartDataPoint::get_Format](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapoint/get_format/), menimpa tampilan seri untuk satu titik.
+- Pengaturan grup berlaku untuk seri yang kompatibel yang termasuk dalam [IChartSeriesGroup](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseriesgroup/). Akses grup melalui [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) bila Anda perlu mengatur opsi seperti overlap atau lebar celah.
 
-Dengan metode [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb), Anda dapat menentukan seberapa banyak batang dan kolom harus saling tumpang tindih pada grafik 2D (rentang: -100 hingga 100). Properti ini berlaku untuk semua seri dalam grup seri induk: ini merupakan proyeksi properti grup yang sesuai.
+Saat tidak ada pengisian titik atau seri yang eksplisit, gaya diagram dan tema menentukan tampilan otomatis. Ketika pengisian seri dan titik keduanya ada, pengisian titik memiliki prioritas untuk titik tersebut.
 
-Gunakan metode `get_ParentSeriesGroup()::set_Overlap()` untuk menetapkan nilai `Overlap` yang Anda inginkan.
+![seri-grafik-powerpoint](chart-series-powerpoint.png)
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-1. Tambahkan grafik kolom berkelompok pada sebuah slide.
-1. Akses seri grafik pertama.
-1. Akses `ParentSeriesGroup` seri grafik dan tetapkan nilai overlap yang diinginkan untuk seri tersebut.
-1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+## **Atur Overlap Seri Diagram**
 
-Kode C++ berikut menunjukkan cara mengatur overlap untuk sebuah seri grafik:
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/get_overlap/) melaporkan seberapa banyak batang atau kolom saling tumpang tindih dalam diagram 2D, dari -100 hingga 100 persen. Ini merupakan proyeksi read‑only dari pengaturan pada grup seri induk. Panggil [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe diagram yang menampilkan batang atau kolom yang dikelompokkan; tidak memengaruhi grup seri yang tidak terkait dalam diagram kombinasi.
+
+Contoh berikut mengatur overlap untuk grup yang berisi seri pertama:
 
 ```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int8_t overlapPercent = 30;
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Menambahkan grafik
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-if (series->idx_get(0)->get_Overlap() == 0)
-{
-    // Mengatur tumpang tindih seri
-    series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
-}
+// Diagram baru berisi contoh seri, kategori, dan nilai.
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Menulis file presentasi ke disk
-presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_Overlap(overlapPercent);
+
+presentation->Save(u"series_overlap.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Ubah Warna Seri Data**
-Aspose.Slides untuk C++ memungkinkan Anda mengubah warna seri dengan cara berikut:
+Hasilnya:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-1. Tambahkan grafik pada slide.
-1. Akses seri yang ingin Anda ubah warnanya.
-1. Tetapkan tipe isian dan warna isian yang diinginkan.
-1. Simpan presentasi yang telah dimodifikasi.
+![Overlap seri](series_overlap.png)
 
-Kode C++ berikut menunjukkan cara mengubah warna seri:
+## **Ubah Warna Isi Seri**
 
-```cpp
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+Gunakan [IChartSeries::get_Format](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/get_format/) untuk mengatur isi baku bagi seluruh seri. Jika sebuah titik sudah memiliki isi eksplisit, pengaturan [IChartDataPoint::get_Format](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapoint/get_format/) menimpa isi seri untuk titik tersebut.
 
-auto chart = shapes->AddChart(ChartType::Pie, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(1);
-
-point->set_Explosion(30);
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
-
-## **Ubah Warna Kategori Seri Data**
-Aspose.Slides untuk C++ memungkinkan Anda mengubah warna kategori seri dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-1. Tambahkan grafik pada slide.
-1. Akses kategori seri yang ingin Anda ubah warnanya.
-1. Tetapkan tipe isian dan warna isian yang diinginkan.
-1. Simpan presentasi yang telah dimodifikasi.
-
-Kode C++ berikut menunjukkan cara mengubah warna kategori seri:
+Contoh berikut menerapkan isi biru padat pada seri pertama:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0);
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/shared_ptr.h>
 
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-## **Ubah Nama Seri Data** 
-
-Secara default, nama legend untuk sebuah grafik berasal dari isi sel di atas setiap kolom atau baris data.
-
-Dalam contoh kami (gambar contoh),
-
-* kolomnya adalah *Series 1, Series 2,* dan *Series 3*;
-* barisnya adalah *Category 1, Category 2, Category 3,* dan *Category 4*.
-
-Aspose.Slides untuk C++ memungkinkan Anda memperbarui atau mengubah nama seri dalam data grafik dan legendanya.
-
-Kode C++ berikut menunjukkan cara mengubah nama seri dalam `ChartDataWorkbook` grafik:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-
-auto seriesCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, 0, 1);
-seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-Kode C++ berikut menunjukkan cara mengubah nama seri melalui `Series` pada legendanya:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series()->idx_get(0);
-
-auto name = series->get_Name();
-name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
-```
-
-## **Atur Warna Isi Seri Data**
-
-Aspose.Slides untuk C++ memungkinkan Anda menetapkan warna isi otomatis untuk seri grafik di dalam area plot dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Tambahkan grafik dengan data default berdasarkan tipe yang Anda pilih (pada contoh di bawah, kami menggunakan `ChartType::ClusteredColumn`).
-1. Akses seri grafik dan tetapkan warna isi ke Automatic.
-1. Simpan presentasi ke file PPTX.
-
-Kode C++ berikut menunjukkan cara menetapkan warna isi otomatis untuk sebuah seri grafik:
-
-```cpp
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Membuat grafik kolom berkelompok
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Mengatur format isi seri menjadi otomatis
-for (const auto& series : chart->get_ChartData()->get_Series())
-{
-    series->GetAutomaticSeriesColor();
-}
-
-// Menulis file presentasi ke disk
-presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
-```
-
-## **Atur Warna Isi Terbalik untuk Seri Data**
-Aspose.Slides memungkinkan Anda mengatur warna isi terbalik untuk seri grafik di dalam area plot dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Tambahkan grafik dengan data default berdasarkan tipe yang Anda pilih (pada contoh di bawah, kami menggunakan `ChartType::ClusteredColumn`).
-1. Akses seri grafik dan tetapkan warna isi ke invert.
-1. Simpan presentasi ke file PPTX.
-
-Kode C++ berikut mendemonstrasikan operasi tersebut:
-
-```cpp
-Color inverColor = Color::get_Red();
-    
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
-
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-auto chartData = chart->get_ChartData();
-
-chartData->get_Series()->Clear();
-chartData->get_Categories()->Clear();
-
-// Adds new series and categories
-chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
-
-// Takes the first chart series and populates its series data.
-auto series = chartData->get_Series()->idx_get(0);
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-30)));
-Color seriesColor = series->GetAutomaticSeriesColor();
-series->set_InvertIfNegative(true);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesColor = Color::get_Blue();
 series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColor);
-series->get_InvertedSolidFillColor()->set_Color(inverColor);
-pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
+
+presentation->Save(u"series_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Atur Warna Isi Terbalik untuk Seri Grafik**
-Aspose.Slides memungkinkan Anda mengatur inversi melalui metode `IChartDataPoint::set_InvertIfNegative()` dan `ChartDataPoint.set_InvertIfNegative()`. Ketika inversi diatur menggunakan metode tersebut, titik data akan membalikkan warnanya ketika menerima nilai negatif.
+Hasilnya:
 
-Kode C++ berikut mendemonstrasikan operasi tersebut:
+![Warna seri](series_color.png)
+
+## **Ubah Nama Seri**
+
+Nama seri disimpan dalam buku kerja data diagram dan biasanya ditampilkan di legenda. Dalam buku kerja default yang dibuat untuk diagram kolom berkelompok, sel B1 berada pada baris 0, kolom 1 dan berisi nama seri pertama. Konstanta bernama dalam contoh berikut membuat struktur itu eksplisit:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-chart->get_ChartData()->get_Series()->Clear();
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-series->Add(workBook->GetCell(0, u"B1"), chart->get_Type());
-auto dataPoints = series->idx_get(0)->get_DataPoints();
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B2", ObjectExt::Box<int32_t>(-5)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B3", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B4", ObjectExt::Box<int32_t>(-2)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B5", ObjectExt::Box<int32_t>(1)));
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-series->idx_get(0)->set_InvertIfNegative(false);
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-pres->Save(u"out.pptx", SaveFormat::Pptx);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesNameCell = workbook->GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Bersihkan Nilai Titik Data Spesifik**
-Aspose.Slides untuk C++ memungkinkan Anda membersihkan data `DataPoints` untuk seri grafik tertentu dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Dapatkan referensi grafik melalui indeksnya.
-4. Iterasi semua `DataPoints` grafik dan setel `XValue` serta `YValue` menjadi null.
-5. Bersihkan semua `DataPoints` untuk seri grafik yang spesifik.
-6. Tulis presentasi yang telah dimodifikasi ke file PPTX.
-
-Kode C++ berikut mendemonstrasikan operasi tersebut:
+Anda juga dapat memperbarui sel yang sudah dirujuk oleh [IChartSeries::get_Name](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/get_name/). Pendekatan ini menghindari asumsi baris dan kolom tertentu dalam diagram yang ada:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
-auto sl = pres->get_Slides()->idx_get(0);
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCellCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IStringChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto chart = System::ExplicitCast<IChart>(sl->get_Shapes()->idx_get(0));
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-for (const auto& dataPoint : dataPoints)
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesNameCells = series->get_Name()->get_AsCells();
+auto seriesNameCell = seriesNameCells->idx_get(firstNameCellIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Hasilnya:
+
+![Nama seri](series_name.png)
+
+## **Dapatkan Warna Isi Seri Otomatis**
+
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) mengembalikan warna yang dihitung dari indeks seri dan gaya diagram. Ini adalah warna yang digunakan ketika isi seri belum didefinisikan secara eksplisit. Memanggil metode ini membaca warna yang dihitung; tidak menetapkan isi baru.
+
+Contoh berikut mencetak warna otomatis setiap seri default:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Presentation;
+using System::Console;
+using System::String;
+
+const int firstSlideIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+const int seriesCount = seriesCollection->get_Count();
+for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    dataPoint->get_XValue()->get_AsCell()->set_Value(nullptr);
-    dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+    auto series = seriesCollection->idx_get(seriesIndex);
+    auto automaticColor = series->GetAutomaticSeriesColor();
+    auto colorName = automaticColor.get_Name();
+    auto outputLine = String::Format(u"Series {0}: {1}", seriesIndex, colorName);
+    Console::WriteLine(outputLine);
 }
 
-dataPoints->Clear();
-
-pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Atur Lebar Celah Seri Data**
-Aspose.Slides untuk C++ memungkinkan Anda mengatur Lebar Celah (Gap Width) sebuah seri melalui metode **`set_GapWidth()`** dengan cara berikut:
+Contoh output untuk gaya diagram default:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-1. Akses slide pertama.
-1. Tambahkan grafik dengan data default.
-1. Akses seri grafik mana saja.
-1. Setel properti `GapWidth`.
-1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+```text
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
+```
 
-Kode C++ berikut menunjukkan cara mengatur Lebar Celah sebuah seri:
+Warna tepatnya bergantung pada gaya dan tema diagram.
+
+## **Atur Warna Isi Terbalik untuk Seri Diagram**
+
+Untuk seri batang, kolom, dan gelembung, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) dapat menampilkan nilai negatif dengan isi yang berbeda. Atur isi seri reguler menjadi padat, aktifkan inversi, dan tetapkan warna nilai negatif melalui [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Angka negatif tetap tidak berubah dalam buku kerja; hanya warna tampilannya yang berubah.
+
+Contoh berikut menggantikan data diagram default dengan satu seri. Baris lembar kerja 0 berisi nama seri, kolom 0 berisi nama kategori, dan kolom 1 berisi nilai:
 
 ```cpp
-// Membuat presentasi kosong
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+using System::String;
+
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+const int categoryCount = 3;
+
+const String categoryNames[] = {u"Category 1", u"Category 2", u"Category 3"};
+const int seriesValues[] = {-20, 50, -30};
+
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Mengakses slide pertama presentasi
-auto slide = presentation->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
 
-// Menambahkan grafik dengan data default
-auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
+auto seriesCollection = chartData->get_Series();
+seriesCollection->Clear();
+chartData->get_Categories()->Clear();
 
-// Menetapkan indeks lembar data grafik
-int32_t worksheetIndex = 0;
+auto seriesName = ObjectExt::Box<String>(u"Series 1");
+auto seriesNameCell = workbook->GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, seriesName);
+auto chartType = chart->get_Type();
+auto series = seriesCollection->Add(seriesNameCell, chartType);
 
-// Mendapatkan lembar kerja data grafik
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+for (int categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++)
+{
+    const int dataRowIndex = firstDataRowIndex + categoryIndex;
+    auto categoryName = categoryNames[categoryIndex];
+    const int seriesValue = seriesValues[categoryIndex];
 
-// Menambahkan seri
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
+    auto boxedCategoryName = ObjectExt::Box<String>(categoryName);
+    auto categoryCell = workbook->GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, boxedCategoryName);
+    chartData->get_Categories()->Add(categoryCell);
 
-// Menambahkan Kategori
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+    auto boxedSeriesValue = ObjectExt::Box<int>(seriesValue);
+    auto valueCell = workbook->GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, boxedSeriesValue);
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
 
-// Mengambil seri grafik kedua
-auto series = chart->get_ChartData()->get_Series()->idx_get(1);
-auto dataPoints = series->get_DataPoints();
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->set_InvertIfNegative(true);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
 
-// Mengisi data seri
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
-
-// Menetapkan nilai GapWidth
-series->get_ParentSeriesGroup()->set_GapWidth(50);
-
-// Menyimpan presentasi ke disk
-presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+Hasilnya:
+
+![Warna isi padat terbalik](inverted_solid_fill_color.png)
+
+Anda dapat mengaktifkan inversi untuk satu titik melalui [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Pada contoh berikut, inversi dinonaktifkan untuk seri dan diaktifkan hanya untuk titik yang dipilih. Titik tersebut juga diberikan nilai negatif agar efeknya terlihat:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
+series->set_InvertIfNegative(false);
+
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+auto boxedNegativeValue = ObjectExt::Box<int>(negativeValue);
+dataPoint->get_YValue()->get_AsCell()->set_Value(boxedNegativeValue);
+dataPoint->set_InvertIfNegative(true);
+
+presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Hapus Nilai Titik Data Spesifik**
+
+Untuk menjadikan satu titik kosong tanpa menghapus titik lain, setel sel buku kerja yang mendasarinya ke `nullptr`. Untuk diagram kolom, nilai yang dipetakan tersedia melalui [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Titik data tetap berada pada posisi kategori yang sama, tetapi diagram memperlakukan nilainya sebagai kosong sesuai pengaturan nilai kosong diagram.
+
+Contoh berikut mengosongkan hanya titik kedua pada seri pertama:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+
+presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Diagram sebar menggunakan sel X dan Y terpisah, dan diagram gelembung juga menggunakan sel ukuran. Hanya bersihkan sel yang mewakili nilai yang ingin Anda hapus. Jangan panggil [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) ketika Anda ingin mempertahankan titik lainnya, karena metode tersebut menghapus semua titik data dari koleksi.
+
+## **Atur Lebar Celah Seri**
+
+Lebar celah adalah ruang antara klaster batang atau kolom yang berdekatan, dinyatakan sebagai persentase lebar batang atau kolom. Seperti overlap, lebar celah termasuk dalam grup seri induk, bukan milik satu seri. Panggil [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) satu kali untuk grup tersebut. Nilai yang lebih besar menciptakan lebih banyak ruang antara klaster; nilai yang lebih kecil membuatnya lebih padat.
+
+Contoh berikut mengubah lebar celah dan menyimpan hanya presentasi akhir:
+
+```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const uint16_t gapWidthPercent = 30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_GapWidth(gapWidthPercent);
+
+presentation->Save(u"gap_width_30.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Hasilnya:
+
+![Lebar celah](gap_width.png)
 
 ## **FAQ**
 
-**Apakah ada batasan jumlah seri yang dapat dimiliki satu grafik?**
+**Which chart types support data series?**  
+Semua tipe diagram yang diwakili oleh enumerasi [ChartType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/charttype/) menggunakan data diagram, tetapi seri mereka tidak semua memiliki struktur nilai atau pengaturan yang sama. Misalnya, diagram kategori menggunakan kategori dan nilai, diagram sebar menggunakan nilai X dan Y, dan diagram gelembung menambahkan ukuran gelembung. Gunakan metode pembuatan titik‑data yang cocok dengan tipe serinya. Opsi seperti overlap dan lebar celah hanya berlaku untuk grup batang atau kolom yang kompatibel.
 
-Aspose.Slides tidak memberlakukan batas tetap pada jumlah seri yang Anda tambahkan. Batas praktis ditentukan oleh keterbacaan grafik dan memori yang tersedia untuk aplikasi Anda.
+**What is a chart series group?**  
+[IChartSeriesGroup](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseriesgroup/) berisi seri yang kompatibel yang berbagi pengaturan plot pada tingkat grup. Diagram kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup melalui satu seri tidak selalu mengubah setiap seri dalam diagram.
 
-**Bagaimana jika kolom dalam satu klaster terlalu dekat atau terlalu jauh satu sama lain?**
+**Does a newly created chart contain default data?**  
+Ya. Secara default, [IShapeCollection::AddChart](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addchart/) membuat seri, kategori, dan nilai contoh. Anda dapat mengedit sel‑sel tersebut atau mengosongkan koleksi seri dan kategori sebelum menambahkan satu set data yang sepenuhnya khusus. Sebuah overload juga dapat membuat diagram tanpa data default.
 
-Sesuaikan pengaturan lebar celah (gap width) untuk seri tersebut (atau grup seri induknya). Meningkatkan nilai akan memperlebar ruang antar kolom, sementara menurunkannya akan membuat kolom lebih rapat.
+**How are chart objects connected to workbook cells?**  
+Nama seri, label kategori, dan nilai titik‑data merujuk ke sel dalam [IChartDataWorkbook](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/). Mengubah sel yang dirujuk memperbarui elemen diagram yang bersangkutan. Saat Anda membuat data khusus, jaga agar baris kategori dan baris nilai seri tetap selaras sehingga setiap titik dipetakan di bawah kategori yang dimaksud.
+
+**How do I clear one point instead of the whole series?**  
+Setel sel nilai yang relevan ke `nullptr` untuk mempertahankan posisi kategori titik sebagai titik kosong. Panggil [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) hanya ketika Anda berniat menghapus semua titik dari seri tersebut. Jika Anda juga menghapus kategori, perbarui setiap seri agar nilainya tetap selaras dengan koleksi kategori.
+
+**How are empty points displayed?**  
+Hasilnya tergantung pada tipe diagram dan [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Diagram yang didukung dapat menampilkan titik kosong sebagai celah, sebagai nilai nol, atau dengan menghubungkan titik‑titik tetangga. Pilih pengaturan yang sesuai dengan makna data yang hilang dalam presentasi Anda.
+
+**How are negative values formatted?**  
+Untuk seri batang, kolom, dan gelembung yang didukung, panggil [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) dan setel warna melalui [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Anda dapat menimpa perilaku untuk titik individu dengan [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Metode‑metode ini memengaruhi pemformatan, bukan nilai numerik yang disimpan.
+
+**Which formatting wins when both a series and a point are formatted?**  
+Pemformatan titik‑data eksplisit memiliki prioritas untuk titik tersebut. Titik lain terus menggunakan format seri eksplisit atau, bila format seri tidak ditentukan, gaya dan tema diagram otomatis. Pengaturan grup seperti overlap dan lebar celah mengontrol tata letak dan bukan penimpaan pemformatan tingkat titik.
+
+**Is there a limit to how many series a chart can contain?**  
+Aspose.Slides tidak memberlakukan batas tetap terpisah untuk jumlah seri. Dalam praktiknya, batas bergantung pada kendala berkas presentasi, memori yang tersedia, waktu rendering, dan keterbacaan diagram.
+
+**What should I change when columns are too close together or too far apart?**  
+Panggil [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) pada grup seri induk yang sesuai. Tingkatkan nilai untuk memperlebar ruang antara klaster, atau turunkan nilai untuk mendekatkan klaster.

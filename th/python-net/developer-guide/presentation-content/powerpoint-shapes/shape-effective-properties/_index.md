@@ -1,14 +1,14 @@
 ---
-title: รับคุณสมบัติรูปร่างที่ Effective จากงานนำเสนอด้วย Python
-linktitle: คุณสมบัติ Effective
+title: รับคุณสมบัติรูปแบบที่มีประสิทธิภาพจากงานนำเสนอใน Python
+linktitle: คุณสมบัติที่มีประสิทธิภาพ
 type: docs
 weight: 50
 url: /th/python-net/shape-effective-properties/
 keywords:
-- คุณสมบัติรูปร่าง
+- คุณสมบัติรูปแบบ
 - คุณสมบัติกล้อง
 - ระบบแสง
-- รูปร่างเบเวล
+- รูปร่างบีเวล
 - กรอบข้อความ
 - สไตล์ข้อความ
 - ความสูงฟอนต์
@@ -17,293 +17,243 @@ keywords:
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "ค้นพบว่า Aspose.Slides สำหรับ Python ผ่าน .NET คำนวณและใช้คุณสมบัติรูปร่างที่ Effective เพื่อการเรนเดอร์ PowerPoint ที่แม่นยำ"
+description: "เรียนรู้วิธีใช้ Aspose.Slides สำหรับ Python ผ่าน .NET เพื่อแยกแยะการจัดรูปแบบรูปแบบในงานนำเสนอ PowerPoint ที่เป็น local, inherited, และ effective"
 ---
-## **ภาพรวม**
+## **ทำความเข้าใจ Local, Inherited, และ Effective Properties**
 
-หัวข้อนี้อธิบายความแตกต่างระหว่างคุณสมบัติ **local** กับ **effective** ค่า local คือค่าที่ตั้งโดยตรงในระดับการจัดรูปแบบเฉพาะ เช่น:
+PowerPoint formatting สามารถมาจากหลายแหล่ง ค่าที่จัดเก็บโดยตรงบนวัตถุเรียกว่า **local value** หากค่านั้นไม่ได้ตั้งค่า PowerPoint จะตรวจสอบแหล่งจัดรูปแบบแม่ เช่น ค่าปริยายของย่อหน้า สไตล์ข้อความ รูปแบบเลย์เอาต์หรือมาสเตอร์สไลด์ ธีม หรือค่าปริยายระดับการนำเสนอ ค่าต่างๆเหล่านี้คือ **inherited values** ค่าที่เหลือหลังจากลำดับชั้นทั้งหมดได้รับการแก้ไขคือ **effective value** ซึ่งใช้สำหรับการแสดงผลวัตถุ
 
-1. คุณสมบัติส่วนของสไลด์
-1. รูปแบบข้อความของรูปแบบต้นแบบบนเลย์เอาต์หรือสไลด์มาสเตอร์ เมื่อรูปทรงกรอบข้อความของส่วนมีค่าเหล่านั้น
-1. การตั้งค่าข้อความระดับโลกในงานนำเสนอ
+ตัวอย่างเช่น ส่วนของข้อความอาจไม่ได้กำหนดความสูงฟอนต์ของตัวเอง ความสูง **local** ของมันคือ [font_height](https://reference.aspose.com/slides/th/python-net/aspose.slides/ibaseportionformat/font_height/) จะเป็น `float("nan")` ซึ่งหมายถึง “ไม่ได้ตั้งค่าที่นี่”. ส่วนนั้นสามารถสืบทอดความสูงจากย่อหน้า สไตล์ข้อความปริยายของการนำเสนอ หรือแหล่งอื่นที่ใช้ได้ การเรียกใช้ [get_effective](https://reference.aspose.com/slides/th/python-net/aspose.slides/iportionformat/get_effective/) บนรูปแบบส่วนจะคืนค่าความสูงที่แก้ไขขั้นสุดท้าย
 
-ค่าที่เป็น local สามารถกำหนดหรือละเว้นได้ในทุกระดับ เมื่อ Aspose.Slides ต้องการการจัดรูปแบบขั้นสุดท้าย “ตามที่แสดงผล” มันจะทำการแก้ไขสายการสืบทอดและส่งคืนค่าที่ **effective** คุณสามารถรับค่าเหล่านี้ได้โดยการเรียกเมธอด `get_effective` บนวัตถุรูปแบบ local
+ใช้ข้อมูลการจัดรูปแบบสองประเภทสำหรับวัตถุประสงค์ที่ต่างกัน:
 
-ตัวอย่างต่อไปนี้แสดงวิธีรับค่า effective โดยสมมติว่ารูปแรกบนสไลด์แรกเป็น [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ที่มีกรอบข้อความและมีอย่างน้อยหนึ่งส่วน
+- อ่านหรือเปลี่ยนวัตถุรูปแบบ local เช่น [IPortionFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/iportionformat/), เมื่อคุณต้องการควบคุมว่าค่าถูกกำหนดที่ตำแหน่งใด
+- อ่านวัตถุข้อมูล effective เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/iportionformateffectivedata/), เมื่อคุณต้องการผลลัพธ์ที่แสดงขั้นสุดท้าย ข้อมูล effective สามารถอ่านได้เท่านั้น
 
-```py
+## **เปรียบเทียบ Local, Inherited, และ Effective Values**
+
+ตัวอย่างเต็มต่อไปนี้สร้างรูปแบบและกำหนดความสูงฟอนต์ในระดับการนำเสนอ ย่อหน้า และส่วนของข้อความ แต่ละขั้นตอนจะพิมพ์ค่าที่กำหนดในระดับนั้นและค่าที่ได้จาก **effective** สำหรับส่วนของข้อความเดียวกัน นอกจากนี้ยังแสดงเหตุผลที่ต้องอ่านข้อมูล **effective** อีกครั้งหลังจากการเปลี่ยนแปลงการจัดรูปแบบ
+
+```python
+import math
+
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
 
-    local_text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = local_text_frame_format.get_effective()
+def format_local_value(value):
+    return "<not set>" if math.isnan(value) else str(value)
 
-    paragraph = shape.text_frame.paragraphs[0]
-    portion = paragraph.portions[0]
-    local_portion_format = portion.portion_format
-    effective_portion_format = local_portion_format.get_effective()
-```
 
-{{% alert color="primary" %}}
+def print_font_heights(caption, presentation, paragraph, portion):
+    presentation_value = presentation.default_text_style.get_level(0).default_portion_format.font_height
+    paragraph_value = paragraph.paragraph_format.default_portion_format.font_height
+    local_value = portion.portion_format.font_height
 
-ข้อมูลการจัดรูปแบบที่ effective แสดงผลการคำนวณปัจจุบันหลังจากนำการสืบทอดมาใช้ ในการทำงานปัจจุบันบางอ็อบเจ็กต์ข้อมูล effective เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/iportionformateffectivedata/) อาจถูกเก็บแคชภายใน การเรียก `get_effective` อีกครั้งหลังจากเปลี่ยนแปลงการจัดรูปแบบพาเรนต์หรือการสืบทอดจะรีเฟรชข้อมูลแคช และอ็อบเจ็กต์ที่ได้ก่อนหน้านี้อาจไม่แสดงสถานะเดิมอีกต่อไป หากคุณต้องการเก็บค่าที่ effective ไว้ใช้ในภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการ เช่น ความสูงของฟอนต์ สีเติม สไตล์ฟอนต์ หรือการจัดแนว ไปยังอ็อบเจ็กต์ข้อมูลของคุณเอง
+    # อ่านข้อมูล effective หลังจากการเปลี่ยนแปลงก่อนหน้า.
+    effective_value = portion.portion_format.get_effective().font_height
 
-{{% /alert %}}
+    print(caption)
+    print("  Presentation default: " + format_local_value(presentation_value))
+    print("  Paragraph default:    " + format_local_value(paragraph_value))
+    print("  Portion local:        " + format_local_value(local_value))
+    print("  Portion effective:    " + str(effective_value))
 
-## **รับคุณสมบัติ Effective ของกล้อง**
-
-Aspose.Slides ให้คุณรับคุณสมบัติ effective ของกล cámara ได้ชนิด [ICameraEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/icameraeffectivedata/) แทนอ็อบเจ็กต์ไม่เปลี่ยนแปลงที่มีคุณสมบัติกล้องที่ effective ตัวอย่าง [ICameraEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/icameraeffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [ThreeDFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/threedformat/)
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติ effective ของกล้อง โดยสมมติว่ารูปแรกบนสไลด์แรกมีการจัดรูปแบบ 3D
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    camera = three_d_effective_data.camera
-
-    camera_type = camera.camera_type
-    field_of_view_angle = camera.field_of_view_angle
-    zoom = camera.zoom
-
-    print("= Effective camera properties =")
-    print("Type: " + str(camera_type))
-    print("Field of view: " + str(field_of_view_angle))
-    print("Zoom: " + str(zoom))
-```
-
-## **รับคุณสมบัติ Effective ของ Light Rig**
-
-Aspose.Slides ให้คุณรับคุณสมบัติ effective ของ Light Rig ได้ชนิด [ILightRigEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ilightrigeffectivedata/) แทนอ็อบเจ็กต์ไม่เปลี่ยนแปลงที่มีคุณสมบัติ Light Rig ที่ effective ตัวอย่าง [ILightRigEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ilightrigeffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [ThreeDFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/threedformat/)
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติ effective ของ Light Rig โดยสมมติว่ารูปแรกบนสไลด์แรกมีการจัดรูปแบบ 3D
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    light_rig = three_d_effective_data.light_rig
-
-    light_type = light_rig.light_type
-    direction = light_rig.direction
-
-    print("= Effective light rig properties =")
-    print("Type: " + str(light_type))
-    print("Direction: " + str(direction))
-```
-
-## **รับคุณสมบัติ Effective ของ Bevel Shape**
-
-Aspose.Slides ให้คุณรับคุณสมบัติ effective ของ bevel รูปได้ชนิด [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ishapebeveleffectivedata/) แทนอ็อบเจ็กต์ไม่เปลี่ยนแปลงที่มีคุณสมบัติเส้นลายนูนที่ effective ตัวอย่าง [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ishapebeveleffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [ThreeDFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/threedformat/)
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติ effective ของ bevel ด้านบนของรูป โดยสมมติว่ารูปแรกบนสไลด์แรกมีการจัดรูปแบบ 3D
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    top_bevel = three_d_effective_data.bevel_top
-
-    bevel_type = top_bevel.bevel_type
-    bevel_width = top_bevel.width
-    bevel_height = top_bevel.height
-
-    print("= Effective shape's top face relief properties =")
-    print("Type: " + str(bevel_type))
-    print("Width: " + str(bevel_width))
-    print("Height: " + str(bevel_height))
-```
-
-## **รับคุณสมบัติ Effective ของ Text Frame**
-
-ด้วย Aspose.Slides คุณสามารถรับคุณสมบัติ effective ของ Text Frame ได้ ชนิด [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/itextframeformateffectivedata/) มีคุณสมบัติการจัดรูปแบบ Text Frame ที่ effective
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติการจัดรูปแบบ Text Frame ที่ effective โดยสมมติว่ารูปแรกบนสไลด์แรกเป็น [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ที่มีกรอบข้อความ
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = text_frame_format.get_effective()
-
-    anchoring_type = effective_text_frame_format.anchoring_type
-    autofit_type = effective_text_frame_format.autofit_type
-    text_vertical_type = effective_text_frame_format.text_vertical_type
-    margin_left = effective_text_frame_format.margin_left
-    margin_top = effective_text_frame_format.margin_top
-    margin_right = effective_text_frame_format.margin_right
-    margin_bottom = effective_text_frame_format.margin_bottom
-
-    print("Anchoring type: " + str(anchoring_type))
-    print("Autofit type: " + str(autofit_type))
-    print("Text vertical type: " + str(text_vertical_type))
-    print("Margins")
-    print("   Left: " + str(margin_left))
-    print("   Top: " + str(margin_top))
-    print("   Right: " + str(margin_right))
-    print("   Bottom: " + str(margin_bottom))
-```
-
-## **รับคุณสมบัติ Effective ของ Text Style**
-
-ด้วย Aspose.Slides คุณสามารถรับคุณสมบัติ effective ของ Text Style ได้ ชนิด [ITextStyleEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/itextstyleeffectivedata/) มีคุณสมบัติสไตล์ข้อความที่ effective
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติ Text Style ที่ effective โดยสมมติว่ารูปแรกบนสไลด์แรกเป็น [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ที่มีกรอบข้อความ
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    text_frame_format = shape.text_frame.text_frame_format
-    text_style = text_frame_format.text_style
-    effective_text_style = text_style.get_effective()
-    level_count = 9
-
-    for level_index in range(level_count):
-        effective_style_level = effective_text_style.get_level(level_index)
-        depth = effective_style_level.depth
-        indent = effective_style_level.indent
-        alignment = effective_style_level.alignment
-        font_alignment = effective_style_level.font_alignment
-
-        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
-
-        print("Depth: " + str(depth))
-        print("Indent: " + str(indent))
-        print("Alignment: " + str(alignment))
-        print("Font alignment: " + str(font_alignment))
-```
-
-## **รับค่า Effective ของความสูงฟอนต์**
-
-ด้วย Aspose.Slides คุณสามารถรับความสูงฟอนต์ที่ effective ได้ โค้ดต่อไปนี้สาธิตว่าความสูงฟอนต์ของส่วน (portion) ที่ effective จะเปลี่ยนแปลงอย่างไรหลังจากตั้งค่าความสูงฟอนต์ local ที่ระดับโครงสร้างการนำเสนอต่าง ๆ
-
-```py
-import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    auto_shape.add_text_frame("")
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 80, False)
+    text_frame = shape.add_text_frame("Effective formatting")
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
 
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
+    # กำหนดค่าที่สืบทอดในสองระดับที่แตกต่างกัน.
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 20
+    paragraph.paragraph_format.default_portion_format.font_height = 28
 
-    first_portion = slides.Portion("Sample text with first portion")
-    second_portion = slides.Portion(" and second portion.")
+    print_font_heights("The portion inherits from the paragraph", presentation, paragraph, portion)
 
-    paragraph.portions.add(first_portion)
-    paragraph.portions.add(second_portion)
+    # ค่าท้องถิ่นใน portion จะทับค่าที่สืบทอดทั้งสองค่า.
+    portion.portion_format.font_height = 36
+    print_font_heights("A local value overrides inherited values", presentation, paragraph, portion)
 
-    print("Effective font height just after creation:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # การเปลี่ยนค่าที่สืบทอดจะไม่ทับค่าท้องถิ่นที่มีอยู่แล้ว.
+    paragraph.paragraph_format.default_portion_format.font_height = 30
+    print_font_heights("The local value still has priority", presentation, paragraph, portion)
 
-    default_text_style_level = presentation.default_text_style.get_level(0)
-    default_text_style_level.default_portion_format.font_height = 24
+    # ลบค่าท้องถิ่นออก ตอนนี้ portion จะสืบทอดจากย่อหน้าอีกครั้ง.
+    portion.portion_format.font_height = float("nan")
+    print_font_heights("The local value is cleared", presentation, paragraph, portion)
 
-    print("Effective font height after setting the presentation default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # ลบค่าของย่อหน้าออก ตอนนี้ค่าปริยายของการนำเสนอจะให้ผลลัพธ์.
+    paragraph.paragraph_format.default_portion_format.font_height = float("nan")
+    print_font_heights("The paragraph value is cleared", presentation, paragraph, portion)
 
-    paragraph.paragraph_format.default_portion_format.font_height = 40
-
-    print("Effective font height after setting paragraph default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    first_portion.portion_format.font_height = 55
-
-    print("Effective font height after setting portion #0 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    second_portion.portion_format.font_height = 18
-
-    print("Effective font height after setting portion #1 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("effective-properties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **รับ Effective Fill Format สำหรับตาราง**
+ลำดับความสำคัญในตัวอย่างนี้คือการจัดรูปแบบ **local** ของส่วน, ตามด้วยการจัดรูปแบบย่อหน้า, แล้วจึงค่าสำหรับการนำเสนอโดยปริยาย วัตถุอื่นอาจมีโซ่การสืบทอดที่แตกต่างกัน แต่หลักการเดียวกัน: ค่าที่ระบุอย่างเฉพาะเจาะจงจะชนะ และ [get_effective](https://reference.aspose.com/slides/th/python-net/aspose.slides/iportionformat/get_effective/) จะคืนค่าผลลัพธ์ขั้นสุดท้าย
 
-ด้วย Aspose.Slides คุณสามารถรับการเติมรูปแบบที่ effective สำหรับส่วนต่าง ๆ ของตารางได้ ชนิด [IFillFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ifillformateffectivedata/) มีคุณสมบัติการเติมที่ effective การจัดรูปแบบเซลล์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบแถว แถวมีลำดับความสำคัญสูงกว่าคอลัมน์ และคอลัมน์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบตารางทั้งหมด
+## **รับ Effective Text Properties**
 
-ดังนั้นคุณสมบัติ [ICellFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/icellformateffectivedata/) จะถูกใช้ในการวาดเซลล์ตาราง โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับการเติมรูปแบบที่ effective สำหรับส่วนต่าง ๆ ของตาราง โดยสมมติว่ารูปแรกบนสไลด์แรกเป็น [Table](https://reference.aspose.com/slides/th/python-net/aspose.slides/table/)
+การจัดรูปแบบข้อความถูกแยกออกเป็นหลายวัตถุ:
 
-```py
+- [ITextFrameFormat.get_effective()](https://reference.aspose.com/slides/th/python-net/aspose.slides/itextframeformat/get_effective/) แก้ไขคุณสมบัติของเฟรมข้อความ เช่น ระยะขอบ, การยึด, autofit, และทิศทางข้อความแนวตั้ง
+- [ITextStyle.get_effective()](https://reference.aspose.com/slides/th/python-net/aspose.slides/itextstyle/get_effective/) แก้ไขการจัดรูปแบบย่อหน้าสำหรับแต่ละระดับสไตล์ข้อความ
+- [IParagraphFormat.get_effective()](https://reference.aspose.com/slides/th/python-net/aspose.slides/iparagraphformat/get_effective/) แก้ไขคุณสมบัติของย่อหน้า เช่น การจัดแนว, การเยื้อง, และหัวข้อจุด
+- [IPortionFormat.get_effective()](https://reference.aspose.com/slides/th/python-net/aspose.slides/iportionformat/get_effective/) แก้ไขคุณสมบัติตัวอักษร เช่น ความสูงฟอนต์, ชนิดฟอนต์, สี, ตัวหนา, และตัวเอียง
+
+สำหรับตัวอย่างต่อไป, ไฟล์ `text-formatting.pptx` ต้องมีสไลด์อย่างน้อยหนึ่งสไลด์และมี [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) อย่างน้อยหนึ่งรูปที่มีเฟรมข้อความไม่ว่างเปล่า AutoShape สามารถอยู่ในตำแหน่งใดก็ได้ในคอลเลกชันของรูป; โค้ดจะค้นหาวัตถุที่เหมาะสมและตรวจสอบก่อนใช้งาน
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    table = presentation.slides[0].shapes[0]
-    first_row = table.rows[0]
-    first_column = table.columns[0]
-    first_cell = first_row[0]
 
-    table_format_effective = table.table_format.get_effective()
-    row_format_effective = first_row.row_format.get_effective()
-    column_format_effective = first_column.column_format.get_effective()
-    cell_format_effective = first_cell.cell_format.get_effective()
+def has_non_empty_text(shape):
+    if not isinstance(shape, slides.AutoShape):
+        return False
+    if shape.text_frame is None:
+        return False
+    if shape.text_frame.paragraphs.count == 0:
+        return False
+    return shape.text_frame.paragraphs[0].portions.count > 0
 
-    table_fill_format_effective = table_format_effective.fill_format
-    row_fill_format_effective = row_format_effective.fill_format
-    column_fill_format_effective = column_format_effective.fill_format
-    cell_fill_format_effective = cell_format_effective.fill_format
+
+with slides.Presentation("text-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    shape = None
+    for candidate in presentation.slides[0].shapes:
+        if has_non_empty_text(candidate):
+            shape = candidate
+            break
+
+    if shape is None:
+        raise RuntimeError("The first slide must contain an AutoShape with non-empty text.")
+
+    text_frame = shape.text_frame
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+
+    text_frame_effective = text_frame.text_frame_format.get_effective()
+    paragraph_effective = paragraph.paragraph_format.get_effective()
+    portion_effective = portion.portion_format.get_effective()
+
+    print("Text frame margins:")
+    print("  Left: " + str(text_frame_effective.margin_left))
+    print("  Top: " + str(text_frame_effective.margin_top))
+    print("  Right: " + str(text_frame_effective.margin_right))
+    print("  Bottom: " + str(text_frame_effective.margin_bottom))
+    print("Paragraph alignment: " + str(paragraph_effective.alignment))
+    print("Font height: " + str(portion_effective.font_height))
+    print("Bold: " + str(portion_effective.font_bold))
+
+    effective_text_style = text_frame.text_frame_format.text_style.get_effective()
+    for level in range(9):
+        level_effective = effective_text_style.get_level(level)
+        print("Level " + str(level) + " indent: " + str(level_effective.indent))
 ```
 
-## **คำถามที่พบบ่อย**
+## **รับ Effective 3D Properties**
 
-**`get_effective` คืนค่าภาพถ่าย (snapshot) หรือไม่?**
+[IThreeDFormat.get_effective()](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformat/get_effective/) คืนค่าอ็อบเจ็กต์ [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/) ที่รวมการตั้งค่า 3D ทั้งหมดที่ได้แก้ไขแล้ว คุณสมบัติ [camera](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/camera/), [light_rig](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/light_rig/), [bevel_top](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/bevel_top/), และ [bevel_bottom](https://reference.aspose.com/slides/th/python-net/aspose.slides/ithreedformateffectivedata/bevel_bottom/) เปิดเผยข้อมูล effective ที่สอดคล้อง การอ่านการตั้งค่าเหล่านี้ร่วมกันทำให้เข้าใจลักษณะ 3D สุดท้ายของรูปได้ง่ายขึ้น
 
-ไม่เสมอ ข้อมูลที่ effective แสดงการคำนวณรูปแบบหลังจากนำการสืบทอดมาใช้ แต่บางอ็อบเจ็กต์ข้อมูล effective อาจถูกแคชภายใน การเรียก `get_effective` ครั้งต่อมาหลังจากเปลี่ยนแปลงรูปแบบพาเรนต์หรือการสืบทอดอาจคำนวณรูปแบบใหม่และรีเฟรชแคช ดังนั้นอ็อบเจ็กต์ที่ได้ก่อนหน้านี้ไม่ควรถือว่าเป็นภาพถ่ายที่คงที่
+สำหรับตัวอย่างนี้, ไฟล์ `shape-3d.pptx` ต้องมีรูปอย่างน้อยหนึ่งรูปในสไลด์แรก ให้กำหนดค่ากล้อง 3D, แสง, หรือ bevel ให้กับรูปนั้นหากคุณต้องการให้ผลลัพธ์มีค่าที่แตกต่างจากค่าปริยาย
 
-**เมื่อไรที่ควรอ่านคุณสมบัติ effective อีกครั้ง?**
+```python
+import aspose.slides as slides
 
-ให้เรียก `get_effective` อีกครั้งหลังจากเปลี่ยนแปลงการจัดรูปแบบ local, สไตล์พาเรนต์, การจัดรูปแบบเลย์เอาต์, การจัดรูปแบบมาสเตอร์ หรือค่าเริ่มต้นระดับงานนำเสนอ การเรียกครั้งถัดไปจะประเมินลำดับชั้นของรูปแบบใหม่และคืนค่าที่ effective ปัจจุบัน
 
-**การเปลี่ยนแปลงหรือการลบสไลด์เลย์เอาต์/มาสเตอร์จะมีผลต่อคุณสมบัติ effective ที่เคยดึงมาแล้วหรือไม่?**
+with slides.Presentation("shape-3d.pptx") as presentation:
+    if presentation.slides.count == 0 or presentation.slides[0].shapes.count == 0:
+        raise RuntimeError("The first slide must contain a shape.")
 
-ใช่ แต่การเปลี่ยนแปลงจะแสดงผลในการเรียก `get_effective` ครั้งถัดไป หากแหล่งข้อมูลรูปแบบพาเรนต์ถูกเปลี่ยนหรือถูกลบ ข้อมูลที่ effective ที่เคยดึงมาอาจล้าสมัย เมื่อเรียก `get_effective` อีกครั้ง Aspose.Slides จะประเมินต้นไม้ของรูปแบบใหม่และค่า‑ฟอนต์, สี, ขนาด หรือค่าอื่น ๆ อาจเปลี่ยนแปลง
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective = shape.three_d_format.get_effective()
 
-**ฉันสามารถแก้ไขค่าได้ผ่านอ็อบเจ็กต์ข้อมูล effective หรือไม่?**
+    print("Camera:")
+    print("  Type: " + str(three_d_effective.camera.camera_type))
+    print("  Field of view: " + str(three_d_effective.camera.field_of_view_angle))
+    print("  Zoom: " + str(three_d_effective.camera.zoom))
 
-ไม่ได้ อ็อบเจ็กต์ข้อมูลที่ effective เฉพาะการเปิดเผยค่าที่คำนวณแล้ว ให้ทำการเปลี่ยนแปลงในอ็อบเจ็กต์การจัดรูปแบบ local แล้วจึงดึงค่าที่ effective ใหม่อีกครั้ง
+    print("Light rig:")
+    print("  Type: " + str(three_d_effective.light_rig.light_type))
+    print("  Direction: " + str(three_d_effective.light_rig.direction))
 
-**ถ้าคุณสมบัติไม่ได้ถูกตั้งค่าในระดับรูป, เลย์เอาต์/มาสเตอร์ หรือการตั้งค่าระดับโลก จะเกิดอะไรขึ้น?**
+    print("Top bevel:")
+    print("  Type: " + str(three_d_effective.bevel_top.bevel_type))
+    print("  Width: " + str(three_d_effective.bevel_top.width))
+    print("  Height: " + str(three_d_effective.bevel_top.height))
+```
 
-ค่าที่ effective จะถูกกำหนดโดยกลไกค่าเริ่มต้น ซึ่งรวมถึงค่าเริ่มต้นของ PowerPoint และ Aspose.Slides ค่าที่แก้ไขแล้วจะกลายเป็นส่วนหนึ่งของข้อมูลที่ effective ปัจจุบัน
+## **รับ Effective Table Formatting**
 
-**จากค่าฟอนต์ที่ effective, ฉันจะบอกได้หรือไม่ว่าค่ามาจากระดับใด?**
+การจัดรูปแบบตารางสามารถมาจากสไตล์ของตารางและจากการจัดรูปแบบที่ใช้กับตารางทั้งหมด, คอลัมน์, แถว, หรือเซลล์เดี่ยว สำหรับความขัดแย้งระหว่างการเติมสีที่กำหนดโดยชัดเจน ลำดับความสำคัญคือเซลล์, แถว, คอลัมน์, และตารางทั้งหมด การจัดรูปแบบ **effective** ของเซลล์คือรูปแบบสุดท้ายที่ใช้วาดเซลล์นั้น
 
-ไม่ได้โดยตรง ข้อมูลที่ effective คืนค่าที่สุดท้าย เพื่อตรวจสอบแหล่งที่มาต้องตรวจสอบค่าที่ local ที่ portion, paragraph, text frame, แล้วถึงสไตล์ข้อความที่เลย์เอาต์, มาสเตอร์ และระดับงานนำเสนอ เพื่อดูว่าการกำหนดที่ชัดเจนแรกปรากฏที่ระดับใด
+สำหรับตัวอย่างนี้, ไฟล์ `table-formatting.pptx` ต้องมีตารางอย่างน้อยหนึ่งตารางในสไลด์แรก ตารางต้องมีอย่างน้อยหนึ่งแถวและหนึ่งคอลัมน์ โค้ดจะค้นหา [Table](https://reference.aspose.com/slides/th/python-net/aspose.slides/table/) แทนที่จะสมมติว่า `shapes[0]` เป็นตาราง
 
-**ทำไมค่าที่ effective บางครั้งดูเหมือนกับค่าที่ local?**
+```python
+import aspose.slides as slides
 
-เพราะค่าที่ local กลายเป็นค่าที่สุดท้าย (ไม่มีการสืบทอดระดับสูงที่จำเป็น) ในกรณีนั้นค่าที่ effective จะตรงกับค่าที่ local
 
-**เมื่อไรที่ควรใช้คุณสมบัติ effective และเมื่อไรที่ควรทำงานเฉพาะกับค่า local?**
+with slides.Presentation("table-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
 
-ใช้ข้อมูลที่ effective เมื่อต้องการผลลัพธ์ “ตามที่แสดงผล” หลังจากการสืบทอดทั้งหมด เช่น การจัดสี, ระยะเยื้อง หรือขนาด หากต้องการเก็บค่าดังกล่าวไว้โดยไม่สนใจการเปลี่ยนแปลงรูปแบบในภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการไปยังอ็อบเจ็กต์ของคุณเอง หากต้องการเปลี่ยนรูปแบบที่ระดับเฉพาะให้แก้ไขค่าที่ local แล้วอ่านข้อมูลที่ effective อีกครั้ง (ถ้าต้องการ) เพื่อตรวจสอบผลลัพธ์.
+    table = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
+
+    if table is None:
+        raise RuntimeError("The first slide must contain a table.")
+
+    if table.rows.count == 0 or table.columns.count == 0:
+        raise RuntimeError("The table must contain at least one cell.")
+
+    table_effective = table.table_format.get_effective()
+    row_effective = table.rows[0].row_format.get_effective()
+    column_effective = table.columns[0].column_format.get_effective()
+    cell_effective = table.rows[0][0].cell_format.get_effective()
+
+    print("Table fill: " + str(table_effective.fill_format.fill_type))
+    print("Row fill: " + str(row_effective.fill_format.fill_type))
+    print("Column fill: " + str(column_effective.fill_format.fill_type))
+    print("Final cell fill: " + str(cell_effective.fill_format.fill_type))
+```
+
+หากคุณต้องการสีแทนที่จะเป็นประเภทการเติมเพียงอย่างเดียว ให้ตรวจสอบ **effective** [fill_type](https://reference.aspose.com/slides/th/python-net/aspose.slides/ifillformateffectivedata/fill_type/) ก่อน แล้วอ่านคุณสมบัติที่ใช้กับประเภทนั้น ตัวอย่างเช่น [solid_fill_color](https://reference.aspose.com/slides/th/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) สำหรับการเติมแบบสีเดียว
+
+## **อ่าน Effective Data อีกครั้งหลังการเปลี่ยนแปลง**
+
+Effective data บรรยายลำดับชั้นการจัดรูปแบบในขณะที่มันได้รับการแก้ไข เรียก `get_effective` อีกครั้งหลังจากเปลี่ยนแปลงสิ่งใดที่สามารถเข้าร่วมในลำดับชั้นนั้น, รวมถึง:
+
+- การจัดรูปแบบ **local** ของวัตถุ;
+- ค่าปริยายของย่อหน้า หรือเฟรมข้อความ;
+- สไตล์ตาราง, ตาราง, คอลัมน์, แถว, หรือรูปแบบเซลล์;
+- การจัดรูปแบบเลย์เอาต์หรือมาสเตอร์สไลด์;
+- ข้อมูลธีมหรือค่าปริยายระดับการนำเสนอ;
+- เลย์เอาต์หรือมาสเตอร์ที่กำหนดให้กับสไลด์
+
+ไม่ควรเก็บอ็อบเจ็กต์ effective data เป็นสแนปช็อตถาวร Aspose.Slides อาจแคชบางข้อมูล effective ไว้ภายใน และการเรียก `get_effective` ครั้งถัดไปสามารถรีเฟรชข้อมูลนั้นได้ หากต้องการเปรียบเทียบค่าก่อนและหลังการเปลี่ยนแปลง ให้นำค่าที่เป็นสเกลาร์ที่ต้องการ เช่น ความสูงฟอนต์, สี, การจัดแนว, หรือความกว้าง bevel ไปเก็บในตัวแปรของคุณเองก่อนทำการเปลี่ยนแปลง
+
+เพื่อเปลี่ยนค่า, ปรับอ็อบเจ็กต์รูปแบบ **local** ที่เหมาะสมแล้วเรียก `get_effective` เพื่อตรวจสอบผลลัพธ์ อ็อบเจ็กต์ effective data เองเป็นแบบอ่านอย่างเดียว
+
+## **FAQ**
+
+**How can I tell which level supplied an effective value?**
+
+Effective data มีค่าขั้นสุดท้าย, ไม่ได้บอกแหล่งที่มาของมัน ตรวจสอบวัตถุ **local** ที่เกี่ยวข้องจากระดับที่เฉพาะเจาะจงที่สุดไปด้านนอก สำหรับข้อความอาจรวมถึง portion, paragraph, text frame, layout, master, theme, และค่าปริยายของการนำเสนอ ค่าที่ไม่ได้กำหนดเช่น `float("nan")` หรือ `None` หมายความว่าการค้นหายังคงดำเนินต่อไปในระดับอื่น
+
+**What happens when no level defines a property?**
+
+Aspose.Slides จะใช้ค่าปริยายของ PowerPoint หรือของไลบรารีที่เกี่ยวข้อง ค่าที่ได้แก้ไขแล้วจะปรากฏใน effective data แม้ว่าวัตถุ **local** จะไม่ได้กำหนดค่าอย่างชัดเจน
+
+**Why does an effective value sometimes equal the local value?**
+
+ค่าที่ **local** ชนะการคำนวณการสืบทอด นี่เป็นผลที่คาดหวังเมื่อคุณตั้งค่าคุณสมบัตินั้นโดยตรงบนวัตถุและไม่มีกฎที่เฉพาะเจาะจงกว่าเข้ามาแทนที่
+
+**When should I use local data instead of effective data?**
+
+ใช้ข้อมูล **local** เพื่อสำรวจหรือแก้ไขระดับการจัดรูปแบบที่เฉพาะเจาะจง ใช้ข้อมูล **effective** เมื่อคุณต้องการผลลัพธ์สุดท้ายหลังจากการสืบทอด, กฎธีม, และสไตล์ที่เกี่ยวข้องทั้งหมดได้รับการแก้ไข ตัวอย่างการเปรียบเทียบทั้งหมด ([compare-local-inherited-and-effective-values](#compare-local-inherited-and-effective-values)) แสดงการใช้ทั้งสองแบบใน workflow เดียวกัน.

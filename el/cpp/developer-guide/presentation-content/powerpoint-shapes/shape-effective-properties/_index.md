@@ -8,7 +8,7 @@ keywords:
 - ιδιότητες σχήματος
 - ιδιότητες κάμερας
 - σύστημα φωτισμού
-- σχήμα λοξότμησης
+- σχήμα με λοξότμηση
 - πλαίσιο κειμένου
 - στυλ κειμένου
 - ύψος γραμματοσειράς
@@ -17,299 +17,341 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Ανακαλύψτε πώς το Aspose.Slides για C++ υπολογίζει και εφαρμόζει τις αποτελεσματικές ιδιότητες σχήματος για ακριβή απόδοση PowerPoint."
+description: "Μάθετε πώς να χρησιμοποιείτε το Aspose.Slides για C++ ώστε να διακρίνετε την τοπική, κληρονομική και αποτελεσματική μορφοποίηση σχήματος σε παρουσιάσεις PowerPoint."
 ---
-## **Επισκόπηση**
+## **Κατανόηση Τοπικών, Κληρονομικών και Αποτελεσματικών Ιδιοτήτων**
 
-Αυτό το θέμα εξηγεί τη διαφορά μεταξύ ιδιοτήτων **local** και **effective**. Οι τοπικές τιμές είναι τιμές που ορίζονται άμεσα σε ένα συγκεκριμένο επίπεδο μορφοποίησης, όπως:
+Η μορφοποίηση του PowerPoint μπορεί να προέρχεται από πολλές πηγές. Η τιμή που αποθηκεύεται απευθείας σε ένα αντικείμενο είναι η **τοπική τιμή**. Αν αυτή η τιμή δεν είναι ορισμένη, το PowerPoint ελέγχει τις γονικές πηγές μορφοποίησης, όπως το προεπιλεγμένο παράγραφο, ένα στυλ κειμένου, μια διάταξη ή κύρια διαφάνεια, ένα θέμα ή τις προεπιλογές επιπέδου παρουσίασης. Αυτές οι τιμές είναι **κληρονομικές τιμές**. Η τιμή που απομένει μετά την επίλυση ολόκληρης της ιεραρχίας είναι η **αποτελεσματική τιμή**—η τιμή που χρησιμοποιείται για την απόδοση του αντικειμένου.
 
-1. Ιδιότητες τμήματος σε μια διαφάνεια.
-1. Τεχνοτροπίες κειμένου προτύπου σχήματος σε διάταξη ή κυριότερη διαφάνεια, όταν το σχήμα πλαισίου κειμένου του τμήματος διαθέτει μία.
-1. Γενικές ρυθμίσεις κειμένου σε μια παρουσίαση.
+Για παράδειγμα, ένα τμήμα κειμένου μπορεί να μην καθορίζει το δικό του ύψος γραμματοσειράς. Το τοπικό του [font height](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseportionformat/) είναι τότε `std::numeric_limits<float>::quiet_NaN()`, που σημαίνει «δεν ορίστηκε εδώ». Το τμήμα μπορεί να κληρονομήσει ένα ύψος από την παράγραφο, το προεπιλεγμένο στυλ κειμένου της παρουσίασης ή άλλη εφαρμόσιμη πηγή. Καλώντας [GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformat/) στο μορφοποίηση του τμήματος, επιστρέφεται το τελικό επιλυμένο ύψος.
 
-Οι τοπικές τιμές μπορούν να οριστούν ή να παραλειφθούν σε οποιοδήποτε επίπεδο. Όταν το Aspose.Slides χρειάζεται τη τελική μορφοποίηση "as rendered", επιλύει την αλυσίδα κληρονομικότητας και επιστρέφει τιμές **effective**. Μπορείτε να τις λάβετε καλώντας τη μέθοδο `GetEffective` στο αντικείμενο τοπικής μορφής.
+Χρησιμοποιήστε τα δύο είδη δεδομένων μορφοποίησης για διαφορετικούς σκοπούς:
 
-Το παρακάτω παράδειγμα δείχνει πώς να λάβετε τις αποτελεσματικές τιμές. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου και τουλάχιστον ένα τμήμα.
+- Διαβάστε ή τροποποιήστε ένα τοπικό αντικείμενο μορφοποίησης, όπως το [IPortionFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformat/), όταν χρειάζεστε έλεγχο του πού ορίζεται μια τιμή.
+- Διαβάστε ένα αντικείμενο αποτελεσματικών δεδομένων, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformateffectivedata/), όταν χρειάζεστε το τελικό, αποδιδόμενο αποτέλεσμα. Τα αποτελεσματικά δεδομένα είναι μόνο για ανάγνωση.
+
+## **Σύγκριση Τοπικών, Κληρονομικών και Αποτελεσματικών Τιμών**
+
+Το παρακάτω πλήρες παράδειγμα δημιουργεί ένα σχήμα και εφαρμόζει ύψη γραμματοσειράς στο επίπεδο παρουσίασης, παραγράφου και τμήματος. Κάθε βήμα εκτυπώνει τις τιμές που ορίζονται σε αυτά τα επίπεδα και την προκύπτουσα αποτελεσματική τιμή για το ίδιο τμήμα κειμένου. Επίσης, επιδεικνύει γιατί τα αποτελεσματικά δεδομένα πρέπει να διαβαστούν ξανά μετά από αλλαγές μορφοποίησης.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// Ορισμός κληρονομικών τιμών σε δύο διαφορετικά επίπεδα.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // Ανάγνωση αποτελεσματικών δεδομένων μετά τις προηγούμενες αλλαγές.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// Μια τοπική τιμή στο τμήμα παρακάμπτει και τις δύο κληρονομικές τιμές.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// Η αλλαγή μιας κληρονομικής τιμής δεν παρακάμπτει μια υπάρχουσα τοπική τιμή.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// Καθαρισμός της τοπικής τιμής. Το τμήμα κληρονομεί ξανά από την παράγραφο.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// Καθαρισμός της τιμής παραγράφου. Η προεπιλογή παρουσίασης παρέχει τώρα το αποτέλεσμα.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Η προτεραιότητα σε αυτό το παράδειγμα είναι η τοπική μορφοποίηση του τμήματος, έπειτα η μορφοποίηση της παραγράφου και τέλος η προεπιλογή της παρουσίασης. Άλλα αντικείμενα μπορούν να έχουν διαφορετική αλυσίδα κληρονομικότητας, αλλά η αρχή είναι η ίδια: μια πιο συγκεκριμένη ρητή τιμή κερδίζει, και το [GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformat/) επιστρέφει το τελικό αποτέλεσμα.
+
+## **Λήψη Αποτελεσματικών Ιδιοτήτων Κειμένου**
+
+Η μορφοποίηση κειμένου διασπάται σε αρκετά αντικείμενα:
+
+- Το [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframeformat/) επιλύει ιδιότητες πλαισίου κειμένου όπως περιθώρια, αγκύρωση, αυτόματο προσαρμογή και κατακόρυφη κατεύθυνση κειμένου.
+- Το [ITextStyle::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextstyle/) επιλύει τη μορφοποίηση παραγράφου για κάθε επίπεδο στυλ κειμένου.
+- Το [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/) επιλύει ιδιότητες παραγράφου όπως στοίχιση, εσοχή και κουκίδες.
+- Το [IPortionFormat::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformat/) επιλύει ιδιότητες χαρακτήρων όπως ύψος γραμματοσειράς, τύπο γραμματοσειράς, χρώμα, έντονη και πλάγια γραφή.
+
+Για το επόμενο παράδειγμα, το `text-formatting.pptx` πρέπει να περιέχει τουλάχιστον μία διαφάνεια και ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με μη κενό πλαίσιο κειμένου. Το IAutoShape μπορεί να εμφανίζεται σε οποιαδήποτε θέση στη συλλογή σχημάτων· ο κώδικας αναζητά ένα κατάλληλο αντικείμενο και το επικυρώνει πριν τη χρήση.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-Τα δεδομένα αποτελεσματικής μορφοποίησης αντιπροσωπεύουν την τρέχουσα υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας. Στην τρέχουσα υλοποίηση, ορισμένα αντικείμενα αποτελεσματικών δεδομένων, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformateffectivedata/), μπορεί να αποθηκεύονται στην κρυφή μνήμη. Η επανάκληση του `GetEffective` μετά την αλλαγή της γονικής ή κληρονομικής μορφοποίησης μπορεί να ανανεώσει τα αποθηκευμένα δεδομένα, και ένα αντικείμενο που είχε ληφθεί προηγουμένως μπορεί να μην αντιπροσωπεύει πλέον την προηγούμενη κατάσταση. Εάν χρειάζεται να διατηρήσετε τις αποτελεσματικές τιμές για μετέπειτα χρήση, αντιγράψτε τις απαιτούμενες ιδιότητες, όπως το ύψος γραμματοσειράς, το χρώμα γεμίσματος, το στυλ γραμματοσειράς ή την ευθυγράμμιση, στο δικό σας αντικείμενο δεδομένων.
-{{% /alert %}}
-
-## **Λήψη αποτελεσματικών ιδιοτήτων κάμερας**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες μιας κάμερας. Η διεπαφή [ICameraEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icameraeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει τις αποτελεσματικές ιδιότητες της κάμερας. Μια παρουσία του [ICameraEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icameraeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει τις αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για την κάμερα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων Light Rig**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες Light Rig. Η διεπαφή [ILightRigEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrigeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει τις αποτελεσματικές ιδιότητες του φωτιστικού Rig. Μια παρουσία του [ILightRigEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrigeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει τις αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για το φωτιστικό Rig. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων Bevel Shape**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες Bevel Shape. Η διεπαφή [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει τις αποτελεσματικές ιδιότητες ανάπλασης ενός σχήματος. Μια παρουσία του [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει τις αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για το άνω bevel ενός σχήματος. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων Text Frame**
-
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός πλαισίου κειμένου. Η διεπαφή [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframeformateffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες μορφοποίησης του πλαισίου κειμένου.
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων Text Style**
-
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός στυλ κειμένου. Η διεπαφή [ITextStyleEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextstyleeffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες στυλ κειμένου.
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες στυλ κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **Λήψη της αποτελεσματικής τιμής ύψους γραμματοσειράς**
+## **Λήψη Αποτελεσματικών Ιδιοτήτων 3D**
 
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε το αποτελεσματικό ύψος γραμματοσειράς. Το παρακάτω παράδειγμα δείχνει πώς το αποτελεσματικό ύψος γραμματοσειράς ενός τμήματος αλλάζει μετά τον ορισμό τοπικών τιμών ύψους σε διαφορετικά επίπεδα δομής παρουσίασης.
+Το [IThreeDFormat::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/) επιστρέφει ένα αντικείμενο [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/) που ομαδοποιεί όλες τις επιλυμένες ρυθμίσεις 3D. Τα δεδομένα της [camera](https://reference.aspose.com/slides/el/cpp/aspose.slides/icameraeffectivedata/), του [light rig](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrigeffectivedata/), του [top bevel](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) και του [bottom bevel](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) εκθέτουν τις αντίστοιχες αποτελεσματικές ρυθμίσεις. Η ανάγνωση αυτών των σχετικών ρυθμίσεων μαζί κάνει ευκολότερη την κατανόηση της τελικής 3D εμφάνισης ενός σχήματος.
+
+Για αυτό το παράδειγμα, το `shape-3d.pptx` πρέπει να περιέχει τουλάχιστον ένα σχήμα στην πρώτη του διαφάνεια. Εφαρμόστε 3D κάμερα, φωτισμό ή ρυθμίσεις κλίμακας σε εκείνο το σχήμα αν θέλετε το αποτέλεσμα να περιέχει τιμές διαφορετικές από τις προεπιλογές.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **Λήψη Αποτελεσματικής Μορφοποίησης Πίνακα**
+
+Η μορφοποίηση πίνακα μπορεί να προέρχεται από το στυλ πίνακα και από μορφοποιήσεις που εφαρμόζονται σε ολόκληρο τον πίνακα, στήλη, σειρά ή μεμονωμένο κελί. Για συγκρούσεις μεταξύ ρητά ορισμένων γεμισμάτων, η προτεραιότητα είναι κελί, σειρά, στήλη και τέλος ολόκληρος ο πίνακας. Η αποτελεσματική μορφοποίηση ενός κελιού είναι η τελική μορφοποίηση που χρησιμοποιείται για την σχεδίαση του κελιού.
+
+Για αυτό το παράδειγμα, το `table-formatting.pptx` πρέπει να περιέχει τουλάχιστον έναν πίνακα στην πρώτη του διαφάνεια. Ο πίνακας πρέπει να έχει τουλάχιστον μία σειρά και μία στήλη. Ο κώδικας αναζητά ένα [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/) αντί να υποθέτει ότι το πρώτο σχήμα είναι πίνακας.
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Λήψη της αποτελεσματικής μορφής γεμίσματος για πίνακα**
-
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε αποτελεσματική μορφή γεμίσματος για διαφορετικά τμήματα πίνακα. Η διεπαφή [IFillFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες μορφοποίησης γεμίσματος. Η μορφοποίηση κελιού έχει υψηλότερη προτεραιότητα από τη μορφοποίηση γραμμής, η μορφοποίηση γραμμής έχει υψηλότερη προτεραιότητα από τη μορφοποίηση στήλης, και η μορφοποίηση στήλης έχει υψηλότερη προτεραιότητα από τη μορφοποίηση ολόκληρου του πίνακα.
-
-Ως αποτέλεσμα, οι ιδιότητες [ICellFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icellformateffectivedata/) χρησιμοποιούνται για τη σχεδίαση του κελιού του πίνακα. Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματική μορφή γεμίσματος για διαφορετικά τμήματα πίνακα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/).
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
+
+Αν χρειάζεστε το χρώμα αντί μόνο του τύπου γεμίσματος, ελέγξτε πρώτα το αποτελεσματικό [FillType](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/), και μετά διαβάστε την ιδιότητα που εφαρμόζεται σε αυτόν τον τύπο—π.χ., το [SolidFillColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/) για ένα συμπαγές γέμισμα.
+
+## **Επανάγνωση Αποτελεσματικών Δεδομένων Μετά από Αλλαγές**
+
+Τα αποτελεσματικά δεδομένα περιγράφουν την ιεραρχία μορφοποίησης τη στιγμή που επιλύεται. Καλέστε ξανά το `GetEffective` μετά την αλλαγή οτιδήποτε μπορεί να συμμετέχει σε αυτήν την ιεραρχία, συμπεριλαμβανομένων:
+
+- της τοπικής μορφοποίησης του αντικειμένου·
+- των προεπιλογών παραγράφου ή πλαισίου κειμένου·
+- ενός στυλ πίνακα, πίνακα, στήλης, σειράς ή μορφοποίησης κελιού·
+- της μορφοποίησης διάταξης ή κύριας διαφάνειας·
+- των δεδομένων θέματος ή προεπιλογών επιπέδου παρουσίασης·
+- της διάταξης ή κύριας που έχει εκχωρηθεί σε μια διαφάνεια.
+
+Μην διατηρείτε ένα αντικείμενο αποτελεσματικών δεδομένων ως μόνιμη στιγμιότυπο. Το Aspose.Slides μπορεί να αποθηκεύει προσωρινά κάποια αποτελεσματικά δεδομένα εσωτερικά, και μια μεταγενέστερη κλήση `GetEffective` μπορεί να τα ενημερώσει. Αν χρειάζεται να συγκρίνετε τιμές πριν και μετά από αλλαγή, αντιγράψτε τις βαθμωτές τιμές που χρειάζεστε—όπως ύψος γραμματοσειράς, χρώμα, στοίχιση ή πλάτος κλίμακας—σε δικές σας μεταβλητές πριν κάνετε την αλλαγή.
+
+Για να αλλάξετε μια τιμή, ενημερώστε το κατάλληλο τοπικό αντικείμενο μορφοποίησης και στη συνέχεια καλέστε `GetEffective` για να επαληθεύσετε το αποτέλεσμα. Τα αντικείμενα αποτελεσματικών δεδομένων είναι μόνο για ανάγνωση.
 
 ## **Συχνές Ερωτήσεις**
 
-**Επιστρέφει η `GetEffective` μια στιγμιότυπη εικόνα;**
+**Πώς μπορώ να καταλάβω ποιο επίπεδο παρείχε μια αποτελεσματική τιμή;**
 
-Όχι πάντα. Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τη υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας, αλλά ορισμένα αντικείμενα αποτελεσματικών δεδομένων μπορεί να αποθηκεύονται στην κρυφή μνήμη. Μια επόμενη κλήση του `GetEffective` μπορεί να επαναϋπολογίσει τη μορφοποίηση και να ανανεώσει τα αποθηκευμένα δεδομένα, έτσι ένα αντικείμενο που είχε ληφθεί προηγουμένως δεν πρέπει να θεωρείται μόνιμη στιγμιότυπη εικόνα.
+Τα αποτελεσματικά δεδομένα περιέχουν τη τελική τιμή, όχι την πηγή της. Εξετάστε τα εφαρμόσιμα τοπικά αντικείμενα ξεκινώντας από το πιο συγκεκριμένο επίπεδο προς τα έξω. Για κείμενο, αυτό μπορεί να περιλαμβάνει το τμήμα, την παράγραφο, το πλαίσιο κειμένου, τη διάταξη, το κύριο, το θέμα και τις προεπιλογές παρουσίασης. Μη ορισμένες τιμές όπως `std::numeric_limits<float>::quiet_NaN()` ή `nullptr` υποδεικνύουν ότι η αναζήτηση συνεχίζεται σε άλλο επίπεδο.
 
-**Πότε πρέπει να διαβάζω ξανά τις αποτελεσματικές ιδιότητες;**
+**Τι συμβαίνει όταν κανένα επίπεδο δεν ορίζει μια ιδιότητα;**
 
-Κλήστε ξανά το `GetEffective` μετά την αλλαγή της τοπικής μορφοποίησης, των γονικών στυλ, της μορφοποίησης διάταξης, της μορφοποίησης master ή των προεπιλογών επιπέδου παρουσίασης. Η επόμενη κλήση επανεξετάζει τη ιεραρχία μορφοποίησης και επιστρέφει το τρέχον αποτελεσματικό αποτέλεσμα.
+Το Aspose.Slides επιλύει τη σχετική προεπιλογή του PowerPoint ή της βιβλιοθήκης. Η επιλυμένη τιμή εμφανίζεται στα αποτελεσματικά δεδομένα παρόλο που κανένα τοπικό αντικείμενο δεν την ορίζει ρητά.
 
-**Επηρεάζει η αλλαγή ή η αφαίρεση μιας διαφάνειας διάταξης/master τις αποτελεσματικές ιδιότητες που έχουν ήδη ανακτηθεί;**
+**Γιατί μια αποτελεσματική τιμή μερικές φορές ισούται με την τοπική τιμή;**
 
-Ναι, αλλά η αλλαγή αντικατοπτρίζεται στην επόμενη κλήση του `GetEffective`. Εάν μια γονική πηγή μορφοποίησης αλλάξει ή αφαιρεθεί, τα προηγουμένως ληφθέντα αποτελεσματικά δεδομένα μπορεί να είναι ξεπερασμένα. Μόλις κληθεί ξανά το `GetEffective`, το Aspose.Slides επανεξετάζει το δέντρο μορφοποίησης και οι προκύπτοντες γραμματοσειρές, χρώματα, μεγέθη ή άλλες τιμές μπορεί να αλλάξουν.
+Η τοπική τιμή κατέκτησε τον υπολογισμό κληρονομικότητας. Αυτό είναι αναμενόμενο όταν η ιδιότητα έχει οριστεί ρητά στο αντικείμενο και κανένας πιο συγκεκριμένος κανόνας δεν την παρακάμπτει.
 
-**Μπορώ να τροποποιήσω τιμές μέσω των αντικειμένων αποτελεσματικών δεδομένων;**
+**Πότε πρέπει να χρησιμοποιώ τοπικά δεδομένα αντί για αποτελεσματικά δεδομένα;**
 
-Όχι. Τα αντικείμενα αποτελεσματικών δεδομένων εκθέτουν υπολογισμένες τιμές. Κάντε αλλαγές στα τοπικά αντικείμενα μορφοποίησης και, στη συνέχεια, λάβετε ξανά τις αποτελεσματικές τιμές.
-
-**Τι συμβαίνει αν μια ιδιότητα δεν οριστεί στο επίπεδο του σχήματος, ούτε στη διάταξη/master, ούτε στις καθολικές ρυθμίσεις;**
-
-Η αποτελεσματική τιμή καθορίζεται από τον προεπιλεγμένο μηχανισμό, που περιλαμβάνει τις προεπιλογές του PowerPoint και του Aspose.Slides. Η επιλυμένη τιμή γίνεται μέρος των τρεχουσών αποτελεσματικών δεδομένων.
-
-**Από μια αποτελεσματική τιμή γραμματοσειράς, μπορώ να καταλάβω ποιο επίπεδο παρείχε το μέγεθος ή το τύπο γραμματοσειράς;**
-
-Όχι άμεσα. Τα αποτελεσματικά δεδομένα επιστρέφουν την τελική τιμή. Για να βρείτε την πηγή, ελέγξτε τις τοπικές τιμές στο τμήμα, την παράγραφο, το πλαίσιο κειμένου και τα στυλ κειμένου στη διάταξη, το master και το επίπεδο παρουσίασης ώστε να δείτε πού εμφανίζεται η πρώτη ρητή ορισμός.
-
-**Γιατί οι αποτελεσματικές τιμές μερικές φορές φαίνονται ταυτόσημες με τις τοπικές;**
-
-Επειδή η τοπική τιμή κατέληξε να είναι η τελική (δεν απαιτήθηκε κληρονομική τιμή από υψηλότερο επίπεδο). Σε τέτοιες περιπτώσεις, η αποτελεσματική τιμή ταιριάζει με την τοπική.
-
-**Πότε πρέπει να χρησιμοποιώ αποτελεσματικές ιδιότητες και πότε να εργάζομαι μόνο με τοπικές;**
-
-Χρησιμοποιήστε τα αποτελεσματικά δεδομένα όταν χρειάζεστε το αποτέλεσμα «as rendered» μετά την πλήρη εφαρμογή της κληρονομικότητας, π.χ. για ευθυγράμμιση χρωμάτων, εσοχών ή μεγεθών. Εάν χρειάζεται να διατηρήσετε αυτές τις τιμές ανεξάρτητα από μελλοντικές αλλαγές μορφοποίησης, αντιγράψτε τις απαιτούμενες ιδιότητες σε δικό σας αντικείμενο. Εάν θέλετε να αλλάξετε τη μορφοποίηση σε συγκεκριμένο επίπεδο, τροποποιήστε τις τοπικές ιδιότητες και, εάν είναι απαραίτητο, διαβάστε ξανά τα αποτελεσματικά δεδομένα για να επαληθεύσετε το αποτέλεσμα.
+Χρησιμοποιήστε τοπικά δεδομένα για να εξετάσετε ή να επεξεργαστείτε ένα συγκεκριμένο επίπεδο μορφοποίησης. Χρησιμοποιήστε αποτελεσματικά δεδομένα όταν χρειάζεστε την τελική εμφάνιση μετά την κληρονομικότητα, τους κανόνες θέματος και τα εφαρμοστέα στυλ. Το [complete comparison example](#compare-local-inherited-and-effective-values) επιδεικνύει και τα δύο στην ίδια ροή εργασίας.

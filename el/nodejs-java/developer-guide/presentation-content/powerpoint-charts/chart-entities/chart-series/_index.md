@@ -1,338 +1,416 @@
 ---
-title: Διαχειριστείτε τις Σειρές Δεδομένων Διαγράμματος σε Παρουσιάσεις με JavaScript
+title: Διαχείριση Σειρών Δεδομένων Γραφήματος σε Παρουσιάσεις με JavaScript
 linktitle: Σειρές Δεδομένων
 type: docs
 url: /el/nodejs-java/chart-series/
 keywords:
-- σειρά διαγράμματος
-- επικαλυπτική σειρά
+- σειρά γραφήματος
+- επικάλυψη σειράς
 - χρώμα σειράς
-- χρώμα κατηγορίας
 - όνομα σειράς
 - σημείο δεδομένων
+- κελί βιβλίου εργασίας
 - κενό σειράς
+- αρνητική τιμή
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε τις σειρές διαγράμματος σε JavaScript για PowerPoint (PPT/PPTX) με πρακτικά παραδείγματα κώδικα και βέλτιστες πρακτικές για τη βελτίωση των παρουσιάσεων δεδομένων σας."
+description: "Μάθετε πώς να διαχειρίζεστε σειρές γραφήματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος κενών και αρνητικές τιμές σε παρουσιάσεις με JavaScript."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο περιγράφει το ρόλο του ChartSeries στο Aspose.Slides, εστιάζοντας στο πώς τα δεδομένα δομούνται και απεικονίζονται μέσα σε παρουσιάσεις. Αυτά τα αντικείμενα παρέχουν τα θεμέλια στοιχεία που ορίζουν μεμονωμένα σύνολα σημείων δεδομένων, κατηγοριών και παραμέτρων εμφάνισης σε ένα διάγραμμα. Εργαζόμενοι με το ChartSeries, οι προγραμματιστές μπορούν αδιάλειπτα να ενσωματώσουν τις υποκείμενες πηγές δεδομένων και να διατηρούν πλήρη έλεγχο του τρόπου παρουσίασης των πληροφοριών, οδηγώντας σε δυναμικές, δεδομενο‑προσανατολισμένες παρουσιάσεις που μεταδίδουν σαφώς ιδέες και ανάλυση.
+Ένα γράφημα αποθηκεύει τα δεδομένα που σχεδιάζονται σε ένα βιβλίο εργασίας δεδομένων γραφήματος. Ένα [ChartSeries](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [ChartDataPoint](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapoint/) στη σειρά αναφέρεται σε ένα ή περισσότερα κελιά του βιβλίου εργασίας. Αντικείμενα [ChartCategory](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται οι σειρές. Το όνομα της σειράς, οι κατηγορίες και οι τιμές των σημείων συνδέονται επομένως με αντικείμενα [ChartDataCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/) αντί να αποθηκεύονται μόνο ως κείμενο εμφάνισης.
 
-Μία σειρά είναι μια γραμμή ή στήλη αριθμών που σχεδιάζονται σε ένα διάγραμμα.
+Για ένα τυπικό γράφημα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα των σειρών, τη στήλη 0 για τα ονόματα των κατηγοριών και τα υπόλοιπα κελιά για τις τιμές των σειρών. Οι δείκτες φύλλου, γραμμής και στήλης που περνιούνται στο [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#getCell) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα γράφημα με προεπιλεγμένα δεδομένα, αλλά μη θεωρείτε ότι κάθε υπάρχον γράφημα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, επιθεωρήστε τα κελιά που αναφέρονται από τις σειρές, τις κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Οι ρυθμίσεις γραφήματος έχουν τρία διαφορετικά πεδία εφαρμογής:
 
-## **Ορισμός Επικάλυψης Σειράς Διαγράμματος**
+- Ρυθμίσεις σε επίπεδο σειράς, όπως [ChartSeries.getFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getFormat), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία μιας σειράς.
+- Ρυθμίσεις σε επίπεδο σημείου δεδομένου, όπως [ChartDataPoint.getFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapoint/#getFormat), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
+- Ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στην ίδια [ChartSeriesGroup](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseriesgroup/). Πρόσβαση στην ομάδα μέσω του [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) όταν χρειάζεται να ορίσετε επιλογές όπως επικάλυψη ή πλάτος κενών.
 
-Με τη μέθοδο ChartSeries.getOverlap, μπορείτε να καθορίσετε πόσο πρέπει να επικαλύπτονται οι μπάρες και οι στήλες σε ένα δισδιάστατο διάγραμμα (εύρος: -100 έως 100). Αυτή η ιδιότητα εφαρμόζεται σε όλες τις σειρές της γονικής ομάδας σειρών: πρόκειται για μια προβολή της αντίστοιχης ιδιότητας ομάδας. Συνεπώς, αυτή η ιδιότητα είναι μόνο για ανάγνωση.
+Όταν δεν έχει οριστεί ρητή συμπλήρωση σημείου ή σειράς, το στυλ και το θέμα του γραφήματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν τόσο μορφοποίηση σειράς όσο και σημείου, η μορφοποίηση σημείου έχει προτεραιότητα για εκείνο το σημείο.
 
-Χρησιμοποιήστε την ιδιότητα ανάγνωσης/εγγραφής `ParentSeriesGroup.getOverlap` για να ορίσετε την προτιμώμενη τιμή της `Overlap`.
+![Διάγραμμα σειράς PowerPoint](chart-series-powerpoint.png)
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης Presentation.  
-1. Προσθέστε ένα συγκεντρωτικό ραβδόγραμμα σε μια διαφάνεια.  
-1. Προσπελάστε την πρώτη σειρά διαγράμματος.  
-1. Προσπελάστε την `ParentSeriesGroup` της σειράς διαγράμματος και ορίστε την προτιμώμενη τιμή επικάλυψης για τη σειρά.  
-1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.  
+## **Ορισμός της Επικάλυψης Σειράς Γραφήματος**
+
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getOverlap) αναφέρει πόσο οι μπάρες ή στήλες επικαλύπτονται σε ένα 2D γράφημα, από -100 έως 100 τοις εκατό. Είναι μια μόνο για ανάγνωση προβολή της ρύθμισης στην γονική ομάδα σειρών. Χρησιμοποιήστε το [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) για να ενημερώσετε κάθε συμβατή σειρά σε εκείνη την ομάδα. Αυτή η επιλογή εφαρμόζεται σε τύπους γραφήματος που εμφανίζουν ομαδοποιημένες μπάρες ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε ένα συνδυαστικό γράφημα.
+
+Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const overlapPercent = java.newByte(30);
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει γράφημα
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0) {
-        // Ορίζει την επικάλυψη της σειράς
-        series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
-    }
-    // Γράφει το αρχείο παρουσίασης στο δίσκο
-    pres.save("SetChartSeriesOverlap_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Το νέο γράφημα περιέχει δείγμα σειρών, κατηγοριών και τιμών.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αλλαγή Χρώματος Σειράς**
+Το αποτέλεσμα:
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να αλλάξετε το χρώμα μιας σειράς με αυτόν τον τρόπο:
+![Η επικάλυψη των σειρών](series_overlap.png)
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης Presentation.  
-1. Προσθέστε διάγραμμα στη διαφάνεια.  
-1. Προσπελάστε τη σειρά της οποίας το χρώμα θέλετε να αλλάξετε.  
-1. Ορίστε τον προτιμώμενο τύπο γεμίσματος και το χρώμα γεμίσματος.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.  
+## **Αλλαγή του Χρώματος Συμπλήρωσης της Σειράς**
+
+Χρησιμοποιήστε το [ChartSeries.getFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getFormat) για να ορίσετε τη προεπιλεγμένη συμπλήρωση ολόκληρης μιας σειράς. Εάν ένα σημείο έχει ήδη ρητή συμπλήρωση, η ρύθμιση του [ChartDataPoint.getFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapoint/#getFormat) παρακάμπτει τη συμπλήρωση της σειράς για εκείνο το σημείο.
+
+Το παρακάτω παράδειγμα εφαρμόζει συμπλήρωση στερεό μπλε στην πρώτη σειρά:
 
 ```javascript
-var pres = new aspose.slides.Presentation("test.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(blueColor);
+
+    presentation.save("series_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αλλαγή Χρώματος Κατηγορίας Σειράς**
+Το αποτέλεσμα:
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να αλλάξετε το χρώμα μιας κατηγορίας σειράς με αυτόν τον τρόπο:
+![Το χρώμα της σειράς](series_color.png)
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης Presentation.  
-1. Προσθέστε διάγραμμα στη διαφάνεια.  
-1. Προσπελάστε την κατηγορία της σειράς της οποίας το χρώμα θέλετε να αλλάξετε.  
-1. Ορίστε τον προτιμώμενο τύπο γεμίσματος και το χρώμα γεμίσματος.  
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.  
+## **Αλλαγή του Ονόματος της Σειράς**
+
+Το όνομα μιας σειράς αποθηκεύεται στο βιβλίο εργασίας δεδομένων γραφήματος και εμφανίζεται κανονικά στη λεζάντα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα γράφημα ομάδων στηλών, το κελί B1 είναι στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι ονομαστικές σταθερές στο παρακάτω παράδειγμα καθιστούν αυτήν τη δομή σαφής:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const seriesNameRowIndex = 0;
+const firstSeriesColumnIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Αλλαγή Ονόματος Σειράς** 
-
-Από προεπιλογή, τα ονόματα του υπομνήματος ενός διαγράμματος είναι τα περιεχόμενα των κελιών πάνω από κάθε στήλη ή γραμμή δεδομένων. 
-
-Στο παράδειγμά μας (δείγμα εικόνας),
-
-* οι στήλες είναι *Series 1, Series 2,* και *Series 3*;
-* οι γραμμές είναι *Category 1, Category 2, Category 3,* και *Category 4.* 
-
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να ενημερώσετε ή να αλλάξετε το όνομα μιας σειράς στα δεδομένα διαγράμματος και στο υπόμνημα.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να αλλάξετε το όνομα μιας σειράς στα δεδομένα διαγράμματος `ChartDataWorkbook`:
+Μπορείτε επίσης να ενημερώσετε το κελί που ήδη αναφέρεται από το [ChartSeries.getName](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getName). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε ένα υπάρχον γράφημα:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const firstNameCellIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να αλλάξετε το όνομα μιας σειράς στο υπόμνημα μέσω του `Series`:
+Το αποτέλεσμα:
+
+![Το όνομα της σειράς](series_name.png)
+
+## **Λήψη του Αυτόματου Χρώματος Συμπλήρωσης της Σειράς**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) επιστρέφει το χρώμα που υπολογίζεται από τον δείκτη της σειράς και το στυλ του γραφήματος. Αυτό είναι το χρώμα που χρησιμοποιείται όταν η συμπλήρωση της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν εκχωρεί νέα συμπλήρωση.
+
+Το παρακάτω παράδειγμα εκτυπώνει το αυτόματο χρώμα κάθε προεπιλεγμένης σειράς:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries().get_Item(0);
-    var name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const seriesCount = chart.getChartData().getSeries().size();
+    for (let seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const automaticColor = series.getAutomaticSeriesColor();
+        const automaticColorText = automaticColor.toString();
+        console.log("Series " + seriesIndex + ": " + automaticColorText);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Χρώματος Γέμισματος Σειράς Διαγράμματος**
+Παράδειγμα εξόδου για το προεπιλεγμένο στυλ γραφήματος:
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να ορίσετε το αυτόματο χρώμα γέμισματος για τις σειρές διαγράμματος εντός περιοχής σχεδίασης με αυτόν τον τρόπο:
-
-1. Δημιουργήστε μια νέα παρουσία της κλάσης Presentation.  
-1. Αποκτήστε την αναφορά μιας διαφάνειας με βάση τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα βάσει του προτιμώμενου τύπου σας (στο παρακάτω παράδειγμα, χρησιμοποιήσαμε το `ChartType.ClusteredColumn`).  
-1. Προσπελάστε τη σειρά διαγράμματος και ορίστε το χρώμα γέμισματος σε Automatic.  
-1. Αποθηκεύστε την παρουσίαση σε αρχείο PPTX.  
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Δημιουργεί συγκεντρωτικό ραβδόγραμμα
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
-    // Ορίζει τη μορφή γεμίσματος της σειράς σε αυτόματη
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-    // Γράφει το αρχείο παρουσίασης στο δίσκο
-    pres.save("AutoFillSeries_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-## **Ορισμός Αντιστροφής Χρωμάτων Γέμισματος Σειράς Διαγράμματος**
+Τα ακριβή χρώματα εξαρτώνται από το στυλ και το θέμα του γραφήματος.
 
-Το Aspose.Slides σας επιτρέπει να ορίσετε την αντιστροφή του χρώματος γέμισματος για τις σειρές διαγράμματος εντός περιοχής σχεδίασης με αυτόν τον τρόπο:
+## **Ορισμός Αναστροφής Συμπλήρωσης για Σειρά Γραφήματος**
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης Presentation.  
-1. Αποκτήστε την αναφορά μιας διαφάνειας με βάση τον δείκτη της.  
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα βάσει του προτιμώμενου τύπου σας (στο παρακάτω παράδειγμα, χρησιμοποιήσαμε το `ChartType.ClusteredColumn`).  
-1. Προσπελάστε τη σειρά διαγράμματος και ορίστε το χρώμα γέμισματος σε invert.  
-1. Αποθηκεύστε την παρουσίαση σε αρχείο PPTX.  
+Για σειρές μπάρας, στήλης και φυσαλίδας, το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) μπορεί να εμφανίζει αρνητικές τιμές με διαφορετική συμπλήρωση. Ορίστε τη συνηθισμένη συμπλήρωση σειράς σε στερεό, ενεργοποιήστε την αναστροφή και καθορίστε το χρώμα αρνητικής τιμής μέσω του [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· μόνο το χρώμα εμφάνισής τους αλλάζει.
+
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα γραφήματος με μια σειρά. Η γραμμή 0 του φύλλου περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα των κατηγοριών και η στήλη 1 περιέχει τις τιμές:
 
 ```javascript
-var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const headerRowIndex = 0;
+const categoryColumnIndex = 0;
+const firstSeriesColumnIndex = 1;
+const firstDataRowIndex = 1;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const categoryNames = ["Category 1", "Category 2", "Category 3"];
+const seriesValues = [-20, 50, -30];
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    var workBook = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-    // Προσθέτει νέες σειρές και κατηγορίες
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-    // Παίρνει την πρώτη σειρά διαγράμματος και γεμίζει τα δεδομένα της σειράς.
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    var seriesColor = series.getAutomaticSeriesColor();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    const chartType = chart.getType();
+    const series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (let categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        const dataRowIndex = firstDataRowIndex + categoryIndex;
+        const categoryName = categoryNames[categoryIndex];
+        const seriesValue = seriesValues[categoryIndex];
+
+        const categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
     series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    series.getInvertedSolidFillColor().setColor(redColor);
+
+    presentation.save("inverted_solid_fill_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Αντιστροφής Σειράς Όταν Η Τιμή Είναι Αρνητική**
+Το αποτέλεσμα:
 
-Το Aspose.Slides σάς επιτρέπει να ορίσετε αντιστροφές μέσω της μεθόδου `ChartDataPoint.setInvertIfNegative`. Όταν ορίζεται μια αντιστροφή χρησιμοποιώντας τις ιδιότητες, το σημείο δεδομένων αντιστρέφει τα χρώματά του όταν λαμβάνει αρνητική τιμή. 
+![Το ανασχηματισμένο στερεό χρώμα συμπλήρωσης](inverted_solid_fill_color.png)
 
-Αυτός ο κώδικας JavaScript δείχνει τη λειτουργία:
+Μπορείτε να ενεργοποιήσετε την αναστροφή για ένα σημείο μέσω του [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Στο παρακάτω παράδειγμα, η αναστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Το σημείο επίσης λαμβάνει αρνητική τιμή ώστε το εφέ να είναι ορατό:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 2;
+const negativeValue = -30;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-    var chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-    chartSeries.setInvertIfNegative(false);
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(redColor);
+    series.setInvertIfNegative(false);
+
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Καθαρισμός Δεδομένων Συγκεκριμένων Σημείων Δεδομένων**
+## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να αφαιρέσετε τα δεδομένα `DataPoints` για μια συγκεκριμένη σειρά διαγράμματος με αυτόν τον τρόπο:
+Για να αφήσετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα, ορίστε το αντίστοιχο κελί του βιβλίου εργασίας σε `null`. Για γράφημα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [ChartDataPoint.getValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapoint/#getValue). Το σημείο παραμένει στη ίδια θέση κατηγορίας, αλλά το γράφημα το αντιμετωπίζει ως κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του γραφήματος.
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης Presentation.  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Αποκτήστε την αναφορά ενός διαγράμματος μέσω του δείκτη του.  
-4. Επαναλάβετε σε όλα τα `DataPoints` του διαγράμματος και ορίστε τα `XValue` και `YValue` σε null.  
-5. Καθαρίστε όλα τα `DataPoints` για συγκεκριμένη σειρά διαγράμματος.  
-6. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.  
+Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
 
 ```javascript
-var pres = new aspose.slides.Presentation("TestChart.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sl = pres.getSlides().get_Item(0);
-    var chart = sl.getShapes().get_Item(0);
-    for (let i = 0; i < chart.getChartData().getSeries().get_Item(0).getDataPoints().size(); i++) {
-        let dataPoint = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(i);
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Πλάτους Κενού Σειράς**
+Τα γραφήματα διάσπασης χρησιμοποιούν ξεχωριστά κελιά X και Y, ενώ τα γραφήματα φυσαλίδας χρησιμοποιούν επίσης κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapointcollection/#clear) όταν θέλετε να διατηρήσετε τα υπόλοιπα σημεία, επειδή αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να ορίσετε το Πλάτος Κενού μιας σειράς μέσω της ιδιότητας `GapWidth` με αυτόν τον τρόπο:
+## **Ορισμός του Πλάτους Κενού μεταξύ Σειρών**
 
-1. Δημιουργήστε μια νέα παρουσία της κλάσης Presentation.  
-1. Προσπελάστε την πρώτη διαφάνεια.  
-1. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα.  
-1. Προσπελάστε οποιαδήποτε σειρά διαγράμματος.  
-1. Ορίστε την ιδιότητα `GapWidth`.  
-1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.  
+Το πλάτος κενού είναι το κενό μεταξύ διαδοχικών ομάδων μπάρας ή στήλης, εκφρασμένο ως ποσοστό του πλάτους της μπάρας ή στήλης. Όπως η επικάλυψη, ανήκει στην γονική ομάδα σειρών παρά σε μια μόνο σειρά. Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) μία φορά για την ομάδα. Μεγαλύτερη τιμή δημιουργεί περισσότερο διάστημα μεταξύ των ομάδων· μικρότερη τιμή τις κάνει πιο πυκνές.
+
+Το παρακάτω παράδειγμα αλλάζει το πλάτος κενού και αποθηκεύει μόνο την τελική παρουσίαση:
 
 ```javascript
-// Δημιουργεί κενή παρουσίαση
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const gapWidthPercent = 30;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Προσπελάζει την πρώτη διαφάνεια της παρουσίασης
-    var slide = pres.getSlides().get_Item(0);
-    // Προσθέτει γράφημα με προεπιλεγμένα δεδομένα
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
-    // Ορίζει τον δείκτη του φύλλου δεδομένων του γραφήματος
-    var defaultWorksheetIndex = 0;
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του γραφήματος
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Προσθέτει σειρές
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Προσθέτει κατηγορίες
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Παίρνει τη δεύτερη σειρά του γραφήματος
-    var series = chart.getChartData().getSeries().get_Item(1);
-    // Συμπληρώνει τα δεδομένα της σειράς
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Ορίζει την τιμή GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("GapWidth_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Το αποτέλεσμα:
+
+![Το πλάτος κενού](gap_width.png)
 
 ## **Συχνές Ερωτήσεις**
 
-**Υπάρχει όριο στον αριθμό των σειρών που μπορεί να περιέχει ένα μεμονωμένο διάγραμμα;**
+**Ποιοι τύποι γραφημάτων υποστηρίζουν σειρές δεδομένων;**
 
-Το Aspose.Slides δεν θέτει κάποιο σταθερό όριο στον αριθμό των σειρών που προσθέτετε. Το πρακτικό όριο καθορίζεται από την αναγνωσιμότητα του διαγράμματος και από τη μνήμη που διατίθεται στην εφαρμογή σας.
+Όλοι οι τύποι γραφημάτων που αντιπροσωπεύονται από τον αριθμό [ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/) χρησιμοποιούν δεδομένα γραφήματος, αλλά οι σειρές τους δεν έχουν όλοι την ίδια δομή τιμών ή ρυθμίσεις. Για παράδειγμα, τα γραφήματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα γραφήματα διάσπασης χρησιμοποιούν τιμές X και Y, και τα γραφήματα φυσαλίδας προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει στον τύπο σειράς. Επιλογές όπως επικάλυψη και πλάτος κενού ισχύουν μόνο σε συμβατές ομάδες μπάρας ή στήλης.
 
-**Τι γίνεται αν οι στήλες μέσα σε ένα σύνολο είναι πολύ κοντά μεταξύ τους ή πολύ μακριά;**
+**Τι είναι μια ομάδα σειρών γραφήματος;**
 
-Ρυθμίστε την παράμετρο Gap Width για εκείνη τη σειρά (ή για την γονική ομάδα σειρών). Η αύξηση της τιμής διευρύνει το κενό μεταξύ των στηλών, ενώ η μείωσή της τις φέρνει πιο κοντά μεταξύ τους.
+Μια [ChartSeriesGroup](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης σε επίπεδο ομάδας. Ένα συνδυαστικό γράφημα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας που προέρχεται από μια σειρά δεν αλλάζει απαραίτητα όλες τις σειρές στο γράφημα.
+
+**Ένα νεοδημιούργητο γράφημα περιέχει προεπιλεγμένα δεδομένα;**
+
+Ναι. Από προεπιλογή, η μέθοδος [ShapeCollection.addChart](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/#addChart) δημιουργεί δείγματα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να διαγράψετε τόσο τις συλλογές σειρών όσο και των κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Υπάρχει επίσης υπερφόρτωση που δημιουργεί γράφημα χωρίς προεπιλεγμένα δεδομένα.
+
+**Πώς συνδέονται τα αντικείμενα γραφήματος με τα κελιά του βιβλίου εργασίας;**
+
+Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων αναφέρονται σε κελιά ενός [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/). Η αλλαγή ενός παραπομπής κελιού ενημερώνει το αντίστοιχο στοιχείο του γραφήματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις σειρές κατηγοριών και τις σειρές τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από την προοριζόμενη κατηγορία.
+
+**Πώς μπορώ να διαγράψω ένα μόνο σημείο αντί για ολόκληρη τη σειρά;**
+
+Ορίστε το σχετικό κελί τιμής σε `null` ώστε να παραμείνει η θέση της κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapointcollection/#clear) μόνο όταν θέλετε να αφαιρέσετε όλα τα σημεία από αυτή τη σειρά. Αν αφαιρείτε επίσης κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους παραμείνουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+
+**Πώς εμφανίζονται τα κενά σημεία;**
+
+Το αποτέλεσμα εξαρτάται από τον τύπο γραφήματος και την τιμή που έχει οριστεί μέσω του [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Τα υποστηριζόμενα γραφήματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει στο νόημα των ελλιπών δεδομένων στην παρουσίασή σας.
+
+**Πώς μορφοποιούνται οι αρνητικές τιμές;**
+
+Για τις υποστηριζόμενες σειρές μπάρας, στήλης και φυσαλίδας, καλέστε το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) και ορίστε το χρώμα που επιστρέφεται από το [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο με το [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+
+**Ποια μορφοποίηση «κερδίζει» όταν τόσο η σειρά όσο και το σημείο είναι μορφοποιημένα;**
+
+Η ρητή μορφοποίηση σημείου δεδομένου παίρνει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν η μορφοποίηση σειράς δεν ορίζεται, το αυτόματο στυλ και θέμα του γραφήματος. Οι ρυθμίσεις ομάδας όπως η επικάλυψη και το πλάτος κενού ελέγχουν τη διάταξη και δεν είναι παρακάμψεις μορφοποίησης επιπέδου σημείου.
+
+**Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα γράφημα;**
+
+Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, οι περιορισμοί του αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η ευανάγνωστη παρουσίαση του γραφήματος καθορίζουν ένα πρακτικό όριο.
+
+**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά μεταξύ τους;**
+
+Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) στην κατάλληλη γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το κενό μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.

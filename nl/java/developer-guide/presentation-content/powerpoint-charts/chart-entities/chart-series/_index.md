@@ -1,364 +1,399 @@
 ---
-title: Beheer grafiekgegevensreeksen in presentaties met Java
-linktitle: Gegevensreeksen
+title: Beheer diagramreeksgegevens in presentaties met Java
+linktitle: Gegevensreeks
 type: docs
 url: /nl/java/chart-series/
 keywords:
-- grafiekreeksen
-- reeks-overlap
-- reeks-kleur
-- categorie-kleur
+- diagramreeks
+- reeks overlapping
+- reeks kleur
 - reeksnaam
 - datapunt
+- werkbladcel
 - reeksafstand
+- negatieve waarde
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer hoe u grafiekreeksen in Java voor PowerPoint (PPT/PPTX) kunt beheren met praktische codevoorbeelden en best practices om uw datapresentaties te verbeteren."
+description: "Leer hoe u diagramreeksen, datapunten, werkbladcellen, opmaak, overlapping, tussenruimte en negatieve waarden in presentaties kunt beheren met Java."
 ---
 ## **Overzicht**
 
-Dit artikel beschrijft de rol van [ChartSeries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chartseries/) in Aspose.Slides, met de nadruk op hoe gegevens worden gestructureerd en gevisualiseerd in presentaties. Deze objecten vormen de fundamentele elementen die individuele verzamelingen van gegevenspunten, categorieën en weergave‑parameters in een diagram definiëren. Door met ChartSeries te werken, kunnen ontwikkelaars onderliggende gegevensbronnen naadloos integreren en volledige controle behouden over hoe informatie wordt weergegeven, wat leidt tot dynamische, data‑gedreven presentaties die duidelijk inzichten en analyses overbrengen.
+Een diagram slaat zijn getekende gegevens op in een diagram‑gegevenswerkmap. Een [IChartSeries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/) vertegenwoordigt één set verwante waarden, en elk [IChartDataPoint](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapoint/) in de reeks verwijst naar één of meer werkbladcellen. [IChartCategory](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartcategory/)‑objecten leveren de etiketten of groepeer­waarden die door de reeksen worden gedeeld. De reeksnaam, categorieën en puntwaarden zijn daardoor gekoppeld aan [IChartDataCell](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatacell/)‑objecten in plaats van alleen als weergavetekst opgeslagen te worden.
 
-Een reeks is een rij of kolom met getallen die in een diagram worden uitgezet.
+Voor een typisch categorie‑diagram gebruikt de standaardwerkmap rij 0 voor reeksnamen, kolom 0 voor categorienamen en de overige cellen voor reekswerte. Werkblad‑, rij‑ en kolom‑indexen die aan [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) worden doorgegeven, zijn nulgebaseerd. Deze opzet is handig wanneer je een diagram met standaardgegevens maakt, maar ga er niet van uit dat elk bestaand diagram deze structuur hanteert. Voor een geladen presentatie moet je de cellen inspecteren die door de reeksen, categorieën en datapunten worden gerefereerd voordat je werkmapwaarden wijzigt.
+
+Diagram­instellingen hebben drie verschillende reikwijdtes:
+
+- Instellingen op reeksniveau, zoals [IChartSeries.getFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getFormat--), bieden de standaard­opmaak voor alle punten in één reeks.
+- Instellingen per datapunt, zoals [IChartDataPoint.getFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapoint/#getFormat--), overschrijven de reeksopmaak voor één punt.
+- Groepsinstellingen gelden voor compatibele reeksen die tot dezelfde [IChartSeriesGroup](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseriesgroup/) behoren. Benader de groep via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) wanneer je opties moet instellen zoals overlapping of breedte van de tussenruimte.
+
+Wanneer geen expliciete punt‑ of reeks‑vulling is ingesteld, bepalen diagramstijl en thema de automatische opmaak. Wanneer zowel reeks‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Instellen van de overlaptijd van de grafiekreeks**
+## **De overlapping van diagramreeksen instellen**
 
-Met de [IChartSeriesOverlap](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/properties/overlap) eigenschap kun je opgeven hoeveel balken en kolommen moeten overlappen in een 2D‑diagram (bereik: -100 tot 100). Deze eigenschap geldt voor alle reeksen van de bovenliggende seriesgroep: dit is een projectie van de juiste groepseigenschap. Daarom is deze eigenschap alleen‑lezen. 
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getOverlap--) geeft aan hoeveel balken of kolommen overlappen in een 2D‑diagram, van –100 tot 100 procent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende reeksgroep. Gebruik [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) om elke compatibele reeks in die groep bij te werken. Deze optie geldt voor diagramtypen die gegroepeerde balken of kolommen weergeven; hij heeft geen invloed op niet‑gerelateerde reeksgroepen in een combinatiediagram.
 
-Gebruik de `ParentSeriesGroup.Overlap` lees‑/schrijfeigenschap om je gewenste waarde voor `Overlap` in te stellen. 
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.
-1. Voeg een gegroepeerde kolomgrafiek toe aan een dia.
-1. Toegang tot de eerste grafiekreeks.
-1. Toegang tot de `ParentSeriesGroup` van de grafiekreeks en stel de gewenste overlaptijdwaarde voor de reeks in.
-1. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe je de overlaptijd voor een grafiekreeks instelt:
+Het volgende voorbeeld stelt de overlapping in voor de groep die de eerste reeks bevat:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Voeg grafiek toe
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Stel reeks-overlap in
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // Schrijf het presentatiebestand naar schijf
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Het nieuwe diagram bevat voorbeeldreeksen, categorieën en waarden.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Kleur van de reeks wijzigen**
+Het resultaat:
 
-Aspose.Slides for Java stelt je in staat de kleur van een reeks op deze manier te wijzigen:
+![The series overlap](series_overlap.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.
-1. Voeg een diagram toe aan de dia.
-1. Toegang tot de reeks waarvan je de kleur wilt wijzigen.
-1. Stel het gewenste opvultype en de opvulkleur in.
-1. Sla de gewijzigde presentatie op.
+## **De vulkleur van de reeks wijzigen**
 
-Deze Java‑code toont hoe je de kleur van een reeks wijzigt:
+Gebruik [IChartSeries.getFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getFormat--) om de standaardvulling voor een volledige reeks in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [IChartDataPoint.getFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapoint/#getFormat--)‑instelling de reeksvulling voor dat punt.
+
+Het volgende voorbeeld past een egale blauwe vulling toe op de eerste reeks:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Kleur van de reeks‑categorie wijzigen**
-
-Aspose.Slides for Java stelt je in staat de kleur van een reeks‑categorie op deze manier te wijzigen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.
-1. Voeg een diagram toe aan de dia.
-1. Toegang tot de reeks‑categorie waarvan je de kleur wilt wijzigen.
-1. Stel het gewenste opvultype en de opvulkleur in.
-1. Sla de gewijzigde presentatie op.
-
-Deze code in Java toont hoe je de kleur van een reeks‑categorie wijzigt:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Naam van de reeks wijzigen** 
-
-Standaard zijn de legenda‑namen voor een diagram de inhoud van de cellen boven elke kolom of rij met gegevens. 
-
-In ons voorbeeld (voorbeeldafbeelding), 
-
-* de kolommen zijn *Series 1, Series 2,* en *Series 3*;
-* de rijen zijn *Category 1, Category 2, Category 3,* en *Category 4.* 
-
-Aspose.Slides for Java stelt je in staat een reeksnaam bij te werken of te wijzigen in de diagramgegevens en de legenda. 
-
-Deze Java‑code toont hoe je de naam van een reeks wijzigt in de diagramgegevens `ChartDataWorkbook`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Deze Java‑code toont hoe je de naam van een reeks wijzigt in de legenda via `Series`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Vulkleur van de grafiekreeks instellen**
-
-Aspose.Slides for Java stelt je in staat de automatische vulkleur voor grafiekreeksen binnen een plotgebied op deze manier in te stellen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.
-1. Verkrijg een referentie naar een dia via de index.
-1. Voeg een diagram toe met standaardgegevens op basis van je gewenste type (in het onderstaande voorbeeld gebruikten we `ChartType.ClusteredColumn`).
-1. Toegang tot de grafiekreeks en stel de vulkleur in op Automatic.
-1. Sla de presentatie op naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe je de automatische vulkleur voor een grafiekreeks instelt:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // Creëert een gegroepeerde kolomgrafiek
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // Stelt vulopmaak van de reeks in op automatisch
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // Schrijft het presentatiebestand naar schijf
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Omgekeerde vulkleur voor een grafiekreeks instellen**
-
-Aspose.Slides stelt je in staat de omgekeerde vulkleur voor grafiekreeksen binnen een plotgebied op deze manier in te stellen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.
-1. Verkrijg een referentie naar een dia via de index.
-1. Voeg een diagram toe met standaardgegevens op basis van je gewenste type (in het onderstaande voorbeeld gebruikten we `ChartType.ClusteredColumn`).
-1. Toegang tot de grafiekreeks en stel de vulkleur in op invert.
-1. Sla de presentatie op naar een PPTX‑bestand.
-
-Deze Java‑code toont de bewerking:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // Voeg nieuwe reeksen en categorieën toe
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // Neem de eerste grafiekreeks en vul de gegevens ervan
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Een reeks laten omkeren wanneer de waarde negatief is**
+Het resultaat:
 
-Aspose.Slides stelt je in staat omkeringen in te stellen via de `IChartDataPoint.InvertIfNegative` en `ChartDataPoint.InvertIfNegative` eigenschappen. Wanneer een omkering is ingesteld via deze eigenschappen, draait het gegevenspunt zijn kleuren om wanneer het een negatieve waarde krijgt. 
+![The color of the series](series_color.png)
 
-Deze Java‑code toont de bewerking:
+## **De reeksnaam wijzigen**
+
+Een reeksnaam wordt opgeslagen in de diagram‑gegevenswerkmap en wordt normaal weergegeven in de legenda. In de standaardwerkmap die wordt aangemaakt voor een gegroepeerd kolomdiagram, staat cel B1 in rij 0, kolom 1 en bevat de naam van de eerste reeks. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Specifieke puntgegevens wissen**
-
-Aspose.Slides for Java stelt je in staat de `DataPoints`‑gegevens voor een specifieke grafiekreeks op deze manier te wissen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.
-2. Verkrijg de referentie van een dia via de index.
-3. Verkrijg de referentie van een diagram via de index.
-4. Loop door alle `DataPoints` van het diagram en stel `XValue` en `YValue` in op null.
-5. Wis alle `DataPoints` voor de specifieke grafiekreeks.
-6. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont de bewerking:
+Je kunt ook de cel bijwerken die al door [IChartSeries.getName](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getName--) wordt gerefereerd. Deze aanpak vermijdt veronderstellingen over een bepaalde rij en kolom in een bestaand diagram:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het resultaat:
+
+![The series name](series_name.png)
+
+## **De automatische vulkleur van de reeks opvragen**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) retourneert de kleur die wordt berekend op basis van de reeks‑index en de diagramstijl. Dit is de kleur die wordt gebruikt wanneer de reeksvulling niet expliciet gedefinieerd is. Het aanroepen van de methode leest de berekende kleur; het kent geen nieuwe vulling toe.
+
+Het volgende voorbeeld drukt de automatische kleur van elke standaardreeks af:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        Color automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Uitvoervoorbeeld voor de standaard diagramstijl:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+De exacte kleuren hangen af van de diagramstijl en het thema.
+
+## **Inverted‑vulkleur voor een diagramreeks instellen**
+
+Voor balk‑, kolom‑ en bubbelreeksen kan [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) negatieve waarden met een andere vulling weergeven. Stel de gewone reeksvulling in op egaal, schakel inversie in en wijs de negatieve‑waarde‑kleur toe via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negatieve getallen blijven onveranderd in de werkmap; alleen de weergavekleur verandert.
+
+Het volgende voorbeeld vervangt de standaard diagramgegevens door één reeks. Werkbladrij 0 bevat de reeksnaam, kolom 0 bevat categorienamen en kolom 1 bevat de waarden:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tussenafstand van de reeks instellen**
+Het resultaat:
 
-Aspose.Slides for Java stelt je in staat de **`GapWidth`** eigenschap van een reeks op deze manier in te stellen:
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.
-1. Open de eerste dia.
-1. Voeg een diagram toe met standaardgegevens.
-1. Toegang tot een willekeurige grafiekreeks.
-1. Stel de `GapWidth` eigenschap in.
-1. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
-
-Deze code in Java toont hoe je de tussenafstand van een reeks instelt:
+Je kunt inversie voor één punt inschakelen via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). In het volgende voorbeeld is inversie uitgeschakeld voor de reeks en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt ook een negatieve waarde toegewezen zodat het effect zichtbaar is:
 
 ```java
-// Creëert lege presentatie 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // Toegang tot de eerste dia van de presentatie
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Voeg een grafiek toe met standaarddata
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Stelt de index van het diagramgegevensblad in
-    int defaultWorksheetIndex = 0;
-    
-    // Haalt het diagramgegevenswerkblad op
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Voeg reeksen toe
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Voeg categorieën toe
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Neemt de tweede grafiekreeks
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Vul de gegevens van de reeks
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Stelt de GapWidth-waarde in
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Slaat de presentatie op naar schijf
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Een specifieke datapuntwaarde wissen**
+
+Om één punt leeg te maken zonder de andere punten te verwijderen, stel je de onderliggende werkbladcel in op `null`. Voor een kolomdiagram is de getekende waarde beschikbaar via [IChartDataPoint.getValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapoint/#getValue--). Het datapunt blijft op dezelfde categorielocatie, maar het diagram behandelt de waarde als leeg volgens de instellingen voor lege waarden van het diagram.
+
+Het volgende voorbeeld wist alleen het tweede punt in de eerste reeks:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Spreidingsdiagrammen gebruiken gescheiden X‑ en Y‑cellen, en bubbel‑diagrammen gebruiken tevens een grootte‑cel. Wis alleen de cel die de waarde vertegenwoordigt die je wilt verwijderen. Roep [IChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapointcollection/#clear--) niet aan wanneer je de andere punten wilt behouden, want die methode verwijdert elk datapunt uit de collectie.
+
+## **De tussenruimte van de reeks instellen**
+
+De tussenruimte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlapping behoort hij toe aan de bovenliggende reeksgroep in plaats van aan één reeks. Roep [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) één keer aan voor de groep. Een hogere waarde creëert meer ruimte tussen de clusters; een lagere waarde maakt ze dichter op elkaar.
+
+Het volgende voorbeeld wijzigt de tussenruimte en slaat alleen de uiteindelijke presentatie op:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het resultaat:
+
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
-**Is er een limiet aan het aantal reeksen dat één diagram kan bevatten?**
+**Welke diagramtypen ondersteunen gegevensreeksen?**
 
-Aspose.Slides stelt geen vaste limiet aan het aantal reeksen dat je kunt toevoegen. De praktische beperking wordt bepaald door de leesbaarheid van het diagram en door het geheugen dat jouw applicatie beschikbaar heeft.
+Alle diagramtypen die worden vertegenwoordigd door de [ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/)‑enumeratie maken gebruik van diagramgegevens, maar hun reeksen hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categorie‑diagrammen gebruiken categorieën en waarden, spreidingsdiagrammen gebruiken X‑ en Y‑waarden, en bubbel‑diagrammen voegen bubbelgroottes toe. Gebruik de methode voor het aanmaken van datapunten die overeenkomt met het type reeks. Opties zoals overlapping en tussenruimte gelden alleen voor compatibele balk‑ of kolomgroepen.
 
-**Wat als de kolommen binnen een cluster te dicht opeen liggen of te ver uit elkaar staan?**
+**Wat is een diagramreeks‑groep?**
 
-Pas de `GapWidth`‑instelling voor die reeks (of de bijbehorende seriesgroep) aan. Het verhogen van de waarde vergroot de ruimte tussen de kolommen, terwijl het verlagen ervan de kolommen dichter bij elkaar brengt.
+Een [IChartSeriesGroup](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseriesgroup/) bevat compatibele reeksen die groeps‑niveau plot‑instellingen delen. Een combinatiediagram kan meer dan één groep bevatten, zodat het wijzigen van de groep die via één reeks wordt bereikt, niet per se alle reeksen in het diagram aanpast.
+
+**Bevat een nieuw aangemaakt diagram standaardgegevens?**
+
+Ja. Standaard maakt [IShapeCollection.addChart](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) voorbeeldreeksen, -categorieën en -waarden aan. Je kunt die cellen bewerken of zowel de reeks‑ als categorieverzamelingen leegmaken voordat je een volledig aangepast gegevens‑set toevoegt. Een overload kan ook een diagram zonder standaardgegevens creëren.
+
+**Hoe zijn diagramobjecten gekoppeld aan werkbladcellen?**
+
+Reeksnamen, categorielabels en waarden van datapunten verwijzen naar cellen in een [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige diagramonderdeel bij. Wanneer je aangepaste gegevens maakt, houd je de categorierijen en reekswertrijen op één lijn zodat elk punt onder de bedoelde categorie wordt getekend.
+
+**Hoe wis ik één punt in plaats van de hele reeks?**
+
+Stel de betreffende waardecel in op `null` om de positie van het punt in de categorie te behouden als een leeg punt. Gebruik [IChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapointcollection/#clear--) alleen wanneer je alle punten uit die reeks wilt verwijderen. Als je ook categorieën verwijdert, werk je elke reeks bij zodat hun waarden uitgelijnd blijven met de categorieverzameling.
+
+**Hoe worden lege punten weergegeven?**
+
+Het resultaat hangt af van het diagramtype en de waarde die via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) is geconfigureerd. Ondersteunde diagrammen kunnen leegtes tonen als gaten, als nulwaarden, of door aangrenzende punten met elkaar te verbinden. Kies de instelling die past bij de betekenis van ontbrekende data in je presentatie.
+
+**Hoe worden negatieve waarden opgemaakt?**
+
+Voor ondersteunde balk‑, kolom‑ en bubbelreeksen roep je [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) aan en stel je de kleur in die wordt geretourneerd door [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Je kunt het gedrag voor een individueel punt overschrijven met [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Deze methoden beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
+
+**Welke opmaak heeft voorrang wanneer zowel een reeks als een punt zijn opgemaakt?**
+
+Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer die niet is gedefinieerd, de automatische diagramstijl en het thema. Groepsinstellingen zoals overlapping en tussenruimte bepalen de layout en vormen geen punt‑niveau opmaak‑overschrijvingen.
+
+**Is er een limiet aan het aantal reeksen dat een diagram kan bevatten?**
+
+Aspose.Slides legt geen afzonderlijke vaste limiet op voor het aantal reeksen. In de praktijk bepalen bestandsbeperkingen van de presentatie, beschikbaar geheugen, render‑tijd en leesbaarheid van het diagram een praktisch limiet.
+
+**Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver van elkaar staan?**
+
+Roep [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) aan op de juiste bovenliggende reeksgroep. Verhoog de waarde om de ruimte tussen de clusters te vergroten, of verlaag deze om de clusters dichter bij elkaar te brengen.

@@ -1,283 +1,260 @@
 ---
-title: .NET में प्रस्तुतियों से आकार की प्रभावी प्रॉपर्टीज़ प्राप्त करें
-linktitle: प्रभावी प्रॉपर्टीज़
+title: .NET में प्रस्तुतियों से आकार के प्रभावी गुण प्राप्त करें
+linktitle: प्रभावी गुण
 type: docs
 weight: 50
 url: /hi/net/shape-effective-properties/
 keywords:
-- आकार गुण
-- कैमरा गुण
-- लाइट रिग
-- बिवेल आकार
-- टेक्स्ट फ्रेम
-- टेक्स्ट स्टाइल
-- फ़ॉन्ट ऊँचाई
-- फ़िल फ़ॉर्मेट
-- PowerPoint
-- प्रेजेंटेशन
-- .NET
-- C#
-- Aspose.Slides
-description: "जानेँ कि .NET के लिए Aspose.Slides कैसे सटीक PowerPoint रेंडरिंग के लिए प्रभावी आकार प्रॉपर्टीज़ की गणना और लागू करता है."
+  - आकार गुण
+  - कैमरा गुण
+  - लाइट रिग
+  - बिवेल आकार
+  - टेक्स्ट फ्रेम
+  - टेक्स्ट शैली
+  - फ़ॉन्ट ऊँचाई
+  - फ़िल फ़ॉर्मैट
+  - PowerPoint
+  - प्रेज़ेंटेशन
+  - .NET
+  - C#
+  - Aspose.Slides
+description: Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुतियों में स्थानीय, विरासत में मिले और प्रभावी आकार फॉर्मेटिंग को कैसे अलग किया जाए, सीखें।
 ---
-## **अवलोकन**
+## **स्थानीय, विरासत में मिले और प्रभावी गुणों को समझें**
 
-यह विषय **स्थानीय** और **प्रभावी** प्रॉपर्टीज़ के अंतर को समझाता है। स्थानीय मान उन मानों को कहा जाता है जो सीधे किसी विशिष्ट फ़ॉर्मेटिंग स्तर पर सेट किए जाते हैं, जैसे:
+PowerPoint फॉर्मेटिंग कई स्रोतों से आ सकती है। किसी ऑब्जेक्ट पर सीधे संग्रहीत मान **local value** कहलाता है। यदि वह मान सेट नहीं है, तो PowerPoint पैरेंट फॉर्मेटिंग स्रोतों को देखता है, जैसे पैराग्राफ डिफ़ॉल्ट, टेक्स्ट स्टाइल, लेआउट या मास्टर स्लाइड, थीम, या प्रेजेंटेशन‑लेवल डिफ़ॉल्ट्स। ये मान **inherited values** कहलाते हैं। पूरी पदानुक्रम सुलझ जाने के बाद जो मान शेष रहता है वह **effective value** है—ऑब्जेक्ट को रेंडर करने के लिए उपयोग किया जाने वाला मान।
 
-1. स्लाइड पर Portion प्रॉपर्टीज़।
-1. लेआउट या मास्टर स्लाइड पर प्रोटोटाइप शAPE टेक्स्ट स्टाइल्स, जब Portion के टेक्स्ट फ्रेम शAPE में यह मौजूद हो।
-1. प्रेजेंटेशन में ग्लोबल टेक्स्ट सेटिंग्स।
+उदाहरण के लिए, किसी टेक्स्ट भाग में अपना फ़ॉन्ट ऊँचाई परिभाषित नहीं हो सकती। उसका स्थानीय [FontHeight](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/fontheight/) `float.NaN` रहता है, जिसका अर्थ है "यहाँ सेट नहीं किया गया है।" भाग अपने पैराग्राफ, प्रेजेंटेशन के डिफ़ॉल्ट टेक्स्ट स्टाइल, या अन्य लागू स्रोत से ऊँचाई विरासत में ले सकता है। भाग के फॉर्मेट पर [GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/geteffective/) कॉल करने से अंतिम निर्धारित ऊँचाई मिलती है।
 
-स्थानीय मान किसी भी स्तर पर परिभाषित या छोड़े जा सकते हैं। जब Aspose.Slides को अंतिम "जैसे रेंडर किया गया" फ़ॉर्मेटिंग चाहिए, तो वह इनहेरिटेंस चेन को रिजॉल्व करता है और **प्रभावी** मान लौटाता है। आप इन्हें स्थानीय फ़ॉर्मेट ऑब्जेक्ट पर `GetEffective` मेथड को कॉल करके प्राप्त कर सकते हैं।
+दो प्रकार के फॉर्मेट डेटा को अलग‑अलग उद्देश्यों के लिए उपयोग करें:
 
-निम्न उदाहरण दिखाता है कि प्रभावी मान कैसे प्राप्त करें। यह मानता है कि पहले स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) है जिसके पास एक टेक्स्ट फ्रेम और कम से कम एक Portion है।
+- जब आपको यह नियंत्रित करना हो कि मान कहाँ परिभाषित है, तो किसी स्थानीय फॉर्मेट ऑब्जेक्ट को पढ़ें या बदलें, जैसे [IPortionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/)।
+- जब आपको अंतिम, रेंडर किया गया परिणाम चाहिए, तो किसी प्रभावी डेटा ऑब्जेक्ट को पढ़ें, जैसे [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformateffectivedata/)। प्रभावी डेटा केवल‑पढ़ने के लिए होता है।
 
-```csharp
-using var presentation = new Presentation("sample.pptx");
+## **स्थानीय, विरासत में मिले और प्रभावी मानों की तुलना**
 
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-
-प्रभावी फ़ॉर्मेटिंग डेटा उन वर्तमान गणना किए गए फ़ॉर्मेटिंग को दर्शाता है जो इनहेरिटेंस लागू होने के बाद प्राप्त होते हैं। वर्तमान इम्प्लीमेंटेशन में, कुछ प्रभावी डेटा ऑब्जेक्ट्स, जैसे कि [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformateffectivedata/), आंतरिक रूप से कैश हो सकते हैं। पैरेंट या इनहेरिटेड फ़ॉर्मेटिंग बदलने के बाद `GetEffective` को पुनः कॉल करने से कैश्ड डेटा रिफ्रेश हो जाता है, और पहले प्राप्त ऑब्जेक्ट अब पहले की स्थिति को दर्शा नहीं सकता। यदि आपको प्रभावी मानों को बाद में पुनः उपयोग के लिए संरक्षित रखना है, तो आवश्यक प्रॉपर्टीज़ जैसे फ़ॉन्ट हाईट, फ़िल कलर, फ़ॉन्ट स्टाइल, या अलाइनमेंट को अपने स्वयं के डेटा ऑब्जेक्ट में कॉपी करें।
-
-{{% /alert %}}
-
-## **कैमरा के प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides आपको कैमरा की प्रभावी प्रॉपर्टीज़ प्राप्त करने की सुविधा देता है। [ICameraEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/icameraeffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट को दर्शाता है जिसमें प्रभावी कैमरा प्रॉपर्टीज़ होती हैं। एक [ICameraEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/icameraeffectivedata/) इंस्टेंस [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/) के माध्यम से एक्सपोज़ किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformat/) के लिए प्रभावी मान प्रदान करता है।
-
-निम्न कोड नमूना दिखाता है कि कैमरा की प्रभावी प्रॉपर्टीज़ कैसे प्राप्त की जा सकती हैं। यह मानता है कि पहले स्लाइड पर पहला शAPE 3D फ़ॉर्मेटिंग रखता है।
+निम्न पूर्ण उदाहरण एक आकार बनाता है और प्रेजेंटेशन, पैराग्राफ और भाग स्तर पर फ़ॉन्ट ऊँचाई लागू करता है। प्रत्येक चरण उन स्तरों पर परिभाषित मानों तथा समान टेक्स्ट भाग के लिए परिणामी प्रभावी मान को प्रिंट करता है। यह यह भी दर्शाता है कि फॉर्मेटिंग परिवर्तन के बाद प्रभावी डेटा को फिर से पढ़ना क्यों आवश्यक है।
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **लाइट रिग की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides आपको लाइट रिग की प्रभावी प्रॉपर्टीज़ प्राप्त करने की सुविधा देता है। [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ilightrigeffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट को दर्शाता है जिसमें प्रभावी लाइट रिग प्रॉपर्टीज़ होती हैं। एक [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ilightrigeffectivedata/) इंस्टेंस [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/) के माध्यम से एक्सपोज़ किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformat/) के लिए प्रभावी मान प्रदान करता है।
-
-निम्न कोड नमूना दिखाता है कि लाइट रिग की प्रभावी प्रॉपर्टीज़ कैसे प्राप्त की जा सकती हैं। यह मानता है कि पहले स्लाइड पर पहला शAPE 3D फ़ॉर्मेटिंग रखता है।
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **शAPE बिवेल की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides आपको शAPE बिवेल की प्रभावी प्रॉपर्टीज़ प्राप्त करने की सुविधा देता है। [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapebeveleffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट को दर्शाता है जिसमें शAPE के लिए प्रभावी फेस-रिलिफ़ प्रॉपर्टीज़ होती हैं। एक [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapebeveleffectivedata/) इंस्टेंस [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/) के माध्यम से एक्सपोज़ किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformat/) के लिए प्रभावी मान प्रदान करता है।
-
-निम्न कोड नमूना दिखाता है कि शAPE के टॉप बिवेल की प्रभावी प्रॉपर्टीज़ कैसे प्राप्त की जा सकती हैं। यह मानता है कि पहले स्लाइड पर पहला शAPE 3D फ़ॉर्मेटिंग रखता है।
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **टेक्स्ट फ्रेम की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides का उपयोग करके आप टेक्स्ट फ्रेम की प्रभावी प्रॉपर्टीज़ प्राप्त कर सकते हैं। [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformateffectivedata/) इंटरफ़ेस में प्रभावी टेक्स्ट फ्रेम फ़ॉर्मेटिंग प्रॉपर्टीज़ होती हैं।
-
-निम्न कोड नमूना दिखाता है कि प्रभावी टेक्स्ट फ्रेम फ़ॉर्मेटिंग प्रॉपर्टीज़ कैसे प्राप्त की जाएँ। यह मानता है कि पहले स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) है जिसके पास एक टेक्स्ट फ्रेम है।
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **टेक्स्ट स्टाइल की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides का उपयोग करके आप टेक्स्ट स्टाइल की प्रभावी प्रॉपर्टीज़ प्राप्त कर सकते हैं। [ITextStyleEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/itextstyleeffectivedata/) इंटरफ़ेस में प्रभावी टेक्स्ट स्टाइल प्रॉपर्टीज़ होती हैं।
-
-निम्न कोड नमूना दिखाता है कि प्रभावी टेक्स्ट स्टाइल प्रॉपर्टीज़ कैसे प्राप्त की जाएँ। यह मानता है कि पहले स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/) है जिसके पास एक टेक्स्ट फ्रेम है।
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **प्रभावी फ़ॉन्ट हाईट मान प्राप्त करें**
-
-Aspose.Slides का उपयोग करके आप प्रभावी फ़ॉन्ट हाईट प्राप्त कर सकते हैं। निम्न कोड दर्शाता है कि Portion की प्रभावी फ़ॉन्ट हाईट स्थानीय फ़ॉन्ट हाईट मानों को विभिन्न प्रेजेंटेशन संरचना स्तरों पर सेट करने के बाद कैसे बदलती है।
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// दो अलग-अलग स्तरों पर विरासत में मिले मान निर्धारित करें।
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// भाग पर स्थानीय मान दोनों विरासत में मिले मानों को ओवरराइड करता है।
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// विरासत में मिले मान को बदलने से मौजूदा स्थानीय मान ओवरराइड नहीं होता।
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// स्थानीय मान को साफ़ करें। अब भाग फिर से पैराग्राफ से विरासत में लेता है।
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// पैराग्राफ मान को साफ़ करें। अब प्रेज़ेंटेशन डिफ़ॉल्ट परिणाम प्रदान करता है।
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // पिछले परिवर्तनों के बाद प्रभावी डेटा पढ़ें।
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **टेबल के लिए प्रभावी फ़िल फ़ॉर्मेट प्राप्त करें**
+इस उदाहरण में प्राथमिकता भाग की स्थानीय फॉर्मेटिंग, फिर पैराग्राफ फॉर्मेटिंग, फिर प्रेजेंटेशन डिफ़ॉल्ट है। अन्य ऑब्जेक्ट्स के विरासत चेन अलग हो सकते हैं, लेकिन सिद्धांत समान है: अधिक विशिष्ट स्पष्ट मान जीतता है, और [GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/geteffective/) अंतिम परिणाम लौटाता है।
 
-Aspose.Slides का उपयोग करके आप विभिन्न टेबल भागों के लिए प्रभावी फ़िल फ़ॉर्मेटिंग प्राप्त कर सकते हैं। [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformateffectivedata/) इंटरफ़ेस में प्रभावी फ़िल फ़ॉर्मेटिंग प्रॉपर्टीज़ होती हैं। सेल फ़ॉर्मेटिंग की प्रायोरिटी रो फ़ॉर्मेटिंग से अधिक होती है, रो फ़ॉर्मेटिंग की प्रायोरिटी कॉलम फ़ॉर्मेटिंग से अधिक होती है, और कॉलम फ़ॉर्मेटिंग की प्रायोरिटी पूरे टेबल फ़ॉर्मेटिंग से अधिक होती है।
+## **प्रभावी टेक्स्ट गुण प्राप्त करें**
 
-परिणामस्वरूप, टेबल सेल को ड्रॉ करने के लिए [ICellFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/icellformateffectivedata/) प्रॉपर्टीज़ का उपयोग किया जाता है। निम्न कोड नमूना दिखाता है कि विभिन्न टेबल भागों के लिए प्रभावी फ़िल फ़ॉर्मेटिंग कैसे प्राप्त की जाए। यह मानता है कि पहले स्लाइड पर पहला शAPE एक [ITable](https://reference.aspose.com/slides/hi/net/aspose.slides/itable/) है।
+टेक्स्ट फॉर्मेटिंग कई ऑब्जेक्ट्स में विभाजित होती है:
+
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/geteffective/) मार्जिन, एंकरिंग, ऑटोफ़िट और वर्टिकल टेक्स्ट दिशा जैसे टेक्स्ट‑फ़्रेम गुणों को हल करता है।
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/hi/net/aspose.slides/itextstyle/geteffective/) प्रत्येक टेक्स्ट स्टाइल स्तर के लिए पैराग्राफ फॉर्मेटिंग को हल करता है।
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/geteffective/) संरेखण, इंडेंटेशन और बुलेट्स जैसे पैराग्राफ गुणों को हल करता है।
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/geteffective/) फ़ॉन्ट ऊँचाई, टाइपफ़ेस, रंग, बोल्ड और इटैलिक जैसे कैरेक्टर गुणों को हल करता है।
+
+अगले उदाहरण के लिए `text-formatting.pptx` में कम से कम एक स्लाइड और एक [AutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) होना चाहिए जिसमें खाली न होने वाला टेक्स्ट फ़्रेम हो। AutoShape आकार संग्रह में किसी भी स्थान पर हो सकता है; कोड एक उपयुक्त ऑब्जेक्ट की तलाश करता है और उपयोग से पहले उसे सत्यापित करता है।
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **प्रभावी 3D गुण प्राप्त करें**
 
-**क्या `GetEffective` एक स्नैपशॉट लौटाता है?**
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformat/geteffective/) एक [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/) ऑब्जेक्ट लौटाता है जो सभी हल किए गए 3D सेटिंग्स को समूहित करता है। इसके [Camera](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/camera/), [LightRig](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/lightrig/), [BevelTop](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/beveltop/) और [BevelBottom](https://reference.aspose.com/slides/hi/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) गुण संबंधित प्रभावी डेटा को उजागर करते हैं। इन संबंधित सेटिंग्स को साथ‑से‑साथ पढ़ने से आकार की अंतिम 3D उपस्थिति को समझना आसान हो जाता है।
 
- हमेशा नहीं। प्रभावी डेटा इनहेरिटेंस लागू होने के बाद गणना किए गए फ़ॉर्मेटिंग को दर्शाता है, लेकिन कुछ प्रभावी डेटा ऑब्जेक्ट्स आंतरिक रूप से कैश हो सकते हैं। एक बाद का `GetEffective` कॉल फ़ॉर्मेटिंग को फिर से गणना कर सकता है और कैश्ड डेटा रिफ्रेश कर सकता है, इसलिए पहले प्राप्त ऑब्जेक्ट को स्थायी स्नैपशॉट नहीं माना जाना चाहिए।
+इस उदाहरण के लिए `shape-3d.pptx` में पहली स्लाइड पर कम से कम एक आकार होना चाहिए। यदि आप डिफ़ॉल्ट मानों से अलग परिणाम चाहते हैं, तो उस आकार पर 3D कैमरा, लाइटिंग या बिवेल सेटिंग्स लागू करें।
 
-**मुझे प्रभावी प्रॉपर्टीज़ फिर से कब पढ़नी चाहिए?**
+```csharp
+using System;
+using Aspose.Slides;
 
-स्थानीय फ़ॉर्मेटिंग, पैरेंट स्टाइल्स, लेआउट फ़ॉर्मेटिंग, मास्टर फ़ॉर्मेटिंग, या प्रेजेंटेशन-स्तर के डिफॉल्ट्स को बदलने के बाद `GetEffective` को फिर से कॉल करें। अगली कॉल फ़ॉर्मेटिंग पदानुक्रम को पुनः मूल्यांकित करेगी और वर्तमान प्रभावी परिणाम लौटाएगी।
+using var presentation = new Presentation("shape-3d.pptx");
 
-**क्या लेआउट/मास्टर स्लाइड को बदलने/हटाने से उन प्रभावी प्रॉपर्टीज़ पर असर पड़ता है जो पहले ही प्राप्त हो चुकी हैं?**
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
 
- हाँ, लेकिन परिवर्तन अगली `GetEffective` कॉल पर प्रतिबिंबित होगा। यदि पैरेंट फ़ॉर्मेटिंग स्रोत को बदल दिया जाता है या हटाया जाता है, तो पहले प्राप्त प्रभावी डेटा पुराना हो सकता है। एक बार `GetEffective` फिर से कॉल करने पर Aspose.Slides फ़ॉर्मेटिंग ट्री को पुनः मूल्यांकित करता है और resulting फ़ॉन्ट, रंग, आकार या अन्य मान बदल सकते हैं।
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
 
-**क्या मैं प्रभावी डेटा ऑब्जेक्ट्स के माध्यम से मानों को संशोधित कर सकता हूँ?**
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
 
- नहीं। प्रभावी डेटा ऑब्जेक्ट्स गणना किए गए मानों को उजागर करते हैं। स्थानीय फ़ॉर्मेटिंग ऑब्जेक्ट्स में परिवर्तन करें, और फिर प्रभावी मानों को पुनः प्राप्त करें।
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
 
-**यदि शAPE स्तर पर, न लेआउट/मास्टर में, न ग्लोबल सेटिंग्स में प्रॉपर्टी सेट नहीं है तो क्या होता है?**
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
 
- प्रभावी मान डिफ़ॉल्ट मेकेनिज़्म द्वारा निर्धारित किया जाता है, जिसमें PowerPoint और Aspose.Slides के डिफॉल्ट शामिल हैं। वह हल किया गया मान वर्तमान प्रभावी डेटा का हिस्सा बन जाता है।
+## **प्रभावी तालिका फॉर्मेटिंग प्राप्त करें**
 
-**एक प्रभावी फ़ॉन्ट मान से क्या मैं पता लगा सकता हूँ कि किस स्तर ने आकार या फ़ॉन्ट प्रदान किया?**
+तालिका फॉर्मेटिंग तालिका स्टाइल और पूरी तालिका, कॉलम, रो या व्यक्तिगत सेल पर लागू फॉर्मेट्स दोनों से आ सकती है। स्पष्ट रूप से परिभाषित फ़िल्स के बीच टकराव में प्राथमिकता सेल, रो, कॉलम, और फिर पूरी तालिका की होती है। किसी सेल का प्रभावी फॉर्मेट वह अंतिम फॉर्मेट है जिसका उपयोग उस सेल को ड्रॉ करने में किया जाता है।
 
- सीधे नहीं। प्रभावी डेटा अंतिम मान लौटाता है। स्रोत जानने के लिए Portion, पैराग्राफ, टेक्स्ट फ्रेम, और लेआउट, मास्टर, प्रेजेंटेशन स्तर पर टेक्स्ट स्टाइल में स्थानीय मान देखें कि पहला स्पष्ट परिभाषा कहाँ है।
+इस उदाहरण के लिए `table-formatting.pptx` में पहली स्लाइड पर कम से कम एक तालिका होना चाहिए। तालिका में कम से कम एक रो और एक कॉलम होना आवश्यक है। कोड एक [ITable](https://reference.aspose.com/slides/hi/net/aspose.slides/itable/) की तलाश करता है, यह मानते हुए कि `Shapes[0]` तालिका है।
 
-**कभी-कभी प्रभावी मान स्थानीय मानों के समान क्यों दिखते हैं?**
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
- क्योंकि स्थानीय मान अंततः अंतिम बन जाता है (ऊँचे स्तर की इनहेरिटेंस की आवश्यकता नहीं रही)। ऐसे मामलों में प्रभावी मान स्थानीय मान के समान होता है।
+using var presentation = new Presentation("table-formatting.pptx");
 
-**मुझे प्रभावी प्रॉपर्टीज़ कब उपयोग करनी चाहिए, और कब केवल स्थानीय प्रॉपर्टीज़ के साथ काम करना चाहिए?**
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-जब आपको सभी इनहेरिटेंस लागू होने के बाद "जैसे रेंडर किया गया" परिणाम चाहिए, तो प्रभावी डेटा उपयोग करें, जैसे रंग, इंडेंट, या आकार को संरेखित करने के लिए। यदि आपको ये मान बाद में फ़ॉर्मेटिंग परिवर्तन के बावजूद संरक्षित रखना हैं, तो आवश्यक प्रॉपर्टीज़ को अपने स्वयं के ऑब्जेक्ट में कॉपी करें। यदि आपको किसी विशिष्ट स्तर पर फ़ॉर्मेटिंग बदलनी है, तो स्थानीय प्रॉपर्टीज़ संशोधित करें और फिर आवश्यक होने पर प्रभावी डेटा को फिर से पढ़ें ताकि परिणाम सत्यापित हो सके।
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
+
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
+
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+यदि आपको केवल फ़िल प्रकार ही नहीं, बल्कि रंग चाहिए, तो पहले प्रभावी [FillType](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformateffectivedata/filltype/) की जाँच करें, फिर उस प्रकार पर लागू प्रॉपर्टी पढ़ें—उदाहरण के लिए सॉलिड फ़िल के लिए [SolidFillColor](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformateffectivedata/solidfillcolor/)।
+
+## **परिवर्तन के बाद प्रभावी डेटा को पुनः पढ़ें**
+
+प्रभावी डेटा उस समय हल किए गए फॉर्मेटिंग पदानुक्रम का वर्णन करता है। किसी भी बदल का बाद `GetEffective` फिर से कॉल करें जो उस पदानुक्रम में भाग ले सकता है, जिसमें शामिल हैं:
+
+- ऑब्जेक्ट का स्थानीय फॉर्मेट;
+- पैराग्राफ या टेक्स्ट‑फ़्रेम डिफ़ॉल्ट्स;
+- तालिका स्टाइल, तालिका, कॉलम, रो या सेल फॉर्मेट;
+- लेआउट या मास्टर स्लाइड फॉर्मेट;
+- थीम डेटा या प्रेजेंटेशन‑लेवल डिफ़ॉल्ट्स;
+- स्लाइड को असाइन किया गया लेआउट या मास्टर।
+
+एक प्रभावी डेटा ऑब्जेक्ट को स्थायी स्नैपशॉट के रूप में न रखें। Aspose.Slides आंतरिक रूप से कुछ प्रभावी डेटा को कैश कर सकता है, और बाद में `GetEffective` कॉल उस डेटा को रीफ़्रेश कर सकता है। यदि आपको परिवर्तन से पहले और बाद के मानों की तुलना करनी है, तो आवश्यक स्केलर मान—जैसे फ़ॉन्ट ऊँचाई, रंग, संरेखण या बिवेल चौड़ाई—को अपने स्वयं के वेरिएबल्स में कॉपी करके रखें, फिर परिवर्तन करें।
+
+किसी मान को बदलने के लिए उपयुक्त स्थानीय फॉर्मेट ऑब्जेक्ट को अपडेट करें और फिर `GetEffective` कॉल करके परिणाम सत्यापित करें। प्रभावी डेटा ऑब्जेक्ट स्वयं केवल‑पढ़ने के लिए होते हैं।
+
+## **FAQ**
+
+**मैं कैसे पता करूँ कि कौन सा स्तर प्रभावी मान प्रदान कर रहा है?**  
+प्रभावी डेटा केवल अंतिम मान रखता है, स्रोत नहीं। सबसे विशिष्ट स्तर से बाहर की ओर लागू स्थानीय ऑब्जेक्ट्स की जाँच करें। टेक्स्ट के लिए इसमें भाग, पैराग्राफ, टेक्स्ट‑फ़्रेम, लेआउट, मास्टर, थीम और प्रेजेंटेशन डिफ़ॉल्ट्स शामिल हो सकते हैं। `float.NaN` या `null` जैसे अनपरिभाषित मान दर्शाते हैं कि खोज जारी है।
+
+**यदि कोई स्तर कोई प्रॉपर्टी परिभाषित नहीं करता तो क्या होता है?**  
+Aspose.Slides उपयुक्त PowerPoint या लाइब्रेरी डिफ़ॉल्ट को हल करता है। वह हल किया गया मान प्रभावी डेटा में दिखाया जाता है, भले ही कोई स्थानीय ऑब्जेक्ट स्पष्ट रूप से उसे परिभाषित न करे।
+
+**कभी‑कभी प्रभावी मान स्थानीय मान के बराबर क्यों होता है?**  
+स्थानीय मान ने विरासत गणना जीत ली है। यह तब अपेक्षित है जब प्रॉपर्टी ऑब्जेक्ट पर स्पष्ट रूप से सेट हो और कोई अधिक विशिष्ट नियम उसे ओवरराइड न करे।
+
+**कब मुझे स्थानीय डेटा के बजाय प्रभावी डेटा उपयोग करना चाहिए?**  
+स्थानीय डेटा का उपयोग तब करें जब आपको किसी विशिष्ट फॉर्मेटिंग स्तर की जांच या संपादन करना हो। प्रभावी डेटा का उपयोग तब करें जब आपको विरासत, थीम नियम और लागू स्टाइल्स के बाद का अंतिम रूप चाहिए। समान वर्कफ़्लो में दोनों को दिखाने वाला [complete comparison example](#compare-local-inherited-and-effective-values) इस बात को दर्शाता है।

@@ -1,340 +1,295 @@
 ---
-title: دریافت ویژگی‌های مؤثر شکل از ارائه‌ها در JavaScript
-linktitle: ویژگی‌های مؤثر
+title: "دریافت ویژگی‌های مؤثر شکل از ارائه‌ها در JavaScript"
+linktitle: "ویژگی‌های مؤثر"
 type: docs
 weight: 50
 url: /fa/nodejs-java/shape-effective-properties/
 keywords:
-- ویژگی‌های شکل
-- ویژگی‌های دوربین
-- نورپردازی
-- شکل بویل
-- قاب متن
-- سبک متن
-- ارتفاع قلم
-- قالب پر کردن
-- PowerPoint
-- ارائه
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: کشف کنید Aspose.Slides برای Node.js از طریق Java چگونه ویژگی‌های مؤثر شکل را محاسبه و اعمال می‌کند تا رندر دقیق PowerPoint انجام شود.
+- "ویژگی‌های شکل"
+- "ویژگی‌های دوربین"
+- "نورپردازی"
+- "شکل برجسته"
+- "قالب متن"
+- "سبک متن"
+- "ارتفاع قلم"
+- "قالب پرکن"
+- "PowerPoint"
+- "ارائه"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "یاد بگیرید چگونه از Aspose.Slides برای Node.js از طریق Java استفاده کنید تا قالب‌بندی محلی، ارث‌بری و مؤثر اشکال را در ارائه‌های PowerPoint تشخیص دهید."
 ---
-## **نمای کلی**
+## **درک ویژگی‌های محلی، ارث‌بری و مؤثر**
 
-این موضوع تفاوت بین ویژگی‌های **محلی** و **موثر** را توضیح می‌دهد. مقادیر محلی، مقادیری هستند که به طور مستقیم در یک سطح خاص قالب‌بندی تنظیم می‌شوند، مانند:
+قالب‌بندی در PowerPoint می‌تواند از مکان‌های مختلفی بیاید. مقداری که مستقیماً روی یک شیء ذخیره می‌شود، **مقدار محلی** آن است. اگر آن مقدار تنظیم نشده باشد، PowerPoint به منابع قالب‌بندی والد نگاه می‌کند، مانند پیش‌فرض پاراگراف، سبک متن، طرح یا اسلاید اصلی، تم یا پیش‌فرض‌های سطح ارائه. این مقادیر **مقادیر ارث‌بری** هستند. مقداری که پس از حل کامل سلسله مراتب باقی می‌ماند، **مقدار مؤثر** است — مقداری که برای رندر کردن شیء استفاده می‌شود.
 
-1. ویژگی‌های بخش بر روی یک اسلاید.
-2. سبک‌های متن شکل نمونه در یک طرح‌بندی یا اسلاید اصلی، هنگامی که شکل قاب متن بخش دارای آن باشد.
-3. تنظیمات متن سراسری در یک ارائه.
+به‌عنوان مثال، ممکن است یک بخش متن ارتفاع قلم خود را تعریف نکند. مقدار محلی آن با متد [getFontHeight](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getFontHeight) سپس `NaN` خواهد بود که به معنای «در اینجا تنظیم نشده» است. این بخش می‌تواند ارتفاع را از پاراگراف خود، سبک متن پیش‌فرض ارائه یا منبع دیگری به ارث ببرد. فراخوانی [getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getEffective) بر روی فرمت بخش، ارتفاع نهایی حل‌شده را برمی‌گرداند.
 
-مقدارهای محلی می‌توانند در هر سطحی تعریف یا حذف شوند. وقتی Aspose.Slides به قالب‌بندی نهایی “به صورت رندر شده” نیاز دارد، زنجیرهٔ وراثت را حل می‌کند و مقادیر **موثر** را برمی‌گرداند. می‌توانید این مقادیر را با فراخوانی متد `getEffective` بر روی شیء قالب‌بندی محلی دریافت کنید.
+از دو نوع داده قالب‌بندی برای مقاصد متفاوت استفاده کنید:
 
-مثال زیر نشان می‌دهد که چگونه مقادیر موثر را به دست آورید. فرض می‌شود که اولین شکل در اولین اسلاید یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) با یک قاب متن و حداقل یک بخش باشد.
+- برای خواندن یا تغییر یک شیء قالب محلی، مانند [PortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/)، زمانی که نیاز به کنترل مکان تعریف مقدار دارید.
+- برای خواندن [داده مؤثر بازگشتی توسط PortionFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getEffective) زمانی که به نتیجه نهایی رندر شده نیاز دارید. داده مؤثر فقط‑خواندنی است.
+
+قبل از اجرای مثال‌ها، [install Aspose.Slides for Node.js via Java](/slides/fa/nodejs-java/installation/).
+
+## **مقایسه مقادیر محلی، ارث‌بری و مؤثر**
+
+مثال کامل زیر یک شکل ایجاد می‌کند و ارتفاع قلم را در سطوح ارائه، پاراگراف و بخش اعمال می‌کند. هر مرحله مقادیر تعریف‌شده در آن سطوح و مقدار مؤثر حاصل برای همان بخش متن را چاپ می‌کند. همچنین نشان می‌دهد چرا پس از تغییرات قالب‌بندی باید داده مؤثر دوباره خوانده شود.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // خواندن داده مؤثر پس از تغییرات قبلی.
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // تعریف مقادیر ارث‌بری در دو سطح مختلف.
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // مقدار محلی در بخش هر دو مقدار ارث‌بری را نادیده می‌گیرد.
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // تغییر مقدار ارث‌بری، مقدار محلی موجود را تحت تأثیر قرار نمی‌دهد.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // پاک کردن مقدار محلی. بخش اکنون دوباره از پاراگراف ارث می‌برد.
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // پاک کردن مقدار پاراگراف. پیش‌فرض ارائه اکنون نتیجه را تأمین می‌کند.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-داده‌های قالب‌بندی مؤثر، قالب‌بندی محاسبه‌شدهٔ فعلی پس از اعمال وراثت را نشان می‌دهند. در پیاده‌سازی فعلی، برخی از اشیای دادهٔ مؤثر ممکن است به‌صورت داخلی کش شوند. فراخوانی دوبارهٔ `getEffective` پس از تغییر قالب‌بندی والد یا وراثت شده می‌تواند کش را تازه‌سازی کند و شیء‌ای که قبلاً دریافت شده ممکن است دیگر نشانگر وضعیت قبلی نباشد. اگر نیاز به حفظ مقادیر مؤثر برای استفادهٔ بعدی دارید، خصوصیات مورد نیاز مانند ارتفاع قلم، رنگ پر، سبک قلم یا تراز را در شیء دادهٔ خودتان کپی کنید.
-{{% /alert %}}
+اولویت در این مثال، قالب‌بندی محلی بخش، سپس قالب‌بندی پاراگراف و در نهایت پیش‌فرض ارائه است. اشیاء دیگر می‌توانند زنجیره‌های ارث‌بری متفاوتی داشته باشند، اما اصل همان است: مقدار صریح خاص‌تر پیروز می‌شود و [getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getEffective) نتیجه نهایی را برمی‌گرداند.
 
-## **دریافت ویژگی‌های مؤثر یک دوربین**
+## **دریافت ویژگی‌های متن مؤثر**
 
-Aspose.Slides به شما امکان دریافت ویژگی‌های مؤثر یک دوربین را می‌دهد. شیء دادهٔ دوربین مؤثر شامل ویژگی‌های تغییرناپذیر دوربین است و از طریق مقادیر مؤثری که برای [ThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/) برگردانده می‌شود، در دسترس قرار می‌گیرد.
+قالب‌بندی متن در چندین شیء تقسیم می‌شود:
 
-کد نمونهٔ زیر نشان می‌دهد که چگونه ویژگی‌های مؤثر دوربین را دریافت کنید. فرض می‌شود که اولین شکل در اولین اسلاید قالب‌بندی ۳بعدی دارد.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#getEffective) ویژگی‌های فریم‑متن مانند حاشیه‌ها، تکیه‌گاه، خود‑تنظیمی و جهت عمودی متن را حل می‌کند.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textstyle/#getEffective) قالب‌بندی پاراگراف برای هر سطح سبک متن را حل می‌کند.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#getEffective) ویژگی‌های پاراگراف مانند تراز، تو رفتگی و بولت‌ها را حل می‌کند.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getEffective) ویژگی‌های کاراکتر مانند ارتفاع قلم، نوع قلم، رنگ، بولد و ایتالیک را حل می‌کند.
+
+برای مثال بعدی، فایل `text-formatting.pptx` باید حداقل یک اسلاید و یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) با فریم متنی غیرخالی داشته باشد. AutoShape می‌تواند در هر موقعیتی از مجموعهٔ اشکال ظاهر شود؛ کد یک شیء مناسب را جستجو کرده و پیش از استفاده آن را اعتبارسنجی می‌کند.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **دریافت ویژگی‌های مؤثر یک Light Rig**
-
-Aspose.Slides به شما امکان دریافت ویژگی‌های مؤثر یک Light Rig را می‌دهد. شیء دادهٔ Light Rig مؤثر شامل ویژگی‌های تغییرناپذیر Light Rig است و از طریق مقادیر مؤثری که برای [ThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/) برگردانده می‌شود، در دسترس قرار می‌گیرد.
-
-کد نمونهٔ زیر نشان می‌دهد که چگونه ویژگی‌های مؤثر Light Rig را دریافت کنید. فرض می‌شود که اولین شکل در اولین اسلاید قالب‌بندی ۳بعدی دارد.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **دریافت ویژگی‌های مؤثر یک Bevel Shape**
-
-Aspose.Slides به شما امکان دریافت ویژگی‌های مؤثر یک Bevel Shape را می‌دهد. شیء دادهٔ Bevel Shape مؤثر شامل ویژگی‌های تغییرناپذیر برجستگی (face‑relief) برای یک شکل است و از طریق مقادیر مؤثری که برای [ThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/) برگردانده می‌شود، در دسترس قرار می‌گیرد.
-
-کد نمونهٔ زیر نشان می‌دهد که چگونه ویژگی‌های مؤثر برجستگی بالایی یک شکل را دریافت کنید. فرض می‌شود که اولین شکل در اولین اسلاید قالب‌بندی ۳بعدی دارد.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **دریافت ویژگی‌های مؤثر یک قاب متن**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-با استفاده از Aspose.Slides، می‌توانید ویژگی‌های مؤثر یک قاب متن را دریافت کنید. شیء دادهٔ مؤثر برگردانده‌شده شامل خصوصیات قالب‌بندی قاب متن است.
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-کد نمونهٔ زیر نشان می‌دهد که چگونه خصوصیات قالب‌بندی مؤثر قاب متن را به دست آورید. فرض می‌شود که اولین شکل در اولین اسلاید یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) با یک قاب متن باشد.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **دریافت ویژگی‌های مؤثر یک سبک متن**
-
-با استفاده از Aspose.Slides، می‌توانید ویژگی‌های مؤثر یک سبک متن را دریافت کنید. شیء دادهٔ مؤثر برگردانده‌شده شامل خصوصیات سبک متن است.
-
-کد نمونهٔ زیر نشان می‌دهد که چگونه خصوصیات مؤثر سبک متن را به دست آورید. فرض می‌شود که اولین شکل در اولین اسلاید یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) با یک قاب متن باشد.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **دریافت مقدار ارتفاع قلم مؤثر**
+## **دریافت ویژگی‌های سه‌بعدی مؤثر**
 
-با استفاده از Aspose.Slides، می‌توانید ارتفاع قلم مؤثر را دریافت کنید. کد زیر نشان می‌دهد که چگونه ارتفاع قلم مؤثر یک بخش پس از تنظیم مقادیر ارتفاع قلم محلی در سطوح مختلف ساختار ارائه تغییر می‌کند.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getEffective) یک شیء داده مؤثر بازمی‌گرداند که تمام تنظیمات سه‑بعدی حل‌شده را گروه‌بندی می‌کند. متدهای [getCamera](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getCamera)، [getLightRig](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getLightRig)، [getBevelTop](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getBevelTop) و [getBevelBottom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getBevelBottom) داده مؤثر مربوطه را نمایش می‌دهند. خواندن این تنظیمات مرتبط به‌صورت همزمان، درک ظاهر نهایی سه‑بعدی یک شکل را آسان‌تر می‌کند.
+
+برای این مثال، فایل `shape-3d.pptx` باید حداقل یک شکل در اولین اسلاید داشته باشد. اگر می‌خواهید خروجی شامل مقادیر دیگری به‌جز پیش‌فرض‌ها باشد، دوربین سه‑بعدی، نورپردازی یا تنظیمات برج را برای آن شکل اعمال کنید.
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **دریافت قالب پر کردن مؤثر برای یک جدول**
+## **دریافت قالب‌بندی جدول مؤثر**
 
-با استفاده از Aspose.Slides، می‌توانید قالب پر کردن مؤثر برای قسمت‌های مختلف جدول را دریافت کنید. شیء دادهٔ مؤثر برگردانده‌شده شامل خصوصیات قالب پر کردن است. قالب‌بندی سلول نسبت به قالب‌بندی ردیف اولویت بالاتری دارد، قالب‌بندی ردیف نسبت به قالب‌بندی ستون و قالب‌بندی ستون نسبت به قالب‌بندی کل جدول اولویت بالاتری دارد.
+قالب‌بندی جدول می‌تواند از سبک جدول و یا از قالب‌های اعمال‌شده به کل جدول، یک ستون، یک ردیف یا یک سلول فردی سرچشمه بگیرد. در برخورد میان پرکن‌های صریح، اولویت به ترتیب سلول، ردیف، ستون و سپس کل جدول است. قالب مؤثر یک سلول، قالب نهایی استفاده‌شده برای رسم آن سلول است.
 
-در نتیجه، خصوصیات قالب‌بندی مؤثر سلول برای رسم سلول جدول استفاده می‌شود. کد نمونهٔ زیر نشان می‌دهد که چگونه قالب پر کردن مؤثر برای قسمت‌های مختلف جدول را به دست آورید. فرض می‌شود که اولین شکل در اولین اسلاید یک [Table](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/table/) باشد.
+برای این مثال، فایل `table-formatting.pptx` باید حداقل یک جدول در اولین اسلاید داشته باشد. جدول باید حداقل یک ردیف و یک ستون داشته باشد. کد به‌جای فرض اینکه `getShapes().get_Item(0)` یک جدول است، به دنبال یک [Table](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/table/) می‌گردد.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+اگر به رنگ نیاز داشته باشید نه فقط نوع پرکن، ابتدا نوع پرکن مؤثر را با [getFillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/#getFillType) بررسی کنید و سپس متد مربوط به آن نوع را بخوانید — به‌عنوان مثال، [getSolidFillColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) برای پرکن جامد.
+
+## **دوباره‌خوانی داده مؤثر پس از تغییرات**
+
+داده مؤثر توصیف‌کنندهٔ سلسله مراتب قالب‌بندی در لحظهٔ حل آن است. پس از تغییر هر چیزی که می‌تواند در این سلسله مراتب شرکت کند، دوباره `getEffective` را فراخوانی کنید، از جمله:
+
+- قالب‌بندی محلی شیء;
+- پیش‌فرض‌های پاراگراف یا فریم‑متن;
+- یک سبک جدول، جدول، ستون، ردیف یا قالب سلول;
+- قالب‌بندی طرح یا اسلاید اصلی;
+- داده‌های تم یا پیش‌فرض‌های سطح ارائه;
+- طرح یا اسلاید اصلی اختصاص داده‌شده به یک اسلاید.
+
+شیء داده مؤثر را به‌عنوان یک snapshot دائمی نگه ندارید. Aspose.Slides ممکن است برخی داده‌های مؤثر را به‌صورت داخلی کش کند و یک فراخوانی بعدی `getEffective` می‌تواند آن داده‌ها را به‌روز کند. اگر نیاز به مقایسه مقادیر قبل و بعد از یک تغییر دارید، مقادیر اسکالر مورد نیاز (مانند ارتفاع قلم، رنگ، تراز یا عرض برج) را پیش از اعمال تغییر در متغیرهای خود کپی کنید.
+
+برای تغییر یک مقدار، شیء قالب محلی مناسب را به‌روزرسانی کنید و سپس `getEffective` را فراخوانی کنید تا نتیجه را تأیید کنید. اشیاء دادهٔ مؤثر به‌خودی فقط‑خواندنی‌اند.
 
 ## **FAQ**
 
-**آیا `getEffective` یک snapshot برمی‌گرداند؟**
+**چگونه می‌توانم تشخیص دهم کدام سطح مقدار مؤثر را فراهم کرده است؟**
 
-همیشه نیست. داده‌های مؤثر قالب‌بندی محاسبه‌شده پس از اعمال وراثت را نشان می‌دهند، اما ممکن است برخی از اشیای دادهٔ مؤثر به‌صورت داخلی کش شوند. فراخوانی بعدی `getEffective` ممکن است قالب‌بندی را دوباره محاسبه کند و کش را تازه‌سازی کند، بنابراین شیء‌ای که قبلاً دریافت شده نباید به‌عنوان یک snapshot دائمی در نظر گرفته شود.
+داده مؤثر فقط مقدار نهایی را شامل می‌شود، نه منبع آن. از اشیاء محلی قابل اعمال از سطح خاص‌ترین به سمت بیرون بررسی کنید. برای متن، این می‌تواند شامل بخش، پاراگراف، فریم‑متن، طرح، اسلاید اصلی، تم و پیش‌فرض‌های ارائه باشد. مقادیر تعریف‌نشده مانند `NaN` یا `null` نشان می‌دهد که جستجو به سطح دیگری ادامه می‌یابد.
 
-**چه زمانی باید ویژگی‌های مؤثر را دوباره بخوانم؟**
+**چه اتفاقی می‌افتد وقتی هیچ سطحی خاصیتی را تعریف نکند؟**
 
-پس از تغییر قالب‌بندی محلی، سبک‌های والد، قالب‌بندی طرح‌بندی، قالب‌بندی اصلی یا پیش‌فرض‌های سطح ارائه، `getEffective` را دوباره فراخوانی کنید. فراخوانی بعدی سلسله‌مراتبی قالب‌بندی را مجدداً ارزیابی می‌کند و نتیجهٔ مؤثر فعلی را برمی‌گرداند.
+Aspose.Slides مقدار پیش‌فرض مناسب PowerPoint یا کتابخانه را حل می‌کند. آن مقدار حل‌شده در دادهٔ مؤثر ظاهر می‌شود حتی اگر هیچ شیء محلی صریحاً آن را تعریف نکرده باشد.
 
-**آیا تغییر یا حذف یک اسلاید طرح‌بندی/اصلی بر ویژگی‌های مؤثری که قبلاً دریافت شده‌اند تأثیر می‌گذارد؟**
+**چرا گاهی مقدار مؤثر برابر مقدار محلی می‌شود؟**
 
-بله، اما تغییر تنها در فراخوانی بعدی `getEffective` بازتاب می‌یابد. اگر منبع قالب‌بندی والد تغییر یا حذف شود، دادهٔ مؤثر قبلاً دریافت‌شده ممکن است منسوخ شود. با فراخوانی دوباره `getEffective`، Aspose.Slides درخت قالب‌بندی را مجدداً ارزیابی می‌کند و ممکن است فونت‌ها، رنگ‌ها، اندازه‌ها یا مقادیر دیگر تغییر کنند.
+مقدار محلی محاسبهٔ ارث‌بری را برنده شده است. این حالت زمانی پیش می‌آید که ویژگی به‌وضوح بر روی شیء تنظیم شده باشد و هیچ قاعدهٔ خاص‌تری آن را بازنویسی نکرده باشد.
 
-**آیا می‌توانم مقادیر را از طریق اشیای دادهٔ مؤثر تغییر دهم؟**
+**چه زمانی باید از دادهٔ محلی به‌جای دادهٔ مؤثر استفاده کنم؟**
 
-نه. اشیای دادهٔ مؤثر فقط مقادیر محاسبه‌شده را نشان می‌دهند. تغییرات را در اشیای قالب‌بندی محلی اعمال کنید و سپس مقادیر مؤثر را دوباره دریافت کنید.
-
-**اگر ویژگی‌ای در سطح شکل، در طرح‌بندی/اسلاید اصلی یا تنظیمات سراسری تنظیم نشده باشد، چه می‌شود؟**
-
-مقدار مؤثر بر پایهٔ مکانیزم پیش‌فرض تعیین می‌شود که شامل پیش‌فرض‌های PowerPoint و Aspose.Slides می‌شود. آن مقدار حل‌شده بخشی از دادهٔ مؤثر جاری می‌شود.
-
-**آیا می‌توانم از مقدار قلم مؤثر تشخیص دهم که کدام سطح اندازه یا نوع فونت را ارائه داده است؟**
-
-به‌طور مستقیم نمی‌توان. دادهٔ مؤثر فقط مقدار نهایی را برمی‌گرداند. برای پیدا کردن منبع، مقادیر محلی را در بخش، پاراگراف، قاب متن و سبک‌های متن در سطوح طرح‌بندی، اصلی و ارائه بررسی کنید تا اولین تعریف صریح را بیابید.
-
-**چرا گاهی مقادیر مؤثر شبیه به مقادیر محلی به نظر می‌رسند؟**
-
-چون مقدار محلی در نهایت نهایی شده است (نیازی به وراثت از سطح بالاتر نبوده). در چنین مواردی مقدار مؤثر با مقدار محلی یکسان است.
-
-**چه زمانی باید از ویژگی‌های مؤثر استفاده کنم و چه زمانی فقط با ویژگی‌های محلی کار کنم؟**
-
-زمانی که به نتیجهٔ “به صورت رندر شده” پس از اعمال تمام وراثت‌ها نیاز دارید—مثلاً برای تطبیق رنگ‌ها، تو رفتگی‌ها یا اندازه‌ها—از دادهٔ مؤثر استفاده کنید. اگر می‌خواهید این مقادیر را صرف‌نظر از تغییرات آینده قالب‌بندی حفظ کنید، خصوصیات مورد نیاز را در شیء خود کپی کنید. اگر می‌خواهید قالب‌بندی را در سطح خاصی تغییر دهید، ویژگی‌های محلی را اصلاح کنید و سپس در صورت نیاز دادهٔ مؤثر را دوباره خوانده تا نتیجه را تأیید کنید.
+از دادهٔ محلی برای بررسی یا ویرایش یک سطح خاص قالب‌بندی استفاده کنید. از دادهٔ مؤثر زمانی استفاده کنید که به ظاهر نهایی پس از ارث‌بری، قوانین تم و سبک‌های کاربردی نیاز دارید. مثال کامل مقایسهٔ [مقایسه مقادیر محلی، ارث‌بری و مؤثر](#compare-local-inherited-and-effective-values) هر دو را در یک گردش کار نشان می‌دهد.

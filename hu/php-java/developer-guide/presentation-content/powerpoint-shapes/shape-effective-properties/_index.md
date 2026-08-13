@@ -1,5 +1,5 @@
 ---
-title: Alakzat hatékony tulajdonságainak lekérése a prezentációkból PHP-ban
+title: Alakzatok hatékony tulajdonságainak lekérése a prezentációkból PHP-ben
 linktitle: Hatékony tulajdonságok
 type: docs
 weight: 50
@@ -7,9 +7,9 @@ url: /hu/php-java/shape-effective-properties/
 keywords:
 - alakzat tulajdonságok
 - kamera tulajdonságok
-- fény rig
-- perem alakzat
-- szövegdoboz
+- világítási rig
+- ferde él alakzat
+- szövegkeret
 - szövegstílus
 - betűmagasság
 - kitöltési formátum
@@ -17,333 +17,298 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Fedezze fel, hogyan számítja ki és alkalmazza az Aspose.Slides for PHP (Java-n keresztül) a hatékony alakzat tulajdonságokat a pontos PowerPoint megjelenítéshez."
+description: "Ismerje meg, hogyan használhatja az Aspose.Slides for PHP via Java-t a helyi, örökölt és hatékony alakzatformázás megkülönböztetéséhez PowerPoint prezentációkban."
 ---
-## **Áttekintés**
+## **Understand Local, Inherited, and Effective Properties**
 
-Ez a téma elmagyarázza a **helyi** és **hatékony** tulajdonságok közötti különbséget. A helyi értékek olyan értékek, amelyeket közvetlenül egy adott formázási szinten állítanak be, például:
+PowerPoint formázás több helyről származhat. Az objektumra közvetlenül tárolt érték a **helyi érték**. Ha ez az érték nincs beállítva, a PowerPoint a szülő formázási forrásokat nézi, például egy bekezdés alapértelmezését, egy szövegstílust, egy elrendezést vagy mesterdia, egy témát vagy a bemutató szintű alapértelmezéseket. Ezek az értékek **örökölt értékek**. Az a érték, amely a teljes hierarchia feloldása után megmarad, a **hatékony érték** — az objektum megjelenítéséhez használt érték.
 
-1. Részlet tulajdonságai egy dián.
-1. Prototype alakzat szövegstílusai egy elrendezésen vagy mesterdián, ha a részlet szövegdoboz alakzata rendelkezik ilyennel.
-1. Globális szövegbeállítások egy prezentációban.
+Például egy szövegrészlet nem definiálhat saját betűmagasságot. Ennek helyi [getFontHeight](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseportionformat/) értéke ekkor `NAN`, ami azt jelenti, hogy "itt nincs beállítva". A részlet örökölhet magasságot a bekezdéséből, a bemutató alapértelmezett szövegstílusából vagy egy másik alkalmazható forrásból. A [getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portionformat/geteffective/) hívása a részlet formátumon a végső feloldott magasságot adja vissza.
 
-A helyi értékek meghatározhatók vagy elhagyhatók bármely szinten. Amikor az Aspose.Slides-nek a végső „renderelt” formázásra van szüksége, feloldja az öröklődési láncot, és **hatékony** értékeket ad vissza. Ezeket a helyi formátumobjektum `getEffective` metódusának meghívásával kaphatja meg.
+Használja a kétféle formázási adatot különböző célokra:
+- Olvassa vagy módosítsa a helyi formátumobjektumot, például a [PortionFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portionformat/)‑t, ha szabályozni szeretné, hogy hol van definiálva egy érték.
+- Olvassa a hatékony adatobjektumot, például a [PortionFormat.getEffective által visszaadott adatot](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portionformat/geteffective/), ha a végső, megjelenített eredményre van szüksége. A hatékony adatok csak olvashatóak.
 
-Az alábbi példa bemutatja, hogyan lehet hatékony értékeket lekérni. Feltételezi, hogy az első dián az első alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) szövegdobozzal és legalább egy résszel rendelkezik.
+A példák futtatása előtt [telepítse az Aspose.Slides for PHP via Java](/slides/hu/php-java/installation/).
+
+## **Compare Local, Inherited, and Effective Values**
+
+A következő teljes példa létrehoz egy alakzatot, és betűmagasságokat alkalmaz a bemutató, a bekezdés és a részlet szintjén. Minden lépés kiírja az adott szinteken definiált értékeket és az ugyanarra a szövegrészletre vonatkozó eredményes hatékony értéket. Emellett bemutatja, miért kell a hatékony adatot a formázás módosítása után újra beolvasni.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+function formatLocalValue($value)
+{
+    return $value === null || is_nan($value) ? "<not set>" : (string)$value;
+}
+
+function printFontHeights($caption, $presentation, $paragraph, $portion)
+{
+    $presentationValue = java_values($presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->getFontHeight());
+    $paragraphValue = java_values($paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFontHeight());
+    $localValue = java_values($portion->getPortionFormat()->getFontHeight());
+
+    // Olvassa be a hatékony adatot az előző módosítások után.
+    $effectiveValue = java_values($portion->getPortionFormat()->getEffective()->getFontHeight());
+
+    echo $caption . PHP_EOL;
+    echo "  Presentation default: " . formatLocalValue($presentationValue) . PHP_EOL;
+    echo "  Paragraph default:    " . formatLocalValue($paragraphValue) . PHP_EOL;
+    echo "  Portion local:        " . formatLocalValue($localValue) . PHP_EOL;
+    echo "  Portion effective:    " . $effectiveValue . PHP_EOL;
+}
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
-
-    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 80, false);
+    $textFrame = $shape->addTextFrame("Effective formatting");
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
     $portion = $paragraph->getPortions()->get_Item(0);
 
-    $localPortionFormat = $portion->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat->getEffective();
+    // Definiálja az örökölt értékeket két különböző szinten.
+    $presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(28);
+
+    printFontHeights("The portion inherits from the paragraph", $presentation, $paragraph, $portion);
+
+    // A részlet helyi értéke felülírja mindkét örökölt értéket.
+    $portion->getPortionFormat()->setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", $presentation, $paragraph, $portion);
+
+    // Az örökölt érték megváltoztatása nem írja felül a meglévő helyi értéket.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(30);
+    printFontHeights("The local value still has priority", $presentation, $paragraph, $portion);
+
+    // Törölje a helyi értéket. A részlet most ismét a bekezdéstől örököl.
+    $portion->getPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The local value is cleared", $presentation, $paragraph, $portion);
+
+    // Törölje a bekezdés értékét. A bemutató alapértelmezése most adja az eredményt.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The paragraph value is cleared", $presentation, $paragraph, $portion);
+
+    $presentation->save("effective-properties.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-A hatékony formázási adatok a jelenlegi számított formázást képviselik az öröklődés alkalmazása után. A jelenlegi megvalósításban egyes hatékony adatobjektumok, amelyeket például a [PortionFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portionformat/geteffective/) metódus ad vissza, lehetnek belsőleg gyorsítótárazva. A `getEffective` újbóli meghívása a szülő vagy az örökölt formázás módosítása után frissítheti a gyorsítótárazott adatokat, és egy korábban lekért objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha a hatékony értékeket későbbi felhasználásra meg kell őrizni, másolja a szükséges tulajdonságokat, például betűmagasság, kitöltőszín, betűstílus vagy igazítás, saját adatobjektumába.
-{{% /alert %}}
+Ebben a példában a prioritás a részlet helyi formázása, majd a bekezdés formázása, végül a bemutató alapértelmezése. Más objektumoknak eltérő öröklődési láncaik lehetnek, de az elv ugyanaz: egy specifikusabb kifejezett érték nyer, és a [getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portionformat/geteffective/) a végső eredményt adja vissza.
 
-## **A kamera hatékony tulajdonságainak lekérése**
+## **Get Effective Text Properties**
 
-Aspose.Slides lehetővé teszi a kamera hatékony tulajdonságainak lekérését. A [ThreeDFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/) által visszaadott hatékony adatok a [ThreeDFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/) végső kamera tulajdonságait tartalmazzák.
+A szövegformázás több objektumra van osztva:
+- A [TextFrameFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/geteffective/) feloldja a szövegkeret tulajdonságait, mint például a margók, rögzítés, automatikus illesztés és a függőleges szövegirány.
+- A [TextStyle.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textstyle/geteffective/) feloldja a bekezdésformázást minden szövegstílus szintjén.
+- A [ParagraphFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraphformat/geteffective/) feloldja a bekezdés tulajdonságait, például az igazítást, behúzást és a felsorolásjeleket.
+- A [PortionFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/portionformat/geteffective/) feloldja a karaktertulajdonságokat, mint a betűmagasság, betűtípus, szín, félkövér és dőlt.
 
-Az alábbi kódminta bemutatja, hogyan lehet a kamera hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
+A következő példához a `text-formatting.pptx` fájlnak legalább egy diát és egy nem üres szövegkerettel rendelkező [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) elemet kell tartalmaznia. Az AutoShape megjelenhet a alakzatgyűjtemény bármely pozíciójában; a kód keres egy megfelelő objektumot, és a használat előtt ellenőrzi azt.
 
 ```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+use aspose\slides\Presentation;
 
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $camera = $threeDEffectiveData->getCamera();
-    $cameraType = $camera->getCameraType();
-    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
-    $zoom = $camera->getZoom();
-
-    echo "= Effective camera properties =" . PHP_EOL;
-    echo "Type: " . $cameraType . PHP_EOL;
-    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
-    echo "Zoom: " . $zoom . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    if ($value === null) {
+        return "<not set>";
+    }
+    if (is_bool($value)) {
+        return $value ? "true" : "false";
+    }
+    return (string)$value;
 }
-```
 
-## **A fény rig hatékony tulajdonságainak lekérése**
-
-Aspose.Slides lehetővé teszi a fény rig hatékony tulajdonságainak lekérését. A [ThreeDFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/) által visszaadott hatékony adatok a [ThreeDFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/) végső fény rig tulajdonságait tartalmazzák.
-
-Az alábbi kódminta bemutatja, hogyan lehet a fény rig hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $lightRig = $threeDEffectiveData->getLightRig();
-    $lightType = $lightRig->getLightType();
-    $direction = $lightRig->getDirection();
-
-    echo "= Effective light rig properties =" . PHP_EOL;
-    echo "Type: " . $lightType . PHP_EOL;
-    echo "Direction: " . $direction . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function hasNonEmptyText($shape)
+{
+    $textFrame = $shape->getTextFrame();
+    if (java_is_null($textFrame)) {
+        return false;
+    }
+    if (java_values($textFrame->getParagraphs()->getCount()) === 0) {
+        return false;
+    }
+    return java_values($textFrame->getParagraphs()->get_Item(0)->getPortions()->getCount()) > 0;
 }
-```
 
-## **A perem alakzat hatékony tulajdonságainak lekérése**
-
-Aspose.Slides lehetővé teszi egy alakzat peremének hatékony tulajdonságainak lekérését. A [ThreeDFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/) által visszaadott hatékony adatok a [ThreeDFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/) végső felületrelief tulajdonságait tartalmazzák.
-
-Az alábbi kódminta bemutatja, hogyan lehet egy alakzat felső peremének hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $bevelTop = $threeDEffectiveData->getBevelTop();
-    $bevelType = $bevelTop->getBevelType();
-    $bevelWidth = $bevelTop->getWidth();
-    $bevelHeight = $bevelTop->getHeight();
-
-    echo "= Effective shape's top face relief properties =" . PHP_EOL;
-    echo "Type: " . $bevelType . PHP_EOL;
-    echo "Width: " . $bevelWidth . PHP_EOL;
-    echo "Height: " . $bevelHeight . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function findAutoShapeWithText($slide)
+{
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $candidate = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($candidate, $autoShapeClass) && hasNonEmptyText($candidate)) {
+            return $candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Egy szövegdoboz hatékony tulajdonságainak lekérése**
-
-Aspose.Slides használatával lekérheti egy szövegdoboz hatékony tulajdonságait. A [TextFrameFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframeformat/geteffective/) által visszaadott hatékony adatok a szövegdoboz formázási tulajdonságait tartalmazzák.
-
-Az alábbi kódminta bemutatja, hogyan lehet a szövegdoboz formázási tulajdonságait hatékonyan lekérni. Feltételezi, hogy az első dián az első alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) szövegdobozzal rendelkezik.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("text-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
-    $autofitType = $effectiveTextFrameFormat->getAutofitType();
-    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
-    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
-    $marginTop = $effectiveTextFrameFormat->getMarginTop();
-    $marginRight = $effectiveTextFrameFormat->getMarginRight();
-    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+    $shape = findAutoShapeWithText($presentation->getSlides()->get_Item(0));
+    if ($shape === null) {
+        throw new RuntimeException("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    echo "Anchoring type: " . $anchoringType . PHP_EOL;
-    echo "Autofit type: " . $autofitType . PHP_EOL;
-    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
-    echo "Margins" . PHP_EOL;
-    echo "   Left: " . $marginLeft . PHP_EOL;
-    echo "   Top: " . $marginTop . PHP_EOL;
-    echo "   Right: " . $marginRight . PHP_EOL;
-    echo "   Bottom: " . $marginBottom . PHP_EOL;
-} finally {
-    $presentation->dispose();
-}
-```
+    $textFrame = $shape->getTextFrame();
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
 
-## **Egy szövegstílus hatékony tulajdonságainak lekérése**
+    $textFrameEffective = $textFrame->getTextFrameFormat()->getEffective();
+    $paragraphEffective = $paragraph->getParagraphFormat()->getEffective();
+    $portionEffective = $portion->getPortionFormat()->getEffective();
 
-Aspose.Slides használatával lekérheti egy szövegstílus hatékony tulajdonságait. A [TextStyle.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textstyle/geteffective/) által visszaadott hatékony adatok a szövegstílus tulajdonságait tartalmazzák.
+    echo "Text frame margins:" . PHP_EOL;
+    echo "  Left: " . formatEffectiveValue($textFrameEffective->getMarginLeft()) . PHP_EOL;
+    echo "  Top: " . formatEffectiveValue($textFrameEffective->getMarginTop()) . PHP_EOL;
+    echo "  Right: " . formatEffectiveValue($textFrameEffective->getMarginRight()) . PHP_EOL;
+    echo "  Bottom: " . formatEffectiveValue($textFrameEffective->getMarginBottom()) . PHP_EOL;
+    echo "Paragraph alignment: " . formatEffectiveValue($paragraphEffective->getAlignment()) . PHP_EOL;
+    echo "Font height: " . formatEffectiveValue($portionEffective->getFontHeight()) . PHP_EOL;
+    echo "Bold: " . formatEffectiveValue($portionEffective->getFontBold()) . PHP_EOL;
 
-Az alábbi kódminta bemutatja, hogyan lehet a szövegstílus hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) szövegdobozzal rendelkezik.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $textStyle = $textFrameFormat->getTextStyle();
-    $effectiveTextStyle = $textStyle->getEffective();
-    $levelCount = 9;
-
-    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
-        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
-        $depth = $effectiveStyleLevel->getDepth();
-        $indent = $effectiveStyleLevel->getIndent();
-        $alignment = $effectiveStyleLevel->getAlignment();
-        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
-
-        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
-
-        echo "Depth: " . $depth . PHP_EOL;
-        echo "Indent: " . $indent . PHP_EOL;
-        echo "Alignment: " . $alignment . PHP_EOL;
-        echo "Font alignment: " . $fontAlignment . PHP_EOL;
+    $effectiveTextStyle = $textFrame->getTextFrameFormat()->getTextStyle()->getEffective();
+    for ($level = 0; $level < 9; $level++) {
+        $levelEffective = $effectiveTextStyle->getLevel($level);
+        echo "Level " . $level . " indent: " . formatEffectiveValue($levelEffective->getIndent()) . PHP_EOL;
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **A hatékony betűmagasság értékének lekérése**
+## **Get Effective 3D Properties**
 
-Aspose.Slides használatával lekérheti a hatékony betűmagasságot. Az alábbi kód azt mutatja be, hogyan változik egy részlet hatékony betűmagassága, amikor a helyi betűmagasság értékeket a prezentáció különböző szintjein állítják be.
+A [ThreeDFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/) egy hatékony adatobjektumot ad vissza, amely egyesíti az összes feloldott 3D beállítást. Ennek [getCamera](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/), [getLightRig](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/), [getBevelTop](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/), és [getBevelBottom](https://reference.aspose.com/slides/hu/php-java/aspose.slides/threedformat/geteffective/) metódusai a megfelelő hatékony adatot teszik elérhetővé. Ezen kapcsolódó beállítások közös olvasása megkönnyíti a forma végső 3D megjelenésének megértését.
+
+Ezzel a példával a `shape-3d.pptx` fájlnak az első diáján legalább egy alakzatot kell tartalmaznia. Alkalmazzon 3D kamerát, fényeket vagy rézsút beállításokat az alakzatra, ha azt szeretné, hogy a kimenet az alapértelmezettől eltérő értékeket tartalmazzon.
 
 ```php
-$presentation = new Presentation();
+use aspose\slides\Presentation;
+
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    return $value === null ? "<not set>" : (string)$value;
+}
+
+$presentation = new Presentation("shape-3d.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0 || java_values($presentation->getSlides()->get_Item(0)->getShapes()->size()) === 0) {
+        throw new RuntimeException("The first slide must contain a shape.");
+    }
 
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $autoShape->addTextFrame("");
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $threeDEffective = $shape->getThreeDFormat()->getEffective();
 
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    $paragraph->getPortions()->clear();
+    echo "Camera:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getCamera()->getCameraType()) . PHP_EOL;
+    echo "  Field of view: " . formatEffectiveValue($threeDEffective->getCamera()->getFieldOfViewAngle()) . PHP_EOL;
+    echo "  Zoom: " . formatEffectiveValue($threeDEffective->getCamera()->getZoom()) . PHP_EOL;
 
-    $firstPortion = new Portion("Sample text with first portion");
-    $secondPortion = new Portion(" and second portion.");
+    echo "Light rig:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getLightRig()->getLightType()) . PHP_EOL;
+    echo "  Direction: " . formatEffectiveValue($threeDEffective->getLightRig()->getDirection()) . PHP_EOL;
 
-    $paragraph->getPortions()->add($firstPortion);
-    $paragraph->getPortions()->add($secondPortion);
-
-    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
-    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height just after creation:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
-    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
-    $defaultPortionFormat->setFontHeight(24);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
-    $paragraphDefaultPortionFormat->setFontHeight(40);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $firstPortionFormat->setFontHeight(55);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $secondPortionFormat->setFontHeight(18);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+    echo "Top bevel:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getBevelTop()->getBevelType()) . PHP_EOL;
+    echo "  Width: " . formatEffectiveValue($threeDEffective->getBevelTop()->getWidth()) . PHP_EOL;
+    echo "  Height: " . formatEffectiveValue($threeDEffective->getBevelTop()->getHeight()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Egy táblázat hatékony kitöltési formátumának lekérése**
+## **Get Effective Table Formatting**
 
-Aspose.Slides használatával lekérheti a táblázat különböző részeinek hatékony kitöltési formátumát. A formátumobjektumok által visszaadott hatékony adatok a [FillFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fillformat/) tulajdonságait tartalmazzák. A cella formázása magasabb prioritással bír, mint a sor formázása, a sor formázása magasabb, mint az oszlop formázása, és az oszlop formázása magasabb, mint a teljes tábla formázása.
+A táblázatformázás származhat a táblázat stílusából, illetve a teljes táblázatra, egy oszlopra, egy sorra vagy egy egyedi cellára alkalmazott formátumokból. Az explicit módon definiált kitöltések ütközése esetén a prioritás: cella, sor, oszlop, majd a teljes táblázat. Egy cella hatékony formátuma a végső formátum, amely a cellát megrajzolja.
 
-Ennek következtében a hatékony [CellFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/cellformat/) tulajdonságok kerülnek felhasználásra a tábla cellájának kirajzolásához. Az alábbi kódminta bemutatja, hogyan lehet a táblázat különböző részeinek hatékony kitöltési formátumát lekérni. Feltételezi, hogy az első dián az első alakzat egy [Table](https://reference.aspose.com/slides/hu/php-java/aspose.slides/table/) objektum.
+Ehhez a példához a `table-formatting.pptx` fájlnak az első diáján legalább egy táblázatot kell tartalmaznia. A táblázatnak legalább egy sorral és egy oszloppal kell rendelkeznie. A kód egy [Table](https://reference.aspose.com/slides/hu/php-java/aspose.slides/table/) elemet keres, ahelyett, hogy feltételezné, hogy a `getShapes()->get_Item(0)` egy táblázat.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+
+function findTable($slide)
+{
+    $tableClass = new JavaClass("com.aspose.slides.Table");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, $tableClass)) {
+            return $shape;
+        }
+    }
+    return null;
+}
+
+$presentation = new Presentation("table-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $table = $slide->getShapes()->get_Item(0);
-    $tableFormatEffective = $table->getTableFormat()->getEffective();
+    $table = findTable($presentation->getSlides()->get_Item(0));
+    if ($table === null) {
+        throw new RuntimeException("The first slide must contain a table.");
+    }
+    if (java_values($table->getRows()->size()) === 0 || java_values($table->getColumns()->size()) === 0) {
+        throw new RuntimeException("The table must contain at least one cell.");
+    }
 
-    $row = $table->getRows()->get_Item(0);
-    $rowFormatEffective = $row->getRowFormat()->getEffective();
+    $tableEffective = $table->getTableFormat()->getEffective();
+    $rowEffective = $table->getRows()->get_Item(0)->getRowFormat()->getEffective();
+    $columnEffective = $table->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
+    $cellEffective = $table->get_Item(0, 0)->getCellFormat()->getEffective();
 
-    $column = $table->getColumns()->get_Item(0);
-    $columnFormatEffective = $column->getColumnFormat()->getEffective();
-
-    $cell = $table->get_Item(0, 0);
-    $cellFormatEffective = $cell->getCellFormat()->getEffective();
-
-    $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
-    $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
-    $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
-    $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
+    echo "Table fill: " . java_values($tableEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Row fill: " . java_values($rowEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Column fill: " . java_values($columnEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Final cell fill: " . java_values($cellEffective->getFillFormat()->getFillType()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **GYIK**
+Ha a színre van szüksége, nem csak a kitöltés típusára, először ellenőrizze a hatékony [getFillType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fillformat/geteffective/) értéket, majd olvassa el az arra vonatkozó metódust – például a [getSolidFillColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fillformat/geteffective/) egy szilárd kitöltés esetén.
 
-**A `getEffective` pillanatképet ad vissza?**
+## **Re-read Effective Data After Changes**
 
-Nem mindig. A hatékony adatok az öröklődés alkalmazása után számított formázást képviselik, de egyes hatékony adatobjektumok belsőleg gyorsítótárazva lehetnek. Egy későbbi `getEffective` hívás újraszámolhatja a formázást és frissítheti a gyorsítótárat, ezért a korábban lekért objektust nem szabad tartós pillanatképként kezelni.
+A hatékony adatok leírják a formázási hierarchiát a feloldás időpontjában. Hívja újra a `getEffective` függvényt, miután bármit módosított, ami részt vehet ebben a hierarchiában, többek között:
+- az objektum helyi formázását;
+- bekezdés vagy szövegkeret alapértelmezéseit;
+- egy táblázat stílusát, táblázatot, oszlopot, sort vagy cellaformátumot;
+- elrendezés vagy mesterdia formázását;
+- téma adatokat vagy a bemutató szintű alapértelmezéseket;
+- a diára rendelt elrendezést vagy mestert.
 
-**Mikor kell újra lekérni a hatékony tulajdonságokat?**
+Ne tartson hatékony adatobjektumot állandó pillanatképként. Az Aspose.Slides belül cache-elhet bizonyos hatékony adatokat, és egy későbbi `getEffective` hívás frissítheti azokat. Ha az értékek összehasonlítására van szükség a módosítás előtt és után, másolja a szükséges skáláris értékeket – például betűmagasság, szín, igazítás vagy rézsútszélesség – saját változóiba a módosítás előtt.
 
-Az `getEffective` hívást ismét meghívja a helyi formázás, a szülő stílusok, az elrendezés formázása, a mester formázása vagy a prezentáció szintű alapértelmezések módosítása után. A következő hívás újraértékeli a formázási hierarchiát, és visszaadja a jelenlegi hatékony eredményt.
+Az érték megváltoztatásához frissítse a megfelelő helyi formátumobjektumot, majd hívja a `getEffective` függvényt az eredmény ellenőrzéséhez. A hatékony adatobjektumok maguk csak olvashatóak.
 
-**Akinosít vagy eltávolít egy elrendezés/mester diát, befolyásolja-e a már lekért hatékony tulajdonságokat?**
+## **FAQ**
 
-Igen, de a változás a következő `getEffective` híváskor jelenik meg. Ha egy szülő formázási forrás megváltozik vagy eltávolításra kerül, a korábban lekért hatékony adatok elavulhatnak. Amint a `getEffective` újból meghívásra kerül, az Aspose.Slides újraértékeli a formázási fát, és a kapott betűtípusok, színek, méretek vagy egyéb értékek megváltozhatnak.
+**How can I tell which level supplied an effective value?**
 
-**Módosíthatok értékeket a hatékony adatobjektumokon keresztül?**
+A hatékony adat tartalmazza a végleges értéket, de nem annak forrását. Vizsgálja meg a megfelelő helyi objektumokat a legspecifikusabb szintről kifelé. Szöveg esetén ez magában foglalhatja a részletet, bekezdést, szövegkeretet, elrendezést, mestert, témát és a bemutató alapértelmezéseit. A `NAN` vagy `null` értékek jelzik, hogy a keresés egy másik szintre folytatódik.
 
-Nem. A hatékony adatobjektumok csak a kiszámított értékeket mutatják. Végezze a módosításokat a helyi formázási objektumokon, majd újból kérje le a hatékony értékeket.
+**What happens when no level defines a property?**
 
-**Mi történik, ha egy tulajdonság nincs beállítva sem az alakzat szintjén, sem az elrendezésen/mesteren, sem a globális beállításokban?**
+Az Aspose.Slides a megfelelő PowerPoint vagy könyvtár alapértelmezést alkalmazza. Ez a feloldott érték megjelenik a hatékony adatokban, még akkor is, ha egy helyi objektum sem definiálja kifejezetten.
 
-A hatékony értéket az alapértelmezett mechanizmus határozza meg, amely magában foglalja a PowerPoint és az Aspose.Slides alapértelmezéseit. Az így kapott érték a jelenlegi hatékony adatok részévé válik.
+**Why does an effective value sometimes equal the local value?**
 
-**Egy hatékony betűértékből megállapítható, hogy melyik szint biztosította a méretet vagy a betűtípust?**
+A helyi érték nyerte meg az öröklési számítást. Ez akkor várható, amikor a tulajdonság kifejezetten be van állítva az objektumon, és nincs specifikusabb szabály, ami felülírná.
 
-Nem közvetlenül. A hatékony adatok a végső értéket adják vissza. A forrás megtalálásához ellenőrizze a helyi értékeket a részleten, bekezdésen, szövegdobozon és a szövegstílusokon az elrendezésen, mesteren és a prezentáció szintjén, hogy lássa, hol jelenik meg az első explicit meghatározás.
+**When should I use local data instead of effective data?**
 
-**Miért tűnnek néha a hatékony értékek azonosnak a helyiekkel?**
-
-Mivel a helyi érték végül végsőnek bizonyult (nem volt szükség magasabb szintű öröklődésre). Ilyen esetekben a hatékony érték megegyezik a helyivel.
-
-**Mikor kell hatékony tulajdonságokat használni, és mikor csak helyi tulajdonságokkal dolgozni?**
-
-Használja a hatékony adatokat, amikor a teljes öröklődés után szükséges a „renderelt” eredmény, például színek, behúzások vagy méretek igazításához. Ha ezeket az értékeket későbbi formázási változásoktól függetlenül szeretné megőrizni, másolja a szükséges tulajdonságokat saját objektumába. Ha egy adott szinten szeretné módosítani a formázást, változtassa meg a helyi tulajdonságokat, majd szükség esetén olvassa újra a hatékony adatokat a végeredmény ellenőrzéséhez.
+Használjon helyi adatot egy adott formázási szint megtekintésére vagy szerkesztésére. Használjon hatékony adatot, ha a végső megjelenésre van szükség az öröklődés, a téma szabályok és a megfelelő stílusok feloldása után. A [complete comparison example](#compare-local-inherited-and-effective-values) mindkettőt bemutatja ugyanabban a munkafolyamatban.
