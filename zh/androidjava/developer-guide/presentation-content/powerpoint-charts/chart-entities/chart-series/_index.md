@@ -7,356 +7,385 @@ keywords:
 - 图表系列
 - 系列重叠
 - 系列颜色
-- 类别颜色
 - 系列名称
 - 数据点
+- 工作簿单元格
 - 系列间隙
+- 负值
 - PowerPoint
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何在 Android 上使用实用的 Java 示例代码和最佳实践来管理 PowerPoint（PPT/PPTX）中的图表系列，从而提升您的数据演示。"
+description: "了解如何在 Android 上的演示文稿中管理图表系列、数据点、工作簿单元格、格式设置、重叠、间隙宽度以及负值。"
 ---
+## **概述**
 
-系列是绘制在图表中的一行或一列数字。
+图表将其绘制的数据存储在图表数据工作簿中。一个[IChartSeries](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/)代表一组相关的值，系列中的每个[IChartDataPoint](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/)对应一个或多个工作簿单元格。 [IChartCategory](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartcategory/)对象提供系列共享的标签或分组值。因此，系列名称、类别和点值连接到[IChartDataCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/)对象，而不是仅作为显示文本存储。
+
+对于典型的类别图，默认工作簿使用第 0 行存放系列名称，第 0 列存放类别名称，其余单元格存放系列数值。传递给[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-)的工作表、行和列索引均为零基。此布局在创建默认数据的图表时很有用，但不要假设每个已有的图表都使用该布局。对于已加载的演示文稿，请在更改工作簿值之前检查系列、类别和数据点引用的单元格。
+
+图表设置有三种不同的作用域：
+
+- 系列级设置，例如[IChartSeries.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getFormat--)，为一个系列中的所有点提供默认外观。
+- 数据点级设置，例如[IChartDataPoint.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)，覆盖该点的系列外观。
+- 组设置适用于属于同一[IChartSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/)的兼容系列。当需要设置诸如重叠或间隙宽度等选项时，通过[IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--)访问该组。
+
+当未显式设置点或系列填充时，图表样式和主题决定自动外观。当同时存在系列和点的格式设置时，点的格式设置优先于该点的系列格式。
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **设置图表系列重叠**
 
-使用 [IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) 方法，您可以确定 2D 图表中柱形和条形的重叠程度（范围：-100 到 100）。此属性适用于父系列组的所有系列：它是相应组属性的投影。因此，此属性为只读。
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getOverlap--) 报告 2D 图表中条形或柱形的重叠程度，范围为 -100 到 100%。它是父系列组设置的只读投影。使用[IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) 可更新该组中所有兼容系列。此选项适用于显示分组条形或柱形的图表类型；不会影响组合图中不相关的系列组。
 
-使用 `getParentSeriesGroup().setOverlap()` 写入方法来设置您偏好的重叠值。
+下面的示例为包含第一系列的组设置重叠：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
-1. 在幻灯片上添加簇状柱形图。  
-1. 访问第一个图表系列。  
-1. 访问图表系列的 `ParentSeriesGroup` 并为该系列设置首选的重叠值。  
-1. 将修改后的演示文稿写入 PPTX 文件。
-
-此 Java 代码演示如何为图表系列设置重叠：
 ```java
-Presentation pres = new Presentation();
-try {
-    // 添加图表
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // 设置系列重叠
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // 将演示文稿文件写入磁盘
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // 新图表包含示例系列、类别和数值。
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **更改系列颜色**
+![系列重叠](series_overlap.png)
 
-Aspose.Slides for Android via Java 可按以下方式更改系列颜色：
+## **更改系列填充颜色**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
-1. 在幻灯片上添加图表。  
-1. 访问您想要更改颜色的系列。  
-1. 设置您偏好的填充类型和填充颜色。  
-1. 保存修改后的演示文稿。
+使用[IChartSeries.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getFormat--) 为整个系列设置默认填充。如果某个点已经具有显式填充，其[IChartDataPoint.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) 设置会覆盖该点的系列填充。
 
-此 Java 代码演示如何更改系列颜色：
+下面的示例为第一系列应用纯蓝色填充：
+
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **更改系列类别颜色**
-
-Aspose.Slides for Android via Java 可按以下方式更改系列类别的颜色：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
-1. 在幻灯片上添加图表。  
-1. 访问您想要更改颜色的系列类别。  
-1. 设置您偏好的填充类型和填充颜色。  
-1. 保存修改后的演示文稿。
-
-此 Java 代码演示如何更改系列类别颜色：
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
+![系列颜色](series_color.png)
 
 ## **更改系列名称**
 
-默认情况下，图表的图例名称来源于每列或每行数据上方单元格的内容。
+系列名称存储在图表数据工作簿中，通常显示在图例中。在为聚类柱形图创建的默认工作簿中，单元格 B1 位于第 0 行第 1 列，包含第一系列的名称。以下示例中的命名常量明确了该结构：
 
-在我们的示例（示例图）中：
-
-* 列对应 *Series 1、Series 2* 和 *Series 3*；  
-* 行对应 *Category 1、Category 2、Category 3* 和 *Category 4*。
-
-Aspose.Slides for Android via Java 允许您在图表数据和图例中更新或更改系列名称。
-
-此 Java 代码演示如何在图表数据 `ChartDataWorkbook` 中更改系列名称：
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+你也可以更新由[IChartSeries.getName](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getName--) 已引用的单元格。这种做法避免假设现有图表中的特定行列：
 
-此 Java 代码演示如何通过 `Series` 在图例中更改系列名称：
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+import com.aspose.slides.*;
 
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **设置图表系列填充颜色**
+![系列名称](series_name.png)
 
-Aspose.Slides for Android via Java 可按以下方式为绘图区域内的图表系列设置自动填充颜色：
+## **获取自动系列填充颜色**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
-1. 通过索引获取幻灯片引用。  
-1. 根据您偏好的类型添加带默认数据的图表（下面示例使用 `ChartType.ClusteredColumn`）。  
-1. 访问图表系列并将填充颜色设为 Automatic。  
-1. 将演示文稿保存为 PPTX 文件。
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) 返回根据系列索引和图表样式计算的 Android ARGB 颜色整数。这是未显式定义系列填充时使用的颜色。调用该方法仅读取计算出的颜色，不会分配新填充。
 
-此 Java 代码演示如何为图表系列设置自动填充颜色：
+下面的示例打印每个默认系列的自动颜色整数：
+
 ```java
-Presentation pres = new Presentation();
-try {
-    // 创建簇状柱形图
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+import com.aspose.slides.*;
 
-    // 设置系列填充格式为自动
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        int automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+确切的整数值取决于图表样式和主题。
+
+## **为图表系列设置负值反转填充颜色**
+
+对于条形、柱形和气泡系列， [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) 可以在负值时使用不同的填充。将常规系列填充设为实体色，启用反转，并通过[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) 指定负值颜色。负数在工作簿中保持不变，仅改变其显示颜色。
+
+下面的示例用一个系列替换默认图表数据。工作表第 0 行包含系列名称，第 0 列包含类别名称，第 1 列包含数值：
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    // 将演示文稿文件写入磁盘
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **为图表系列设置反转填充颜色**
-
-Aspose.Slides 可按以下方式为绘图区域内的图表系列设置反转填充颜色：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
-1. 通过索引获取幻灯片引用。  
-1. 根据您偏好的类型添加带默认数据的图表（下面示例使用 `ChartType.ClusteredColumn`）。  
-1. 访问图表系列并将填充颜色设为 invert。  
-1. 将演示文稿保存为 PPTX 文件。
-
-此 Java 代码演示该操作：
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // 添加新的系列和类别
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // 获取第一个图表系列并填充其系列数据。
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **在数值为负时将系列反转**
+![反转实体填充颜色](inverted_solid_fill_color.png)
 
-Aspose.Slides 通过 `IChartDataPoint.InvertIfNegative` 和 `ChartDataPoint.InvertIfNegative` 属性实现反转。当通过这些属性设置反转时，数据点在取负值时会反转其颜色。
+你可以通过[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) 为单个点启用反转。以下示例在系列上禁用反转，仅在所选点上启用，并为该点分配负值以显示效果：
 
-此 Java 代码演示该操作：
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
 
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **清除特定数据点的值**
 
-## **清除特定点数据**
+要使某一点为空而不移除其他点，请将其对应的工作簿单元格设为 `null`。对于柱形图，绘制的数值可通过[IChartDataPoint.getValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) 获取。数据点仍保留在相同的类别位置，但图表会根据空值设置将其视为空白。
 
-Aspose.Slides for Android via Java 可按以下方式清除特定图表系列的 `DataPoints` 数据：
+下面的示例仅清除第一系列的第二个点：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片引用。  
-3. 通过索引获取图表引用。  
-4. 遍历所有图表 `DataPoints` 并将 `XValue` 和 `YValue` 设为 null。  
-5. 清除特定图表系列的所有 `DataPoints`。  
-6. 将修改后的演示文稿写入 PPTX 文件。
-
-此 Java 代码演示该操作：
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+散点图使用单独的 X 和 Y 单元格，气泡图还使用尺寸单元格。仅清除表示你想删除的数值的单元格。不要在想保留其他点时调用[IChartDataPointCollection.clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)，因为该方法会删除集合中的所有数据点。
 
 ## **设置系列间隙宽度**
 
-Aspose.Slides for Android via Java 通过 **`GapWidth`** 属性可为系列设置间隙宽度，方法如下：
+间隙宽度是相邻条形或柱形簇之间的空间，以条形或柱形宽度的百分比表示。类似于重叠，它属于父系列组而不是单个系列。对该组调用一次[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) 即可。更大的值会在簇之间产生更多空间，较小的值会使它们更紧密。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。  
-1. 访问第一张幻灯片。  
-1. 添加带默认数据的图表。  
-1. 访问任意图表系列。  
-1. 设置 `GapWidth` 属性。  
-1. 将修改后的演示文稿写入 PPTX 文件。
+下面的示例更改间隙宽度并仅保存最终演示文稿：
 
-此 Java 代码演示如何设置系列的间隙宽度：
 ```java
-// 创建空演示文稿 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
 try {
-    // 访问演示文稿的第一张幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // 添加一个带默认数据的图表
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // 设置图表数据工作表的索引
-    int defaultWorksheetIndex = 0;
-    
-    // 获取图表数据工作表
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // 添加系列
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // 添加类别
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // 获取第二个图表系列
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // 填充系列数据
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // 设置 GapWidth 值
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // 将演示文稿保存到磁盘
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+结果：
 
-## **FAQ**
+![间隙宽度](gap_width.png)
 
-**单个图表能包含的系列数量是否有限制？**
+## **常见问题解答**
 
-Aspose.Slides 对您添加的系列数量没有固定上限。实际上限取决于图表的可读性以及应用程序可用的内存。
+**哪些图表类型支持数据系列？**
 
-**如果簇内的柱形之间距离过近或过远怎么办？**
+所有由[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/) 枚举表示的图表类型均使用图表数据，但其系列并非都拥有相同的值结构或设置。例如，类别图使用类别和数值，散点图使用 X 和 Y 值，气泡图还添加气泡大小。使用与系列类型相匹配的数据点创建方法。重叠和间隙宽度等选项仅适用于兼容的条形或柱形组。
 
-调整该系列（或其父系列组）的 `GapWidth` 设置。增大该值会扩大柱形之间的间距，减小则会使它们更靠近。
+**什么是图表系列组？**
+
+[IChartSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/) 包含共享组级绘图设置的兼容系列。组合图可以包含多个组，因此通过某个系列访问的组的更改不一定会影响图表中的所有系列。
+
+**新建的图表是否包含默认数据？**
+
+是的。默认情况下，[IShapeCollection.addChart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 会创建示例系列、类别和数值。你可以编辑这些单元格，或在添加完全自定义的数据集之前清除系列和类别集合。还有一种重载方式可在不创建默认数据的情况下创建图表。
+
+**图表对象如何与工作簿单元格关联？**
+
+系列名称、类别标签和数据点数值引用[IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/) 中的单元格。更改引用的单元格会更新相应的图表元素。构建自定义数据时，请保持类别行与系列值行对齐，以便每个点绘制在预期的类别下。
+
+**如何只清除一个点而不是整个系列？**
+
+将相应的值单元格设为 `null`，即可保留该点的类别位置作为空点。仅在想删除该系列所有点时才使用[IChartDataPointCollection.clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)。
+
+**空点如何显示？**
+
+显示方式取决于图表类型以及通过[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) 配置的值。受支持的图表可以将空白显示为间隙、零值或连接相邻点。请选择符合演示文稿中缺失数据含义的设置。
+
+**负值如何格式化？**
+
+对于受支持的条形、柱形和气泡系列，调用[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) 并设置通过[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) 返回的颜色。可使用[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) 为单独点覆盖此行为。这些方法影响格式，而不改变存储的数值。
+
+**当系列和点都被格式化时，哪种格式生效？**
+
+显式的数据点格式在该点上优先。其他点继续使用显式的系列格式，或在系列格式未定义时使用自动的图表样式和主题。组设置（如重叠和间隙宽度）控制布局，不属于点级格式覆盖。
+
+**图表能包含的系列数量是否有限制？**
+
+Aspose.Slides 并未设定单独的固定系列数量限制。实际使用中，演示文稿文件的约束、可用内存、渲染时间以及图表可读性决定了实用的上限。
+
+**当柱形之间过于靠近或过于分散时应如何调整？**
+
+对相应的父系列组调用[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-)。增大数值可扩大簇间间距，减小数值则使簇更紧凑。

@@ -1,281 +1,264 @@
 ---
-title: Lấy Thuộc tính Effective của Shape từ Bản trình chiếu trong .NET
-linktitle: Thuộc tính Effective
+title: Lấy Thuộc Tính Hiệu Quả của Hình Dạng từ Bản Trình Chiếu trong .NET
+linktitle: Thuộc Tính Hiệu Quả
 type: docs
 weight: 50
 url: /vi/net/shape-effective-properties/
 keywords:
-- thuộc tính shape
+- thuộc tính hình dạng
 - thuộc tính camera
-- bộ rig ánh sáng
-- shape bevel
+- bộ ánh sáng
+- hình dạng bevel
 - khung văn bản
 - kiểu văn bản
 - chiều cao phông chữ
-- định dạng tô màu
+- định dạng nền
 - PowerPoint
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho .NET tính toán và áp dụng các thuộc tính shape effective để hiển thị PowerPoint một cách chính xác."
+description: "Tìm hiểu cách sử dụng Aspose.Slides cho .NET để phân biệt định dạng hình dạng cục bộ, kế thừa và hiệu quả trong các bản trình chiếu PowerPoint."
 ---
-## **Tổng quan**
+## **Hiểu Các Thuộc Tính Cục Bộ, Kế Thừa và Hiệu Quả**
 
-Bài này giải thích sự khác nhau giữa các thuộc tính **local** và **effective**. Giá trị local là các giá trị được đặt trực tiếp ở một mức định dạng cụ thể, chẳng hạn như:
+Định dạng PowerPoint có thể đến từ nhiều nguồn. Giá trị được lưu trực tiếp trên một đối tượng là **giá trị cục bộ**. Nếu giá trị đó không được đặt, PowerPoint sẽ xem các nguồn định dạng cha, chẳng hạn như mặc định đoạn văn, kiểu văn bản, bố cục hoặc slide mẫu, chủ đề, hoặc các mặc định ở cấp trình chiếu. Những giá trị đó là **giá trị kế thừa**. Giá trị còn lại sau khi toàn bộ cấp độ được giải quyết là **giá trị hiệu quả**—giá trị được dùng để hiển thị đối tượng.
 
-1. Thuộc tính phần trên một slide.
-2. Kiểu văn bản hình dạng prototype trên bố cục hoặc slide master, khi khung văn bản của phần có kiểu này.
-3. Cài đặt văn bản toàn cục trong một bản trình chiếu.
+Ví dụ, một phần văn bản có thể không xác định chiều cao phông chữ của riêng nó. Giá trị cục bộ của nó [FontHeight](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseportionformat/fontheight/) sẽ là `float.NaN`, có nghĩa là “không được đặt ở đây”. Phần này có thể kế thừa chiều cao từ đoạn văn, kiểu văn bản mặc định của bài thuyết trình, hoặc một nguồn áp dụng khác. Gọi phương thức [GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/iportionformat/geteffective/) trên định dạng phần sẽ trả về chiều cao đã được giải quyết cuối cùng.
 
-Các giá trị local có thể được định nghĩa hoặc bỏ qua ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng cuối cùng "as rendered", nó giải quyết chuỗi kế thừa và trả về các giá trị **effective**. Bạn có thể lấy chúng bằng cách gọi phương thức `GetEffective` trên đối tượng định dạng local.
+Sử dụng hai loại dữ liệu định dạng cho các mục đích khác nhau:
 
-Ví dụ sau cho thấy cách lấy các giá trị effective. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) có khung văn bản và ít nhất một phần.
+- Đọc hoặc thay đổi một đối tượng định dạng cục bộ, chẳng hạn như [IPortionFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/iportionformat/), khi bạn cần kiểm soát nơi giá trị được định nghĩa.
+- Đọc một đối tượng dữ liệu hiệu quả, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/iportionformateffectivedata/), khi bạn cần kết quả cuối cùng đã được hiển thị. Dữ liệu hiệu quả chỉ được đọc.
 
-```csharp
-using var presentation = new Presentation("sample.pptx");
+## **So Sánh Các Giá Trị Cục Bộ, Kế Thừa và Hiệu Quả**
 
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-Dữ liệu định dạng effective đại diện cho định dạng tính toán hiện tại sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu effective, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/iportionformateffectivedata/), có thể được lưu trong bộ nhớ cache nội bộ. Gọi lại `GetEffective` sau khi thay đổi định dạng cha hoặc kế thừa có thể làm mới dữ liệu cache, và một đối tượng đã lấy trước có thể không còn đại diện cho trạng thái trước đó. Nếu bạn cần giữ lại các giá trị effective để sử dụng lại sau, sao chép các thuộc tính cần thiết, như chiều cao phông chữ, màu tô, kiểu phông hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
-{{% /alert %}}
-
-## **Lấy Thuộc tính Effective của Camera**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính effective của một camera. Giao diện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/icameraeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính camera effective. Một thể hiện của [ICameraEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/icameraeffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị effective cho [IThreeDFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformat/).
-
-Mã mẫu sau cho thấy cách lấy các thuộc tính effective cho camera. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+Ví dụ hoàn chỉnh sau tạo một hình dạng và áp dụng chiều cao phông chữ ở mức trình chiếu, đoạn văn và phần. Mỗi bước in ra các giá trị được xác định ở các mức đó và giá trị hiệu quả kết quả cho cùng một phần văn bản. Nó cũng minh họa lý do tại sao dữ liệu hiệu quả phải được đọc lại sau khi thay đổi định dạng.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **Lấy Thuộc tính Effective của Light Rig**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính effective của một light rig. Giao diện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ilightrigeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính light rig effective. Một thể hiện của [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ilightrigeffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị effective cho [IThreeDFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformat/).
-
-Mã mẫu sau cho thấy cách lấy các thuộc tính effective cho light rig. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **Lấy Thuộc tính Effective của Đối tượng Bevel**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính effective của một shape bevel. Giao diện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapebeveleffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính relief cho một shape. Một thể hiện của [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapebeveleffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị effective cho [IThreeDFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformat/).
-
-Mã mẫu sau cho thấy cách lấy các thuộc tính effective cho bevel trên cùng của một shape. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **Lấy Thuộc tính Effective của Khung Văn bản**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính effective của một khung văn bản. Giao diện [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformateffectivedata/) chứa các thuộc tính định dạng khung văn bản effective.
-
-Mã mẫu sau cho thấy cách lấy các thuộc tính định dạng khung văn bản effective. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) có khung văn bản.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **Lấy Thuộc tính Effective của Kiểu Văn bản**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính effective của một kiểu văn bản. Giao diện [ITextStyleEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/itextstyleeffectivedata/) chứa các thuộc tính kiểu văn bản effective.
-
-Mã mẫu sau cho thấy cách lấy các thuộc tính kiểu văn bản effective. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) có khung văn bản.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **Lấy Giá trị Chiều cao Phông chữ Effective**
-
-Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ effective. Đoạn mã sau minh họa cách chiều cao phông chữ effective của một phần thay đổi sau khi giá trị chiều cao phông chữ local được đặt ở các mức cấu trúc bản trình chiếu khác nhau.
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// Xác định các giá trị kế thừa ở hai mức khác nhau.
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// Giá trị cục bộ trên phần sẽ ghi đè cả hai giá trị kế thừa.
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Thay đổi giá trị kế thừa không ghi đè giá trị cục bộ hiện có.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// Xóa giá trị cục bộ. Phần hiện sẽ kế thừa lại từ đoạn văn.
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Xóa giá trị đoạn văn. Mặc định của bản trình chiếu sẽ cung cấp kết quả.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // Đọc dữ liệu hiệu quả sau các thay đổi trước đó.
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **Lấy Định dạng Fill Effective cho Bảng**
+Ưu tiên trong ví dụ này là định dạng cục bộ của phần, tiếp theo là định dạng đoạn văn, rồi đến mặc định của trình chiếu. Các đối tượng khác có thể có chuỗi kế thừa khác nhau, nhưng nguyên tắc vẫn giống nhau: giá trị cụ thể hơn sẽ thắng, và [GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/iportionformat/geteffective/) trả về kết quả cuối cùng.
 
-Sử dụng Aspose.Slides, bạn có thể lấy định dạng fill effective cho các phần khác nhau của bảng. Giao diện [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformateffectivedata/) chứa các thuộc tính định dạng fill effective. Định dạng ô có ưu tiên cao hơn định dạng dòng, định dạng dòng cao hơn định dạng cột, và định dạng cột cao hơn định dạng toàn bảng.
+## **Lấy Thuộc Tính Văn Bản Hiệu Quả**
 
-Do đó, các thuộc tính của [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/icellformateffectivedata/) được dùng để vẽ ô bảng. Mã mẫu sau cho thấy cách lấy định dạng fill effective cho các phần khác nhau của bảng. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [ITable](https://reference.aspose.com/slides/vi/net/aspose.slides/itable/).
+Định dạng văn bản được chia thành nhiều đối tượng:
+
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/geteffective/) giải quyết các thuộc tính khung văn bản như lề, neo, tự động điều chỉnh, và hướng văn bản dọc.
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/vi/net/aspose.slides/itextstyle/geteffective/) giải quyết định dạng đoạn văn cho mỗi cấp độ kiểu văn bản.
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/geteffective/) giải quyết các thuộc tính đoạn văn như căn chỉnh, thụt lề và dấu chấm.
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/vi/net/aspose.slides/iportionformat/geteffective/) giải quyết các thuộc tính ký tự như chiều cao phông chữ, họ phông, màu, in đậm và in nghiêng.
+
+Đối với ví dụ tiếp theo, tệp `text-formatting.pptx` phải chứa ít nhất một slide và một [AutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/) có khung văn bản không rỗng. AutoShape có thể xuất hiện ở bất kỳ vị trí nào trong bộ sưu tập hình dạng; mã sẽ tìm kiếm một đối tượng phù hợp và xác thực nó trước khi sử dụng.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
 
-## **FAQ**
+## **Lấy Thuộc Tính 3D Hiệu Quả**
 
-**`GetEffective` có trả về một bản chụp nhanh không?**
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformat/geteffective/) trả về một đối tượng [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/) nhóm tất cả các cài đặt 3D đã được giải quyết. Các thuộc tính [Camera](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/camera/), [LightRig](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/lightrig/), [BevelTop](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/beveltop/) và [BevelBottom](https://reference.aspose.com/slides/vi/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) của nó hiển thị dữ liệu hiệu quả tương ứng. Đọc các cài đặt liên quan này cùng nhau giúp dễ dàng hơn trong việc hiểu hình dạng 3D cuối cùng.
 
-Không phải luôn luôn. Dữ liệu effective đại diện cho định dạng đã tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu effective có thể được lưu trong bộ nhớ cache nội bộ. Lần gọi `GetEffective` tiếp theo có thể tính lại định dạng và làm mới dữ liệu cache, vì vậy một đối tượng đã lấy trước không nên được coi là một bản chụp ổn định.
+Đối với ví dụ này, tệp `shape-3d.pptx` phải chứa ít nhất một hình dạng trên slide đầu tiên. Áp dụng cài đặt camera 3D, ánh sáng hoặc bevel cho hình dạng đó nếu bạn muốn đầu ra chứa các giá trị khác ngoài mặc định.
 
-**Khi nào tôi nên đọc lại các thuộc tính effective?**
+```csharp
+using System;
+using Aspose.Slides;
 
-Hãy gọi lại `GetEffective` sau khi thay đổi định dạng local, kiểu cha, định dạng layout, định dạng master hoặc các mặc định ở cấp độ bản trình chiếu. Lần gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả effective hiện tại.
+using var presentation = new Presentation("shape-3d.pptx");
 
-**Việc thay đổi hoặc xóa bỏ một slide layout/master có ảnh hưởng tới các thuộc tính effective đã được lấy chưa?**
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
 
-Có, nhưng thay đổi sẽ được phản ánh ở lần gọi `GetEffective` tiếp theo. Nếu nguồn định dạng cha bị thay đổi hoặc xóa, dữ liệu effective đã lấy trước có thể lỗi thời. Khi `GetEffective` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc giá trị khác có thể thay đổi.
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
 
-**Tôi có thể sửa giá trị thông qua các đối tượng dữ liệu effective không?**
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
 
-Không. Các đối tượng dữ liệu effective chỉ cung cấp các giá trị đã tính toán. Thực hiện thay đổi trong các đối tượng định dạng local, sau đó lại lấy lại các giá trị effective.
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
 
-**Nếu một thuộc tính không được đặt ở mức shape, cũng không ở layout/master, cũng không ở cài đặt toàn cục thì sẽ xảy ra gì?**
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
 
-Giá trị effective sẽ được xác định theo cơ chế mặc định, bao gồm các mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết sẽ trở thành một phần của dữ liệu effective hiện tại.
+## **Lấy Định Dạng Bảng Hiệu Quả**
 
-**Từ một giá trị phông chữ effective, tôi có thể biết được mức nào đã cung cấp kích thước hoặc kiểu chữ không?**
+Định dạng bảng có thể đến từ kiểu bảng và từ các định dạng áp dụng cho toàn bộ bảng, một cột, một hàng hoặc một ô riêng lẻ. Khi có xung đột giữa các màu nền được định nghĩa rõ ràng, ưu tiên là ô, hàng, cột và rồi toàn bảng. Định dạng hiệu quả của một ô là định dạng cuối cùng được dùng để vẽ ô đó.
 
-Không trực tiếp. Dữ liệu effective trả về giá trị cuối cùng. Để tìm nguồn, hãy kiểm tra các giá trị local ở mức portion, paragraph, text frame và các kiểu văn bản ở layout, master và presentation để xem nơi định nghĩa đầu tiên xuất hiện.
+Đối với ví dụ này, tệp `table-formatting.pptx` phải chứa ít nhất một bảng trên slide đầu tiên. Bảng phải có ít nhất một hàng và một cột. Mã sẽ tìm kiếm một đối tượng [ITable](https://reference.aspose.com/slides/vi/net/aspose.slides/itable/) thay vì giả định rằng `Shapes[0]` là một bảng.
 
-**Tại sao đôi khi giá trị effective trông giống hệt với giá trị local?**
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-Bởi vì giá trị local đã trở thành giá trị cuối cùng (không cần kế thừa từ mức cao hơn). Khi đó giá trị effective trùng với giá trị local.
+using var presentation = new Presentation("table-formatting.pptx");
 
-**Khi nào tôi nên sử dụng thuộc tính effective, và khi nào chỉ làm việc với các thuộc tính local?**
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-Sử dụng dữ liệu effective khi bạn cần kết quả "as rendered" sau khi tất cả kế thừa đã được áp dụng, chẳng hạn để đồng bộ màu, thụt lề hoặc kích thước. Nếu bạn muốn giữ các giá trị này bất kể các thay đổi định dạng sau này, hãy sao chép các thuộc tính cần thiết vào đối tượng của riêng bạn. Nếu bạn muốn thay đổi định dạng ở một mức cụ thể, hãy sửa các thuộc tính local và sau đó, nếu cần, đọc lại dữ liệu effective để xác nhận kết quả.
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
+
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
+
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+Nếu bạn cần màu thay vì chỉ loại nền, trước tiên kiểm tra [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformateffectivedata/filltype/) hiệu quả, sau đó đọc thuộc tính áp dụng cho loại đó—ví dụ, [SolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) cho nền đặc.
+
+## **Đọc Lại Dữ Liệu Hiệu Quả Sau Khi Thay Đổi**
+
+Dữ liệu hiệu quả mô tả cấu trúc định dạng tại thời điểm nó được giải quyết. Gọi lại `GetEffective` sau khi thay đổi bất kỳ yếu tố nào có thể tham gia vào cấu trúc đó, bao gồm:
+
+- định dạng cục bộ của đối tượng;
+- mặc định đoạn văn hoặc khung văn bản;
+- kiểu bảng, bảng, cột, hàng hoặc định dạng ô;
+- định dạng bố cục hoặc slide mẫu;
+- dữ liệu chủ đề hoặc mặc định ở cấp trình chiếu;
+- bố cục hoặc mẫu được gán cho một slide.
+
+Không nên giữ một đối tượng dữ liệu hiệu quả như một ảnh chụp cố định. Aspose.Slides có thể lưu bộ nhớ đệm một số dữ liệu hiệu quả nội bộ, và một lời gọi `GetEffective` sau này có thể làm mới dữ liệu đó. Nếu bạn cần so sánh các giá trị trước và sau khi thay đổi, sao chép các giá trị vô hướng cần thiết—như chiều cao phông chữ, màu, căn chỉnh, hoặc độ rộng bevel—vào các biến của bạn trước khi thực hiện thay đổi.
+
+Để thay đổi một giá trị, cập nhật đối tượng định dạng cục bộ thích hợp và sau đó gọi `GetEffective` để xác minh kết quả. Các đối tượng dữ liệu hiệu quả tự chúng chỉ được đọc.
+
+## **Câu Hỏi Thường Gặp**
+
+**Làm sao tôi biết mức nào đã cung cấp giá trị hiệu quả?**
+
+Dữ liệu hiệu quả chứa giá trị cuối cùng, không phải nguồn gốc của nó. Kiểm tra các đối tượng cục bộ áp dụng từ mức cụ thể nhất ra ngoài. Đối với văn bản, điều này có thể bao gồm phần, đoạn văn, khung văn bản, bố cục, mẫu, chủ đề và các mặc định của trình chiếu. Các giá trị không xác định như `float.NaN` hoặc `null` cho biết việc tìm kiếm sẽ tiếp tục ở mức khác.
+
+**Đi gì sẽ xảy ra khi không có mức nào định nghĩa một thuộc tính?**
+
+Aspose.Slides sẽ giải quyết giá trị mặc định thích hợp của PowerPoint hoặc thư viện. Giá trị đã giải quyết đó xuất hiện trong dữ liệu hiệu quả mặc dù không có đối tượng cục bộ nào định nghĩa rõ ràng.
+
+**Tại sao đôi khi một giá trị hiệu quả lại bằng với giá trị cục bộ?**
+
+Giá trị cục bộ đã thắng trong phép tính kế thừa. Điều này là mong đợi khi thuộc tính được đặt rõ ràng trên đối tượng và không có quy tắc cụ thể hơn nào ghi đè.
+
+**Khi nào tôi nên sử dụng dữ liệu cục bộ thay vì dữ liệu hiệu quả?**
+
+Sử dụng dữ liệu cục bộ để kiểm tra hoặc chỉnh sửa một mức định dạng cụ thể. Sử dụng dữ liệu hiệu quả khi bạn cần giao diện cuối cùng sau khi kế thừa, các quy tắc chủ đề và các kiểu áp dụng đã được giải quyết. Ví dụ [complete comparison example](#compare-local-inherited-and-effective-values) thể hiện cả hai trong cùng một quy trình làm việc.

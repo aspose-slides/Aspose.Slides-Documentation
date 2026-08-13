@@ -1,357 +1,391 @@
 ---
-title: Διαχείριση σειρών δεδομένων γραφήματος σε παρουσιάσεις στο Android
-linktitle: Σειρές δεδομένων
+title: Διαχείριση Σειρών Δεδομένων Διαγράμματος σε Παρουσιάσεις στο Android
+linktitle: Σειρές Δεδομένων
 type: docs
 url: /el/androidjava/chart-series/
 keywords:
-- σειρές γραφήματος
-- επικάλυψη σειρών
+- σειρά διαγράμματος
+- επικάλυψη σειράς
 - χρώμα σειράς
-- χρώμα κατηγορίας
 - όνομα σειράς
 - σημείο δεδομένων
-- διάστημα σειράς
+- κελί βιβλίου εργασίας
+- κενό σειράς
+- αρνητική τιμή
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε τις σειρές γραφήματος σε Android για PowerPoint (PPT/PPTX) με πρακτικά παραδείγματα κώδικα Java και βέλτιστες πρακτικές για τη βελτίωση των παρουσιάσεων δεδομένων σας."
+description: "Μάθετε πώς να διαχειρίζεστε σειρές διαγράμματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος κενών και αρνητικές τιμές σε παρουσιάσεις στο Android."
 ---
-## **Overview**
+## **Επισκόπηση**
 
-Αυτό το άρθρο περιγράφει το ρόλο του [ChartSeries](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartseries/) στο Aspose.Slides, εστιάζοντας στο πώς τα δεδομένα δομούνται και οπτικοποιούνται μέσα στις παρουσιάσεις. Αυτά τα αντικείμενα παρέχουν τα θεμελιώδη στοιχεία που ορίζουν μεμονωμένα σύνολα σημείων δεδομένων, κατηγορίες και παραμέτρους εμφάνισης σε ένα γράφημα. Εργαζόμενοι με το [ChartSeries](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartseries/), οι προγραμματιστές μπορούν να ενσωματώσουν άψογα τις υποκείμενες πηγές δεδομένων και να διατηρούν πλήρη έλεγχο πάνω στο πώς εμφανίζεται η πληροφορία, δημιουργώντας δυναμικές, δεδομενο‑προσανατολισμένες παρουσιάσεις που μεταδίδουν σαφώς ιδέες και αναλύσεις.
+Ένα διάγραμμα αποθηκεύει τα σχεδιασμένα δεδομένα του σε ένα βιβλίο εργασίας δεδομένων διαγράμματος. Ένα [IChartSeries](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/) αντιπροσωπεύει ένα σύνολο συναφών τιμών, και κάθε [IChartDataPoint](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapoint/) στη σειρά αναφέρεται σε ένα ή περισσότερα κελιά του βιβλίου εργασίας. Τα αντικείμενα [IChartCategory](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται από τις σειρές. Συνεπώς, το όνομα της σειράς, οι κατηγορίες και οι τιμές των σημείων συνδέονται με αντικείμενα [IChartDataCell](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatacell/) αντί να αποθηκεύονται μόνο ως κείμενο εμφάνισης.
 
-Μια σειρά είναι μια γραμμή ή στήλη αριθμών που απεικονίζονται σε ένα γράφημα.
+Για ένα τυπικό διάγραμμα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα σειρών, τη στήλη 0 για τα ονόματα κατηγοριών και τα υπόλοιπα κελιά για τις τιμές των σειρών. Οι δείκτες φύλλου, γραμμής και στήλης που περνούν στο [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα διάγραμμα με προεπιλεγμένα δεδομένα, αλλά δεν υποθέτετε ότι κάθε υπάρχον διάγραμμα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, εξετάστε τα κελιά στα οποία κάνουν αναφορά οι σειρές, οι κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
+
+Οι ρυθμίσεις διαγράμματος έχουν τρεις διαφορετικές εμβέλειες:
+
+- Ρυθμίσεις επιπέδου σειράς, όπως [IChartSeries.getFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getFormat--), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία μιας σειράς.
+- Ρυθμίσεις σημείου δεδομένων, όπως [IChartDataPoint.getFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
+- Ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στο ίδιο [IChartSeriesGroup](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseriesgroup/). Πρόσβαση στην ομάδα μέσω του [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
+
+Όταν δεν έχει οριστεί ρητό γέμισμα σημείου ή σειράς, το στυλ και το θέμα του διαγράμματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν και μορφοποίηση σειράς και σημείου, η μορφοποίηση του σημείου προτεραιότητα για εκείνο το σημείο.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Set the Chart Series Overlap**
+## **Ορισμός Επικάλυψης Σειρών Διαγράμματος**
 
-Με τη μέθοδο [IChartSeries.getOverlap](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getOverlap--) μπορείτε να καθορίσετε πόσο πρέπει να επικαλύπτονται οι μπάρα και οι στήλες σε ένα 2D γράφημα (εύρος: -100 έως 100). Αυτή η ιδιότητα εφαρμόζεται σε όλες τις σειρές της γονικής ομάδας σειρών: πρόκειται για προβολή της αντίστοιχης ιδιότητας της ομάδας. Συνεπώς, αυτή η ιδιότητα είναι μόνο για ανάγνωση.
+Το [IChartSeries.getOverlap](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getOverlap--) αναφέρει πόσο τα μπαρ ή οι στήλες επικαλύπτονται σε ένα 2Δ διάγραμμα, από -100 έως 100 τοις εκατό. Είναι μια μόνο για ανάγνωση προβολή της ρύθμισης στην γονική ομάδα σειρών. Χρησιμοποιήστε το [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) για να ενημερώσετε κάθε συμβατή σειρά στην εν λόγω ομάδα. Αυτή η επιλογή εφαρμόζεται σε τύπους διαγραμμάτων που εμφανίζουν ομαδοποιημένα μπαρ ή στήλες· δεν επηρεάζει ασύνδετες ομάδες σειρών σε ένα συνδυαστικό διάγραμμα.
 
-Χρησιμοποιήστε τη μέθοδο εγγραφής `getParentSeriesGroup().setOverlap()` για να ορίσετε την προτιμώμενη τιμή επικαλύψεως.
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Προσθέστε ένα συγκεντρωτικό γράφημα στήλης σε μια διαφάνεια.
-1. Προσπελάστε την πρώτη σειρά γραφήματος.
-1. Προσπελάστε το `ParentSeriesGroup` της σειράς γραφήματος και ορίστε την προτιμώμενη τιμή επικαλύψεως για τη σειρά.
-1. Αποθηκεύστε την τροποποιημένη παρουσία σε αρχείο PPTX.
-
-This Java code shows you how to set the overlap for a chart series:
+Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Προσθέτει γράφημα
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Ορίζει την επικάλυψη της σειράς
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // Γράφει το αρχείο παρουσίασης στο δίσκο
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Το νέο διάγραμμα περιέχει δείγμα σειρών, κατηγοριών και τιμών.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Change the Series Color**
-Το Aspose.Slides για Android μέσω Java σας επιτρέπει να αλλάξετε το χρώμα μιας σειράς με τον ακόλουθο τρόπο:
+Το αποτέλεσμα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Προσθέστε γράφημα στη διαφάνεια.
-1. Προσπελάστε τη σειρά της οποίας το χρώμα θέλετε να αλλάξετε.
-1. Ορίστε τον προτιμώμενο τύπο γεμίσματος και το χρώμα γεμίσματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσία.
+![The series overlap](series_overlap.png)
 
-This Java code shows you how to change a series' color:
+## **Αλλαγή Χρώματος Γεμίσματος Σειράς**
 
-```java
-Presentation pres = new Presentation("test.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+Χρησιμοποιήστε το [IChartSeries.getFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getFormat--) για να ορίσετε το προεπιλεγμένο γέμισμα ολόκληρης σειράς. Εάν ένα σημείο έχει ήδη ρητό γέμισμα, η ρύθμιση του [IChartDataPoint.getFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) παρακάμπτει το γέμισμα της σειράς για εκείνο το σημείο.
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Change the Series Category Color**
-Το Aspose.Slides για Android μέσω Java σας επιτρέπει να αλλάξετε το χρώμα μιας κατηγορίας σειράς με τον ακόλουθο τρόπο:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Προσθέστε γράφημα στη διαφάνεια.
-1. Προσπελάστε την κατηγορία της σειράς της οποίας το χρώμα θέλετε να αλλάξετε.
-1. Ορίστε τον προτιμώμενο τύπο γεμίσματος και το χρώμα γεμίσματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσία.
-
-This code in Java shows you how to change a series category's color:
+Το παρακάτω παράδειγμα εφαρμόζει γεμισμα στερεό μπλε στην πρώτη σειρά:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Change the Series Name** 
-
-Από προεπιλογή, τα ονόματα του υπομνήματος ενός γραφήματος είναι το περιεχόμενο των κελιών πάνω από κάθε στήλη ή σειρά δεδομένων.
-
-Στο παράδειγμά μας (δείγμα εικόνας),
-
-* οι στήλες είναι *Series 1, Series 2,* και *Series 3*·
-* οι γραμμές είναι *Category 1, Category 2, Category 3,* και *Category 4*.
-
-Το Aspose.Slides για Android μέσω Java σας επιτρέπει να ενημερώσετε ή να αλλάξετε το όνομα μιας σειράς στα δεδομένα γραφήματος και στο υπόμνημα.
-
-Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε το όνομα μιας σειράς στα δεδομένα γραφήματος `ChartDataWorkbook`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε το όνομα μιας σειράς στο υπόμνημα μέσω του`Series`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Set the Chart Series Fill Color**
-
-Το Aspose.Slides για Android μέσω Java σας επιτρέπει να ορίσετε αυτόματο χρώμα γεμίσματος για τις σειρές γραφήματος μέσα σε περιοχή σχεδίασης με τον ακόλουθο τρόπο:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Αποκτήστε την αναφορά μιας διαφάνειας με βάση το δείκτη της.
-1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα βασισμένο στον προτιμώμενο τύπο σας (στο παρακάτω παράδειγμα, χρησιμοποιήσαμε το `ChartType.ClusteredColumn`).
-1. Προσπελάστε τη σειρά γραφήματος και ορίστε το χρώμα γεμίσματος σε Automatic.
-1. Αποθηκεύστε την παρουσία σε αρχείο PPTX.
-
-This Java code shows you how to set the automatic fill color for a chart series:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // Δημιουργεί ένα συγκεντρωτικό γράφημα στήλης
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // Ορίζει τη μορφή γεμίσματος της σειράς σε αυτόματο
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // Γράφει το αρχείο παρουσίασης στο δίσκο
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Set Invert Fill Color for a Chart Series**
-Το Aspose.Slides σας επιτρέπει να ορίσετε αντιστροφή του χρώματος γεμίσματος για τις σειρές γραφήματος μέσα σε περιοχή σχεδίασης με τον ακόλουθο τρόπο:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Αποκτήστε την αναφορά μιας διαφάνειας με βάση το δείκτη της.
-1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα βασισμένο στον προτιμώμενο τύπο σας (στο παρακάτω παράδειγμα, χρησιμοποιήσαμε το `ChartType.ClusteredColumn`).
-1. Προσπελάστε τη σειρά γραφήματος και ορίστε το χρώμα γεμίσματος σε invert.
-1. Αποθηκεύστε την παρουσία σε αρχείο PPTX.
-
-This Java code demonstrates the operation:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // Προσθέτει νέες σειρές και κατηγορίες
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // Παίρνει την πρώτη σειρά γραφήματος και γεμίζει τα δεδομένα της σειράς.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Set a Series to Invert When Value Is Negative**
-Το Aspose.Slides σας επιτρέπει να ορίσετε αντιστροφές μέσω των ιδιοτήτων `IChartDataPoint.InvertIfNegative` και `ChartDataPoint.InvertIfNegative`. Όταν μια αντιστροφή ορίζεται με αυτές τις ιδιότητες, το σημείο δεδομένων αντιστρέφει τα χρώματά του όταν λαμβάνει μια αρνητική τιμή.
+Το αποτέλεσμα:
 
-This Java code demonstrates the operation:
+![The color of the series](series_color.png)
+
+## **Αλλαγή Ονόματος Σειράς**
+
+Το όνομα μιας σειράς αποθηκεύεται στο βιβλίο εργασίας δεδομένων διαγράμματος και εμφανίζεται συνήθως στον υπόμνημα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα διάγραμμα ομαδοποιημένων στηλών, το κελί B1 βρίσκεται στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι σταθερές ονόματος στο παρακάτω παράδειγμα κάνουν σαφή αυτή τη δομή:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Clear Specific Point Data**
-Το Aspose.Slides για Android μέσω Java σας επιτρέπει να διαγράψετε τα δεδομένα `DataPoints` για μια συγκεκριμένη σειρά γραφήματος με τον ακόλουθο τρόπο:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Αποκτήστε την αναφορά ενός γραφήματος μέσω του δείκτη του.
-4. Διατρέξτε όλα τα `DataPoints` του γραφήματος και θέστε τα `XValue` και `YValue` σε null.
-5. Διαγράψτε όλα`DataPoints` για τη συγκεκριμένη σειρά γραφήματος.
-6. Αποθηκεύστε την τροποποιημένη παρουσία σε αρχείο PPTX.
-
-This Java code demonstrates the operation:
+Μπορείτε επίσης να ενημερώσετε το κελί που ήδη αναφέρεται από το [IChartSeries.getName](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getName--). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε υπάρχον διάγραμμα:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα:
+
+![The series name](series_name.png)
+
+## **Λήψη Αυτόματου Χρώματος Γεμίσματος Σειράς**
+
+Το [IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) επιστρέφει το χρώμα που υπολογίζεται από το δείκτη σειράς και το στυλ του διαγράμματος ως ακέραιο χρώματος Android ARGB. Αυτό είναι το χρώμα που χρησιμοποιείται όταν το γέμισμα της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν εκχωρεί νέο γέμισμα.
+
+Το παρακάτω παράδειγμα εκτυπώνει το ακέραιο χρώμα αυτόματης σειράς για κάθε προεπιλεγμένη σειρά:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        int automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Οι ακριβείς ακέραιες τιμές εξαρτώνται από το στυλ και το θέμα του διαγράμματος.
+
+## **Ορισμός Αντεστραμμένου Χρώματος Γεμίσματος για Σειρά Διαγράμματος**
+
+Για σειρές μπαρ, στήλης και φυσαλίδας, το [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) μπορεί να εμφανίσει τις αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα σειράς σε στερεό, ενεργοποιήστε την αντιστροφή και ορίστε το χρώμα αρνητικής τιμής μέσω του [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· μόνο το χρώμα εμφάνισης τους αλλάζει.
+
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα διαγράμματος με μία σειρά. Η γραμμή 0 του φύλλου περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα κατηγοριών και η στήλη 1 περιέχει τις τιμές:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Set the Series Gap Width**
-Το Aspose.Slides για Android μέσω Java σας επιτρέπει να ορίσετε το Πλάτος Κενού (Gap Width) μιας σειράς μέσω της ιδιότητας **`GapWidth`** με τον ακόλουθο τρόπο:
+Το αποτέλεσμα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Προσπελάστε την πρώτη διαφάνεια.
-1. Προσθέστε γράφημα με προεπιλεγμένα δεδομένα.
-1. Προσπελάστε οποιαδήποτε σειρά γραφήματος.
-1. Ορίστε την ιδιότητα `GapWidth`.
-1. Αποθηκεύστε την τροποποιημένη παρουσία σε αρχείο PPTX.
+![The inverted solid fill color](inverted_solid_fill_color.png)
+
+Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Στο παρακάτω παράδειγμα, η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Στο σημείο επίσης έχει δοθεί αρνητική τιμή ώστε η επίδραση να είναι ορατή:
 
 ```java
-// Δημιουργεί κενή παρουσίαση
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια της παρουσίασης
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Προσθέτει γράφημα με προεπιλεγμένα δεδομένα
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Ορίζει το δείκτη του φύλλου δεδομένων γραφήματος
-    int defaultWorksheetIndex = 0;
-    
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του γραφήματος
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Προσθέτει σειρές
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Προσθέτει κατηγορίες
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Παίρνει τη δεύτερη σειρά γραφήματος
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Συμπληρώνει τα δεδομένα της σειράς
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Ορίζει την τιμή GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
 
-**Υπάρχει όριο στον αριθμό των σειρών που μπορεί να περιέχει ένα μόνο γράφημα;**
+Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα, ορίστε το αντίστοιχο κελί του βιβλίου εργασίας σε `null`. Σε ένα διάγραμμα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [IChartDataPoint.getValue](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το διάγραμμα το θεωρεί κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του διαγράμματος.
 
-Το Aspose.Slides δεν επιβάλλει κάποιο σταθερό όριο στον αριθμό των σειρών που προσθέτετε. Το πρακτικό όριο καθορίζεται από την αναγνωσιμότητα του γραφήματος και από τη μνήμη που διατίθεται στην εφαρμογή σας.
+Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
 
-**Τι γίνεται αν οι στήλες μέσα σε ένα σύμπλεγμα είναι πολύ κοντά ή πολύ μακριά μεταξύ τους;**
+```java
+import com.aspose.slides.*;
 
-Ρυθμίστε την παράμετρο `GapWidth` για τη συγκεκριμένη σειρά (ή την γονική ομάδα σειρών). Η αύξηση της τιμής διευρύνει το κενό μεταξύ των στηλών, ενώ η μείωση της τις φέρνει πιο κοντά η μία στην άλλη.
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Τα διαγράμματα scatter χρησιμοποιούν ξεχωριστά κελιά X και Y, ενώ τα διαγράμματα φυσαλίδων χρησιμοποιούν επίσης κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέτε το [IChartDataPointCollection.clear](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί κάθε σημείο δεδομένων από τη συλλογή.
+
+## **Ορισμός Πλάτους Κενού μεταξύ Σειρών**
+
+Το πλάτος κενού είναι το κενό διάστημα μεταξύ διαδοχικών ομάδων μπαρ ή στηλών, εκφρασμένο ως ποσοστό του πλάτους του μπαρ ή της στήλης. Όπως και η επικάλυψη, ανήκει στην γονική ομάδα σειρών και όχι σε μία σειρά. Καλείτε το [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) μία φορά για την ομάδα. Μία μεγαλύτερη τιμή δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μια μικρότερη τιμή τις κάνει πιο πυκνές.
+
+Το παρακάτω παράδειγμα αλλάζει το πλάτος κενού και αποθηκεύει μόνο την τελικό παρουσίαση:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα:
+
+![The gap width](gap_width.png)
+
+## **ΣΥΝΑΝΤΗΣΕΙΣ**
+
+**Ποιοι τύποι διαγράμματος υποστηρίζουν σειρές δεδομένων;**
+
+Όλοι οι τύποι διαγράμματος που αντιπροσωπεύονται από την απαριθμήσιμη τιμή [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/) χρησιμοποιούν δεδομένα διαγράμματος, αλλά οι σειρές τους δεν έχουν όλες την ίδια δομή τιμών ή ρυθμίσεις. Για παράδειγμα, τα διαγράμματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διαγράμματα scatter χρησιμοποιούν τιμές X και Y, και τα διαγράμματα φυσαλίδας προσθέτουν μεγέθη φυσαλίδας. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει με τον τύπο της σειράς. Επιλογές όπως η επικάλυψη και το πλάτος κενού εφαρμόζονται μόνο σε συμβατές ομάδες μπαρ ή στηλών.
+
+**Τι είναι μια ομάδα σειρών διαγράμματος;**
+
+Μια [IChartSeriesGroup](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης επιπέδου ομάδας. Ένα συνδυαστικό διάγραμμα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας μέσω μιας σειράς δεν αλλάζει απαραίτητα όλες τις σειρές στο διάγραμμα.
+
+**Περιέχει ένα νεοδημιουργημένο διάγραμμα προεπιλεγμένα δεδομένα;**
+
+Ναι. Από προεπιλογή, το [IShapeCollection.addChart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) δημιουργεί δείγματα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να διαγράψετε τόσο τις συλλογές σειρών όσο και κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Υπάρχει επίσης υπερφόρτωση που μπορεί να δημιουργήσει διάγραμμα χωρίς προεπιλεγμένα δεδομένα.
+
+**Πώς συνδέονται τα αντικείμενα διαγράμματος με τα κελιά του βιβλίου εργασίας;**
+
+Τα ονόματα σειρών, ετικέτες κατηγοριών και τιμές σημείων δεδομένων αναφέρονται σε κελιά ενός [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdataworkbook/). Η αλλαγή ενός κελιού που αναφέρεται ενημερώνει το αντίστοιχο στοιχείο διαγράμματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγοριών και τις γραμμές τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από την αντίστοιχη κατηγορία.
+
+**Πώς διαγράφω ένα σημείο αντί ολόκληρης της σειράς;**
+
+Ορίστε το σχετικό κελί τιμής σε `null` ώστε να διατηρήσετε τη θέση κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [IChartDataPointCollection.clear](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) μόνο όταν θέλετε να αφαιρέσετε όλα τα σημεία από εκείνη τη σειρά. Εάν αφαιρείτε επίσης κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμείνουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+
+**Πώς εμφανίζονται τα κενά σημεία;**
+
+Το αποτέλεσμα εξαρτάται από τον τύπο διαγράμματος και τη ρύθμιση που έχει οριστεί μέσω του [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Τα υποστηριζόμενα διαγράμματα μπορούν να εμφανίζουν κενά ως κενά, ως τιμές μηδέν ή με τη σύνδεση των γειτονικών σημείων. Επιλέξτε τη ρύθμιση που ταιριάζει με το νόημα των ελλιπών δεδομένων στην παρουσίασή σας.
+
+**Πώς μορφοποιούνται οι αρνητικές τιμές;**
+
+Για τις υποστηριζόμενες σειρές μπαρ, στήλης και φυσαλίδας, καλέστε το [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) και ορίστε το χρώμα που επιστρέφει το [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο με το [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+
+**Ποια μορφοποίηση υπερισχύει όταν τόσο η σειρά όσο και το σημείο είναι μορφοποιημένα;**
+
+Η ρητή μορφοποίηση σημείου δεδομένων έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν δεν υπάρχει ορισμένη μορφοποίηση σειράς, το αυτόματο στυλ και θέμα του διαγράμματος. Οι ρυθμίσεις ομάδας όπως η επικάλυψη και το πλάτος κενού ελέγχουν τη διάταξη και δεν αποτελούν παρακάμψεις μορφοποίησης επιπέδου σημείου.
+
+**Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα διάγραμμα;**
+
+Η Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, περιορισμοί του αρχείου παρουσίασης, διαθέσιμη μνήμη, χρόνος απόδοσης και η αναγνωσιμότητα του διαγράμματος καθορίζουν ένα πρακτικό όριο.
+
+**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά η μία από την άλλη;**
+
+Καλέστε το [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) στην κατάλληλη γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το κενό μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.

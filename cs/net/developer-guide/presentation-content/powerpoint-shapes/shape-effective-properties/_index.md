@@ -1,5 +1,5 @@
 ---
-title: Získání efektivních vlastností tvaru z prezentací v .NET
+title: Získat efektivní vlastnosti tvaru z prezentací v .NET
 linktitle: Efektivní vlastnosti
 type: docs
 weight: 50
@@ -10,7 +10,7 @@ keywords:
 - světelný rig
 - zkosený tvar
 - textový rámec
-- textový styl
+- styl textu
 - výška písma
 - formát výplně
 - PowerPoint
@@ -18,264 +18,244 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Objevte, jak Aspose.Slides pro .NET vypočítává a používá efektivní vlastnosti tvaru pro přesné vykreslení v PowerPointu."
+description: "Zjistěte, jak pomocí Aspose.Slides pro .NET rozlišovat mezi lokálním, děděným a efektivním formátováním tvarů v prezentacích PowerPoint."
 ---
-## **Přehled**
+## **Pochopte lokální, děděné a efektivní vlastnosti**
 
-Toto téma vysvětluje rozdíl mezi **lokálními** a **efektivními** vlastnostmi. Lokální hodnoty jsou hodnoty nastavené přímo na konkrétní úrovni formátování, například:
+Formátování PowerPointu může pocházet z několika míst. Hodnota uložená přímo na objektu je jeho **lokální hodnota**. Pokud tato hodnota není nastavena, PowerPoint se podívá na nadřazené zdroje formátování, jako je výchozí nastavení odstavce, textový styl, rozvržení nebo hlavní snímek, motiv nebo výchozí nastavení na úrovni prezentace. Tyto hodnoty jsou **děděné hodnoty**. Hodnota, která zůstane po vyřešení celé hierarchie, je **efektivní hodnota** — hodnota používaná k vykreslení objektu.
 
-1. Vlastnosti úsečků na snímku.
-1. Textové styly prototypových tvarů v rozložení nebo hlavním snímku, pokud má tvar textového rámce úsečku.
-1. Globální nastavení textu v prezentaci.
+Například část textu nemusí definovat vlastní výšku písma. Její lokální [FontHeight](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/fontheight/) je pak `float.NaN`, což znamená „není zde nastavena“. Část může dědit výšku z odstavce, výchozího textového stylu prezentace nebo jiného relevantního zdroje. Volání [GetEffective](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/geteffective/) na formát části vrátí finální vyřešenou výšku.
 
-Lokální hodnoty mohou být na jakékoli úrovni definovány nebo vynechány. Když Aspose.Slides potřebuje konečné „vypočtené“ formátování, vyřeší řetězec dědičnosti a vrátí **efektivní** hodnoty. Získáte je voláním metody `GetEffective` na místním objektu formátu.
+Používejte dva typy formátovacích dat pro různé účely:
+- Čtěte nebo měňte lokální objekt formátu, například [IPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/), pokud potřebujete řídit, kde je hodnota definována.
+- Čtěte objekt efektivních dat, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformateffectivedata/), pokud potřebujete konečný, vykreslený výsledek. Efektivní data jsou pouze pro čtení.
 
-Následující příklad ukazuje, jak získat efektivní hodnoty. Předpokládá se, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) s textovým rámečkem a alespoň jednou úsečkou.
+## **Porovnejte lokální, děděné a efektivní hodnoty**
 
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-Data efektivního formátování představují aktuální vypočtené formátování po aplikaci dědičnosti. V současné implementaci mohou být některé objektů efektivních dat, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformateffectivedata/), uloženy v mezipaměti vnitřně. Opětovné volání `GetEffective` po změně nadřazeného nebo zděděného formátování může mezipaměť obnovit a dříve získaný objekt již nemusí představovat předchozí stav. Pokud potřebujete zachovat efektivní hodnoty pro pozdější opětovné použití, zkopírujte požadované vlastnosti, například výšku písma, barvu výplně, styl písma nebo zarovnání, do svého vlastního datového objektu.
-{{% /alert %}}
-
-## **Získání efektivních vlastností kamery**
-
-Aspose.Slides vám umožňuje získat efektivní vlastnosti kamery. Rozhraní [ICameraEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/icameraeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti kamery. Instance [ICameraEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/icameraeffectivedata/) je zpřístupněna přes [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformat/).
-
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti kamery. Předpokládá se, že první tvar na prvním snímku má 3D formátování.
+Následující kompletní příklad vytvoří tvar a použije výšky písma na úrovních prezentace, odstavce a části. Každý krok vypíše hodnoty definované na těchto úrovních a výslednou efektivní hodnotu pro stejnou část textu. Také ukazuje, proč musí být efektivní data po změnách formátování znovu načtena.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **Získání efektivních vlastností světelného rig**
-
-Aspose.Slides vám umožňuje získat efektivní vlastnosti světelného rig. Rozhraní [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ilightrigeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti světelného rig. Instance [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ilightrigeffectivedata/) je zpřístupněna přes [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformat/).
-
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti světelného rig. Předpokládá se, že první tvar na prvním snímku má 3D formátování.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **Získání efektivních vlastností zkoseného tvaru**
-
-Aspose.Slides vám umožňuje získat efektivní vlastnosti zkoseného tvaru. Rozhraní [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapebeveleffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti reliéfu pro tvar. Instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapebeveleffectivedata/) je zpřístupněna přes [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformat/).
-
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti horního zkosení tvaru. Předpokládá se, že první tvar na prvním snímku má 3D formátování.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **Získání efektivních vlastností textového rámce**
-
-Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového rámce. Rozhraní [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformateffectivedata/) obsahuje efektivní vlastnosti formátování textového rámce.
-
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti formátování textového rámce. Předpokládá se, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) s textovým rámečkem.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **Získání efektivních vlastností textového stylu**
-
-Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového stylu. Rozhraní [ITextStyleEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/itextstyleeffectivedata/) obsahuje efektivní vlastnosti textového stylu.
-
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti textového stylu. Předpokládá se, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) s textovým rámečkem.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **Získání efektivní hodnoty výšky písma**
-
-Pomocí Aspose.Slides můžete získat efektivní výšku písma. Následující kód demonstruje, jak se efektivní výška písma úsečky mění po nastavení lokálních hodnot výšky písma na různých úrovních struktury prezentace.
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// Definujte děděné hodnoty na dvou různých úrovních.
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// Lokální hodnota v části přepíše obě děděné hodnoty.
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Změna děděné hodnoty nepřepíše existující lokální hodnotu.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// Vymažte lokální hodnotu. Část nyní opět dědí z odstavce.
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Vymažte hodnotu odstavce. Výchozí nastavení prezentace nyní poskytuje výsledek.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // Přečtěte efektivní data po předchozích změnách.
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **Získání efektivního formátu výplně pro tabulku**
+Priorita v tomto příkladu je lokální formátování části, pak formátování odstavce a nakonec výchozí nastavení prezentace. Ostatní objekty mohou mít různé řetězce dědičnosti, ale princip je stejný: konkrétnější explicitní hodnota vyhrává a [GetEffective](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/geteffective/) vrací konečný výsledek.
 
-Pomocí Aspose.Slides můžete získat efektivní formát výplně pro různé části tabulky. Rozhraní [IFillFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ifillformateffectivedata/) obsahuje efektivní vlastnosti formátu výplně. Formátování buněk má vyšší prioritu než formátování řádku, řádku vyšší prioritu než formátování sloupce a sloupce vyšší prioritu než formátování celé tabulky.
+## **Získejte efektivní textové vlastnosti**
 
-Výsledkem je, že vlastnosti [ICellFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/icellformateffectivedata/) jsou použity při vykreslování buňky tabulky. Následující ukázka kódu ukazuje, jak získat efektivní formát výplně pro různé části tabulky. Předpokládá se, že první tvar na prvním snímku je [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/).
+Formátování textu je rozděleno mezi několik objektů:
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/geteffective/) řeší vlastnosti textového rámce, jako jsou okraje, ukotvení, automatické přizpůsobení a vertikální směr textu.
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/cs/net/aspose.slides/itextstyle/geteffective/) řeší formátování odstavců pro každou úroveň textového stylu.
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/geteffective/) řeší vlastnosti odstavce, jako jsou zarovnání, odsazení a odrážky.
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/geteffective/) řeší vlastnosti znaků, jako jsou výška písma, typ písma, barva, tučné a kurzíva.
+
+Pro následující příklad musí `text-formatting.pptx` obsahovat alespoň jeden snímek a jednu [AutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/) s neprázdným textovým rámcem. AutoShape může být na libovolné pozici ve sbírce tvarů; kód hledá vhodný objekt a před použitím jej ověří.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
 
-## **FAQ**
+## **Získejte efektivní 3D vlastnosti**
 
-**Vrací `GetEffective` snímek (snapshot)?**
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformat/geteffective/) vrací jeden objekt [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/) který seskupuje všechna vyřešená 3D nastavení. Jeho vlastnosti [Camera](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/camera/), [LightRig](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/lightrig/), [BevelTop](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/beveltop/) a [BevelBottom](https://reference.aspose.com/slides/cs/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) vystavují odpovídající efektivní data. Čtení těchto souvisejících nastavení dohromady usnadňuje pochopení konečného 3D vzhledu tvaru.
 
-Ne vždy. Efektivní data představují vypočtené formátování po aplikaci dědičnosti, ale některé objekty efektivních dat mohou být interně uloženy v mezipaměti. Následující volání `GetEffective` může formátování přepočítat a obnovit mezipaměť, takže dříve získaný objekt by neměl být považován za trvalý snímek.
+Pro tento příklad musí `shape-3d.pptx` obsahovat alespoň jeden tvar na prvním snímku. Aplikujte na tento tvar 3D kameru, osvětlení nebo nastavení zkosení, pokud chcete, aby výstup obsahoval jiné hodnoty než výchozí.
 
-**Kdy mám znovu načíst efektivní vlastnosti?**
+```csharp
+using System;
+using Aspose.Slides;
 
-Opětovně zavolejte `GetEffective` po změně lokálního formátování, nadřazených stylů, formátování rozložení, formátování hlavního snímku nebo výchozích nastavení na úrovni prezentace. Další volání přehodnotí hierarchii formátování a vrátí aktuální efektivní výsledek.
+using var presentation = new Presentation("shape-3d.pptx");
 
-**Ovlivňuje změna nebo odebrání snímku rozložení/hlavního snímku efektivní vlastnosti, které již byly získány?**
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
 
-Ano, ale změna se projeví při dalším volání `GetEffective`. Pokud je změněn nebo odebrán zdroj nadřazeného formátování, dříve získaná efektivní data mohou být zastaralá. Po opětovném volání `GetEffective` Aspose.Slides přehodnotí strom formátování a výsledné písma, barvy, velikosti či jiné hodnoty se mohou změnit.
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
 
-**Mohu upravovat hodnoty pomocí objektů efektivních dat?**
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
 
-Ne. Objektům efektivních dat jsou vystaveny pouze vypočtené hodnoty. Proveďte změny v lokálních objektech formátování a poté znovu získáte efektivní hodnoty.
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
 
-**Co se stane, pokud není vlastnost nastavena na úrovni tvaru, ani v rozložení/hlavním snímku, ani v globálním nastavení?**
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
 
-Efektivní hodnota je určena výchozím mechanismem, který zahrnuje výchozí nastavení PowerPointu i Aspose.Slides. Tato vyřešená hodnota se stane součástí aktuálních efektivních dat.
+## **Získejte efektivní formátování tabulky**
 
-**Z efektivní hodnoty písma zjistím, která úroveň poskytla velikost nebo typ písma?**
+Formátování tabulky může pocházet ze stylu tabulky a z formátů aplikovaných na celou tabulku, sloupec, řádek nebo jednotlivou buňku. Při konfliktech mezi explicitně definovanými výplněmi je priorita buňka, řádek, sloupec a potom celá tabulka. Efektivní formát buňky je konečný formát použité k vykreslení této buňky.
 
-Ne přímo. Efektivní data vrací konečnou hodnotu. Pro zjištění zdroje zkontrolujte lokální hodnoty na úrovni úsečky, odstavce, textového rámce a textových stylů v rozložení, hlavním snímku a prezentaci, abyste zjistili, kde se objeví první explicitní definice.
+Pro tento příklad musí `table-formatting.pptx` obsahovat alespoň jednu tabulku na prvním snímku. Tabulka musí mít alespoň jeden řádek a jeden sloupec. Kód hledá [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) místo předpokladu, že `Shapes[0]` je tabulka.
 
-**Proč se efektivní hodnoty někdy shodují s lokálními?**
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-Protože lokální hodnota se ukázala jako konečná (není potřeba žádná vyšší úroveň dědičnosti). V takových případech se efektivní hodnota shoduje s lokální.
+using var presentation = new Presentation("table-formatting.pptx");
 
-**Kdy mám používat efektivní vlastnosti a kdy pracovat jen s lokálními?**
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-Používejte efektivní data, když potřebujete výsledek „jak je vykresleno“ po aplikaci veškeré dědičnosti, například pro sladění barev, odsazení nebo velikostí. Pokud potřebujete zachovat tyto hodnoty nezávisle na pozdějších změnách formátování, zkopírujte požadované vlastnosti do vlastního objektu. Pokud chcete měnit formátování na konkrétní úrovni, upravte lokální vlastnosti a poté, pokud je to nutné, opět načtěte efektivní data pro ověření výsledku.
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
+
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
+
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+Pokud potřebujete barvu místo jen typu výplně, nejprve zkontrolujte efektivní [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/ifillformateffectivedata/filltype/) a poté přečtěte vlastnost, která se vztahuje k tomuto typu — například [SolidFillColor](https://reference.aspose.com/slides/cs/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) pro plnou výplň.
+
+## **Znovu načtěte efektivní data po změnách**
+
+Efektivní data popisují hierarchii formátování v okamžiku, kdy jsou vyřešena. Zavolejte `GetEffective` znovu po změně čehokoli, co může v této hierarchii participovat, včetně:
+- lokálního formátování objektu;
+- výchozích nastavení odstavce nebo textového rámce;
+- stylu tabulky, tabulky, sloupce, řádku nebo formátu buňky;
+- formátování rozvržení nebo hlavního snímku;
+- dat motivu nebo výchozích nastavení na úrovni prezentace;
+- rozvržení nebo hlavního snímku přiřazeného ke snímku.
+
+Neuchovávejte objekt efektivních dat jako trvalý snímek. Aspose.Slides může některá efektivní data interně kešovat a pozdější volání `GetEffective` může tato data obnovit. Pokud potřebujete porovnat hodnoty před a po změně, zkopírujte potřebné skalární hodnoty — například výšku písma, barvu, zarovnání nebo šířku zkosení — do vlastních proměnných před provedením změny.
+
+Pro změnu hodnoty aktualizujte příslušný lokální objekt formátu a poté zavolejte `GetEffective`, abyste výsledek ověřili. Objekt efektivních dat je sám o sobě pouze pro čtení.
+
+## **Často kladené otázky**
+
+**Jak mohu zjistit, která úroveň poskytla efektivní hodnotu?**
+
+Efektivní data obsahují finální hodnotu, nikoli její zdroj. Prohlédněte si příslušné lokální objekty od nejspecifičtější úrovně směrem ven. U textu to může zahrnovat část, odstavec, textový rámec, rozvržení, hlavní snímek, motiv a výchozí nastavení prezentace. Nedefinované hodnoty jako `float.NaN` nebo `null` naznačují, že hledání pokračuje na další úroveň.
+
+**Co se stane, když žádná úroveň nedefinuje vlastnost?**
+
+Aspose.Slides určuje odpovídající výchozí hodnotu PowerPointu nebo knihovny. Tato vyřešená hodnota se objeví v efektivních datech, i když ji žádný lokální objekt explicitně nedefinuje.
+
+**Proč se efektivní hodnota někdy rovná lokální hodnotě?**
+
+Lokální hodnota vyhrála výpočet dědičnosti. To je očekávané, když je vlastnost explicitně nastavena na objektu a žádné specifičtější pravidlo ji nepřepíše.
+
+**Kdy bych měl použít lokální data místo efektivních dat?**
+
+Používejte lokální data k prozkoumání nebo úpravě konkrétní úrovně formátování. Používejte efektivní data, když potřebujete konečný vzhled po provedení dědičnosti, pravidel motivu a použitelných stylů. [Kompletní příklad srovnání](#compare-local-inherited-and-effective-values) ukazuje obojí ve stejném pracovním postupu.

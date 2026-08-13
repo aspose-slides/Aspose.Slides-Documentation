@@ -1,349 +1,317 @@
 ---
-title: PHP에서 프레젠테이션의 도형 Effective 속성 가져오기
-linktitle: Effective 속성
+title: PHP에서 프레젠테이션의 도형 유효 속성 가져오기
+linktitle: 유효 속성
 type: docs
 weight: 50
 url: /ko/php-java/shape-effective-properties/
 keywords:
 - 도형 속성
 - 카메라 속성
-- 조명 장치
+- 라이트 릭
 - 베벨 도형
 - 텍스트 프레임
 - 텍스트 스타일
 - 글꼴 높이
-- 채우기 서식
+- 채우기 형식
 - PowerPoint
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java가 정확한 PowerPoint 렌더링을 위해 효과적인 도형 속성을 계산하고 적용하는 방법을 알아보세요."
+description: "Aspose.Slides for PHP via Java를 사용하여 PowerPoint 프레젠테이션에서 로컬, 상속 및 유효 도형 서식을 구분하는 방법을 배웁니다."
 ---
-## **개요**
+## **로컬, 상속 및 유효 속성 이해**
 
-이 항목에서는 **local** 및 **effective** 속성의 차이를 설명합니다. Local 값은 특정 서식 수준에서 직접 설정되는 값이며, 예를 들어:
+PowerPoint 서식은 여러 위치에서 올 수 있습니다. 객체에 직접 저장된 값은 **로컬 값**입니다. 해당 값이 설정되지 않으면 PowerPoint는 단락 기본값, 텍스트 스타일, 레이아웃 또는 마스터 슬라이드, 테마 또는 프레젠테이션 수준 기본값과 같은 상위 서식 소스를 확인합니다. 이러한 값은 **상속 값**입니다. 전체 계층 구조가 해결된 후 남는 값이 **유효 값**—객체를 렌더링하는 데 사용되는 값입니다.
 
-1. 슬라이드의 Portion 속성.
-1. 레이아웃 또는 마스터 슬라이드에 있는 Prototype shape 텍스트 스타일(Portion의 텍스트 프레임 쉐이프가 있는 경우).
-1. 프레젠테이션의 전역 텍스트 설정.
+예를 들어, 텍스트 부분이 자체 글꼴 높이를 정의하지 않을 수 있습니다. 해당 로컬 [getFontHeight](https://reference.aspose.com/slides/ko/php-java/aspose.slides/baseportionformat/) 값은 `NAN`이며, 이는 "여기에서 설정되지 않음"을 의미합니다. 이 부분은 단락, 프레젠테이션 기본 텍스트 스타일 또는 다른 적용 가능한 소스에서 높이를 상속받을 수 있습니다. 부분 형식에서 [getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/portionformat/geteffective/)을 호출하면 최종 해결된 높이가 반환됩니다.
 
-Local 값은 어느 수준에서든 정의하거나 생략할 수 있습니다. Aspose.Slides가 최종 “렌더링된” 서식이 필요할 때는 상속 체인을 해결하고 **effective** 값을 반환합니다. 로컬 서식 객체에서 `getEffective` 메서드를 호출하면 얻을 수 있습니다.
+다음 두 종류의 서식 데이터를 다른 목적에 사용하십시오:
 
-다음 예제는 effective 값을 가져오는 방법을 보여줍니다. 첫 번째 슬라이드의 첫 번째 도형이 텍스트 프레임을 가진 [AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/)이며 최소 하나의 Portion이 있다고 가정합니다.
+- 값이 정의된 위치를 제어해야 할 때와 같이 [PortionFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/portionformat/)과 같은 로컬 서식 객체를 읽거나 변경합니다.
+- 최종 렌더링 결과가 필요할 때와 같이 [PortionFormat.getEffective가 반환하는 데이터](https://reference.aspose.com/slides/ko/php-java/aspose.slides/portionformat/geteffective/)와 같은 유효 데이터 객체를 읽습니다. 유효 데이터는 읽기 전용입니다.
+
+예제를 실행하기 전에, [Aspose.Slides for PHP via Java 설치](/slides/ko/php-java/installation/)하십시오.
+
+## **로컬, 상속 및 유효 값 비교**
+
+다음 전체 예제는 도형을 만들고 프레젠테이션, 단락 및 부분 수준에서 글꼴 높이를 적용합니다. 각 단계에서는 해당 수준에서 정의된 값을 출력하고 동일한 텍스트 부분에 대한 결과 유효 값을 표시합니다. 또한 서식 변경 후 유효 데이터를 다시 읽어야 하는 이유를 보여줍니다.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+function formatLocalValue($value)
+{
+    return $value === null || is_nan($value) ? "<not set>" : (string)$value;
+}
+
+function printFontHeights($caption, $presentation, $paragraph, $portion)
+{
+    $presentationValue = java_values($presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->getFontHeight());
+    $paragraphValue = java_values($paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFontHeight());
+    $localValue = java_values($portion->getPortionFormat()->getFontHeight());
+
+    // 이전 변경 후 유효 데이터를 읽습니다.
+    $effectiveValue = java_values($portion->getPortionFormat()->getEffective()->getFontHeight());
+
+    echo $caption . PHP_EOL;
+    echo "  Presentation default: " . formatLocalValue($presentationValue) . PHP_EOL;
+    echo "  Paragraph default:    " . formatLocalValue($paragraphValue) . PHP_EOL;
+    echo "  Portion local:        " . formatLocalValue($localValue) . PHP_EOL;
+    echo "  Portion effective:    " . $effectiveValue . PHP_EOL;
+}
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
-
-    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 80, false);
+    $textFrame = $shape->addTextFrame("Effective formatting");
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
     $portion = $paragraph->getPortions()->get_Item(0);
 
-    $localPortionFormat = $portion->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat->getEffective();
+    // 두 가지 다른 레벨에서 상속된 값을 정의합니다.
+    $presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(28);
+
+    printFontHeights("The portion inherits from the paragraph", $presentation, $paragraph, $portion);
+
+    // 부분에 대한 로컬 값이 두 상속 값을 모두 덮어씁니다.
+    $portion->getPortionFormat()->setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", $presentation, $paragraph, $portion);
+
+    // 상속된 값을 변경해도 기존 로컬 값을 덮어쓰지 않습니다.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(30);
+    printFontHeights("The local value still has priority", $presentation, $paragraph, $portion);
+
+    // 로컬 값을 지웁니다. 이제 부분이 다시 단락에서 상속받습니다.
+    $portion->getPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The local value is cleared", $presentation, $paragraph, $portion);
+
+    // 단락 값을 지웁니다. 이제 프레젠테이션 기본값이 결과를 제공합니다.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The paragraph value is cleared", $presentation, $paragraph, $portion);
+
+    $presentation->save("effective-properties.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Effective 서식 데이터는 상속이 적용된 후 계산된 현재 서식을 나타냅니다. 현재 구현에서는 [PortionFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/portionformat/geteffective/)와 같은 메서드가 반환하는 일부 effective 데이터 객체가 내부에 캐시될 수 있습니다. 부모 또는 상속된 서식을 변경한 후 `getEffective`를 다시 호출하면 캐시된 데이터가 새로 고침되며, 이전에 얻은 객체는 더 이상 이전 상태를 나타내지 않을 수 있습니다. 나중에 재사용하려면 폰트 높이, 채우기 색, 폰트 스타일 또는 정렬과 같은 필요한 속성을 자체 데이터 객체로 복사하십시오.
-{{% /alert %}}
+이 예제에서 우선 순위는 부분 로컬 서식, 다음은 단락 서식, 그리고 프레젠테이션 기본값입니다. 다른 객체는 다른 상속 체인을 가질 수 있지만 원리는 동일합니다: 보다 구체적인 명시적 값이 우선하며, [getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/portionformat/geteffective/)은 최종 결과를 반환합니다.
 
-## **카메라의 Effective 속성 가져오기**
+## **유효 텍스트 속성 가져오기**
 
-Aspose.Slides는 카메라의 effective 속성을 가져올 수 있도록 지원합니다. [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/)가 반환하는 effective 데이터에는 [ThreeDFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/)에 대한 최종 카메라 속성이 포함됩니다.
+텍스트 서식은 여러 객체에 걸쳐 분할됩니다:
 
-다음 코드 샘플은 카메라의 effective 속성을 가져오는 방법을 보여줍니다. 첫 번째 슬라이드의 첫 번째 도형에 3D 서식이 적용되어 있다고 가정합니다.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/textframeformat/geteffective/) 텍스트 프레임 여백, 앵커링, 자동 맞춤 및 세로 텍스트 방향과 같은 텍스트 프레임 속성을 해결합니다.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/textstyle/geteffective/) 각 텍스트 스타일 레벨에 대한 단락 서식을 해결합니다.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/paragraphformat/geteffective/) 정렬, 들여쓰기 및 글머리 기호와 같은 단락 속성을 해결합니다.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/portionformat/geteffective/) 글꼴 높이, 글꼴, 색상, 굵게 및 기울임꼴과 같은 문자 속성을 해결합니다.
+
+다음 예제에서는 `text-formatting.pptx`에 최소 하나의 슬라이드와 비어 있지 않은 텍스트 프레임을 가진 [AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/)이 포함되어 있어야 합니다. AutoShape는 도형 컬렉션의 어느 위치에든 나타날 수 있으며, 코드는 사용 전에 적합한 객체를 검색하고 검증합니다.
 
 ```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+use aspose\slides\Presentation;
 
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $camera = $threeDEffectiveData->getCamera();
-    $cameraType = $camera->getCameraType();
-    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
-    $zoom = $camera->getZoom();
-
-    echo "= Effective camera properties =" . PHP_EOL;
-    echo "Type: " . $cameraType . PHP_EOL;
-    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
-    echo "Zoom: " . $zoom . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    if ($value === null) {
+        return "<not set>";
+    }
+    if (is_bool($value)) {
+        return $value ? "true" : "false";
+    }
+    return (string)$value;
 }
-```
 
-## **조명 장치(Light Rig)의 Effective 속성 가져오기**
-
-Aspose.Slides는 조명 장치의 effective 속성을 가져올 수 있도록 지원합니다. [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/)가 반환하는 effective 데이터에는 [ThreeDFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/)에 대한 최종 조명 장치 속성이 포함됩니다.
-
-다음 코드 샘플은 조명 장치의 effective 속성을 가져오는 방법을 보여줍니다. 첫 번째 슬라이드의 첫 번째 도형에 3D 서식이 적용되어 있다고 가정합니다.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $lightRig = $threeDEffectiveData->getLightRig();
-    $lightType = $lightRig->getLightType();
-    $direction = $lightRig->getDirection();
-
-    echo "= Effective light rig properties =" . PHP_EOL;
-    echo "Type: " . $lightType . PHP_EOL;
-    echo "Direction: " . $direction . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function hasNonEmptyText($shape)
+{
+    $textFrame = $shape->getTextFrame();
+    if (java_is_null($textFrame)) {
+        return false;
+    }
+    if (java_values($textFrame->getParagraphs()->getCount()) === 0) {
+        return false;
+    }
+    return java_values($textFrame->getParagraphs()->get_Item(0)->getPortions()->getCount()) > 0;
 }
-```
 
-## **베벨(모서리) 형태의 Effective 속성 가져오기**
-
-Aspose.Slides는 도형 베벨의 effective 속성을 가져올 수 있도록 지원합니다. [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/)가 반환하는 effective 데이터에는 [ThreeDFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/)에 대한 최종 면-돌출 속성이 포함됩니다.
-
-다음 코드 샘플은 도형의 상단 베벨에 대한 effective 속성을 가져오는 방법을 보여줍니다. 첫 번째 슬라이드의 첫 번째 도형에 3D 서식이 적용되어 있다고 가정합니다.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $bevelTop = $threeDEffectiveData->getBevelTop();
-    $bevelType = $bevelTop->getBevelType();
-    $bevelWidth = $bevelTop->getWidth();
-    $bevelHeight = $bevelTop->getHeight();
-
-    echo "= Effective shape's top face relief properties =" . PHP_EOL;
-    echo "Type: " . $bevelType . PHP_EOL;
-    echo "Width: " . $bevelWidth . PHP_EOL;
-    echo "Height: " . $bevelHeight . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function findAutoShapeWithText($slide)
+{
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $candidate = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($candidate, $autoShapeClass) && hasNonEmptyText($candidate)) {
+            return $candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **텍스트 프레임의 Effective 속성 가져오기**
-
-Aspose.Slides를 사용하면 텍스트 프레임의 effective 속성을 가져올 수 있습니다. [TextFrameFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/textframeformat/geteffective/)가 반환하는 effective 데이터에는 텍스트 프레임 서식 속성이 포함됩니다.
-
-다음 코드 샘플은 텍스트 프레임 서식의 effective 속성을 가져오는 방법을 보여줍니다. 첫 번째 슬라이드의 첫 번째 도형이 텍스트 프레임을 가진 [AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/)이라고 가정합니다.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("text-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
-    $autofitType = $effectiveTextFrameFormat->getAutofitType();
-    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
-    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
-    $marginTop = $effectiveTextFrameFormat->getMarginTop();
-    $marginRight = $effectiveTextFrameFormat->getMarginRight();
-    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+    $shape = findAutoShapeWithText($presentation->getSlides()->get_Item(0));
+    if ($shape === null) {
+        throw new RuntimeException("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    echo "Anchoring type: " . $anchoringType . PHP_EOL;
-    echo "Autofit type: " . $autofitType . PHP_EOL;
-    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
-    echo "Margins" . PHP_EOL;
-    echo "   Left: " . $marginLeft . PHP_EOL;
-    echo "   Top: " . $marginTop . PHP_EOL;
-    echo "   Right: " . $marginRight . PHP_EOL;
-    echo "   Bottom: " . $marginBottom . PHP_EOL;
-} finally {
-    $presentation->dispose();
-}
-```
+    $textFrame = $shape->getTextFrame();
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
 
-## **텍스트 스타일의 Effective 속성 가져오기**
+    $textFrameEffective = $textFrame->getTextFrameFormat()->getEffective();
+    $paragraphEffective = $paragraph->getParagraphFormat()->getEffective();
+    $portionEffective = $portion->getPortionFormat()->getEffective();
 
-Aspose.Slides를 사용하면 텍스트 스타일의 effective 속성을 가져올 수 있습니다. [TextStyle.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/textstyle/geteffective/)가 반환하는 effective 데이터에는 텍스트 스타일 속성이 포함됩니다.
+    echo "Text frame margins:" . PHP_EOL;
+    echo "  Left: " . formatEffectiveValue($textFrameEffective->getMarginLeft()) . PHP_EOL;
+    echo "  Top: " . formatEffectiveValue($textFrameEffective->getMarginTop()) . PHP_EOL;
+    echo "  Right: " . formatEffectiveValue($textFrameEffective->getMarginRight()) . PHP_EOL;
+    echo "  Bottom: " . formatEffectiveValue($textFrameEffective->getMarginBottom()) . PHP_EOL;
+    echo "Paragraph alignment: " . formatEffectiveValue($paragraphEffective->getAlignment()) . PHP_EOL;
+    echo "Font height: " . formatEffectiveValue($portionEffective->getFontHeight()) . PHP_EOL;
+    echo "Bold: " . formatEffectiveValue($portionEffective->getFontBold()) . PHP_EOL;
 
-다음 코드 샘플은 텍스트 스타일의 effective 속성을 가져오는 방법을 보여줍니다. 첫 번째 슬라이드의 첫 번째 도형이 텍스트 프레임을 가진 [AutoShape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/autoshape/)이라고 가정합니다.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $textStyle = $textFrameFormat->getTextStyle();
-    $effectiveTextStyle = $textStyle->getEffective();
-    $levelCount = 9;
-
-    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
-        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
-        $depth = $effectiveStyleLevel->getDepth();
-        $indent = $effectiveStyleLevel->getIndent();
-        $alignment = $effectiveStyleLevel->getAlignment();
-        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
-
-        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
-
-        echo "Depth: " . $depth . PHP_EOL;
-        echo "Indent: " . $indent . PHP_EOL;
-        echo "Alignment: " . $alignment . PHP_EOL;
-        echo "Font alignment: " . $fontAlignment . PHP_EOL;
+    $effectiveTextStyle = $textFrame->getTextFrameFormat()->getTextStyle()->getEffective();
+    for ($level = 0; $level < 9; $level++) {
+        $levelEffective = $effectiveTextStyle->getLevel($level);
+        echo "Level " . $level . " indent: " . formatEffectiveValue($levelEffective->getIndent()) . PHP_EOL;
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Effective 폰트 높이 값 가져오기**
+## **유효 3D 속성 가져오기**
 
-Aspose.Slides를 사용하면 effective 폰트 높이를 가져올 수 있습니다. 다음 코드는 프레젠테이션 구조의 서로 다른 수준에서 로컬 폰트 높이 값을 설정한 후 Portion의 effective 폰트 높이가 어떻게 변경되는지 보여줍니다.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/)는 모든 해결된 3D 설정을 그룹화하는 하나의 유효 데이터 객체를 반환합니다. 해당 객체의 [getCamera](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/), [getLightRig](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/), [getBevelTop](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/), [getBevelBottom](https://reference.aspose.com/slides/ko/php-java/aspose.slides/threedformat/geteffective/) 메서드는 각각의 유효 데이터를 표시합니다. 이러한 관련 설정을 함께 읽으면 도형의 최종 3D 외관을 이해하기가 쉬워집니다.
+
+이 예제에서는 `shape-3d.pptx`의 첫 번째 슬라이드에 최소 하나의 도형이 포함되어 있어야 합니다. 출력에 기본값 이외의 값이 포함되도록 하려면 해당 도형에 3D 카메라, 조명 또는 베벨 설정을 적용하십시오.
 
 ```php
-$presentation = new Presentation();
+use aspose\slides\Presentation;
+
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    return $value === null ? "<not set>" : (string)$value;
+}
+
+$presentation = new Presentation("shape-3d.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0 || java_values($presentation->getSlides()->get_Item(0)->getShapes()->size()) === 0) {
+        throw new RuntimeException("The first slide must contain a shape.");
+    }
 
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $autoShape->addTextFrame("");
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $threeDEffective = $shape->getThreeDFormat()->getEffective();
 
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    $paragraph->getPortions()->clear();
+    echo "Camera:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getCamera()->getCameraType()) . PHP_EOL;
+    echo "  Field of view: " . formatEffectiveValue($threeDEffective->getCamera()->getFieldOfViewAngle()) . PHP_EOL;
+    echo "  Zoom: " . formatEffectiveValue($threeDEffective->getCamera()->getZoom()) . PHP_EOL;
 
-    $firstPortion = new Portion("Sample text with first portion");
-    $secondPortion = new Portion(" and second portion.");
+    echo "Light rig:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getLightRig()->getLightType()) . PHP_EOL;
+    echo "  Direction: " . formatEffectiveValue($threeDEffective->getLightRig()->getDirection()) . PHP_EOL;
 
-    $paragraph->getPortions()->add($firstPortion);
-    $paragraph->getPortions()->add($secondPortion);
-
-    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
-    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height just after creation:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
-    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
-    $defaultPortionFormat->setFontHeight(24);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
-    $paragraphDefaultPortionFormat->setFontHeight(40);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $firstPortionFormat->setFontHeight(55);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $secondPortionFormat->setFontHeight(18);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+    echo "Top bevel:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getBevelTop()->getBevelType()) . PHP_EOL;
+    echo "  Width: " . formatEffectiveValue($threeDEffective->getBevelTop()->getWidth()) . PHP_EOL;
+    echo "  Height: " . formatEffectiveValue($threeDEffective->getBevelTop()->getHeight()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **표에 대한 Effective 채우기 서식 가져오기**
+## **유효 테이블 서식 가져오기**
 
-Aspose.Slides를 사용하면 표의 다양한 부분에 대한 effective 채우기 서식을 가져올 수 있습니다. 형식 객체가 반환하는 effective 데이터에는 [FillFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/fillformat/) 속성이 포함됩니다. 셀 서식이 행 서식보다 우선순위가 높고, 행 서식이 열 서식보다, 열 서식이 전체 표 서식보다 우선합니다.
+테이블 서식은 테이블 스타일 및 전체 테이블, 열, 행 또는 개별 셀에 적용된 서식에서 올 수 있습니다. 명시적으로 정의된 채우기 간의 충돌이 있을 경우 우선 순위는 셀, 행, 열, 그 다음 전체 테이블입니다. 셀의 유효 서식은 해당 셀을 그리는 데 사용되는 최종 서식입니다.
 
-따라서 effective [CellFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/cellformat/) 속성이 표 셀을 그리는 데 사용됩니다. 다음 코드 샘플은 표의 다양한 부분에 대한 effective 채우기 서식을 가져오는 방법을 보여줍니다. 첫 번째 슬라이드의 첫 번째 도형이 [Table](https://reference.aspose.com/slides/ko/php-java/aspose.slides/table/)이라고 가정합니다.
+이 예제에서는 `table-formatting.pptx`의 첫 번째 슬라이드에 최소 하나의 테이블이 포함되어 있어야 합니다. 테이블은 최소 하나의 행과 하나의 열을 가져야 합니다. 코드는 `getShapes()->get_Item(0)`이 테이블이라고 가정하는 대신 [Table](https://reference.aspose.com/slides/ko/php-java/aspose.slides/table/)을 검색합니다.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+
+function findTable($slide)
+{
+    $tableClass = new JavaClass("com.aspose.slides.Table");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, $tableClass)) {
+            return $shape;
+        }
+    }
+    return null;
+}
+
+$presentation = new Presentation("table-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $table = $slide->getShapes()->get_Item(0);
-    $tableFormatEffective = $table->getTableFormat()->getEffective();
+    $table = findTable($presentation->getSlides()->get_Item(0));
+    if ($table === null) {
+        throw new RuntimeException("The first slide must contain a table.");
+    }
+    if (java_values($table->getRows()->size()) === 0 || java_values($table->getColumns()->size()) === 0) {
+        throw new RuntimeException("The table must contain at least one cell.");
+    }
 
-    $row = $table->getRows()->get_Item(0);
-    $rowFormatEffective = $row->getRowFormat()->getEffective();
+    $tableEffective = $table->getTableFormat()->getEffective();
+    $rowEffective = $table->getRows()->get_Item(0)->getRowFormat()->getEffective();
+    $columnEffective = $table->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
+    $cellEffective = $table->get_Item(0, 0)->getCellFormat()->getEffective();
 
-    $column = $table->getColumns()->get_Item(0);
-    $columnFormatEffective = $column->getColumnFormat()->getEffective();
-
-    $cell = $table->get_Item(0, 0);
-    $cellFormatEffective = $cell->getCellFormat()->getEffective();
-
-    $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
-    $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
-    $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
-    $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
+    echo "Table fill: " . java_values($tableEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Row fill: " . java_values($rowEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Column fill: " . java_values($columnEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Final cell fill: " . java_values($cellEffective->getFillFormat()->getFillType()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
+
+채우기 유형만이 아니라 색상이 필요한 경우, 먼저 유효 [getFillType](https://reference.aspose.com/slides/ko/php-java/aspose.slides/fillformat/geteffective/) 값을 확인한 다음 해당 유형에 적용되는 메서드를 읽습니다—예를 들어, 단색 채우기의 경우 [getSolidFillColor](https://reference.aspose.com/slides/ko/php-java/aspose.slides/fillformat/geteffective/)을 사용합니다.
+
+## **변경 후 유효 데이터 다시 읽기**
+
+유효 데이터는 해결 시점의 서식 계층 구조를 설명합니다. 해당 계층에 참여할 수 있는 항목을 변경한 후 `getEffective`을 다시 호출하십시오. 대상에는 다음이 포함됩니다:
+
+- 객체의 로컬 서식;
+- 단락 또는 텍스트 프레임 기본값;
+- 테이블 스타일, 테이블, 열, 행 또는 셀 서식;
+- 레이아웃 또는 마스터 슬라이드 서식;
+- 테마 데이터 또는 프레젠테이션 수준 기본값;
+- 슬라이드에 할당된 레이아웃 또는 마스터.
+
+유효 데이터 객체를 영구 스냅샷으로 보관하지 마십시오. Aspose.Slides는 일부 유효 데이터를 내부에 캐시할 수 있으며, 이후 `getEffective` 호출 시 해당 데이터를 새로 고칠 수 있습니다. 변경 전후의 값을 비교해야 하는 경우, 변경하기 전에 글꼴 높이, 색상, 정렬 또는 베벨 너비와 같은 필요한 스칼라 값을 자신의 변수에 복사하십시오.
+
+값을 변경하려면 해당 로컬 서식 객체를 업데이트한 다음 `getEffective`을 호출하여 결과를 확인하십시오. 유효 데이터 객체 자체는 읽기 전용입니다.
 
 ## **FAQ**
 
-**`getEffective`가 스냅샷을 반환합니까?**
+**어떤 레벨에서 유효 값을 제공했는지 어떻게 알 수 있나요?**
 
-항상 그런 것은 아닙니다. Effective 데이터는 상속이 적용된 후 계산된 서식을 나타내지만, 일부 effective 데이터 객체는 내부에 캐시될 수 있습니다. 이후 `getEffective` 호출은 서식을 다시 계산하고 캐시된 데이터를 새로 고침하므로 이전에 얻은 객체를 영구적인 스냅샷으로 취급해서는 안 됩니다.
+유효 데이터에는 최종 값만 포함되고, 그 출처는 포함되지 않습니다. 가장 구체적인 레벨부터 외부로 적용 가능한 로컬 객체들을 검사하십시오. 텍스트의 경우, 부분, 단락, 텍스트 프레임, 레이아웃, 마스터, 테마 및 프레젠테이션 기본값이 포함될 수 있습니다. `NAN` 또는 `null`과 같은 정의되지 않은 값은 검색이 다른 레벨로 계속됨을 나타냅니다.
 
-**언제 다시 effective 속성을 읽어야 하나요?**
+**어떤 레벨도 속성을 정의하지 않을 경우 어떻게 되나요?**
 
-로컬 서식, 부모 스타일, 레이아웃 서식, 마스터 서식 또는 프레젠테이션 수준 기본값을 변경한 후 `getEffective`를 다시 호출하십시오. 다음 호출은 서식 계층을 재평가하고 현재의 effective 결과를 반환합니다.
+Aspose.Slides는 적절한 PowerPoint 또는 라이브러리 기본값을 해결합니다. 해당 해결된 값은 로컬 객체가 명시적으로 정의하지 않았더라도 유효 데이터에 나타납니다.
 
-**레이아웃/마스터 슬라이드를 변경하거나 제거하면 이미 가져온 effective 속성에 영향을 줍니까?**
+**왜 유효 값이 때때로 로컬 값과 동일한가요?**
 
-예, 변경 내용은 다음 `getEffective` 호출 시 반영됩니다. 부모 서식 원본이 변경되거나 제거되면 이전에 얻은 effective 데이터가 오래될 수 있습니다. `getEffective`를 다시 호출하면 Aspose.Slides가 서식 트리를 재평가하고 폰트, 색상, 크기 등 값이 변경될 수 있습니다.
+로컬 값이 상속 계산에서 승리했기 때문입니다. 객체에 속성이 명시적으로 설정되고 더 구체적인 규칙이 이를 덮어쓰지 않을 때 기대되는 상황입니다.
 
-**effective 데이터 객체를 통해 값을 수정할 수 있나요?**
+**언제 로컬 데이터를 사용하고 언제 유효 데이터를 사용해야 하나요?**
 
-아니오. Effective 데이터 객체는 계산된 값을 노출합니다. 로컬 서식 객체에서 변경하고 다시 effective 값을 얻어야 합니다.
-
-**속성이 도형 수준, 레이아웃/마스터, 전역 설정 중 어느 곳에도 설정되지 않은 경우 어떻게 됩니까?**
-
-effective 값은 PowerPoint와 Aspose.Slides 기본값을 포함하는 기본 메커니즘에 의해 결정됩니다. 해석된 값이 현재 effective 데이터의 일부가 됩니다.
-
-**effective 폰트 값만 보고 어느 수준에서 크기나 글꼴이 제공되었는지 알 수 있나요?**
-
-직접적으로는 알 수 없습니다. effective 데이터는 최종 값을 반환합니다.來源을 찾으려면 Portion, Paragraph, TextFrame 및 레이아웃, 마스터, 프레젠테이션 수준의 텍스트 스타일에서 로컬 값을 확인하여 첫 번째 명시적 정의가 어디에 있는지 확인하십시오.
-
-**왜 때때로 effective 값이 로컬 값과 동일하게 보이나요?**
-
-로컬 값이 최종 값이 되었기 때문입니다(상위 레벨 상속이 필요하지 않았습니다). 이런 경우 effective 값은 로컬 값과 일치합니다.
-
-**언제 effective 속성을 사용하고 언제 로컬 속성만 사용해야 하나요?**
-
-모든 상속이 적용된 “렌더링된” 결과가 필요할 때는 effective 데이터를 사용하십시오(예: 색상, 들여쓰기, 크기 정렬). 이러한 값을 나중에 서식 변경에 관계없이 보존하려면 필요한 속성을 자체 객체에 복사하십시오. 특정 레벨에서 서식을 변경해야 하는 경우 로컬 속성을 수정하고 필요에 따라 effective 데이터를 다시 읽어 결과를 확인하십시오.
+특정 서식 레벨을 검사하거나 편집하려면 로컬 데이터를 사용하십시오. 상속, 테마 규칙 및 적용 가능한 스타일이 해결된 후 최종 외관이 필요할 때는 유효 데이터를 사용합니다. [전체 비교 예제](#compare-local-inherited-and-effective-values)에서는 동일한 워크플로에서 두 가지를 모두 보여줍니다.

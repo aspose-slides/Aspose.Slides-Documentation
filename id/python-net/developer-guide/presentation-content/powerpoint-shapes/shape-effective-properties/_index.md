@@ -1,307 +1,259 @@
 ---
-title: Dapatkan Properti Efektif Bentuk dari Presentasi dengan Python
+title: Dapatkan Properti Efektif Shape dari Presentasi dalam Python
 linktitle: Properti Efektif
 type: docs
 weight: 50
 url: /id/python-net/shape-effective-properties/
 keywords:
-- properti bentuk
+- properti shape
 - properti kamera
 - rig cahaya
 - bentuk bevel
 - bingkai teks
 - gaya teks
 - tinggi font
-- format isi
+- format isian
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Temukan cara Aspose.Slides untuk Python via .NET menghitung dan menerapkan properti bentuk efektif untuk rendering PowerPoint yang tepat."
+description: "Pelajari cara menggunakan Aspose.Slides untuk Python via .NET untuk membedakan pemformatan shape lokal, diwariskan, dan efektif dalam presentasi PowerPoint."
 ---
-## **Ikhtisar**
+## **Memahami Properti Lokal, Warisan, dan Efektif**
 
-Topik ini menjelaskan perbedaan antara properti **lokal** dan **efektif**. Nilai lokal adalah nilai yang ditetapkan secara langsung pada tingkat pemformatan tertentu, seperti:
+Pemformatan PowerPoint dapat berasal dari beberapa tempat. Nilai yang disimpan langsung pada sebuah objek disebut **nilai lokal**. Jika nilai tersebut tidak diatur, PowerPoint akan melihat sumber pemformatan induk, seperti default paragraf, gaya teks, tata letak atau slide master, tema, atau default tingkat presentasi. Nilai-nilai tersebut disebut **nilai warisan**. Nilai yang tersisa setelah seluruh hierarki diselesaikan adalah **nilai efektif**, yang digunakan untuk merender objek.
 
-1. Properti bagian pada slide.  
-1. Gaya teks bentuk prototipe pada tata letak atau slide master, ketika bentuk bingkai teks bagian memiliki satu.  
-1. Pengaturan teks global dalam presentasi.
+Sebagai contoh, sebuah bagian teks mungkin tidak mendefinisikan tinggi fontnya sendiri. **font_height** lokalnya kemudian adalah `float("nan")`, yang berarti "tidak diset di sini." Bagian tersebut dapat mewarisi tinggi dari paragrafnya, gaya teks default pada presentasi, atau sumber lain yang berlaku. Memanggil [get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/iportionformat/get_effective/) pada format bagian mengembalikan tinggi yang telah diselesaikan akhir.
 
-Nilai lokal dapat didefinisikan atau diabaikan pada setiap tingkat. Ketika Aspose.Slides membutuhkan pemformatan akhir "sebagai render", ia menyelesaikan rantai pewarisan dan mengembalikan nilai **efektif**. Anda dapat memperolehnya dengan memanggil metode `get_effective` pada objek format lokal.
+Gunakan dua jenis data pemformatan untuk tujuan yang berbeda:
 
-Contoh berikut menunjukkan cara mendapatkan nilai efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) dengan bingkai teks dan setidaknya satu bagian.
+- Baca atau ubah objek format lokal, seperti [IPortionFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/iportionformat/), ketika Anda perlu mengontrol di mana nilai didefinisikan.
+- Baca objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/iportionformateffectivedata/), ketika Anda membutuhkan hasil akhir yang dirender. Data efektif bersifat read‑only.
 
-```py
+## **Membandingkan Nilai Lokal, Warisan, dan Efektif**
+
+Contoh lengkap berikut membuat sebuah shape dan menerapkan tinggi font pada tingkat presentasi, paragraf, dan bagian. Setiap langkah mencetak nilai yang didefinisikan pada tingkat tersebut serta nilai efektif yang dihasilkan untuk bagian teks yang sama. Contoh ini juga menunjukkan mengapa data efektif harus dibaca kembali setelah perubahan pemformatan.
+
+```python
+import math
+
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
 
-    local_text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = local_text_frame_format.get_effective()
+def format_local_value(value):
+    return "<not set>" if math.isnan(value) else str(value)
 
-    paragraph = shape.text_frame.paragraphs[0]
-    portion = paragraph.portions[0]
-    local_portion_format = portion.portion_format
-    effective_portion_format = local_portion_format.get_effective()
-```
 
-{{% alert color="primary" %}}
-Data pemformatan efektif mewakili pemformatan yang dihitung saat ini setelah pewarisan diterapkan. Dalam implementasi saat ini, beberapa objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/iportionformateffectivedata/), dapat disimpan dalam cache secara internal. Memanggil `get_effective` lagi setelah mengubah pemformatan induk atau yang diwariskan dapat menyegarkan data cache, dan objek yang sebelumnya diperoleh mungkin tidak lagi mewakili keadaan sebelumnya. Jika Anda perlu menyimpan nilai efektif untuk penggunaan kembali di masa mendatang, salin properti yang diperlukan, seperti tinggi font, warna isi, gaya font, atau perataan, ke dalam objek data Anda sendiri.
-{{% /alert %}}
+def print_font_heights(caption, presentation, paragraph, portion):
+    presentation_value = presentation.default_text_style.get_level(0).default_portion_format.font_height
+    paragraph_value = paragraph.paragraph_format.default_portion_format.font_height
+    local_value = portion.portion_format.font_height
 
-## **Mendapatkan Properti Efektif Kamera**
+    # Baca data efektif setelah perubahan sebelumnya.
+    effective_value = portion.portion_format.get_effective().font_height
 
-Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari kamera. Tipe [ICameraEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/icameraeffectivedata/) mewakili objek tak dapat diubah yang berisi properti kamera efektif. Sebuah instance [ICameraEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/icameraeffectivedata/) disajikan melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [ThreeDFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/).
+    print(caption)
+    print("  Presentation default: " + format_local_value(presentation_value))
+    print("  Paragraph default:    " + format_local_value(paragraph_value))
+    print("  Portion local:        " + format_local_value(local_value))
+    print("  Portion effective:    " + str(effective_value))
 
-Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk kamera. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    camera = three_d_effective_data.camera
-
-    camera_type = camera.camera_type
-    field_of_view_angle = camera.field_of_view_angle
-    zoom = camera.zoom
-
-    print("= Effective camera properties =")
-    print("Type: " + str(camera_type))
-    print("Field of view: " + str(field_of_view_angle))
-    print("Zoom: " + str(zoom))
-```
-
-## **Mendapatkan Properti Efektif Rig Cahaya**
-
-Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari rig cahaya. Tipe [ILightRigEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ilightrigeffectivedata/) mewakili objek tak dapat diubah yang berisi properti rig cahaya efektif. Sebuah instance [ILightRigEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ilightrigeffectivedata/) disajikan melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [ThreeDFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/).
-
-Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk rig cahaya. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    light_rig = three_d_effective_data.light_rig
-
-    light_type = light_rig.light_type
-    direction = light_rig.direction
-
-    print("= Effective light rig properties =")
-    print("Type: " + str(light_type))
-    print("Direction: " + str(direction))
-```
-
-## **Mendapatkan Properti Efektif Bentuk Bevel**
-
-Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari bevel bentuk. Tipe [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ishapebeveleffectivedata/) mewakili objek tak dapat diubah yang berisi properti relief wajah efektif untuk sebuah bentuk. Sebuah instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ishapebeveleffectivedata/) disajikan melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [ThreeDFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/).
-
-Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk bevel atas sebuah bentuk. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    top_bevel = three_d_effective_data.bevel_top
-
-    bevel_type = top_bevel.bevel_type
-    bevel_width = top_bevel.width
-    bevel_height = top_bevel.height
-
-    print("= Effective shape's top face relief properties =")
-    print("Type: " + str(bevel_type))
-    print("Width: " + str(bevel_width))
-    print("Height: " + str(bevel_height))
-```
-
-## **Mendapatkan Properti Efektif Bingkai Teks**
-
-Dengan Aspose.Slides, Anda dapat memperoleh properti efektif dari bingkai teks. Tipe [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/itextframeformateffectivedata/) berisi properti pemformatan bingkai teks yang efektif.
-
-Contoh kode berikut menunjukkan cara mendapatkan properti pemformatan bingkai teks yang efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) dengan bingkai teks.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = text_frame_format.get_effective()
-
-    anchoring_type = effective_text_frame_format.anchoring_type
-    autofit_type = effective_text_frame_format.autofit_type
-    text_vertical_type = effective_text_frame_format.text_vertical_type
-    margin_left = effective_text_frame_format.margin_left
-    margin_top = effective_text_frame_format.margin_top
-    margin_right = effective_text_frame_format.margin_right
-    margin_bottom = effective_text_frame_format.margin_bottom
-
-    print("Anchoring type: " + str(anchoring_type))
-    print("Autofit type: " + str(autofit_type))
-    print("Text vertical type: " + str(text_vertical_type))
-    print("Margins")
-    print("   Left: " + str(margin_left))
-    print("   Top: " + str(margin_top))
-    print("   Right: " + str(margin_right))
-    print("   Bottom: " + str(margin_bottom))
-```
-
-## **Mendapatkan Properti Efektif Gaya Teks**
-
-Dengan Aspose.Slides, Anda dapat memperoleh properti efektif dari gaya teks. Tipe [ITextStyleEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/itextstyleeffectivedata/) berisi properti gaya teks yang efektif.
-
-Contoh kode berikut menunjukkan cara mendapatkan properti gaya teks yang efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) dengan bingkai teks.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    text_frame_format = shape.text_frame.text_frame_format
-    text_style = text_frame_format.text_style
-    effective_text_style = text_style.get_effective()
-    level_count = 9
-
-    for level_index in range(level_count):
-        effective_style_level = effective_text_style.get_level(level_index)
-        depth = effective_style_level.depth
-        indent = effective_style_level.indent
-        alignment = effective_style_level.alignment
-        font_alignment = effective_style_level.font_alignment
-
-        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
-
-        print("Depth: " + str(depth))
-        print("Indent: " + str(indent))
-        print("Alignment: " + str(alignment))
-        print("Font alignment: " + str(font_alignment))
-```
-
-## **Mendapatkan Nilai Tinggi Font Efektif**
-
-Dengan Aspose.Slides, Anda dapat memperoleh tinggi font yang efektif. Kode berikut menunjukkan bagaimana tinggi font efektif sebuah bagian berubah setelah nilai tinggi font lokal diatur pada berbagai tingkat struktur presentasi.
-
-```py
-import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    auto_shape.add_text_frame("")
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 80, False)
+    text_frame = shape.add_text_frame("Effective formatting")
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
 
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
+    # Tentukan nilai warisan pada dua tingkat berbeda.
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 20
+    paragraph.paragraph_format.default_portion_format.font_height = 28
 
-    first_portion = slides.Portion("Sample text with first portion")
-    second_portion = slides.Portion(" and second portion.")
+    print_font_heights("The portion inherits from the paragraph", presentation, paragraph, portion)
 
-    paragraph.portions.add(first_portion)
-    paragraph.portions.add(second_portion)
+    # Nilai lokal pada portion menggantikan kedua nilai warisan.
+    portion.portion_format.font_height = 36
+    print_font_heights("A local value overrides inherited values", presentation, paragraph, portion)
 
-    print("Effective font height just after creation:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Mengubah nilai warisan tidak menggantikan nilai lokal yang ada.
+    paragraph.paragraph_format.default_portion_format.font_height = 30
+    print_font_heights("The local value still has priority", presentation, paragraph, portion)
 
-    default_text_style_level = presentation.default_text_style.get_level(0)
-    default_text_style_level.default_portion_format.font_height = 24
+    # Hapus nilai lokal. Portion kini mewarisi dari paragraf lagi.
+    portion.portion_format.font_height = float("nan")
+    print_font_heights("The local value is cleared", presentation, paragraph, portion)
 
-    print("Effective font height after setting the presentation default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Hapus nilai paragraf. Default presentasi kini menyediakan hasil.
+    paragraph.paragraph_format.default_portion_format.font_height = float("nan")
+    print_font_heights("The paragraph value is cleared", presentation, paragraph, portion)
 
-    paragraph.paragraph_format.default_portion_format.font_height = 40
-
-    print("Effective font height after setting paragraph default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    first_portion.portion_format.font_height = 55
-
-    print("Effective font height after setting portion #0 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    second_portion.portion_format.font_height = 18
-
-    print("Effective font height after setting portion #1 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("effective-properties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Mendapatkan Format Isi Efektif untuk Tabel**
+Prioritas dalam contoh ini adalah pemformatan lokal bagian, kemudian pemformatan paragraf, lalu default presentasi. Objek lain dapat memiliki rantai warisan yang berbeda, tetapi prinsipnya sama: nilai eksplisit yang lebih spesifik menang, dan [get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/iportionformat/get_effective/) mengembalikan hasil akhir.
 
-Dengan Aspose.Slides, Anda dapat memperoleh pemformatan isi yang efektif untuk berbagai bagian tabel. Tipe [IFillFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ifillformateffectivedata/) berisi properti pemformatan isi yang efektif. Pemformatan sel memiliki prioritas lebih tinggi daripada pemformatan baris, pemformatan baris memiliki prioritas lebih tinggi daripada pemformatan kolom, dan pemformatan kolom memiliki prioritas lebih tinggi daripada pemformatan seluruh tabel.
+## **Mendapatkan Properti Teks Efektif**
 
-Akibatnya, properti [ICellFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/icellformateffectivedata/) digunakan untuk menggambar sel tabel. Contoh kode berikut menunjukkan cara memperoleh pemformatan isi yang efektif untuk berbagai bagian tabel. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [Table](https://reference.aspose.com/slides/id/python-net/aspose.slides/table/).
+Pemformatan teks terbagi menjadi beberapa objek:
 
-```py
+- [ITextFrameFormat.get_effective()](https://reference.aspose.com/slides/id/python-net/aspose.slides/itextframeformat/get_effective/) menyelesaikan properti bingkai teks seperti margin, penempatan, autofit, dan arah teks vertikal.
+- [ITextStyle.get_effective()](https://reference.aspose.com/slides/id/python-net/aspose.slides/itextstyle/get_effective/) menyelesaikan pemformatan paragraf untuk setiap tingkat gaya teks.
+- [IParagraphFormat.get_effective()](https://reference.aspose.com/slides/id/python-net/aspose.slides/iparagraphformat/get_effective/) menyelesaikan properti paragraf seperti perataan, indentasi, dan bullet.
+- [IPortionFormat.get_effective()](https://reference.aspose.com/slides/id/python-net/aspose.slides/iportionformat/get_effective/) menyelesaikan properti karakter seperti tinggi font, jenis huruf, warna, bold, dan italic.
+
+Untuk contoh berikut, `text-formatting.pptx` harus berisi setidaknya satu slide dan satu [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/) dengan bingkai teks yang tidak kosong. AutoShape dapat berada pada posisi mana pun dalam koleksi shape; kode akan mencari objek yang cocok dan memvalidasinya sebelum digunakan.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    table = presentation.slides[0].shapes[0]
-    first_row = table.rows[0]
-    first_column = table.columns[0]
-    first_cell = first_row[0]
 
-    table_format_effective = table.table_format.get_effective()
-    row_format_effective = first_row.row_format.get_effective()
-    column_format_effective = first_column.column_format.get_effective()
-    cell_format_effective = first_cell.cell_format.get_effective()
+def has_non_empty_text(shape):
+    if not isinstance(shape, slides.AutoShape):
+        return False
+    if shape.text_frame is None:
+        return False
+    if shape.text_frame.paragraphs.count == 0:
+        return False
+    return shape.text_frame.paragraphs[0].portions.count > 0
 
-    table_fill_format_effective = table_format_effective.fill_format
-    row_fill_format_effective = row_format_effective.fill_format
-    column_fill_format_effective = column_format_effective.fill_format
-    cell_fill_format_effective = cell_format_effective.fill_format
+
+with slides.Presentation("text-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    shape = None
+    for candidate in presentation.slides[0].shapes:
+        if has_non_empty_text(candidate):
+            shape = candidate
+            break
+
+    if shape is None:
+        raise RuntimeError("The first slide must contain an AutoShape with non-empty text.")
+
+    text_frame = shape.text_frame
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+
+    text_frame_effective = text_frame.text_frame_format.get_effective()
+    paragraph_effective = paragraph.paragraph_format.get_effective()
+    portion_effective = portion.portion_format.get_effective()
+
+    print("Text frame margins:")
+    print("  Left: " + str(text_frame_effective.margin_left))
+    print("  Top: " + str(text_frame_effective.margin_top))
+    print("  Right: " + str(text_frame_effective.margin_right))
+    print("  Bottom: " + str(text_frame_effective.margin_bottom))
+    print("Paragraph alignment: " + str(paragraph_effective.alignment))
+    print("Font height: " + str(portion_effective.font_height))
+    print("Bold: " + str(portion_effective.font_bold))
+
+    effective_text_style = text_frame.text_frame_format.text_style.get_effective()
+    for level in range(9):
+        level_effective = effective_text_style.get_level(level)
+        print("Level " + str(level) + " indent: " + str(level_effective.indent))
 ```
+
+## **Mendapatkan Properti 3D Efektif**
+
+[IThreeDFormat.get_effective()](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformat/get_effective/) mengembalikan satu objek [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/) yang mengelompokkan semua pengaturan 3D yang telah diselesaikan. Properti [camera](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/camera/), [light_rig](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/light_rig/), [bevel_top](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/bevel_top/), dan [bevel_bottom](https://reference.aspose.com/slides/id/python-net/aspose.slides/ithreedformateffectivedata/bevel_bottom/) menampilkan data efektif yang bersangkutan. Membaca pengaturan terkait secara bersamaan memudahkan pemahaman tampilan 3D akhir sebuah shape.
+
+Untuk contoh ini, `shape-3d.pptx` harus berisi setidaknya satu shape pada slide pertama. Terapkan kamera 3D, pencahayaan, atau pengaturan bevel pada shape tersebut jika Anda menginginkan output dengan nilai selain default.
+
+```python
+import aspose.slides as slides
+
+
+with slides.Presentation("shape-3d.pptx") as presentation:
+    if presentation.slides.count == 0 or presentation.slides[0].shapes.count == 0:
+        raise RuntimeError("The first slide must contain a shape.")
+
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective = shape.three_d_format.get_effective()
+
+    print("Camera:")
+    print("  Type: " + str(three_d_effective.camera.camera_type))
+    print("  Field of view: " + str(three_d_effective.camera.field_of_view_angle))
+    print("  Zoom: " + str(three_d_effective.camera.zoom))
+
+    print("Light rig:")
+    print("  Type: " + str(three_d_effective.light_rig.light_type))
+    print("  Direction: " + str(three_d_effective.light_rig.direction))
+
+    print("Top bevel:")
+    print("  Type: " + str(three_d_effective.bevel_top.bevel_type))
+    print("  Width: " + str(three_d_effective.bevel_top.width))
+    print("  Height: " + str(three_d_effective.bevel_top.height))
+```
+
+## **Mendapatkan Pemformatan Tabel Efektif**
+
+Pemformatan tabel dapat berasal dari gaya tabel dan dari format yang diterapkan pada seluruh tabel, kolom, baris, atau sel individu. Untuk konflik antara isi yang didefinisikan secara eksplisit, prioritasnya adalah sel, baris, kolom, dan kemudian seluruh tabel. Format efektif sebuah sel adalah format akhir yang digunakan untuk menggambar sel tersebut.
+
+Untuk contoh ini, `table-formatting.pptx` harus berisi setidaknya satu tabel pada slide pertama. Tabel harus memiliki setidaknya satu baris dan satu kolom. Kode mencari sebuah [Table](https://reference.aspose.com/slides/id/python-net/aspose.slides/table/) alih‑alih mengasumsikan bahwa `shapes[0]` adalah tabel.
+
+```python
+import aspose.slides as slides
+
+
+with slides.Presentation("table-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    table = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
+
+    if table is None:
+        raise RuntimeError("The first slide must contain a table.")
+
+    if table.rows.count == 0 or table.columns.count == 0:
+        raise RuntimeError("The table must contain at least one cell.")
+
+    table_effective = table.table_format.get_effective()
+    row_effective = table.rows[0].row_format.get_effective()
+    column_effective = table.columns[0].column_format.get_effective()
+    cell_effective = table.rows[0][0].cell_format.get_effective()
+
+    print("Table fill: " + str(table_effective.fill_format.fill_type))
+    print("Row fill: " + str(row_effective.fill_format.fill_type))
+    print("Column fill: " + str(column_effective.fill_format.fill_type))
+    print("Final cell fill: " + str(cell_effective.fill_format.fill_type))
+```
+
+Jika Anda membutuhkan warna alih‑alih hanya tipe isian, pertama periksa [fill_type](https://reference.aspose.com/slides/id/python-net/aspose.slides/ifillformateffectivedata/fill_type/) yang efektif, kemudian baca properti yang berlaku untuk tipe tersebut, misalnya [solid_fill_color](https://reference.aspose.com/slides/id/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) untuk isian solid.
+
+## **Baca Ulang Data Efektif Setelah Perubahan**
+
+Data efektif menggambarkan hierarki pemformatan pada saat diselesaikan. Panggil `get_effective` lagi setelah mengubah apa pun yang dapat berpartisipasi dalam hierarki tersebut, termasuk:
+
+- pemformatan lokal objek;
+- default paragraf atau bingkai teks;
+- gaya tabel, tabel, kolom, baris, atau format sel;
+- pemformatan tata letak atau slide master;
+- data tema atau default tingkat presentasi;
+- tata letak atau master yang ditetapkan pada slide.
+
+Jangan menyimpan objek data efektif sebagai snapshot permanen. Aspose.Slides dapat menyimpan beberapa data efektif secara internal, dan panggilan `get_effective` berikutnya dapat menyegarkan data tersebut. Jika Anda perlu membandingkan nilai sebelum dan sesudah perubahan, salin nilai skalar yang diperlukan, seperti tinggi font, warna, perataan, atau lebar bevel, ke variabel Anda sendiri sebelum melakukan perubahan.
+
+Untuk mengubah sebuah nilai, perbarui objek format lokal yang sesuai, lalu panggil `get_effective` untuk memverifikasi hasilnya. Objek data efektif bersifat read‑only.
 
 ## **FAQ**
 
-**Apakah `get_effective` mengembalikan snapshot?**
+**Bagaimana saya dapat mengetahui level mana yang menyediakan nilai efektif?**
 
-Tidak selalu. Data efektif mewakili pemformatan yang dihitung setelah pewarisan diterapkan, tetapi beberapa objek data efektif dapat disimpan dalam cache secara internal. Panggilan `get_effective` berikutnya mungkin menghitung ulang pemformatan dan menyegarkan data cache, sehingga objek yang sebelumnya diperoleh tidak boleh dianggap sebagai snapshot yang tahan lama.
+Data efektif berisi nilai akhir, bukan sumbernya. Periksa objek lokal yang berlaku mulai dari level paling spesifik ke arah luar. Untuk teks, ini dapat mencakup bagian, paragraf, bingkai teks, tata letak, master, tema, dan default presentasi. Nilai yang tidak terdefinisi seperti `float("nan")` atau `None` menunjukkan bahwa pencarian berlanjut ke level lain.
 
-**Kapan saya harus membaca kembali properti efektif?**
+**Apa yang terjadi jika tidak ada level yang mendefinisikan properti?**
 
-Panggil `get_effective` lagi setelah mengubah pemformatan lokal, gaya induk, pemformatan tata letak, pemformatan master, atau nilai default pada level presentasi. Panggilan berikutnya akan mengevaluasi kembali hierarki pemformatan dan mengembalikan hasil efektif saat ini.
+Aspose.Slides menyelesaikan default PowerPoint atau library yang sesuai. Nilai yang diselesaikan muncul dalam data efektif meskipun tidak ada objek lokal yang secara eksplisit mendefinisikannya.
 
-**Apakah mengubah atau menghapus slide tata letak/master memengaruhi properti efektif yang sudah diambil?**
+**Mengapa nilai efektif kadang‑kadang sama dengan nilai lokal?**
 
-Ya, tetapi perubahan tersebut tercermin pada panggilan `get_effective` berikutnya. Jika sumber pemformatan induk diubah atau dihapus, data efektif yang sebelumnya diperoleh mungkin sudah usang. Setelah `get_effective` dipanggil lagi, Aspose.Slides akan mengevaluasi kembali pohon pemformatan dan font, warna, ukuran, atau nilai lainnya yang dihasilkan dapat berubah.
+Nilai lokal memenangkan perhitungan warisan. Hal ini diharapkan ketika properti secara eksplisit diset pada objek dan tidak ada aturan yang lebih spesifik yang menimpanya.
 
-**Dapatkah saya mengubah nilai melalui objek data efektif?**
+**Kapan saya harus menggunakan data lokal daripada data efektif?**
 
-Tidak. Objek data efektif hanya menampilkan nilai yang dihitung. Lakukan perubahan pada objek pemformatan lokal, kemudian peroleh kembali nilai efektif.
-
-**Apa yang terjadi jika sebuah properti tidak diatur pada tingkat bentuk, maupun pada tata letak/master, maupun pada pengaturan global?**
-
-Nilai efektif ditentukan oleh mekanisme default, yang mencakup nilai default PowerPoint dan Aspose.Slides. Nilai yang terpecahkan itu menjadi bagian dari data efektif saat ini.
-
-**Dari nilai font efektif, dapatkah saya mengetahui level mana yang menyediakan ukuran atau jenis huruf?**
-
-Tidak secara langsung. Data efektif mengembalikan nilai akhir. Untuk menemukan sumbernya, periksa nilai lokal pada bagian, paragraf, bingkai teks, dan gaya teks pada tata letak, master, serta tingkat presentasi untuk melihat di mana definisi eksplisit pertama muncul.
-
-**Mengapa nilai efektif kadang-kadang terlihat identik dengan nilai lokal?**
-
-Karena nilai lokal berakhir menjadi nilai akhir (tidak diperlukan pewarisan dari tingkat lebih tinggi). Dalam kasus tersebut, nilai efektif cocok dengan nilai lokal.
-
-**Kapan saya harus menggunakan properti efektif, dan kapan saya harus bekerja hanya dengan properti lokal?**
-
-Gunakan data efektif ketika Anda memerlukan hasil "sebagai render" setelah semua pewarisan diterapkan, seperti menyelaraskan warna, indentasi, atau ukuran. Jika Anda perlu mempertahankan nilai tersebut terlepas dari perubahan pemformatan nantinya, salin properti yang diperlukan ke dalam objek Anda sendiri. Jika Anda perlu mengubah pemformatan pada tingkat tertentu, modifikasi properti lokal dan kemudian, bila perlu, baca kembali data efektif untuk memverifikasi hasilnya.
+Gunakan data lokal untuk memeriksa atau mengedit level pemformatan tertentu. Gunakan data efektif ketika Anda memerlukan tampilan akhir setelah warisan, aturan tema, dan gaya yang berlaku telah diselesaikan. Contoh perbandingan lengkap ([complete comparison example](#compare-local-inherited-and-effective-values)) memperlihatkan keduanya dalam alur kerja yang sama.

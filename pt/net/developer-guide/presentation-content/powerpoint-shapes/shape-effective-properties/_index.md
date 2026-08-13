@@ -1,5 +1,5 @@
 ---
-title: Obter propriedades efetivas de formas de apresentações em .NET
+title: Obter Propriedades Efetivas de Formas de Apresentações em .NET
 linktitle: Propriedades Efetivas
 type: docs
 weight: 50
@@ -7,9 +7,9 @@ url: /pt/net/shape-effective-properties/
 keywords:
 - propriedades de forma
 - propriedades de câmera
-- rig de luz
+- rig de iluminação
 - forma chanfrada
-- quadro de texto
+- moldura de texto
 - estilo de texto
 - altura da fonte
 - formato de preenchimento
@@ -18,264 +18,247 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra como o Aspose.Slides para .NET calcula e aplica propriedades efetivas de forma para renderização precisa no PowerPoint."
+description: "Saiba como usar Aspose.Slides para .NET para distinguir a formatação local, herdada e efetiva de formas em apresentações do PowerPoint."
 ---
-## **Visão geral**
+## **Entender Propriedades Locais, Herdadas e Efetivas**
 
-Este tópico explica a diferença entre propriedades **local** e **efetivas**. Valores locais são valores definidos diretamente em um nível específico de formatação, como:
+A formatação do PowerPoint pode vir de vários lugares. O valor armazenado diretamente em um objeto é seu **valor local**. Se esse valor não estiver definido, o PowerPoint procura fontes de formatação pai, como o padrão de parágrafo, um estilo de texto, um layout ou slide mestre, um tema ou padrões a nível de apresentação. Esses valores são **valores herdados**. O valor que permanece após toda a hierarquia ser resolvida é o **valor efetivo** — o valor usado para renderizar o objeto.
 
-1. Propriedades de porção em um slide.
-1. Estilos de texto de forma de protótipo em um layout ou slide mestre, quando a forma de quadro de texto da porção possui um.
-1. Configurações de texto globais em uma apresentação.
+Por exemplo, uma parte de texto pode não definir sua própria altura de fonte. Seu [FontHeight](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseportionformat/fontheight/) local é então `float.NaN`, que significa "não definido aqui". A parte pode herdar uma altura do seu parágrafo, do estilo de texto padrão da apresentação ou de outra fonte aplicável. Chamar [GetEffective](https://reference.aspose.com/slides/pt/net/aspose.slides/iportionformat/geteffective/) no formato da parte retorna a altura final resolvida.
 
-Valores locais podem ser definidos ou omitidos em qualquer nível. Quando o Aspose.Slides precisa da formatação final "como renderizada", ele resolve a cadeia de herança e retorna valores **efetivos**. Você pode obtê-los chamando o método `GetEffective` no objeto de formato local.
+Use os dois tipos de dados de formatação para propósitos diferentes:
 
-O exemplo a seguir mostra como obter valores efetivos. Ele assume que a primeira forma no primeiro slide é um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) com um quadro de texto e ao menos uma porção.
+- Leia ou altere um objeto de formato local, como [IPortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/iportionformat/), quando precisar controlar onde um valor é definido.
+- Leia um objeto de dados efetivo, como [IPortionFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/iportionformateffectivedata/), quando precisar do resultado final renderizado. Dados efetivos são somente leitura.
 
-```csharp
-using var presentation = new Presentation("sample.pptx");
+## **Comparar Valores Locais, Herdados e Efetivos**
 
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-Os dados de formatação efetiva representam a formatação calculada atual após a aplicação da herança. Na implementação atual, alguns objetos de dados eficazes, como [IPortionFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/iportionformateffectivedata/), podem ser armazenados em cache internamente. Chamar `GetEffective` novamente após alterar a formatação pai ou herdada pode atualizar o cache, e um objeto obtido anteriormente pode não representar mais o estado anterior. Se precisar preservar valores efetivos para reutilização posterior, copie as propriedades necessárias, como altura da fonte, cor de preenchimento, estilo da fonte ou alinhamento, para o seu próprio objeto de dados.
-{{% /alert %}}
-
-## **Obter propriedades efetivas de uma câmera**
-
-O Aspose.Slides permite obter propriedades efetivas de uma câmera. A interface [ICameraEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/icameraeffectivedata/) representa um objeto imutável que contém propriedades efetivas da câmera. Uma instância de [ICameraEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/icameraeffectivedata/) é exposta através de [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/), que fornece valores efetivos para [IThreeDFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformat/).
-
-O exemplo de código a seguir mostra como obter propriedades efetivas para a câmera. Ele assume que a primeira forma no primeiro slide possui formatação 3D.
+O exemplo completo a seguir cria uma forma e aplica alturas de fonte nos níveis de apresentação, parágrafo e parte. Cada etapa imprime os valores definidos nesses níveis e o valor efetivo resultante para a mesma parte de texto. Também demonstra por que os dados efetivos devem ser lidos novamente após alterações de formatação.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **Obter propriedades efetivas de um rig de luz**
-
-O Aspose.Slides permite obter propriedades efetivas de um rig de luz. A interface [ILightRigEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ilightrigeffectivedata/) representa um objeto imutável que contém propriedades efetivas do rig de luz. Uma instância de [ILightRigEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ilightrigeffectivedata/) é exposta através de [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/), que fornece valores efetivos para [IThreeDFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformat/).
-
-O exemplo de código a seguir mostra como obter propriedades efetivas para o rig de luz. Ele assume que a primeira forma no primeiro slide possui formatação 3D.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **Obter propriedades efetivas de um chanfro de forma**
-
-O Aspose.Slides permite obter propriedades efetivas de um chanfro de forma. A interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapebeveleffectivedata/) representa um objeto imutável que contém propriedades de relevo de faces efetivas para uma forma. Uma instância de [IShapeBevelEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapebeveleffectivedata/) é exposta através de [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/), que fornece valores efetivos para [IThreeDFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformat/).
-
-O exemplo de código a seguir mostra como obter propriedades efetivas para o chanfro superior de uma forma. Ele assume que a primeira forma no primeiro slide possui formatação 3D.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **Obter propriedades efetivas de um quadro de texto**
-
-O Aspose.Slides permite obter propriedades efetivas de um quadro de texto. A interface [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformateffectivedata/) contém propriedades de formatação efetiva do quadro de texto.
-
-O exemplo de código a seguir mostra como obter propriedades de formatação efetiva do quadro de texto. Ele assume que a primeira forma no primeiro slide é um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) com um quadro de texto.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **Obter propriedades efetivas de um estilo de texto**
-
-O Aspose.Slides permite obter propriedades efetivas de um estilo de texto. A interface [ITextStyleEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/itextstyleeffectivedata/) contém propriedades de estilo de texto efetivas.
-
-O exemplo de código a seguir mostra como obter propriedades de estilo de texto efetivas. Ele assume que a primeira forma no primeiro slide é um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/) com um quadro de texto.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **Obter o valor efetivo da altura da fonte**
-
-O Aspose.Slides permite obter a altura da fonte efetiva. O código a seguir demonstra como a altura da fonte efetiva de uma porção muda após valores de altura de fonte locais serem definidos em diferentes níveis da estrutura da apresentação.
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// Defina valores herdados em dois níveis diferentes.
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// Um valor local na parte substitui ambos os valores herdados.
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Alterar um valor herdado não substitui um valor local existente.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// Limpe o valor local. A parte agora herda novamente do parágrafo.
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Limpe o valor do parágrafo. O padrão da apresentação agora fornece o resultado.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // Leia os dados efetivos após as alterações precedentes.
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **Obter o formato de preenchimento efetivo para uma tabela**
+A prioridade neste exemplo é a formatação local da parte, depois a formatação do parágrafo e, por fim, o padrão da apresentação. Outros objetos podem ter cadeias de herança diferentes, mas o princípio é o mesmo: um valor explícito mais específico vence, e [GetEffective](https://reference.aspose.com/slides/pt/net/aspose.slides/iportionformat/geteffective/) retorna o resultado final.
 
-O Aspose.Slides permite obter formatação de preenchimento efetiva para diferentes partes de uma tabela. A interface [IFillFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ifillformateffectivedata/) contém propriedades de formatação de preenchimento efetivas. A formatação de célula tem prioridade maior que a formatação de linha, que tem prioridade maior que a formatação de coluna, que tem prioridade maior que a formatação de tabela inteira.
+## **Obter Propriedades de Texto Efetivas**
 
-Como resultado, as propriedades de [ICellFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/icellformateffectivedata/) são usadas para desenhar a célula da tabela. O exemplo de código a seguir mostra como obter formatação de preenchimento efetiva para diferentes partes da tabela. Ele assume que a primeira forma no primeiro slide é um [ITable](https://reference.aspose.com/slides/pt/net/aspose.slides/itable/).
+A formatação de texto está dividida entre vários objetos:
+
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframeformat/geteffective/) resolve propriedades da moldura de texto, como margens, ancoragem, ajuste automático e direção vertical do texto.
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/pt/net/aspose.slides/itextstyle/geteffective/) resolve a formatação de parágrafo para cada nível de estilo de texto.
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraphformat/geteffective/) resolve propriedades do parágrafo, como alinhamento, recuo e marcadores.
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/pt/net/aspose.slides/iportionformat/geteffective/) resolve propriedades de caractere, como altura de fonte, família, cor, negrito e itálico.
+
+Para o próximo exemplo, `text-formatting.pptx` deve conter ao menos um slide e uma [AutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/autoshape/) com uma moldura de texto não vazia. A AutoShape pode estar em qualquer posição na coleção de formas; o código procura um objeto adequado e o valida antes do uso.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
+
+## **Obter Propriedades 3D Efetivas**
+
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformat/geteffective/) retorna um objeto [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/) que agrupa todas as configurações 3D resolvidas. Suas propriedades [Camera](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/camera/), [LightRig](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/lightrig/), [BevelTop](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/beveltop/) e [BevelBottom](https://reference.aspose.com/slides/pt/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) expõem os dados efetivos correspondentes. Ler essas configurações relacionadas em conjunto facilita a compreensão da aparência 3D final de uma forma.
+
+Para este exemplo, `shape-3d.pptx` deve conter ao menos uma forma no seu primeiro slide. Aplique configurações de câmera 3D, iluminação ou chanfradura nessa forma se desejar que a saída contenha valores diferentes dos padrões.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("shape-3d.pptx");
+
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
+
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
+
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
+
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
+
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
+
+## **Obter Formatação de Tabela Efetiva**
+
+A formatação de tabela pode vir do estilo da tabela e de formatações aplicadas à tabela inteira, a uma coluna, a uma linha ou a uma célula individual. Em conflitos entre preenchimentos explicitamente definidos, a prioridade é célula, linha, coluna e depois tabela inteira. O formato efetivo de uma célula é o formato final usado para desenhá‑la.
+
+Para este exemplo, `table-formatting.pptx` deve conter ao menos uma tabela no seu primeiro slide. A tabela deve ter ao menos uma linha e uma coluna. O código procura um [ITable](https://reference.aspose.com/slides/pt/net/aspose.slides/itable/) em vez de assumir que `Shapes[0]` é uma tabela.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("table-formatting.pptx");
+
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
+
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
+
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
+
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+Se precisar da cor ao invés apenas do tipo de preenchimento, primeiro verifique o [FillType](https://reference.aspose.com/slides/pt/net/aspose.slides/ifillformateffectivedata/filltype/) efetivo e, em seguida, leia a propriedade que se aplica a esse tipo — por exemplo, [SolidFillColor](https://reference.aspose.com/slides/pt/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) para um preenchimento sólido.
+
+## **Re‑ler Dados Efetivos Após Alterações**
+
+Dados efetivos descrevem a hierarquia de formatação no momento em que são resolvidos. Chame `GetEffective` novamente após alterar qualquer coisa que possa participar dessa hierarquia, incluindo:
+
+- a formatação local do objeto;
+- padrões de parágrafo ou de moldura de texto;
+- um estilo de tabela, tabela, coluna, linha ou formato de célula;
+- formatação de layout ou slide mestre;
+- dados de tema ou padrões a nível de apresentação;
+- o layout ou mestre atribuído a um slide.
+
+Não mantenha um objeto de dados efetivo como uma captura permanente. Aspose.Slides pode armazenar alguns dados efetivos em cache internamente, e uma chamada posterior a `GetEffective` pode atualizar esses dados. Se precisar comparar valores antes e depois de uma mudança, copie os valores escalares que precisar — como altura de fonte, cor, alinhamento ou largura da chanfradura — para suas próprias variáveis antes de fazer a alteração.
+
+Para mudar um valor, atualize o objeto de formato local apropriado e então chame `GetEffective` para verificar o resultado. Os próprios objetos de dados efetivos são somente leitura.
 
 ## **FAQ**
 
-**`GetEffective` retorna um instantâneo?**
+**Como posso saber qual nível forneceu um valor efetivo?**
 
-Nem sempre. Dados efetivos representam a formatação calculada após a aplicação da herança, mas alguns objetos de dados efetivos podem ser armazenados em cache internamente. Uma chamada subsequente a `GetEffective` pode recalcular a formatação e atualizar o cache, portanto um objeto obtido anteriormente não deve ser tratado como um instantâneo permanente.
+Os dados efetivos contêm o valor final, não sua origem. Inspecione os objetos locais aplicáveis do nível mais específico para fora. Para texto, isso pode incluir a parte, o parágrafo, a moldura de texto, o layout, o mestre, o tema e os padrões da apresentação. Valores indefinidos como `float.NaN` ou `null` indicam que a busca continua em outro nível.
 
-**Quando devo ler as propriedades efetivas novamente?**
+**O que acontece quando nenhum nível define uma propriedade?**
 
-Chame `GetEffective` novamente após alterar a formatação local, estilos pai, formatação de layout, formatação mestre ou padrões ao nível da apresentação. A chamada seguinte reavalia a hierarquia de formatação e retorna o resultado efetivo atual.
+Aspose.Slides resolve o padrão apropriado do PowerPoint ou da biblioteca. Esse valor resolvido aparece nos dados efetivos mesmo que nenhum objeto local o tenha definido explicitamente.
 
-**Alterar ou remover um slide de layout/mestre afeta as propriedades efetivas que já foram obtidas?**
+**Por que um valor efetivo às vezes é igual ao valor local?**
 
-Sim, mas a alteração só se reflete na próxima chamada a `GetEffective`. Se uma fonte de formatação pai for alterada ou removida, os dados efetivos obtidos anteriormente podem estar desatualizados. Quando `GetEffective` for chamado novamente, o Aspose.Slides reavalia a árvore de formatação e as fontes, cores, tamanhos ou outros valores resultantes podem mudar.
+O valor local venceu o cálculo de herança. Isso é esperado quando a propriedade está explicitamente definida no objeto e nenhuma regra mais específica a sobrescreve.
 
-**Posso modificar valores através de objetos de dados efetivos?**
+**Quando devo usar dados locais em vez de dados efetivos?**
 
-Não. Objetos de dados efetivos expõem apenas valores calculados. Faça alterações nos objetos de formatação local e, em seguida, obtenha os valores efetivos novamente.
-
-**O que acontece se uma propriedade não estiver definida no nível da forma, nem no layout/mestre, nem nas configurações globais?**
-
-O valor efetivo é determinado pelo mecanismo padrão, que inclui os padrões do PowerPoint e do Aspose.Slides. Esse valor resolvido passa a fazer parte dos dados efetivos atuais.
-
-**A partir de um valor de fonte efetivo, posso saber qual nível forneceu o tamanho ou a família?**
-
-Não diretamente. Os dados efetivos retornam o valor final. Para descobrir a origem, verifique os valores locais na porção, parágrafo, quadro de texto e estilos de texto nos níveis de layout, mestre e apresentação para identificar onde aparece a primeira definição explícita.
-
-**Por que os valores efetivos às vezes parecem idênticos aos locais?**
-
-Porque o valor local acabou sendo final (não foi necessária herança de nível superior). Nestes casos, o valor efetivo corresponde ao local.
-
-**Quando devo usar propriedades efetivas e quando devo trabalhar apenas com as locais?**
-
-Use dados efetivos quando precisar do resultado "como renderizado" após todas as heranças serem aplicadas, como para alinhar cores, recuos ou tamanhos. Se precisar preservar esses valores independentemente de mudanças de formatação posteriores, copie as propriedades necessárias para seu próprio objeto. Se precisar alterar a formatação em um nível específico, modifique as propriedades locais e, se necessário, leia os dados efetivos novamente para verificar o resultado.
+Use dados locais para inspecionar ou editar um nível específico de formatação. Use dados efetivos quando precisar da aparência final após a herança, regras de tema e estilos aplicáveis terem sido resolvidos. O [exemplo completo de comparação](#compare-local-inherited-and-effective-values) demonstra ambos no mesmo fluxo de trabalho.

@@ -1,5 +1,5 @@
 ---
-title: Управление данными серии диаграммы в презентациях на Java
+title: Управление сериями данных диаграмм в презентациях на Java
 linktitle: Серии данных
 type: docs
 url: /ru/java/chart-series/
@@ -7,354 +7,393 @@ keywords:
 - серии диаграмм
 - перекрытие серий
 - цвет серии
-- цвет категории
 - имя серии
 - точка данных
-- промежуток серии
+- ячейка рабочей книги
+- промежуток между сериями
+- отрицательное значение
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как управлять сериями диаграмм в Java для PowerPoint (PPT/PPTX) с практическими примерами кода и лучшими практиками для улучшения ваших презентаций данных."
+description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной промежутка и отрицательными значениями в презентациях с помощью Java."
 ---
+## **Обзор**
 
-Ряд — это строка или столбец чисел, отображённых на диаграмме.
+Диаграмма хранит свои построенные данные в рабочей книге данных диаграммы. [IChartSeries](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/) представляет один набор связанных значений, и каждый [IChartDataPoint](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [IChartCategory](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartcategory/) предоставляют метки или значения группировки, общие для серии. Поэтому имя серии, категории и значения точек связаны с объектами [IChartDataCell](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatacell/), а не хранятся только как отображаемый текст.
+
+Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имен серий, столбец 0 для имен категорий и оставшиеся ячейки — для значений серий. Индексы листа, строки и столбца, передаваемые в [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-), начинаются с нуля. Такая раскладка удобна, когда вы создаёте диаграмму с данными по умолчанию, но не следует предполагать, что каждая существующая диаграмма использует её. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем изменять значения в рабочей книге.
+
+Настройки диаграммы имеют три разных уровня:
+
+- Настройки уровня серии, такие как [IChartSeries.getFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getFormat--), задают внешний вид по умолчанию для всех точек одной серии.
+- Настройки точек данных, такие как [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#getFormat--), переопределяют формат серии для отдельной точки.
+- Настройки группы применяются к совместимым сериям, которые принадлежат одному [IChartSeriesGroup](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseriesgroup/). Получите доступ к группе через [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) при необходимости задать параметры, такие как перекрытие или ширина промежутка.
+
+Когда явное заполнение точки или серии не задано, стиль и тема диаграммы определяют автоматический внешний вид. Когда присутствует как форматирование серии, так и точек, форматирование точек имеет приоритет для этой точки.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Установить перекрытие серий диаграммы**
+## **Установить перекрытие серии диаграммы**
 
-С помощью свойства [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) вы можете указать степень перекрытия столбцов и гистограмм на 2D-диаграмме (диапазон: -100 до 100). Это свойство применяется ко всем сериям родительской группы серий: это проекция соответствующего свойства группы. Следовательно, свойство только для чтения. 
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getOverlap--) сообщает, насколько столбцы или бары перекрываются в 2D‑диаграмме, в диапазоне от -100 до 100 процентов. Это только чтение проекции настройки в родительской группе серий. Используйте [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) для обновления всех совместимых серий в этой группе. Эта опция применима к типам диаграмм, отображающим группированные бары или столбцы; она не затрагивает несвязанные группы серий в комбинированной диаграмме.
 
-Используйте свойство `ParentSeriesGroup.Overlap` с чтением/записью, чтобы задать требуемое значение для `Overlap`. 
+Следующий пример задаёт перекрытие для группы, содержащей первую серию:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Добавьте сгруппированную столбчатую диаграмму на слайд.
-1. Получите доступ к первой серии диаграммы.
-1. Получите доступ к `ParentSeriesGroup` серии диаграммы и задайте требуемое значение перекрытия.
-1. Сохраните изменённую презентацию в файл PPTX.
-
-Этот код на Java показывает, как установить перекрытие для серии диаграммы:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
 try {
-    // Добавляет диаграмму
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Устанавливает перекрытие серии
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Новая диаграмма содержит примерные серии, категории и значения.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Результат:
+
+![The series overlap](series_overlap.png)
+
+## **Изменить цвет заливки серии**
+
+Используйте [IChartSeries.getFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getFormat--) для задания заливки по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#getFormat--) переопределит заливку серии для этой точки.
+
+Следующий пример применяет сплошную синюю заливку к первой серии:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Результат:
+
+![The color of the series](series_color.png)
+
+## **Изменить имя серии**
+
+Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для группированных столбчатых диаграмм ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Вы также можете обновить ячейку, уже возвращённую [IChartSeries.getName](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getName--). Такой подход избегает предположений о конкретных строках и столбцах в существующей диаграмме:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Результат:
+
+![The series name](series_name.png)
+
+## **Получить автоматический цвет заливки серии**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) возвращает цвет, вычисленный из индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии не определена явно. Вызов метода лишь читает рассчитанный цвет; он не задаёт новую заливку.
+
+Следующий пример выводит автоматический цвет каждой серии по умолчанию:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        Color automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
     }
-
-    // Записывает файл презентации на диск
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Пример вывода для стиля диаграммы по умолчанию:
 
-## **Изменить цвет серии**
-
-Aspose.Slides for Java позволяет изменить цвет серии следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Добавьте диаграмму на слайд.
-1. Получите доступ к серии, цвет которой необходимо изменить.
-1. Установите требуемый тип заливки и цвет заливки.
-1. Сохраните изменённую презентацию.
-
-Этот код на Java показывает, как изменить цвет серии:
-```java
-Presentation pres = new Presentation("test.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
-
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-
-## **Изменить цвет категории серии**
-
-Aspose.Slides for Java позволяет изменить цвет категории серии следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Добавьте диаграмму на слайд.
-1. Получите доступ к категории серии, цвет которой необходимо изменить.
-1. Установите требуемый тип заливки и цвет заливки.
-1. Сохраните изменённую презентацию.
-
-Этот код на Java показывает, как изменить цвет категории серии:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Изменить имя серии** 
-
-По умолчанию имена в легенде диаграммы берутся из содержимого ячеек над каждым столбцом или строкой данных. 
-
-В нашем примере (пример изображения),
-
-* столбцы — *Series 1, Series 2,* и *Series 3*; * строки — *Category 1, Category 2, Category 3,* и *Category 4.* 
-
-Aspose.Slides for Java позволяет обновлять или изменять имя серии в данных диаграммы и в легенде. 
-
-Этот код на Java показывает, как изменить имя серии в данных диаграммы `ChartDataWorkbook`:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-Этот код на Java показывает, как изменить имя серии в легенде через`Series`:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Установить цвет заливки серии диаграммы**
-
-Aspose.Slides for Java позволяет установить автоматический цвет заливки серии диаграммы в области построения следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию, выбрав предпочтительный тип (в примере ниже использовался `ChartType.ClusteredColumn`).
-1. Получите доступ к серии диаграммы и установите цвет заливки в Automatic.
-1. Сохраните презентацию в файл PPTX.
-
-Этот код на Java показывает, как установить автоматический цвет заливки для серии диаграммы:
-```java
-Presentation pres = new Presentation();
-try {
-    // Создает сгруппированную столбчатую диаграмму
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // Устанавливает автоматический формат заливки серии
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // Записывает файл презентации на диск
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
+Точные цвета зависят от стиля и темы диаграммы.
 
 ## **Установить инвертированный цвет заливки для серии диаграммы**
 
-Aspose.Slides позволяет установить инвертированный цвет заливки для серии диаграммы в области построения следующим образом:
+Для серий типа бар, столбец и пузырь [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) может отображать отрицательные значения другими цветами. Задайте обычную заливку серии сплошной, включите инверсию и задайте цвет для отрицательных значений через [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Отрицательные числа в рабочей книге остаются без изменений; меняется только их цвет отображения.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию, выбрав предпочтительный тип (в примере ниже использовался `ChartType.ClusteredColumn`).
-1. Получите доступ к серии диаграммы и установите цвет заливки в invert.
-1. Сохраните презентацию в файл PPTX.
+Следующий пример заменяет данные по умолчанию одной серией. Строка 0 листа содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
 
-Этот код демонстрирует операцию:
 ```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
 
-    // Добавляет новые серии и категории
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
 
-    // Получает первую серию диаграммы и заполняет её данные.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
 
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
 
-## **Установить инвертирование серии при отрицательном значении**
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
 
-Aspose.Slides позволяет задавать инвертирование через свойства `IChartDataPoint.InvertIfNegative` и `ChartDataPoint.InvertIfNegative`. При установке инвертирования с помощью этих свойств точка данных изменяет свои цвета при получении отрицательного значения. 
-
-Этот код на Java демонстрирует операцию:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-
-    chartSeries.setInvertIfNegative(false);
-
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Очистить данные конкретной точки**
-
-Aspose.Slides for Java позволяет очистить данные `DataPoints` для конкретной серии диаграммы следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Получите ссылку на диаграмму по её индексу.
-4. Пройдите по всем `DataPoints` диаграммы и задайте `XValue` и `YValue` как null.
-5. Очистите все`DataPoints` для конкретной серии диаграммы.
-6. Запишите изменённую презентацию в файл PPTX.
-
-Этот код демонстрирует операцию:
-```java
-Presentation pres = new Presentation("TestChart.pptx");
-try {
-    ISlide sl = pres.getSlides().get_Item(0);
-
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
-
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Результат:
+
+![The inverted solid fill color](inverted_solid_fill_color.png)
+
+Вы можете включить инверсию для одной точки через [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присваивается отрицательное значение, чтобы эффект был видим:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Очистить конкретное значение точки данных**
+
+Чтобы сделать одну точку пустой, не удаляя остальные, присвойте её ячейке в рабочей книге значение `null`. Для столбчатой диаграммы отображаемое значение доступно через [IChartDataPoint.getValue](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#getValue--). Точка остаётся в той же позиции категории, но диаграмма считает её значение пустым в соответствии с настройками отображения пустых значений.
+
+Следующий пример очищает только вторую точку первой серии:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Диаграммы разброса используют отдельные ячейки X и Y, а пузырьковые диаграммы также используют ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое требуется удалить. Не вызывайте [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapointcollection/#clear--) когда нужно сохранить остальные точки, поскольку этот метод удаляет все точки из коллекции.
 
 ## **Установить ширину промежутка серии**
 
-Aspose.Slides for Java позволяет установить ширину промежутка серии через свойство **`GapWidth`** следующим образом:
+Ширина промежутка — это пространство между соседними кластерами баров или столбцов, выраженное в процентах от ширины бара или столбца. Как и перекрытие, она принадлежит родительской группе серий, а не отдельной серии. Вызовите [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) один раз для группы. Большое значение создаёт больше пространства между кластерами; меньшее значение делает их плотнее.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Получите доступ к первому слайду.
-1. Добавьте диаграмму с данными по умолчанию.
-1. Получите доступ к любой серии диаграммы.
-1. Задайте свойство `GapWidth`.
-1. Запишите изменённую презентацию в файл PPTX.
+Следующий пример меняет ширину промежутка и сохраняет только итоговую презентацию:
 
-Этот код на Java показывает, как установить ширину промежутка серии:
 ```java
-// Создает пустую презентацию 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
 try {
-    // Получает первый слайд презентации
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Добавляет диаграмму с данными по умолчанию
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Устанавливает индекс листа данных диаграммы
-    int defaultWorksheetIndex = 0;
-    
-    // Получает рабочий лист данных диаграммы
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Добавляет серии
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Добавляет категории
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Получает вторую серию диаграммы
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Заполняет данные серии
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Устанавливает значение GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Сохраняет презентацию на диск
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Результат:
+
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
-**Существует ли ограничение на количество серий, которые может содержать одна диаграмма?**
+**Какие типы диаграмм поддерживают сериалы данных?**
 
-Aspose.Slides не накладывает фиксированного ограничения на количество добавляемых серий. Практический предел определяется читаемостью диаграммы и объёмом памяти, доступным вашему приложению.
+Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/charttype/), используют данные диаграммы, но их серии не всегда имеют одинаковую структуру значений или настройки. Например, диаграммы категорий используют категории и значения, диаграммы разброса — X и Y, а пузырьковые — добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применяются только к совместимым группам баров или столбцов.
 
-**Что делать, если столбцы внутри кластера слишком близко расположены или наоборот слишком далеко друг от друга?**
+**Что такое группа серий диаграммы?**
 
-Отрегулируйте значение `GapWidth` для этой серии (или её родительской группы серий). Увеличение значения расширяет пространство между столбцами, а уменьшение — сближает их.
+[IChartSeriesGroup](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseriesgroup/) содержит совместимые серии, которые разделяют настройки построения уровня группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы через одну серию не обязательно изменит все серии в диаграмме.
+
+**Содержит ли только что созданная диаграмма данные по умолчанию?**
+
+Да. По умолчанию [IShapeCollection.addChart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) создаёт примерные серии, категории и значения. Вы можете отредактировать эти ячейки или очистить как коллекцию серий, так и категорий перед добавлением полностью кастомного набора данных. Существует перегрузка, позволяющая создать диаграмму без данных по умолчанию.
+
+**Как объекты диаграммы связаны с ячейками рабочей книги?**
+
+Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [IChartDataWorkbook](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdataworkbook/). Изменение ссылочной ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных поддерживайте выравнивание строк категорий и строк значений серий, чтобы каждая точка отображалась под нужной категорией.
+
+**Как очистить одну точку, а не всю серию?**
+
+Присвойте соответствующей ячейке значения `null`, чтобы сохранить позицию категории точки как пустую. Используйте [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapointcollection/#clear--) только когда необходимо удалить все точки из серии.
+
+**Как отображаются пустые точки?**
+
+Результат зависит от типа диаграммы и значения, заданного через [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Поддерживаемые диаграммы могут отображать пустоты как пробелы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации.
+
+**Как форматируются отрицательные значения?**
+
+Для поддерживаемых баров, столбцов и пузырей вызовите [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) и задайте цвет, возвращаемый [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Для отдельной точки можете переопределить поведение с помощью [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Эти методы влияют на форматирование, а не на хранимые числовые значения.
+
+**Какой формат имеет приоритет, когда и серия, и точка отформатированы?**
+
+Явное форматирование точки данных имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не задан, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина промежутка, управляют раскладкой и не являются переопределениями формата уровня точки.
+
+**Есть ли ограничение на количество серий в диаграмме?**
+
+Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения задаются размерами файла презентации, доступной памятью, временем рендеринга и читабельностью диаграммы.
+
+**Что менять, когда столбцы слишком близко или слишком далеко друг от друга?**
+
+Вызовите [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) у соответствующей родительской группы серий. Увеличьте значение, чтобы расширить промежуток между кластерами, или уменьшите его, чтобы собрать кластеры ближе.

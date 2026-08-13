@@ -1,365 +1,391 @@
 ---
-title: Quản lý Series dữ liệu biểu đồ trong bài thuyết trình trên Android
+title: Quản lý series dữ liệu biểu đồ trong các bản trình bày trên Android
 linktitle: Series dữ liệu
 type: docs
 url: /vi/androidjava/chart-series/
 keywords:
 - series biểu đồ
-- chồng lấp series
+- độ chồng chéo series
 - màu series
-- màu danh mục
 - tên series
 - điểm dữ liệu
-- khoảng trống series
+- ô workbook
+- khoảng cách series
+- giá trị âm
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách quản lý series biểu đồ trên Android cho PowerPoint (PPT/PPTX) với các ví dụ mã Java thực tế và các phương pháp hay nhất để nâng cao các bài thuyết trình dữ liệu của bạn."
+description: "Tìm hiểu cách quản lý series biểu đồ, các điểm dữ liệu, ô workbook, định dạng, độ chồng chéo, độ rộng khoảng cách và giá trị âm trong các bản trình bày trên Android."
 ---
 ## **Tổng quan**
 
-Bài viết này mô tả vai trò của [ChartSeries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartseries/) trong Aspose.Slides, tập trung vào cách dữ liệu được cấu trúc và trực quan hóa trong các bài thuyết trình. Những đối tượng này cung cấp các yếu tố nền tảng xác định từng tập hợp điểm dữ liệu, danh mục và các tham số hiển thị trong biểu đồ. Khi làm việc với [ChartSeries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartseries/), các nhà phát triển có thể tích hợp liền mạch các nguồn dữ liệu nền và duy trì kiểm soát hoàn toàn cách thông tin được hiển thị, tạo ra các bài thuyết trình động, dựa trên dữ liệu, truyền tải rõ ràng những hiểu biết và phân tích.
+Một biểu đồ lưu trữ dữ liệu đã vẽ trong một workbook dữ liệu biểu đồ. Một [IChartSeries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [IChartDataPoint](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/) trong series tham chiếu tới một hoặc nhiều ô trong workbook. Các đối tượng [IChartCategory](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartcategory/) cung cấp các nhãn hoặc giá trị nhóm được chia sẻ bởi các series. Vì vậy, tên series, các danh mục và giá trị điểm đều được kết nối với các đối tượng [IChartDataCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
 
-Một series là một hàng hoặc cột các số được vẽ trên biểu đồ.
+Đối với biểu đồ danh mục tiêu chuẩn, workbook mặc định sử dụng hàng 0 cho tên series, cột 0 cho tên danh mục và các ô còn lại cho giá trị series. Các chỉ số worksheet, hàng và cột được truyền vào [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) là chỉ số bắt đầu từ 0. Bố cục này hữu ích khi bạn tạo một biểu đồ với dữ liệu mặc định, nhưng không nên giả định rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình bày đã tải, hãy kiểm tra các ô được series, categories và data points tham chiếu trước khi thay đổi giá trị workbook.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Cài đặt biểu đồ có ba phạm vi khác nhau:
 
-## **Thiết lập chồng lấp Series biểu đồ**
+- Cài đặt ở mức series, chẳng hạn như [IChartSeries.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getFormat--), cung cấp giao diện mặc định cho tất cả các điểm trong một series.
+- Cài đặt ở mức data-point, chẳng hạn như [IChartDataPoint.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), ghi đè giao diện series cho một điểm.
+- Cài đặt nhóm áp dụng cho các series tương thích thuộc cùng một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/). Truy cập nhóm qua [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) khi bạn cần đặt các tùy chọn như overlap hoặc gap width.
 
-Với phương thức [IChartSeries.getOverlap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getOverlap--) bạn có thể xác định mức độ các thanh và cột chồng lên nhau trên biểu đồ 2D (phạm vi: -100 tới 100). Thuộc tính này áp dụng cho tất cả các series của nhóm series cha: đây là một phép chiếu của thuộc tính nhóm tương ứng. Do đó, thuộc tính này chỉ đọc.
+Khi không có fill điểm hoặc series nào được đặt một cách rõ ràng, kiểu biểu đồ và theme sẽ quyết định giao diện tự động. Khi cả định dạng series và điểm đều tồn tại, định dạng điểm sẽ có ưu tiên cho điểm đó.
 
-Sử dụng phương thức ghi `getParentSeriesGroup().setOverlap()` để đặt giá trị chồng lấp mong muốn.
+![biểu-đồ-series-powerpoint](chart-series-powerpoint.png)
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-1. Thêm một biểu đồ cột cụm vào một slide.
-1. Truy cập series biểu đồ đầu tiên.
-1. Truy cập `ParentSeriesGroup` của series và đặt giá trị chồng lấp mong muốn cho series.
-1. Ghi bài thuyết trình đã sửa đổi ra tệp PPTX.
+## **Đặt Overlap cho Series biểu đồ**
 
-Đoạn mã Java sau cho thấy cách thiết lập chồng lấp cho một series biểu đồ:
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getOverlap--) báo cáo mức độ các cột hoặc thanh chồng lên nhau trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm series cha. Sử dụng [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) để cập nhật mọi series tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột được nhóm lại; nó không ảnh hưởng tới các nhóm series không liên quan trong biểu đồ kết hợp.
+
+Ví dụ sau thiết lập overlap cho nhóm chứa series đầu tiên:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Thêm biểu đồ
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Đặt chồng lấp series
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // Ghi tệp bài thuyết trình ra đĩa
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Biểu đồ mới chứa các series mẫu, các danh mục và các giá trị.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Thay đổi màu Series**
+Kết quả:
 
-Aspose.Slides for Android via Java cho phép bạn thay đổi màu của một series theo cách sau:
+![Overlap của series](series_overlap.png)
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-1. Thêm biểu đồ vào slide.
-1. Truy cập series mà bạn muốn thay đổi màu.
-1. Đặt kiểu nền và màu nền mong muốn.
-1. Lưu bài thuyết trình đã sửa đổi.
+## **Thay đổi màu Fill của Series**
 
-Đoạn mã Java sau cho thấy cách thay đổi màu của một series:
+Sử dụng [IChartSeries.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getFormat--) để đặt fill mặc định cho toàn bộ một series. Nếu một điểm đã có fill rõ ràng, cài đặt [IChartDataPoint.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) của nó sẽ ghi đè fill của series cho điểm đó.
+
+Ví dụ sau áp dụng màu xanh đậm đặc cho series đầu tiên:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Thay đổi màu Danh mục Series**
+Kết quả:
 
-Aspose.Slides for Android via Java cho phép bạn thay đổi màu của một danh mục series theo cách sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-1. Thêm biểu đồ vào slide.
-1. Truy cập danh mục series mà bạn muốn thay đổi màu.
-1. Đặt kiểu nền và màu nền mong muốn.
-1. Lưu bài thuyết trình đã sửa đổi.
-
-Đoạn mã Java sau cho thấy cách thay đổi màu của một danh mục series:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+![Màu của series](series_color.png)
 
 ## **Thay đổi Tên Series**
 
-Mặc định, tên trong chú giải của biểu đồ được lấy từ nội dung các ô ở trên mỗi cột hoặc hàng dữ liệu.
-
-Trong ví dụ của chúng tôi (hình mẫu),
-
-* các cột là *Series 1, Series 2,* và *Series 3*;
-* các hàng là *Category 1, Category 2, Category 3,* và *Category 4*.
-
-Aspose.Slides for Android via Java cho phép bạn cập nhật hoặc thay đổi tên series trong dữ liệu biểu đồ và chú giải của nó.
-
-Đoạn mã Java sau cho thấy cách thay đổi tên series trong `ChartDataWorkbook` của dữ liệu biểu đồ:
+Tên series được lưu trong workbook dữ liệu biểu đồ và thường được hiển thị trong legend. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của series đầu tiên. Các hằng số được đặt tên trong ví dụ dưới đây làm rõ cấu trúc này:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Đoạn mã Java sau cho thấy cách thay đổi tên series trong chú giải thông qua `Series`:
+Bạn cũng có thể cập nhật ô đã được [IChartSeries.getName](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getName--) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong một biểu đồ hiện có:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+import com.aspose.slides.*;
 
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt màu nền tự động cho Series biểu đồ**
+Kết quả:
 
-Aspose.Slides for Android via Java cho phép bạn đặt màu nền tự động cho series biểu đồ trong vùng vẽ biểu đồ theo cách sau:
+![Tên series](series_name.png)
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-1. Lấy tham chiếu đến slide theo chỉ số của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định dựa trên loại bạn muốn (trong ví dụ dưới, chúng tôi dùng `ChartType.ClusteredColumn`).
-1. Truy cập series biểu đồ và đặt màu nền thành Automatic.
-1. Lưu bài thuyết trình ra tệp PPTX.
+## **Lấy màu Fill tự động của Series**
 
-Đoạn mã Java sau cho thấy cách đặt màu nền tự động cho một series biểu đồ:
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) trả về màu được tính dựa trên chỉ số series và kiểu biểu đồ dưới dạng một số nguyên màu ARGB của Android. Đây là màu được sử dụng khi fill của series chưa được định nghĩa một cách rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán fill mới.
+
+Ví dụ sau in ra số nguyên màu tự động của mỗi series mặc định:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Tạo biểu đồ cột cụm
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+import com.aspose.slides.*;
 
-    // Đặt định dạng màu nền series thành tự động
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        int automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Giá trị số nguyên chính xác phụ thuộc vào kiểu biểu đồ và theme.
+
+## **Đặt màu Fill Đảo ngược cho Series biểu đồ**
+
+Đối với series dạng bar, column và bubble, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) có thể hiển thị các giá trị âm bằng một fill khác. Đặt fill series thường là màu đặc, bật chế độ đảo ngược và gán màu giá trị âm qua [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Các số âm vẫn không thay đổi trong workbook; chỉ màu hiển thị thay đổi.
+
+Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một series. Hàng 0 của worksheet chứa tên series, cột 0 chứa tên danh mục và cột 1 chứa các giá trị:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    // Ghi tệp bài thuyết trình ra đĩa
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Đặt màu nền đảo ngược cho Series biểu đồ**
-
-Aspose.Slides cho phép bạn đặt màu nền đảo ngược cho series biểu đồ trong vùng vẽ biểu đồ theo cách sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-1. Lấy tham chiếu đến slide theo chỉ số của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định dựa trên loại bạn muốn (trong ví dụ dưới, chúng tôi dùng `ChartType.ClusteredColumn`).
-1. Truy cập series biểu đồ và đặt màu nền thành invert.
-1. Lưu bài thuyết trình ra tệp PPTX.
-
-Đoạn mã Java sau minh họa thao tác này:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // Thêm series và danh mục mới
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // Lấy series biểu đồ đầu tiên và điền dữ liệu cho series.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt Series đảo ngược khi Giá trị là Âm**
+Kết quả:
 
-Aspose.Slides cho phép bạn thiết lập chế độ đảo ngược thông qua thuộc tính `IChartDataPoint.InvertIfNegative` và `ChartDataPoint.InvertIfNegative`. Khi thiết lập đảo ngược bằng các thuộc tính này, điểm dữ liệu sẽ thay đổi màu khi nhận giá trị âm.
+![Màu fill đặc đảo ngược](inverted_solid_fill_color.png)
 
-Đoạn mã Java sau minh họa thao tác này:
+Bạn có thể bật đảo ngược cho một điểm thông qua [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Trong ví dụ dưới đây, đảo ngược bị tắt cho series và chỉ bật cho điểm được chọn. Điểm này cũng được gán một giá trị âm để hiệu ứng hiển thị:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
 
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Xóa Dữ liệu Điểm Cụ thể**
+## **Xóa Giá trị Data Point Cụ thể**
 
-Aspose.Slides for Android via Java cho phép bạn xóa dữ liệu `DataPoints` cho một series biểu đồ cụ thể theo cách sau:
+Để làm trống một điểm mà không loại bỏ các điểm khác, đặt ô workbook hỗ trợ của nó thành `null`. Đối với biểu đồ cột, giá trị đã vẽ có thể truy cập qua [IChartDataPoint.getValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Data point vẫn giữ vị trí danh mục, nhưng biểu đồ coi giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-2. Lấy tham chiếu của slide qua chỉ số của nó.
-3. Lấy tham chiếu của biểu đồ qua chỉ số của nó.
-4. Duyệt tất cả `DataPoints` của biểu đồ và đặt `XValue` và `YValue` thành null.
-5. Xóa toàn bộ `DataPoints` cho series biểu đồ cụ thể.
-6. Ghi bài thuyết trình đã sửa đổi ra tệp PPTX.
-
-Đoạn mã Java sau minh họa thao tác này:
+Ví dụ sau chỉ xóa điểm thứ hai trong series đầu tiên:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt Độ rộng Khoảng trống của Series**
+Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bubble còn sử dụng ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [IChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) khi muốn giữ lại các điểm khác, vì phương pháp này sẽ xóa mọi data point trong collection.
 
-Aspose.Slides for Android via Java cho phép bạn thiết lập Độ rộng Khoảng trống (`GapWidth`) của một series thông qua thuộc tính **`GapWidth`** theo cách sau:
+## **Đặt Gap Width cho Series**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Thêm biểu đồ với dữ liệu mặc định.
-1. Truy cập bất kỳ series nào của biểu đồ.
-1. Đặt thuộc tính `GapWidth`.
-1. Ghi bài thuyết trình đã sửa đổi ra tệp PPTX.
+Gap width là khoảng cách giữa các cụm thanh hoặc cột kề nhau, biểu thị dưới dạng phần trăm của độ rộng thanh hoặc cột. Giống như overlap, nó thuộc về nhóm series cha chứ không phải một series riêng. Gọi [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) một lần cho nhóm. Giá trị lớn hơn tạo ra nhiều không gian hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
 
-Đoạn mã Java sau cho thấy cách thiết lập Độ rộng Khoảng trống cho một series:
+Ví dụ sau thay đổi gap width và lưu chỉ bản trình bày cuối cùng:
 
 ```java
-// Tạo bài thuyết trình trống
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên của bài thuyết trình
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Thêm biểu đồ với dữ liệu mặc định
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Đặt chỉ mục của bảng dữ liệu biểu đồ
-    int defaultWorksheetIndex = 0;
-    
-    // Lấy worksheet dữ liệu biểu đồ
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Thêm series
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Thêm danh mục
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Lấy series biểu đồ thứ hai
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Đổ dữ liệu cho series
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Đặt giá trị GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Lưu bài thuyết trình ra đĩa
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Kết quả:
+
+![Gap width](gap_width.png)
 
 ## **Câu hỏi thường gặp**
 
-**Có giới hạn về số lượng series mà một biểu đồ có thể chứa không?**
+**Các loại biểu đồ nào hỗ trợ series dữ liệu?**
 
-Aspose.Slides không áp đặt mức giới hạn cố định cho số series bạn thêm. Giới hạn thực tế phụ thuộc vào khả năng đọc của biểu đồ và lượng bộ nhớ có sẵn cho ứng dụng của bạn.
+Tất cả các loại biểu đồ được biểu thị bởi enumeration [ChartType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng series của chúng không hoàn toàn có cùng cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục sử dụng categories và values, biểu đồ scatter sử dụng giá trị X và Y, còn biểu đồ bubble thêm kích thước bubble. Hãy sử dụng phương pháp tạo data-point phù hợp với loại series. Các tùy chọn như overlap và gap width chỉ áp dụng cho các nhóm bar hoặc column tương thích.
 
-**Nếu các cột trong một cụm quá gần nhau hoặc quá xa nhau thì phải làm gì?**
+**Series group là gì?**
 
-Điều chỉnh cài đặt `GapWidth` cho series đó (hoặc cho nhóm series cha). Tăng giá trị sẽ làm rộng khoảng cách giữa các cột, giảm giá trị sẽ làm chúng gần nhau hơn.
+Một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/) chứa các series tương thích chia sẻ các cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa nhiều hơn một nhóm, vì vậy việc thay đổi nhóm được truy cập qua một series không nhất thiết thay đổi mọi series trong biểu đồ.
+
+**Biểu đồ mới tạo có chứa dữ liệu mặc định không?**
+
+Có. Theo mặc định, [IShapeCollection.addChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) tạo ra các series, categories và values mẫu. Bạn có thể chỉnh sửa các ô này hoặc xóa cả collections series và category trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
+
+**Các đối tượng biểu đồ được kết nối với các ô workbook như thế nào?**
+
+Tên series, nhãn category và giá trị data-point tham chiếu đến các ô trong một [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ cho các hàng category và các hàng giá trị series được căn chỉnh sao cho mỗi điểm được vẽ dưới category mong muốn.
+
+**Làm sao để xóa một điểm mà không xóa toàn bộ series?**
+
+Đặt ô giá trị liên quan thành `null` để giữ vị trí category của điểm như một điểm trống. Chỉ dùng [IChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) khi bạn muốn xóa tất cả các điểm trong series đó. Nếu bạn cũng xóa các category, hãy cập nhật mọi series để các giá trị vẫn được căn chỉnh với collection category.
+
+**Các điểm trống được hiển thị như thế nào?**
+
+Kết quả phụ thuộc vào loại biểu đồ và giá trị được cấu hình qua [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Các biểu đồ được hỗ trợ có thể hiển thị khoảng trống dưới dạng gaps, giá trị zero, hoặc bằng cách nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình bày của bạn.
+
+**Giá trị âm được định dạng ra sao?**
+
+Đối với các series bar, column và bubble được hỗ trợ, gọi [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) và đặt màu trả về bởi [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Các phương thức này ảnh hưởng đến định dạng, không thay đổi giá trị số lưu trữ.
+
+**Tiết chế nào thắng khi cả series và điểm đều được định dạng?**
+
+Định dạng data-point rõ ràng có ưu tiên cho điểm đó. Các điểm khác tiếp tục sử dụng định dạng series rõ ràng hoặc, khi không có định dạng series, sử dụng style và theme tự động của biểu đồ. Các cài đặt nhóm như overlap và gap width điều khiển bố cục và không phải là các ghi đè định dạng ở mức điểm.
+
+**Có giới hạn số series một biểu đồ có thể chứa không?**
+
+Aspose.Slides không áp đặt một giới hạn cố định riêng cho số series. Thực tế, các ràng buộc của file trình bày, bộ nhớ khả dụng, thời gian render và khả năng đọc của biểu đồ quyết định giới hạn hữu ích.
+
+**Nên thay đổi gì khi các cột quá gần nhau hoặc quá xa?**
+
+Gọi [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) trên nhóm series cha thích hợp. Tăng giá trị để mở rộng không gian giữa các cụm, hoặc giảm giá trị để các cụm lại gần nhau hơn.

@@ -1,340 +1,295 @@
 ---
-title: "Formeffektive Eigenschaften aus Präsentationen in JavaScript abrufen"
-linktitle: "Effektive Eigenschaften"
+title: Effektive Formeigenschaften aus Präsentationen in JavaScript abrufen
+linktitle: Effektive Eigenschaften
 type: docs
 weight: 50
 url: /de/nodejs-java/shape-effective-properties/
 keywords:
-- "Formeigenschaften"
-- "Kameraeigenschaften"
-- "Beleuchtungsanlage"
-- "Formabschrägung"
-- "Textfeld"
-- "Textstil"
-- "Schriftgröße"
-- "Füllformat"
-- "PowerPoint"
-- "Präsentation"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Entdecken Sie, wie Aspose.Slides für Node.js via Java Formeigenschaften effektiv berechnet und anwendet, um eine präzise PowerPoint‑Darstellung zu gewährleisten."
+- Formeigenschaften
+- Kameraeigenschaften
+- Lichtsystem
+- Fasenform
+- Textrahmen
+- Textstil
+- Schriftgröße
+- Füllformat
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Aspose.Slides für Node.js via Java verwenden, um lokale, geerbte und effektive Formformatierungen in PowerPoint-Präsentationen zu unterscheiden."
 ---
-## **Übersicht**
+## **Lokale, geerbte und effektive Eigenschaften verstehen**
 
-Dieses Thema erklärt den Unterschied zwischen **lokalen** und **effektiven** Eigenschaften. Lokale Werte sind Werte, die direkt auf einer bestimmten Formatierungsebene festgelegt werden, zum Beispiel:
+PowerPoint-Formatierungen können aus mehreren Quellen stammen. Der direkt auf einem Objekt gespeicherte Wert ist sein **lokaler Wert**. Wenn dieser Wert nicht gesetzt ist, prüft PowerPoint die übergeordneten Formatierungsquellen, wie z. B. die Standardwerte eines Absatzes, einen Textstil, ein Layout oder eine Masterfolie, ein Design oder Präsentations‑Standardwerte. Diese Werte sind **geerbte Werte**. Der Wert, der nach Auflösung der gesamten Hierarchie verbleibt, ist der **effektive Wert** – der zum Rendern des Objekts verwendete Wert.
 
-1. Portionseigenschaften auf einer Folie.
-1. Textstile von Prototyp‑Formen in einem Layout‑ oder Master‑Folie, wenn die Form des Textfelds der Portion einen hat.
-1. Globale Texteinstellungen in einer Präsentation.
+Beispielsweise definiert ein Textabschnitt seine Schriftgröße möglicherweise nicht. Sein lokaler [getFontHeight](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/#getFontHeight)-Wert ist dann `NaN`, was „hier nicht gesetzt“ bedeutet. Der Abschnitt kann die Höhe von seinem Absatz, dem Standard‑Textstil der Präsentation oder einer anderen zutreffenden Quelle erben. Ein Aufruf von [getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/#getEffective) auf das PortionFormat gibt die endgültig aufgelöste Höhe zurück.
 
-Lokale Werte können auf jeder Ebene definiert oder ausgelassen werden. Wenn Aspose.Slides die endgültige „wie gerendert“ Formatierung benötigt, löst es die Vererbungskette auf und gibt **effektive** Werte zurück. Sie können diese erhalten, indem Sie die Methode `getEffective` am lokalen Formatobjekt aufrufen.
+Verwenden Sie die beiden Arten von Formatierungsdaten zu unterschiedlichen Zwecken:
 
-Das folgende Beispiel zeigt, wie Sie effektive Werte abrufen können. Es wird angenommen, dass die erste Form auf der ersten Folie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) mit einem Textfeld und mindestens einer Portion ist.
+- Lesen oder ändern Sie ein lokales Formatobjekt, wie z. B. [PortionFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/), wenn Sie steuern müssen, wo ein Wert definiert ist.
+- Lesen Sie die [die von PortionFormat.getEffective zurückgegebenen effektiven Daten](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/#getEffective), wenn Sie das endgültige, gerenderte Ergebnis benötigen. Effektive Daten sind schreibgeschützt.
+
+Bevor Sie die Beispiele ausführen, [installieren Sie Aspose.Slides für Node.js via Java](/slides/de/nodejs-java/installation/).
+
+## **Lokale, geerbte und effektive Werte vergleichen**
+
+Das folgende vollständige Beispiel erstellt eine Form und legt Schriftgrößen auf Präsentations‑, Absatz‑ und Abschnittsebene fest. Jeder Schritt gibt die an diesen Ebenen definierten Werte und den daraus resultierenden effektiven Wert für denselben Textabschnitt aus. Es zeigt auch, warum effektive Daten nach Formatierungsänderungen erneut gelesen werden müssen.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // Effektive Daten nach den vorangegangenen Änderungen lesen.
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // Geerbte Werte auf zwei verschiedenen Ebenen festlegen.
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // Ein lokaler Wert im Abschnitt überschreibt beide geerbten Werte.
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // Das Ändern eines geerbten Werts überschreibt keinen bestehenden lokalen Wert.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // Lokalen Wert löschen. Der Abschnitt erbt jetzt wieder vom Absatz.
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // Absatzwert löschen. Der Präsentationsstandard liefert nun das Ergebnis.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Effektive Formatierungsdaten stellen die aktuell berechnete Formatierung dar, nachdem die Vererbung angewendet wurde. In der aktuellen Implementierung können einige effektive Datenobjekte intern zwischengespeichert werden. Ein erneuter Aufruf von `getEffective` nach Ändern von übergeordneten oder vererbten Formatierungen kann die zwischengespeicherten Daten aktualisieren, und ein zuvor erhaltenes Objekt stellt möglicherweise nicht mehr den früheren Zustand dar. Wenn Sie effektive Werte für eine spätere Wiederverwendung aufbewahren müssen, kopieren Sie die benötigten Eigenschaften, wie Schriftgröße, Füllfarbe, Schriftstil oder Ausrichtung, in Ihr eigenes Datenobjekt.
-{{% /alert %}}
+Die Priorität in diesem Beispiel ist die lokale Formatierung des Abschnitts, dann die Absatzformatierung, dann die Präsentations‑Standardwerte. Andere Objekte können unterschiedliche Vererbungsketten haben, aber das Prinzip ist dasselbe: ein spezifischerer expliziter Wert gewinnt, und [getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/#getEffective) liefert das Endergebnis.
 
-## **Effektive Eigenschaften einer Kamera**
+## **Effektive Texteigenschaften abrufen**
 
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Kamera. Das effektive Kamera‑Datenobjekt enthält unveränderliche Kameraeigenschaften und wird über die für [ThreeDFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/) zurückgegebenen effektiven Werte bereitgestellt.
+Textformatierung ist über mehrere Objekte verteilt:
 
-Das folgende Codebeispiel zeigt, wie Sie effektive Eigenschaften für die Kamera erhalten. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textframeformat/#getEffective) löst Text‑Frame‑Eigenschaften wie Ränder, Verankerung, Autofit und vertikale Textausrichtung auf.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/textstyle/#getEffective) löst Absatzformatierung für jede Textebenen‑Stufe auf.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/paragraphformat/#getEffective) löst Absatz‑Eigenschaften wie Ausrichtung, Einrückung und Aufzählungen auf.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/portionformat/#getEffective) löst Zeichen‑Eigenschaften wie Schriftgröße, Schriftart, Farbe, Fett und Kursiv auf.
+
+Für das nächste Beispiel muss `text-formatting.pptx` mindestens eine Folie und ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) mit einem nicht leeren Text‑Frame enthalten. Das AutoShape kann an beliebiger Position in der Formensammlung stehen; der Code sucht nach einem geeigneten Objekt und validiert es vor der Verwendung.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **Effektive Eigenschaften einer Beleuchtungsanlage**
-
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Beleuchtungsanlage. Das effektive Beleuchtungsanlagen‑Datenobjekt enthält unveränderliche Eigenschaften der Beleuchtungsanlage und wird über die für [ThreeDFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/) zurückgegebenen effektiven Werte bereitgestellt.
-
-Das folgende Codebeispiel zeigt, wie Sie effektive Eigenschaften für die Beleuchtungsanlage erhalten. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Effektive Eigenschaften einer Abschrägung einer Form**
-
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Formabschrägung. Das effektive Datenobjekt für Formabschrägungen enthält unveränderliche Flächenrelief‑Eigenschaften einer Form und wird über die für [ThreeDFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/) zurückgegebenen effektiven Werte bereitgestellt.
-
-Das folgende Codebeispiel zeigt, wie Sie effektive Eigenschaften für die obere Abschrägung einer Form erhalten. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **Effektive Eigenschaften eines Textframes**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-Mit Aspose.Slides können Sie effektive Eigenschaften eines Textframes erhalten. Das zurückgegebene effektive Datenobjekt enthält Formatierungseigenschaften des Textframes.
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-Das folgende Codebeispiel zeigt, wie Sie effektive Formatierungseigenschaften eines Textframes abrufen. Es wird angenommen, dass die erste Form auf der ersten Folie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) mit einem Textframe ist.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Effektive Eigenschaften eines Textstils**
-
-Mit Aspose.Slides können Sie effektive Eigenschaften eines Textstils erhalten. Das zurückgegebene effektive Datenobjekt enthält Eigenschaften des Textstils.
-
-Das folgende Codebeispiel zeigt, wie Sie effektive Eigenschaften eines Textstils erhalten. Es wird angenommen, dass die erste Form auf der ersten Folie ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) mit einem Textframe ist.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Den effektiven Schriftgrößenwert erhalten**
+## **Effektive 3D‑Eigenschaften abrufen**
 
-Mit Aspose.Slides können Sie die effektive Schriftgröße erhalten. Der folgende Code zeigt, wie sich die effektive Schriftgröße einer Portion ändert, wenn lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur gesetzt werden.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/#getEffective) liefert ein effektives Datenobjekt, das alle aufgelösten 3D‑Einstellungen zusammenfasst. Seine Methoden [getCamera](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/#getCamera), [getLightRig](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/#getLightRig), [getBevelTop](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/#getBevelTop) und [getBevelBottom](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/threedformat/#getBevelBottom) geben die entsprechenden effektiven Daten zurück. Das gleichzeitige Lesen dieser verwandten Einstellungen erleichtert das Verständnis des endgültigen 3D‑Aussehens einer Form.
+
+Für dieses Beispiel muss `shape-3d.pptx` mindestens eine Form auf der ersten Folie enthalten. Wenden Sie 3D‑Kamera-, Beleuchtungs- oder Abschrägungs‑Einstellungen auf diese Form an, wenn die Ausgabe Werte enthalten soll, die von den Standardwerten abweichen.
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Effektives Füllformat für eine Tabelle abrufen**
+## **Effektive Tabellenformatierung abrufen**
 
-Mit Aspose.Slides können Sie das effektive Füllformat für verschiedene Tabellenteile erhalten. Das zurückgegebene effektive Datenobjekt enthält Eigenschaften des Füllformats. Zellenformatierung hat höhere Priorität als Zeilenformatierung, Zeilenformatierung hat höhere Priorität als Spaltenformatierung und Spaltenformatierung hat höhere Priorität als die Formatierung der gesamten Tabelle.
+Die Tabellenformatierung kann aus dem Tabellenstil und aus Formaten stammen, die auf die gesamte Tabelle, eine Spalte, eine Zeile oder eine einzelne Zelle angewendet werden. Bei Konflikten zwischen explizit definierten Füllungen ist die Priorität: Zelle, Zeile, Spalte und schließlich die gesamte Tabelle. Das effektive Format einer Zelle ist das endgültige Format, das zum Zeichnen dieser Zelle verwendet wird.
 
-Folglich werden die effektiven Zellenformatierungseigenschaften zum Zeichnen der Tabellenzelle verwendet. Das folgende Codebeispiel zeigt, wie Sie das effektive Füllformat für verschiedene Tabellenteile erhalten. Es wird angenommen, dass die erste Form auf der ersten Folie eine [Table](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/table/) ist.
+Für dieses Beispiel muss `table-formatting.pptx` mindestens eine Tabelle auf der ersten Folie enthalten. Die Tabelle muss mindestens eine Zeile und eine Spalte haben. Der Code sucht nach einer [Table](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/table/), anstatt anzunehmen, dass `getShapes().get_Item(0)` eine Tabelle ist.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+Wenn Sie die Farbe und nicht nur den Fülltyp benötigen, prüfen Sie zuerst das effektive [getFillType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fillformat/#getFillType) und lesen anschließend die Methode, die für diesen Typ gilt – zum Beispiel [getSolidFillColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) für eine Vollfüllung.
+
+## **Effektive Daten nach Änderungen erneut einlesen**
+
+Effektive Daten beschreiben die Formatierungshierarchie zum Zeitpunkt ihrer Auflösung. Rufen Sie `getEffective` erneut auf, nachdem Sie etwas geändert haben, das an dieser Hierarchie teilnehmen kann, einschließlich:
+
+- der lokalen Formatierung des Objekts;
+- Absatz‑ oder Text‑Frame‑Standardwerte;
+- eines Tabellenstils, einer Tabelle, Spalte, Zeile oder Zellenformat;
+- Layout‑ oder Master‑Folien‑Formatierung;
+- Designdaten oder Präsentations‑Standardwerte;
+- das dem Bild zugewiesene Layout oder den Master.
+
+Bewahren Sie kein effektives Datenobjekt als permanente Momentaufnahme auf. Aspose.Slides kann einige effektive Daten intern cachen, und ein späterer Aufruf von `getEffective` kann diese Daten aktualisieren. Wenn Sie Werte vor und nach einer Änderung vergleichen müssen, kopieren Sie die benötigten skalaren Werte – etwa Schriftgröße, Farbe, Ausrichtung oder Abschrägungsbreite – in eigene Variablen, bevor Sie die Änderung vornehmen.
+
+Um einen Wert zu ändern, aktualisieren Sie das entsprechende lokale Formatobjekt und rufen anschließend `getEffective` auf, um das Ergebnis zu überprüfen. Effektive Datenobjekte sind selbst schreibgeschützt.
 
 ## **FAQ**
 
-**Gibt `getEffective` einen Schnappschuss zurück?**
+**Wie kann ich erkennen, welche Ebene einen effektiven Wert geliefert hat?**
 
-Nicht immer. Effektive Daten stellen die berechnete Formatierung dar, nachdem die Vererbung angewendet wurde, aber einige effektive Datenobjekte können intern zwischengespeichert werden. Ein nachfolgender Aufruf von `getEffective` kann die Formatierung neu berechnen und die zwischengespeicherten Daten aktualisieren, sodass ein zuvor erhaltenes Objekt nicht als dauerhafter Schnappschuss betrachtet werden sollte.
+Effektive Daten enthalten den endgültigen Wert, nicht dessen Quelle. Untersuchen Sie die relevanten lokalen Objekte von der am spezifischsten Ebene aus nach außen. Für Text können das der Abschnitt, Absatz, Text‑Frame, Layout, Master, Design und die Präsentations‑Standardwerte sein. Nicht definierte Werte wie `NaN` oder `null` zeigen an, dass die Suche zu einer anderen Ebene fortgesetzt wird.
 
-**Wann sollte ich effektive Eigenschaften erneut auslesen?**
+**Was passiert, wenn keine Ebene eine Eigenschaft definiert?**
 
-Rufen Sie `getEffective` erneut auf, nachdem Sie die lokale Formatierung, übergeordnete Stile, Layout‑Formatierung, Master‑Formatierung oder die Standardwerte der Präsentation geändert haben. Der nächste Aufruf bewertet die Formatierungshierarchie neu und gibt das aktuelle effektive Ergebnis zurück.
+Aspose.Slides ermittelt den entsprechenden PowerPoint‑ oder Bibliotheksstandard. Dieser aufgelöste Wert erscheint in den effektiven Daten, obwohl kein lokales Objekt ihn explizit definiert.
 
-**Wirkt sich das Ändern oder Entfernen einer Layout‑/Master‑Folie auf bereits abgerufene effektive Eigenschaften aus?**
+**Warum entspricht ein effektiver Wert manchmal dem lokalen Wert?**
 
-Ja, aber die Änderung wird erst beim nächsten Aufruf von `getEffective` wirksam. Wenn eine übergeordnete Formatierungsquelle geändert oder entfernt wird, können zuvor erhaltene effektive Daten veraltet sein. Sobald `getEffective` erneut aufgerufen wird, bewertet Aspose.Slides den Formatierungsbaum neu und die resultierenden Schriftarten, Farben, Größen oder anderen Werte können sich ändern.
+Der lokale Wert hat die Vererbungsberechnung gewonnen. Das ist zu erwarten, wenn die Eigenschaft explizit am Objekt gesetzt ist und keine spezifischere Regel sie überschreibt.
 
-**Kann ich Werte über effektive Datenobjekte ändern?**
+**Wann sollte ich lokale Daten anstelle von effektiven Daten verwenden?**
 
-Nein. Effektive Datenobjekte geben nur berechnete Werte wieder. Änderungen sollten in den lokalen Formatierungsobjekten vorgenommen werden, anschließend können die effektiven Werte erneut abgerufen werden.
-
-**Was passiert, wenn eine Eigenschaft weder auf Formebene, noch im Layout/Master, noch in den globalen Einstellungen festgelegt ist?**
-
-Der effektive Wert wird durch den Standardmechanismus bestimmt, der die Vorgaben von PowerPoint und Aspose.Slides umfasst. Dieser aufgelöste Wert wird Teil der aktuellen effektiven Daten.
-
-**Kann ich anhand eines effektiven Schriftwertes feststellen, welche Ebene die Größe oder den Schriftschnitt bereitgestellt hat?**
-
-Nicht direkt. Effektive Daten geben nur den endgültigen Wert zurück. Um die Quelle zu ermitteln, prüfen Sie die lokalen Werte bei der Portion, dem Absatz, dem Textframe und den Textstilen im Layout, Master und auf Präsentationsebene, um zu sehen, wo die erste explizite Definition vorkommt.
-
-**Warum sehen effektive Werte manchmal identisch mit den lokalen aus?**
-
-Weil der lokale Wert letztlich endgültig war (keine höhere Vererbung nötig war). In solchen Fällen entspricht der effektive Wert dem lokalen.
-
-**Wann sollte ich effektive Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
-
-Verwenden Sie effektive Daten, wenn Sie das „wie gerenderte“ Ergebnis nach Anwendung aller Vererbungen benötigen, etwa um Farben, Einzüge oder Größen abzustimmen. Wenn Sie diese Werte unabhängig von späteren Formatierungsänderungen bewahren möchten, kopieren Sie die erforderlichen Eigenschaften in ein eigenes Objekt. Möchten Sie die Formatierung auf einer bestimmten Ebene ändern, passen Sie die lokalen Eigenschaften an und lesen Sie bei Bedarf die effektiven Daten erneut, um das Ergebnis zu prüfen.
+Verwenden Sie lokale Daten, um ein bestimmtes Formatierungsebene zu untersuchen oder zu bearbeiten. Verwenden Sie effektive Daten, wenn Sie das endgültige Aussehen nach Vererbung, Design‑Regeln und angewandten Stilen benötigen. Das [vollständiges Vergleichsbeispiel](#compare-local-inherited-and-effective-values) demonstriert beides im gleichen Arbeitsablauf.

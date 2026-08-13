@@ -1,5 +1,5 @@
 ---
-title: Quản lý chuỗi dữ liệu biểu đồ trong Python
+title: Quản lý chuỗi dữ liệu biểu đồ trong bản trình chiếu bằng Python
 linktitle: Chuỗi dữ liệu
 type: docs
 url: /vi/python-net/chart-series/
@@ -12,306 +12,357 @@ keywords:
 - điểm dữ liệu
 - khoảng cách chuỗi
 - PowerPoint
-- bản thuyết trình
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Học cách quản lý chuỗi dữ liệu biểu đồ trong Python cho PowerPoint (PPT/PPTX) với các ví dụ mã thực tế và các thực tiễn tốt nhất để nâng cao bản trình bày dữ liệu của bạn."
+description: "Tìm hiểu cách quản lý chuỗi biểu đồ, điểm dữ liệu, ô workbook, định dạng, chồng lớp, độ rộng khoảng cách và giá trị âm trong bản trình chiếu bằng Python."
 ---
 ## **Tổng quan**
 
-Bài viết này mô tả vai trò của [ChartSeries](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/) trong Aspose.Slides for Python, tập trung vào cách dữ liệu được cấu trúc và hiển thị trong các bản thuyết trình. Những đối tượng này cung cấp các yếu tố nền tảng để định nghĩa từng tập hợp các điểm dữ liệu, danh mục và các tham số hiển thị trong một biểu đồ. Khi làm việc với [ChartSeries](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/), các lập trình viên có thể tích hợp liền mạch các nguồn dữ liệu nền và duy trì kiểm soát đầy đủ cách thông tin được hiển thị, tạo ra các bản thuyết trình động, dựa trên dữ liệu, truyền tải rõ ràng các hiểu biết và phân tích.
+Một biểu đồ lưu trữ dữ liệu đã vẽ trong một workbook dữ liệu biểu đồ. Một [ChartSeries](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [ChartDataPoint](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapoint/) trong chuỗi tham chiếu tới một hoặc nhiều ô workbook. Các đối tượng [ChartCategory](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartcategory/) cung cấp các nhãn hoặc giá trị nhóm được chia sẻ bởi các chuỗi. Vì vậy, tên chuỗi, các danh mục và giá trị điểm được kết nối với các đối tượng [ChartDataCell](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
 
-Một series là một hàng hoặc một cột các số được vẽ trên biểu đồ.
+Đối với một biểu đồ danh mục điển hình, workbook mặc định sử dụng hàng 0 cho tên chuỗi, cột 0 cho tên danh mục và các ô còn lại cho giá trị chuỗi. Các chỉ mục worksheet, hàng và cột được truyền cho [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) là dựa trên số 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình chiếu đã tải, hãy kiểm tra các ô mà các chuỗi, danh mục và điểm dữ liệu tham chiếu trước khi thay đổi giá trị workbook.
+
+Cài đặt biểu đồ có ba phạm vi khác nhau:
+
+- Cài đặt cấp chuỗi, chẳng hạn như [ChartSeries.format](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/format/), cung cấp giao diện mặc định cho tất cả các điểm trong một chuỗi.
+- Cài đặt cấp điểm dữ liệu, chẳng hạn như [ChartDataPoint.format](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapoint/format/), ghi đè giao diện chuỗi cho một điểm.
+- Cài đặt nhóm áp dụng cho các chuỗi tương thích thuộc cùng một [ChartSeriesGroup](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseriesgroup/). Truy cập nhóm qua [ChartSeries.parent_series_group](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/parent_series_group/) khi bạn cần đặt các tùy chọn như độ chồng nhau hoặc độ rộng khoảng trống.
+
+Khi không có màu nền điểm hoặc chuỗi nào được đặt rõ ràng, kiểu biểu đồ và chủ đề sẽ quyết định giao diện tự động. Khi cả định dạng chuỗi và điểm đều có, định dạng điểm sẽ được ưu tiên cho điểm đó.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Đặt chồng lớp chuỗi**
+## **Đặt Độ Chồng Lên Của Chuỗi Biểu Đồ**
 
-Thuộc tính [ChartSeries.overlap](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/overlap/) kiểm soát cách các thanh và cột chồng lên nhau trong biểu đồ 2D bằng cách chỉ định một phạm vi từ -100 đến 100. Vì thuộc tính này liên kết với nhóm series chứ không phải từng series riêng lẻ, nên nó chỉ đọc ở mức series. Để cấu hình giá trị chồng lớp, hãy sử dụng thuộc tính `parent_series_group.overlap` cho phép đọc/ghi, thuộc tính này sẽ áp dụng giá trị chồng lớp đã chỉ định cho tất cả các series trong nhóm đó.
+[ChartSeries.overlap](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/overlap/) cho biết các thanh hoặc cột chồng lên nhau bao nhiêu trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm chuỗi cha. Đặt [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseriesgroup/overlap/) để cập nhật mọi chuỗi tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột được nhóm; nó không ảnh hưởng đến các nhóm chuỗi không liên quan trong biểu đồ kết hợp.
 
-Dưới đây là một ví dụ Python minh họa cách tạo bản thuyết trình, thêm biểu đồ cột nhóm, truy cập series đầu tiên, cấu hình thiết lập chồng lớp và sau đó lưu kết quả dưới dạng tệp PPTX:
+Ví dụ sau đặt độ chồng cho nhóm chứa chuỗi đầu tiên:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_overlap = 30
+first_slide_index = 0
+first_series_index = 0
+overlap_percent = 30
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Thêm biểu đồ cột nhóm với dữ liệu mặc định.
+    # Biểu đồ mới chứa các chuỗi mẫu, danh mục và giá trị.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    series = chart.chart_data.series[0]
-    if series.overlap == 0:
-        # Đặt chồng lớp chuỗi.
-        series.parent_series_group.overlap = series_overlap
+    series = chart.chart_data.series[first_series_index]
+    series.parent_series_group.overlap = overlap_percent
 
-    # Lưu tệp bản thuyết trình vào đĩa.
     presentation.save("series_overlap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Kết quả:
 
-![Chồng lớp chuỗi](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Thay đổi màu nền chuỗi**
+## **Thay Đổi Màu Nền Của Chuỗi**
 
-Aspose.Slides giúp việc tùy chỉnh màu nền của series trong biểu đồ trở nên đơn giản, cho phép bạn làm nổi bật các điểm dữ liệu cụ thể và tạo ra các biểu đồ hấp dẫn về mặt hình ảnh. Điều này được thực hiện thông qua đối tượng [Format](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/format/), hỗ trợ nhiều loại nền, cấu hình màu và các tùy chọn kiểu dáng nâng cao khác. Sau khi thêm biểu đồ vào một slide và truy cập series mong muốn, chỉ cần lấy series và áp dụng màu nền phù hợp. Ngoài các nền đặc, bạn còn có thể sử dụng nền gradient hoặc pattern để tăng tính linh hoạt trong thiết kế. Khi đã thiết lập màu sắc theo yêu cầu, lưu bản thuyết trình để hoàn thiện giao diện mới.
+Sử dụng [ChartSeries.format](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/format/) để đặt màu nền mặc định cho toàn bộ một chuỗi. Nếu một điểm đã có màu nền rõ ràng, cài đặt [ChartDataPoint.format](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapoint/format/) của nó sẽ ghi đè màu nền chuỗi cho điểm đó.
 
-Ví dụ mã Python sau cho thấy cách thay đổi màu của series đầu tiên:
+Ví dụ sau áp dụng màu nền xanh đậm đặc cho chuỗi đầu tiên:
 
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
-series_color = draw.Color.blue
+first_slide_index = 0
+first_series_index = 0
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Thêm biểu đồ cột nhóm với dữ liệu mặc định.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    # Đặt màu cho series đầu tiên.
-    series = chart.chart_data.series[0]
+    series = chart.chart_data.series[first_series_index]
     series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = series_color
+    series.format.fill.solid_fill_color.color = drawing.Color.blue
 
-    # Lưu tệp bản thuyết trình vào đĩa.
     presentation.save("series_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Kết quả:
 
-![Màu của chuỗi](series_color.png)
+![The color of the series](series_color.png)
 
-## **Đổi tên chuỗi**
+## **Thay Đổi Tên Chuỗi**
 
-Aspose.Slides cung cấp cách đơn giản để sửa đổi tên của các series trong biểu đồ, giúp gắn nhãn dữ liệu một cách rõ ràng và có ý nghĩa hơn. Bằng cách truy cập ô worksheet tương ứng trong dữ liệu biểu đồ, các lập trình viên có thể tùy chỉnh cách dữ liệu được trình bày. Việc này đặc biệt hữu ích khi cần cập nhật hoặc làm rõ tên series dựa trên ngữ cảnh của dữ liệu. Sau khi đổi tên series, bản thuyết trình có thể được lưu để duy trì các thay đổi.
-
-Dưới đây là đoạn mã Python minh họa quy trình này trong thực tế.
+Tên chuỗi được lưu trong workbook dữ liệu biểu đồ và thường hiển thị trong chú giải. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của chuỗi đầu tiên. Các hằng số được đặt tên trong ví dụ sau làm cho cấu trúc này trở nên rõ ràng:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_name = "New name"
+first_slide_index = 0
+worksheet_index = 0
+series_name_row_index = 0
+first_series_column_index = 1
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Thêm biểu đồ cột nhóm với dữ liệu mặc định.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    
-    # Đặt tên cho series đầu tiên.
-    series_cell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
-    series_cell.value = series_name
-    
-    # Lưu tệp bản thuyết trình vào đĩa.
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_name_cell = workbook.get_cell(worksheet_index, series_name_row_index, first_series_column_index)
+    series_name_cell.value = "Revenue"
+
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Đoạn mã Python sau cho thấy cách thay đổi tên series theo một phương pháp thay thế:
+Bạn cũng có thể cập nhật ô đã được [ChartSeries.name](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/name/) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong biểu đồ hiện có:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_name = "New name"
+first_slide_index = 0
+first_series_index = 0
+first_name_cell_index = 0
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # Thêm biểu đồ cột nhóm với dữ liệu mặc định.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    series = chart.chart_data.series[0]
-    
-    # Đặt tên cho series đầu tiên.
-    series.name.as_cells[0].value = series_name
 
-    # Lưu tệp bản thuyết trình vào đĩa.
-    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX) 
+    series = chart.chart_data.series[first_series_index]
+    series_name_cell = series.name.as_cells[first_name_cell_index]
+    series_name_cell.value = "Revenue"
+
+    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Kết quả:
 
-![Tên chuỗi](series_name.png)
+![The series name](series_name.png)
 
-## **Lấy màu nền tự động cho chuỗi**
+## **Lấy Màu Nền Tự Động Của Chuỗi**
 
-Aspose.Slides for Python cho phép bạn lấy màu nền tự động cho series trong biểu đồ ở vùng vẽ. Sau khi tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/), bạn có thể lấy tham chiếu tới slide mong muốn bằng chỉ số, rồi thêm một biểu đồ với loại bạn muốn (ví dụ `ChartType.CLUSTERED_COLUMN`). Bằng cách truy cập series trong biểu đồ, bạn có thể lấy màu nền tự động.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) trả về màu được tính dựa trên chỉ mục chuỗi và kiểu biểu đồ. Đây là màu được sử dụng khi màu nền chuỗi không được định nghĩa rõ ràng. Gọi phương thức chỉ đọc màu đã tính; nó không gán màu nền mới.
 
-Mã Python dưới đây trình bày chi tiết quy trình này.
+Ví dụ sau in màu tự động của mỗi chuỗi mặc định:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+first_slide_index = 0
 
-    # Thêm biểu đồ cột nhóm với dữ liệu mặc định.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
+
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    for i in range(len(chart.chart_data.series)):
-        # Lấy màu nền của series.
-        color = chart.chart_data.series[i].get_automatic_series_color()
-        print(f"Series {i} color: {color.name}")
+    series_count = len(chart.chart_data.series)
+    for series_index in range(series_count):
+        series = chart.chart_data.series[series_index]
+        automatic_color = series.get_automatic_series_color()
+        print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-Kết quả mẫu:
+Kết quả mẫu cho kiểu biểu đồ mặc định:
 
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **Đặt màu nền đảo ngược cho chuỗi**
+Màu sắc chính xác phụ thuộc vào kiểu biểu đồ và chủ đề.
 
-Khi series dữ liệu của bạn chứa cả giá trị dương và âm, việc tô màu mọi cột hoặc thanh cùng một màu có thể làm biểu đồ khó đọc. Aspose.Slides for Python cho phép bạn chỉ định màu nền đảo ngược — một màu nền riêng được áp dụng tự động cho các điểm dữ liệu dưới zero — để các giá trị âm nổi bật ngay lập tức. Trong phần này, bạn sẽ học cách bật tùy chọn này, chọn màu phù hợp và lưu bản thuyết trình đã cập nhật.
+## **Đặt Màu Nền Đảo Ngược Cho Chuỗi Biểu Đồ**
 
-Ví dụ mã sau minh họa thao tác:
+Đối với các chuỗi thanh, cột và bong bóng, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/invert_if_negative/) có thể hiển thị các giá trị âm bằng màu nền khác. Đặt màu nền chuỗi thường thành đặc, bật tính năng đảo ngược và chỉ định màu cho giá trị âm qua [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Các số âm không thay đổi trong workbook; chỉ màu hiển thị của chúng thay đổi.
+
+Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một chuỗi. Hàng 0 của worksheet chứa tên chuỗi, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
 
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
-invert_color = draw.Color.red
+first_slide_index = 0
+worksheet_index = 0
+header_row_index = 0
+category_column_index = 0
+first_series_column_index = 1
+first_data_row_index = 1
+
+category_names = ["Category 1", "Category 2", "Category 3"]
+series_values = [-20, 50, -30]
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    workBook = chart.chart_data.chart_data_workbook
+    chart_data = chart.chart_data
+    workbook = chart_data.chart_data_workbook
 
-    chart.chart_data.series.clear()
-    chart.chart_data.categories.clear()
+    chart_data.series.clear()
+    chart_data.categories.clear()
 
-    # Thêm các danh mục mới.
-    chart.chart_data.categories.add(workBook.get_cell(0, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workBook.get_cell(0, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workBook.get_cell(0, 3, 0, "Category 3"))
+    series_name_cell = workbook.get_cell(worksheet_index, header_row_index, first_series_column_index, "Series 1")
+    series = chart_data.series.add(series_name_cell, chart.type)
 
-    # Thêm một series mới.
-    series = chart.chart_data.series.add(workBook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    category_count = len(category_names)
+    for category_index in range(category_count):
+        data_row_index = first_data_row_index + category_index
+        category_name = category_names[category_index]
+        series_value = series_values[category_index]
 
-    # Điền dữ liệu cho series.
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 1, 1, -20))
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
+        category_cell = workbook.get_cell(worksheet_index, data_row_index, category_column_index, category_name)
+        chart_data.categories.add(category_cell)
 
-    # Đặt cài đặt màu cho series.
-    series_color = series.get_automatic_series_color()
-    series.invert_if_negative = True
+        value_cell = workbook.get_cell(worksheet_index, data_row_index, first_series_column_index, series_value)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    automatic_series_color = series.get_automatic_series_color()
     series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = series_color
-    series.inverted_solid_fill_color.color = invert_color
+    series.format.fill.solid_fill_color.color = automatic_series_color
+    series.invert_if_negative = True
+    series.inverted_solid_fill_color.color = drawing.Color.red
+
     presentation.save("inverted_solid_fill_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Kết quả:
 
-![Màu nền đặc đảo ngược](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Bạn cũng có thể đảo ngược màu nền cho một điểm dữ liệu duy nhất thay vì toàn bộ series. Chỉ cần truy cập `ChartDataPoint` mong muốn và đặt thuộc tính `invert_if_negative` thành `True`.
-
-Ví dụ mã sau cho thấy cách thực hiện:
+Bạn có thể bật đảo ngược cho một điểm thông qua [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Trong ví dụ sau, đảo ngược được tắt cho chuỗi và chỉ bật cho điểm đã chọn. Điểm này cũng được gán giá trị âm để hiệu ứng hiển thị:
 
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
+
+first_slide_index = 0
+first_series_index = 0
+target_data_point_index = 2
+negative_value = -30
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
-	chart.chart_data.series.clear()
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-	series = series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
+    series = chart.chart_data.series[first_series_index]
+    automatic_series_color = series.get_automatic_series_color()
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = automatic_series_color
+    series.inverted_solid_fill_color.color = drawing.Color.red
+    series.invert_if_negative = False
 
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
+    data_point = series.data_points[target_data_point_index]
+    data_point.value.as_cell.value = negative_value
+    data_point.invert_if_negative = True
 
-	series.invert_if_negative = False
-	series.data_points[2].invert_if_negative = True
-
-	presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Xóa dữ liệu cho các điểm dữ liệu cụ thể**
+## **Xóa Giá Trị Của Một Điểm Dữ Liệu Cụ Thể**
 
-Đôi khi một biểu đồ chứa các giá trị thử nghiệm, ngoại lệ hoặc mục đã lỗi thời mà bạn cần loại bỏ mà không phải xây dựng lại toàn bộ series. Aspose.Slides for Python cho phép bạn nhắm mục tiêu bất kỳ điểm dữ liệu nào bằng chỉ số, xóa nội dung và ngay lập tức làm mới vùng vẽ để các điểm còn lại dịch chuyển và các trục tự động điều chỉnh lại.
+Để làm cho một điểm trống mà không xóa các điểm khác, đặt ô workbook hỗ trợ của nó thành `None`. Đối với biểu đồ cột, giá trị đã vẽ có thể truy cập qua [ChartDataPoint.value](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapoint/value/). Điểm dữ liệu vẫn ở cùng vị trí danh mục, nhưng biểu đồ sẽ xem giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
 
-Đoạn mã sau minh họa thao tác:
+Ví dụ sau chỉ xóa điểm thứ hai trong chuỗi đầu tiên:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-with slides.Presentation("test_chart.pptx") as presentation:
-    slide = presentation.slides[0]
-    chart = slide.shapes[0]
-    series = chart.chart_data.series[0]
+first_slide_index = 0
+first_series_index = 0
+target_data_point_index = 1
 
-    for data_point in series.data_points:
-        data_point.x_value.as_cell.value = None
-        data_point.y_value.as_cell.value = None
-
-    series.data_points.clear()
-
-    presentation.save("clear_data_points.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Đặt độ rộng khoảng cách giữa chuỗi**
-
-Độ rộng khoảng cách (gap width) điều khiển lượng không gian trống giữa các cột hoặc thanh liền kề — khoảng cách rộng hơn làm nổi bật từng danh mục, trong khi khoảng cách hẹp hơn tạo cảm giác dày đặc, gọn gàng hơn. Thông qua Aspose.Slides for Python, bạn có thể tinh chỉnh tham số này cho toàn bộ series, đạt được cân bằng trực quan mong muốn cho bản thuyết trình mà không cần thay đổi dữ liệu nền.
-
-Đoạn mã sau cho thấy cách đặt độ rộng khoảng cách cho một series:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-gap_width = 30
-
-# Tạo một bản thuyết trình trống.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
 
-    # Truy cập slide đầu tiên.
-    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    # Thêm một biểu đồ với dữ liệu mặc định.
+    series = chart.chart_data.series[first_series_index]
+    data_point = series.data_points[target_data_point_index]
+    data_point.value.as_cell.value = None
+
+    presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Biểu đồ phân tán sử dụng các ô X và Y riêng biệt, và biểu đồ bong bóng còn sử dụng một ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [ChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapointcollection/clear/) khi bạn muốn giữ lại các điểm khác, vì phương thức này sẽ xóa mọi điểm dữ liệu trong tập hợp.
+
+## **Đặt Độ Rộng Khoảng Cách Giữa Các Chuỗi**
+
+Độ rộng khoảng cách là khoảng cách giữa các cụm thanh hoặc cột liền kề, biểu thị dưới dạng phần trăm so với chiều rộng thanh hoặc cột. Giống như độ chồng, nó thuộc về nhóm chuỗi cha chứ không phải một chuỗi riêng lẻ. Đặt [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) một lần cho nhóm. Giá trị lớn hơn tạo ra nhiều không gian hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
+
+Ví dụ sau thay đổi độ rộng khoảng cách và chỉ lưu bản trình chiếu cuối cùng:
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+first_slide_index = 0
+first_series_index = 0
+gap_width_percent = 30
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
+
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 500, 200)
 
-    # Lưu bản thuyết trình vào đĩa.
-    presentation.save("default_gap_width.pptx", slides.export.SaveFormat.PPTX)
+    series = chart.chart_data.series[first_series_index]
+    series.parent_series_group.gap_width = gap_width_percent
 
-    # Đặt giá trị gap_width.
-    series = chart.chart_data.series[0]
-    series.parent_series_group.gap_width = gap_width
-
-    # Lưu bản thuyết trình vào đĩa.
     presentation.save("gap_width_30.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Kết quả:
 
-![Độ rộng khoảng cách](gap_width.png)
+![The gap width](gap_width.png)
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Có giới hạn số lượng series mà một biểu đồ có thể chứa không?**
+**Những loại biểu đồ nào hỗ trợ chuỗi dữ liệu?**
 
-Aspose.Slides không đặt giới hạn cố định cho số series bạn thêm. Giới hạn thực tế phụ thuộc vào độ dễ đọc của biểu đồ và bộ nhớ khả dụng cho ứng dụng của bạn.
+Tất cả các loại biểu đồ được biểu diễn bằng liệt kê [ChartType](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng chuỗi của chúng không phải lúc nào cũng có cùng cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục sử dụng danh mục và giá trị, biểu đồ phân tán sử dụng giá trị X và Y, và biểu đồ bong bóng thêm kích thước bong bóng. Hãy sử dụng phương thức tạo điểm dữ liệu phù hợp với loại chuỗi. Các tùy chọn như độ chồng và độ rộng khoảng cách chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
 
-**Nếu các cột trong một cụm quá gần nhau hoặc quá xa nhau thì phải làm sao?**
+**Nhóm chuỗi biểu đồ là gì?**
 
-Điều chỉnh thiết lập [gap_width](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/gap_width/) cho series đó (hoặc nhóm series cha). Tăng giá trị sẽ làm rộng không gian giữa các cột, giảm giá trị sẽ đưa chúng lại gần nhau hơn.
+Một [ChartSeriesGroup](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseriesgroup/) chứa các chuỗi tương thích chia sẻ các cài đặt vẽ mức nhóm. Một biểu đồ kết hợp có thể chứa nhiều hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một chuỗi không nhất thiết thay đổi mọi chuỗi trong biểu đồ.
+
+**Biểu đồ mới tạo có chứa dữ liệu mặc định không?**
+
+Có. Mặc định, [ShapeCollection.add_chart](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/add_chart/) tạo các chuỗi, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô đó hoặc xóa cả hai tập hợp chuỗi và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
+
+**Các đối tượng biểu đồ được kết nối với các ô workbook như thế nào?**
+
+Tên chuỗi, nhãn danh mục và giá trị điểm dữ liệu tham chiếu tới các ô trong một [ChartDataWorkbook](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ các hàng danh mục và các hàng giá trị chuỗi đồng bộ để mỗi điểm được vẽ dưới danh mục mong muốn.
+
+**Làm sao để xóa một điểm thay vì toàn bộ chuỗi?**
+
+Đặt ô giá trị liên quan thành `None` để giữ vị trí danh mục của điểm đó dưới dạng điểm trống. Chỉ sử dụng [ChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapointcollection/clear/) khi bạn muốn xóa mọi điểm trong chuỗi đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi chuỗi để các giá trị của chúng vẫn đồng bộ với tập hợp danh mục.
+
+**Các điểm trống được hiển thị như thế nào?**
+
+Kết quả phụ thuộc vào loại biểu đồ và [Chart.display_blanks_as](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chart/display_blanks_as/). Các biểu đồ được hỗ trợ có thể hiển thị các khoảng trống dưới dạng khoảng cách, giá trị 0, hoặc bằng cách nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình chiếu của bạn.
+
+**Các giá trị âm được định dạng như thế nào?**
+
+Đối với các chuỗi thanh, cột và bong bóng được hỗ trợ, bật [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/invert_if_negative/) và đặt [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Bạn có thể ghi đè hành vi cho một điểm cá nhân bằng [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Các thuộc tính này ảnh hưởng tới định dạng, không phải giá trị số được lưu.
+
+**Định dạng nào ưu tiên khi cả chuỗi và điểm đều được định dạng?**
+
+Định dạng điểm dữ liệu rõ ràng sẽ được ưu tiên cho điểm đó. Các điểm khác sẽ tiếp tục sử dụng định dạng chuỗi rõ ràng hoặc, khi không có định dạng chuỗi, sẽ dùng kiểu biểu đồ và chủ đề tự động. Các thuộc tính nhóm như độ chồng và độ rộng khoảng cách kiểm soát bố cục và không phải là ghi đè định dạng cấp điểm.
+
+**Có giới hạn số lượng chuỗi mà một biểu đồ có thể chứa không?**
+
+Aspose.Slides không áp đặt một giới hạn cố định cho số chuỗi. Trong thực tế, các hạn chế của tệp bản trình chiếu, bộ nhớ khả dụng, thời gian render và khả năng đọc hiểu biểu đồ sẽ quyết định một giới hạn thực tế.
+
+**Tôi nên thay đổi gì khi các cột quá gần nhau hoặc quá xa?**
+
+Đặt [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/vi/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) trên nhóm chuỗi cha thích hợp. Tăng giá trị để mở rộng không gian giữa các cụm, hoặc giảm nó để các cụm lại gần nhau hơn.

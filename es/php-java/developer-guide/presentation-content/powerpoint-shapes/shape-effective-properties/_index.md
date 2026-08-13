@@ -1,5 +1,5 @@
 ---
-title: Obtener propiedades efectivas de forma de presentaciones en PHP
+title: Obtener propiedades efectivas de formas desde presentaciones en PHP
 linktitle: Propiedades efectivas
 type: docs
 weight: 50
@@ -7,8 +7,8 @@ url: /es/php-java/shape-effective-properties/
 keywords:
 - propiedades de forma
 - propiedades de cámara
-- sistema de luces
-- bisel de forma
+- rig de luz
+- forma con bisel
 - marco de texto
 - estilo de texto
 - altura de fuente
@@ -17,333 +17,301 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Descubra cómo Aspose.Slides para PHP mediante Java calcula y aplica las propiedades efectivas de forma para una representación precisa en PowerPoint."
+description: "Aprenda a usar Aspose.Slides para PHP mediante Java para distinguir el formato local, heredado y efectivo de formas en presentaciones de PowerPoint."
 ---
-## **Visión general**
+## **Entender las propiedades locales, heredadas y efectivas**
 
-Este tema explica la diferencia entre propiedades **locales** y **efectivas**. Los valores locales son aquellos que se establecen directamente en un nivel de formato específico, como por ejemplo:
+El formato de PowerPoint puede originarse en varios lugares. El valor almacenado directamente en un objeto es su **valor local**. Si ese valor no está establecido, PowerPoint busca en fuentes de formato padre, como el valor predeterminado de un párrafo, un estilo de texto, una diapositiva de diseño o maestra, un tema o los valores predeterminados a nivel de presentación. Esos valores son **valores heredados**. El valor que queda después de resolver toda la jerarquía es el **valor efectivo**, es decir, el valor utilizado para representar el objeto.
 
-1. Propiedades de porción en una diapositiva.
-1. Estilos de texto de forma prototipo en una diapositiva de diseño o maestra, cuando la forma del marco de texto de la porción tiene uno.
-1. Configuraciones de texto globales en una presentación.
+Por ejemplo, una porción de texto puede no definir su propia altura de fuente. Su valor local [getFontHeight](https://reference.aspose.com/slides/es/php-java/aspose.slides/baseportionformat/) es entonces `NAN`, lo que significa “no establecido aquí”. La porción puede heredar una altura de su párrafo, del estilo de texto predeterminado de la presentación o de otra fuente aplicable. Llamar a [getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/portionformat/geteffective/) sobre el formato de la porción devuelve la altura final resuelta.
 
-Los valores locales pueden definirse u omitirse en cualquier nivel. Cuando Aspose.Slides necesita el formato final "tal como se muestra", resuelve la cadena de herencia y devuelve valores **efectivos**. Puede obtenerlos llamando al método `getEffective` del objeto de formato local.
+Utilice los dos tipos de datos de formato para diferentes propósitos:
 
-El siguiente ejemplo muestra cómo obtener valores efectivos. Se asume que la primera forma en la primera diapositiva es un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) con un marco de texto y al menos una porción.
+- Lea o modifique un objeto de formato local, como [PortionFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/portionformat/), cuando necesite controlar dónde se define un valor.
+- Lea un objeto de datos efectivo, como los [datos devueltos por PortionFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/portionformat/geteffective/), cuando necesite el resultado final renderizado. Los datos efectivos son de solo lectura.
+
+Antes de ejecutar los ejemplos, [install Aspose.Slides for PHP via Java](/slides/es/php-java/installation/).
+
+## **Comparar valores locales, heredados y efectivos**
+
+El siguiente ejemplo completo crea una forma y aplica alturas de fuente a nivel de presentación, párrafo y porción. Cada paso muestra los valores definidos en esos niveles y el valor efectivo resultante para la misma porción de texto. También demuestra por qué los datos efectivos deben leerse nuevamente después de los cambios de formato.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+function formatLocalValue($value)
+{
+    return $value === null || is_nan($value) ? "<not set>" : (string)$value;
+}
+
+function printFontHeights($caption, $presentation, $paragraph, $portion)
+{
+    $presentationValue = java_values($presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->getFontHeight());
+    $paragraphValue = java_values($paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFontHeight());
+    $localValue = java_values($portion->getPortionFormat()->getFontHeight());
+
+    // Leer datos efectivos después de los cambios precedentes.
+    $effectiveValue = java_values($portion->getPortionFormat()->getEffective()->getFontHeight());
+
+    echo $caption . PHP_EOL;
+    echo "  Presentation default: " . formatLocalValue($presentationValue) . PHP_EOL;
+    echo "  Paragraph default:    " . formatLocalValue($paragraphValue) . PHP_EOL;
+    echo "  Portion local:        " . formatLocalValue($localValue) . PHP_EOL;
+    echo "  Portion effective:    " . $effectiveValue . PHP_EOL;
+}
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
-
-    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 80, false);
+    $textFrame = $shape->addTextFrame("Effective formatting");
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
     $portion = $paragraph->getPortions()->get_Item(0);
 
-    $localPortionFormat = $portion->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat->getEffective();
+    // Definir valores heredados en dos niveles diferentes.
+    $presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(28);
+
+    printFontHeights("The portion inherits from the paragraph", $presentation, $paragraph, $portion);
+
+    // Un valor local en la porción sobrescribe ambos valores heredados.
+    $portion->getPortionFormat()->setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", $presentation, $paragraph, $portion);
+
+    // Cambiar un valor heredado no sobrescribe un valor local existente.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(30);
+    printFontHeights("The local value still has priority", $presentation, $paragraph, $portion);
+
+    // Borrar el valor local. La porción ahora hereda del párrafo nuevamente.
+    $portion->getPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The local value is cleared", $presentation, $paragraph, $portion);
+
+    // Borrar el valor del párrafo. El valor predeterminado de la presentación ahora suministra el resultado.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The paragraph value is cleared", $presentation, $paragraph, $portion);
+
+    $presentation->save("effective-properties.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Los datos de formato efectivo representan el formato calculado actual después de aplicar la herencia. En la implementación actual, algunos objetos de datos efectivos devueltos por métodos como [PortionFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/portionformat/geteffective/) pueden almacenarse en caché internamente. Llamar a `getEffective` nuevamente después de cambiar el formato padre o heredado puede actualizar la caché, y un objeto obtenido previamente puede ya no representar el estado anterior. Si necesita conservar los valores efectivos para reutilizarlos más tarde, copie las propiedades necesarias, como la altura de fuente, el color de relleno, el estilo de fuente o la alineación, en su propio objeto de datos.
-{{% /alert %}}
+La prioridad en este ejemplo es el formato local de la porción, seguido del formato del párrafo y, por último, el predeterminado de la presentación. Otros objetos pueden tener cadenas de herencia diferentes, pero el principio es el mismo: un valor explícito más específico prevalece, y [getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/portionformat/geteffective/) devuelve el resultado final.
 
-## **Obtener propiedades efectivas de una cámara**
+## **Obtener propiedades de texto efectivas**
 
-Aspose.Slides le permite obtener las propiedades efectivas de una cámara. Los datos efectivos devueltos por [ThreeDFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/) contienen las propiedades finales de la cámara para un [ThreeDFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/).
+El formato de texto se reparte entre varios objetos:
 
-El siguiente ejemplo de código muestra cómo obtener las propiedades efectivas de la cámara. Se asume que la primera forma en la primera diapositiva tiene formato 3D.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframeformat/geteffective/) resuelve las propiedades del marco de texto, como márgenes, anclaje, ajuste automático y dirección vertical del texto.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/textstyle/geteffective/) resuelve el formato de párrafo para cada nivel de estilo de texto.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/paragraphformat/geteffective/) resuelve las propiedades del párrafo, como alineación, sangría y viñetas.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/portionformat/geteffective/) resuelve las propiedades de carácter, como altura de fuente, tipografía, color, negrita e itálica.
+
+Para el siguiente ejemplo, `text-formatting.pptx` debe contener al menos una diapositiva y una [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) con un marco de texto no vacío. La AutoShape puede aparecer en cualquier posición de la colección de formas; el código busca un objeto adecuado y lo valida antes de usarlo.
 
 ```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+use aspose\slides\Presentation;
 
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $camera = $threeDEffectiveData->getCamera();
-    $cameraType = $camera->getCameraType();
-    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
-    $zoom = $camera->getZoom();
-
-    echo "= Effective camera properties =" . PHP_EOL;
-    echo "Type: " . $cameraType . PHP_EOL;
-    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
-    echo "Zoom: " . $zoom . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    if ($value === null) {
+        return "<not set>";
+    }
+    if (is_bool($value)) {
+        return $value ? "true" : "false";
+    }
+    return (string)$value;
 }
-```
 
-## **Obtener propiedades efectivas de un sistema de luces**
-
-Aspose.Slides le permite obtener las propiedades efectivas de un sistema de luces. Los datos efectivos devueltos por [ThreeDFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/) contienen las propiedades finales del sistema de luces para un [ThreeDFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/).
-
-El siguiente ejemplo de código muestra cómo obtener las propiedades efectivas del sistema de luces. Se asume que la primera forma en la primera diapositiva tiene formato 3D.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $lightRig = $threeDEffectiveData->getLightRig();
-    $lightType = $lightRig->getLightType();
-    $direction = $lightRig->getDirection();
-
-    echo "= Effective light rig properties =" . PHP_EOL;
-    echo "Type: " . $lightType . PHP_EOL;
-    echo "Direction: " . $direction . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function hasNonEmptyText($shape)
+{
+    $textFrame = $shape->getTextFrame();
+    if (java_is_null($textFrame)) {
+        return false;
+    }
+    if (java_values($textFrame->getParagraphs()->getCount()) === 0) {
+        return false;
+    }
+    return java_values($textFrame->getParagraphs()->get_Item(0)->getPortions()->getCount()) > 0;
 }
-```
 
-## **Obtener propiedades efectivas de un bisel de forma**
-
-Aspose.Slides le permite obtener las propiedades efectivas de un bisel de forma. Los datos efectivos devueltos por [ThreeDFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/) contienen las propiedades finales de relieve para un [ThreeDFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/).
-
-El siguiente ejemplo de código muestra cómo obtener las propiedades efectivas del bisel superior de una forma. Se asume que la primera forma en la primera diapositiva tiene formato 3D.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $bevelTop = $threeDEffectiveData->getBevelTop();
-    $bevelType = $bevelTop->getBevelType();
-    $bevelWidth = $bevelTop->getWidth();
-    $bevelHeight = $bevelTop->getHeight();
-
-    echo "= Effective shape's top face relief properties =" . PHP_EOL;
-    echo "Type: " . $bevelType . PHP_EOL;
-    echo "Width: " . $bevelWidth . PHP_EOL;
-    echo "Height: " . $bevelHeight . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function findAutoShapeWithText($slide)
+{
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $candidate = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($candidate, $autoShapeClass) && hasNonEmptyText($candidate)) {
+            return $candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Obtener propiedades efectivas de un marco de texto**
-
-Usando Aspose.Slides, puede obtener las propiedades efectivas de un marco de texto. Los datos efectivos devueltos por [TextFrameFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframeformat/geteffective/) contienen propiedades de formato del marco de texto.
-
-El siguiente ejemplo de código muestra cómo obtener propiedades de formato efectivo del marco de texto. Se asume que la primera forma en la primera diapositiva es un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) con un marco de texto.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("text-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
-    $autofitType = $effectiveTextFrameFormat->getAutofitType();
-    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
-    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
-    $marginTop = $effectiveTextFrameFormat->getMarginTop();
-    $marginRight = $effectiveTextFrameFormat->getMarginRight();
-    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+    $shape = findAutoShapeWithText($presentation->getSlides()->get_Item(0));
+    if ($shape === null) {
+        throw new RuntimeException("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    echo "Anchoring type: " . $anchoringType . PHP_EOL;
-    echo "Autofit type: " . $autofitType . PHP_EOL;
-    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
-    echo "Margins" . PHP_EOL;
-    echo "   Left: " . $marginLeft . PHP_EOL;
-    echo "   Top: " . $marginTop . PHP_EOL;
-    echo "   Right: " . $marginRight . PHP_EOL;
-    echo "   Bottom: " . $marginBottom . PHP_EOL;
-} finally {
-    $presentation->dispose();
-}
-```
+    $textFrame = $shape->getTextFrame();
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
 
-## **Obtener propiedades efectivas de un estilo de texto**
+    $textFrameEffective = $textFrame->getTextFrameFormat()->getEffective();
+    $paragraphEffective = $paragraph->getParagraphFormat()->getEffective();
+    $portionEffective = $portion->getPortionFormat()->getEffective();
 
-Usando Aspose.Slides, puede obtener las propiedades efectivas de un estilo de texto. Los datos efectivos devueltos por [TextStyle.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/textstyle/geteffective/) contienen propiedades del estilo de texto.
+    echo "Text frame margins:" . PHP_EOL;
+    echo "  Left: " . formatEffectiveValue($textFrameEffective->getMarginLeft()) . PHP_EOL;
+    echo "  Top: " . formatEffectiveValue($textFrameEffective->getMarginTop()) . PHP_EOL;
+    echo "  Right: " . formatEffectiveValue($textFrameEffective->getMarginRight()) . PHP_EOL;
+    echo "  Bottom: " . formatEffectiveValue($textFrameEffective->getMarginBottom()) . PHP_EOL;
+    echo "Paragraph alignment: " . formatEffectiveValue($paragraphEffective->getAlignment()) . PHP_EOL;
+    echo "Font height: " . formatEffectiveValue($portionEffective->getFontHeight()) . PHP_EOL;
+    echo "Bold: " . formatEffectiveValue($portionEffective->getFontBold()) . PHP_EOL;
 
-El siguiente ejemplo de código muestra cómo obtener propiedades efectivas del estilo de texto. Se asume que la primera forma en la primera diapositiva es un [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/) con un marco de texto.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $textStyle = $textFrameFormat->getTextStyle();
-    $effectiveTextStyle = $textStyle->getEffective();
-    $levelCount = 9;
-
-    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
-        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
-        $depth = $effectiveStyleLevel->getDepth();
-        $indent = $effectiveStyleLevel->getIndent();
-        $alignment = $effectiveStyleLevel->getAlignment();
-        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
-
-        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
-
-        echo "Depth: " . $depth . PHP_EOL;
-        echo "Indent: " . $indent . PHP_EOL;
-        echo "Alignment: " . $alignment . PHP_EOL;
-        echo "Font alignment: " . $fontAlignment . PHP_EOL;
+    $effectiveTextStyle = $textFrame->getTextFrameFormat()->getTextStyle()->getEffective();
+    for ($level = 0; $level < 9; $level++) {
+        $levelEffective = $effectiveTextStyle->getLevel($level);
+        echo "Level " . $level . " indent: " . formatEffectiveValue($levelEffective->getIndent()) . PHP_EOL;
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Obtener el valor efectivo de la altura de fuente**
+## **Obtener propiedades 3D efectivas**
 
-Usando Aspose.Slides, puede obtener la altura de fuente efectiva. El siguiente código muestra cómo la altura de fuente efectiva de una porción cambia después de establecer valores de altura de fuente locales en diferentes niveles de la estructura de la presentación.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/) devuelve un objeto de datos efectivo que agrupa todos los ajustes 3D resueltos. Sus métodos [getCamera](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/), [getLightRig](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/), [getBevelTop](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/) y [getBevelBottom](https://reference.aspose.com/slides/es/php-java/aspose.slides/threedformat/geteffective/) exponen los datos efectivos correspondientes. Leer estos ajustes relacionados juntos facilita la comprensión de la apariencia 3D final de una forma.
+
+Para este ejemplo, `shape-3d.pptx` debe contener al menos una forma en su primera diapositiva. Aplique ajustes de cámara 3D, iluminación o biselado a esa forma si desea que la salida contenga valores distintos de los predeterminados.
 
 ```php
-$presentation = new Presentation();
+use aspose\slides\Presentation;
+
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    return $value === null ? "<not set>" : (string)$value;
+}
+
+$presentation = new Presentation("shape-3d.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0 || java_values($presentation->getSlides()->get_Item(0)->getShapes()->size()) === 0) {
+        throw new RuntimeException("The first slide must contain a shape.");
+    }
 
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $autoShape->addTextFrame("");
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $threeDEffective = $shape->getThreeDFormat()->getEffective();
 
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    $paragraph->getPortions()->clear();
+    echo "Camera:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getCamera()->getCameraType()) . PHP_EOL;
+    echo "  Field of view: " . formatEffectiveValue($threeDEffective->getCamera()->getFieldOfViewAngle()) . PHP_EOL;
+    echo "  Zoom: " . formatEffectiveValue($threeDEffective->getCamera()->getZoom()) . PHP_EOL;
 
-    $firstPortion = new Portion("Sample text with first portion");
-    $secondPortion = new Portion(" and second portion.");
+    echo "Light rig:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getLightRig()->getLightType()) . PHP_EOL;
+    echo "  Direction: " . formatEffectiveValue($threeDEffective->getLightRig()->getDirection()) . PHP_EOL;
 
-    $paragraph->getPortions()->add($firstPortion);
-    $paragraph->getPortions()->add($secondPortion);
-
-    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
-    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height just after creation:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
-    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
-    $defaultPortionFormat->setFontHeight(24);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
-    $paragraphDefaultPortionFormat->setFontHeight(40);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $firstPortionFormat->setFontHeight(55);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $secondPortionFormat->setFontHeight(18);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+    echo "Top bevel:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getBevelTop()->getBevelType()) . PHP_EOL;
+    echo "  Width: " . formatEffectiveValue($threeDEffective->getBevelTop()->getWidth()) . PHP_EOL;
+    echo "  Height: " . formatEffectiveValue($threeDEffective->getBevelTop()->getHeight()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Obtener el formato de relleno efectivo para una tabla**
+## **Obtener formato de tabla efectivo**
 
-Usando Aspose.Slides, puede obtener el formato de relleno efectivo para distintas partes de una tabla. Los datos efectivos devueltos por los objetos de formato contienen propiedades de [FillFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/fillformat/). El formato de celda tiene mayor prioridad que el de fila, el de fila mayor que el de columna y el de columna mayor que el de tabla completa.
+El formato de tabla puede provenir del estilo de tabla y de los formatos aplicados a toda la tabla, a una columna, a una fila o a una celda individual. En caso de conflicto entre rellenos definidos explícitamente, la prioridad es celda, fila, columna y, por último, tabla completa. El formato efectivo de una celda es el formato final utilizado para dibujar esa celda.
 
-Como resultado, se utilizan las propiedades efectivas de [CellFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellformat/) para dibujar la celda de la tabla. El siguiente ejemplo de código muestra cómo obtener el formato de relleno efectivo para distintas partes de la tabla. Se asume que la primera forma en la primera diapositiva es una [Table](https://reference.aspose.com/slides/es/php-java/aspose.slides/table/).
+Para este ejemplo, `table-formatting.pptx` debe contener al menos una tabla en su primera diapositiva. La tabla debe tener al menos una fila y una columna. El código busca una [Table](https://reference.aspose.com/slides/es/php-java/aspose.slides/table/) en lugar de asumir que `getShapes()->get_Item(0)` es una tabla.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+
+function findTable($slide)
+{
+    $tableClass = new JavaClass("com.aspose.slides.Table");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, $tableClass)) {
+            return $shape;
+        }
+    }
+    return null;
+}
+
+$presentation = new Presentation("table-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $table = $slide->getShapes()->get_Item(0);
-    $tableFormatEffective = $table->getTableFormat()->getEffective();
+    $table = findTable($presentation->getSlides()->get_Item(0));
+    if ($table === null) {
+        throw new RuntimeException("The first slide must contain a table.");
+    }
+    if (java_values($table->getRows()->size()) === 0 || java_values($table->getColumns()->size()) === 0) {
+        throw new RuntimeException("The table must contain at least one cell.");
+    }
 
-    $row = $table->getRows()->get_Item(0);
-    $rowFormatEffective = $row->getRowFormat()->getEffective();
+    $tableEffective = $table->getTableFormat()->getEffective();
+    $rowEffective = $table->getRows()->get_Item(0)->getRowFormat()->getEffective();
+    $columnEffective = $table->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
+    $cellEffective = $table->get_Item(0, 0)->getCellFormat()->getEffective();
 
-    $column = $table->getColumns()->get_Item(0);
-    $columnFormatEffective = $column->getColumnFormat()->getEffective();
-
-    $cell = $table->get_Item(0, 0);
-    $cellFormatEffective = $cell->getCellFormat()->getEffective();
-
-    $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
-    $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
-    $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
-    $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
+    echo "Table fill: " . java_values($tableEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Row fill: " . java_values($rowEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Column fill: " . java_values($columnEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Final cell fill: " . java_values($cellEffective->getFillFormat()->getFillType()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Preguntas frecuentes**
+Si necesita el color y no solo el tipo de relleno, primero compruebe el valor efectivo de [getFillType](https://reference.aspose.com/slides/es/php-java/aspose.slides/fillformat/geteffective/), y luego lea el método que corresponde a ese tipo —por ejemplo, [getSolidFillColor](https://reference.aspose.com/slides/es/php-java/aspose.slides/fillformat/geteffective/) para un relleno sólido.
 
-**¿Devuelve `getEffective` una instantánea?**
+## **Volver a leer los datos efectivos después de los cambios**
 
-No siempre. Los datos efectivos representan el formato calculado después de aplicar la herencia, pero algunos objetos de datos pueden almacenarse en caché internamente. Una llamada posterior a `getEffective` puede recalcular el formato y actualizar la caché, por lo que un objeto obtenido previamente no debe considerarse una instantánea duradera.
+Los datos efectivos describen la jerarquía de formato en el momento en que se resuelve. Llame a `getEffective` de nuevo después de cambiar cualquier elemento que pueda participar en esa jerarquía, incluidos:
 
-**¿Cuándo debo volver a leer las propiedades efectivas?**
+- el formato local del objeto;
+- los valores predeterminados de párrafo o de marco de texto;
+- el estilo de tabla, la tabla, la columna, la fila o el formato de celda;
+- el formato de diapositiva de diseño o maestra;
+- los datos del tema o los valores predeterminados a nivel de presentación;
+- el diseño o la maestra asignada a una diapositiva.
 
-Llame a `getEffective` nuevamente después de cambiar el formato local, los estilos padre, el formato de diseño, el formato maestro o los valores predeterminados a nivel de presentación. La siguiente llamada reevalúa la jerarquía de formato y devuelve el resultado efectivo actual.
+No conserve un objeto de datos efectivo como una instantánea permanente. Aspose.Slides puede almacenar en caché algunos datos efectivos internamente, y una llamada posterior a `getEffective` puede actualizar esos datos. Si necesita comparar valores antes y después de un cambio, copie los valores escalares que necesite —como una altura de fuente, color, alineación o ancho de bisel— en sus propias variables antes de realizar el cambio.
 
-**¿Cambiar o eliminar una diapositiva de diseño/maestra afecta a las propiedades efectivas ya obtenidas?**
+Para cambiar un valor, actualice el objeto de formato local correspondiente y luego llame a `getEffective` para verificar el resultado. Los propios objetos de datos efectivos son de solo lectura.
 
-Sí, pero el cambio se refleja en la siguiente llamada a `getEffective`. Si se cambia o elimina una fuente de formato padre, los datos efectivos obtenidos previamente pueden quedar obsoletos. Una vez llamado `getEffective` de nuevo, Aspose.Slides reevalúa el árbol de formato y las fuentes, colores, tamaños u otros valores resultantes pueden cambiar.
+## **FAQ**
 
-**¿Puedo modificar valores a través de los objetos de datos efectivos?**
+**¿Cómo puedo saber qué nivel suministró un valor efectivo?**
 
-No. Los objetos de datos efectivos exponen valores calculados. Realice los cambios en los objetos de formato local y, a continuación, vuelva a obtener los valores efectivos.
+Los datos efectivos contienen el valor final, no su origen. Inspeccione los objetos locales aplicables desde el nivel más específico hacia afuera. Para el texto, esto puede incluir la porción, el párrafo, el marco de texto, el diseño, la maestra, el tema y los valores predeterminados de la presentación. Los valores indefinidos como `NAN` o `null` indican que la búsqueda continúa en otro nivel.
 
-**¿Qué ocurre si una propiedad no está establecida a nivel de forma, ni en el diseño/maestra, ni en la configuración global?**
+**¿Qué ocurre cuando ningún nivel define una propiedad?**
 
-El valor efectivo se determina mediante el mecanismo predeterminado, que incluye los valores por defecto de PowerPoint y de Aspose.Slides. Ese valor resuelto pasa a formar parte de los datos efectivos actuales.
+Aspose.Slides resuelve el valor predeterminado apropiado de PowerPoint o de la biblioteca. Ese valor resuelto aparece en los datos efectivos aunque ningún objeto local lo haya definido explícitamente.
 
-**A partir de un valor de fuente efectivo, ¿puedo saber qué nivel proporcionó el tamaño o el tipo de letra?**
+**¿Por qué a veces un valor efectivo coincide con el valor local?**
 
-No directamente. Los datos efectivos devuelven el valor final. Para encontrar la fuente, revise los valores locales en la porción, párrafo, marco de texto y estilos de texto en los niveles de diseño, maestro y presentación para ver dónde aparece la primera definición explícita.
+El valor local ganó el cálculo de herencia. Esto es esperado cuando la propiedad está establecida explícitamente en el objeto y ninguna regla más específica la sobrescribe.
 
-**¿Por qué los valores efectivos a veces son idénticos a los locales?**
+**¿Cuándo debo usar datos locales en lugar de datos efectivos?**
 
-Porque el valor local resultó ser final (no fue necesario heredar de un nivel superior). En esos casos, el valor efectivo coincide con el local.
-
-**¿Cuándo debo usar propiedades efectivas y cuándo trabajar solo con las locales?**
-
-Utilice los datos efectivos cuando necesite el resultado "tal como se muestra" después de aplicar toda la herencia, por ejemplo para alinear colores, sangrías o tamaños. Si necesita conservar esos valores sin que cambien con posteriores ajustes de formato, copie las propiedades necesarias en su propio objeto. Si desea modificar el formato en un nivel específico, modifique las propiedades locales y luego, si es necesario, lea nuevamente los datos efectivos para verificar el resultado.
+Utilice datos locales para inspeccionar o editar un nivel de formato específico. Utilice datos efectivos cuando necesite la apariencia final después de que se haya resuelto la herencia, las reglas del tema y los estilos aplicables. El [complete comparison example](#compare-local-inherited-and-effective-values) muestra ambos en el mismo flujo de trabajo.

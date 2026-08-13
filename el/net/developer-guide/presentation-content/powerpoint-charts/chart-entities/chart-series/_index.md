@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση Σειρών Δεδομένων Διαγραμμάτων σε Παρουσιάσεις στο .NET
+title: Διαχείριση Σειρών Δεδομένων Διαγράμματος σε Παρουσιάσεις στο .NET
 linktitle: Σειρές Δεδομένων
 type: docs
 url: /el/net/chart-series/
@@ -10,303 +10,372 @@ keywords:
 - χρώμα κατηγορίας
 - όνομα σειράς
 - σημείο δεδομένων
-- διάστημα σειράς
+- κενό σειράς
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε σειρές διαγραμμάτων σε C# για PowerPoint (PPT/PPTX) με πρακτικά παραδείγματα κώδικα και βέλτιστες πρακτικές για τη βελτίωση των παρουσιάσεων δεδομένων σας."
+description: "Μάθετε πώς να διαχειρίζεστε σειρές διαγράμματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος κενού και αρνητικές τιμές σε παρουσιάσεις με C#."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο περιγράφει τον ρόλο του [ChartSeries](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chartseries/) στο Aspose.Slides for .NET, εστιάζοντας στον τρόπο που τα δεδομένα δομούνται και απεικονίζονται μέσα σε παρουσιάσεις. Τα αντικείμενα αυτά παρέχουν τα θεμελιώδη στοιχεία που ορίζουν μεμονωμένα σύνολα σημείων δεδομένων, κατηγοριών και παραμέτρων εμφάνισης σε ένα διάγραμμα. Εργαζόμενοι με [ChartSeries](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chartseries/), οι προγραμματιστές μπορούν να ενσωματώσουν αβίαστα τις υποκείμενες πηγές δεδομένων και να διατηρήσουν πλήρη έλεγχο πάνω στο πώς εμφανίζονται οι πληροφορίες, δημιουργώντας δυναμικές, δεδομενο‑κεντρικές παρουσιάσεις που μεταδίδουν σαφή διορατικότητα και ανάλυση.
+Ένα διάγραμμα αποθηκεύει τα σχεδιασμένα του δεδομένα σε ένα βιβλίο εργασίας δεδομένων διαγράμματος. Ένα [IChartSeries](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [IChartDataPoint](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapoint/) στη σειρά αναφέρεται σε ένα ή περισσότερα κελιά του βιβλίου εργασίας. Τα αντικείμενα [IChartCategory](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται από τις σειρές. Το όνομα της σειράς, οι κατηγορίες και οι τιμές των σημείων συνδέονται, λοιπόν, με αντικείμενα [IChartDataCell](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatacell/) αντί να αποθηκεύονται μόνο ως κείμενο εμφάνισης.
 
-Μια σειρά είναι μια γραμμή ή στήλη αριθμών που σχεδιάζονται σε ένα γράφημα.
+Για ένα τυπικό διάγραμμα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για ονόματα σειρών, τη στήλη 0 για ονόματα κατηγοριών και τα υπόλοιπα κελιά για τιμές σειρών. Οι δείκτες φύλλου, γραμμής και στήλης που περνιούνται στο [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/getcell/) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα διάγραμμα με προεπιλεγμένα δεδομένα, αλλά δεν πρέπει να θεωρήσετε ότι κάθε υπάρχον διάγραμμα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, ελέγξτε τα κελιά που αναφέρονται από τις σειρές, τις κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές στο βιβλίο εργασίας.
 
-![σειρά-γράφηματος-powerpoint](chart-series-powerpoint.png)
+Οι ρυθμίσεις του διαγράμματος έχουν τρία διαφορετικά επίπεδα:
 
-## **Ορισμός της Επικάλυψης Σειράς Γραφήματος**
+- Ρυθμίσεις σε επίπεδο σειράς, όπως το [IChartSeries.Format](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/format/), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία σε μία σειρά.
+- Ρυθμίσεις σημείου δεδομένου, όπως το [IChartDataPoint.Format](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapoint/format/), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
+- Ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στην ίδια [IChartSeriesGroup](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseriesgroup/). Πρόσβαση στην ομάδα μέσω του [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/parentseriesgroup/) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
 
-Η ιδιότητα [IChartSeriesOverlap](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/properties/overlap) ελέγχει πώς οι μπάρες και οι στήλες επικαλύπτονται σε ένα 2D γράφημα, καθορίζοντας ένα εύρος από -100 έως 100. Δεδομένου ότι αυτή η ιδιότητα σχετίζεται με την ομάδα σειρών και όχι με τη μεμονωμένη σειρά γραφήματος, είναι μόνο‑ανάγνωση σε επίπεδο σειράς. Για να διαμορφώσετε τις τιμές επικάλυψης, χρησιμοποιήστε την ιδιότητα `ParentSeriesGroup.Overlap` ανάγνωση/εγγραφή, η οποία εφαρμόζει την καθορισμένη επικάλυψη σε όλες τις σειρές της ομάδας.
+Όταν δεν έχει οριστεί ρητά γέμισμα σημείου ή σειράς, το στυλ και το θέμα του διαγράμματος καθορίζουν την αυτόματη εμφάνιση. Όταν είναι παρόν τόσο το γέμισμα σειράς όσο και το γέμισμα σημείου, το γέμισμα σημείου έχει προτεραιότητα για εκείνο το σημείο.
 
-Παρακάτω φαίνεται ένα παράδειγμα C# που δείχνει πώς να δημιουργήσετε μια παρουσίαση, να προσθέσετε ένα γράφημα στήλης σε συσσωμάτωση, να προσπελάσετε την πρώτη σειρά γραφήματος, να ρυθμίσετε τη ρύθμιση επικάλυψης και στη συνέχεια να αποθηκεύσετε το αποτέλεσμα ως αρχείο PPTX:
+![chart-series-powerpoint](chart-series-powerpoint.png)
+
+## **Ορισμός της Επικάλυψης Σειράς Διαγράμματος**
+
+[IChartSeries.Overlap](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/overlap/) αναφέρει πόσο επικάλλονται οι ράβδοι ή οι στήλες σε ένα 2Δ διάγραμμα, από -100 έως 100 τοις εκατό. Είναι μια μόνο για ανάγνωση προβολή της ρύθμισης στην γονική ομάδα σειράς. Ορίστε το [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseriesgroup/overlap/) για να ενημερώσετε κάθε συμβατή σειρά σε εκείνη την ομάδα. Αυτή η επιλογή εφαρμόζεται σε τύπους διαγραμμάτων που εμφανίζουν ομαδοποιημένους ράβδους ή στήλες· δεν επηρεάζει μη σχετικές ομάδες σειρών σε ένα συνδυαστικό διάγραμμα.
+
+Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // Προσθέστε ένα γράφημα στήλης σε ομαδοποίηση με προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // Ορίστε την επικάλυψη της σειράς.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// Το νέο διάγραμμα περιλαμβάνει δείγμα σειρών, κατηγοριών και τιμών.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Αποθηκεύστε το αρχείο παρουσίασης στο δίσκο.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Η επικάλυψη της σειράς](series_overlap.png)
+![Η επικάλυψη των σειρών](series_overlap.png)
 
-## **Αλλαγή Χρώματος Γέμισματος Σειράς**
+## **Αλλαγή Χρώματος Γεμίσματος Σειράς**
 
-Το Aspose.Slides καθιστά εύκολη την προσαρμογή των χρωμάτων γέμισματος των σειρών γραφήματος, επιτρέποντάς σας να τονίζετε συγκεκριμένα σημεία δεδομένων και να δημιουργείτε οπτικά ελκυστικά διαγράμματα. Αυτό υλοποιείται μέσω του αντικειμένου [IFormat](https://reference.aspose.com/slides/el/net/aspose.slides.charts/iformat/), το οποίο υποστηρίζει διάφορους τύπους γέμισματος, ρυθμίσεις χρώματος και άλλες προχωρημένες επιλογές μορφοποίησης. Αφού προσθέσετε ένα γράφημα σε μια διαφάνεια και προσπελάσετε τη ζητούμενη σειρά, απλώς αποκτήστε τη σειρά και εφαρμόστε το κατάλληλο χρώμα γέμισματος. Πέρα από τα στερεά γεμίσματα, μπορείτε επίσης να χρησιμοποιήσετε διαβάθμιση ή μοτίβο για μεγαλύτερη ευελιξία σχεδίασης. Μόλις ορίσετε τα χρώματα σύμφωνα με τις απαιτήσεις σας, αποθηκεύστε την παρουσίαση για να οριστικοποιήσετε την ενημερωμένη εμφάνιση.
+Χρησιμοποιήστε το [IChartSeries.Format](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/format/) για να ορίσετε το προεπιλεγμένο γέμισμα για ολόκληρη τη σειρά. Εάν ένα σημείο έχει ήδη ρητό γέμισμα, η ρύθμιση του [IChartDataPoint.Format](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapoint/format/) παρακάμπτει το γέμισμα της σειράς για εκείνο το σημείο.
 
-Το παρακάτω παράδειγμα κώδικα C# δείχνει πώς να αλλάξετε το χρώμα της πρώτης σειράς:
+Το παρακάτω παράδειγμα εφαρμόζει γεμιστό στεγνό μπλε στην πρώτη σειρά:
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // Προσθέστε ένα γράφημα στήλης σε ομαδοποίηση με προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Ορίστε το χρώμα της πρώτης σειράς.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Αποθηκεύστε το αρχείο παρουσίασης στο δίσκο.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
 ![Το χρώμα της σειράς](series_color.png)
 
-## **Αλλαγή Ονόματος Σειράς** 
+## **Αλλαγή Ονόματος Σειράς**
 
-Το Aspose.Slides προσφέρει έναν απλό τρόπο για την τροποποίηση των ονομάτων των σειρών γραφήματος, κάνοντάς το πιο εύκολο να ετικετοποιήσετε τα δεδομένα με σαφή και κατανοητό τρόπο. Περνώντας στο αντίστοιχο κελί φύλλου εργασίας στα δεδομένα του γραφήματος, οι προγραμματιστές μπορούν να προσαρμόσουν τον τρόπο παρουσίασης των δεδομένων. Η τροποποίηση αυτή είναι ιδιαίτερα χρήσιμη όταν τα ονόματα των σειρών πρέπει να ενημερωθούν ή να διευκρινιστούν βάσει του πλαισίου των δεδομένων. Μετά την αλλαγή του ονόματος, η παρουσίαση μπορεί να αποθηκευτεί ώστε οι αλλαγές να παραμείνουν.
-
-Παρακάτω υπάρχει ένα απόσπασμα κώδικα C# που δείχνει τη διαδικασία σε δράση.
+Το όνομα μιας σειράς αποθηκεύεται στο βιβλίο εργασίας δεδομένων διαγράμματος και εμφανίζεται κανονικά στη λεζάντα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα διάγραμμα στήλης με ομάδες, το κελί B1 βρίσκεται στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι ονομαστικές σταθερές στο παρακάτω παράδειγμα κάνουν αυτή τη δομή σαφή:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // Προσθέστε ένα γράφημα στήλης σε ομαδοποίηση με προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Ορίστε το όνομα της πρώτης σειράς.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Αποθηκεύστε το αρχείο παρουσίασης στο δίσκο.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Το παρακάτω παράδειγμα κώδικα C# παρουσιάζει έναν εναλλακτικό τρόπο αλλαγής του ονόματος της σειράς:
+Μπορείτε επίσης να ενημερώσετε το κελί που ήδη αναφέρεται από το [IChartSeries.Name](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/name/). Αυτή η προσέγγιση αποφεύγει την υπόθεση μιας συγκεκριμένης γραμμής και στήλης σε υπάρχον διάγραμμα:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // Προσθέστε ένα γράφημα στήλης σε ομαδοποίηση με προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Ορίστε το όνομα της πρώτης σειράς.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Αποθηκεύστε το αρχείο παρουσίασης στο δίσκο.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
 ![Το όνομα της σειράς](series_name.png)
 
-## **Ανάκτηση Αυτόματου Χρώματος Γέμισματος Σειράς**
+## **Λήψη του Αυτόματου Χρώματος Γεμίσματος Σειράς**
 
-Το Aspose.Slides for .NET σας επιτρέπει να λάβετε το αυτόματο χρώμα γέμισματος για σειρές γραφήματος εντός μιας περιοχής σχεδίασης. Αφού δημιουργήσετε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/), μπορείτε να αποκτήσετε αναφορά στην επιθυμητή διαφάνεια με βάση το δείκτη, στη συνέχεια να προσθέσετε ένα γράφημα χρησιμοποιώντας τον προτιμώμενο τύπο (π.χ. `ChartType.ClusteredColumn`). Προσπελαύνοντας τις σειρές στο γράφημα, μπορείτε να λάβετε το αυτόματο χρώμα γέμισμα.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) επιστρέφει το χρώμα που υπολογίζεται από το δείκτη της σειράς και το στυλ του διαγράμματος. Αυτό είναι το χρώμα που χρησιμοποιείται όταν το γέμισμα της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν αναθέτει νέο γέμισμα.
 
-Ο παρακάτω κώδικας C# επεξηγεί τη διαδικασία αυτή λεπτομερώς.
+Το παρακάτω παράδειγμα εκτυπώνει το αυτόματο χρώμα κάθε προεπιλεγμένης σειράς:
 
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // Προσθέστε ένα γράφημα στήλης σε ομαδοποίηση με προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // Λάβετε το χρώμα γέμισμα της σειράς.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
-Έξοδος:
+Παράδειγμα εξόδου για το προεπιλεγμένο στυλ διαγράμματος:
+
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **Ορισμός Αντιστροφής Χρώματος Γέμισματος για Σειρά Γραφήματος**
+Τα ακριβή χρώματα εξαρτώνται από το στυλ και το θέμα του διαγράμματος.
 
-Όταν η σειρά δεδομένων σας περιέχει τόσο θετικές όσο και αρνητικές τιμές, το χρωματισμό κάθε στήλης ή μπάρας με το ίδιο χρώμα μπορεί να δυσκολεύει την ανάγνωση του γραφήματος. Το Aspose.Slides for .NET σάς επιτρέπει να ορίσετε ένα χρώμα αντιστροφής—ένα ξεχωριστό γέμισμα που εφαρμόζεται αυτόματα σε σημεία δεδομένων κάτω από το μηδέν—ώστε οι αρνητικές τιμές να ξεχωρίζουν αμέσως. Σε αυτήν την ενότητα θα μάθετε πώς να ενεργοποιήσετε αυτήν την επιλογή, να επιλέξετε ένα κατάλληλο χρώμα και να αποθηκεύσετε την ενημερωμένη παρουσίαση.
+## **Ορισμός Αντιστροφής Χρώματος Γεμίσματος για Σειρά Διαγράμματος**
 
-Το παρακάτω παράδειγμα κώδικα δείχνει τη λειτουργία:
+Για ράβδους, στήλες και σφαίρες, το [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/invertifnegative/) μπορεί να εμφανίζει αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα της σειράς σε στεγνό, ενεργοποιήστε την αντιστροφή και ορίστε το χρώμα αρνητικής τιμής μέσω του [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· αλλάζει μόνο το χρώμα εμφάνισης.
+
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα διαγράμματος με μία σειρά. Η γραμμή 0 του φύλλου περιέχει το όνομα της σειράς, η στήλη 0 περιέχει ονόματα κατηγοριών και η στήλη 1 περιέχει τις τιμές:
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Προσθήκη νέων κατηγοριών.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // Προσθήκη νέας σειράς.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Συμπλήρωση δεδομένων σειράς.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // Ορισμός ρυθμίσεων χρώματος για τη σειρά.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το αντιστροφομένο στερεό γέμισμα](inverted_solid_fill_color.png)
+![Το αντιστροφή στεγνού γεμίσματος](inverted_solid_fill_color.png)
 
-Μπορείτε να αντιστρέψετε το χρώμα γέμισματος για ένα μεμονωμένο σημείο δεδομένων αντί για ολόκληρη τη σειρά. Απλώς προσπελάστε το επιθυμητό `IChartDataPoint` και ορίστε την ιδιότητα `InvertIfNegative` σε true.
-
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς γίνεται αυτό:
+Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Στο παρακάτω παράδειγμα, η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Το σημείο λαμβάνει επίσης μια αρνητική τιμή ώστε το εφέ να είναι ορατό:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Αντιστρέψτε το χρώμα εάν το σημείο δεδομένων στο δείκτη 2 είναι αρνητικό.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Καθαρισμός Συγκεκριμένων Τιμών Σημείων Δεδομένων**
+## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
 
-Μερικές φορές ένα γράφημα περιέχει δοκιμαστικές τιμές, εκτοπές ή ξεπερασμένες εγγραφές που χρειάζεται να αφαιρέσετε χωρίς να ξαναχτίσετε ολόκληρη τη σειρά. Το Aspose.Slides for .NET σάς επιτρέπει να στοχεύσετε οποιοδήποτε σημείο δεδομένων με βάση το δείκτη, να διαγράψετε το περιεχόμενό του και να ενημερώσετε αμέσως το γράφημα ώστε τα υπόλοιπα σημεία να μετατοπιστούν και οι άξονες να ξαναπροσαρμοστούν αυτόματα.
+Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα σημεία, ορίστε το αντίστοιχο κελί του βιβλίου εργασίας σε `null`. Για ένα διάγραμμα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [IChartDataPoint.YValue](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapoint/yvalue/). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το διάγραμμα το αντιμετωπίζει ως κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του διαγράμματος.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει τη διαδικασία:
+Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-## **Ορισμός Πλάτους Κενών Μεταξύ Σειρών**
+Τα διαγράμματα scatter χρησιμοποιούν ξεχωριστά κελιά X και Y, ενώ τα διαγράμματα φυσαλίδων χρησιμοποιούν επίσης κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapointcollection/clear/) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
 
-Το πλάτος κενών (Gap width) ελέγχει το ποσό του κενου χώρου μεταξύ γειτονικών στηλών ή μπαρών—μεγαλύτερα κενά τονίζουν μεμονωμένες κατηγορίες, ενώ πιο στενά κενά δημιουργούν πιο πυκνή, πιο συμπαγή εμφάνιση. Μέσω του Aspose.Slides for .NET μπορείτε να ρυθμίσετε αυτήν την παράμετρο για ολόκληρη τη σειρά, επιτυγχάνοντας ακριβώς την οπτική ισορροπία που απαιτεί η παρουσίασή σας χωρίς να αλλάξετε τα υποκείμενα δεδομένα.
+## **Ορισμός Πλάτους Κενού Ομάδας Σειρών**
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το πλάτος κενών για μια σειρά:
+Το πλάτος κενού είναι το κενό μεταξύ γειτονικών ομάδων ράβδων ή στήλων, εκφρασμένο ως ποσοστό του πλάτους της ράβδου ή στήλης. Όπως η επικάλυψη, ανήκει στην γονική ομάδα σειρών και όχι σε μία σειρά. Ορίστε το [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) μια φορά για την ομάδα. Μία μεγαλύτερη τιμή δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μια μικρότερη τιμή τις κάνει πιο πυκνές.
+
+Το παρακάτω παράδειγμα αλλάζει το πλάτος κενού και αποθηκεύει μόνο την τελική παρουσίαση:
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Δημιουργήστε μια κενή παρουσίαση.
-using (Presentation presentation = new Presentation())
-{
-    // Πρόσβαση στην πρώτη διαφάνεια.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Αποθηκεύστε την παρουσίαση στο δίσκο.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // Ορίστε την τιμή GapWidth.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // Αποθηκεύστε την παρουσίαση στο δίσκο.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 Το αποτέλεσμα:
 
-![Το πλάτος των κενών](gap_width.png)
+![Το πλάτος κενού](gap_width.png)
 
-## **ΣΥΚΕΥΗ**
+## **ΣΥΝΗΘΕΣΜΕΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Υπάρχει κάποιο όριο στον αριθμό των σειρών που μπορεί να περιέχει ένα ενιαίο γράφημα;**
+**Ποιοι τύποι διαγραμμάτων υποστηρίζουν σειρές δεδομένων;**
 
-Το Aspose.Slides δεν επιβάλλει σταθερό όριο στον αριθμό των σειρών που προσθέτετε. Το πρακτικό όριο καθορίζεται από την αναγνωσιμότητα του γραφήματος και από τη διαθέσιμη μνήμη της εφαρμογής σας.
+Όλοι οι τύποι διαγραμμάτων που αντιπροσωπεύονται από την απαρίθμηση [ChartType](https://reference.aspose.com/slides/el/net/aspose.slides.charts/charttype/) χρησιμοποιούν δεδομένα διαγράμματος, αλλά οι σειρές τους δεν έχουν όλοι την ίδια δομή τιμών ή τις ίδιες ρυθμίσεις. Για παράδειγμα, τα διαγράμματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διαγράμματα scatter χρησιμοποιούν τιμές X και Y, και τα διαγράμματα φυσαλίδων προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει στον τύπο σειράς. Οι επιλογές όπως η επικάλυψη και το πλάτος κενού εφαρμόζονται μόνο σε συμβατές ομάδες ράβδων ή στηλών.
 
-**Τι γίνεται αν οι στήλες μέσα σε μια ομάδα είναι πολύ κοντά ή πολύ μακριά μεταξύ τους;**
+**Τι είναι μια ομάδα σειρών διαγράμματος;**
 
-Ρυθμίστε την ιδιότητα `GapWidth` για εκείνη τη σειρά (ή για την ομάδα γονέα της σειράς). Η αύξηση της τιμής διευρύνει το κενό μεταξύ των στηλών, ενώ η μείωση της φέρνει τις στήλες πιο κοντά.
+Μια [IChartSeriesGroup](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδιασμού επιπέδου ομάδας. Ένα συνδυαστικό διάγραμμα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας μέσω μιας σειράς δεν αλλάζει απαραίτητα κάθε σειρά στο διάγραμμα.
+
+**Μήπως ένα νεοδημιουργημένο διάγραμμα περιέχει προεπιλεγμένα δεδομένα;**
+
+Ναι. Από προεπιλογή, το [IShapeCollection.AddChart](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addchart/) δημιουργεί δείγμα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να καθαρίσετε τόσο τις συλλογές σειρών όσο και κατηγοριών πριν προσθέσετε ένα πλήρως προσαρμοσμένο σύνολο δεδομένων. Ένα υπερφορτωμένο API μπορεί επίσης να δημιουργήσει διάγραμμα χωρίς προεπιλεγμένα δεδομένα.
+
+**Πώς συνδέονται τα αντικείμενα διαγράμματος με κελιά βιβλίου εργασίας;**
+
+Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων αναφέρονται σε κελιά ενός [IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/). Η αλλαγή ενός αναφερόμενου κελιού ενημερώνει το αντίστοιχο στοιχείο του διαγράμματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγοριών και τις γραμμές τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από την επιθυμητή κατηγορία.
+
+**Πώς να καθαρίσω ένα σημείο αντί ολόκληρης της σειράς;**
+
+Ορίστε το σχετικό κελί τιμής σε `null` για να διατηρήσετε τη θέση κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapointcollection/clear/) μόνο όταν επιθυμείτε να αφαιρέσετε όλα τα σημεία από εκείνη τη σειρά. Εάν αφαιρείτε επίσης κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμένουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+
+**Πώς εμφανίζονται τα κενά σημεία;**
+
+Το αποτέλεσμα εξαρτάται από τον τύπο διαγράμματος και το [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichart/displayblanksas/). Τα υποστηριζόμενα διαγράμματα μπορούν να εμφανίζουν τα κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει στη σημασία των ελλιπών δεδομένων στην παρουσίασή σας.
+
+**Πώς μορφοποιούνται οι αρνητικές τιμές;**
+
+Για υποστηριζόμενες σειρές ράβδων, στηλών και φυσαλίδων, ενεργοποιήστε το [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/invertifnegative/) και ορίστε το [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Μπορείτε να παρακάμψετε τη συμπεριφορά για μια ατομική σημείο με το [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Αυτές οι ιδιότητες επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+
+**Ποια μορφοποίηση επικρατεί όταν τόσο η σειρά όσο και το σημείο είναι μορφοποιημένα;**
+
+Η ρητή μορφοποίηση σημείου δεδομένου έχει προτεραιότητα για εκείνο το σημείο. Τα υπόλοιπα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν η μορφοποίηση σειράς δεν είναι ορισμένη, το αυτόματο στυλ και θέμα του διαγράμματος. Οι ιδιότητες ομάδας όπως η επικάλυψη και το πλάτος κενού ελέγχουν τη διάταξη και δεν αποτελούν παρακάμψεις μορφοποίησης επιπέδου σημείου.
+
+**Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα διάγραμμα;**
+
+Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, οι περιορισμοί του αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η αναγνωσιμότητα του διαγράμματος καθορίζουν ένα πρακτικό όριο.
+
+**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά μεταξύ τους;**
+
+Ορίστε το [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) στην κατάλληλη γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το διάστημα μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά η μία στην άλλη.

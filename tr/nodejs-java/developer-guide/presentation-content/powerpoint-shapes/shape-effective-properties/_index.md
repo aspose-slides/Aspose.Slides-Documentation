@@ -1,340 +1,291 @@
 ---
-title: JavaScript'te Sunumlardan Şekil Etkin Özelliklerini Alın
-linktitle: Etkin Özellikler
+title: Şekillerin Etkili Özelliklerini JavaScript ile Sunumlardan Almak
+linktitle: Etkili Özellikler
 type: docs
 weight: 50
 url: /tr/nodejs-java/shape-effective-properties/
 keywords:
 - şekil özellikleri
 - kamera özellikleri
-- ışık rig'i
+- ışık donanımı
 - köşe şekli
 - metin çerçevesi
 - metin stili
-- font yüksekliği
-- doldurma biçimi
+- yazı tipi yüksekliği
+- dolgu formatı
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js'in Java aracılığıyla şekil etkin özelliklerini nasıl hesapladığını ve kesin PowerPoint render'ı için uyguladığını keşfedin."
+description: "Aspose.Slides for Node.js via Java'ı kullanarak PowerPoint sunumlarında yerel, kalıtılmış ve etkili şekil biçimlendirmesini nasıl ayırabileceğinizi öğrenin."
 ---
-## **Genel Bakış**
+## **Yerel, Kalıtılmış ve Etkili Özellikleri Anlamak**
 
-Bu konu **yerel** ve **etkin** özellikler arasındaki farkı açıklar. Yerel değerler, belirli bir biçimlendirme seviyesinde doğrudan ayarlanan değerlerdir, örneğin:
+PowerPoint biçimlendirmesi birkaç kaynaktan gelebilir. Bir nesne üzerinde doğrudan depolanan değer **yerel değerdir**. Bu değer ayarlanmamışsa, PowerPoint bir paragraf varsayılanı, bir metin stili, bir düzen ya da ana slayt, bir tema veya sunum düzeyinde varsayılanlar gibi üst biçimlendirme kaynaklarına bakar. Bu değerler **kalıtılmış değerler**dir. Tüm hiyerarşi çözüldükten sonra kalan değer **etkili değer**dir—nesneyi renderlamak için kullanılan değer.
 
-1. Bir slayttaki bölüm (portion) özellikleri.
-1. Bir düzen ya da ana slaytta prototip şekil metin stilleri, bölümün metin çerçevesi şekli bir taneye sahipse.
-1. Sunumdaki genel metin ayarları.
+Örneğin, bir metin bölümü kendi yazı tipi yüksekliğini tanımlamıyor olabilir. Yerel [getFontHeight](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portionformat/#getFontHeight) değeri `NaN` olur, bu da “burada ayarlı değil” anlamına gelir. Bölüm, paragrafından, sunumun varsayılan metin stilinden veya başka bir uygulanabilir kaynaktan yükseklik kalıtabilir. Bölüm formatı üzerinde [getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portionformat/#getEffective) çağrısı, son çözülen yüksekliği döndürür.
 
-Yerel değerler herhangi bir seviyede tanımlanabilir veya atlanabilir. Aspose.Slides son “görüntülendiği gibi” biçimlendirmeye ihtiyaç duyduğunda, kalıtım zincirini çözer ve **etkin** değerleri döndürür. Bu değerlere yerel biçim nesnesi üzerinde `getEffective` metodunu çağırarak ulaşabilirsiniz.
+İki tür biçimlendirme verisini farklı amaçlar için kullanın:
 
-Aşağıdaki örnek, etkin değerlerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir metin çerçevesi ve en az bir bölüm içeren bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) olduğunu varsayar.
+- Bir değerin nerede tanımlandığını kontrol etmeniz gerektiğinde, [PortionFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portionformat/) gibi yerel bir format nesnesini okuyun veya değiştirin.
+- Son, renderlanmış sonucu ihtiyaç duyduğunuzda, [effective data returned by PortionFormat.getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portionformat/#getEffective) verisini okuyun. Etkili veri yalnızca okunabilir.
+
+Örnekleri çalıştırmadan önce, [install Aspose.Slides for Node.js via Java](/slides/tr/nodejs-java/installation/).
+
+## **Yerel, Kalıtılmış ve Etkili Değerleri Karşılaştırma**
+
+Aşağıdaki tam örnek bir şekil oluşturur ve sunum, paragraf ve bölüm seviyelerinde yazı tipi yükseklikleri uygular. Her adım, bu seviyelerde tanımlanan değerleri ve aynı metin bölümü için ortaya çıkan etkili değeri yazdırır. Ayrıca, biçimlendirme değişikliklerinden sonra etkili verinin yeniden okunması gerektiğini gösterir.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // Önceki değişikliklerden sonra etkili veriyi oku.
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // İki farklı seviyede kalıtılmış değerleri tanımla.
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // Bölümdeki yerel değer, her iki kalıtılmış değerin üzerine yazar.
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // Kalıtılmış bir değeri değiştirmek, mevcut bir yerel değerin üzerine yazmaz.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // Yerel değeri temizle. Bölüm şimdi tekrar paragraftan kalıtım alıyor.
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // Paragraf değerini temizle. Sunum varsayılanı şimdi sonucu sağlıyor.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Etkin biçimlendirme verileri, kalıtım uygulandıktan sonra mevcut hesaplanmış biçimlendirmeyi temsil eder. Mevcut uygulamada, bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Üst veya kalıtılan biçimlendirme değiştirildikten sonra `getEffective` metodunu tekrar çağırmak, önbellekteki verileri yenileyebilir ve daha önce alınan nesne artık önceki durumu temsil etmeyebilir. Etkin değerleri sonraki kullanım için saklamanız gerekiyorsa, font yüksekliği, doldurma rengi, font stili veya hizalama gibi gerekli özellikleri kendi veri nesnenize kopyalayın.
-{{% /alert %}}
+Bu örnekte öncelik bölümün yerel biçimlendirmesi, ardından paragraf biçimlendirmesi ve son olarak sunum varsayılanıdır. Diğer nesneler farklı kalıtım zincirlerine sahip olabilir, ancak prensip aynıdır: daha spesifik açık değer kazanır ve [getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portionformat/#getEffective) son sonucu döndürür.
 
-## **Kamera için Etkin Özellikleri Alın**
+## **Etkili Metin Özelliklerini Almak**
 
-Aspose.Slides, bir kameranın etkin özelliklerini almanıza olanak tanır. Etkin kamera veri nesnesi değiştirilemez kamera özelliklerini içerir ve [ThreeDFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/) için döndürülen etkin değerler aracılığıyla ortaya çıkar.
+Metin biçimlendirmesi birden fazla nesneye yayılmıştır:
 
-İlk slayttaki ilk şeklin 3D biçimlendirmesi olduğunu varsayarak, aşağıdaki kod örneği kameranın etkin özelliklerini nasıl alacağınızı gösterir.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#getEffective) kenar boşlukları, tutturma, otomatik sığdırma ve dikey metin yönü gibi metin çerçevesi özelliklerini çözer.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textstyle/#getEffective) her metin stili seviyesinin paragraf biçimlendirmesini çözer.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/#getEffective) hizalama, girinti ve madde işareti gibi paragraf özelliklerini çözer.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/portionformat/#getEffective) yazı tipi yüksekliği, yazı tipi, renk, kalın ve italik gibi karakter özelliklerini çözer.
+
+Sonraki örnek için `text-formatting.pptx` dosyasının en az bir slaytı ve içinde boş olmayan bir metin çerçevesi bulunan bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) içermesi gerekir. AutoShape, şekil koleksiyonundaki herhangi bir konumda olabilir; kod uygun bir nesneyi arar ve kullanmadan önce doğrular.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **Işık Rig'i için Etkin Özellikleri Alın**
-
-Aspose.Slides, bir ışık rig'inin etkin özelliklerini almanıza izin verir. Etkin ışık rig veri nesnesi değiştirilemez ışık rig özelliklerini içerir ve [ThreeDFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/) için döndürülen etkin değerler aracılığıyla ortaya çıkar.
-
-İlk slayttaki ilk şeklin 3D biçimlendirmesi olduğunu varsayarak, aşağıdaki kod örneği ışık rig'inin etkin özelliklerini nasıl alacağınızı gösterir.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Köşe Şekli (Bevel) için Etkin Özellikleri Alın**
-
-Aspose.Slides, bir şekil köşesinin (bevel) etkin özelliklerini almanıza imkan tanır. Etkin şekil köşe veri nesnesi, bir şeklin değiştirilemez yüzey-relief özelliklerini içerir ve [ThreeDFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/) için döndürülen etkin değerler aracılığıyla ortaya çıkar.
-
-İlk slayttaki ilk şeklin 3D biçimlendirmesi olduğunu varsayarak, aşağıdaki kod örneği bir şeklin üst köşesinin etkin özelliklerini nasıl alacağınızı gösterir.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **Metin Çerçevesi için Etkin Özellikleri Alın**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-Aspose.Slides kullanarak, bir metin çerçevesinin etkin özelliklerini alabilirsiniz. Döndürülen etkin veri nesnesi metin çerçevesi biçimlendirme özelliklerini içerir.
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-İlk slayttaki ilk şeklin bir metin çerçevesi içeren bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) olduğunu varsayarak, aşağıdaki kod örneği etkin metin çerçevesi biçimlendirme özelliklerini nasıl alacağınızı gösterir.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Metin Stili için Etkin Özellikleri Alın**
-
-Aspose.Slides kullanarak, bir metin stilinin etkin özelliklerini alabilirsiniz. Döndürülen etkin veri nesnesi metin stili özelliklerini içerir.
-
-İlk slayttaki ilk şeklin bir metin çerçevesi içeren bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) olduğunu varsayarak, aşağıdaki kod örneği etkin metin stili özelliklerini nasıl alacağınızı gösterir.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Etkin Font Yüksekliği Değerini Alın**
+## **Etkili 3D Özelliklerini Almak**
 
-Aspose.Slides kullanarak etkin font yüksekliğini alabilirsiniz. Aşağıdaki kod, bir bölümüün (portion) etkin font yüksekliğinin, farklı sunum yapısı seviyelerinde yerel font yüksekliği değerleri ayarlandıktan sonra nasıl değiştiğini gösterir.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/#getEffective) tüm çözülen 3D ayarlarını gruplandıran tek bir etkili veri nesnesi döndürür. Bu nesnenin [getCamera](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/#getCamera), [getLightRig](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/#getLightRig), [getBevelTop](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/#getBevelTop) ve [getBevelBottom](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/threedformat/#getBevelBottom) yöntemleri ilgili etkili verileri sunar. Bu ilgili ayarları birlikte okumak, bir şeklin son 3D görünümünü anlamayı kolaylaştırır.
+
+Bu örnek için `shape-3d.pptx` dosyasının ilk slaytında en az bir şekil bulunmalıdır. Çıktının varsayılanların dışında değerler içermesini istiyorsanız, bu şekle 3D kamera, aydınlatma veya köşe ayarları uygulayın.
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Tablo için Etkin Doldurma Biçimini Alın**
+## **Etkili Tablo Biçimlendirmesini Almak**
 
-Aspose.Slides kullanarak, farklı tablo bölümleri için etkin doldurma biçimlendirmesini alabilirsiniz. Döndürülen etkin veri nesnesi doldurma biçimlendirme özelliklerini içerir. Hücre biçimlendirmesi satır biçimlendirmesinden, satır biçimlendirmesi sütun biçimlendirmesinden ve sütun biçimlendirmesi tüm tablo biçimlendirmesinden daha yüksek önceliğe sahiptir.
+Tablo biçimlendirmesi tablo stilinden ve tüm tablo, bir sütun, bir satır veya bireysel bir hücreye uygulanan biçimlendirmelerden gelebilir. Açıkça tanımlanmış doldurmalar arasında çakışma olduğunda öncelik hücre, satır, sütun ve ardından tüm tablo şeklindedir. Bir hücrenin etkili formatı, o hücreyi çizerken kullanılan son formattır.
 
-Sonuç olarak, etkin hücre biçimlendirme özellikleri tablo hücresini çizmeye kullanılır. İlk slayttaki ilk şeklin bir [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/table/) olduğunu varsayarak, aşağıdaki kod örneği farklı tablo bölümleri için etkin doldurma biçimlendirmesini nasıl alacağınızı gösterir.
+Bu örnek için `table-formatting.pptx` dosyasının ilk slaytında en az bir tablo bulunmalıdır. Tablo en az bir satır ve bir sütun içermelidir. Kod, `getShapes().get_Item(0)`'ın bir tablo olduğunu varsaymak yerine bir [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/table/) arar.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+Renk ihtiyacınız varsa ve sadece doldurma türü yeterli değilse, önce etkili [getFillType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fillformat/#getFillType) yöntemini kontrol edin ve ardından o türe uygulanabilen yöntemi okuyun—örneğin, katı doldurma için [getSolidFillColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
+
+## **Değişikliklerden Sonra Etkili Veriyi Yeniden Okuma**
+
+Etkili veri, çözümleme anındaki biçimlendirme hiyerarşisini tanımlar. Hiyerarşiye katılabilecek herhangi bir şeyi değiştirdikten sonra `getEffective` yöntemini tekrar çağırın; örnekler:
+
+- nesnenin yerel biçimlendirmesi;
+- paragraf veya metin çerçevesi varsayılanları;
+- bir tablo stili, tablo, sütun, satır veya hücre biçimi;
+- düzen veya ana slayt biçimlendirmesi;
+- tema verileri veya sunum düzeyinde varsayılanlar;
+- bir slayta atanan düzen veya ana slayt.
+
+Etkili veri nesnesini kalıcı bir anlık görüntü olarak saklamayın. Aspose.Slides bazı etkili verileri dahili olarak önbelleğe alabilir ve daha sonraki bir `getEffective` çağrısı bu verileri yenileyebilir. Değişiklik öncesi ve sonrası değerleri karşılaştırmanız gerekiyorsa, değişikliği yapmadan önce ihtiyacınız olan skaler değerleri (ör. yazı tipi yüksekliği, renk, hizalama veya köşe genişliği) kendi değişkenlerinize kopyalayın.
+
+Bir değeri değiştirmek için ilgili yerel format nesnesini güncelleyin ve ardından sonucu doğrulamak için `getEffective` çağırın. Etkili veri nesneleri kendileri yalnızca okunabilir.
 
 ## **SSS**
 
-**`getEffective` bir anlık görüntü (snapshot) döndürür mü?**
+**Etkili bir değerin hangi seviyeden geldiğini nasıl anlayabilirim?**  
+Etkili veri, son değeri içerir, kaynağını değil. En spesifik seviyeden dışa doğru uygulanabilir yerel nesneleri inceleyin. Metin için bu, bölüm, paragraf, metin çerçevesi, düzen, ana slayt, tema ve sunum varsayılanlarını içerebilir. `NaN` veya `null` gibi tanımsız değerler, aramanın başka bir seviyeye devam ettiğini gösterir.
 
-Her zaman değil. Etkin veri, kalıtım uygulandıktan sonra hesaplanmış biçimlendirmeyi temsil eder, ancak bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Sonraki bir `getEffective` çağrısı biçimlendirmeyi yeniden hesaplayabilir ve önbellekteki verileri yenileyebilir; bu nedenle daha önce alınan nesne dayanıklı bir anlık görüntü olarak ele alınmamalıdır.
+**Hiçbir seviye bir özelliği tanımlamazsa ne olur?**  
+Aspose.Slides uygun PowerPoint veya kütüphane varsayılanını çözer. Bu çözülen değer, yerel bir nesne açıkça tanımlamasa bile etkili veride görünür.
 
-**Etkin özellikleri ne zaman tekrar okumalıyım?**
+**Neden bazen etkili değer yerel değerle aynı olur?**  
+Yerel değer, kalıtım hesabını kazanmıştır. Bu, özelliğin nesne üzerinde açıkça ayarlandığı ve daha spesifik bir kuralın onu geçersiz kılmadığı durumlarda beklenir.
 
-Yerel biçimlendirme, üst stiller, düzen biçimlendirmesi, ana biçimlendirme veya sunum düzeyindeki varsayılanlar değiştirildikten sonra `getEffective` metodunu tekrar çağırın. Bir sonraki çağrı biçimlendirme hiyerarşisini yeniden değerlendirir ve geçerli etkin sonucu döndürür.
-
-**Bir düzen/ana slayt değiştirildiğinde veya kaldırıldığında, zaten alınmış etkin özellikler etkilenir mi?**
-
-Evet, ancak değişiklik bir sonraki `getEffective` çağrısında yansıtılır. Bir üst biçimlendirme kaynağı değiştirildiğinde veya kaldırıldığında, daha önce alınan etkin veri eski (stale) olabilir. `getEffective` tekrar çağrıldığında, Aspose.Slides biçimlendirme ağacını yeniden değerlendirir ve ortaya çıkan fontlar, renkler, boyutlar veya diğer değerler değişebilir.
-
-**Etkin veri nesneleri üzerinden değerleri değiştirebilir miyim?**
-
-Hayır. Etkin veri nesneleri hesaplanmış değerleri sunar. Değişiklikleri yerel biçimlendirme nesnelerinde yapın ve ardından etkin değerleri tekrar alın.
-
-**Bir özellik şekil seviyesinde, düzen/ana slaytta ve genel ayarlarda hiç ayarlanmamışsa ne olur?**
-
-Etkin değer, PowerPoint ve Aspose.Slides varsayılanlarını içeren varsayılan mekanizma tarafından belirlenir. Çözülmüş bu değer mevcut etkin verinin bir parçası haline gelir.
-
-**Etkin bir font değerinden, boyutun veya tipin hangi seviyeden geldiğini anlayabilir miyim?**
-
-Doğrudan değil. Etkin veri son değeri döndürür. Kaynağı bulmak için bölümler, paragraflar, metin çerçevesi ve düzen, ana ve sunum seviyelerindeki metin stillerindeki yerel değerleri kontrol edin; ilk açık tanımın nerede göründüğünü görebilirsiniz.
-
-**Neden etkin değerler bazen yerel değerlerle aynı görünüyor?**
-
-Çünkü yerel değer, nihai değer olmuş (daha yüksek seviyeden bir kalıtım gerekmemiş) ve bu durumda etkin değer yerel değerle aynı olur.
-
-**Etkin özellikleri ne zaman kullanmalı, yerel olanlarla ne zaman çalışmalıyım?**
-
-Tüm kalıtım uygulandıktan sonra “görüntülendiği gibi” sonucu elde etmeniz gerektiğinde etkin veriyi kullanın; örneğin renkleri, girintileri veya boyutları hizalamak gibi. Bu değerleri daha sonra format değişikliklerinden bağımsız tutmanız gerekiyorsa, gerekli özellikleri kendi nesnenize kopyalayın. Belirli bir seviyede formatı değiştirmek istiyorsanız, yerel özellikleri değiştirin ve gerekirse sonucu doğrulamak için tekrar etkin veriyi okuyun.
+**Yerel veriyi ne zaman etkili veri yerine kullanmalıyım?**  
+Yerel veriyi belirli bir biçimlendirme seviyesini incelemek veya düzenlemek için kullanın. Kalıtım, tema kuralları ve uygulanabilir stiller çözülüp son görünüm gerektiğinde etkili veriyi kullanın. [tam karşılaştırma örneği](#compare-local-inherited-and-effective-values) aynı iş akışında her ikisini de gösterir.

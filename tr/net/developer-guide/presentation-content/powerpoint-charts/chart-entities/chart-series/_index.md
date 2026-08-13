@@ -1,11 +1,11 @@
 ---
-title: Sunumlarda .NET ile Grafik Veri Serilerini Yönetme
-linktitle: Veri Serisi
+title: .NET'te Sunumlarda Grafik Veri Serilerini Yönetme
+linktitle: Veri Serileri
 type: docs
 url: /tr/net/chart-series/
 keywords:
-- grafik serisi
-- seri çakışması
+- grafik serileri
+- seri örtüşmesi
 - seri rengi
 - kategori rengi
 - seri adı
@@ -16,42 +16,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint (PPT/PPTX) için C#'ta grafik serilerini nasıl yöneteceğinizi, pratik kod örnekleri ve en iyi uygulamalarla veri sunumlarınızı geliştirecek şekilde öğrenin."
+description: "C# ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, örtüşmeyi, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET içinde [ChartSeries](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartseries/) rolünü, verilerin sunumlarda nasıl yapılandırıldığına ve görselleştirildiğine odaklanarak açıklar. Bu nesneler, bir grafikte tek tek veri noktası, kategori ve görünüm parametrelerini tanımlayan temel öğeleri sağlar. [ChartSeries](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartseries/) ile çalışarak geliştiriciler, temel veri kaynaklarını sorunsuz bir şekilde entegre edebilir ve bilgilerin nasıl gösterileceği üzerinde tam kontrol sağlayabilir, böylece içgörü ve analizleri net bir şekilde ileten dinamik, veri odaklı sunumlar oluşturabilir.
+Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında saklar. Bir [IChartSeries](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/) ilgili değerlerin bir kümesini temsil eder ve serideki her [IChartDataPoint](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [IChartCategory](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartcategory/) nesneleri, seri tarafından paylaşılan etiketleri veya grup değerlerini sağlar. Bu nedenle seri adı, kategoriler ve nokta değerleri yalnızca görüntü metni olarak depolanmak yerine [IChartDataCell](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatacell/) nesnelerine bağlanır.
 
-Bir seri, bir grafikte çizilen sayıların satır veya sütunudur.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve kalan hücreler seri değerleri için kullanır. [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/getcell/) yöntemine geçirilen çalışma sayfası, satır ve sütun indisleri sıfır‑tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluştururken faydalıdır, ancak mevcut tüm grafiklerin bunu kullandığını varsaymayın. Yüklü bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Grafik ayarlarının üç farklı kapsamı vardır:
+
+- Bir serideki tüm noktalar için varsayılan görünümü sağlayan, [IChartSeries.Format](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/format/) gibi seri‑seviyesi ayarlar.
+- Tek bir nokta için serinin görünümünü geçersiz kılan, [IChartDataPoint.Format](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/format/) gibi veri‑nokta ayarları.
+- Aynı [IChartSeriesGroup](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseriesgroup/) içinde yer alan uyumlu serilere uygulanan grup ayarları. Örtüşme ya da boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/parentseriesgroup/) aracılığıyla gruba erişin.
+
+Açık bir nokta veya seri dolgusunun ayarlanmamış olması durumunda, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcutsa, nokta biçimlendirmesi o nokta için önceliklidir.
+
+![grafik-seri-powerpoint](chart-series-powerpoint.png)
 
 ## **Grafik Serisi Çakışmasını Ayarlama**
 
-Bu [IChartSeriesOverlap](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/properties/overlap) özelliği, çubukların ve sütunların -100 ile 100 arasında bir aralık belirterek 2D bir grafikte nasıl çakıştığını kontrol eder. Bu özellik, bireysel grafik serisi yerine seri grubuyla ilişkili olduğundan seri seviyesinde yalnızca okunur durumdadır. Çakışma değerlerini yapılandırmak için, bu gruptaki tüm serilere belirtilen çakışmayı uygulayan `ParentSeriesGroup.Overlap` okunabilir/yazılabilir özelliğini kullanın.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/overlap/) 2B bir grafikte çubukların ya da sütunların birbirine ne kadar çakıştığını –%100 ile %100 arasında rapor eder. Bu, üst seriler grubundaki ayarın yalnızca okunabilir bir yansımasıdır. O gruptaki tüm uyumlu serileri güncellemek için [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseriesgroup/overlap/) ayarlayın. Bu seçenek, gruplanmış çubuk ya da sütun gösteren grafik türlerine uygulanır; bir kombinasyon grafiğindeki diğer seri gruplarını etkilemez.
 
-Aşağıda, bir sunum oluşturmayı, kümelenmiş sütun grafiği eklemeyi, ilk grafik serisine erişmeyi, çakışma ayarını yapılandırmayı ve ardından sonucu PPTX dosyası olarak kaydetmeyi gösteren bir C# örneği bulunmaktadır:
+Aşağıdaki örnek, ilk seriyi içeren grup için çakışmayı ayarlar:
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // Varsayılan veriyle bir kümelenmiş sütun grafiği ekle.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // Serinin çakışmasını ayarla.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// Yeni grafik örnek seriler, kategoriler ve değerler içerir.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sunum dosyasını diske kaydet.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
@@ -60,241 +67,271 @@ Sonuç:
 
 ## **Seri Dolgu Rengini Değiştirme**
 
-Aspose.Slides, grafik serilerinin dolgu renklerini özelleştirmeyi son derece basitleştirir; böylece belirli veri noktalarını vurgulayabilir ve görsel olarak çekici grafikler oluşturabilirsiniz. Bu, çeşitli dolgu türlerini, renk yapılandırmalarını ve diğer gelişmiş stil seçeneklerini destekleyen [IFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/iformat/) nesnesi aracılığıyla gerçekleştirilir. Bir slayta grafik ekledikten ve istediğiniz seriye eriştikten sonra, bir seriyi alıp uygun dolgu rengini uygulamanız yeterlidir. Katı dolgulara ek olarak, tasarım esnekliğini artırmak için degrade veya desen dolgularını da kullanabilirsiniz. Renkleri gereksinimlerinize göre ayarladıktan sonra sunumu kaydederek güncellenmiş görünümü tamamlayın.
+[IChartSeries.Format](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/format/) kullanarak bir bütün serinin varsayılan dolgusunu ayarlayabilirsiniz. Bir noktanın açık bir dolgu ayarı varsa, o nokta için [IChartDataPoint.Format](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/format/) ayarı serinin dolgusunu geçersiz kılar.
 
-Aşağıdaki C# kod örneği, ilk serinin rengini nasıl değiştireceğinizi gösterir:
+Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // Varsayılan veriyle bir kümelenmiş sütun grafiği ekle.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // İlk serinin rengini ayarla.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sunum dosyasını diske kaydet.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
-![Seri rengi](series_color.png)
+![Serinin rengi](series_color.png)
 
 ## **Seri Adını Değiştirme**
 
-Aspose.Slides, grafik serilerinin adlarını değiştirmek için basit bir yol sunar; bu sayede verileri açık ve anlamlı bir şekilde etiketlemek kolaylaşır. Grafik verisindeki ilgili çalışma sayfası hücresine erişerek geliştiriciler, verinin nasıl sunulacağını özelleştirebilir. Bu değişiklik, serinin adı veri bağlamına göre güncellenmesi veya netleştirilmesi gerektiğinde özellikle yararlıdır. Serinin adı değiştirildikten sonra, sunumu kaydederek değişiklikleri kalıcı hâle getirebilirsiniz.
-
-Aşağıda bu süreci gösteren bir C# kod parçacığı bulunmaktadır:
+Bir seri adı, grafik veri çalışma kitabında depolanır ve genellikle lejende gösterilir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi (satır 0, sütun 1) ilk serinin adını içerir. Aşağıdaki örnek, bu yapıyı açıkça gösteren adlandırılmış sabitleri içerir:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // Varsayılan veriyle bir kümelenmiş sütun grafiği ekle.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // İlk serinin adını ayarla.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sunum dosyasını diske kaydet.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Aşağıdaki C# kodu, seri adını değiştirmenin alternatif bir yolunu gösterir:
+Ayrıca, zaten [IChartSeries.Name](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/name/) tarafından başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // Varsayılan veriyle bir kümelenmiş sütun grafiği ekle.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // İlk serinin adını ayarla.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sunum dosyasını diske kaydet.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
 ![Seri adı](series_name.png)
 
-## **Otomatik Seri Dolgu Rengini Alın**
+## **Otomatik Seri Dolgu Rengini Al**
 
-Aspose.Slides for .NET, bir grafik alanı içinde seri dolgu renginin otomatik olarak alınmasını sağlar. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturduktan sonra, indeksle istediğiniz slayta referans alabilir, ardından tercih ettiğiniz tipte bir grafik ekleyebilirsiniz (ör. `ChartType.ClusteredColumn`). Grafikteki seriye erişerek otomatik dolgu rengini alabilirsiniz.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) yöntemi, seri indeksi ve grafik stilinden hesaplanan rengi döndürür. Bu, seri dolgu renkleri açıkça tanımlanmadığında kullanılan renktir. Yöntemi çağırmak sadece hesaplanan rengi okur; yeni bir dolgu atamaz.
 
-Aşağıdaki C# kodu bu süreci ayrıntılı olarak gösterir:
+Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
 
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // Varsayılan veriyle bir kümelenmiş sütun grafiği ekle.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // Serinin dolgu rengini al.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
-Çıktı:
+Varsayılan grafik stili için örnek çıktı:
+
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **Bir Grafik Serisi İçin Ters Dolgu Rengini Ayarlama**
+Kesin renkler grafik stiline ve temaya bağlıdır.
 
-Veri seriniz pozitif ve negatif değerler içeriyorsa, tüm sütunları veya çubukları aynı renkle doldurmak grafiği okunması zor hale getirebilir. Aspose.Slides for .NET, negatif değerler için otomatik olarak uygulanan ayrı bir dolgu—ters dolgu rengi—atayarak negatif değerlerin anında öne çıkmasını sağlar. Bu bölümde bu seçeneği nasıl etkinleştireceğinizi, uygun bir renk seçip güncellenmiş sunumu nasıl kaydedeceğinizi öğreneceksiniz.
+## **Bir Grafik Serisi için Ters Dolgu Rengini Ayarla**
 
-Aşağıdaki kod örneği işlemi gösterir:
+Çubuk, sütun ve balon serileri için, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/invertifnegative/) negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengi için [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) atayın. Negatif sayılar çalışma kitabında aynı kalır; yalnızca görüntü rengi değişir.
+
+Aşağıdaki örnek, varsayılan grafik verisini tek bir seriyle değiştirir. Çalışma sayfası satır 0 serinin adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Yeni kategoriler ekle.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // Yeni bir seri ekle.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Serinin verilerini doldur.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // Serinin renk ayarlarını belirle.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
-![Ters çevrilmiş katı dolgu rengi](inverted_solid_fill_color.png)
+![Ters katı dolgu rengi](inverted_solid_fill_color.png)
 
-Tek bir veri noktası için tüm seri yerine dolgu rengini ters çevirebilirsiniz. İlgili `IChartDataPoint` nesnesine erişip `InvertIfNegative` özelliğini **true** olarak ayarlamanız yeterlidir.
-
-Aşağıdaki kod örneği bunu nasıl yapacağınızı gösterir:
+Bir nokta için terslemeyi [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılmış ve yalnızca seçili nokta için etkinleştirilmiştir. Etkinin görülmesi için nokta negatif bir değer almıştır:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Veri noktasının 2. indeksindeki değer negatif ise rengi ters çevir.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Belirli Veri Noktası Değerlerini Temizleme**
+## **Belirli Bir Veri Noktası Değerini Temizleme**
 
-Bazen bir grafikte test değerleri, aykırı noktalar veya artık kullanılmayan girdiler bulunur ve bunları tüm seriyi yeniden oluşturmak zorunda kalmadan kaldırmanız gerekir. Aspose.Slides for .NET, herhangi bir veri noktasını indeksle hedef almanıza, içeriğini temizlemenize ve kalan noktaların kaymasını, eksenlerin otomatik olarak yeniden ölçeklenmesini sağlar.
+Bir noktayı diğerlerini kaldırmadan boş bırakmak için, arka plan çalışma kitabı hücresini `null` olarak ayarlayın. Sütun grafiğinde, çizilen değer [IChartDataPoint.YValue](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/yvalue/) aracılığıyla elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik, boş‑değer ayarlarına göre bu değeri boş olarak işler.
 
-Aşağıdaki kod örneği işlemi gösterir:
+Aşağıdaki örnek, ilk serideki yalnızca ikinci noktayı temizler:
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-## **Seri Boşluk Genişliğini Ayarlama**
+Dağılım grafikleri ayrı X ve Y hücreleri kullanır, balon grafikler ayrıca bir boyut hücresi kullanır. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları korumak istediğinizde [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapointcollection/clear/) metodunu çağırmayın; bu yöntem koleksiyondaki tüm veri noktalarını siler.
 
-Boşluk genişliği, yan yana gelen sütunlar veya çubuklar arasındaki boş alan miktarını kontrol eder—daha geniş boşluklar bireysel kategorileri vurgularken, daha dar boşluklar daha yoğun ve kompakt bir görünüm yaratır. Aspose.Slides for .NET sayesinde bu parametreyi tüm seri için ince ayar yapabilir, veri setinizi değiştirmeden sunumunuzun görsel dengesini tam olarak elde edebilirsiniz.
+## **Seri Boşluk Genişliğini Ayarla**
 
-Aşağıdaki kod örneği bir serinin boşluk genişliğini nasıl ayarlayacağını gösterir:
+Boşluk genişliği, yan yana çubuk ya da sütun kümeleri arasındaki boşluk olup, çubuk ya da sütun genişliğinin yüzde olarak ifadesidir. Örtüşme gibi, bu da tek bir seriye değil, üst seriler grubuna aittir. Grup için bir kez [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) ayarlayın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha sıklaştırır.
+
+Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca nihai sunumu kaydeder:
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Boş bir sunum oluştur.
-using (Presentation presentation = new Presentation())
-{
-    // İlk slayta eriş.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // Varsayılan verilerle bir grafik ekle.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Sunumu diske kaydet.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // GapWidth değerini ayarla.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // Sunumu diske kaydet.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
@@ -303,10 +340,42 @@ Sonuç:
 
 ## **SSS**
 
-**Bir tek grafikte kaç seri olabileceği konusunda bir sınırlama var mı?**
+**Hangi grafik tipleri veri serilerini destekler?**
 
-Aspose.Slides, eklediğiniz seri sayısı için sabit bir üst sınır koymaz. Pratik sınırlama, grafiğin okunabilirliği ve uygulamanızın sahip olduğu bellek miktarıyla belirlenir.
+[ChartType](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/charttype/) enum’unda yer alan tüm grafik tipleri veri kullanır, ancak serilerinin değer yapısı ya da ayarları aynı değildir. Örneğin, kategori grafikleri kategori ve değer, dağılım grafikleri X ve Y değerleri, balon grafikleri ise balon boyutlarını kullanır. Seri tipine uygun veri‑nokta oluşturma yöntemini seçin. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk ya da sütun gruplarına uygulanır.
 
-**Küme içindeki sütunlar çok yaklaştıysa veya çok uzaklaştıysa ne olur?**
+**Grafik serisi grubu nedir?**
 
-O serinin (veya üst seri grubunun) `GapWidth` ayarını değiştirin. Değeri artırmak sütunlar arasındaki boşluğu genişletir, azaltmak ise onları daha yakın hâle getirir.
+[IChartSeriesGroup](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseriesgroup/) aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir kombinasyon grafiği birden fazla grup barındırabilir; bir seri aracılığıyla ulaşılan grup ayarlarını değiştirmek, grafiğin diğer gruplarını otomatik olarak etkilemez.
+
+**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
+
+Evet. Varsayılan olarak, [IShapeCollection.AddChart](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addchart/) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategorileri temizleyebilirsiniz. Aşırı yükleme (overload) ile varsayılan veri olmadan da grafik oluşturulabilir.
+
+**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
+
+Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirildiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın amaçlanan kategori altında çizildiğinden emin olmak için kategori satırları ile seri‑değer satırlarını hizalı tutun.
+
+**Tüm seriyi silmek yerine tek bir noktayı nasıl temizlerim?**
+
+İlgili değer hücresini `null` olarak ayarlayarak noktanın kategori konumunu boş bir nokta olarak tutun. [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapointcollection/clear/) yalnızca o serideki tüm noktaları kaldırmak istediğinizde kullanılmalıdır. Kategorileri de kaldırıyorsanız, her serinin değerlerini kategori koleksiyonuyla hizalı tutacak şekilde güncelleyin.
+
+**Boş noktalar nasıl gösterilir?**
+
+Sonuç, grafik tipine ve [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichart/displayblanksas/) ayarına bağlıdır. Desteklenen grafikler boşları boşluk, sıfır değeri ya da komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına en uygun ayarı seçin.
+
+**Negatif değerler nasıl biçimlendirilir?**
+
+Desteklenen çubuk, sütun ve balon serileri için [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/invertifnegative/) etkinleştirin ve [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) ile negatif değer rengini belirleyin. Tek bir nokta için bu davranışı [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) ile geçersiz kılabilirsiniz. Bu özellikler yalnızca görsel biçimlendirmeyi etkiler; saklanan sayısal değerler değişmez.
+
+**Seri ve nokta aynı anda biçimlendirilirse hangisi geçerli olur?**
+
+Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar ya açık seri biçimini kullanır ya da seri biçimi tanımlı değilse otomatik grafik stili ve teması devreye girer. Örtüşme ve boşluk genişliği gibi grup özellikleri yerleşimi kontrol eder ve nokta‑seviyesi biçimlendirme geçersiz kılmaları değildir.
+
+**Bir grafiğin içinde kaç seri bulunabileceği konusunda bir sınırlama var mı?**
+
+Aspose.Slides, ayrı bir sabit seri sayısı sınırı koymaz. Pratikte, sunum dosyası kısıtlamaları, kullanılabilir bellek, işleme süresi ve grafiğin okunabilirliği faydalı bir sınır belirler.
+
+**Sütunlar çok yakın ya da çok uzak olduğunda ne değiştirilmelidir?**
+
+Uygun üst seri grubunda [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) ayarını değiştirin. Değeri artırmak kümeler arasındaki boşluğu genişletir, azaltmak ise kümeleri birbirine yaklaştırır.
