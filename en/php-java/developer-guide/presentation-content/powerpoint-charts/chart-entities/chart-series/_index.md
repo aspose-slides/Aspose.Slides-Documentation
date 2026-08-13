@@ -1,347 +1,403 @@
 ---
-title: Manage Chart Data Series in Presentations Using PHP
+title: Manage Chart Data Series in Presentations in PHP
 linktitle: Data Series
 type: docs
 url: /php-java/chart-series/
 keywords:
-- сhart series
+- chart series
 - series overlap
 - series color
-- category color
 - series name
 - data point
+- workbook cell
 - series gap
+- negative value
 - PowerPoint
 - presentation
 - PHP
 - Aspose.Slides
-description: "Learn how to manage chart data series in PHP for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
+description: "Learn how to manage chart series, data points, workbook cells, formatting, overlap, gap width, and negative values in presentations with PHP."
 ---
 
 ## **Overview**
 
-This article describes the role of [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) in Aspose.Slides, focusing on how data is structured and visualized within presentations. These objects provide the foundational elements that define individual sets of data points, categories, and appearance parameters in a chart. By working with [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/), developers can seamlessly integrate underlying data sources and maintain full control over how information is displayed, resulting in dynamic, data-driven presentations that clearly convey insights and analysis.
+A chart stores its plotted data in a chart data workbook. A [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) represents one set of related values, and each [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) in the series refers to one or more workbook cells. [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) objects provide the labels or grouping values shared by the series. The series name, categories, and point values are therefore connected to [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) objects rather than stored only as display text.
 
-A series is a row or column of numbers plotted in a chart.
+For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getCell) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
+
+Chart settings have three different scopes:
+
+- Series-level settings, such as [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat), provide the default appearance for all points in one series.
+- Data-point settings, such as [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat), override the series appearance for one point.
+- Group settings apply to compatible series that belong to the same [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/). Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup) when you need to set options such as overlap or gap width.
+
+When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Set the Chart Series Overlap**
 
-With the [getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup) method, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getOverlap) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Use [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
 
-Use the `ChartSeriesGroup::setOverlap` method to set your preferred value for `Overlap`. 
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Add a clustered column chart on a slide.
-1. Access the first chart series.
-1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
-1. Write the modified presentation to a PPTX file.
-
-This PHP code shows you how to set the overlap for a chart series:
+The following example sets the overlap for the group that contains the first series:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Adds chart
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      # Sets series overlap
-      $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$overlapPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    // The new chart contains sample series, categories, and values.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setOverlap($overlapPercent);
+
+    $presentation->save("series_overlap.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    # Writes the presentation file to disk
-    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
-## **Change the Series Color**
-Aspose.Slides for PHP via Java allows you to change a series' color this way:
+The result:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Add chart on the slide.
-1. Access the series whose color you want to change. 
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+![The series overlap](series_overlap.png)
 
-This PHP code shows you how to change a series' color:
+## **Change the Series Fill Color**
+
+Use [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat) to set the default fill for an entire series. If a point already has an explicit fill, its [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat) setting overrides the series fill for that point.
+
+The following example applies a solid blue fill to the first series:
 
 ```php
-  $pres = new Presentation("test.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(1);
-    $point->setExplosion(30);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$blueColor = java("java.awt.Color")->BLUE;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($blueColor);
+
+    $presentation->save("series_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Change the Series Category Color**
-Aspose.Slides for PHP via Java allows you to change a series category's color this way:
+The result:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Add chart on the slide.
-1. Access the series category whose color you want to change.
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+![The color of the series](series_color.png)
 
-This code  shows you how to change a series category's color:
+## **Change the Series Name**
+
+A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named variables in the following example make that structure explicit:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$seriesNameRowIndex = 0;
+$firstSeriesColumnIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $seriesNameRowIndex, $firstSeriesColumnIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Change the Series Name** 
-
-By default, the legend names for a chart are the contents of cells above each column or row of data. 
-
-In our example (sample image), 
-
-* the columns are *Series 1, Series 2,* and *Series 3*;
-* the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
-
-Aspose.Slides for PHP via Java allows you to update or change a series name in its chart data and legend.
-
-This PHP code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
+You can also update the cell already referenced by [ChartSeries.getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getName). This approach avoids assuming a particular row and column in an existing chart:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
-    $seriesCell->setValue("New name");
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$firstNameCellIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $seriesNameCell = $series->getName()->getAsCells()->get_Item($firstNameCellIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-This PHP code shows you how to change a series name in its legend through`Series`:
+The result:
+
+![The series name](series_name.png)
+
+## **Get the Automatic Series Fill Color**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
+
+The following example prints the automatic color of each default series:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $name = $series->getName();
-    $name->getAsCells()->get_Item(0)->setValue("New name");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $seriesCount = java_values($chart->getChartData()->getSeries()->size());
+    for ($seriesIndex = 0; $seriesIndex < $seriesCount; $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $automaticColor = $series->getAutomaticSeriesColor();
+        $red = java_values($automaticColor->getRed());
+        $green = java_values($automaticColor->getGreen());
+        $blue = java_values($automaticColor->getBlue());
+        echo "Series " . $seriesIndex . ": java.awt.Color[r=" . $red . ",g=" . $green . ",b=" . $blue . "]" . PHP_EOL;
     }
-  }
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
 
-## **Set the Chart Series Fill Color**
+Example output for the default chart style:
 
-Aspose.Slides for PHP via Java allows you to set the automatic fill color for chart series inside a plot area this way:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
-1. Access the chart series and set the fill color to Automatic.
-1. Save the presentation to a PPTX file.
-
-This PHP code shows you how to set the automatic fill color for a chart series:
-
-```php
-  $pres = new Presentation();
-  try {
-    # Creates a clustered column chart
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    # Sets series fill format to automatic
-    for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-      $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
-    }
-    # Writes the presentation file to disk
-    $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
+
+The exact colors depend on the chart style and theme.
 
 ## **Set Invert Fill Color for a Chart Series**
-Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
-1. Access the chart series and set the fill color to invert.
-1. Save the presentation to a PPTX file.
+For bar, column, and bubble series, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Negative numbers remain unchanged in the workbook; only their display color changes.
 
-This PHP code demonstrates the operation:
+The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
 
 ```php
-  $inverColor = java("java.awt.Color")->RED;
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    $workBook = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->clear();
-    # Adds new series and categories
-    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
-    # Takes the first chart series and populates its series data.
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 3, 1, -30));
-    $seriesColor = $series->getAutomaticSeriesColor();
-    $series->setInvertIfNegative(true);
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$headerRowIndex = 0;
+$categoryColumnIndex = 0;
+$firstSeriesColumnIndex = 1;
+$firstDataRowIndex = 1;
+
+$categoryNames = ["Category 1", "Category 2", "Category 3"];
+$seriesValues = [-20, 50, -30];
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $headerRowIndex, $firstSeriesColumnIndex, "Series 1");
+    $chartType = $chart->getType();
+    $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+
+    $categoryCount = count($categoryNames);
+    for ($categoryIndex = 0; $categoryIndex < $categoryCount; $categoryIndex++) {
+        $dataRowIndex = $firstDataRowIndex + $categoryIndex;
+        $categoryName = $categoryNames[$categoryIndex];
+        $seriesValue = $seriesValues[$categoryIndex];
+
+        $categoryCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $categoryColumnIndex, $categoryName);
+        $chartData->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $firstSeriesColumnIndex, $seriesValue);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColor);
-    $series->getInvertedSolidFillColor()->setColor($inverColor);
-    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->setInvertIfNegative(true);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+
+    $presentation->save("inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
+The result:
 
-## **Set a Series to Invert When Value Is Negative**
-Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNegative` and `ChartDataPoint.InvertIfNegative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-This PHP code demonstrates the operation:
+You can enable inversion for one point through [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $chart->getChartData()->getSeries()->clear();
-    $chartSeries = $series->add($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1"), $chart->getType());
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B2", -5));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B3", 3));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B4", -2));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B5", 1));
-    $chartSeries->setInvertIfNegative(false);
-    $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 2;
+$negativeValue = -30;
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+    $series->setInvertIfNegative(false);
+
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue($negativeValue);
+    $dataPoint->setInvertIfNegative(true);
+
+    $presentation->save("data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Clear Specific Point Data**
-Aspose.Slides for PHP via Java allows you to clear the `DataPoints` data for a specific chart series this way:
+## **Clear a Specific Data Point Value**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-2. Obtain the reference of a slide through its index.
-3. Obtain the reference of a chart through its index.
-4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
-5. Clear all`DataPoints` for specific chart series.
-6. Write the modified presentation to a PPTX file.
+To make one point empty without removing the other points, set its backing workbook cell to `null`. For a column chart, the plotted value is available through [ChartDataPoint.getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getValue). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
 
-This PHP code demonstrates the operation:
+The following example clears only the second point in the first series:
 
 ```php
-  $pres = new Presentation("TestChart.pptx");
-  try {
-    $sl = $pres->getSlides()->get_Item(0);
-    $chart = $sl->getShapes()->get_Item(0);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    foreach ($dataPoints as $dataPoint) {
-      $dataPoint->getXValue()->getAsCell()->setValue(null);
-      $dataPoint->getYValue()->getAsCell()->setValue(null);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue(null);
+
+    $presentation->save("clear_data_point_value.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    $dataPoints->clear();
-    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
+
+Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) when you want to keep the other points, because that method removes every data point from the collection.
 
 ## **Set the Series Gap Width**
-Aspose.Slides for PHP via Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Access first slide.
-1. Add chart with default data.
-1. Access any chart series.
-1. Set the `GapWidth` property.
-1. Write the modified presentation to a PPTX file.
+Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Call [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
 
-This code  shows you how to set a series' Gap Width:
+The following example changes the gap width and saves only the final presentation:
 
 ```php
-  # Creates empty presentation
-  $pres = new Presentation();
-  try {
-    # Accesses the presentation's first slide
-    $slide = $pres->getSlides()->get_Item(0);
-    # Adds a chart with default data
-    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    # Sets the index of the chart data sheet
-    $defaultWorksheetIndex = 0;
-    # Gets the chart data worksheet
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Adds series
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # Adds Categories
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # Takes the second chart series
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Populates the series data
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Sets GapWidth value
-    $series->getParentSeriesGroup()->setGapWidth(50);
-    # Saves presentation to disk
-    $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$gapWidthPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setGapWidth($gapWidthPercent);
+
+    $presentation->save("gap_width_30.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
+
+The result:
+
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
-### Is there a limit to how many series a single chart can contain?
+**Which chart types support data series?**
 
-Aspose.Slides imposes no fixed cap on the number of series you add. The practical ceiling is set by chart readability and by the memory available to your application.
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
-### What if the columns within a cluster are too close together or too far apart?
+**What is a chart series group?**
 
-Adjust the `GapWidth` setting for that series (or its parent series group). Increasing the value widens the space between columns, while decreasing it brings them closer together.
+A [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
+
+**Does a newly created chart contain default data?**
+
+Yes. By default, [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
+
+**How are chart objects connected to workbook cells?**
+
+Series names, category labels, and data-point values reference cells in a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
+
+**How do I clear one point instead of the whole series?**
+
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
+
+**How are empty points displayed?**
+
+The result depends on the chart type and the value configured through [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation.
+
+**How are negative values formatted?**
+
+For supported bar, column, and bubble series, call [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) and set the color returned by [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). You can override the behavior for an individual point with [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). These methods affect formatting, not the stored numeric values.
+
+**Which formatting wins when both a series and a point are formatted?**
+
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
+
+**Is there a limit to how many series a chart can contain?**
+
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
+
+**What should I change when columns are too close together or too far apart?**
+
+Call [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.
