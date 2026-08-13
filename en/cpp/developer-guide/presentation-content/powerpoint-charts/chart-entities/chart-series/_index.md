@@ -1,10 +1,10 @@
 ---
-title: Manage Chart Data Series in Presentations Using C++
+title: Manage Chart Data Series in Presentations in C++
 linktitle: Data Series
 type: docs
 url: /cpp/chart-series/
 keywords:
-- сhart series
+- chart series
 - series overlap
 - series color
 - category color
@@ -15,32 +15,33 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Learn how to manage chart series in C++ for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
+description: "Learn how to manage chart series, data points, workbook cells, formatting, overlap, gap width, and negative values in presentations with C++."
 ---
 
 ## **Overview**
 
-This article describes the role of [ChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/) in Aspose.Slides, focusing on how data is structured and visualized within presentations. These objects provide the foundational elements that define individual sets of data points, categories, and appearance parameters in a chart. By working with [ChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/), developers can seamlessly integrate underlying data sources and maintain full control over how information is displayed, resulting in dynamic, data-driven presentations that clearly convey insights and analysis.
+A chart stores its plotted data in a chart data workbook. An [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) represents one set of related values, and each [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) in the series refers to one or more workbook cells. [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) objects provide the labels or grouping values shared by the series. The series name, categories, and point values are therefore connected to [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) objects rather than stored only as display text.
 
-A series is a row or column of numbers plotted in a chart.
+For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
+
+Chart settings have three different scopes:
+
+- Series-level settings, such as [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), provide the default appearance for all points in one series.
+- Data-point settings, such as [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), override the series appearance for one point.
+- Group settings apply to compatible series that belong to the same [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Access the group through [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) when you need to set options such as overlap or gap width.
+
+When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Set the Data Series Overlap**
+## **Set the Chart Series Overlap**
 
-With the [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb) method, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Call [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
 
-Use the `get_ParentSeriesGroup()::set_Overlap()` method to set your preferred value for `Overlap`. 
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Add a clustered column chart on a slide.
-1. Access the first chart series.
-1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
-1. Write the modified presentation to a PPTX file.
-
-This C++ code shows you how to set the overlap for a chart series:
+The following example sets the overlap for the group that contains the first series:
 
 ```cpp
+#include <cstdint>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeries.h>
@@ -49,45 +50,45 @@ This C++ code shows you how to set the overlap for a chart series:
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int8_t overlapPercent = 30;
 
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Adds chart
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-if (series->idx_get(0)->get_Overlap() == 0)
-{
-    // Sets series overlap
-    series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
-}
+// The new chart contains sample series, categories, and values.
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Writes the presentation file to disk
-presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_Overlap(overlapPercent);
+
+presentation->Save(u"series_overlap.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Change the Data Series Color**
-Aspose.Slides for C++ allows you to change a series' color this way:
+The result:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Add chart on the slide.
-1. Access the series whose color you want to change. 
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+![The series overlap](series_overlap.png)
 
-This C++ code shows you how to change a series' color:
+## **Change the Series Fill Color**
+
+Use [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) to set the default fill for an entire series. If a point already has an explicit fill, its [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) setting overrides the series fill for that point.
+
+The following example applies a solid blue fill to the first series:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataPoint.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IFormat.h>
@@ -97,85 +98,42 @@ This C++ code shows you how to change a series' color:
 #include <DOM/IFillFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
+#include <system/shared_ptr.h>
 
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
 
-auto chart = shapes->AddChart(ChartType::Pie, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(1);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-point->set_Explosion(30);
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesColor = Color::get_Blue();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColor);
+
+presentation->Save(u"series_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Change the Color of a Data Series Category**
-Aspose.Slides for C++ allows you to change a series category's color this way:
+The result:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Add chart on the slide.
-1. Access the series category whose color you want to change.
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+![The color of the series](series_color.png)
 
-This code in C++ shows you how to change a series category's color:
+## **Change the Series Name**
 
-```cpp
-#include <DOM/Chart/ChartType.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataPoint.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/Chart/IFormat.h>
-#include <DOM/FillType.h>
-#include <DOM/IChart.h>
-#include <DOM/IColorFormat.h>
-#include <DOM/IFillFormat.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
-#include <drawing/color.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::Drawing;
-
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0);
-
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
-
-## **Change the Data Series Name** 
-
-By default, the legend names for a chart are the contents of cells above each column or row of data. 
-
-In our example (sample image), 
-
-* the columns are *Series 1, Series 2,* and *Series 3*;
-* the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
-
-Aspose.Slides for C++ allows you to update or change a series name in its chart data and legend. 
-
-This C++ code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
+A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named constants in the following example make that structure explicit:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -185,28 +143,38 @@ This C++ code shows you how to change a series' name in its chart data `ChartDat
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-auto seriesCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, 0, 1);
-seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesNameCell = workbook->GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-This C++ code shows you how to change a series name in its legend through`Series`:
+You can also update the cell already referenced by [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). This approach avoids assuming a particular row and column in an existing chart:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -219,35 +187,47 @@ This C++ code shows you how to change a series name in its legend through`Series
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-auto name = series->get_Name();
-name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesNameCells = series->get_Name()->get_AsCells();
+auto seriesNameCell = seriesNameCells->idx_get(firstNameCellIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set the Data Series Fill Color**
+The result:
 
-Aspose.Slides for C++ allows you to set the automatic fill color for chart series inside a plot area this way:
+![The series name](series_name.png)
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
-1. Access the chart series and set the fill color to Automatic.
-1. Save the presentation to a PPTX file.
+## **Get the Automatic Series Fill Color**
 
-This C++ code shows you how to set the automatic fill color for a chart series:
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
+
+The following example prints the automatic color of each default series:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -257,41 +237,53 @@ This C++ code shows you how to set the automatic fill color for a chart series:
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <drawing/color.h>
-#include <system/enumerator_adapter.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Presentation;
+using System::Console;
+using System::String;
+
+const int firstSlideIndex = 0;
 
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Creates a clustered column chart
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Sets series fill format to automatic
-for (const auto& series : chart->get_ChartData()->get_Series())
+auto seriesCollection = chart->get_ChartData()->get_Series();
+const int seriesCount = seriesCollection->get_Count();
+for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    series->GetAutomaticSeriesColor();
+    auto series = seriesCollection->idx_get(seriesIndex);
+    auto automaticColor = series->GetAutomaticSeriesColor();
+    auto colorName = automaticColor.get_Name();
+    auto outputLine = String::Format(u"Series {0}: {1}", seriesIndex, colorName);
+    Console::WriteLine(outputLine);
 }
 
-// Writes the presentation file to disk
-presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set Data Series Invert Fill Colors**
-Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
+Example output for the default chart style:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
-1. Access the chart series and set the fill color to invert.
-1. Save the presentation to a PPTX file.
+```text
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
+```
 
-This C++ code demonstrates the operation:
+The exact colors depend on the chart style and theme.
+
+## **Set Invert Fill Color for a Chart Series**
+
+For bar, column, and bubble series, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Negative numbers remain unchanged in the workbook; only their display color changes.
+
+The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -309,228 +301,264 @@ This C++ code demonstrates the operation:
 #include <DOM/IFillFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System;
-using namespace System::Drawing;
 
-Color inverColor = Color::get_Red();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+using System::String;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+const int categoryCount = 3;
 
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
+const String categoryNames[] = {u"Category 1", u"Category 2", u"Category 3"};
+const int seriesValues[] = {-20, 50, -30};
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
 
-chartData->get_Series()->Clear();
+auto seriesCollection = chartData->get_Series();
+seriesCollection->Clear();
 chartData->get_Categories()->Clear();
 
-// Adds new series and categories
-chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+auto seriesName = ObjectExt::Box<String>(u"Series 1");
+auto seriesNameCell = workbook->GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, seriesName);
+auto chartType = chart->get_Type();
+auto series = seriesCollection->Add(seriesNameCell, chartType);
 
-// Takes the first chart series and populates its series data.
-auto series = chartData->get_Series()->idx_get(0);
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-30)));
-Color seriesColor = series->GetAutomaticSeriesColor();
-series->set_InvertIfNegative(true);
+for (int categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++)
+{
+    const int dataRowIndex = firstDataRowIndex + categoryIndex;
+    auto categoryName = categoryNames[categoryIndex];
+    const int seriesValue = seriesValues[categoryIndex];
+
+    auto boxedCategoryName = ObjectExt::Box<String>(categoryName);
+    auto categoryCell = workbook->GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, boxedCategoryName);
+    chartData->get_Categories()->Add(categoryCell);
+
+    auto boxedSeriesValue = ObjectExt::Box<int>(seriesValue);
+    auto valueCell = workbook->GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, boxedSeriesValue);
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
 series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColor);
-series->get_InvertedSolidFillColor()->set_Color(inverColor);
-pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->set_InvertIfNegative(true);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
+
+presentation->Save(u"inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+The result:
 
-## **Set Invert Fill Color for a Chart Series**
-Aspose.Slides allows you to set inverts through the`IChartDataPoint::set_InvertIfNegative()` and `ChartDataPoint.set_InvertIfNegative()` methods. When an invert is set using the methods, the data point inverts its colors when it gets a negative value. 
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-This C++ code demonstrates the operation:
+You can enable inversion for one point through [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataPoint.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
-#include <system/object_ext.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System;
-
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-chart->get_ChartData()->get_Series()->Clear();
-
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-series->Add(workBook->GetCell(0, u"B1"), chart->get_Type());
-auto dataPoints = series->idx_get(0)->get_DataPoints();
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B2", ObjectExt::Box<int32_t>(-5)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B3", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B4", ObjectExt::Box<int32_t>(-2)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B5", ObjectExt::Box<int32_t>(1)));
-
-series->idx_get(0)->set_InvertIfNegative(false);
-
-series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
-
-pres->Save(u"out.pptx", SaveFormat::Pptx);
-```
-
-## **Clear Specific Data Point Values**
-Aspose.Slides for C++ allows you to clear the `DataPoints` data for a specific chart series this way:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Obtain the reference of a slide through its index.
-3. Obtain the reference of a chart through its index.
-4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
-5. Clear all `DataPoints` for specific chart series.
-6. Write the modified presentation to a PPTX file.
-
-This C++ code demonstrates the operation:
-
-```cpp
-#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
 #include <DOM/Chart/IChartDataPoint.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IDoubleChartValue.h>
-#include <DOM/Chart/IStringOrDoubleChartValue.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
 #include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 
-auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
-auto sl = pres->get_Slides()->idx_get(0);
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
 
-auto chart = System::ExplicitCast<IChart>(sl->get_Shapes()->idx_get(0));
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-for (const auto& dataPoint : dataPoints)
-{
-    dataPoint->get_XValue()->get_AsCell()->set_Value(nullptr);
-    dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
-}
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-dataPoints->Clear();
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
+series->set_InvertIfNegative(false);
+
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+auto boxedNegativeValue = ObjectExt::Box<int>(negativeValue);
+dataPoint->get_YValue()->get_AsCell()->set_Value(boxedNegativeValue);
+dataPoint->set_InvertIfNegative(true);
+
+presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set the Data Series Gap Width**
-Aspose.Slides for C++ allows you to set a series' Gap Width through the **`set_GapWidth()`** method this way:
+## **Clear a Specific Data Point Value**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Access first slide.
-1. Add chart with default data.
-1. Access any chart series.
-1. Set the `GapWidth` property.
-1. Write the modified presentation to a PPTX file.
+To make one point empty without removing the other points, set its backing workbook cell to `nullptr`. For a column chart, the plotted value is available through [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
 
-This code in C++ shows you how to set a series' Gap Width:
+The following example clears only the second point in the first series:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+
+presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) when you want to keep the other points, because that method removes every data point from the collection.
+
+## **Set the Series Gap Width**
+
+Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Call [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
+
+The following example changes the gap width and saves only the final presentation:
+
+```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IChartSeriesGroup.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/object_ext.h>
-#include <system/string.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System;
+#include <system/shared_ptr.h>
 
-// Creates empty presentation
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const uint16_t gapWidthPercent = 30;
+
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Accesses the presentation's first slide
-auto slide = presentation->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Adds a chart with default data
-auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_GapWidth(gapWidthPercent);
 
-// Sets the index of the chart data sheet
-int32_t worksheetIndex = 0;
-
-// Gets the chart data worksheet
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
-
-// Adds series
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
-
-// Adds Categories
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
-
-// Takes the second chart series
-auto series = chart->get_ChartData()->get_Series()->idx_get(1);
-auto dataPoints = series->get_DataPoints();
-
-// Populates the series data
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
-
-// Sets GapWidth value
-series->get_ParentSeriesGroup()->set_GapWidth(50);
-
-// Saves presentation to disk
-presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"gap_width_30.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
-### Is there a limit to how many series a single chart can contain?
+**Which chart types support data series?**
 
-Aspose.Slides imposes no fixed cap on the number of series you add. The practical ceiling is set by chart readability and by the memory available to your application.
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
-### What if the columns within a cluster are too close together or too far apart?
+**What is a chart series group?**
 
-Adjust the gap width setting for that series (or its parent series group). Increasing the value widens the space between columns, while decreasing it brings them closer together.
+An [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
+
+**Does a newly created chart contain default data?**
+
+Yes. By default, [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
+
+**How are chart objects connected to workbook cells?**
+
+Series names, category labels, and data-point values reference cells in an [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
+
+**How do I clear one point instead of the whole series?**
+
+Set the relevant value cell to `nullptr` to retain the point's category position as an empty point. Call [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
+
+**How are empty points displayed?**
+
+The result depends on the chart type and [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation.
+
+**How are negative values formatted?**
+
+For supported bar, column, and bubble series, call [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) and set the color through [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). You can override the behavior for an individual point with [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). These methods affect formatting, not the stored numeric values.
+
+**Which formatting wins when both a series and a point are formatted?**
+
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
+
+**Is there a limit to how many series a chart can contain?**
+
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
+
+**What should I change when columns are too close together or too far apart?**
+
+Call [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.
